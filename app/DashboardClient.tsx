@@ -91,15 +91,34 @@ function typeOptionsFor(products: string[]) {
 
 const packagingTypeValues = inputTypeOptions.filter((option) => option.value !== "Matéria-prima").map((option) => option.value);
 
+/**
+ * CMD (consumo médio diário) unificado: usa a mesma base que já sustenta a Segurança
+ * (estoqueSeguranca ÷ seguranca), com fallback pro consumo mensal só quando a segurança não
+ * estiver definida. Antes, Cobertura vinha direto da coluna da planilha, que podia usar uma
+ * janela de cálculo diferente da Segurança e gerar contradição (ex.: 50 dias de cobertura
+ * contra 20 dias/176cx de segurança, implicando dois CMDs diferentes pro mesmo produto).
+ * Ver REGRAS_PAINEL_ESTOQUES.md — correção pedida pelo usuário em 12/08/2026.
+ */
+function dailyUseUnificado(source: SourceProduct): number {
+  const daSeguranca = source.seguranca > 0 && source.estoqueSeguranca > 0 ? source.estoqueSeguranca / source.seguranca : 0;
+  if (daSeguranca > 0) return daSeguranca;
+  return source.consumoMensal > 0 ? source.consumoMensal / 30 : 0;
+}
+
 function calculateVisualStatus(source: SourceProduct): Product {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const firstDelivery = source.entregasProgramadas
+  const futureDeliveries = source.entregasProgramadas
     .filter((item) => item.quantidade > 0 && localDate(item.data) >= today)
-    .sort((a, b) => localDate(a.data).getTime() - localDate(b.data).getTime())[0];
+    .sort((a, b) => localDate(a.data).getTime() - localDate(b.data).getTime());
+  const firstDelivery = futureDeliveries[0];
   const leadTime = firstDelivery ? Math.max(0, Math.round((localDate(firstDelivery.data).getTime() - today.getTime()) / 86400000)) : null;
-  const dailyUse = source.consumoMensal > 0 ? source.consumoMensal / 30 : 0;
+
+  const dailyUse = dailyUseUnificado(source);
   const safetyStock = source.estoqueSeguranca > 0 ? source.estoqueSeguranca : dailyUse * source.seguranca;
+  // Cobertura recalculada com o CMD unificado — substitui a coluna da planilha (fallback só
+  // se não houver CMD nenhum, ex. produto sem consumo e sem segurança configurada).
+  const coberturaReal = dailyUse > 0 ? source.estoque / dailyUse : source.cobertura;
   const projectedAtDelivery = leadTime == null ? null : source.estoque - dailyUse * leadTime;
   const reorderPoint = safetyStock + dailyUse * (leadTime ?? 0);
   const minimumLot = Math.max(0, source.loteMinimo);
@@ -107,25 +126,41 @@ function calculateVisualStatus(source: SourceProduct): Product {
   const excessLimit = maximumStock + minimumLot * 0.2;
   const belowSafetyPercent = projectedAtDelivery == null || safetyStock <= 0 ? null : Math.max(0, ((safetyStock - projectedAtDelivery) / safetyStock) * 100);
 
+  // Índice de Cobertura = Cobertura Atual ÷ Estoque de Segurança (dias) × 100. Faixas com
+  // zona de tolerância (90-130%) evitam alarme falso por variação de 1-2 dias de estoque.
+  const indiceCobertura = source.seguranca > 0 ? (coberturaReal / source.seguranca) * 100 : null;
+  const dataRuptura = dailyUse > 0 ? new Date(today.getTime() + coberturaReal * 86400000) : null;
+  const entregaChegaATempo = firstDelivery != null && dataRuptura != null && localDate(firstDelivery.data) <= dataRuptura;
+  const indiceFmt = indiceCobertura == null ? "" : decimal.format(indiceCobertura);
+
   let status: Status;
   let reason: string;
-  if (leadTime != null && dailyUse > 0 && projectedAtDelivery != null && projectedAtDelivery <= 0) {
-    status = "Falta crítica";
-    reason = "O estoque projetado chega a zero antes da primeira entrega; antecipe o recebimento.";
-  } else if (
-    source.cobertura <= source.seguranca &&
-    (source.estoque <= safetyStock || (projectedAtDelivery != null && projectedAtDelivery < safetyStock))
-  ) {
-    status = "Estoque baixo";
-    reason = leadTime == null
-      ? "O estoque atual está no nível de segurança ou abaixo dele."
-      : `Na primeira entrega, o estoque projetado ficará ${decimal.format(belowSafetyPercent ?? 0)}% abaixo da segurança.`;
-  } else if (minimumLot > 0 && source.estoque > excessLimit) {
-    status = "Excesso";
-    reason = "O estoque atual supera o estoque máximo mais 20% de tolerância do lote mínimo.";
-  } else {
+  if (indiceCobertura == null) {
     status = "Nível ideal";
-    reason = "O estoque está protegido pelo ponto de pedido e dentro da tolerância do lote mínimo.";
+    reason = "Sem estoque de segurança configurado para este produto.";
+  } else if (indiceCobertura < 70) {
+    if (entregaChegaATempo) {
+      status = "Estoque baixo";
+      reason = `Índice de cobertura em ${indiceFmt}% da segurança, mas a entrega de ${deliveryDate.format(localDate(firstDelivery!.data))} chega antes da ruptura prevista — sem risco real de falta.`;
+    } else {
+      status = "Falta crítica";
+      reason = firstDelivery
+        ? `Índice de cobertura em ${indiceFmt}% da segurança; a entrega de ${deliveryDate.format(localDate(firstDelivery.data))} chega depois da ruptura prevista.`
+        : `Índice de cobertura em ${indiceFmt}% da segurança, sem entrega programada.`;
+    }
+  } else if (indiceCobertura < 90) {
+    status = "Estoque baixo";
+    reason = `Índice de cobertura em ${indiceFmt}% da segurança — abaixo da faixa ideal (90%-130%).`;
+  } else if (indiceCobertura <= 250) {
+    status = "Nível ideal";
+    reason = indiceCobertura <= 130
+      ? `Índice de cobertura em ${indiceFmt}% da segurança — dentro da faixa ideal.`
+      : `Índice de cobertura em ${indiceFmt}% da segurança — confortável, sem ação necessária.`;
+  } else {
+    status = "Excesso";
+    reason = firstDelivery
+      ? `Índice de cobertura em ${indiceFmt}% da segurança, com entrega de ${deliveryDate.format(localDate(firstDelivery.data))} ainda programada — excesso crítico, avalie segurar o recebimento.`
+      : `Índice de cobertura em ${indiceFmt}% da segurança, sem novas entregas programadas — o consumo deve normalizar.`;
   }
 
   return {
@@ -138,6 +173,7 @@ function calculateVisualStatus(source: SourceProduct): Product {
     estoqueMaximo: Math.round(maximumStock),
     limiteExcesso: Math.round(excessLimit),
     percentualAbaixoSeguranca: belowSafetyPercent == null ? null : Math.round(belowSafetyPercent * 10) / 10,
+    cobertura: Math.round(coberturaReal * 10) / 10,
   };
 }
 
@@ -360,12 +396,20 @@ function ValuesDashboard({
         })))
       .sort((a, b) => a.data.localeCompare(b.data) || a.produto.localeCompare(b.produto, "pt-BR"));
   }, [filtered, selectedMonth]);
+  const operationalBySku = useMemo(() => {
+    const map = new Map<string, Product>();
+    (insumosData.produtos as SourceProduct[]).forEach((source) => {
+      const computed = calculateVisualStatus(source);
+      map.set(`${source.loja}|${source.sku}`, computed);
+      if (!map.has(source.sku)) map.set(source.sku, computed);
+    });
+    return map;
+  }, [insumosData]);
+  const coberturaFor = (item: ValueItem) => operationalBySku.get(`${item.loja}|${item.sku}`) ?? operationalBySku.get(item.sku) ?? null;
   const selectedOperational = useMemo(() => {
     if (!selectedValue) return null;
-    const exact = (insumosData.produtos as SourceProduct[]).find((item) => item.loja === selectedValue.loja && item.sku === selectedValue.sku);
-    const sameSku = (insumosData.produtos as SourceProduct[]).find((item) => item.sku === selectedValue.sku);
-    return exact || sameSku ? calculateVisualStatus((exact || sameSku) as SourceProduct) : null;
-  }, [selectedValue]);
+    return coberturaFor(selectedValue);
+  }, [selectedValue, operationalBySku]);
   const updated = new Date(valoresData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
   const referenceDate = valoresData.dataReferencia ? localDate(valoresData.dataReferencia).toLocaleDateString("pt-BR") : "não informada";
 
@@ -425,10 +469,11 @@ function ValuesDashboard({
             <label>Ordenar<select value={sort} onChange={(event) => setSort(event.target.value)}><option value="estoque">Maior estoque atual (quantidade)</option><option value="valor">Maior valor em estoque (R$)</option><option value="entregas">Maior valor de entregas (R$)</option><option value="preco">Maior custo contábil</option><option value="preco-menor">Menor custo contábil</option><option value="produto">Produto A–Z</option></select></label>
             {(categories.length > 0 || stores.length > 0 || suppliers.length > 0 || products.length > 0 || priceStatus !== "Todos") && <button type="button" className="clear-value-filters" onClick={() => { setCategories([]); setStores([]); setSuppliers([]); onProductsChange([]); setPriceStatus("Todos"); setLimit(18); }}>Limpar filtros</button>}
           </div></div>
-          <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th>Produto / fornecedor</th><th>Estoque atual</th><th>Custo contábil</th><th>Valor em estoque</th><th>Próxima entrega</th><th>Total programado</th><th>Valor das entregas</th><th>Total após entregas</th></tr></thead><tbody>
-            {visible.map((item) => { const next = item.entregasProgramadas[0]; const rowKey = `${item.categoria}-${item.loja}-${item.sku}-${item.produto}`; return <tr key={rowKey} className={highlightedValueKey === rowKey ? "selected-row" : ""} onClick={() => { setHighlightedValueKey(rowKey); setSelectedValue(item); }}>
+          <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th>Produto / fornecedor</th><th>Estoque atual</th><th>Cobertura (dias)</th><th>Custo contábil</th><th>Valor em estoque</th><th>Próxima entrega</th><th>Total programado</th><th>Valor das entregas</th><th>Total após entregas</th></tr></thead><tbody>
+            {visible.map((item) => { const next = item.entregasProgramadas[0]; const rowKey = `${item.categoria}-${item.loja}-${item.sku}-${item.produto}`; const operational = coberturaFor(item); return <tr key={rowKey} className={highlightedValueKey === rowKey ? "selected-row" : ""} onClick={() => { setHighlightedValueKey(rowKey); setSelectedValue(item); }}>
               <td><div className="product-cell"><div><strong title={item.produto}>{item.produto}</strong><small>SKU {item.sku} · Fornecedor: {item.fornecedor} · {storeLabel(item.loja)}</small></div></div></td>
               <td><strong className="numeric">{number.format(item.estoque)}</strong><small className="unit"> {item.unidade}</small></td>
+              <td>{operational ? <><strong className={`status-pill ${statusClass[operational.status]}`}>{decimal.format(operational.cobertura)} dias</strong></> : <span className="price-missing">—</span>}</td>
               <td>{item.precoAtual == null ? <span className="price-missing">Não localizado</span> : <><strong>{currency.format(item.precoAtual)}</strong><small className="unit"> / {item.unidade}</small></>}</td>
               <td>{item.valorEstoque == null ? <span className="price-missing">—</span> : <strong className="money-value">{currency.format(item.valorEstoque)}</strong>}</td>
               <td>{next ? <div className={`next-delivery ${isPastDelivery(next.data) ? "overdue-delivery" : ""}`}><strong>{deliveryColumnDate.format(new Date(next.data))}</strong><small>{number.format(next.quantidade)} {item.unidade}{next.valor != null && ` · ${currency.format(next.valor)}`}</small></div> : <span className="no-projection">Sem entrega</span>}</td>
@@ -746,7 +791,18 @@ export default function DashboardClient({
     setOperationalProductSelections((current) => ({ ...current, [operationalSection]: values }));
   }
   const activeData = isInputs || isConsumption || isValues ? insumosData : estoqueData;
-  const products = useMemo(() => (activeData.produtos as SourceProduct[]).map(calculateVisualStatus), [activeData]);
+  const allProducts = useMemo(() => (activeData.produtos as SourceProduct[]).map(calculateVisualStatus), [activeData]);
+  // Itens sem projeção (escadinha=0), sem consumo recente e sem entrega pendente: produto
+  // descontinuado/sem venda. Não entram nos alertas/tabela por padrão (não é "ponto de
+  // atenção" real), mas não desaparecem — o botão "mostrarInativos" traz eles de volta.
+  // Só se aplica em Embalagens/MP, a pedido do usuário em 12/08/2026.
+  const isInativo = (p: Product) => isInputs && p.escadinha === 0 && p.consumoMensal === 0 && p.totalProgramado === 0;
+  const [mostrarInativos, setMostrarInativos] = useState(false);
+  const inativosCount = useMemo(() => (isInputs ? allProducts.filter(isInativo).length : 0), [allProducts, isInputs]);
+  const products = useMemo(
+    () => (isInputs && !mostrarInativos ? allProducts.filter((p) => !isInativo(p)) : allProducts),
+    [allProducts, isInputs, mostrarInativos],
+  );
   const availableTypeOptions = useMemo(() => typeOptionsFor(products.map((product) => inputType(product))), [products]);
   const safetyOptions = useMemo(() => Array.from(new Set(products.map((product) => product.seguranca))).sort((a, b) => a - b), [products]);
   const stores = useMemo(() => Array.from(new Set(products.map((product) => product.loja))).filter(Boolean).sort((a, b) => a.localeCompare(b, "pt-BR", { numeric: true })), [products]);
@@ -951,10 +1007,16 @@ export default function DashboardClient({
                 <label>Segurança<select value={safety} onChange={(e) => setSafety(e.target.value)}><option>Todos</option>{safetyOptions.map((days) => <option key={days} value={days}>{days} dias</option>)}</select></label>
                 <label>Atingimento<select value={performance} onChange={(e) => setPerformance(e.target.value as typeof performance)}><option>Todos</option><option>Abaixo de 85%</option><option>De 85% a 99%</option><option>100% ou mais</option></select></label>
                 <label>Ordenar<select value={sort} onChange={(e) => setSort(e.target.value)}><option value="urgencia">Maior urgência</option><option value="atingimento">Menor atingimento</option><option value="cobertura">Menor cobertura</option><option value="excesso">Maior excesso</option><option value="produto">Produto A–Z</option></select></label>
+                {isInputs && inativosCount > 0 && (
+                  <label className="toggle-inativos" title="Itens sem projeção, sem consumo recente e sem entrega pendente — provavelmente descontinuados.">
+                    <input type="checkbox" checked={mostrarInativos} onChange={(e) => { setMostrarInativos(e.target.checked); setLimit(12); }} />
+                    Mostrar {inativosCount} sem projeção/consumo
+                  </label>
+                )}
               </div>
             </div>
             <div className="table-wrap">
-              <table className={isInputs ? "inputs-table sticky-core-columns" : ""} style={{ minWidth: `${1120 + scheduleDates.length * 78}px` }}>
+              <table className="sticky-core-columns" style={{ minWidth: `${1120 + scheduleDates.length * 78}px` }}>
                 <thead><tr><th>Produto / fornecedor</th><th>Escadinha projetada</th><th>{isInputs ? "Consumo realizado" : "Faturado realizado"}</th><th>Atingimento</th><th>Estoque atual</th><th>Cobertura</th><th>Segurança</th><th>Status</th>{scheduleDates.map((date, index) => { const overdue = isPastDelivery(date); return <th className={`delivery-date-heading ${index === 0 ? "delivery-block-start" : ""} ${overdue ? "overdue-delivery" : ""}`} title={overdue ? "Entrega em atraso" : undefined} key={date}><span>{overdue ? "Em atraso" : "Entrega"}</span><strong>{deliveryColumnDate.format(new Date(date))}</strong></th>; })}<th className="delivery-total-heading delivery-block-end"><span>Total</span><strong>Programado</strong></th><th /></tr></thead>
                 <tbody>
                   {visibleProducts.map((product) => {
