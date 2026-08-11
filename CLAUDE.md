@@ -92,6 +92,44 @@ Cada etapa é sequencial e para a rotina inteira no primeiro erro (log em
 regra do REGRAS_PAINEL_ESTOQUES.md. As duas funções Python que escrevem JSON usam
 escrita atômica (`*.tmp` + rename) pelo mesmo motivo.
 
+## GitHub e hospedagem (11/08/2026)
+
+Código publicado num repositório **privado** no GitHub, sob conta pessoal do usuário
+(`745michel`), como caminho alternativo pra não esperar a decisão de hospedagem do TI —
+decisão explícita do usuário de avançar assim por agora. `git`, `gh` (GitHub CLI) instalados
+via winget nesta máquina; login feito via device flow (`gh auth login --web`), token com
+escopo `repo`.
+
+`origin` → `https://github.com/745michel/painel-estoques-da-terrinha` (main).
+`sites` → remote antigo do Codex/ChatGPT Sites (`git.chatgpt-team.site/...`), preservado mas
+não usado para esse fluxo novo.
+
+**Histórico reescrito de propósito**: o `.git` herdado do Codex tinha 4 commits antigos
+(`7f8f600` até `f68520b`) com versões reais de `data/dados-valores-insumos.json` (custo
+contábil, valor de estoque reais). Publicar isso numa conta pessoal, fora do que o TI
+administra, era um risco real — `git push` manda o histórico inteiro, não só o estado atual.
+Solução: `git checkout --orphan clean-main` → um commit único, raiz, sem histórico anterior →
+renomeado para `main` → `push --force`. O branch antigo (`main` local original, com o
+histórico completo) não foi apagado, só não é mais o que aponta pro GitHub.
+
+**`data/dados-valores-insumos.json` no repositório é um placeholder** (dados zerados/fake,
+com 2 produtos de exemplo preservando a forma exata do tipo — 1 sozinho quebraria a inferência
+de `string | null` em `descricaoBi`/`metodoRelacionamento`/`precoAtual` etc., usada em
+`DashboardClient.tsx`). O arquivo real (1,1 MB, com valores de verdade) foi restaurado
+localmente depois do commit e está marcado com `git update-index --skip-worktree` — o git
+finge que esse arquivo não mudou, então nunca mais tenta comitar o conteúdo real por engano.
+Se precisar reverter isso (por exemplo pra atualizar o placeholder de propósito):
+`git update-index --no-skip-worktree data/dados-valores-insumos.json`.
+
+`exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
+e `.env*` nunca são comitados — ambos no `.gitignore`.
+
+**Pendente**: conectar esse repositório a uma plataforma de deploy real (Cloudflare
+Pages/Workers é a opção mais direta, já que o projeto já é vinext/Workers — zero mudança de
+código) para publicar de verdade na web. Vai precisar configurar lá as mesmas env vars do
+`.env.local` (SharePoint + Auth.js) e adicionar a nova URL de produção como redirect URI no
+App Registration do Entra ID.
+
 **Falha silenciosa em 06/08/2026 08:30**: a execução agendada não disparou (nenhum log, nenhum
 registro de tentativa — `Get-ScheduledTaskInfo` continuou mostrando a execução anterior como a
 "última"). Causa: a máquina é um notebook e a tarefa foi criada com a config padrão do Windows
