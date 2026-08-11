@@ -46,3 +46,6 @@ next-env.d.ts
 # exports/ tem snapshots offline com dados financeiros reais embutidos (ver CLAUDE.md,
 # 11/08/2026) - nunca comitar.
 /exports/
+
+# build de saida do GitHub Pages (gerado pelo CI, nao e fonte)
+/gh-pages-dist/
