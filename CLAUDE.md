@@ -124,11 +124,79 @@ Se precisar reverter isso (por exemplo pra atualizar o placeholder de propósito
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 
-**Pendente**: conectar esse repositório a uma plataforma de deploy real (Cloudflare
-Pages/Workers é a opção mais direta, já que o projeto já é vinext/Workers — zero mudança de
-código) para publicar de verdade na web. Vai precisar configurar lá as mesmas env vars do
-`.env.local` (SharePoint + Auth.js) e adicionar a nova URL de produção como redirect URI no
-App Registration do Entra ID.
+### Publicação real: GitHub Pages (11/08/2026), não Cloudflare
+
+O usuário pediu explicitamente para não usar Cloudflare — publicação é via **GitHub
+Pages + GitHub Actions**, 100% dentro do GitHub. Site ao vivo:
+**https://745michel.github.io/painel-estoques-da-terrinha/**
+
+Repositório teve que ficar **público** — GitHub Pages não funciona em repo privado no plano
+gratuito (`gh api .../pages` retorna 422 "Your current plan does not support GitHub Pages").
+Decisão explícita do usuário, sabendo que código e `REGRAS_PAINEL_ESTOQUES.md`/`CLAUDE.md`
+ficam visíveis a qualquer um.
+
+Essa versão **não usa `app/page.tsx`/`auth.ts`/`proxy.ts`** (esses continuam existindo para uma
+eventual hospedagem com servidor de verdade). É um site estático separado, gerado por:
+
+- `scripts/ci-refresh-data.mts` — roda dentro do Action, busca os 4 datasets do SharePoint
+  (reaproveita `app/lib/sharepoint.ts` + `valor-insumos.ts`), grava `public/dados-*.json` e
+  `work/valor-financeiro-ci.json` (financeiro, fica fora do bundle).
+- `scripts/build-github-pages.mjs` — empacota `scripts/github-pages-entry.tsx` com esbuild
+  (mesmo mecanismo de `work/build-offline-exact.mjs`, que já existia no projeto) num HTML
+  autocontido em `gh-pages-dist/`. O financeiro vai como arquivo separado
+  (`valor-financeiro.json`) ao lado do HTML.
+- `scripts/github-pages-entry.tsx` — UI operacional sempre visível; aba financeira só
+  aparece depois de uma senha (hash SHA-256 embutido no bundle, comparado no navegador antes
+  de buscar `valor-financeiro.json`). **Decisão explícita e informada do usuário**: isso não é
+  segurança real — o arquivo financeiro fica numa URL pública e previsível, buscável direto
+  por quem souber/inspecionar a rede. Senha atual: `X9363skCdpDa` (mesmo valor da barreira
+  HTTP local em `proxy.ts`, hash em `SENHA_HASH` dentro de `github-pages-entry.tsx`).
+- `.github/workflows/deploy-pages.yml` — roda a cada 30 min + a cada push em `main` + manual
+  (`gh workflow run deploy-pages.yml`). Segredos do SharePoint em Settings → Secrets → Actions
+  do repositório (`SHAREPOINT_TENANT_ID`, `_CLIENT_ID`, `_CLIENT_SECRET`, `_SITE_HOSTNAME`,
+  `_SITE_PATH`, `_FOLDER_PATH`) — os mesmos valores do `.env.local`. `continue-on-error: true`
+  na busca do SharePoint: se falhar, o deploy segue com os dados já commitados/placeholder em
+  vez de quebrar o site inteiro.
+
+**Scripts em `scripts/` (não `work/`) de propósito**: `work/` é todo `.gitignore`, e o Action
+faz `checkout` limpo — precisava que esses 3 arquivos fossem versionados.
+
+### Tentativa de login via Firebase — pausada (11/08/2026)
+
+Usuário pediu autenticação real (usuários de verdade) para a versão GitHub Pages, já que ela
+não tem servidor para o login Microsoft/Entra ID (esse continua pendente da URL de
+redirecionamento do TI, ver acima). Firebase parecia ideal: Auth roda 100% client-side, e
+Realtime Database com Security Rules dá proteção de servidor de verdade pro financeiro (bem
+melhor que o hash SHA-256 atual).
+
+**Progresso feito, tudo inerte/não conectado ao site ainda**:
+- Projeto `painel-estoques-terrinha` criado (conta Google `suporte@daterrinhaalimentos.com.br`,
+  login via `firebase login` device flow).
+- App web registrado (config em `scripts/local-manage-user.mjs` e no histórico da sessão).
+- Realtime Database criado (`painel-estoques-terrinha-default-rtdb`, região padrão) e regras
+  publicadas (`database.rules.json` — `usuarios/{uid}` só o próprio uid lê;
+  `valoresInsumos` só lê quem tiver `usuarios/{uid}/acessoValores == true`).
+- Chave de service account gerada e salva em `work/firebase-service-account.json`
+  (gitignored) + segredo `FIREBASE_SERVICE_ACCOUNT_KEY` no GitHub Actions (não usado ainda).
+- `firebase`/`firebase-admin` instalados em `package.json`.
+
+**Bloqueio real, não contornado**: criar um usuário (via Admin SDK, via API pública
+`accounts:signUp`, e a tentativa do usuário direto no Console) sempre retornou
+`CONFIGURATION_NOT_FOUND`. Causa raiz encontrada via
+`identitytoolkit.googleapis.com/v2/.../identityPlatform:initializeAuth`:
+**`BILLING_NOT_ENABLED — Identity Platform feature requires billing to be enabled`**. Ou seja,
+login por e-mail/senha do Firebase **também** exige cartão vinculado ao projeto Google Cloud —
+a mesma exigência do Firestore que a troca para Realtime Database tentou evitar, só que essa
+não tem alternativa sem cartão.
+
+**Decisão do usuário**: não vincular cartão agora. Pausar Firebase e esperar o login Microsoft
+via IT (`REQUIRE_LOGIN=true` em `app/page.tsx`, pendente só da URL de redirecionamento no App
+Registration). `scripts/github-pages-entry.tsx` continua com a senha SHA-256 de antes — nada
+foi trocado, o site ao vivo não mudou.
+
+Se retomar isso depois: o próximo passo seria vincular billing (gratuito dentro da cota,
+cartão é só cadastro) e então criar o primeiro usuário com
+`node scripts/local-manage-user.mjs email senha true|false`.
 
 **Falha silenciosa em 06/08/2026 08:30**: a execução agendada não disparou (nenhum log, nenhum
 registro de tentativa — `Get-ScheduledTaskInfo` continuou mostrando a execução anterior como a

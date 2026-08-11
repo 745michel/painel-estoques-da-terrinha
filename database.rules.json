@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "usuarios": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": false
+      }
+    },
+    "valoresInsumos": {
+      ".read": "root.child('usuarios').child(auth.uid).child('acessoValores').val() === true",
+      ".write": false
+    },
+    ".read": false,
+    ".write": false
+  }
+}
