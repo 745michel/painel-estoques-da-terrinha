@@ -83,6 +83,7 @@ function isProductInativo(product: Pick<SourceProduct, "escadinha" | "consumoMen
 const PRODUTOS_DESCONTINUADOS_MANUALMENTE = new Set([
   "OLEO DE COCO DA TERRINHA EX VIRGEM 200ML - FD 12",
   "OLEO DE COCO DA TERRINHA EX VIRGEM 500 ML - FD 6",
+  "FARINHA ROSCA COOP 500 G FD 12",
 ]);
 
 function isProductDescontinuado(product: SourceProduct, isInputs: boolean) {
@@ -759,7 +760,7 @@ function ConsumptionDashboard({
               <td><strong>{number.format(row.averageThree)}</strong><small className="unit"> {item.unidade === "kg" ? "kg" : "un."}</small></td>
               <td><strong className={row.variation != null && row.variation > 20 ? "trend-up" : row.variation != null && row.variation < -20 ? "trend-down" : ""}>{row.variation == null ? "—" : `${row.variation >= 0 ? "+" : ""}${decimal.format(row.variation)}%`}</strong></td>
               <td>{operational ? <><strong>{number.format(operational.estoque)}</strong><small className="unit"> {item.unidade === "kg" ? "kg" : "un."}</small></> : <span>—</span>}</td>
-              <td>{operational ? <><strong>{number.format(Math.round(operational.cobertura))} dias</strong><small className={`status-pill ${statusClass[operational.status]}`}>{statusLabel(operational.status)}</small></> : <span>—</span>}</td>
+              <td>{operational ? <strong>{number.format(Math.round(operational.cobertura))} dias</strong> : <span>—</span>}</td>
               <td>{row.nextDelivery ? <><strong>{deliveryColumnDate.format(localDate(row.nextDelivery.data))}</strong><small>{number.format(row.nextDelivery.quantidade)} {item.unidade === "kg" ? "kg" : "un."}</small></> : <span>Sem entrega</span>}</td>
             </tr>; })}
           </tbody></table>{actionRows.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
@@ -957,7 +958,7 @@ export default function DashboardClient({
     const deliveries = new Map(product.entregasProgramadas.map((item) => [item.data, item.quantidade]));
     const bar = Math.min(100, Math.max(4, (product.cobertura / Math.max(product.seguranca * 1.7, product.cobertura)) * 100));
     const rowKey = `${product.loja}-${product.sku}-${product.produto}`;
-    return <tr key={rowKey} className={`${highlightedProductKey === rowKey ? "selected-row" : ""} ${descontinuado ? "row-descontinuado" : ""}`} onClick={() => { setHighlightedProductKey(rowKey); setSelected(product); }}>
+    return <tr key={rowKey} className={highlightedProductKey === rowKey ? "selected-row" : ""} onClick={() => { setHighlightedProductKey(rowKey); setSelected(product); }}>
       <td data-label="Produto / fornecedor"><div className="product-cell"><div><strong>{product.produto}</strong><small>SKU {product.sku} · Fornecedor: {product.fornecedor}</small></div></div></td>
       <td data-label="Escadinha projetada">{product.escadinha > 0 ? <><strong className="numeric">{decimal.format(product.escadinha)}</strong><small className="unit"> {unitLabel(product.unidade, product.escadinha, true)}</small></> : <span className="no-projection">Sem projeção</span>}</td>
       <td data-label={isInputs ? "Consumo realizado" : "Faturado realizado"}><strong className="numeric">{decimal.format(product.faturado)}</strong><small className="unit"> {unitLabel(product.unidade, product.faturado, true)}</small></td>
@@ -1044,25 +1045,31 @@ export default function DashboardClient({
           </section>
 
           <section className="inventory-panel">
-            <div className="panel-heading"><div><h2>Fila de decisão</h2><p>{filtered.length} produtos encontrados{mostrarDescontinuados && descontinuadosFiltered.length > 0 ? ` + ${descontinuadosFiltered.length} sem giro` : ""} · {scheduledDeliveries} entregas programadas{!isInputs && ` · ${number.format(scheduledUnits)} cx`}</p></div><div className="view-toggle"><button className="selected">Lista</button><button>Resumo</button></div></div>
+            <div className="panel-heading"><div><h2>Fila de decisão</h2><p>{mostrarDescontinuados ? `${descontinuadosFiltered.length} produtos sem giro encontrados` : `${filtered.length} produtos encontrados · ${scheduledDeliveries} entregas programadas${!isInputs ? ` · ${number.format(scheduledUnits)} cx` : ""}`}</p></div><div className="view-toggle"><button className="selected">Lista</button><button>Resumo</button></div></div>
             <div className="filters">
-              <div className="status-tabs">
-                {(["Todos", "Falta crítica", "Estoque baixo", "Excesso", "Nível ideal"] as const).map((item) => (
-                  <button key={item} className={status === item ? "selected" : ""} onClick={() => setStatus(item)}>{statusLabel(item)}{item !== "Todos" && <span>{products.filter((p) => p.status === item).length}</span>}</button>
-                ))}
-              </div>
+              {!mostrarDescontinuados && (
+                <div className="status-tabs">
+                  {(["Todos", "Falta crítica", "Estoque baixo", "Excesso", "Nível ideal"] as const).map((item) => (
+                    <button key={item} className={status === item ? "selected" : ""} onClick={() => setStatus(item)}>{statusLabel(item)}{item !== "Todos" && <span>{products.filter((p) => p.status === item).length}</span>}</button>
+                  ))}
+                </div>
+              )}
               <div className="selects">
                 {isInputs && <MultiFilter label="Tipo" options={availableTypeOptions} selected={selectedTypes} onChange={(values) => { setSelectedTypes(values); setSelectedProducts([]); }} />}
                 {isInputs && <MultiFilter label="Loja" options={stores.map((item) => ({ value: item, label: storeLabel(item) }))} selected={selectedStores} onChange={(values) => { setSelectedStores(values); setSelectedSuppliers([]); setSelectedProducts([]); }} />}
                 <MultiFilter label="Fornecedor" options={suppliers.map((item) => ({ value: item, label: item }))} selected={selectedSuppliers} onChange={(values) => { setSelectedSuppliers(values); setSelectedProducts([]); }} />
                 <MultiFilter label={isInputs ? "Produto / material" : "Produto"} options={productOptions} selected={selectedProducts} onChange={(values) => setSelectedProducts(values)} />
-                <label>Segurança<select value={safety} onChange={(e) => setSafety(e.target.value)}><option>Todos</option>{safetyOptions.map((days) => <option key={days} value={days}>{days} dias</option>)}</select></label>
-                <label>Atingimento<select value={performance} onChange={(e) => setPerformance(e.target.value as typeof performance)}><option>Todos</option><option>Abaixo de 85%</option><option>De 85% a 99%</option><option>100% ou mais</option></select></label>
-                <label>Ordenar<select value={sort} onChange={(e) => setSort(e.target.value)}><option value="urgencia">Maior urgência</option><option value="atingimento">Menor atingimento</option><option value="cobertura">Menor cobertura</option><option value="excesso">Maior excesso</option><option value="produto">Produto A–Z</option></select></label>
+                {!mostrarDescontinuados && (
+                  <>
+                    <label>Segurança<select value={safety} onChange={(e) => setSafety(e.target.value)}><option>Todos</option>{safetyOptions.map((days) => <option key={days} value={days}>{days} dias</option>)}</select></label>
+                    <label>Atingimento<select value={performance} onChange={(e) => setPerformance(e.target.value as typeof performance)}><option>Todos</option><option>Abaixo de 85%</option><option>De 85% a 99%</option><option>100% ou mais</option></select></label>
+                    <label>Ordenar<select value={sort} onChange={(e) => setSort(e.target.value)}><option value="urgencia">Maior urgência</option><option value="atingimento">Menor atingimento</option><option value="cobertura">Menor cobertura</option><option value="excesso">Maior excesso</option><option value="produto">Produto A–Z</option></select></label>
+                  </>
+                )}
                 {descontinuados.length > 0 && (
                   <label className="toggle-inativos" title="Sem projeção, consumo recente ou entrega programada (ou marcado manualmente como fora de linha) — não conta nos indicadores de crítico/excesso.">
                     <input type="checkbox" checked={mostrarDescontinuados} onChange={(e) => setMostrarDescontinuados(e.target.checked)} />
-                    Mostrar {descontinuados.length} sem giro
+                    Ver somente {descontinuados.length} sem giro
                   </label>
                 )}
               </div>
@@ -1071,11 +1078,12 @@ export default function DashboardClient({
               <table className="sticky-core-columns" style={{ minWidth: `${1120 + scheduleDates.length * 78}px` }}>
                 <thead><tr><th>Produto / fornecedor</th><th>Escadinha projetada</th><th>{isInputs ? "Consumo realizado" : "Faturado realizado"}</th><th>Atingimento</th><th>Estoque atual</th><th>Cobertura</th><th>Segurança</th><th>Status</th>{scheduleDates.map((date, index) => { const overdue = isPastDelivery(date); return <th className={`delivery-date-heading ${index === 0 ? "delivery-block-start" : ""} ${overdue ? "overdue-delivery" : ""}`} title={overdue ? "Entrega em atraso" : undefined} key={date}><span>{overdue ? "Em atraso" : "Entrega"}</span><strong>{deliveryColumnDate.format(new Date(date))}</strong></th>; })}<th className="delivery-total-heading delivery-block-end"><span>Total</span><strong>Programado</strong></th><th /></tr></thead>
                 <tbody>
-                  {filtered.map((product) => renderProductRow(product, false))}
-                  {mostrarDescontinuados && descontinuadosFiltered.map((product) => renderProductRow(product, true))}
+                  {mostrarDescontinuados
+                    ? descontinuadosFiltered.map((product) => renderProductRow(product, true))
+                    : filtered.map((product) => renderProductRow(product, false))}
                 </tbody>
               </table>
-              {filtered.length === 0 && descontinuadosFiltered.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Tente remover um filtro ou buscar por outro termo.</p></div>}
+              {(mostrarDescontinuados ? descontinuadosFiltered.length === 0 : filtered.length === 0) && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Tente remover um filtro ou buscar por outro termo.</p></div>}
             </div>
           </section>
           <footer>Fonte: {activeData.origem} <span>•</span> Classificação visual por ponto de pedido, lead time, segurança e tolerância de 20% do lote mínimo.</footer>
