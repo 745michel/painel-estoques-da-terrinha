@@ -22,7 +22,7 @@ type Product = SourceProduct & {
   limiteExcesso: number;
   percentualAbaixoSeguranca: number | null;
 };
-type Section = "terceiros" | "insumos" | "consumo" | "valores" | "inativos";
+type Section = "terceiros" | "insumos" | "consumo" | "valores";
 type ValuesData = typeof valoresDataType;
 type ConsumptionItem = ConsumoData["produtos"][number];
 
@@ -73,6 +73,20 @@ function inputType(product: SourceProduct) {
 
 function isProductInativo(product: Pick<SourceProduct, "escadinha" | "consumoMensal" | "totalProgramado">) {
   return product.escadinha === 0 && product.consumoMensal === 0 && product.totalProgramado === 0;
+}
+
+/**
+ * Produtos que o comprador confirmou terem saido de linha, mas que ainda nao zeraram
+ * escadinha/consumo/entregas na planilha (por isso isProductInativo nao pega). Mantida
+ * manualmente a pedido do usuario em 12/08/2026 - avisar aqui quando outro item sair de linha.
+ */
+const PRODUTOS_DESCONTINUADOS_MANUALMENTE = new Set([
+  "OLEO DE COCO DA TERRINHA EX VIRGEM 200ML - FD 12",
+  "OLEO DE COCO DA TERRINHA EX VIRGEM 500 ML - FD 6",
+]);
+
+function isProductDescontinuado(product: SourceProduct, isInputs: boolean) {
+  return (isInputs && isProductInativo(product)) || PRODUTOS_DESCONTINUADOS_MANUALMENTE.has(product.produto);
 }
 
 const inputTypeOptions = [
@@ -264,7 +278,6 @@ function ValuesDashboard({
   products: string[];
   onProductsChange: (products: string[]) => void;
 }) {
-  const inativosNavCount = useMemo(() => (insumosData.produtos as SourceProduct[]).filter(isProductInativo).length, [insumosData]);
   const productsWithProjection = useMemo(
     () => new Set((insumosData.produtos as SourceProduct[]).filter((product) => product.escadinha > 0).map((product) => product.produto)),
     [insumosData],
@@ -441,7 +454,6 @@ function ValuesDashboard({
         <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
         <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
         <button className="nav-item active" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("inativos")}><span>◌</span> Sem projeção{inativosNavCount > 0 && ` (${inativosNavCount})`}</button>
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -479,7 +491,7 @@ function ValuesDashboard({
             {visible.map((item) => { const next = item.entregasProgramadas[0]; const rowKey = `${item.categoria}-${item.loja}-${item.sku}-${item.produto}`; const operational = coberturaFor(item); return <tr key={rowKey} className={highlightedValueKey === rowKey ? "selected-row" : ""} onClick={() => { setHighlightedValueKey(rowKey); setSelectedValue(item); }}>
               <td><div className="product-cell"><div><strong title={item.produto}>{item.produto}</strong><small>SKU {item.sku} · Fornecedor: {item.fornecedor} · {storeLabel(item.loja)}</small></div></div></td>
               <td><strong className="numeric">{number.format(item.estoque)}</strong><small className="unit"> {item.unidade}</small></td>
-              <td>{operational ? <><strong className={`status-pill ${statusClass[operational.status]}`}>{decimal.format(operational.cobertura)} dias</strong></> : <span className="price-missing">—</span>}</td>
+              <td>{operational ? <strong>{number.format(Math.round(operational.cobertura))} dias</strong> : <span className="price-missing">—</span>}</td>
               <td>{item.precoAtual == null ? <span className="price-missing">Não localizado</span> : <><strong>{currency.format(item.precoAtual)}</strong><small className="unit"> / {item.unidade}</small></>}</td>
               <td>{item.valorEstoque == null ? <span className="price-missing">—</span> : <strong className="money-value">{currency.format(item.valorEstoque)}</strong>}</td>
               <td>{next ? <div className={`next-delivery ${isPastDelivery(next.data) ? "overdue-delivery" : ""}`}><strong>{deliveryColumnDate.format(new Date(next.data))}</strong><small>{number.format(next.quantidade)} {item.unidade}{next.valor != null && ` · ${currency.format(next.valor)}`}</small></div> : <span className="no-projection">Sem entrega</span>}</td>
@@ -595,7 +607,6 @@ function ConsumptionDashboard({
   const [unitView, setUnitView] = useState<"kg" | "unidade">("kg");
   const barsRef = useRef<HTMLDivElement>(null);
 
-  const inativosNavCount = useMemo(() => (insumosData.produtos as SourceProduct[]).filter(isProductInativo).length, [insumosData]);
   const items = consumoData.produtos as ConsumptionItem[];
   const allMonths = consumoData.meses as string[];
   const years = Array.from(new Set(allMonths.map((month) => month.slice(0, 4)))).sort((a, b) => b.localeCompare(a));
@@ -698,7 +709,6 @@ function ConsumptionDashboard({
         <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
         <button className="nav-item active" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
-        <button className="nav-item" onClick={() => onSectionChange("inativos")}><span>◌</span> Sem projeção{inativosNavCount > 0 && ` (${inativosNavCount})`}</button>
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -760,83 +770,6 @@ function ConsumptionDashboard({
   </main>;
 }
 
-function InativosDashboard({
-  onSectionChange,
-  canViewValues,
-  insumosData,
-}: {
-  onSectionChange: (section: Section) => void;
-  canViewValues: boolean;
-  insumosData: InsumosData;
-}) {
-  const [query, setQuery] = useState("");
-  const [stores, setStores] = useState<string[]>([]);
-  const [suppliers, setSuppliers] = useState<string[]>([]);
-  const [sort, setSort] = useState("produto");
-
-  const items = useMemo(() => (insumosData.produtos as SourceProduct[]).filter(isProductInativo), [insumosData]);
-  const storeOptions = useMemo(
-    () => Array.from(new Set(items.map((item) => item.loja))).filter(Boolean).sort((a, b) => a.localeCompare(b, "pt-BR", { numeric: true })),
-    [items],
-  );
-  const supplierOptions = useMemo(
-    () => Array.from(new Set(items.filter((item) => stores.length === 0 || stores.includes(item.loja)).map((item) => item.fornecedor))).filter(Boolean).sort((a, b) => a.localeCompare(b, "pt-BR")),
-    [items, stores],
-  );
-  const filtered = useMemo(() => {
-    const normalized = query.trim().toLocaleLowerCase("pt-BR");
-    const result = items.filter((item) => (
-      (!normalized || item.produto.toLocaleLowerCase("pt-BR").includes(normalized) || item.sku.includes(normalized) || item.fornecedor.toLocaleLowerCase("pt-BR").includes(normalized)) &&
-      (stores.length === 0 || stores.includes(item.loja)) &&
-      (suppliers.length === 0 || suppliers.includes(item.fornecedor))
-    ));
-    return [...result].sort((a, b) => (sort === "estoque" ? b.estoque - a.estoque : a.produto.localeCompare(b.produto, "pt-BR")));
-  }, [items, query, stores, suppliers, sort]);
-  const updated = new Date(insumosData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
-
-  return <main className="app-shell">
-    <aside className="sidebar">
-      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
-      <nav aria-label="Navegação principal">
-        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
-        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
-        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
-        <button className="nav-item active" onClick={() => onSectionChange("inativos")}><span>◌</span> Sem projeção{items.length > 0 && ` (${items.length})`}</button>
-      </nav>
-      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
-      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
-    </aside>
-    <section className="workspace">
-      <header className="topbar">
-        <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Sem projeção</strong></div>
-        <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar embalagem, matéria-prima, SKU ou fornecedor..." /><kbd>Ctrl K</kbd></label>
-      </header>
-      <div className="content">
-        <div className="page-heading"><div><p className="eyebrow">ITENS RESERVADOS</p><h1>Sem projeção, consumo ou entrega</h1><p>Produtos sem projeção de venda, sem consumo nos últimos meses e sem entrega programada — provavelmente fora de linha. Ficam fora dos alertas de Embalagens e MP, mas continuam disponíveis para consulta aqui.</p></div></div>
-        <section className="inventory-panel">
-          <div className="panel-heading"><div><h2>Itens parados</h2><p>{filtered.length} de {items.length} produtos encontrados</p></div></div>
-          <div className="filters value-filters"><div className="selects">
-            <MultiFilter label="Loja" options={storeOptions.map((item) => ({ value: item, label: storeLabel(item) }))} selected={stores} onChange={(values) => { setStores(values); setSuppliers([]); }} />
-            <MultiFilter label="Fornecedor" options={supplierOptions.map((item) => ({ value: item, label: item }))} selected={suppliers} onChange={setSuppliers} />
-            <label>Ordenar<select value={sort} onChange={(event) => setSort(event.target.value)}><option value="produto">Produto A–Z</option><option value="estoque">Maior estoque atual</option></select></label>
-            {(stores.length > 0 || suppliers.length > 0) && <button type="button" className="clear-value-filters" onClick={() => { setStores([]); setSuppliers([]); }}>Limpar filtros</button>}
-          </div></div>
-          <div className="table-wrap"><table className="values-table"><thead><tr><th>Produto / fornecedor</th><th>Loja</th><th>Tipo</th><th>Estoque atual</th></tr></thead><tbody>
-            {filtered.map((item) => { const rowKey = `${item.loja}-${item.sku}-${item.produto}`; return <tr key={rowKey}>
-              <td><div className="product-cell"><div><strong title={item.produto}>{item.produto}</strong><small>SKU {item.sku} · Fornecedor: {item.fornecedor}</small></div></div></td>
-              <td>{storeLabel(item.loja)}</td>
-              <td>{inputType(item)}</td>
-              <td><strong className="numeric">{number.format(item.estoque)}</strong><small className="unit"> {item.unidade}</small></td>
-            </tr>; })}
-          </tbody></table>{filtered.length === 0 && <div className="empty-state"><strong>Nenhum item encontrado</strong><p>Remova um filtro ou busque por outro termo.</p></div>}</div>
-        </section>
-        <footer>Fonte: {insumosData.origem} · Critério: sem projeção de venda, sem consumo nos últimos meses e sem entrega programada.</footer>
-      </div>
-    </section>
-  </main>;
-}
-
 export default function DashboardClient({
   canViewValues,
   valoresData,
@@ -870,7 +803,6 @@ export default function DashboardClient({
   const isInputs = section === "insumos";
   const isConsumption = section === "consumo";
   const isValues = section === "valores";
-  const isInativos = section === "inativos";
   const operationalSection = isInputs ? "insumos" : "terceiros";
   const selectedProducts = operationalProductSelections[operationalSection];
   function setSelectedProducts(values: string[]) {
@@ -878,16 +810,19 @@ export default function DashboardClient({
   }
   const activeData = isInputs || isConsumption || isValues ? insumosData : estoqueData;
   const allProducts = useMemo(() => (activeData.produtos as SourceProduct[]).map(calculateVisualStatus), [activeData]);
-  // Itens sem projeção (escadinha=0), sem consumo recente e sem entrega pendente: produto
-  // descontinuado/sem venda. Não entram nos alertas/tabela do painel principal — ficam
-  // reservados na seção "Sem projeção" (InativosDashboard). Só se aplica em Embalagens/MP,
-  // a pedido do usuário em 12/08/2026.
+  const [mostrarDescontinuados, setMostrarDescontinuados] = useState(false);
+  // Itens descontinuados (sem projeção/consumo/entrega, ou marcados manualmente): nunca
+  // contam nos indicadores de crítico/excesso nem entram nas abas de status — só aparecem
+  // na tabela, com selo neutro, quando o comprador liga o filtro "Mostrar descontinuados".
+  // A pedido do usuário em 12/08/2026.
   const products = useMemo(
-    () => (isInputs ? allProducts.filter((p) => !isProductInativo(p)) : allProducts),
+    () => allProducts.filter((p) => !isProductDescontinuado(p, isInputs)),
     [allProducts, isInputs],
   );
-  const inativosCount = useMemo(() => (isInputs ? allProducts.filter(isProductInativo).length : 0), [allProducts, isInputs]);
-  const inativosNavCount = useMemo(() => (insumosData.produtos as SourceProduct[]).filter(isProductInativo).length, [insumosData]);
+  const descontinuados = useMemo(
+    () => allProducts.filter((p) => isProductDescontinuado(p, isInputs)),
+    [allProducts, isInputs],
+  );
   const availableTypeOptions = useMemo(() => typeOptionsFor(products.map((product) => inputType(product))), [products]);
   const safetyOptions = useMemo(() => Array.from(new Set(products.map((product) => product.seguranca))).sort((a, b) => a - b), [products]);
   const stores = useMemo(() => Array.from(new Set(products.map((product) => product.loja))).filter(Boolean).sort((a, b) => a.localeCompare(b, "pt-BR", { numeric: true })), [products]);
@@ -941,6 +876,19 @@ export default function DashboardClient({
       return rank[a.status] - rank[b.status] || a.cobertura - b.cobertura;
     });
   }, [products, query, selectedStores, selectedSuppliers, selectedProducts, status, safety, performance, sort, selectedTypes]);
+  const descontinuadosFiltered = useMemo(() => {
+    if (!mostrarDescontinuados) return [];
+    const normalized = query.trim().toLocaleLowerCase("pt-BR");
+    return descontinuados
+      .filter((product) => (
+        (!normalized || product.produto.toLocaleLowerCase("pt-BR").includes(normalized) || product.sku.includes(normalized) || product.fornecedor.toLocaleLowerCase("pt-BR").includes(normalized)) &&
+        (selectedStores.length === 0 || selectedStores.includes(product.loja)) &&
+        (selectedSuppliers.length === 0 || selectedSuppliers.includes(product.fornecedor)) &&
+        (selectedTypes.length === 0 || selectedTypes.includes(inputType(product))) &&
+        (selectedProducts.length === 0 || selectedProducts.includes(`${product.loja}|${product.sku}`))
+      ))
+      .sort((a, b) => a.produto.localeCompare(b.produto, "pt-BR"));
+  }, [descontinuados, mostrarDescontinuados, query, selectedStores, selectedSuppliers, selectedTypes, selectedProducts]);
   const scheduleDates = useMemo(
     () => Array.from(new Set(filtered.flatMap((product) => product.entregasProgramadas.filter((item) => item.quantidade > 0).map((item) => item.data)))).sort(),
     [filtered],
@@ -1002,7 +950,31 @@ export default function DashboardClient({
 
   if (isValues && valoresData) return <ValuesDashboard onSectionChange={changeSection} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} />;
   if (isConsumption) return <ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} />;
-  if (isInativos) return <InativosDashboard onSectionChange={changeSection} canViewValues={canViewValues} insumosData={insumosData} />;
+
+  function renderProductRow(product: Product, descontinuado: boolean) {
+    const cls = statusClass[product.status as Status];
+    const performance = performanceClass(product.atingimento, product.escadinha);
+    const deliveries = new Map(product.entregasProgramadas.map((item) => [item.data, item.quantidade]));
+    const bar = Math.min(100, Math.max(4, (product.cobertura / Math.max(product.seguranca * 1.7, product.cobertura)) * 100));
+    const rowKey = `${product.loja}-${product.sku}-${product.produto}`;
+    return <tr key={rowKey} className={`${highlightedProductKey === rowKey ? "selected-row" : ""} ${descontinuado ? "row-descontinuado" : ""}`} onClick={() => { setHighlightedProductKey(rowKey); setSelected(product); }}>
+      <td data-label="Produto / fornecedor"><div className="product-cell"><div><strong>{product.produto}</strong><small>SKU {product.sku} · Fornecedor: {product.fornecedor}</small></div></div></td>
+      <td data-label="Escadinha projetada">{product.escadinha > 0 ? <><strong className="numeric">{decimal.format(product.escadinha)}</strong><small className="unit"> {unitLabel(product.unidade, product.escadinha, true)}</small></> : <span className="no-projection">Sem projeção</span>}</td>
+      <td data-label={isInputs ? "Consumo realizado" : "Faturado realizado"}><strong className="numeric">{decimal.format(product.faturado)}</strong><small className="unit"> {unitLabel(product.unidade, product.faturado, true)}</small></td>
+      <td data-label="Atingimento">{product.escadinha > 0 ? <div className="performance-cell"><div><strong className={performance}>{decimal.format(product.atingimento)}%</strong><small>{product.desvioProjecao >= 0 ? "+" : ""}{decimal.format(product.desvioProjecao)} {unitLabel(product.unidade, product.desvioProjecao, true)}</small></div><div className="sales-track"><span className={performance} style={{ width: `${Math.min(100, product.atingimento)}%` }} /><i /></div></div> : <span className="no-projection">—</span>}</td>
+      <td data-label="Estoque"><strong className="numeric">{number.format(product.estoque)}</strong><small className="unit"> {unitLabel(product.unidade, product.estoque, true)}</small></td>
+      <td data-label="Cobertura">{descontinuado ? <span className="no-projection">—</span> : <div className="coverage"><strong>{number.format(Math.round(product.cobertura))} dias</strong><div><span className={cls} style={{ width: `${bar}%` }} /></div></div>}</td>
+      <td data-label="Segurança"><strong>{product.seguranca} dias</strong><small className="unit"> {number.format(product.estoqueSeguranca)} {unitLabel(product.unidade, product.estoqueSeguranca, true)}</small></td>
+      <td data-label="Status" title={descontinuado ? "Sem projeção, consumo recente ou entrega programada — não conta nos indicadores de crítico/excesso." : product.motivoStatus}>{descontinuado ? <span className="no-projection">Sem giro</span> : <span className={`status-pill ${cls}`}><i />{statusLabel(product.status)}</span>}</td>
+      {scheduleDates.map((date, index) => {
+        const quantity = deliveries.get(date);
+        const overdue = isPastDelivery(date);
+        return <td key={date} data-label={`Entrega ${deliveryColumnDate.format(new Date(date))}`} className={`delivery-date-cell ${index === 0 ? "delivery-block-start" : ""} ${quantity ? "has-delivery" : "no-delivery-date"} ${overdue ? "overdue-delivery" : ""}`}>{quantity ? <><strong>{number.format(quantity)}</strong><small> {unitLabel(product.unidade, quantity, true)}</small></> : <span>—</span>}</td>;
+      })}
+      <td data-label="Total programado" className="delivery-total-cell delivery-block-end">{product.totalProgramado > 0 ? <><strong>{number.format(product.totalProgramado)}</strong><small> {unitLabel(product.unidade, product.totalProgramado, true)}</small></> : <span>—</span>}</td>
+      <td><button className="row-action" aria-label={`Ver detalhes de ${product.produto}`}>›</button></td>
+    </tr>;
+  }
 
   return (
     <main className="app-shell">
@@ -1016,7 +988,6 @@ export default function DashboardClient({
           <button className={`nav-item ${section === "insumos" ? "active" : ""}`} onClick={() => changeSection("insumos")}><span>▤</span> Embalagens e MP</button>
           <button className={`nav-item ${section === "consumo" ? "active" : ""}`} onClick={() => changeSection("consumo")}><span>◫</span> Consumo de insumos</button>
           {canViewValues && <button className={`nav-item ${section === "valores" ? "active" : ""}`} onClick={() => changeSection("valores")}><span>R$</span> Valor dos insumos</button>}
-          <button className={`nav-item ${section === "inativos" ? "active" : ""}`} onClick={() => changeSection("inativos")}><span>◌</span> Sem projeção{inativosNavCount > 0 && ` (${inativosNavCount})`}</button>
         </nav>
         <div className="sidebar-note">
           <span className="pulse-dot" />
@@ -1073,7 +1044,7 @@ export default function DashboardClient({
           </section>
 
           <section className="inventory-panel">
-            <div className="panel-heading"><div><h2>Fila de decisão</h2><p>{filtered.length} produtos encontrados · {scheduledDeliveries} entregas programadas{!isInputs && ` · ${number.format(scheduledUnits)} cx`}</p></div>{isInputs && inativosCount > 0 && <button type="button" className="clear-value-filters" onClick={() => changeSection("inativos")}>{inativosCount} sem projeção →</button>}<div className="view-toggle"><button className="selected">Lista</button><button>Resumo</button></div></div>
+            <div className="panel-heading"><div><h2>Fila de decisão</h2><p>{filtered.length} produtos encontrados{mostrarDescontinuados && descontinuadosFiltered.length > 0 ? ` + ${descontinuadosFiltered.length} sem giro` : ""} · {scheduledDeliveries} entregas programadas{!isInputs && ` · ${number.format(scheduledUnits)} cx`}</p></div><div className="view-toggle"><button className="selected">Lista</button><button>Resumo</button></div></div>
             <div className="filters">
               <div className="status-tabs">
                 {(["Todos", "Falta crítica", "Estoque baixo", "Excesso", "Nível ideal"] as const).map((item) => (
@@ -1088,39 +1059,23 @@ export default function DashboardClient({
                 <label>Segurança<select value={safety} onChange={(e) => setSafety(e.target.value)}><option>Todos</option>{safetyOptions.map((days) => <option key={days} value={days}>{days} dias</option>)}</select></label>
                 <label>Atingimento<select value={performance} onChange={(e) => setPerformance(e.target.value as typeof performance)}><option>Todos</option><option>Abaixo de 85%</option><option>De 85% a 99%</option><option>100% ou mais</option></select></label>
                 <label>Ordenar<select value={sort} onChange={(e) => setSort(e.target.value)}><option value="urgencia">Maior urgência</option><option value="atingimento">Menor atingimento</option><option value="cobertura">Menor cobertura</option><option value="excesso">Maior excesso</option><option value="produto">Produto A–Z</option></select></label>
+                {descontinuados.length > 0 && (
+                  <label className="toggle-inativos" title="Sem projeção, consumo recente ou entrega programada (ou marcado manualmente como fora de linha) — não conta nos indicadores de crítico/excesso.">
+                    <input type="checkbox" checked={mostrarDescontinuados} onChange={(e) => setMostrarDescontinuados(e.target.checked)} />
+                    Mostrar {descontinuados.length} sem giro
+                  </label>
+                )}
               </div>
             </div>
             <div className="table-wrap">
               <table className="sticky-core-columns" style={{ minWidth: `${1120 + scheduleDates.length * 78}px` }}>
                 <thead><tr><th>Produto / fornecedor</th><th>Escadinha projetada</th><th>{isInputs ? "Consumo realizado" : "Faturado realizado"}</th><th>Atingimento</th><th>Estoque atual</th><th>Cobertura</th><th>Segurança</th><th>Status</th>{scheduleDates.map((date, index) => { const overdue = isPastDelivery(date); return <th className={`delivery-date-heading ${index === 0 ? "delivery-block-start" : ""} ${overdue ? "overdue-delivery" : ""}`} title={overdue ? "Entrega em atraso" : undefined} key={date}><span>{overdue ? "Em atraso" : "Entrega"}</span><strong>{deliveryColumnDate.format(new Date(date))}</strong></th>; })}<th className="delivery-total-heading delivery-block-end"><span>Total</span><strong>Programado</strong></th><th /></tr></thead>
                 <tbody>
-                  {filtered.map((product) => {
-                    const cls = statusClass[product.status as Status];
-                    const performance = performanceClass(product.atingimento, product.escadinha);
-                    const deliveries = new Map(product.entregasProgramadas.map((item) => [item.data, item.quantidade]));
-                    const bar = Math.min(100, Math.max(4, (product.cobertura / Math.max(product.seguranca * 1.7, product.cobertura)) * 100));
-                    const rowKey = `${product.loja}-${product.sku}-${product.produto}`;
-                    return <tr key={rowKey} className={highlightedProductKey === rowKey ? "selected-row" : ""} onClick={() => { setHighlightedProductKey(rowKey); setSelected(product); }}>
-                      <td data-label="Produto / fornecedor"><div className="product-cell"><div><strong>{product.produto}</strong><small>SKU {product.sku} · Fornecedor: {product.fornecedor}</small></div></div></td>
-                      <td data-label="Escadinha projetada">{product.escadinha > 0 ? <><strong className="numeric">{decimal.format(product.escadinha)}</strong><small className="unit"> {unitLabel(product.unidade, product.escadinha, true)}</small></> : <span className="no-projection">Sem projeção</span>}</td>
-                      <td data-label={isInputs ? "Consumo realizado" : "Faturado realizado"}><strong className="numeric">{decimal.format(product.faturado)}</strong><small className="unit"> {unitLabel(product.unidade, product.faturado, true)}</small></td>
-                      <td data-label="Atingimento">{product.escadinha > 0 ? <div className="performance-cell"><div><strong className={performance}>{decimal.format(product.atingimento)}%</strong><small>{product.desvioProjecao >= 0 ? "+" : ""}{decimal.format(product.desvioProjecao)} {unitLabel(product.unidade, product.desvioProjecao, true)}</small></div><div className="sales-track"><span className={performance} style={{ width: `${Math.min(100, product.atingimento)}%` }} /><i /></div></div> : <span className="no-projection">—</span>}</td>
-                      <td data-label="Estoque"><strong className="numeric">{number.format(product.estoque)}</strong><small className="unit"> {unitLabel(product.unidade, product.estoque, true)}</small></td>
-                      <td data-label="Cobertura"><div className="coverage"><strong>{number.format(Math.round(product.cobertura))} dias</strong><div><span className={cls} style={{ width: `${bar}%` }} /></div></div></td>
-                      <td data-label="Segurança"><strong>{product.seguranca} dias</strong><small className="unit"> {number.format(product.estoqueSeguranca)} {unitLabel(product.unidade, product.estoqueSeguranca, true)}</small></td>
-                      <td data-label="Status" title={product.motivoStatus}><span className={`status-pill ${cls}`}><i />{statusLabel(product.status)}</span></td>
-                      {scheduleDates.map((date, index) => {
-                        const quantity = deliveries.get(date);
-                        const overdue = isPastDelivery(date);
-                        return <td key={date} data-label={`Entrega ${deliveryColumnDate.format(new Date(date))}`} className={`delivery-date-cell ${index === 0 ? "delivery-block-start" : ""} ${quantity ? "has-delivery" : "no-delivery-date"} ${overdue ? "overdue-delivery" : ""}`}>{quantity ? <><strong>{number.format(quantity)}</strong><small> {unitLabel(product.unidade, quantity, true)}</small></> : <span>—</span>}</td>;
-                      })}
-                      <td data-label="Total programado" className="delivery-total-cell delivery-block-end">{product.totalProgramado > 0 ? <><strong>{number.format(product.totalProgramado)}</strong><small> {unitLabel(product.unidade, product.totalProgramado, true)}</small></> : <span>—</span>}</td>
-                      <td><button className="row-action" aria-label={`Ver detalhes de ${product.produto}`}>›</button></td>
-                    </tr>;
-                  })}
+                  {filtered.map((product) => renderProductRow(product, false))}
+                  {mostrarDescontinuados && descontinuadosFiltered.map((product) => renderProductRow(product, true))}
                 </tbody>
               </table>
-              {filtered.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Tente remover um filtro ou buscar por outro termo.</p></div>}
+              {filtered.length === 0 && descontinuadosFiltered.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Tente remover um filtro ou buscar por outro termo.</p></div>}
             </div>
           </section>
           <footer>Fonte: {activeData.origem} <span>•</span> Classificação visual por ponto de pedido, lead time, segurança e tolerância de 20% do lote mínimo.</footer>
