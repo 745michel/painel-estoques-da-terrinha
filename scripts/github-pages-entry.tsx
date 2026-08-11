@@ -17,7 +17,7 @@ type ValoresData = typeof valoresDataType;
  * vir baixado pra quem so abrir a pagina e nunca digitar nada. Decisao explicita do usuario,
  * aceitando esse limite de seguranca.
  */
-const SENHA_HASH = "16cede3b903f8f3109432cf5202e47e5efbb37ab7ac512dd0a37427bf383a3cd";
+const SENHA_HASH = "2cdb977fdca2dd2c707674e5deb0a4a392d8bc1ec7fd2b4dff121053b41a575e";
 
 async function sha256Hex(texto: string): Promise<string> {
   const bytes = new TextEncoder().encode(texto);
