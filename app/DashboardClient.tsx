@@ -84,6 +84,10 @@ const PRODUTOS_DESCONTINUADOS_MANUALMENTE = new Set([
   "OLEO DE COCO DA TERRINHA EX VIRGEM 200ML - FD 12",
   "OLEO DE COCO DA TERRINHA EX VIRGEM 500 ML - FD 6",
   "FARINHA ROSCA COOP 500 G FD 12",
+  // Comprados sob demanda (so quando ja existe pedido confirmado do cliente) - nao faz
+  // sentido manter estoque de seguranca pra eles, entao "Falta critica" seria alarme falso.
+  "BATATA PALHA TRADICIONAL  PUBLIC 100 G - CX 20",
+  "BATATA PALHA EXTRA FINA  PUBLIC 100 g - CX 20",
 ]);
 
 function isProductDescontinuado(product: SourceProduct, isInputs: boolean) {
