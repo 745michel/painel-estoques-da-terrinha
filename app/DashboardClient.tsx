@@ -10,7 +10,7 @@ type EstoqueData = typeof estoqueDataType;
 type InsumosData = typeof insumosDataType;
 type ConsumoData = typeof consumoDataType;
 
-type Status = "Falta crítica" | "Estoque baixo" | "Excesso" | "Nível ideal";
+type Status = "Falta crítica" | "Estoque baixo" | "Excesso" | "Nível ideal" | "Sob demanda";
 type SourceProduct = InsumosData["produtos"][number];
 type Product = SourceProduct & {
   status: Status;
@@ -31,6 +31,7 @@ const statusClass: Record<Status, string> = {
   "Estoque baixo": "risk",
   Excesso: "excess",
   "Nível ideal": "healthy",
+  "Sob demanda": "ondemand",
 };
 
 function statusLabel(status: string) {
@@ -84,8 +85,16 @@ const PRODUTOS_DESCONTINUADOS_MANUALMENTE = new Set([
   "OLEO DE COCO DA TERRINHA EX VIRGEM 200ML - FD 12",
   "OLEO DE COCO DA TERRINHA EX VIRGEM 500 ML - FD 6",
   "FARINHA ROSCA COOP 500 G FD 12",
-  // Comprados sob demanda (so quando ja existe pedido confirmado do cliente) - nao faz
-  // sentido manter estoque de seguranca pra eles, entao "Falta critica" seria alarme falso.
+]);
+
+/**
+ * Produtos comprados sob demanda (so quando ja existe pedido confirmado do cliente) -
+ * nao faz sentido manter estoque de seguranca pra eles, entao "Falta critica"/"Excesso"
+ * seriam alarme falso. Ficam visiveis na planilha principal normalmente, so com o status
+ * neutro "Sob demanda" em vez de um alerta. Mantida manualmente a pedido do usuario em
+ * 12/08/2026 - avisar aqui quando outro item passar a ser comprado sob demanda.
+ */
+const PRODUTOS_SOB_DEMANDA = new Set([
   "BATATA PALHA TRADICIONAL  PUBLIC 100 G - CX 20",
   "BATATA PALHA EXTRA FINA  PUBLIC 100 g - CX 20",
 ]);
@@ -158,7 +167,10 @@ function calculateVisualStatus(source: SourceProduct): Product {
 
   let status: Status;
   let reason: string;
-  if (indiceCobertura == null) {
+  if (PRODUTOS_SOB_DEMANDA.has(source.produto)) {
+    status = "Sob demanda";
+    reason = "Compra sob demanda — só entra pedido quando já existe demanda confirmada do cliente, sem risco real de falta ou excesso.";
+  } else if (indiceCobertura == null) {
     status = "Nível ideal";
     reason = "Sem estoque de segurança configurado para este produto.";
   } else if (indiceCobertura < 70) {
@@ -877,7 +889,7 @@ export default function DashboardClient({
       if (sort === "produto") return a.produto.localeCompare(b.produto, "pt-BR");
       if (sort === "excesso") return b.cobertura - a.cobertura;
       if (sort === "atingimento") return a.atingimento - b.atingimento;
-      const rank: Record<string, number> = { "Falta crítica": 0, "Estoque baixo": 1, "Nível ideal": 2, Excesso: 3 };
+      const rank: Record<string, number> = { "Falta crítica": 0, "Estoque baixo": 1, "Nível ideal": 2, Excesso: 3, "Sob demanda": 4 };
       return rank[a.status] - rank[b.status] || a.cobertura - b.cobertura;
     });
   }, [products, query, selectedStores, selectedSuppliers, selectedProducts, status, safety, performance, sort, selectedTypes]);
