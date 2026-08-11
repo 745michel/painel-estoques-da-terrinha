@@ -22,7 +22,7 @@ type Product = SourceProduct & {
   limiteExcesso: number;
   percentualAbaixoSeguranca: number | null;
 };
-type Section = "terceiros" | "insumos" | "consumo" | "valores";
+type Section = "terceiros" | "insumos" | "consumo" | "valores" | "inativos";
 type ValuesData = typeof valoresDataType;
 type ConsumptionItem = ConsumoData["produtos"][number];
 
@@ -69,6 +69,10 @@ function classifyInputType(productName: string, declaredType?: string) {
 
 function inputType(product: SourceProduct) {
   return classifyInputType(product.produto, product.tipo);
+}
+
+function isProductInativo(product: Pick<SourceProduct, "escadinha" | "consumoMensal" | "totalProgramado">) {
+  return product.escadinha === 0 && product.consumoMensal === 0 && product.totalProgramado === 0;
 }
 
 const inputTypeOptions = [
@@ -260,6 +264,7 @@ function ValuesDashboard({
   products: string[];
   onProductsChange: (products: string[]) => void;
 }) {
+  const inativosNavCount = useMemo(() => (insumosData.produtos as SourceProduct[]).filter(isProductInativo).length, [insumosData]);
   const productsWithProjection = useMemo(
     () => new Set((insumosData.produtos as SourceProduct[]).filter((product) => product.escadinha > 0).map((product) => product.produto)),
     [insumosData],
@@ -436,6 +441,7 @@ function ValuesDashboard({
         <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
         <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
         <button className="nav-item active" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>
+        <button className="nav-item" onClick={() => onSectionChange("inativos")}><span>◌</span> Sem projeção{inativosNavCount > 0 && ` (${inativosNavCount})`}</button>
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -589,6 +595,7 @@ function ConsumptionDashboard({
   const [unitView, setUnitView] = useState<"kg" | "unidade">("kg");
   const barsRef = useRef<HTMLDivElement>(null);
 
+  const inativosNavCount = useMemo(() => (insumosData.produtos as SourceProduct[]).filter(isProductInativo).length, [insumosData]);
   const items = consumoData.produtos as ConsumptionItem[];
   const allMonths = consumoData.meses as string[];
   const years = Array.from(new Set(allMonths.map((month) => month.slice(0, 4)))).sort((a, b) => b.localeCompare(a));
@@ -691,6 +698,7 @@ function ConsumptionDashboard({
         <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
         <button className="nav-item active" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
+        <button className="nav-item" onClick={() => onSectionChange("inativos")}><span>◌</span> Sem projeção{inativosNavCount > 0 && ` (${inativosNavCount})`}</button>
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -752,6 +760,83 @@ function ConsumptionDashboard({
   </main>;
 }
 
+function InativosDashboard({
+  onSectionChange,
+  canViewValues,
+  insumosData,
+}: {
+  onSectionChange: (section: Section) => void;
+  canViewValues: boolean;
+  insumosData: InsumosData;
+}) {
+  const [query, setQuery] = useState("");
+  const [stores, setStores] = useState<string[]>([]);
+  const [suppliers, setSuppliers] = useState<string[]>([]);
+  const [sort, setSort] = useState("produto");
+
+  const items = useMemo(() => (insumosData.produtos as SourceProduct[]).filter(isProductInativo), [insumosData]);
+  const storeOptions = useMemo(
+    () => Array.from(new Set(items.map((item) => item.loja))).filter(Boolean).sort((a, b) => a.localeCompare(b, "pt-BR", { numeric: true })),
+    [items],
+  );
+  const supplierOptions = useMemo(
+    () => Array.from(new Set(items.filter((item) => stores.length === 0 || stores.includes(item.loja)).map((item) => item.fornecedor))).filter(Boolean).sort((a, b) => a.localeCompare(b, "pt-BR")),
+    [items, stores],
+  );
+  const filtered = useMemo(() => {
+    const normalized = query.trim().toLocaleLowerCase("pt-BR");
+    const result = items.filter((item) => (
+      (!normalized || item.produto.toLocaleLowerCase("pt-BR").includes(normalized) || item.sku.includes(normalized) || item.fornecedor.toLocaleLowerCase("pt-BR").includes(normalized)) &&
+      (stores.length === 0 || stores.includes(item.loja)) &&
+      (suppliers.length === 0 || suppliers.includes(item.fornecedor))
+    ));
+    return [...result].sort((a, b) => (sort === "estoque" ? b.estoque - a.estoque : a.produto.localeCompare(b.produto, "pt-BR")));
+  }, [items, query, stores, suppliers, sort]);
+  const updated = new Date(insumosData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+
+  return <main className="app-shell">
+    <aside className="sidebar">
+      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
+      <nav aria-label="Navegação principal">
+        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
+        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
+        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
+        <button className="nav-item active" onClick={() => onSectionChange("inativos")}><span>◌</span> Sem projeção{items.length > 0 && ` (${items.length})`}</button>
+      </nav>
+      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
+      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
+    </aside>
+    <section className="workspace">
+      <header className="topbar">
+        <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Sem projeção</strong></div>
+        <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar embalagem, matéria-prima, SKU ou fornecedor..." /><kbd>Ctrl K</kbd></label>
+      </header>
+      <div className="content">
+        <div className="page-heading"><div><p className="eyebrow">ITENS RESERVADOS</p><h1>Sem projeção, consumo ou entrega</h1><p>Produtos sem projeção de venda, sem consumo nos últimos meses e sem entrega programada — provavelmente fora de linha. Ficam fora dos alertas de Embalagens e MP, mas continuam disponíveis para consulta aqui.</p></div></div>
+        <section className="inventory-panel">
+          <div className="panel-heading"><div><h2>Itens parados</h2><p>{filtered.length} de {items.length} produtos encontrados</p></div></div>
+          <div className="filters value-filters"><div className="selects">
+            <MultiFilter label="Loja" options={storeOptions.map((item) => ({ value: item, label: storeLabel(item) }))} selected={stores} onChange={(values) => { setStores(values); setSuppliers([]); }} />
+            <MultiFilter label="Fornecedor" options={supplierOptions.map((item) => ({ value: item, label: item }))} selected={suppliers} onChange={setSuppliers} />
+            <label>Ordenar<select value={sort} onChange={(event) => setSort(event.target.value)}><option value="produto">Produto A–Z</option><option value="estoque">Maior estoque atual</option></select></label>
+            {(stores.length > 0 || suppliers.length > 0) && <button type="button" className="clear-value-filters" onClick={() => { setStores([]); setSuppliers([]); }}>Limpar filtros</button>}
+          </div></div>
+          <div className="table-wrap"><table className="values-table"><thead><tr><th>Produto / fornecedor</th><th>Loja</th><th>Tipo</th><th>Estoque atual</th></tr></thead><tbody>
+            {filtered.map((item) => { const rowKey = `${item.loja}-${item.sku}-${item.produto}`; return <tr key={rowKey}>
+              <td><div className="product-cell"><div><strong title={item.produto}>{item.produto}</strong><small>SKU {item.sku} · Fornecedor: {item.fornecedor}</small></div></div></td>
+              <td>{storeLabel(item.loja)}</td>
+              <td>{inputType(item)}</td>
+              <td><strong className="numeric">{number.format(item.estoque)}</strong><small className="unit"> {item.unidade}</small></td>
+            </tr>; })}
+          </tbody></table>{filtered.length === 0 && <div className="empty-state"><strong>Nenhum item encontrado</strong><p>Remova um filtro ou busque por outro termo.</p></div>}</div>
+        </section>
+        <footer>Fonte: {insumosData.origem} · Critério: sem projeção de venda, sem consumo nos últimos meses e sem entrega programada.</footer>
+      </div>
+    </section>
+  </main>;
+}
+
 export default function DashboardClient({
   canViewValues,
   valoresData,
@@ -778,7 +863,6 @@ export default function DashboardClient({
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [performance, setPerformance] = useState<"Todos" | "Abaixo de 85%" | "De 85% a 99%" | "100% ou mais">("Todos");
   const [sort, setSort] = useState("urgencia");
-  const [limit, setLimit] = useState(12);
   const [selected, setSelected] = useState<Product | null>(null);
   const [highlightedProductKey, setHighlightedProductKey] = useState("");
   const [notice, setNotice] = useState("");
@@ -786,6 +870,7 @@ export default function DashboardClient({
   const isInputs = section === "insumos";
   const isConsumption = section === "consumo";
   const isValues = section === "valores";
+  const isInativos = section === "inativos";
   const operationalSection = isInputs ? "insumos" : "terceiros";
   const selectedProducts = operationalProductSelections[operationalSection];
   function setSelectedProducts(values: string[]) {
@@ -794,16 +879,15 @@ export default function DashboardClient({
   const activeData = isInputs || isConsumption || isValues ? insumosData : estoqueData;
   const allProducts = useMemo(() => (activeData.produtos as SourceProduct[]).map(calculateVisualStatus), [activeData]);
   // Itens sem projeção (escadinha=0), sem consumo recente e sem entrega pendente: produto
-  // descontinuado/sem venda. Não entram nos alertas/tabela por padrão (não é "ponto de
-  // atenção" real), mas não desaparecem — o botão "mostrarInativos" traz eles de volta.
-  // Só se aplica em Embalagens/MP, a pedido do usuário em 12/08/2026.
-  const isInativo = (p: Product) => isInputs && p.escadinha === 0 && p.consumoMensal === 0 && p.totalProgramado === 0;
-  const [mostrarInativos, setMostrarInativos] = useState(false);
-  const inativosCount = useMemo(() => (isInputs ? allProducts.filter(isInativo).length : 0), [allProducts, isInputs]);
+  // descontinuado/sem venda. Não entram nos alertas/tabela do painel principal — ficam
+  // reservados na seção "Sem projeção" (InativosDashboard). Só se aplica em Embalagens/MP,
+  // a pedido do usuário em 12/08/2026.
   const products = useMemo(
-    () => (isInputs && !mostrarInativos ? allProducts.filter((p) => !isInativo(p)) : allProducts),
-    [allProducts, isInputs, mostrarInativos],
+    () => (isInputs ? allProducts.filter((p) => !isProductInativo(p)) : allProducts),
+    [allProducts, isInputs],
   );
+  const inativosCount = useMemo(() => (isInputs ? allProducts.filter(isProductInativo).length : 0), [allProducts, isInputs]);
+  const inativosNavCount = useMemo(() => (insumosData.produtos as SourceProduct[]).filter(isProductInativo).length, [insumosData]);
   const availableTypeOptions = useMemo(() => typeOptionsFor(products.map((product) => inputType(product))), [products]);
   const safetyOptions = useMemo(() => Array.from(new Set(products.map((product) => product.seguranca))).sort((a, b) => a - b), [products]);
   const stores = useMemo(() => Array.from(new Set(products.map((product) => product.loja))).filter(Boolean).sort((a, b) => a.localeCompare(b, "pt-BR", { numeric: true })), [products]);
@@ -857,12 +941,7 @@ export default function DashboardClient({
       return rank[a.status] - rank[b.status] || a.cobertura - b.cobertura;
     });
   }, [products, query, selectedStores, selectedSuppliers, selectedProducts, status, safety, performance, sort, selectedTypes]);
-  const visibleProducts = useMemo(() => filtered.slice(0, limit), [filtered, limit]);
   const scheduleDates = useMemo(
-    () => Array.from(new Set(visibleProducts.flatMap((product) => product.entregasProgramadas.filter((item) => item.quantidade > 0).map((item) => item.data)))).sort(),
-    [visibleProducts],
-  );
-  const exportScheduleDates = useMemo(
     () => Array.from(new Set(filtered.flatMap((product) => product.entregasProgramadas.filter((item) => item.quantidade > 0).map((item) => item.data)))).sort(),
     [filtered],
   );
@@ -891,15 +970,14 @@ export default function DashboardClient({
     setSafety("Todos");
     setPerformance("Todos");
     setSelectedTypes([]);
-    setLimit(12);
     setSelected(null);
   }
 
   function exportCsv() {
-    const header = ["SKU", "Produto", "Fornecedor", "Unidade de medida", "Escadinha projetada", "Faturado", "Atingimento %", "Desvio", "Estoque", "Cobertura", "Segurança", "Status", ...exportScheduleDates.map((date) => `Entrega ${new Date(date).toLocaleDateString("pt-BR")}`), "Total programado", "Sugestão de compra"];
+    const header = ["SKU", "Produto", "Fornecedor", "Unidade de medida", "Escadinha projetada", "Faturado", "Atingimento %", "Desvio", "Estoque", "Cobertura", "Segurança", "Status", ...scheduleDates.map((date) => `Entrega ${new Date(date).toLocaleDateString("pt-BR")}`), "Total programado", "Sugestão de compra"];
     const rows = filtered.map((p) => {
       const deliveries = new Map(p.entregasProgramadas.map((item) => [item.data, item.quantidade]));
-      return [p.sku, p.produto, p.fornecedor, p.unidade, p.escadinha, p.faturado, p.atingimento, p.desvioProjecao, p.estoque, p.cobertura, p.seguranca, statusLabel(p.status), ...exportScheduleDates.map((date) => deliveries.get(date) ?? ""), p.totalProgramado, p.sugestaoCompra];
+      return [p.sku, p.produto, p.fornecedor, p.unidade, p.escadinha, p.faturado, p.atingimento, p.desvioProjecao, p.estoque, p.cobertura, p.seguranca, statusLabel(p.status), ...scheduleDates.map((date) => deliveries.get(date) ?? ""), p.totalProgramado, p.sugestaoCompra];
     });
     const csv = [header, ...rows]
       .map((row) => row.map((cell) => `"${String(cell).replaceAll('"', '""')}"`).join(";"))
@@ -924,6 +1002,7 @@ export default function DashboardClient({
 
   if (isValues && valoresData) return <ValuesDashboard onSectionChange={changeSection} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} />;
   if (isConsumption) return <ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} />;
+  if (isInativos) return <InativosDashboard onSectionChange={changeSection} canViewValues={canViewValues} insumosData={insumosData} />;
 
   return (
     <main className="app-shell">
@@ -937,6 +1016,7 @@ export default function DashboardClient({
           <button className={`nav-item ${section === "insumos" ? "active" : ""}`} onClick={() => changeSection("insumos")}><span>▤</span> Embalagens e MP</button>
           <button className={`nav-item ${section === "consumo" ? "active" : ""}`} onClick={() => changeSection("consumo")}><span>◫</span> Consumo de insumos</button>
           {canViewValues && <button className={`nav-item ${section === "valores" ? "active" : ""}`} onClick={() => changeSection("valores")}><span>R$</span> Valor dos insumos</button>}
+          <button className={`nav-item ${section === "inativos" ? "active" : ""}`} onClick={() => changeSection("inativos")}><span>◌</span> Sem projeção{inativosNavCount > 0 && ` (${inativosNavCount})`}</button>
         </nav>
         <div className="sidebar-note">
           <span className="pulse-dot" />
@@ -950,7 +1030,7 @@ export default function DashboardClient({
           <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>{isInputs ? "Embalagens e Matéria-Prima" : "Estoque de Terceiros"}</strong></div>
           <label className="global-search">
             <span>⌕</span>
-            <input value={query} onChange={(e) => { setQuery(e.target.value); setLimit(12); }} placeholder="Buscar produto, SKU ou fornecedor..." />
+            <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Buscar produto, SKU ou fornecedor..." />
             <kbd>Ctrl K</kbd>
           </label>
           <div className="top-actions">
@@ -993,34 +1073,28 @@ export default function DashboardClient({
           </section>
 
           <section className="inventory-panel">
-            <div className="panel-heading"><div><h2>Fila de decisão</h2><p>{filtered.length} produtos encontrados · {scheduledDeliveries} entregas programadas{!isInputs && ` · ${number.format(scheduledUnits)} cx`}</p></div><div className="view-toggle"><button className="selected">Lista</button><button>Resumo</button></div></div>
+            <div className="panel-heading"><div><h2>Fila de decisão</h2><p>{filtered.length} produtos encontrados · {scheduledDeliveries} entregas programadas{!isInputs && ` · ${number.format(scheduledUnits)} cx`}</p></div>{isInputs && inativosCount > 0 && <button type="button" className="clear-value-filters" onClick={() => changeSection("inativos")}>{inativosCount} sem projeção →</button>}<div className="view-toggle"><button className="selected">Lista</button><button>Resumo</button></div></div>
             <div className="filters">
               <div className="status-tabs">
                 {(["Todos", "Falta crítica", "Estoque baixo", "Excesso", "Nível ideal"] as const).map((item) => (
-                  <button key={item} className={status === item ? "selected" : ""} onClick={() => { setStatus(item); setLimit(12); }}>{statusLabel(item)}{item !== "Todos" && <span>{products.filter((p) => p.status === item).length}</span>}</button>
+                  <button key={item} className={status === item ? "selected" : ""} onClick={() => setStatus(item)}>{statusLabel(item)}{item !== "Todos" && <span>{products.filter((p) => p.status === item).length}</span>}</button>
                 ))}
               </div>
               <div className="selects">
-                {isInputs && <MultiFilter label="Tipo" options={availableTypeOptions} selected={selectedTypes} onChange={(values) => { setSelectedTypes(values); setSelectedProducts([]); setLimit(12); }} />}
-                {isInputs && <MultiFilter label="Loja" options={stores.map((item) => ({ value: item, label: storeLabel(item) }))} selected={selectedStores} onChange={(values) => { setSelectedStores(values); setSelectedSuppliers([]); setSelectedProducts([]); setLimit(12); }} />}
-                <MultiFilter label="Fornecedor" options={suppliers.map((item) => ({ value: item, label: item }))} selected={selectedSuppliers} onChange={(values) => { setSelectedSuppliers(values); setSelectedProducts([]); setLimit(12); }} />
-                <MultiFilter label={isInputs ? "Produto / material" : "Produto"} options={productOptions} selected={selectedProducts} onChange={(values) => { setSelectedProducts(values); setLimit(12); }} />
+                {isInputs && <MultiFilter label="Tipo" options={availableTypeOptions} selected={selectedTypes} onChange={(values) => { setSelectedTypes(values); setSelectedProducts([]); }} />}
+                {isInputs && <MultiFilter label="Loja" options={stores.map((item) => ({ value: item, label: storeLabel(item) }))} selected={selectedStores} onChange={(values) => { setSelectedStores(values); setSelectedSuppliers([]); setSelectedProducts([]); }} />}
+                <MultiFilter label="Fornecedor" options={suppliers.map((item) => ({ value: item, label: item }))} selected={selectedSuppliers} onChange={(values) => { setSelectedSuppliers(values); setSelectedProducts([]); }} />
+                <MultiFilter label={isInputs ? "Produto / material" : "Produto"} options={productOptions} selected={selectedProducts} onChange={(values) => setSelectedProducts(values)} />
                 <label>Segurança<select value={safety} onChange={(e) => setSafety(e.target.value)}><option>Todos</option>{safetyOptions.map((days) => <option key={days} value={days}>{days} dias</option>)}</select></label>
                 <label>Atingimento<select value={performance} onChange={(e) => setPerformance(e.target.value as typeof performance)}><option>Todos</option><option>Abaixo de 85%</option><option>De 85% a 99%</option><option>100% ou mais</option></select></label>
                 <label>Ordenar<select value={sort} onChange={(e) => setSort(e.target.value)}><option value="urgencia">Maior urgência</option><option value="atingimento">Menor atingimento</option><option value="cobertura">Menor cobertura</option><option value="excesso">Maior excesso</option><option value="produto">Produto A–Z</option></select></label>
-                {isInputs && inativosCount > 0 && (
-                  <label className="toggle-inativos" title="Itens sem projeção, sem consumo recente e sem entrega pendente — provavelmente descontinuados.">
-                    <input type="checkbox" checked={mostrarInativos} onChange={(e) => { setMostrarInativos(e.target.checked); setLimit(12); }} />
-                    Mostrar {inativosCount} sem projeção/consumo
-                  </label>
-                )}
               </div>
             </div>
             <div className="table-wrap">
               <table className="sticky-core-columns" style={{ minWidth: `${1120 + scheduleDates.length * 78}px` }}>
                 <thead><tr><th>Produto / fornecedor</th><th>Escadinha projetada</th><th>{isInputs ? "Consumo realizado" : "Faturado realizado"}</th><th>Atingimento</th><th>Estoque atual</th><th>Cobertura</th><th>Segurança</th><th>Status</th>{scheduleDates.map((date, index) => { const overdue = isPastDelivery(date); return <th className={`delivery-date-heading ${index === 0 ? "delivery-block-start" : ""} ${overdue ? "overdue-delivery" : ""}`} title={overdue ? "Entrega em atraso" : undefined} key={date}><span>{overdue ? "Em atraso" : "Entrega"}</span><strong>{deliveryColumnDate.format(new Date(date))}</strong></th>; })}<th className="delivery-total-heading delivery-block-end"><span>Total</span><strong>Programado</strong></th><th /></tr></thead>
                 <tbody>
-                  {visibleProducts.map((product) => {
+                  {filtered.map((product) => {
                     const cls = statusClass[product.status as Status];
                     const performance = performanceClass(product.atingimento, product.escadinha);
                     const deliveries = new Map(product.entregasProgramadas.map((item) => [item.data, item.quantidade]));
@@ -1048,7 +1122,6 @@ export default function DashboardClient({
               </table>
               {filtered.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Tente remover um filtro ou buscar por outro termo.</p></div>}
             </div>
-            {limit < filtered.length && <button className="load-more" onClick={() => setLimit((value) => value + 12)}>Mostrar mais {Math.min(12, filtered.length - limit)} produtos</button>}
           </section>
           <footer>Fonte: {activeData.origem} <span>•</span> Classificação visual por ponto de pedido, lead time, segurança e tolerância de 20% do lote mínimo.</footer>
         </div>
