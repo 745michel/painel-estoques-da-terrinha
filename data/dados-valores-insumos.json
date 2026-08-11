@@ -1,0 +1,67 @@
+{
+  "atualizadoEm": "2000-01-01T00:00:00-03:00",
+  "dataReferencia": "2000-01-01",
+  "precosExtraidosEm": "2000-01-01T00:00:00.000Z",
+  "origemEstoque": "Placeholder - dados reais vem do SharePoint em tempo de execucao (ver app/lib/valor-insumos.ts)",
+  "origemPreco": "Placeholder - este arquivo nunca deve conter valores financeiros reais no repositorio git",
+  "moeda": "BRL",
+  "resumo": {
+    "itens": 0,
+    "comPreco": 0,
+    "semPreco": 0,
+    "valorEstoque": 0,
+    "valorEntregas": 0,
+    "valorAposEntregas": 0
+  },
+  "porCategoria": {
+    "Placeholder": {
+      "itens": 0,
+      "comPreco": 0,
+      "semPreco": 0,
+      "valorEstoque": 0,
+      "valorEntregas": 0,
+      "valorAposEntregas": 0
+    }
+  },
+  "relacionamentos": {
+    "placeholder": 0
+  },
+  "produtos": [
+    {
+      "categoria": "Placeholder",
+      "sku": "0",
+      "produto": "Placeholder - sem dados reais neste snapshot",
+      "fornecedor": "Placeholder",
+      "loja": "0",
+      "unidade": "unidade",
+      "estoque": 0,
+      "precoAtual": 0,
+      "descricaoBi": "Placeholder",
+      "metodoRelacionamento": "Placeholder",
+      "valorEstoque": 0,
+      "totalProgramado": 0,
+      "valorEntregas": 0,
+      "valorAposEntregas": 0,
+      "entregasProgramadas": [
+        { "data": "2000-01-01", "quantidade": 0, "valor": 0 }
+      ]
+    },
+    {
+      "categoria": "Placeholder",
+      "sku": "0",
+      "produto": "Placeholder - sem dados reais neste snapshot",
+      "fornecedor": "Placeholder",
+      "loja": "0",
+      "unidade": "unidade",
+      "estoque": 0,
+      "precoAtual": null,
+      "descricaoBi": null,
+      "metodoRelacionamento": null,
+      "valorEstoque": null,
+      "totalProgramado": 0,
+      "valorEntregas": null,
+      "valorAposEntregas": null,
+      "entregasProgramadas": []
+    }
+  ]
+}
