@@ -210,6 +210,11 @@ export function buildValorInsumos(insumos: InsumosData, rawRows: ValorInsumosRow
       const afterDeliveries = stockValue !== null && accountingCost !== null ? money((stockValue ?? 0) + (deliveriesValue ?? 0)) : null;
       const localStock = localGroup.reduce((s, i) => s + i.estoque, 0);
       const inferredStock = stockValue !== null && accountingCost ? stockValue / accountingCost : 0;
+      // Estoque atual passa a vir do proprio BI (Valor em estoque / Custo contabil) sempre que
+      // tiver os dois - assim nunca contradiz o Valor em estoque mostrado do lado, mesmo que a
+      // planilha local esteja num dia diferente do snapshot do Power BI. So cai pro estoque
+      // local quando o produto nao tem valor/custo do BI. Ver conversa 13/08/2026.
+      const estoqueFinal = stockValue !== null && accountingCost ? inferredStock : localStock;
 
       products.push({
         categoria: category,
@@ -218,7 +223,7 @@ export function buildValorInsumos(insumos: InsumosData, rawRows: ValorInsumosRow
         fornecedor: localGroup.length > 0 ? [...new Set(localGroup.map((i) => i.fornecedor))].join(" / ") : itemBase.fornecedor,
         loja: store,
         unidade: itemBase.unidade,
-        estoque: Math.round((localGroup.length > 0 ? localStock : inferredStock) * 1000) / 1000,
+        estoque: Math.round(estoqueFinal * 1000) / 1000,
         precoAtual: accountingCost,
         descricaoBi: biDescription,
         metodoRelacionamento: storeMatches.length > 0 ? method : null,
