@@ -16,6 +16,7 @@ await fs.mkdir(path.join(root, "work"), { recursive: true });
 const estoqueData = await fetchSharePointJson("dados-estoque.json");
 const insumosData = await fetchSharePointJson<{ produtos: unknown[] }>("dados-insumos.json");
 const consumoData = await fetchSharePointJson("dados-consumo-insumos.json");
+const mrpTerceirosData = await fetchSharePointJson("dados-mrp-terceiros.json");
 
 // O fluxo do Power Automate que gera valor_insumos.json roda no horario dele, independente
 // deste workflow (que dispara a cada 30 min). Se o cron cair no meio da janela em que o
@@ -60,11 +61,13 @@ for (let attempt = 1; attempt <= RETRY_ATTEMPTS; attempt++) {
 await fs.writeFile(path.join(root, "public", "dados-estoque.json"), JSON.stringify(estoqueData, null, 2), "utf8");
 await fs.writeFile(path.join(root, "public", "dados-insumos.json"), JSON.stringify(insumosData, null, 2), "utf8");
 await fs.writeFile(path.join(root, "public", "dados-consumo-insumos.json"), JSON.stringify(consumoData, null, 2), "utf8");
+await fs.writeFile(path.join(root, "public", "dados-mrp-terceiros.json"), JSON.stringify(mrpTerceirosData, null, 2), "utf8");
 await fs.writeFile(path.join(root, "work", "valor-financeiro-ci.json"), JSON.stringify(valoresData, null, 2), "utf8");
 
 console.log(JSON.stringify({
   estoqueProdutos: (estoqueData as { produtos: unknown[] }).produtos.length,
   insumosProdutos: insumosData.produtos.length,
   consumoProdutos: (consumoData as { produtos: unknown[] }).produtos.length,
+  mrpTerceirosProdutos: (mrpTerceirosData as { produtos: unknown[] }).produtos.length,
   valoresItens: valoresData.resumo.itens,
 }));

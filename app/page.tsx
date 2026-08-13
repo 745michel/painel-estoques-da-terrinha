@@ -5,6 +5,7 @@ import estoqueDataStatic from "../public/dados-estoque.json";
 import insumosDataStatic from "../public/dados-insumos.json";
 import consumoDataStatic from "../public/dados-consumo-insumos.json";
 import valoresDataStatic from "../data/dados-valores-insumos.json";
+import mrpTerceirosDataStatic from "../public/dados-mrp-terceiros.json";
 import { fetchSharePointJson, fetchAccessList, isConfigured, type AccessEntry } from "./lib/sharepoint";
 import { buildValorInsumos, type ValorInsumosRow } from "./lib/valor-insumos";
 
@@ -14,6 +15,7 @@ type EstoqueData = typeof estoqueDataStatic;
 type InsumosData = typeof insumosDataStatic;
 type ConsumoData = typeof consumoDataStatic;
 type ValoresData = typeof valoresDataStatic;
+type MrpTerceirosData = typeof mrpTerceirosDataStatic;
 
 /**
  * Cada loadX tenta o SharePoint (dados atualizados 2x/dia pela automacao local +
@@ -53,6 +55,19 @@ async function loadConsumoData(): Promise<ConsumoData> {
   } catch (error) {
     console.error("Falha ao buscar dados-consumo-insumos.json do SharePoint, usando snapshot do build:", error);
     return consumoDataStatic;
+  }
+}
+
+async function loadMrpTerceirosData(): Promise<MrpTerceirosData> {
+  // Plano de compra/producao por terceiro (Carteira, Plano x Real do mes, cortes), cruzado
+  // por SKU com Estoque de terceiros. Fonte: pivot "Terceiro e Revenda" da planilha
+  // "Projeto MRP compras remodelado v3 (5).xlsx". Ver CLAUDE.md, 12/08/2026.
+  if (!isConfigured()) return mrpTerceirosDataStatic;
+  try {
+    return await fetchSharePointJson<MrpTerceirosData>("dados-mrp-terceiros.json");
+  } catch (error) {
+    console.error("Falha ao buscar dados-mrp-terceiros.json do SharePoint, usando snapshot do build:", error);
+    return mrpTerceirosDataStatic;
   }
 }
 
@@ -133,10 +148,11 @@ export default async function Home() {
     return <AcessoNaoAutorizado email={email!} />;
   }
 
-  const [estoqueData, insumosData, consumoData] = await Promise.all([
+  const [estoqueData, insumosData, consumoData, mrpTerceirosData] = await Promise.all([
     loadEstoqueData(),
     loadInsumosData(),
     loadConsumoData(),
+    loadMrpTerceirosData(),
   ]);
   const valoresData = canViewValues ? await loadValoresData(insumosData) : null;
 
@@ -147,6 +163,7 @@ export default async function Home() {
       estoqueData={estoqueData}
       insumosData={insumosData}
       consumoData={consumoData}
+      mrpTerceirosData={mrpTerceirosData}
     />
   );
 }

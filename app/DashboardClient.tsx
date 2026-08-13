@@ -5,10 +5,13 @@ import type estoqueDataType from "../public/dados-estoque.json";
 import type insumosDataType from "../public/dados-insumos.json";
 import type consumoDataType from "../public/dados-consumo-insumos.json";
 import type valoresDataType from "../data/dados-valores-insumos.json";
+import type mrpTerceirosDataType from "../public/dados-mrp-terceiros.json";
 
 type EstoqueData = typeof estoqueDataType;
 type InsumosData = typeof insumosDataType;
 type ConsumoData = typeof consumoDataType;
+type MrpTerceirosData = typeof mrpTerceirosDataType;
+type MrpTerceirosItem = MrpTerceirosData["produtos"][number];
 
 type Status = "Falta crítica" | "Estoque baixo" | "Excesso" | "Nível ideal" | "Sob demanda";
 type SourceProduct = InsumosData["produtos"][number];
@@ -137,6 +140,59 @@ function dailyUseUnificado(source: SourceProduct): number {
   return source.consumoMensal > 0 ? source.consumoMensal / 30 : 0;
 }
 
+/**
+ * Faixas do indice de cobertura (Cobertura Atual / Estoque de Seguranca x 100), reaproveitadas
+ * tanto pelo calculo padrao (calculateVisualStatus) quanto pelo override que usa a Cobertura do
+ * MRP para Terceiros (ver conversa 13/08/2026 - "cobertura desajustada de novo" - status/cor
+ * agora sao recalculados a partir da mesma cobertura que aparece na tela, nunca de outra).
+ */
+function classifyCoverage(
+  coberturaReal: number,
+  seguranca: number,
+  today: Date,
+  firstDelivery: { data: string } | undefined,
+): { status: Status; reason: string } {
+  const indiceCobertura = seguranca > 0 ? (coberturaReal / seguranca) * 100 : null;
+  const dataRuptura = new Date(today.getTime() + coberturaReal * 86400000);
+  const entregaChegaATempo = firstDelivery != null && localDate(firstDelivery.data) <= dataRuptura;
+  const indiceFmt = indiceCobertura == null ? "" : decimal.format(indiceCobertura);
+
+  if (indiceCobertura == null) {
+    return { status: "Nível ideal", reason: "Sem estoque de segurança configurado para este produto." };
+  }
+  if (indiceCobertura < 70) {
+    if (entregaChegaATempo) {
+      return {
+        status: "Estoque baixo",
+        reason: `Índice de cobertura em ${indiceFmt}% da segurança, mas a entrega de ${deliveryDate.format(localDate(firstDelivery!.data))} chega antes da ruptura prevista — sem risco real de falta.`,
+      };
+    }
+    return {
+      status: "Falta crítica",
+      reason: firstDelivery
+        ? `Índice de cobertura em ${indiceFmt}% da segurança; a entrega de ${deliveryDate.format(localDate(firstDelivery.data))} chega depois da ruptura prevista.`
+        : `Índice de cobertura em ${indiceFmt}% da segurança, sem entrega programada.`,
+    };
+  }
+  if (indiceCobertura < 90) {
+    return { status: "Estoque baixo", reason: `Índice de cobertura em ${indiceFmt}% da segurança — abaixo da faixa ideal (90%-130%).` };
+  }
+  if (indiceCobertura <= 250) {
+    return {
+      status: "Nível ideal",
+      reason: indiceCobertura <= 130
+        ? `Índice de cobertura em ${indiceFmt}% da segurança — dentro da faixa ideal.`
+        : `Índice de cobertura em ${indiceFmt}% da segurança — confortável, sem ação necessária.`,
+    };
+  }
+  return {
+    status: "Excesso",
+    reason: firstDelivery
+      ? `Índice de cobertura em ${indiceFmt}% da segurança, com entrega de ${deliveryDate.format(localDate(firstDelivery.data))} ainda programada — excesso crítico, avalie segurar o recebimento.`
+      : `Índice de cobertura em ${indiceFmt}% da segurança, sem novas entregas programadas — o consumo deve normalizar.`,
+  };
+}
+
 function calculateVisualStatus(source: SourceProduct): Product {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -158,44 +214,15 @@ function calculateVisualStatus(source: SourceProduct): Product {
   const excessLimit = maximumStock + minimumLot * 0.2;
   const belowSafetyPercent = projectedAtDelivery == null || safetyStock <= 0 ? null : Math.max(0, ((safetyStock - projectedAtDelivery) / safetyStock) * 100);
 
-  // Índice de Cobertura = Cobertura Atual ÷ Estoque de Segurança (dias) × 100. Faixas com
-  // zona de tolerância (90-130%) evitam alarme falso por variação de 1-2 dias de estoque.
-  const indiceCobertura = source.seguranca > 0 ? (coberturaReal / source.seguranca) * 100 : null;
-  const dataRuptura = dailyUse > 0 ? new Date(today.getTime() + coberturaReal * 86400000) : null;
-  const entregaChegaATempo = firstDelivery != null && dataRuptura != null && localDate(firstDelivery.data) <= dataRuptura;
-  const indiceFmt = indiceCobertura == null ? "" : decimal.format(indiceCobertura);
-
   let status: Status;
   let reason: string;
   if (PRODUTOS_SOB_DEMANDA.has(source.produto)) {
     status = "Sob demanda";
     reason = "Compra sob demanda — só entra pedido quando já existe demanda confirmada do cliente, sem risco real de falta ou excesso.";
-  } else if (indiceCobertura == null) {
-    status = "Nível ideal";
-    reason = "Sem estoque de segurança configurado para este produto.";
-  } else if (indiceCobertura < 70) {
-    if (entregaChegaATempo) {
-      status = "Estoque baixo";
-      reason = `Índice de cobertura em ${indiceFmt}% da segurança, mas a entrega de ${deliveryDate.format(localDate(firstDelivery!.data))} chega antes da ruptura prevista — sem risco real de falta.`;
-    } else {
-      status = "Falta crítica";
-      reason = firstDelivery
-        ? `Índice de cobertura em ${indiceFmt}% da segurança; a entrega de ${deliveryDate.format(localDate(firstDelivery.data))} chega depois da ruptura prevista.`
-        : `Índice de cobertura em ${indiceFmt}% da segurança, sem entrega programada.`;
-    }
-  } else if (indiceCobertura < 90) {
-    status = "Estoque baixo";
-    reason = `Índice de cobertura em ${indiceFmt}% da segurança — abaixo da faixa ideal (90%-130%).`;
-  } else if (indiceCobertura <= 250) {
-    status = "Nível ideal";
-    reason = indiceCobertura <= 130
-      ? `Índice de cobertura em ${indiceFmt}% da segurança — dentro da faixa ideal.`
-      : `Índice de cobertura em ${indiceFmt}% da segurança — confortável, sem ação necessária.`;
   } else {
-    status = "Excesso";
-    reason = firstDelivery
-      ? `Índice de cobertura em ${indiceFmt}% da segurança, com entrega de ${deliveryDate.format(localDate(firstDelivery.data))} ainda programada — excesso crítico, avalie segurar o recebimento.`
-      : `Índice de cobertura em ${indiceFmt}% da segurança, sem novas entregas programadas — o consumo deve normalizar.`;
+    const classified = classifyCoverage(coberturaReal, source.seguranca, today, firstDelivery);
+    status = classified.status;
+    reason = classified.reason;
   }
 
   return {
@@ -219,6 +246,15 @@ const deliveryDate = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "
 const deliveryColumnDate = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "2-digit" });
 const deliveryDateLong = new Intl.DateTimeFormat("pt-BR", { weekday: "short", day: "2-digit", month: "long" });
 const deliveryMonth = new Intl.DateTimeFormat("pt-BR", { month: "short", year: "2-digit" });
+const monthLong = new Intl.DateTimeFormat("pt-BR", { month: "long", year: "numeric" });
+
+function monthsAgoLabel(monthsAgo: number) {
+  const date = new Date();
+  date.setDate(1);
+  date.setMonth(date.getMonth() - monthsAgo);
+  const label = monthLong.format(date);
+  return label.charAt(0).toLocaleUpperCase("pt-BR") + label.slice(1);
+}
 
 function performanceClass(value: number, projected: number) {
   if (projected <= 0) return "nodata";
@@ -793,12 +829,14 @@ export default function DashboardClient({
   estoqueData,
   insumosData,
   consumoData,
+  mrpTerceirosData,
 }: {
   canViewValues: boolean;
   valoresData: ValuesData | null;
   estoqueData: EstoqueData;
   insumosData: InsumosData;
   consumoData: ConsumoData;
+  mrpTerceirosData: MrpTerceirosData;
 }) {
   const [section, setSection] = useState<Section>("terceiros");
   const [query, setQuery] = useState("");
@@ -826,7 +864,31 @@ export default function DashboardClient({
     setOperationalProductSelections((current) => ({ ...current, [operationalSection]: values }));
   }
   const activeData = isInputs || isConsumption || isValues ? insumosData : estoqueData;
-  const allProducts = useMemo(() => (activeData.produtos as SourceProduct[]).map(calculateVisualStatus), [activeData]);
+  const baseProducts = useMemo(() => (activeData.produtos as SourceProduct[]).map(calculateVisualStatus), [activeData]);
+  // Plano de compra/producao por terceiro (Carteira, Plano x Real do mes, cortes) - cruzado
+  // por SKU com a planilha "Projeto MRP compras remodelado", a pedido do usuario em
+  // 12/08/2026. So se aplica em Estoque de terceiros (nao em Embalagens/MP).
+  const mrpBySku = useMemo(
+    () => new Map((mrpTerceirosData.produtos as MrpTerceirosItem[]).map((item) => [item.sku, item])),
+    [mrpTerceirosData],
+  );
+  // Quando o produto tem Cobertura do MRP, o Status/cor precisam ser recalculados a partir
+  // dela — nunca mostrar um numero de cobertura na tela que contradiga o Status classificado
+  // com outra cobertura. Ver conversa 13/08/2026 ("cobertura desajustada de novo").
+  const allProducts = useMemo(() => {
+    if (isInputs) return baseProducts;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return baseProducts.map((product) => {
+      const mrp = mrpBySku.get(product.sku);
+      if (mrp?.cobertura == null || product.status === "Sob demanda") return product;
+      const firstDelivery = product.entregasProgramadas
+        .filter((item) => item.quantidade > 0 && localDate(item.data) >= today)
+        .sort((a, b) => localDate(a.data).getTime() - localDate(b.data).getTime())[0];
+      const { status, reason } = classifyCoverage(mrp.cobertura, product.seguranca, today, firstDelivery);
+      return { ...product, status, motivoStatus: reason, cobertura: mrp.cobertura };
+    });
+  }, [baseProducts, mrpBySku, isInputs]);
   const [mostrarDescontinuados, setMostrarDescontinuados] = useState(false);
   // Itens descontinuados (sem projeção/consumo/entrega, ou marcados manualmente): nunca
   // contam nos indicadores de crítico/excesso nem entram nas abas de status — só aparecem
@@ -974,14 +1036,30 @@ export default function DashboardClient({
     const deliveries = new Map(product.entregasProgramadas.map((item) => [item.data, item.quantidade]));
     const bar = Math.min(100, Math.max(4, (product.cobertura / Math.max(product.seguranca * 1.7, product.cobertura)) * 100));
     const rowKey = `${product.loja}-${product.sku}-${product.produto}`;
+    const mrp = !isInputs ? mrpBySku.get(product.sku) : undefined;
+    const mrpQty = (value: number | null | undefined) => (value == null ? <span className="no-projection">—</span> : <strong className="numeric">{number.format(Math.round(value))}</strong>);
     return <tr key={rowKey} className={highlightedProductKey === rowKey ? "selected-row" : ""} onClick={() => { setHighlightedProductKey(rowKey); setSelected(product); }}>
       <td data-label="Produto / fornecedor"><div className="product-cell"><div><strong>{product.produto}</strong><small>SKU {product.sku} · Fornecedor: {product.fornecedor}</small></div></div></td>
-      <td data-label="Escadinha projetada">{product.escadinha > 0 ? <><strong className="numeric">{decimal.format(product.escadinha)}</strong><small className="unit"> {unitLabel(product.unidade, product.escadinha, true)}</small></> : <span className="no-projection">Sem projeção</span>}</td>
-      <td data-label={isInputs ? "Consumo realizado" : "Faturado realizado"}><strong className="numeric">{decimal.format(product.faturado)}</strong><small className="unit"> {unitLabel(product.unidade, product.faturado, true)}</small></td>
-      <td data-label="Atingimento">{product.escadinha > 0 ? <div className="performance-cell"><div><strong className={performance}>{decimal.format(product.atingimento)}%</strong><small>{product.desvioProjecao >= 0 ? "+" : ""}{decimal.format(product.desvioProjecao)} {unitLabel(product.unidade, product.desvioProjecao, true)}</small></div><div className="sales-track"><span className={performance} style={{ width: `${Math.min(100, product.atingimento)}%` }} /><i /></div></div> : <span className="no-projection">—</span>}</td>
-      <td data-label="Estoque"><strong className="numeric">{number.format(product.estoque)}</strong><small className="unit"> {unitLabel(product.unidade, product.estoque, true)}</small></td>
-      <td data-label="Cobertura">{descontinuado ? <span className="no-projection">—</span> : <div className="coverage"><strong>{number.format(Math.round(product.cobertura))} dias</strong><div><span className={cls} style={{ width: `${bar}%` }} /></div></div>}</td>
-      <td data-label="Segurança"><strong>{product.seguranca} dias</strong><small className="unit"> {number.format(product.estoqueSeguranca)} {unitLabel(product.unidade, product.estoqueSeguranca, true)}</small></td>
+      {isInputs ? (
+        <>
+          <td data-label="Escadinha projetada">{product.escadinha > 0 ? <><strong className="numeric">{decimal.format(product.escadinha)}</strong><small className="unit"> {unitLabel(product.unidade, product.escadinha, true)}</small></> : <span className="no-projection">Sem projeção</span>}</td>
+          <td data-label="Consumo realizado"><strong className="numeric">{decimal.format(product.faturado)}</strong><small className="unit"> {unitLabel(product.unidade, product.faturado, true)}</small></td>
+          <td data-label="Atingimento">{product.escadinha > 0 ? <div className="performance-cell"><div><strong className={performance}>{decimal.format(product.atingimento)}%</strong><small>{product.desvioProjecao >= 0 ? "+" : ""}{decimal.format(product.desvioProjecao)} {unitLabel(product.unidade, product.desvioProjecao, true)}</small></div><div className="sales-track"><span className={performance} style={{ width: `${Math.min(100, product.atingimento)}%` }} /><i /></div></div> : <span className="no-projection">—</span>}</td>
+          <td data-label="Estoque"><strong className="numeric">{number.format(product.estoque)}</strong><small className="unit"> {unitLabel(product.unidade, product.estoque, true)}</small></td>
+          <td data-label="Cobertura">{descontinuado ? <span className="no-projection">—</span> : <div className="coverage"><strong>{number.format(Math.round(product.cobertura))} dias</strong><small className="unit">Segurança: {product.seguranca} dias</small><div><span className={cls} style={{ width: `${bar}%` }} /></div></div>}</td>
+        </>
+      ) : (
+        <>
+          <td data-label="Estoque"><strong className="numeric">{number.format(mrp?.estoqueFilial ?? product.estoque)}</strong><small className="unit"> {unitLabel(product.unidade, product.estoque, true)}</small></td>
+          <td data-label="Carteira">{mrpQty(mrp?.carteira)}</td>
+          <td data-label="Saldo">{mrpQty(mrp?.saldo)}</td>
+          <td data-label="Cobertura">{descontinuado ? <span className="no-projection">—</span> : <div className="coverage"><strong>{number.format(Math.round(product.cobertura))} dias</strong><small className="unit">Segurança: {product.seguranca} dias</small><div><span className={cls} style={{ width: `${bar}%` }} /></div></div>}</td>
+          <td data-label="Escadinha atual">{mrpQty(mrp?.planoMes ?? (product.escadinha > 0 ? product.escadinha : null))}</td>
+          <td data-label="Real M">{mrpQty(mrp?.realMes ?? (product.faturado > 0 ? product.faturado : null))}</td>
+          <td data-label="%Plano">{mrp?.percentualPlano != null ? <strong className="numeric">{decimal.format(mrp.percentualPlano * 100)}%</strong> : product.escadinha > 0 ? <strong className="numeric">{decimal.format(product.atingimento)}%</strong> : <span className="no-projection">—</span>}</td>
+          <td data-label="Corte M">{mrpQty(mrp?.corteMes)}</td>
+        </>
+      )}
       <td data-label="Status" title={descontinuado ? "Sem projeção, consumo recente ou entrega programada — não conta nos indicadores de crítico/excesso." : product.motivoStatus}>{descontinuado ? <span className="no-projection">Sem giro</span> : <span className={`status-pill ${cls}`}><i />{statusLabel(product.status)}</span>}</td>
       {scheduleDates.map((date, index) => {
         const quantity = deliveries.get(date);
@@ -992,6 +1070,10 @@ export default function DashboardClient({
       <td><button className="row-action" aria-label={`Ver detalhes de ${product.produto}`}>›</button></td>
     </tr>;
   }
+
+  const selectedMrp = selected && !isInputs ? mrpBySku.get(selected.sku) : undefined;
+  const selectedMonthlyValues = selectedMrp ? [selectedMrp.realMes1, selectedMrp.realMes2, selectedMrp.realMes3].filter((v): v is number => v != null) : [];
+  const selectedMonthlyAvg = selectedMonthlyValues.length > 0 ? selectedMonthlyValues.reduce((a, b) => a + b, 0) / selectedMonthlyValues.length : selected?.consumoMensal ?? 0;
 
   return (
     <main className="app-shell">
@@ -1091,8 +1173,12 @@ export default function DashboardClient({
               </div>
             </div>
             <div className="table-wrap">
-              <table className="sticky-core-columns" style={{ minWidth: `${1120 + scheduleDates.length * 78}px` }}>
-                <thead><tr><th>Produto / fornecedor</th><th>Escadinha projetada</th><th>{isInputs ? "Consumo realizado" : "Faturado realizado"}</th><th>Atingimento</th><th>Estoque atual</th><th>Cobertura</th><th>Segurança</th><th>Status</th>{scheduleDates.map((date, index) => { const overdue = isPastDelivery(date); return <th className={`delivery-date-heading ${index === 0 ? "delivery-block-start" : ""} ${overdue ? "overdue-delivery" : ""}`} title={overdue ? "Entrega em atraso" : undefined} key={date}><span>{overdue ? "Em atraso" : "Entrega"}</span><strong>{deliveryColumnDate.format(new Date(date))}</strong></th>; })}<th className="delivery-total-heading delivery-block-end"><span>Total</span><strong>Programado</strong></th><th /></tr></thead>
+              <table className={isInputs ? "sticky-core-columns" : "terceiros-groups"} style={{ minWidth: `${(isInputs ? 1120 : 1720) + scheduleDates.length * 78}px` }}>
+                <thead><tr>{isInputs ? <>
+                  <th>Produto / fornecedor</th><th>Escadinha projetada</th><th>Consumo realizado</th><th>Atingimento</th><th>Estoque atual</th><th>Cobertura</th><th>Status</th>
+                </> : <>
+                  <th>Produto / fornecedor</th><th>Estoque atual</th><th>Carteira</th><th>Saldo</th><th>Cobertura</th><th>Escadinha atual</th><th>Real M</th><th>%Plano</th><th>Corte M</th><th>Status</th>
+                </>}{scheduleDates.map((date, index) => { const overdue = isPastDelivery(date); return <th className={`delivery-date-heading ${index === 0 ? "delivery-block-start" : ""} ${overdue ? "overdue-delivery" : ""}`} title={overdue ? "Entrega em atraso" : undefined} key={date}><span>{overdue ? "Em atraso" : "Entrega"}</span><strong>{deliveryColumnDate.format(new Date(date))}</strong></th>; })}<th className="delivery-total-heading delivery-block-end"><span>Total</span><strong>Programado</strong></th><th /></tr></thead>
                 <tbody>
                   {mostrarDescontinuados
                     ? descontinuadosFiltered.map((product) => renderProductRow(product, true))
@@ -1106,7 +1192,7 @@ export default function DashboardClient({
         </div>
       </section>
 
-      {selected && <div className="drawer-backdrop" onClick={() => setSelected(null)}><aside className="drawer" onClick={(e) => e.stopPropagation()}><button className="drawer-close" onClick={() => setSelected(null)}>×</button><p className="eyebrow">DETALHE DO PRODUTO</p><h2>{selected.produto}</h2><p className="drawer-sku">SKU {selected.sku} · {isInputs ? storeLabel(selected.loja) : selected.fornecedor}</p><span className={`status-pill ${statusClass[selected.status as Status]}`}><i />{statusLabel(selected.status)}</span><div className="drawer-performance"><div><small>ATINGIMENTO DA ESCADINHA</small><strong className={performanceClass(selected.atingimento, selected.escadinha)}>{selected.escadinha > 0 ? `${decimal.format(selected.atingimento)}%` : "Sem projeção"}</strong></div><div className="drawer-performance-bar"><span className={performanceClass(selected.atingimento, selected.escadinha)} style={{ width: `${Math.min(100, selected.atingimento)}%` }} /><i /></div><p>{decimal.format(selected.faturado)} {unitLabel(selected.unidade, selected.faturado)} {isInputs ? "consumido" : "faturado"} de {decimal.format(selected.escadinha)} {unitLabel(selected.unidade, selected.escadinha)} projetado · desvio de {selected.desvioProjecao >= 0 ? "+" : ""}{decimal.format(selected.desvioProjecao)} {unitLabel(selected.unidade, selected.desvioProjecao)}</p></div><div className="drawer-metrics"><div><small>Projetado (Escadinha)</small><strong>{decimal.format(selected.escadinha)} {unitLabel(selected.unidade, selected.escadinha)}</strong></div><div><small>{isInputs ? "Consumo realizado" : "Vendido (Faturado)"}</small><strong>{decimal.format(selected.faturado)} {unitLabel(selected.unidade, selected.faturado)}</strong></div><div><small>Estoque atual</small><strong>{number.format(selected.estoque)} {unitLabel(selected.unidade, selected.estoque)}</strong></div><div><small>Cobertura</small><strong>{number.format(Math.round(selected.cobertura))} dias</strong></div><div><small>Estoque de segurança</small><strong>{selected.seguranca} dias</strong></div><div><small>Ponto de pedido</small><strong>{number.format(selected.pontoPedido)} {unitLabel(selected.unidade, selected.pontoPedido)}</strong></div><div><small>Estoque projetado na entrega</small><strong>{selected.estoqueProjetadoEntrega == null ? "Sem entrega futura" : `${number.format(selected.estoqueProjetadoEntrega)} ${unitLabel(selected.unidade, selected.estoqueProjetadoEntrega)}`}</strong></div><div><small>Limite de excesso</small><strong>{number.format(selected.limiteExcesso)} {unitLabel(selected.unidade, selected.limiteExcesso)}</strong></div><div><small>Consumo mensal</small><strong>{number.format(selected.consumoMensal)} {unitLabel(selected.unidade, selected.consumoMensal)}</strong></div></div><section className="delivery-schedule"><div className="schedule-heading"><div><small>AGENDA DE RECEBIMENTO</small><h3>Entregas programadas</h3></div><strong>{number.format(selected.totalProgramado)} {unitLabel(selected.unidade, selected.totalProgramado)}</strong></div>{selected.entregasProgramadas.length > 0 ? <div className="delivery-timeline">{selected.entregasProgramadas.map((item, index) => <div className="delivery-item" key={`${item.data}-${index}`}><span><i /></span><div><strong>{deliveryDateLong.format(new Date(item.data))}</strong><small>{index === 0 ? "Próxima entrega" : `Entrega ${index + 1}`}</small></div><b>{number.format(item.quantidade)} {unitLabel(selected.unidade, item.quantidade)}</b></div>)}</div> : <div className="empty-schedule">Nenhuma entrega programada para este produto.</div>}</section><div className="recommendation"><small>RECOMENDAÇÃO</small><strong>{selected.status === "Falta crítica" ? "Antecipar a primeira entrega do fornecedor" : selected.status === "Estoque baixo" ? "Cobrir o ponto de pedido e acompanhar o recebimento" : selected.status === "Excesso" ? "Suspender ou reagendar entregas futuras" : "Manter operação normal"}</strong><p>{selected.motivoStatus}</p></div><button className="primary-button full" onClick={() => { setNotice(`Ação registrada para o SKU ${selected.sku}.`); setSelected(null); }}>Marcar como analisado</button></aside></div>}
+      {selected && <div className="drawer-backdrop" onClick={() => setSelected(null)}><aside className="drawer" onClick={(e) => e.stopPropagation()}><button className="drawer-close" onClick={() => setSelected(null)}>×</button><p className="eyebrow">DETALHE DO PRODUTO</p><h2>{selected.produto}</h2><p className="drawer-sku">SKU {selected.sku} · {isInputs ? storeLabel(selected.loja) : selected.fornecedor}</p><span className={`status-pill ${statusClass[selected.status as Status]}`}><i />{statusLabel(selected.status)}</span><div className="drawer-performance"><div><small>ATINGIMENTO DA ESCADINHA</small><strong className={performanceClass(selected.atingimento, selected.escadinha)}>{selected.escadinha > 0 ? `${decimal.format(selected.atingimento)}%` : "Sem projeção"}</strong></div><div className="drawer-performance-bar"><span className={performanceClass(selected.atingimento, selected.escadinha)} style={{ width: `${Math.min(100, selected.atingimento)}%` }} /><i /></div><p>{decimal.format(selected.faturado)} {unitLabel(selected.unidade, selected.faturado)} {isInputs ? "consumido" : "faturado"} de {decimal.format(selected.escadinha)} {unitLabel(selected.unidade, selected.escadinha)} projetado · desvio de {selected.desvioProjecao >= 0 ? "+" : ""}{decimal.format(selected.desvioProjecao)} {unitLabel(selected.unidade, selected.desvioProjecao)}</p></div><div className="drawer-metrics"><div><small>Projetado (Escadinha)</small><strong>{decimal.format(selected.escadinha)} {unitLabel(selected.unidade, selected.escadinha)}</strong></div><div><small>{isInputs ? "Consumo realizado" : "Realizado do mês"}</small><strong>{isInputs || selectedMrp?.realMes == null ? `${decimal.format(selected.faturado)} ${unitLabel(selected.unidade, selected.faturado)}` : `${decimal.format(selectedMrp.realMes)} ${unitLabel(selected.unidade, selectedMrp.realMes)}`}</strong></div><div><small>Estoque atual</small><strong>{number.format(selected.estoque)} {unitLabel(selected.unidade, selected.estoque)}</strong></div><div><small>Cobertura</small><strong>{number.format(Math.round(selected.cobertura))} dias</strong></div><div><small>Estoque de segurança</small><strong>{selected.seguranca} dias</strong></div><div><small>Ponto de pedido</small><strong>{number.format(selected.pontoPedido)} {unitLabel(selected.unidade, selected.pontoPedido)}</strong></div><div><small>Estoque projetado na entrega</small><strong>{selected.estoqueProjetadoEntrega == null ? "Sem entrega futura" : `${number.format(selected.estoqueProjetadoEntrega)} ${unitLabel(selected.unidade, selected.estoqueProjetadoEntrega)}`}</strong></div><div><small>Limite de excesso</small><strong>{number.format(selected.limiteExcesso)} {unitLabel(selected.unidade, selected.limiteExcesso)}</strong></div><div><small>{selectedMonthlyValues.length > 0 ? "Consumo mensal (média 3 meses)" : "Consumo mensal"}</small><strong>{number.format(Math.round(selectedMonthlyAvg))} {unitLabel(selected.unidade, selectedMonthlyAvg)}</strong></div></div>{selectedMrp && <section className="drawer-mrp-history"><p className="eyebrow">HISTÓRICO DE COMPRA (MRP)</p><h3>Realizado e corte dos últimos 3 meses</h3><div className="drawer-mrp-months">{[1, 2, 3].map((n) => { const real = n === 1 ? selectedMrp.realMes1 : n === 2 ? selectedMrp.realMes2 : selectedMrp.realMes3; const corte = n === 1 ? selectedMrp.corteMes1 : n === 2 ? selectedMrp.corteMes2 : selectedMrp.corteMes3; return <div className="drawer-mrp-month" key={n}><small>{monthsAgoLabel(n)}</small><div><span>Real</span><strong>{real == null ? "—" : number.format(Math.round(real))}</strong></div><div><span>Corte</span><strong className={corte != null && corte > 0 ? "trend-up" : ""}>{corte == null ? "—" : number.format(Math.round(corte))}</strong></div></div>; })}</div></section>}<section className="delivery-schedule"><div className="schedule-heading"><div><small>AGENDA DE RECEBIMENTO</small><h3>Entregas programadas</h3></div><strong>{number.format(selected.totalProgramado)} {unitLabel(selected.unidade, selected.totalProgramado)}</strong></div>{selected.entregasProgramadas.length > 0 ? <div className="delivery-timeline">{selected.entregasProgramadas.map((item, index) => <div className="delivery-item" key={`${item.data}-${index}`}><span><i /></span><div><strong>{deliveryDateLong.format(new Date(item.data))}</strong><small>{index === 0 ? "Próxima entrega" : `Entrega ${index + 1}`}</small></div><b>{number.format(item.quantidade)} {unitLabel(selected.unidade, item.quantidade)}</b></div>)}</div> : <div className="empty-schedule">Nenhuma entrega programada para este produto.</div>}</section><div className="recommendation"><small>RECOMENDAÇÃO</small><strong>{selected.status === "Falta crítica" ? "Antecipar a primeira entrega do fornecedor" : selected.status === "Estoque baixo" ? "Cobrir o ponto de pedido e acompanhar o recebimento" : selected.status === "Excesso" ? "Suspender ou reagendar entregas futuras" : "Manter operação normal"}</strong><p>{selected.motivoStatus}</p></div><button className="primary-button full" onClick={() => { setNotice(`Ação registrada para o SKU ${selected.sku}.`); setSelected(null); }}>Marcar como analisado</button></aside></div>}
       {notice && <div className="toast"><span>✓</span>{notice}</div>}
     </main>
   );

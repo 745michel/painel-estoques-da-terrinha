@@ -1,7 +1,7 @@
 <#
-Atualiza Terceiros, Embalagens/MP e Consumo de insumos sem intervenção manual.
-Ordem e regra de falha vêm de REGRAS_PAINEL_ESTOQUES.md: qualquer etapa que falhar
-interrompe a rotina imediatamente, sem deixar dados antigos misturados com novos.
+Atualiza Terceiros, Embalagens/MP, Consumo de insumos e o plano MRP de Terceiros sem
+intervenção manual. Ordem e regra de falha vêm de REGRAS_PAINEL_ESTOQUES.md: qualquer etapa
+que falhar interrompe a rotina imediatamente, sem deixar dados antigos misturados com novos.
 
 Fora de escopo aqui, de propósito: Valor dos insumos (fica para a extração via
 Power Automate/DAX) e a publicação do painel (segue manual).
@@ -85,6 +85,24 @@ Invoke-Step "Atualizar planilha de Embalagens/MP (Excel COM)" {
     Write-Log ($result -join " ")
 }
 
+Invoke-Step "Atualizar planilha MRP Terceiros (Excel COM)" {
+    # Plano de compra/producao por terceiro (Carteira, Plano x Real do mes, cortes), cruzado
+    # por SKU com Estoque de terceiros. Ver CLAUDE.md, 13/08/2026.
+    $result = & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $sheetInspect "refresh_workbooks.ps1") -Alvo MrpTerceiros 2>&1
+    if ($LASTEXITCODE -ne 0) { throw "refresh_workbooks.ps1 (MrpTerceiros) saiu com codigo $LASTEXITCODE`: $($result -join ' | ')" }
+    Write-Log ($result -join " ")
+}
+
+Invoke-Step "Gerar dados-mrp-terceiros.json" {
+    Push-Location $sheetInspect
+    try {
+        $result = & $pythonExe "extract_mrp_terceiros.py" 2>&1
+        if ($LASTEXITCODE -ne 0) { throw "extract_mrp_terceiros.py saiu com codigo $LASTEXITCODE`: $result" }
+        Write-Log ($result -join " ")
+    }
+    finally { Pop-Location }
+}
+
 Invoke-Step "Gerar dados-estoque.json e dados-insumos.json (leitura das planilhas)" {
     Push-Location $sheetInspect
     try {
@@ -117,7 +135,8 @@ Invoke-Step "Publicar copia dos JSONs locais no SharePoint (DT-BI)" {
     $arquivos = @(
         (Join-Path $projectRoot "public\dados-estoque.json"),
         (Join-Path $projectRoot "public\dados-insumos.json"),
-        (Join-Path $projectRoot "public\dados-consumo-insumos.json")
+        (Join-Path $projectRoot "public\dados-consumo-insumos.json"),
+        (Join-Path $projectRoot "public\dados-mrp-terceiros.json")
     )
     foreach ($arquivo in $arquivos) {
         Copy-Item -LiteralPath $arquivo -Destination $destino -Force

@@ -4,6 +4,7 @@ import DashboardClient from "../app/DashboardClient";
 import estoqueData from "../public/dados-estoque.json";
 import insumosData from "../public/dados-insumos.json";
 import consumoData from "../public/dados-consumo-insumos.json";
+import mrpTerceirosData from "../public/dados-mrp-terceiros.json";
 import type valoresDataType from "../data/dados-valores-insumos.json";
 
 type ValoresData = typeof valoresDataType;
@@ -62,6 +63,7 @@ function App() {
         estoqueData={estoqueData}
         insumosData={insumosData}
         consumoData={consumoData}
+        mrpTerceirosData={mrpTerceirosData}
       />
       {!desbloqueado && (
         <div
