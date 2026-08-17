@@ -864,31 +864,16 @@ export default function DashboardClient({
     setOperationalProductSelections((current) => ({ ...current, [operationalSection]: values }));
   }
   const activeData = isInputs || isConsumption || isValues ? insumosData : estoqueData;
-  const baseProducts = useMemo(() => (activeData.produtos as SourceProduct[]).map(calculateVisualStatus), [activeData]);
-  // Plano de compra/producao por terceiro (Carteira, Plano x Real do mes, cortes) - cruzado
-  // por SKU com a planilha "Projeto MRP compras remodelado", a pedido do usuario em
-  // 12/08/2026. So se aplica em Estoque de terceiros (nao em Embalagens/MP).
+  const allProducts = useMemo(() => (activeData.produtos as SourceProduct[]).map(calculateVisualStatus), [activeData]);
+  // Escadinha atual (Plano M), Real M, %Plano e Corte M - cruzados por SKU com a planilha
+  // "Projeto MRP compras remodelado", a pedido do usuario em 12/08/2026. Estoque, Carteira,
+  // Saldo e Cobertura NAO vem do MRP (risco de divergencia por filtro instavel da pivot) -
+  // usam os campos nativos de dados-estoque.json (mesma fonte do Status/Cobertura de sempre).
+  // Carteira = Estoque - Saldo. Ver conversa 17/08/2026.
   const mrpBySku = useMemo(
     () => new Map((mrpTerceirosData.produtos as MrpTerceirosItem[]).map((item) => [item.sku, item])),
     [mrpTerceirosData],
   );
-  // Quando o produto tem Cobertura do MRP, o Status/cor precisam ser recalculados a partir
-  // dela — nunca mostrar um numero de cobertura na tela que contradiga o Status classificado
-  // com outra cobertura. Ver conversa 13/08/2026 ("cobertura desajustada de novo").
-  const allProducts = useMemo(() => {
-    if (isInputs) return baseProducts;
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    return baseProducts.map((product) => {
-      const mrp = mrpBySku.get(product.sku);
-      if (mrp?.cobertura == null || product.status === "Sob demanda") return product;
-      const firstDelivery = product.entregasProgramadas
-        .filter((item) => item.quantidade > 0 && localDate(item.data) >= today)
-        .sort((a, b) => localDate(a.data).getTime() - localDate(b.data).getTime())[0];
-      const { status, reason } = classifyCoverage(mrp.cobertura, product.seguranca, today, firstDelivery);
-      return { ...product, status, motivoStatus: reason, cobertura: mrp.cobertura };
-    });
-  }, [baseProducts, mrpBySku, isInputs]);
   const [mostrarDescontinuados, setMostrarDescontinuados] = useState(false);
   // Itens descontinuados (sem projeção/consumo/entrega, ou marcados manualmente): nunca
   // contam nos indicadores de crítico/excesso nem entram nas abas de status — só aparecem
@@ -1050,9 +1035,9 @@ export default function DashboardClient({
         </>
       ) : (
         <>
-          <td data-label="Estoque"><strong className="numeric">{number.format(mrp?.estoqueFilial ?? product.estoque)}</strong><small className="unit"> {unitLabel(product.unidade, product.estoque, true)}</small></td>
-          <td data-label="Carteira">{mrpQty(mrp?.carteira)}</td>
-          <td data-label="Saldo">{mrpQty(mrp?.saldo)}</td>
+          <td data-label="Estoque"><strong className="numeric">{number.format(product.estoque)}</strong><small className="unit"> {unitLabel(product.unidade, product.estoque, true)}</small></td>
+          <td data-label="Carteira">{mrpQty(product.estoque - product.saldo)}</td>
+          <td data-label="Saldo">{mrpQty(product.saldo)}</td>
           <td data-label="Cobertura">{descontinuado ? <span className="no-projection">—</span> : <div className="coverage"><strong>{number.format(Math.round(product.cobertura))} dias</strong><small className="unit">Segurança: {product.seguranca} dias</small><div><span className={cls} style={{ width: `${bar}%` }} /></div></div>}</td>
           <td data-label="Escadinha atual">{mrpQty(mrp?.planoMes ?? (product.escadinha > 0 ? product.escadinha : null))}</td>
           <td data-label="Real M">{mrpQty(mrp?.realMes ?? (product.faturado > 0 ? product.faturado : null))}</td>
