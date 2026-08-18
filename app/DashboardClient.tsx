@@ -893,18 +893,32 @@ function EscadinhaDashboard({
 }) {
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
+  const [selectedProdutos, setSelectedProdutos] = useState<string[]>([]);
   const [selected, setSelected] = useState<EscadinhaProduto | null>(null);
+  const [semestre, setSemestre] = useState<1 | 2>(new Date().getMonth() < 6 ? 1 : 2);
 
   const produtos = escadinhaData.produtos as EscadinhaProduto[];
   const desvios = escadinhaData.desvios as EscadinhaDesvio[];
   const hasComparacao = escadinhaData.dataPublicacaoAnterior != null;
-  const mesAtual = MESES_ESCADINHA[new Date().getMonth()];
+  const mesAtualIndex = new Date().getMonth();
+  const mesAtual = MESES_ESCADINHA[mesAtualIndex];
+  // Grade com os 12 meses ficava muito larga/poluida (pedido do usuario em 18/08/2026) -
+  // mostra so o semestre selecionado; "Total anual" continua somando o ano inteiro.
+  const mesesSemestre = semestre === 1 ? MESES_ESCADINHA.slice(0, 6) : MESES_ESCADINHA.slice(6, 12);
+  const indiceMesesSemestre = semestre === 1 ? [0, 1, 2, 3, 4, 5] : [6, 7, 8, 9, 10, 11];
 
   const categoryOptions = useMemo(
     () => Array.from(new Set(produtos.map((p) => p.categoria).filter((c): c is string => Boolean(c))))
       .sort((a, b) => a.localeCompare(b, "pt-BR"))
       .map((c) => ({ value: c, label: c })),
     [produtos],
+  );
+  const productOptions = useMemo(
+    () => produtos
+      .filter((p) => categories.length === 0 || (p.categoria != null && categories.includes(p.categoria)))
+      .map((p) => ({ value: p.produto, label: p.produto }))
+      .sort((a, b) => a.label.localeCompare(b.label, "pt-BR")),
+    [produtos, categories],
   );
 
   const filtered = useMemo(() => {
@@ -913,6 +927,7 @@ function EscadinhaDashboard({
       .filter((p) => (
         (!search || p.produto.toLocaleLowerCase("pt-BR").includes(search) || (p.cod != null && String(p.cod).includes(search)) || (p.marca ?? "").toLocaleLowerCase("pt-BR").includes(search))
         && (categories.length === 0 || (p.categoria != null && categories.includes(p.categoria)))
+        && (selectedProdutos.length === 0 || selectedProdutos.includes(p.produto))
       ))
       .sort((a, b) => {
         if (hasComparacao) {
@@ -922,7 +937,7 @@ function EscadinhaDashboard({
         }
         return a.produto.localeCompare(b.produto, "pt-BR");
       });
-  }, [produtos, query, categories, hasComparacao]);
+  }, [produtos, query, categories, selectedProdutos, hasComparacao]);
 
   function planoAnual(produto: EscadinhaProduto) {
     return (produto.plano ?? []).reduce((sum, value) => sum + (value ?? 0), 0);
@@ -971,28 +986,33 @@ function EscadinhaDashboard({
         </section>
 
         <section className="inventory-panel consumption-panel">
-          <div className="panel-heading"><div><p className="eyebrow">PLANO MÊS A MÊS</p><h2>Escadinha de {new Date(escadinhaData.dataPublicacao).getUTCFullYear()}</h2><p>{hasComparacao ? "Ordenado do maior para o menor desvio total no ano; células destacadas mudaram desde a revisão anterior." : "Ordenado por produto — os meses que mudarem aparecem destacados a partir da próxima revisão."}</p></div></div>
+          <div className="panel-heading"><div><p className="eyebrow">PLANO MÊS A MÊS</p><h2>Escadinha de {new Date(escadinhaData.dataPublicacao).getUTCFullYear()}</h2><p>{hasComparacao ? "Ordenado do maior para o menor desvio total no ano; células destacadas mudaram desde a revisão anterior." : "Ordenado por produto — os meses que mudarem aparecem destacados a partir da próxima revisão."}</p></div><div className="unit-switch"><button className={semestre === 1 ? "active" : ""} onClick={() => setSemestre(1)}>1º semestre</button><button className={semestre === 2 ? "active" : ""} onClick={() => setSemestre(2)}>2º semestre</button></div></div>
           <div className="filters value-filters"><div className="selects">
-            <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={setCategories} />
-            {categories.length > 0 && <button className="clear-value-filters" onClick={() => setCategories([])}>Limpar filtros</button>}
+            <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={(values) => { setCategories(values); setSelectedProdutos([]); }} />
+            <MultiFilter label="Produto" options={productOptions} selected={selectedProdutos} onChange={setSelectedProdutos} />
+            {(categories.length > 0 || selectedProdutos.length > 0) && <button className="clear-value-filters" onClick={() => { setCategories([]); setSelectedProdutos([]); }}>Limpar filtros</button>}
           </div></div>
           <div className="table-wrap consumption-table-wrap"><table className="consumption-table escadinha-grid"><thead><tr>
             <th>Produto / marca</th><th>Categoria</th>
-            {MESES_ESCADINHA.map((mes) => <th key={mes} className={mes === mesAtual ? "escadinha-mes-atual" : ""}>{MESES_ESCADINHA_LABEL[mes]}</th>)}
+            {mesesSemestre.map((mes) => <th key={mes} className={mes === mesAtual ? "escadinha-mes-atual" : ""}>{MESES_ESCADINHA_LABEL[mes]}</th>)}
             <th>Total anual</th>
           </tr></thead><tbody>
             {filtered.map((produto) => {
               return <tr key={produto.produto} className={selected?.produto === produto.produto ? "selected-row" : ""} onClick={() => setSelected(produto)}>
                 <td><div className="product-cell"><div><strong title={produto.produto}>{produto.produto}</strong><small>Cód. {produto.cod ?? "—"} · {produto.marca ?? "Sem marca"}</small></div></div></td>
                 <td>{produto.categoria ?? "—"}</td>
-                {MESES_ESCADINHA.map((mes, index) => {
+                {indiceMesesSemestre.map((index) => {
+                  const mes = MESES_ESCADINHA[index];
                   const atual = produto.plano ? produto.plano[index] ?? 0 : null;
                   const anterior = produto.planoAnterior ? produto.planoAnterior[index] ?? 0 : null;
                   const mudou = hasComparacao && anterior != null && atual != null && anterior !== atual;
                   const diferenca = mudou ? (atual as number) - (anterior as number) : 0;
+                  const percentual = mudou && anterior ? (diferenca / anterior) * 100 : null;
+                  const real = produto.real && index <= mesAtualIndex ? produto.real[index] : null;
                   return <td key={mes} className={`${mes === mesAtual ? "escadinha-mes-atual" : ""} ${mudou ? (diferenca > 0 ? "escadinha-delta-up" : "escadinha-delta-down") : ""}`}>
                     {atual != null ? <strong className="numeric">{number.format(atual)}</strong> : <span className="no-projection">—</span>}
-                    {mudou && <small className="unit">{diferenca > 0 ? "+" : ""}{number.format(diferenca)}</small>}
+                    {mudou && <small className="unit">{diferenca > 0 ? "+" : ""}{number.format(diferenca)}{percentual != null && ` (${percentual > 0 ? "+" : ""}${decimal.format(percentual)}%)`}</small>}
+                    {real != null && <small className="escadinha-real">Real: {number.format(real)}</small>}
                   </td>;
                 })}
                 <td><strong className="numeric">{number.format(planoAnual(produto))}</strong><small className="unit"> {unitLabelEscadinha(produto)}</small></td>
@@ -1004,7 +1024,7 @@ function EscadinhaDashboard({
       </div>
     </section>
 
-    {selected && <div className="drawer-overlay" onClick={() => setSelected(null)}>
+    {selected && <div className="drawer-backdrop" onClick={() => setSelected(null)}>
       <div className="drawer" onClick={(event) => event.stopPropagation()}>
         <button className="drawer-close" onClick={() => setSelected(null)}>×</button>
         <h2>{selected.produto}</h2>
@@ -1018,10 +1038,12 @@ function EscadinhaDashboard({
                 const atual = selected.plano?.[index] ?? 0;
                 const anterior = selected.planoAnterior?.[index] ?? 0;
                 const mudou = hasComparacao && atual !== anterior;
+                const diferenca = atual - anterior;
+                const percentual = mudou && anterior ? (diferenca / anterior) * 100 : null;
                 return <tr key={mes} className={mudou ? "selected-row" : ""}>
                   <td>{MESES_ESCADINHA_LABEL[mes]}</td>
                   {hasComparacao && <td>{number.format(anterior)}</td>}
-                  <td><strong className={`numeric ${mudou ? (atual > anterior ? "escadinha-delta-up" : "escadinha-delta-down") : ""}`}>{number.format(atual)}</strong>{mudou && <small className="unit">{atual > anterior ? "+" : ""}{number.format(atual - anterior)}</small>}</td>
+                  <td><strong className={`numeric ${mudou ? (diferenca > 0 ? "escadinha-delta-up" : "escadinha-delta-down") : ""}`}>{number.format(atual)}</strong>{mudou && <small className="unit">{diferenca > 0 ? "+" : ""}{number.format(diferenca)}{percentual != null && ` (${percentual > 0 ? "+" : ""}${decimal.format(percentual)}%)`}</small>}</td>
                   <td><strong className="numeric">{number.format(selected.real?.[index] ?? 0)}</strong></td>
                   <td>{selected.cobertura?.[index] != null ? `${decimal.format((selected.cobertura[index] ?? 0) * 100)}%` : "—"}</td>
                 </tr>;
