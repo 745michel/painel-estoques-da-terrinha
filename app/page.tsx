@@ -6,6 +6,7 @@ import insumosDataStatic from "../public/dados-insumos.json";
 import consumoDataStatic from "../public/dados-consumo-insumos.json";
 import valoresDataStatic from "../data/dados-valores-insumos.json";
 import mrpTerceirosDataStatic from "../public/dados-mrp-terceiros.json";
+import escadinhaDataStatic from "../public/dados-escadinha.json";
 import { fetchSharePointJson, fetchAccessList, isConfigured, type AccessEntry } from "./lib/sharepoint";
 import { buildValorInsumos, type ValorInsumosRow } from "./lib/valor-insumos";
 
@@ -16,6 +17,7 @@ type InsumosData = typeof insumosDataStatic;
 type ConsumoData = typeof consumoDataStatic;
 type ValoresData = typeof valoresDataStatic;
 type MrpTerceirosData = typeof mrpTerceirosDataStatic;
+type EscadinhaData = typeof escadinhaDataStatic;
 
 /**
  * Cada loadX tenta o SharePoint (dados atualizados 2x/dia pela automacao local +
@@ -68,6 +70,20 @@ async function loadMrpTerceirosData(): Promise<MrpTerceirosData> {
   } catch (error) {
     console.error("Falha ao buscar dados-mrp-terceiros.json do SharePoint, usando snapshot do build:", error);
     return mrpTerceirosDataStatic;
+  }
+}
+
+async function loadEscadinhaData(): Promise<EscadinhaData> {
+  // Plano mestre de compras de todos os produtos (upload manual mensal, fora da subpasta de
+  // extracao automatica). O arquivo de origem so guarda a revisao mais recente do plano - o
+  // desvio mes a mes vem do historico proprio em escadinha/, calculado no extract_escadinha.py
+  // local e publicado neste JSON. Ver CLAUDE.md, 18/08/2026.
+  if (!isConfigured()) return escadinhaDataStatic;
+  try {
+    return await fetchSharePointJson<EscadinhaData>("dados-escadinha.json");
+  } catch (error) {
+    console.error("Falha ao buscar dados-escadinha.json do SharePoint, usando snapshot do build:", error);
+    return escadinhaDataStatic;
   }
 }
 
@@ -148,11 +164,12 @@ export default async function Home() {
     return <AcessoNaoAutorizado email={email!} />;
   }
 
-  const [estoqueData, insumosData, consumoData, mrpTerceirosData] = await Promise.all([
+  const [estoqueData, insumosData, consumoData, mrpTerceirosData, escadinhaData] = await Promise.all([
     loadEstoqueData(),
     loadInsumosData(),
     loadConsumoData(),
     loadMrpTerceirosData(),
+    loadEscadinhaData(),
   ]);
   const valoresData = canViewValues ? await loadValoresData(insumosData) : null;
 
@@ -164,6 +181,7 @@ export default async function Home() {
       insumosData={insumosData}
       consumoData={consumoData}
       mrpTerceirosData={mrpTerceirosData}
+      escadinhaData={escadinhaData}
     />
   );
 }

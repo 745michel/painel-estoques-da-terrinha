@@ -12,6 +12,38 @@ type InsumosData = typeof insumosDataType;
 type ConsumoData = typeof consumoDataType;
 type MrpTerceirosData = typeof mrpTerceirosDataType;
 type MrpTerceirosItem = MrpTerceirosData["produtos"][number];
+// Tipo declarado a mao (nao inferido do JSON via "typeof ... import") porque "desvios" comeca
+// vazio (so tem conteudo a partir da 2a revisao mensal do plano) - um array vazio no JSON faria
+// o TypeScript inferir "never[]" e quebrar todo acesso a propriedade de EscadinhaDesvio.
+type EscadinhaProduto = {
+  cod: number | null;
+  produto: string;
+  origem: string | null;
+  marca: string | null;
+  categoria: string | null;
+  unidade: string | null;
+  plano?: number[];
+  real?: number[];
+  cobertura?: number[];
+};
+type EscadinhaDesvio = {
+  cod: number | null;
+  produto: string;
+  marca: string | null;
+  categoria: string | null;
+  unidade: string | null;
+  mes: string;
+  planoAnterior: number;
+  planoAtual: number;
+  desvio: number;
+  desvioPercentual: number | null;
+};
+type EscadinhaData = {
+  dataPublicacao: string;
+  dataPublicacaoAnterior: string | null;
+  produtos: EscadinhaProduto[];
+  desvios: EscadinhaDesvio[];
+};
 
 type Status = "Falta crítica" | "Estoque baixo" | "Excesso" | "Nível ideal" | "Sob demanda";
 type SourceProduct = InsumosData["produtos"][number];
@@ -25,7 +57,7 @@ type Product = SourceProduct & {
   limiteExcesso: number;
   percentualAbaixoSeguranca: number | null;
 };
-type Section = "terceiros" | "insumos" | "consumo" | "valores";
+type Section = "terceiros" | "insumos" | "consumo" | "valores" | "escadinha";
 type ValuesData = typeof valoresDataType;
 type ConsumptionItem = ConsumoData["produtos"][number];
 
@@ -267,6 +299,10 @@ const deliveryColumnDate = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", mo
 const deliveryDateLong = new Intl.DateTimeFormat("pt-BR", { weekday: "short", day: "2-digit", month: "long" });
 const deliveryMonth = new Intl.DateTimeFormat("pt-BR", { month: "short", year: "2-digit" });
 const monthLong = new Intl.DateTimeFormat("pt-BR", { month: "long", year: "numeric" });
+const fullDate = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" });
+
+const MESES_ESCADINHA = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+const MESES_ESCADINHA_LABEL: Record<string, string> = { jan: "Jan", fev: "Fev", mar: "Mar", abr: "Abr", mai: "Mai", jun: "Jun", jul: "Jul", ago: "Ago", set: "Set", out: "Out", nov: "Nov", dez: "Dez" };
 
 function monthsAgoLabel(monthsAgo: number) {
   const date = new Date();
@@ -526,6 +562,7 @@ function ValuesDashboard({
         <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
         <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
         <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         <button className="nav-item active" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
@@ -781,6 +818,7 @@ function ConsumptionDashboard({
         <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
         <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
         <button className="nav-item active" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
@@ -843,6 +881,159 @@ function ConsumptionDashboard({
   </main>;
 }
 
+function EscadinhaDashboard({
+  onSectionChange,
+  canViewValues,
+  escadinhaData,
+}: {
+  onSectionChange: (section: Section) => void;
+  canViewValues: boolean;
+  escadinhaData: EscadinhaData;
+}) {
+  const [query, setQuery] = useState("");
+  const [categories, setCategories] = useState<string[]>([]);
+  const [selected, setSelected] = useState<EscadinhaProduto | null>(null);
+
+  const produtos = escadinhaData.produtos as EscadinhaProduto[];
+  const desvios = escadinhaData.desvios as EscadinhaDesvio[];
+  const desviosByProduto = useMemo(() => new Map(desvios.map((item) => [item.produto, item])), [desvios]);
+  const hasComparacao = escadinhaData.dataPublicacaoAnterior != null;
+  const mesAtual = MESES_ESCADINHA[new Date().getMonth()];
+
+  const categoryOptions = useMemo(
+    () => Array.from(new Set(produtos.map((p) => p.categoria).filter((c): c is string => Boolean(c))))
+      .sort((a, b) => a.localeCompare(b, "pt-BR"))
+      .map((c) => ({ value: c, label: c })),
+    [produtos],
+  );
+
+  const filtered = useMemo(() => {
+    const search = query.trim().toLocaleLowerCase("pt-BR");
+    return produtos
+      .filter((p) => (
+        (!search || p.produto.toLocaleLowerCase("pt-BR").includes(search) || (p.cod != null && String(p.cod).includes(search)) || (p.marca ?? "").toLocaleLowerCase("pt-BR").includes(search))
+        && (categories.length === 0 || (p.categoria != null && categories.includes(p.categoria)))
+      ))
+      .sort((a, b) => {
+        if (hasComparacao) {
+          const desvioA = Math.abs(desviosByProduto.get(a.produto)?.desvio ?? 0);
+          const desvioB = Math.abs(desviosByProduto.get(b.produto)?.desvio ?? 0);
+          if (desvioA !== desvioB) return desvioB - desvioA;
+        }
+        return a.produto.localeCompare(b.produto, "pt-BR");
+      });
+  }, [produtos, query, categories, hasComparacao, desviosByProduto]);
+
+  function planoAnual(produto: EscadinhaProduto) {
+    return (produto.plano ?? []).reduce((sum, value) => sum + (value ?? 0), 0);
+  }
+  function unitLabelEscadinha(produto: Pick<EscadinhaProduto, "unidade">) {
+    return produto.unidade === "FD" ? "fardos" : "cx";
+  }
+
+  return <main className="app-shell">
+    <aside className="sidebar">
+      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
+      <nav aria-label="Navegação principal">
+        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
+        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
+        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
+        <button className="nav-item active" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
+      </nav>
+      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Revisão do plano</strong><small>{fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></div></div>
+      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
+    </aside>
+    <section className="workspace">
+      <header className="topbar">
+        <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Escadinha Geral</strong></div>
+        <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar produto, código ou marca..." /><kbd>Ctrl K</kbd></label>
+      </header>
+      <div className="content consumption-content">
+        <div className="page-heading"><div><p className="eyebrow">PLANO MESTRE DE COMPRAS</p><h1>Escadinha geral de produção</h1><p>Plano mês a mês de todos os produtos, atualizado a cada revisão mensal do plano mestre.</p></div><div className="source-button static-source"><span>↻</span><div><small>Fonte atual</small><strong>escadinha_compras.xlsx · upload mensal</strong></div></div></div>
+
+        {!hasComparacao && <div className="empty-state" style={{ marginBottom: 24 }}>
+          <strong>Primeira captura registrada em {fullDate.format(localDate(escadinhaData.dataPublicacao))}</strong>
+          <p>Ainda não existe uma revisão anterior pra comparar. A partir da próxima vez que você subir uma versão nova de escadinha_compras.xlsx (com uma &quot;Data publicação&quot; diferente), esta tela passa a mostrar o desvio mês a mês de cada produto.</p>
+        </div>}
+
+        <section className="consumption-summary">
+          <div><span>Produtos no plano</span><strong>{number.format(produtos.length)}</strong><small>Revisão de {fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></div>
+          {hasComparacao ? <>
+            <div><span>Produtos com desvio</span><strong>{number.format(desvios.length)}</strong><small>Comparado à revisão de {fullDate.format(localDate(escadinhaData.dataPublicacaoAnterior as string))}</small></div>
+            <div><span>Maior desvio absoluto</span><strong>{desvios[0] ? number.format(Math.abs(desvios[0].desvio)) : "—"}</strong><small>{desvios[0] ? `${desvios[0].produto} · ${MESES_ESCADINHA_LABEL[desvios[0].mes]}` : "Sem desvios"}</small></div>
+          </> : <div><span>Comparação com revisão anterior</span><strong>—</strong><small>Disponível a partir da próxima revisão mensal</small></div>}
+          <div className="partial"><span>Categorias no plano</span><strong>{categoryOptions.length}</strong><small>Filtre por categoria abaixo</small></div>
+        </section>
+
+        <section className="inventory-panel consumption-panel">
+          <div className="panel-heading"><div><p className="eyebrow">{hasComparacao ? "MAIORES DESVIOS" : "PLANO ATUAL"}</p><h2>{hasComparacao ? "Produtos que mais mudaram de plano" : "Plano mês a mês"}</h2><p>{hasComparacao ? "Ordenado do maior para o menor desvio absoluto entre a revisão atual e a anterior." : "Ordenado por produto — o desvio aparece a partir da próxima revisão."}</p></div></div>
+          <div className="filters value-filters"><div className="selects">
+            <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={setCategories} />
+            {categories.length > 0 && <button className="clear-value-filters" onClick={() => setCategories([])}>Limpar filtros</button>}
+          </div></div>
+          <div className="table-wrap consumption-table-wrap"><table className="consumption-table buyer-action-table"><thead><tr>
+            <th>Produto / marca</th><th>Categoria</th><th>Plano de {MESES_ESCADINHA_LABEL[mesAtual]}</th><th>Plano anual</th><th>{hasComparacao ? "Mês do maior desvio" : "Real do ano"}</th><th>{hasComparacao ? "Desvio" : ""}</th>
+          </tr></thead><tbody>
+            {filtered.map((produto) => {
+              const desvio = desviosByProduto.get(produto.produto);
+              const mesIndex = MESES_ESCADINHA.indexOf(mesAtual);
+              const planoMesAtual = produto.plano ? produto.plano[mesIndex] ?? 0 : null;
+              const realAnual = (produto.real ?? []).reduce((sum, value) => sum + (value ?? 0), 0);
+              return <tr key={produto.produto} className={selected?.produto === produto.produto ? "selected-row" : ""} onClick={() => setSelected(produto)}>
+                <td><div className="product-cell"><div><strong title={produto.produto}>{produto.produto}</strong><small>Cód. {produto.cod ?? "—"} · {produto.marca ?? "Sem marca"}</small></div></div></td>
+                <td>{produto.categoria ?? "—"}</td>
+                <td>{planoMesAtual != null ? <><strong className="numeric">{number.format(planoMesAtual)}</strong><small className="unit"> {unitLabelEscadinha(produto)}</small></> : <span className="no-projection">Sem plano</span>}</td>
+                <td><strong className="numeric">{number.format(planoAnual(produto))}</strong><small className="unit"> {unitLabelEscadinha(produto)}</small></td>
+                {hasComparacao ? (
+                  <td>{desvio ? MESES_ESCADINHA_LABEL[desvio.mes] : <span className="no-projection">Sem mudança</span>}</td>
+                ) : (
+                  <td><strong className="numeric">{number.format(realAnual)}</strong><small className="unit"> {unitLabelEscadinha(produto)}</small></td>
+                )}
+                {hasComparacao ? (
+                  <td>{desvio ? <><strong className={desvio.desvio > 0 ? "trend-up" : "trend-down"}>{desvio.desvio > 0 ? "+" : ""}{number.format(desvio.desvio)}</strong>{desvio.desvioPercentual != null && <small className="unit"> ({desvio.desvioPercentual > 0 ? "+" : ""}{decimal.format(desvio.desvioPercentual)}%)</small>}</> : <span className="no-projection">—</span>}</td>
+                ) : (
+                  <td />
+                )}
+              </tr>;
+            })}
+          </tbody></table>{filtered.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
+        </section>
+        <footer>Fonte: escadinha_compras.xlsx (upload mensal) · Desvio = plano atual − plano da revisão anterior, no mês onde a diferença foi maior.</footer>
+      </div>
+    </section>
+
+    {selected && <div className="drawer-overlay" onClick={() => setSelected(null)}>
+      <div className="drawer" onClick={(event) => event.stopPropagation()}>
+        <button className="drawer-close" onClick={() => setSelected(null)}>×</button>
+        <h2>{selected.produto}</h2>
+        <p className="drawer-sku">Cód. {selected.cod ?? "—"} · {selected.marca ?? "Sem marca"} · {selected.categoria ?? "Sem categoria"}</p>
+        {(() => {
+          const desvioSelecionado = desviosByProduto.get(selected.produto);
+          if (!desvioSelecionado) return null;
+          return <div className="value-source-note"><small>MAIOR MUDANÇA VS. REVISÃO ANTERIOR</small><strong>{MESES_ESCADINHA_LABEL[desvioSelecionado.mes]}: {number.format(desvioSelecionado.planoAnterior)} → {number.format(desvioSelecionado.planoAtual)}</strong><p>Desvio de {desvioSelecionado.desvio > 0 ? "+" : ""}{number.format(desvioSelecionado.desvio)} {desvioSelecionado.desvioPercentual != null && `(${desvioSelecionado.desvioPercentual > 0 ? "+" : ""}${decimal.format(desvioSelecionado.desvioPercentual)}%)`}</p></div>;
+        })()}
+        <div className="table-wrap">
+          <table className="consumption-table">
+            <thead><tr><th>Mês</th><th>Plano atual</th><th>Real</th><th>Cobertura</th></tr></thead>
+            <tbody>
+              {MESES_ESCADINHA.map((mes, index) => {
+                const desvioMes = hasComparacao && desviosByProduto.get(selected.produto)?.mes === mes;
+                return <tr key={mes} className={desvioMes ? "selected-row" : ""}>
+                  <td>{MESES_ESCADINHA_LABEL[mes]}</td>
+                  <td><strong className="numeric">{number.format(selected.plano?.[index] ?? 0)}</strong></td>
+                  <td><strong className="numeric">{number.format(selected.real?.[index] ?? 0)}</strong></td>
+                  <td>{selected.cobertura?.[index] != null ? `${decimal.format((selected.cobertura[index] ?? 0) * 100)}%` : "—"}</td>
+                </tr>;
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>}
+  </main>;
+}
+
 export default function DashboardClient({
   canViewValues,
   valoresData,
@@ -850,6 +1041,7 @@ export default function DashboardClient({
   insumosData,
   consumoData,
   mrpTerceirosData,
+  escadinhaData,
 }: {
   canViewValues: boolean;
   valoresData: ValuesData | null;
@@ -857,6 +1049,7 @@ export default function DashboardClient({
   insumosData: InsumosData;
   consumoData: ConsumoData;
   mrpTerceirosData: MrpTerceirosData;
+  escadinhaData: EscadinhaData;
 }) {
   const [section, setSection] = useState<Section>("terceiros");
   const [query, setQuery] = useState("");
@@ -878,6 +1071,7 @@ export default function DashboardClient({
   const isInputs = section === "insumos";
   const isConsumption = section === "consumo";
   const isValues = section === "valores";
+  const isEscadinha = section === "escadinha";
   const operationalSection = isInputs ? "insumos" : "terceiros";
   const selectedProducts = operationalProductSelections[operationalSection];
   function setSelectedProducts(values: string[]) {
@@ -1034,6 +1228,7 @@ export default function DashboardClient({
 
   if (isValues && valoresData) return <ValuesDashboard onSectionChange={changeSection} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} />;
   if (isConsumption) return <ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} />;
+  if (isEscadinha) return <EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} />;
 
   function renderProductRow(product: Product, descontinuado: boolean) {
     const cls = statusClass[product.status as Status];
@@ -1091,6 +1286,7 @@ export default function DashboardClient({
           <button className={`nav-item ${section === "terceiros" ? "active" : ""}`} onClick={() => changeSection("terceiros")}><span>▦</span> Estoque de terceiros</button>
           <button className={`nav-item ${section === "insumos" ? "active" : ""}`} onClick={() => changeSection("insumos")}><span>▤</span> Embalagens e MP</button>
           <button className={`nav-item ${section === "consumo" ? "active" : ""}`} onClick={() => changeSection("consumo")}><span>◫</span> Consumo de insumos</button>
+          <button className={`nav-item ${section === "escadinha" ? "active" : ""}`} onClick={() => changeSection("escadinha")}><span>▧</span> Escadinha geral</button>
           {canViewValues && <button className={`nav-item ${section === "valores" ? "active" : ""}`} onClick={() => changeSection("valores")}><span>R$</span> Valor dos insumos</button>}
         </nav>
         <div className="sidebar-note">

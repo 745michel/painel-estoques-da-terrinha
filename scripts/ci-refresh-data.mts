@@ -1,6 +1,7 @@
 // Roda dentro do GitHub Actions (secrets protegidos la, nunca expostos ao navegador).
-// Busca os 4 datasets do SharePoint e grava:
-//   - public/dados-estoque.json, dados-insumos.json, dados-consumo-insumos.json
+// Busca os datasets do SharePoint e grava:
+//   - public/dados-estoque.json, dados-insumos.json, dados-consumo-insumos.json,
+//     dados-mrp-terceiros.json, dados-escadinha.json
 //     (operacional - embutido no bundle estatico pelo build-github-pages.mjs)
 //   - work/valor-financeiro-ci.json (financeiro - fica FORA do bundle, copiado como
 //     arquivo separado por build-github-pages.mjs, so buscado depois da senha no navegador)
@@ -17,6 +18,7 @@ const estoqueData = await fetchSharePointJson("dados-estoque.json");
 const insumosData = await fetchSharePointJson<{ produtos: unknown[] }>("dados-insumos.json");
 const consumoData = await fetchSharePointJson("dados-consumo-insumos.json");
 const mrpTerceirosData = await fetchSharePointJson("dados-mrp-terceiros.json");
+const escadinhaData = await fetchSharePointJson("dados-escadinha.json");
 
 // O fluxo do Power Automate que gera valor_insumos.json roda no horario dele, independente
 // deste workflow (que dispara a cada 30 min). Se o cron cair no meio da janela em que o
@@ -62,6 +64,7 @@ await fs.writeFile(path.join(root, "public", "dados-estoque.json"), JSON.stringi
 await fs.writeFile(path.join(root, "public", "dados-insumos.json"), JSON.stringify(insumosData, null, 2), "utf8");
 await fs.writeFile(path.join(root, "public", "dados-consumo-insumos.json"), JSON.stringify(consumoData, null, 2), "utf8");
 await fs.writeFile(path.join(root, "public", "dados-mrp-terceiros.json"), JSON.stringify(mrpTerceirosData, null, 2), "utf8");
+await fs.writeFile(path.join(root, "public", "dados-escadinha.json"), JSON.stringify(escadinhaData, null, 2), "utf8");
 await fs.writeFile(path.join(root, "work", "valor-financeiro-ci.json"), JSON.stringify(valoresData, null, 2), "utf8");
 
 console.log(JSON.stringify({
@@ -69,5 +72,6 @@ console.log(JSON.stringify({
   insumosProdutos: insumosData.produtos.length,
   consumoProdutos: (consumoData as { produtos: unknown[] }).produtos.length,
   mrpTerceirosProdutos: (mrpTerceirosData as { produtos: unknown[] }).produtos.length,
+  escadinhaProdutos: (escadinhaData as { produtos: unknown[] }).produtos.length,
   valoresItens: valoresData.resumo.itens,
 }));
