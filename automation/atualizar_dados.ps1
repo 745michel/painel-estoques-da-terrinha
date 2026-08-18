@@ -1,11 +1,14 @@
 <#
-Atualiza Terceiros, Embalagens/MP, Consumo de insumos, o plano MRP de Terceiros e a escadinha
-geral de compras sem intervenção manual. Ordem e regra de falha vêm de
-REGRAS_PAINEL_ESTOQUES.md: qualquer etapa que falhar interrompe a rotina imediatamente, sem
-deixar dados antigos misturados com novos.
+Atualiza Terceiros, Embalagens/MP, Consumo de insumos e o plano MRP de Terceiros sem
+intervenção manual. Ordem e regra de falha vêm de REGRAS_PAINEL_ESTOQUES.md: qualquer etapa
+que falhar interrompe a rotina imediatamente, sem deixar dados antigos misturados com novos.
 
-Fora de escopo aqui, de propósito: Valor dos insumos (fica para a extração via
-Power Automate/DAX) e a publicação do painel (segue manual).
+Fora de escopo aqui, de propósito:
+- Escadinha geral de compras - upload manual mensal, não precisa rodar 3x/dia como o resto;
+  tem tarefa agendada própria (AtualizarEscadinha, uma vez por dia às 08:00) chamando
+  atualizar_escadinha.ps1. Ver CLAUDE.md, 18/08/2026.
+- Valor dos insumos (fica para a extração via Power Automate/DAX).
+- Publicação do painel (segue manual).
 #>
 
 $ErrorActionPreference = "Stop"
@@ -94,19 +97,6 @@ Invoke-Step "Atualizar planilha MRP Terceiros (Excel COM)" {
     Write-Log ($result -join " ")
 }
 
-Invoke-Step "Gerar dados-escadinha.json" {
-    # escadinha_compras.xlsx e upload manual mensal do usuario (nao tem conexao/pivot pra
-    # atualizar via Excel COM) - so le o que estiver la e compara com o historico proprio em
-    # escadinha/. Ver CLAUDE.md, 18/08/2026.
-    Push-Location $sheetInspect
-    try {
-        $result = & $pythonExe "extract_escadinha.py" 2>&1
-        if ($LASTEXITCODE -ne 0) { throw "extract_escadinha.py saiu com codigo $LASTEXITCODE`: $result" }
-        Write-Log ($result -join " ")
-    }
-    finally { Pop-Location }
-}
-
 Invoke-Step "Gerar dados-mrp-terceiros.json" {
     Push-Location $sheetInspect
     try {
@@ -150,8 +140,7 @@ Invoke-Step "Publicar copia dos JSONs locais no SharePoint (DT-BI)" {
         (Join-Path $projectRoot "public\dados-estoque.json"),
         (Join-Path $projectRoot "public\dados-insumos.json"),
         (Join-Path $projectRoot "public\dados-consumo-insumos.json"),
-        (Join-Path $projectRoot "public\dados-mrp-terceiros.json"),
-        (Join-Path $projectRoot "public\dados-escadinha.json")
+        (Join-Path $projectRoot "public\dados-mrp-terceiros.json")
     )
     foreach ($arquivo in $arquivos) {
         Copy-Item -LiteralPath $arquivo -Destination $destino -Force
