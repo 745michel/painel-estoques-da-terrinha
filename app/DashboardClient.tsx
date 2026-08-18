@@ -23,6 +23,7 @@ type EscadinhaProduto = {
   categoria: string | null;
   unidade: string | null;
   plano?: number[];
+  planoAnterior?: number[];
   real?: number[];
   cobertura?: number[];
 };
@@ -896,7 +897,6 @@ function EscadinhaDashboard({
 
   const produtos = escadinhaData.produtos as EscadinhaProduto[];
   const desvios = escadinhaData.desvios as EscadinhaDesvio[];
-  const desviosByProduto = useMemo(() => new Map(desvios.map((item) => [item.produto, item])), [desvios]);
   const hasComparacao = escadinhaData.dataPublicacaoAnterior != null;
   const mesAtual = MESES_ESCADINHA[new Date().getMonth()];
 
@@ -916,19 +916,23 @@ function EscadinhaDashboard({
       ))
       .sort((a, b) => {
         if (hasComparacao) {
-          const desvioA = Math.abs(desviosByProduto.get(a.produto)?.desvio ?? 0);
-          const desvioB = Math.abs(desviosByProduto.get(b.produto)?.desvio ?? 0);
+          const desvioA = totalDesvioAbsoluto(a);
+          const desvioB = totalDesvioAbsoluto(b);
           if (desvioA !== desvioB) return desvioB - desvioA;
         }
         return a.produto.localeCompare(b.produto, "pt-BR");
       });
-  }, [produtos, query, categories, hasComparacao, desviosByProduto]);
+  }, [produtos, query, categories, hasComparacao]);
 
   function planoAnual(produto: EscadinhaProduto) {
     return (produto.plano ?? []).reduce((sum, value) => sum + (value ?? 0), 0);
   }
   function unitLabelEscadinha(produto: Pick<EscadinhaProduto, "unidade">) {
     return produto.unidade === "FD" ? "fardos" : "cx";
+  }
+  function totalDesvioAbsoluto(produto: EscadinhaProduto) {
+    if (!produto.plano || !produto.planoAnterior) return 0;
+    return produto.plano.reduce((sum, valor, index) => sum + Math.abs((valor ?? 0) - (produto.planoAnterior![index] ?? 0)), 0);
   }
 
   return <main className="app-shell">
@@ -967,39 +971,36 @@ function EscadinhaDashboard({
         </section>
 
         <section className="inventory-panel consumption-panel">
-          <div className="panel-heading"><div><p className="eyebrow">{hasComparacao ? "MAIORES DESVIOS" : "PLANO ATUAL"}</p><h2>{hasComparacao ? "Produtos que mais mudaram de plano" : "Plano mês a mês"}</h2><p>{hasComparacao ? "Ordenado do maior para o menor desvio absoluto entre a revisão atual e a anterior." : "Ordenado por produto — o desvio aparece a partir da próxima revisão."}</p></div></div>
+          <div className="panel-heading"><div><p className="eyebrow">PLANO MÊS A MÊS</p><h2>Escadinha de {new Date(escadinhaData.dataPublicacao).getUTCFullYear()}</h2><p>{hasComparacao ? "Ordenado do maior para o menor desvio total no ano; células destacadas mudaram desde a revisão anterior." : "Ordenado por produto — os meses que mudarem aparecem destacados a partir da próxima revisão."}</p></div></div>
           <div className="filters value-filters"><div className="selects">
             <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={setCategories} />
             {categories.length > 0 && <button className="clear-value-filters" onClick={() => setCategories([])}>Limpar filtros</button>}
           </div></div>
-          <div className="table-wrap consumption-table-wrap"><table className="consumption-table buyer-action-table"><thead><tr>
-            <th>Produto / marca</th><th>Categoria</th><th>Plano de {MESES_ESCADINHA_LABEL[mesAtual]}</th><th>Plano anual</th><th>{hasComparacao ? "Mês do maior desvio" : "Real do ano"}</th><th>{hasComparacao ? "Desvio" : ""}</th>
+          <div className="table-wrap consumption-table-wrap"><table className="consumption-table escadinha-grid"><thead><tr>
+            <th>Produto / marca</th><th>Categoria</th>
+            {MESES_ESCADINHA.map((mes) => <th key={mes} className={mes === mesAtual ? "escadinha-mes-atual" : ""}>{MESES_ESCADINHA_LABEL[mes]}</th>)}
+            <th>Total anual</th>
           </tr></thead><tbody>
             {filtered.map((produto) => {
-              const desvio = desviosByProduto.get(produto.produto);
-              const mesIndex = MESES_ESCADINHA.indexOf(mesAtual);
-              const planoMesAtual = produto.plano ? produto.plano[mesIndex] ?? 0 : null;
-              const realAnual = (produto.real ?? []).reduce((sum, value) => sum + (value ?? 0), 0);
               return <tr key={produto.produto} className={selected?.produto === produto.produto ? "selected-row" : ""} onClick={() => setSelected(produto)}>
                 <td><div className="product-cell"><div><strong title={produto.produto}>{produto.produto}</strong><small>Cód. {produto.cod ?? "—"} · {produto.marca ?? "Sem marca"}</small></div></div></td>
                 <td>{produto.categoria ?? "—"}</td>
-                <td>{planoMesAtual != null ? <><strong className="numeric">{number.format(planoMesAtual)}</strong><small className="unit"> {unitLabelEscadinha(produto)}</small></> : <span className="no-projection">Sem plano</span>}</td>
+                {MESES_ESCADINHA.map((mes, index) => {
+                  const atual = produto.plano ? produto.plano[index] ?? 0 : null;
+                  const anterior = produto.planoAnterior ? produto.planoAnterior[index] ?? 0 : null;
+                  const mudou = hasComparacao && anterior != null && atual != null && anterior !== atual;
+                  const diferenca = mudou ? (atual as number) - (anterior as number) : 0;
+                  return <td key={mes} className={`${mes === mesAtual ? "escadinha-mes-atual" : ""} ${mudou ? (diferenca > 0 ? "escadinha-delta-up" : "escadinha-delta-down") : ""}`}>
+                    {atual != null ? <strong className="numeric">{number.format(atual)}</strong> : <span className="no-projection">—</span>}
+                    {mudou && <small className="unit">{diferenca > 0 ? "+" : ""}{number.format(diferenca)}</small>}
+                  </td>;
+                })}
                 <td><strong className="numeric">{number.format(planoAnual(produto))}</strong><small className="unit"> {unitLabelEscadinha(produto)}</small></td>
-                {hasComparacao ? (
-                  <td>{desvio ? MESES_ESCADINHA_LABEL[desvio.mes] : <span className="no-projection">Sem mudança</span>}</td>
-                ) : (
-                  <td><strong className="numeric">{number.format(realAnual)}</strong><small className="unit"> {unitLabelEscadinha(produto)}</small></td>
-                )}
-                {hasComparacao ? (
-                  <td>{desvio ? <><strong className={desvio.desvio > 0 ? "trend-up" : "trend-down"}>{desvio.desvio > 0 ? "+" : ""}{number.format(desvio.desvio)}</strong>{desvio.desvioPercentual != null && <small className="unit"> ({desvio.desvioPercentual > 0 ? "+" : ""}{decimal.format(desvio.desvioPercentual)}%)</small>}</> : <span className="no-projection">—</span>}</td>
-                ) : (
-                  <td />
-                )}
               </tr>;
             })}
           </tbody></table>{filtered.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
         </section>
-        <footer>Fonte: escadinha_compras.xlsx (upload mensal) · Desvio = plano atual − plano da revisão anterior, no mês onde a diferença foi maior.</footer>
+        <footer>Fonte: escadinha_compras.xlsx (upload mensal) · Células destacadas mudaram de valor desde a revisão anterior ({hasComparacao ? fullDate.format(localDate(escadinhaData.dataPublicacaoAnterior as string)) : "—"}).</footer>
       </div>
     </section>
 
@@ -1008,20 +1009,19 @@ function EscadinhaDashboard({
         <button className="drawer-close" onClick={() => setSelected(null)}>×</button>
         <h2>{selected.produto}</h2>
         <p className="drawer-sku">Cód. {selected.cod ?? "—"} · {selected.marca ?? "Sem marca"} · {selected.categoria ?? "Sem categoria"}</p>
-        {(() => {
-          const desvioSelecionado = desviosByProduto.get(selected.produto);
-          if (!desvioSelecionado) return null;
-          return <div className="value-source-note"><small>MAIOR MUDANÇA VS. REVISÃO ANTERIOR</small><strong>{MESES_ESCADINHA_LABEL[desvioSelecionado.mes]}: {number.format(desvioSelecionado.planoAnterior)} → {number.format(desvioSelecionado.planoAtual)}</strong><p>Desvio de {desvioSelecionado.desvio > 0 ? "+" : ""}{number.format(desvioSelecionado.desvio)} {desvioSelecionado.desvioPercentual != null && `(${desvioSelecionado.desvioPercentual > 0 ? "+" : ""}${decimal.format(desvioSelecionado.desvioPercentual)}%)`}</p></div>;
-        })()}
+        {hasComparacao && <div className="value-source-note"><small>REVISÃO ANTERIOR</small><strong>{fullDate.format(localDate(escadinhaData.dataPublicacaoAnterior as string))}</strong><p>Total de desvio no ano: {number.format(totalDesvioAbsoluto(selected))} {unitLabelEscadinha(selected)} (soma das diferenças em módulo, mês a mês).</p></div>}
         <div className="table-wrap">
           <table className="consumption-table">
-            <thead><tr><th>Mês</th><th>Plano atual</th><th>Real</th><th>Cobertura</th></tr></thead>
+            <thead><tr><th>Mês</th>{hasComparacao && <th>Plano anterior</th>}<th>Plano atual</th><th>Real</th><th>Cobertura</th></tr></thead>
             <tbody>
               {MESES_ESCADINHA.map((mes, index) => {
-                const desvioMes = hasComparacao && desviosByProduto.get(selected.produto)?.mes === mes;
-                return <tr key={mes} className={desvioMes ? "selected-row" : ""}>
+                const atual = selected.plano?.[index] ?? 0;
+                const anterior = selected.planoAnterior?.[index] ?? 0;
+                const mudou = hasComparacao && atual !== anterior;
+                return <tr key={mes} className={mudou ? "selected-row" : ""}>
                   <td>{MESES_ESCADINHA_LABEL[mes]}</td>
-                  <td><strong className="numeric">{number.format(selected.plano?.[index] ?? 0)}</strong></td>
+                  {hasComparacao && <td>{number.format(anterior)}</td>}
+                  <td><strong className={`numeric ${mudou ? (atual > anterior ? "escadinha-delta-up" : "escadinha-delta-down") : ""}`}>{number.format(atual)}</strong>{mudou && <small className="unit">{atual > anterior ? "+" : ""}{number.format(atual - anterior)}</small>}</td>
                   <td><strong className="numeric">{number.format(selected.real?.[index] ?? 0)}</strong></td>
                   <td>{selected.cobertura?.[index] != null ? `${decimal.format((selected.cobertura[index] ?? 0) * 100)}%` : "—"}</td>
                 </tr>;
