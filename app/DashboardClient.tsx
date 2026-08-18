@@ -1031,7 +1031,7 @@ function EscadinhaDashboard({
         <p className="drawer-sku">Cód. {selected.cod ?? "—"} · {selected.marca ?? "Sem marca"} · {selected.categoria ?? "Sem categoria"}</p>
         {hasComparacao && <div className="value-source-note"><small>REVISÃO ANTERIOR</small><strong>{fullDate.format(localDate(escadinhaData.dataPublicacaoAnterior as string))}</strong><p>Total de desvio no ano: {number.format(totalDesvioAbsoluto(selected))} {unitLabelEscadinha(selected)} (soma das diferenças em módulo, mês a mês).</p></div>}
         <div className="table-wrap">
-          <table className="consumption-table">
+          <table className="consumption-table escadinha-drawer-table">
             <thead><tr><th>Mês</th><th>Plano{hasComparacao ? " (antes → agora)" : ""}</th><th>Real</th><th>Cobertura</th></tr></thead>
             <tbody>
               {MESES_ESCADINHA.map((mes, index) => {
