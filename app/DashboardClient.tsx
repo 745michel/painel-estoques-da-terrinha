@@ -1032,7 +1032,7 @@ function EscadinhaDashboard({
         {hasComparacao && <div className="value-source-note"><small>REVISÃO ANTERIOR</small><strong>{fullDate.format(localDate(escadinhaData.dataPublicacaoAnterior as string))}</strong><p>Total de desvio no ano: {number.format(totalDesvioAbsoluto(selected))} {unitLabelEscadinha(selected)} (soma das diferenças em módulo, mês a mês).</p></div>}
         <div className="table-wrap">
           <table className="consumption-table">
-            <thead><tr><th>Mês</th>{hasComparacao && <th>Plano anterior</th>}<th>Plano atual</th><th>Real</th><th>Cobertura</th></tr></thead>
+            <thead><tr><th>Mês</th><th>Plano{hasComparacao ? " (antes → agora)" : ""}</th><th>Real</th><th>Cobertura</th></tr></thead>
             <tbody>
               {MESES_ESCADINHA.map((mes, index) => {
                 const atual = selected.plano?.[index] ?? 0;
@@ -1042,8 +1042,11 @@ function EscadinhaDashboard({
                 const percentual = mudou && anterior ? (diferenca / anterior) * 100 : null;
                 return <tr key={mes} className={mudou ? "selected-row" : ""}>
                   <td>{MESES_ESCADINHA_LABEL[mes]}</td>
-                  {hasComparacao && <td>{number.format(anterior)}</td>}
-                  <td><strong className={`numeric ${mudou ? (diferenca > 0 ? "escadinha-delta-up" : "escadinha-delta-down") : ""}`}>{number.format(atual)}</strong>{mudou && <small className="unit">{diferenca > 0 ? "+" : ""}{number.format(diferenca)}{percentual != null && ` (${percentual > 0 ? "+" : ""}${decimal.format(percentual)}%)`}</small>}</td>
+                  <td>
+                    {mudou && <small className="unit">{number.format(anterior)} → </small>}
+                    <strong className={`numeric ${mudou ? (diferenca > 0 ? "escadinha-delta-up" : "escadinha-delta-down") : ""}`}>{number.format(atual)}</strong>
+                    {mudou && <small className="unit" style={{ display: "block", marginTop: 2 }}>{diferenca > 0 ? "+" : ""}{number.format(diferenca)}{percentual != null && ` (${percentual > 0 ? "+" : ""}${decimal.format(percentual)}%)`}</small>}
+                  </td>
                   <td><strong className="numeric">{number.format(selected.real?.[index] ?? 0)}</strong></td>
                   <td>{selected.cobertura?.[index] != null ? `${decimal.format((selected.cobertura[index] ?? 0) * 100)}%` : "—"}</td>
                 </tr>;
