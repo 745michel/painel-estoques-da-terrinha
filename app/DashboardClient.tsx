@@ -88,6 +88,25 @@ const PRODUTOS_DESCONTINUADOS_MANUALMENTE = new Set([
   "OLEO DE COCO DA TERRINHA EX VIRGEM 200ML - FD 12",
   "OLEO DE COCO DA TERRINHA EX VIRGEM 500 ML - FD 6",
   "FARINHA ROSCA COOP 500 G FD 12",
+  "SACO PLAST FUBA MIMOSO OBA 500 G",
+  "SACO PLAST FAR MAND TORRADA OBA 500 G",
+  "SACO PLAST MILHO PIPOCA OBA 500 G",
+  "SACO PLAST FARINHA MILHO AMAR OBA 250 G",
+  "SACO PLAST FAR MAND CRUA GROSSA OBA  250 G",
+]);
+
+/**
+ * Produtos que isProductInativo classificaria como "sem giro" automaticamente (escadinha,
+ * consumo e entregas todos zerados), mas que o comprador pediu para manter na analise normal
+ * porque o estoque parado ainda e relevante (ex.: fardo de saco plastico com dezenas de
+ * milhares de unidades). Chave loja+produto (nao so produto) porque o mesmo nome pode existir
+ * em outra loja com estoque zerado, e esse caso deve continuar sem giro. Mantida manualmente a
+ * pedido do usuario em 18/08/2026.
+ */
+const PRODUTOS_EM_ANALISE_MANUALMENTE = new Set([
+  "14|SACO PLASTICO FARDO LISO 25 X 30  UNID",
+  "14|SACO PLASTICO FARDO LISO 25 X 35 UNID",
+  "14|SACO PLASTICO FARDO LISO 27 X 40 UNID",
 ]);
 
 /**
@@ -103,6 +122,7 @@ const PRODUTOS_SOB_DEMANDA = new Set([
 ]);
 
 function isProductDescontinuado(product: SourceProduct, isInputs: boolean) {
+  if (PRODUTOS_EM_ANALISE_MANUALMENTE.has(`${product.loja}|${product.produto}`)) return false;
   return (isInputs && isProductInativo(product)) || PRODUTOS_DESCONTINUADOS_MANUALMENTE.has(product.produto);
 }
 
