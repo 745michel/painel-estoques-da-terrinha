@@ -155,6 +155,30 @@ const PRODUTOS_DESCONTINUADOS_MANUALMENTE = new Set([
   "SACO PLAST FAR MAND CRUA GROSSA OBA  250 G",
   "BOBINA TAPIOCA BENASSI 500 G",
   "BOBINA FAROFA PRONTA PUBLIC TRADICIONAL 300G",
+  "MP - HORTELA KG",
+  "BOBINA FLOCAO MILHO DA TERRINHA 800 G",
+  "BOBINA FUBA MIMOSO DA TERRINHA 1 KG",
+  "BOBINA ALHO DESID FLOCOS DA TERRINHA 25 G",
+  "MP - FLOCAO DE MILHO KG",
+  "MP - ALHO DESIDRATADO FLOCOS KG",
+  // Todas as tampas, a pedido do usuario em 19/08/2026:
+  "TAMPA 58 MM BRANCO - DAVELA",
+  "TAMPA 63 MM BRANCO - DAVELA",
+  "TAMPA AMARELA BISNAGA OKKER",
+  "TAMPA C/ DISCO PRETA OKKER 63MM",
+  "TAMPA LARANJA OKKER P220",
+  "TAMPA LARANJA OKKER P500",
+  "TAMPA LEITOSA BALDE OKKER 2.2",
+  "TAMPA LEITOSA BALDE OKKER 3.2",
+  "TAMPA LEITOSA OKKER P1000 E P1100",
+  "TAMPA LEITOSA OKKER P220",
+  "TAMPA LEITOSA OKKER P500",
+  "TAMPA LEITOSA OKKER P900",
+  "TAMPA PRETA MILHO PIPOCA PREMIUM 63 MM",
+  "TAMPA VERMELHA BALDE OKKER 2.2",
+  "TAMPA VERMELHA BALDE OKKER 3.2",
+  "TAMPA VERMELHA OKKER P1000",
+  "TAMPA VERMELHA OKKER P500",
 ]);
 
 /**
@@ -193,6 +217,7 @@ const PRODUTOS_EM_ANALISE_MANUALMENTE = new Set([
 const PRODUTOS_SOB_DEMANDA = new Set([
   "BATATA PALHA TRADICIONAL  PUBLIC 100 G - CX 20",
   "BATATA PALHA EXTRA FINA  PUBLIC 100 g - CX 20",
+  "LOGISTICA - FILME STRETCH AUTOMATICO",
 ]);
 
 /**
@@ -992,6 +1017,11 @@ function EscadinhaDashboard({
         && (selectedProdutos.length === 0 || selectedProdutos.includes(p.produto))
       ))
       .sort((a, b) => {
+        // Produto sem nenhuma projecao no ano vai pro final da lista, seja qual for o resto do
+        // criterio de ordenacao - pedido do usuario em 19/08/2026.
+        const semEscadinhaA = planoAnual(a) === 0;
+        const semEscadinhaB = planoAnual(b) === 0;
+        if (semEscadinhaA !== semEscadinhaB) return semEscadinhaA ? 1 : -1;
         if (hasComparacao) {
           const desvioA = totalDesvioAbsoluto(a);
           const desvioB = totalDesvioAbsoluto(b);
@@ -1137,6 +1167,12 @@ function PedidosVendaDashboard({
   const [categories, setCategories] = useState<string[]>([]);
   const [stores, setStores] = useState<string[]>([]);
   const [selectedProdutos, setSelectedProdutos] = useState<string[]>([]);
+  const [sortField, setSortField] = useState<"estoque" | "pedido" | "saldo" | "coberturaDias">("pedido");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+  function toggleSort(field: typeof sortField) {
+    if (field === sortField) setSortDir((dir) => (dir === "desc" ? "asc" : "desc"));
+    else { setSortField(field); setSortDir("desc"); }
+  }
 
   const produtos = pedidosVendaData.produtos as PedidosVendaProduto[];
   const mesesCorte = pedidosVendaData.mesesCorte;
@@ -1190,17 +1226,26 @@ function PedidosVendaDashboard({
       atual.produto.saldo += p.saldo;
       atual.produto.corte = atual.produto.corte.map((valor, index) => valor + p.corte[index]);
     }
-    return Array.from(porCodigo.values()).map(({ produto, lojas, taxaDiaria }) => ({
+    const lista = Array.from(porCodigo.values()).map(({ produto, lojas, taxaDiaria }) => ({
       ...produto,
       loja: lojas.size === 1 ? Array.from(lojas)[0] : `${lojas.size} empresas`,
       coberturaDias: taxaDiaria !== 0 ? Math.round(produto.saldo / taxaDiaria) : null,
-    })).sort((a, b) => a.produto.localeCompare(b.produto, "pt-BR"));
-  }, [filtered]);
+    }));
+    const sinal = sortDir === "desc" ? -1 : 1;
+    return lista.sort((a, b) => {
+      const valorA = a[sortField];
+      const valorB = b[sortField];
+      if (valorA == null && valorB == null) return a.produto.localeCompare(b.produto, "pt-BR");
+      if (valorA == null) return 1;
+      if (valorB == null) return -1;
+      if (valorA !== valorB) return (valorA - valorB) * sinal;
+      return a.produto.localeCompare(b.produto, "pt-BR");
+    });
+  }, [filtered, sortField, sortDir]);
 
   const totalEstoque = agrupados.reduce((sum, p) => sum + p.estoque, 0);
   const totalPedido = agrupados.reduce((sum, p) => sum + p.pedido, 0);
-  const totalCorte = agrupados.reduce((sum, p) => sum + p.corte.reduce((a, b) => a + b, 0), 0);
-  const saldoNegativo = agrupados.filter((p) => p.saldo < 0).length;
+  const totalCorteMesAtual = agrupados.reduce((sum, p) => sum + p.corte[p.corte.length - 1], 0);
   const updated = new Date(pedidosVendaData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
   return <main className="app-shell">
@@ -1225,7 +1270,7 @@ function PedidosVendaDashboard({
       <div className="content consumption-content">
         <div className="page-heading"><div><p className="eyebrow">ESTOQUE X PEDIDOS DE VENDA</p><h1>Produto acabado</h1><p>Estoque, pedidos de venda pendentes e cobertura por produto.</p></div></div>
 
-        <section className="kpi-grid" aria-label="Indicadores principais">
+        <section className="kpi-grid" aria-label="Indicadores principais" style={{ gridTemplateColumns: "repeat(4, minmax(0,1fr))" }}>
           <div className="kpi-card performance-card">
             <div className="kpi-top"><span className="kpi-icon">▤</span><span className="trend neutral">Filtrado</span></div>
             <strong>{number.format(agrupados.length)}</strong><p>Produtos monitorados</p><div className="mini-rule performance-rule"><span style={{ width: "100%" }} /></div>
@@ -1242,33 +1287,33 @@ function PedidosVendaDashboard({
             <small>Não faturado</small>
           </div>
           <div className="kpi-card critical-card">
-            <div className="kpi-top"><span className="kpi-icon">✂</span><span className="trend critical">Últimos 3 meses</span></div>
-            <strong>{number.format(Math.round(totalCorte))}</strong><p>Corte total</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+            <div className="kpi-top"><span className="kpi-icon">✂</span><span className="trend critical">{mesCorteLabel(mesesCorte[mesesCorte.length - 1])}</span></div>
+            <strong>{number.format(Math.round(totalCorteMesAtual))}</strong><p>Corte do mês</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
             <small>Cortado na entrega por falta de estoque</small>
-          </div>
-          <div className="kpi-card risk-card">
-            <div className="kpi-top"><span className="kpi-icon">!</span><span className="trend bad">Atenção</span></div>
-            <strong>{number.format(saldoNegativo)}</strong><p>Saldo negativo</p><div className="mini-rule"><span style={{ width: `${agrupados.length ? Math.round((saldoNegativo / agrupados.length) * 100) : 0}%` }} /></div>
-            <small>Pedido maior que o estoque</small>
           </div>
         </section>
 
         <section className="inventory-panel consumption-panel">
-          <div className="panel-heading"><div><p className="eyebrow">PRODUTOS</p><h2>Estoque, pedido e cobertura</h2><p>Ordenado por produto.</p></div></div>
+          <div className="panel-heading"><div><p className="eyebrow">PRODUTOS</p><h2>Estoque, pedido e cobertura</h2><p>Clique numa coluna pra ordenar · hoje: {{ estoque: "Estoque", pedido: "Pedido", saldo: "Saldo", coberturaDias: "Cobertura" }[sortField]} ({sortDir === "desc" ? "maior → menor" : "menor → maior"}).</p></div></div>
           <div className="filters value-filters"><div className="selects">
             <MultiFilter label="Loja" options={storeOptions} selected={stores} onChange={setStores} />
             <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={(values) => { setCategories(values); setSelectedProdutos([]); }} />
             <MultiFilter label="Produto" options={productOptions} selected={selectedProdutos} onChange={setSelectedProdutos} />
             {(categories.length > 0 || stores.length > 0 || selectedProdutos.length > 0) && <button className="clear-value-filters" onClick={() => { setCategories([]); setStores([]); setSelectedProdutos([]); }}>Limpar filtros</button>}
           </div></div>
-          <div className="table-wrap consumption-table-wrap"><table className="consumption-table pedidos-venda-table"><thead><tr>
-            <th>Produto</th><th>Pedido</th><th>Estoque</th><th>Saldo</th><th>Cobertura</th>
-            {mesesCorte.map((mes, index) => <th key={mes} style={index === 0 ? { borderLeft: "2px solid #c7d6cc" } : undefined}>Corte {mesCorteLabel(mes)}</th>)}
+          <div className="table-wrap consumption-table-wrap"><table className="consumption-table pedidos-venda-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
+            <th style={{ width: "auto" }}>Produto</th>
+            {([["estoque", "Estoque"], ["pedido", "Pedido"], ["saldo", "Saldo"], ["coberturaDias", "Cobertura"]] as const).map(([field, label]) => (
+              <th key={field} style={{ width: 100 }}>
+                <button className="sortable-column" onClick={() => toggleSort(field)}>{label} {sortField === field ? (sortDir === "desc" ? "▾" : "▴") : ""}</button>
+              </th>
+            ))}
+            {mesesCorte.map((mes, index) => <th key={mes} style={{ width: 100, borderLeft: index === 0 ? "2px solid #c7d6cc" : undefined }}>Corte {mesCorteLabel(mes)}</th>)}
           </tr></thead><tbody>
             {agrupados.map((p) => <tr key={p.cod}>
               <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod} · {p.loja}</small><small>{p.categoria ?? "—"}</small></div></div></td>
-              <td><strong className="numeric">{number.format(Math.round(p.pedido))}</strong></td>
               <td><strong className="numeric">{number.format(Math.round(p.estoque))}</strong></td>
+              <td><strong className="numeric">{number.format(Math.round(p.pedido))}</strong></td>
               <td><strong className={`numeric ${p.saldo < 0 ? "escadinha-delta-down" : ""}`}>{number.format(Math.round(p.saldo))}</strong></td>
               <td>{p.coberturaDias != null ? <div className="coverage"><strong className={p.coberturaDias < 0 ? "escadinha-delta-down" : ""}>{number.format(p.coberturaDias)} dias</strong></div> : "—"}</td>
               {p.corte.map((valor, index) => <td key={mesesCorte[index]} style={index === 0 ? { borderLeft: "2px solid #c7d6cc" } : undefined}>{valor > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(valor))}</strong> : <span className="no-projection">—</span>}</td>)}
