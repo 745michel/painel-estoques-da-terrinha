@@ -63,6 +63,7 @@ type PedidosVendaProduto = {
   cod: number;
   produto: string;
   categoria: string | null;
+  loja: string;
   estoque: number;
   pedido: number;
   corte30d: number;
@@ -1089,6 +1090,8 @@ function PedidosVendaDashboard({
 }) {
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
+  const [stores, setStores] = useState<string[]>([]);
+  const [selectedProdutos, setSelectedProdutos] = useState<string[]>([]);
 
   const produtos = pedidosVendaData.produtos as PedidosVendaProduto[];
 
@@ -1098,15 +1101,32 @@ function PedidosVendaDashboard({
       .map((c) => ({ value: c, label: c })),
     [produtos],
   );
+  const storeOptions = useMemo(
+    () => Array.from(new Set(produtos.map((p) => p.loja).filter((l): l is string => Boolean(l))))
+      .sort((a, b) => a.localeCompare(b, "pt-BR"))
+      .map((l) => ({ value: l, label: l })),
+    [produtos],
+  );
+  const productOptions = useMemo(
+    () => Array.from(new Set(produtos
+      .filter((p) => categories.length === 0 || (p.categoria != null && categories.includes(p.categoria)))
+      .map((p) => p.produto)))
+      .sort((a, b) => a.localeCompare(b, "pt-BR"))
+      .map((p) => ({ value: p, label: p })),
+    [produtos, categories],
+  );
 
   const filtered = produtos.filter((p) => {
     if (categories.length > 0 && (p.categoria == null || !categories.includes(p.categoria))) return false;
+    if (stores.length > 0 && !stores.includes(p.loja)) return false;
+    if (selectedProdutos.length > 0 && !selectedProdutos.includes(p.produto)) return false;
     if (query && !p.produto.toLowerCase().includes(query.toLowerCase())) return false;
     return true;
   });
 
   const totalEstoque = filtered.reduce((sum, p) => sum + p.estoque, 0);
   const totalPedido = filtered.reduce((sum, p) => sum + p.pedido, 0);
+  const totalCorte = filtered.reduce((sum, p) => sum + p.corte30d, 0);
   const saldoNegativo = filtered.filter((p) => p.saldo < 0).length;
   const updated = new Date(pedidosVendaData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
@@ -1132,38 +1152,58 @@ function PedidosVendaDashboard({
       <div className="content consumption-content">
         <div className="page-heading"><div><p className="eyebrow">ESTOQUE X PEDIDOS DE VENDA</p><h1>Produto acabado</h1><p>Estoque, pedidos de venda pendentes e cobertura por produto.</p></div></div>
 
-        <div className="empty-state" style={{ marginBottom: 24, textAlign: "left", padding: 16 }}>
-          <p style={{ margin: 0 }}>&quot;Pedido&quot; é aproximado: soma pedidos de venda com status Fechado/Aguardando Separação ainda não faturados, direto do banco — não reproduz exatamente o relatório Power BI original (o filtro &quot;Pedido tem talão&quot; de lá é uma medida interna sem fórmula visível). Já &quot;Corte (30d)&quot; é dado exato (vem pronto do Power Automate, soma dos últimos 30 dias de pedido cortado na entrega por falta de estoque na rota). Cobertura = Saldo ÷ venda média diária dos últimos 30 dias.</p>
-        </div>
-
-        <section className="consumption-summary">
-          <div><span>Produtos</span><strong>{number.format(filtered.length)}</strong><small>Categoria(s) selecionada(s): {categories.length || "todas"}</small></div>
-          <div><span>Estoque total</span><strong>{number.format(Math.round(totalEstoque))}</strong><small>Soma das unidades filtradas</small></div>
-          <div><span>Pedido total</span><strong>{number.format(Math.round(totalPedido))}</strong><small>Pendente, não faturado</small></div>
-          <div className="partial"><span>Saldo negativo</span><strong>{number.format(saldoNegativo)}</strong><small>Pedido maior que o estoque</small></div>
+        <section className="kpi-grid" aria-label="Indicadores principais">
+          <div className="kpi-card performance-card">
+            <div className="kpi-top"><span className="kpi-icon">▤</span><span className="trend neutral">Filtrado</span></div>
+            <strong>{number.format(filtered.length)}</strong><p>Produtos monitorados</p><div className="mini-rule performance-rule"><span style={{ width: "100%" }} /></div>
+            <small>{categories.length || stores.length || selectedProdutos.length ? "Com filtros aplicados" : "Todas as categorias e lojas"}</small>
+          </div>
+          <div className="kpi-card healthy-card">
+            <div className="kpi-top"><span className="kpi-icon">▦</span><span className="trend good">Estoque</span></div>
+            <strong>{number.format(Math.round(totalEstoque))}</strong><p>Estoque total</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+            <small>Soma das unidades filtradas</small>
+          </div>
+          <div className="kpi-card excess-card">
+            <div className="kpi-top"><span className="kpi-icon">↑</span><span className="trend warn">Pendente</span></div>
+            <strong>{number.format(Math.round(totalPedido))}</strong><p>Pedido total</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+            <small>Não faturado, aproximado</small>
+          </div>
+          <div className="kpi-card critical-card">
+            <div className="kpi-top"><span className="kpi-icon">✂</span><span className="trend critical">Últimos 30d</span></div>
+            <strong>{number.format(Math.round(totalCorte))}</strong><p>Corte total</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+            <small>Cortado na entrega por falta de estoque</small>
+          </div>
+          <div className="kpi-card risk-card">
+            <div className="kpi-top"><span className="kpi-icon">!</span><span className="trend bad">Atenção</span></div>
+            <strong>{number.format(saldoNegativo)}</strong><p>Saldo negativo</p><div className="mini-rule"><span style={{ width: `${filtered.length ? Math.round((saldoNegativo / filtered.length) * 100) : 0}%` }} /></div>
+            <small>Pedido maior que o estoque</small>
+          </div>
         </section>
 
         <section className="inventory-panel consumption-panel">
           <div className="panel-heading"><div><p className="eyebrow">PRODUTOS</p><h2>Estoque, pedido e cobertura</h2><p>Ordenado por produto.</p></div></div>
           <div className="filters value-filters"><div className="selects">
-            <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={setCategories} />
-            {categories.length > 0 && <button className="clear-value-filters" onClick={() => setCategories([])}>Limpar filtros</button>}
+            <MultiFilter label="Loja" options={storeOptions} selected={stores} onChange={setStores} />
+            <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={(values) => { setCategories(values); setSelectedProdutos([]); }} />
+            <MultiFilter label="Produto" options={productOptions} selected={selectedProdutos} onChange={setSelectedProdutos} />
+            {(categories.length > 0 || stores.length > 0 || selectedProdutos.length > 0) && <button className="clear-value-filters" onClick={() => { setCategories([]); setStores([]); setSelectedProdutos([]); }}>Limpar filtros</button>}
           </div></div>
           <div className="table-wrap consumption-table-wrap"><table className="consumption-table"><thead><tr>
-            <th>Produto</th><th>Categoria</th><th>Estoque</th><th>Pedido</th><th>Corte (30d)</th><th>Saldo</th><th>Cobertura</th>
+            <th>Produto</th><th>Loja</th><th>Categoria</th><th>Estoque</th><th>Pedido</th><th>Corte (30d)</th><th>Saldo</th><th>Cobertura</th>
           </tr></thead><tbody>
-            {filtered.map((p) => <tr key={p.cod}>
+            {filtered.map((p) => <tr key={`${p.loja}-${p.cod}`}>
               <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod}</small></div></div></td>
+              <td>{p.loja}</td>
               <td>{p.categoria ?? "—"}</td>
               <td><strong className="numeric">{number.format(Math.round(p.estoque))}</strong></td>
               <td><strong className="numeric">{number.format(Math.round(p.pedido))}</strong></td>
               <td>{p.corte30d > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(p.corte30d))}</strong> : <span className="no-projection">—</span>}</td>
               <td><strong className={`numeric ${p.saldo < 0 ? "escadinha-delta-down" : ""}`}>{number.format(Math.round(p.saldo))}</strong></td>
-              <td>{p.coberturaDias != null ? `${decimal.format(p.coberturaDias)} dias` : "—"}</td>
+              <td>{p.coberturaDias != null ? `${number.format(p.coberturaDias)} dias` : "—"}</td>
             </tr>)}
           </tbody></table>{filtered.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
         </section>
-        <footer>Fonte: Postgres (pedidos de venda) + produtos_estoque.json (estoque) · Atualização manual, sob demanda.</footer>
+        <footer>Fonte: Postgres (pedidos de venda) + produtos_estoque.json (estoque) · Atualização manual, sob demanda · Pedido é aproximado (não reproduz o filtro exato do Power BI); Corte vem exato do Power Automate.</footer>
       </div>
     </section>
   </main>;
