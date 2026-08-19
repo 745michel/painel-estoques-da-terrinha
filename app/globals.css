@@ -6,7 +6,7 @@ body { margin:0; background:var(--cream); color:var(--ink); font-family:var(--fo
 button,input,select { font:inherit; }
 button { cursor:pointer; }
 .app-shell { min-height:100vh; display:flex; }
-.sidebar { width:250px; position:fixed; inset:0 auto 0 0; background:#7c3a10; color:#fff; padding:28px 18px 20px; display:flex; flex-direction:column; z-index:20; }
+.sidebar { width:250px; position:fixed; inset:0 auto 0 0; background:#9c480d; color:#fff; padding:28px 18px 20px; display:flex; flex-direction:column; z-index:20; }
 .brand { display:flex; align-items:center; gap:12px; padding:0 8px 26px; font-weight:720; letter-spacing:-.02em; }
 .brand-logo-wrap { width:48px; height:48px; flex:0 0 48px; overflow:hidden; display:grid; place-items:center; border-radius:12px; background:#fff; box-shadow:0 2px 9px #081c1240, inset 0 0 0 1px #ffffff45; }
 .brand-logo { width:100%; height:100%; object-fit:contain; display:block; }
@@ -17,7 +17,7 @@ button { cursor:pointer; }
 .nav-item b { margin-left:auto; border-radius:10px; padding:2px 7px; background:#ffffff15; font-size:10px; }
 .nav-item:hover,.nav-item.active { background:#ffffff12; color:#fff; }
 .nav-item.active { box-shadow:inset 3px 0 #e3a72f; }
-.sidebar-note { margin-top:auto; background:#4f230a; border:1px solid #ffffff12; border-radius:10px; padding:12px; display:flex; gap:9px; align-items:center; }
+.sidebar-note { margin-top:auto; background:#63300a; border:1px solid #ffffff12; border-radius:10px; padding:12px; display:flex; gap:9px; align-items:center; }
 .pulse-dot { width:8px; height:8px; border-radius:50%; background:#56c68c; box-shadow:0 0 0 4px #56c68c1d; }
 .sidebar-note strong,.sidebar-note small { display:block; font-size:10px; }
 .sidebar-note small { color:#97b3a3; margin-top:2px; }
