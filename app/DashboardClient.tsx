@@ -66,12 +66,13 @@ type PedidosVendaProduto = {
   loja: string;
   estoque: number;
   pedido: number;
-  corte3m: number;
+  corte: number[];
   saldo: number;
   coberturaDias: number | null;
 };
 type PedidosVendaData = {
   atualizadoEm: string;
+  mesesCorte: string[];
   produtos: PedidosVendaProduto[];
 };
 type ValuesData = typeof valoresDataType;
@@ -140,18 +141,32 @@ const PRODUTOS_DESCONTINUADOS_MANUALMENTE = new Set([
   "SACO PLAST FAR MAND TORRADA OBA 500 G",
   "SACO PLAST MILHO PIPOCA OBA 500 G",
   // Marcados sem giro a pedido do usuario em 19/08/2026:
-  "BOBINA PARA FARDOS 113,0 CM LISO",
   "BOBINA TAPIOCA SAINT MARCHE 500 G",
-  "MP - ACIDO CITRICO KG",
-  "MP - SAL REFINADO KG",
   "ROTULO ALHO FRITO TERRINHA 250G",
   "ROTULO ALHO TRITURADO TERRINHA 200G",
   "MP - PREPARACAO FAROFA TRADICIONAL KG",
   "MP - COLORIFICO PO ESPECIAL KG",
   "BISNAGA SOPRADO OKKER 200G",
   "MP - PREPARACAO FAROFA ARTESANAL KG",
+  "MP - FARINHA DE MANDIOCA CRUA FINA KG",
+  "MP - FARINHA DE MANDIOCA TORRADA FINA KG",
+  "ROTULO ALHO PASTA TERRINHA 400G",
   "SACO PLAST FARINHA MILHO AMAR OBA 250 G",
   "SACO PLAST FAR MAND CRUA GROSSA OBA  250 G",
+  "BOBINA TAPIOCA BENASSI 500 G",
+  "BOBINA FAROFA PRONTA PUBLIC TRADICIONAL 300G",
+]);
+
+/**
+ * Igual a PRODUTOS_DESCONTINUADOS_MANUALMENTE, mas so pra loja especifica (chave loja|produto)
+ * - o mesmo produto tem giro real em outras lojas (ex.: BOBINA PARA FARDOS 113 CM tem
+ * escadinha/consumo normais na loja 2JM Amidos, so a loja 1 esta parada). Corrigido em
+ * 19/08/2026 depois que marcar por nome apagou o giro real dessas outras lojas por engano.
+ */
+const PRODUTOS_DESCONTINUADOS_POR_LOJA = new Set([
+  "1|BOBINA PARA FARDOS 113,0 CM LISO",
+  "1|MP - ACIDO CITRICO KG",
+  "1|MP - SAL REFINADO KG",
 ]);
 
 /**
@@ -180,9 +195,23 @@ const PRODUTOS_SOB_DEMANDA = new Set([
   "BATATA PALHA EXTRA FINA  PUBLIC 100 g - CX 20",
 ]);
 
+/**
+ * Igual a PRODUTOS_SOB_DEMANDA, mas so pra loja especifica (chave loja|produto) - o mesmo
+ * produto (ex.: LOGISTICA - FILME STRETCH MANUAL) tem giro real na loja 1, so a loja 14 e sob
+ * demanda. Pedido do usuario em 19/08/2026.
+ */
+const PRODUTOS_SOB_DEMANDA_POR_LOJA = new Set([
+  "14|LOGISTICA - FILME STRETCH MANUAL 500x0,15 / 500x0,25",
+  "14|SACO PLASTICO FARDO LISO 25 X 30  UNID",
+  "14|SACO PLASTICO FARDO LISO 25 X 35 UNID",
+  "14|SACO PLASTICO FARDO LISO 27 X 40 UNID",
+]);
+
 function isProductDescontinuado(product: SourceProduct, isInputs: boolean) {
   if (PRODUTOS_EM_ANALISE_MANUALMENTE.has(`${product.loja}|${product.produto}`)) return false;
-  return (isInputs && isProductInativo(product)) || PRODUTOS_DESCONTINUADOS_MANUALMENTE.has(product.produto);
+  return (isInputs && isProductInativo(product))
+    || PRODUTOS_DESCONTINUADOS_MANUALMENTE.has(product.produto)
+    || PRODUTOS_DESCONTINUADOS_POR_LOJA.has(`${product.loja}|${product.produto}`);
 }
 
 const inputTypeOptions = [
@@ -295,7 +324,7 @@ function calculateVisualStatus(source: SourceProduct): Product {
 
   let status: Status;
   let reason: string;
-  if (PRODUTOS_SOB_DEMANDA.has(source.produto)) {
+  if (PRODUTOS_SOB_DEMANDA.has(source.produto) || PRODUTOS_SOB_DEMANDA_POR_LOJA.has(`${source.loja}|${source.produto}`)) {
     status = "Sob demanda";
     reason = "Compra sob demanda — só entra pedido quando já existe demanda confirmada do cliente, sem risco real de falta ou excesso.";
   } else {
@@ -330,6 +359,11 @@ const fullDate = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "2-di
 
 const MESES_ESCADINHA = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
 const MESES_ESCADINHA_LABEL: Record<string, string> = { jan: "Jan", fev: "Fev", mar: "Mar", abr: "Abr", mai: "Mai", jun: "Jun", jul: "Jul", ago: "Ago", set: "Set", out: "Out", nov: "Nov", dez: "Dez" };
+
+function mesCorteLabel(mes: string) {
+  const [ano, mesNum] = mes.split("-");
+  return `${MESES_ESCADINHA_LABEL[MESES_ESCADINHA[Number(mesNum) - 1]]}/${ano.slice(2)}`;
+}
 
 function monthsAgoLabel(monthsAgo: number) {
   const date = new Date();
@@ -1105,6 +1139,7 @@ function PedidosVendaDashboard({
   const [selectedProdutos, setSelectedProdutos] = useState<string[]>([]);
 
   const produtos = pedidosVendaData.produtos as PedidosVendaProduto[];
+  const mesesCorte = pedidosVendaData.mesesCorte;
 
   const categoryOptions = useMemo(
     () => Array.from(new Set(produtos.map((p) => p.categoria).filter((c): c is string => Boolean(c))))
@@ -1137,7 +1172,7 @@ function PedidosVendaDashboard({
 
   const totalEstoque = filtered.reduce((sum, p) => sum + p.estoque, 0);
   const totalPedido = filtered.reduce((sum, p) => sum + p.pedido, 0);
-  const totalCorte = filtered.reduce((sum, p) => sum + p.corte3m, 0);
+  const totalCorte = filtered.reduce((sum, p) => sum + p.corte.reduce((a, b) => a + b, 0), 0);
   const saldoNegativo = filtered.filter((p) => p.saldo < 0).length;
   const updated = new Date(pedidosVendaData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
@@ -1200,7 +1235,8 @@ function PedidosVendaDashboard({
             {(categories.length > 0 || stores.length > 0 || selectedProdutos.length > 0) && <button className="clear-value-filters" onClick={() => { setCategories([]); setStores([]); setSelectedProdutos([]); }}>Limpar filtros</button>}
           </div></div>
           <div className="table-wrap consumption-table-wrap"><table className="consumption-table"><thead><tr>
-            <th>Produto</th><th>Pedido</th><th>Estoque</th><th>Saldo</th><th>Cobertura</th><th>Corte (3 meses)</th>
+            <th>Produto</th><th>Pedido</th><th>Estoque</th><th>Saldo</th><th>Cobertura</th>
+            {mesesCorte.map((mes, index) => <th key={mes} style={index === 0 ? { borderLeft: "2px solid #c7d6cc" } : undefined}>Corte {mesCorteLabel(mes)}</th>)}
           </tr></thead><tbody>
             {filtered.map((p) => <tr key={`${p.loja}-${p.cod}`}>
               <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod} · {p.loja}</small><small>{p.categoria ?? "—"}</small></div></div></td>
@@ -1208,7 +1244,7 @@ function PedidosVendaDashboard({
               <td><strong className="numeric">{number.format(Math.round(p.estoque))}</strong></td>
               <td><strong className={`numeric ${p.saldo < 0 ? "escadinha-delta-down" : ""}`}>{number.format(Math.round(p.saldo))}</strong></td>
               <td>{p.coberturaDias != null ? <div className="coverage"><strong>{number.format(p.coberturaDias)} dias</strong></div> : "—"}</td>
-              <td>{p.corte3m > 0 ? <div className="coverage"><strong className="escadinha-delta-down">{number.format(Math.round(p.corte3m))}</strong><small className="unit">Últimos 3 meses</small></div> : <span className="no-projection">—</span>}</td>
+              {p.corte.map((valor, index) => <td key={mesesCorte[index]} style={index === 0 ? { borderLeft: "2px solid #c7d6cc" } : undefined}>{valor > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(valor))}</strong> : <span className="no-projection">—</span>}</td>)}
             </tr>)}
           </tbody></table>{filtered.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
         </section>
