@@ -1308,7 +1308,7 @@ function PedidosVendaDashboard({
                 <button className="sortable-column" onClick={() => toggleSort(field)}>{label} {sortField === field ? (sortDir === "desc" ? "▾" : "▴") : ""}</button>
               </th>
             ))}
-            {mesesCorte.map((mes, index) => <th key={mes} style={{ width: 100, borderLeft: index === 0 ? "2px solid #c7d6cc" : undefined }}>Corte {mesCorteLabel(mes)}</th>)}
+            {mesesCorte.map((mes, index) => index).reverse().map((index, posicao) => <th key={mesesCorte[index]} style={{ width: 100, borderLeft: posicao === 0 ? "2px solid #c7d6cc" : undefined }}>Corte {mesCorteLabel(mesesCorte[index])}</th>)}
           </tr></thead><tbody>
             {agrupados.map((p) => <tr key={p.cod}>
               <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod} · {p.loja}</small><small>{p.categoria ?? "—"}</small></div></div></td>
@@ -1316,7 +1316,7 @@ function PedidosVendaDashboard({
               <td><strong className="numeric">{number.format(Math.round(p.pedido))}</strong></td>
               <td><strong className={`numeric ${p.saldo < 0 ? "escadinha-delta-down" : ""}`}>{number.format(Math.round(p.saldo))}</strong></td>
               <td>{p.coberturaDias != null ? <div className="coverage"><strong className={p.coberturaDias < 0 ? "escadinha-delta-down" : ""}>{number.format(p.coberturaDias)} dias</strong></div> : "—"}</td>
-              {p.corte.map((valor, index) => <td key={mesesCorte[index]} style={index === 0 ? { borderLeft: "2px solid #c7d6cc" } : undefined}>{valor > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(valor))}</strong> : <span className="no-projection">—</span>}</td>)}
+              {p.corte.map((valor, index) => index).reverse().map((index, posicao) => <td key={mesesCorte[index]} style={posicao === 0 ? { borderLeft: "2px solid #c7d6cc" } : undefined}>{p.corte[index] > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(p.corte[index]))}</strong> : <span className="no-projection">—</span>}</td>)}
             </tr>)}
           </tbody></table>{agrupados.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
         </section>
