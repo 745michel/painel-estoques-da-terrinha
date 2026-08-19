@@ -65,6 +65,7 @@ type PedidosVendaProduto = {
   categoria: string | null;
   estoque: number;
   pedido: number;
+  corte30d: number;
   saldo: number;
   coberturaDias: number | null;
 };
@@ -1132,7 +1133,7 @@ function PedidosVendaDashboard({
         <div className="page-heading"><div><p className="eyebrow">ESTOQUE X PEDIDOS DE VENDA</p><h1>Produto acabado</h1><p>Estoque, pedidos de venda pendentes e cobertura por produto.</p></div></div>
 
         <div className="empty-state" style={{ marginBottom: 24, textAlign: "left", padding: 16 }}>
-          <p style={{ margin: 0 }}>Dado aproximado: &quot;Pedido&quot; soma pedidos de venda com status Fechado/Aguardando Separação ainda não faturados, direto do banco. Não reproduz exatamente o relatório Power BI original (o filtro &quot;Pedido tem talão&quot; de lá é uma medida interna sem fórmula visível). Cobertura = Saldo ÷ venda média diária dos últimos 30 dias.</p>
+          <p style={{ margin: 0 }}>&quot;Pedido&quot; é aproximado: soma pedidos de venda com status Fechado/Aguardando Separação ainda não faturados, direto do banco — não reproduz exatamente o relatório Power BI original (o filtro &quot;Pedido tem talão&quot; de lá é uma medida interna sem fórmula visível). Já &quot;Corte (30d)&quot; é dado exato (vem pronto do Power Automate, soma dos últimos 30 dias de pedido cortado na entrega por falta de estoque na rota). Cobertura = Saldo ÷ venda média diária dos últimos 30 dias.</p>
         </div>
 
         <section className="consumption-summary">
@@ -1149,13 +1150,14 @@ function PedidosVendaDashboard({
             {categories.length > 0 && <button className="clear-value-filters" onClick={() => setCategories([])}>Limpar filtros</button>}
           </div></div>
           <div className="table-wrap consumption-table-wrap"><table className="consumption-table"><thead><tr>
-            <th>Produto</th><th>Categoria</th><th>Estoque</th><th>Pedido</th><th>Saldo</th><th>Cobertura</th>
+            <th>Produto</th><th>Categoria</th><th>Estoque</th><th>Pedido</th><th>Corte (30d)</th><th>Saldo</th><th>Cobertura</th>
           </tr></thead><tbody>
             {filtered.map((p) => <tr key={p.cod}>
               <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod}</small></div></div></td>
               <td>{p.categoria ?? "—"}</td>
               <td><strong className="numeric">{number.format(Math.round(p.estoque))}</strong></td>
               <td><strong className="numeric">{number.format(Math.round(p.pedido))}</strong></td>
+              <td>{p.corte30d > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(p.corte30d))}</strong> : <span className="no-projection">—</span>}</td>
               <td><strong className={`numeric ${p.saldo < 0 ? "escadinha-delta-down" : ""}`}>{number.format(Math.round(p.saldo))}</strong></td>
               <td>{p.coberturaDias != null ? `${decimal.format(p.coberturaDias)} dias` : "—"}</td>
             </tr>)}
