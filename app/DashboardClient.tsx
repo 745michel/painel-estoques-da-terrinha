@@ -1032,7 +1032,7 @@ function EscadinhaDashboard({
         {hasComparacao && <div className="value-source-note"><small>REVISÃO ANTERIOR</small><strong>{fullDate.format(localDate(escadinhaData.dataPublicacaoAnterior as string))}</strong><p>Total de desvio no ano: {number.format(totalDesvioAbsoluto(selected))} {unitLabelEscadinha(selected)} (soma das diferenças em módulo, mês a mês).</p></div>}
         <div className="table-wrap">
           <table className="consumption-table escadinha-drawer-table">
-            <thead><tr><th>Mês</th><th>Plano{hasComparacao ? " (antes → agora)" : ""}</th><th>Real</th><th>Cobertura</th></tr></thead>
+            <thead><tr><th>Mês</th><th>Plano{hasComparacao ? " (antes → agora)" : ""}</th><th>Real</th><th>% de atingimento</th></tr></thead>
             <tbody>
               {MESES_ESCADINHA.map((mes, index) => {
                 const atual = selected.plano?.[index] ?? 0;
@@ -1040,6 +1040,8 @@ function EscadinhaDashboard({
                 const mudou = hasComparacao && atual !== anterior;
                 const diferenca = atual - anterior;
                 const percentual = mudou && anterior ? (diferenca / anterior) * 100 : null;
+                const real = selected.real?.[index] ?? 0;
+                const atingimento = atual > 0 ? (real / atual) * 100 : null;
                 return <tr key={mes} className={mudou ? "selected-row" : ""}>
                   <td>{MESES_ESCADINHA_LABEL[mes]}</td>
                   <td>
@@ -1047,8 +1049,8 @@ function EscadinhaDashboard({
                     <strong className={`numeric ${mudou ? (diferenca > 0 ? "escadinha-delta-up" : "escadinha-delta-down") : ""}`}>{number.format(atual)}</strong>
                     {mudou && <small className="unit" style={{ display: "block", marginTop: 2 }}>{diferenca > 0 ? "+" : ""}{number.format(diferenca)}{percentual != null && ` (${percentual > 0 ? "+" : ""}${decimal.format(percentual)}%)`}</small>}
                   </td>
-                  <td><strong className="numeric">{number.format(selected.real?.[index] ?? 0)}</strong></td>
-                  <td>{selected.cobertura?.[index] != null ? `${decimal.format((selected.cobertura[index] ?? 0) * 100)}%` : "—"}</td>
+                  <td><strong className="numeric">{number.format(real)}</strong></td>
+                  <td>{atingimento != null ? `${decimal.format(atingimento)}%` : "—"}</td>
                 </tr>;
               })}
             </tbody>
