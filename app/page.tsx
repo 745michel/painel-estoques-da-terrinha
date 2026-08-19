@@ -7,6 +7,7 @@ import consumoDataStatic from "../public/dados-consumo-insumos.json";
 import valoresDataStatic from "../data/dados-valores-insumos.json";
 import mrpTerceirosDataStatic from "../public/dados-mrp-terceiros.json";
 import escadinhaDataStatic from "../public/dados-escadinha.json";
+import pedidosVendaDataStatic from "../public/dados-pedidos-venda.json";
 import { fetchSharePointJson, fetchAccessList, isConfigured, type AccessEntry } from "./lib/sharepoint";
 import { buildValorInsumos, type ValorInsumosRow } from "./lib/valor-insumos";
 
@@ -18,6 +19,7 @@ type ConsumoData = typeof consumoDataStatic;
 type ValoresData = typeof valoresDataStatic;
 type MrpTerceirosData = typeof mrpTerceirosDataStatic;
 type EscadinhaData = typeof escadinhaDataStatic;
+type PedidosVendaData = typeof pedidosVendaDataStatic;
 
 /**
  * Cada loadX tenta o SharePoint (dados atualizados 2x/dia pela automacao local +
@@ -84,6 +86,21 @@ async function loadEscadinhaData(): Promise<EscadinhaData> {
   } catch (error) {
     console.error("Falha ao buscar dados-escadinha.json do SharePoint, usando snapshot do build:", error);
     return escadinhaDataStatic;
+  }
+}
+
+async function loadPedidosVendaData(): Promise<PedidosVendaData> {
+  // Estoque x Pedidos de venda pendentes por produto (aba nova). "Pedido" e uma aproximacao:
+  // soma pedidos de venda Fechado/Aguardando Separacao WMS ainda nao faturados, direto do
+  // Postgres (build_pedidos_venda.py + extract_pedidos_venda_odbc.ps1) - nao reproduz o
+  // filtro "tem talao" do relatorio Power BI original, que e uma medida DAX sem formula
+  // visivel. Rodado sob demanda por enquanto, sem automacao agendada. Ver CLAUDE.md, 19/08/2026.
+  if (!isConfigured()) return pedidosVendaDataStatic;
+  try {
+    return await fetchSharePointJson<PedidosVendaData>("dados-pedidos-venda.json");
+  } catch (error) {
+    console.error("Falha ao buscar dados-pedidos-venda.json do SharePoint, usando snapshot do build:", error);
+    return pedidosVendaDataStatic;
   }
 }
 
@@ -164,12 +181,13 @@ export default async function Home() {
     return <AcessoNaoAutorizado email={email!} />;
   }
 
-  const [estoqueData, insumosData, consumoData, mrpTerceirosData, escadinhaData] = await Promise.all([
+  const [estoqueData, insumosData, consumoData, mrpTerceirosData, escadinhaData, pedidosVendaData] = await Promise.all([
     loadEstoqueData(),
     loadInsumosData(),
     loadConsumoData(),
     loadMrpTerceirosData(),
     loadEscadinhaData(),
+    loadPedidosVendaData(),
   ]);
   const valoresData = canViewValues ? await loadValoresData(insumosData) : null;
 
@@ -182,6 +200,7 @@ export default async function Home() {
       consumoData={consumoData}
       mrpTerceirosData={mrpTerceirosData}
       escadinhaData={escadinhaData}
+      pedidosVendaData={pedidosVendaData}
     />
   );
 }

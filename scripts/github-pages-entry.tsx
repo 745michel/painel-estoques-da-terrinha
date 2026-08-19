@@ -6,6 +6,7 @@ import insumosData from "../public/dados-insumos.json";
 import consumoData from "../public/dados-consumo-insumos.json";
 import mrpTerceirosData from "../public/dados-mrp-terceiros.json";
 import escadinhaData from "../public/dados-escadinha.json";
+import pedidosVendaData from "../public/dados-pedidos-venda.json";
 import type valoresDataType from "../data/dados-valores-insumos.json";
 
 type ValoresData = typeof valoresDataType;
@@ -66,6 +67,7 @@ function App() {
         consumoData={consumoData}
         mrpTerceirosData={mrpTerceirosData}
         escadinhaData={escadinhaData}
+        pedidosVendaData={pedidosVendaData}
       />
       {!desbloqueado && (
         <div
