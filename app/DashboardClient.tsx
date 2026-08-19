@@ -1212,7 +1212,7 @@ function PedidosVendaDashboard({
           <div className="kpi-card excess-card">
             <div className="kpi-top"><span className="kpi-icon">↑</span><span className="trend warn">Pendente</span></div>
             <strong>{number.format(Math.round(totalPedido))}</strong><p>Pedido total</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
-            <small>Não faturado, aproximado</small>
+            <small>Não faturado</small>
           </div>
           <div className="kpi-card critical-card">
             <div className="kpi-top"><span className="kpi-icon">✂</span><span className="trend critical">Últimos 3 meses</span></div>
@@ -1243,12 +1243,12 @@ function PedidosVendaDashboard({
               <td><strong className="numeric">{number.format(Math.round(p.pedido))}</strong></td>
               <td><strong className="numeric">{number.format(Math.round(p.estoque))}</strong></td>
               <td><strong className={`numeric ${p.saldo < 0 ? "escadinha-delta-down" : ""}`}>{number.format(Math.round(p.saldo))}</strong></td>
-              <td>{p.coberturaDias != null ? <div className="coverage"><strong>{number.format(p.coberturaDias)} dias</strong></div> : "—"}</td>
+              <td>{p.coberturaDias != null ? <div className="coverage"><strong className={p.coberturaDias < 0 ? "escadinha-delta-down" : ""}>{number.format(p.coberturaDias)} dias</strong></div> : "—"}</td>
               {p.corte.map((valor, index) => <td key={mesesCorte[index]} style={index === 0 ? { borderLeft: "2px solid #c7d6cc" } : undefined}>{valor > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(valor))}</strong> : <span className="no-projection">—</span>}</td>)}
             </tr>)}
           </tbody></table>{filtered.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
         </section>
-        <footer>Fonte: Postgres (pedidos de venda) + produtos_estoque.json (estoque) · Atualização manual, sob demanda · Pedido é aproximado (não reproduz o filtro exato do Power BI); Corte vem exato do Power Automate.</footer>
+        <footer>Fonte: produtos_estoque.json (Estoque, Pedido e Cobertura, Power Automate) + dados_cortes.json (Corte) · Atualização manual, sob demanda.</footer>
       </div>
     </section>
   </main>;
