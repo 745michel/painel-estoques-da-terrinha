@@ -66,7 +66,7 @@ type PedidosVendaProduto = {
   loja: string;
   estoque: number;
   pedido: number;
-  corte30d: number;
+  corte3m: number;
   saldo: number;
   coberturaDias: number | null;
 };
@@ -139,6 +139,17 @@ const PRODUTOS_DESCONTINUADOS_MANUALMENTE = new Set([
   "SACO PLAST FUBA MIMOSO OBA 500 G",
   "SACO PLAST FAR MAND TORRADA OBA 500 G",
   "SACO PLAST MILHO PIPOCA OBA 500 G",
+  // Marcados sem giro a pedido do usuario em 19/08/2026:
+  "BOBINA PARA FARDOS 113,0 CM LISO",
+  "BOBINA TAPIOCA SAINT MARCHE 500 G",
+  "MP - ACIDO CITRICO KG",
+  "MP - SAL REFINADO KG",
+  "ROTULO ALHO FRITO TERRINHA 250G",
+  "ROTULO ALHO TRITURADO TERRINHA 200G",
+  "MP - PREPARACAO FAROFA TRADICIONAL KG",
+  "MP - COLORIFICO PO ESPECIAL KG",
+  "BISNAGA SOPRADO OKKER 200G",
+  "MP - PREPARACAO FAROFA ARTESANAL KG",
   "SACO PLAST FARINHA MILHO AMAR OBA 250 G",
   "SACO PLAST FAR MAND CRUA GROSSA OBA  250 G",
 ]);
@@ -1126,7 +1137,7 @@ function PedidosVendaDashboard({
 
   const totalEstoque = filtered.reduce((sum, p) => sum + p.estoque, 0);
   const totalPedido = filtered.reduce((sum, p) => sum + p.pedido, 0);
-  const totalCorte = filtered.reduce((sum, p) => sum + p.corte30d, 0);
+  const totalCorte = filtered.reduce((sum, p) => sum + p.corte3m, 0);
   const saldoNegativo = filtered.filter((p) => p.saldo < 0).length;
   const updated = new Date(pedidosVendaData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
@@ -1169,7 +1180,7 @@ function PedidosVendaDashboard({
             <small>Não faturado, aproximado</small>
           </div>
           <div className="kpi-card critical-card">
-            <div className="kpi-top"><span className="kpi-icon">✂</span><span className="trend critical">Últimos 30d</span></div>
+            <div className="kpi-top"><span className="kpi-icon">✂</span><span className="trend critical">Últimos 3 meses</span></div>
             <strong>{number.format(Math.round(totalCorte))}</strong><p>Corte total</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
             <small>Cortado na entrega por falta de estoque</small>
           </div>
@@ -1189,17 +1200,15 @@ function PedidosVendaDashboard({
             {(categories.length > 0 || stores.length > 0 || selectedProdutos.length > 0) && <button className="clear-value-filters" onClick={() => { setCategories([]); setStores([]); setSelectedProdutos([]); }}>Limpar filtros</button>}
           </div></div>
           <div className="table-wrap consumption-table-wrap"><table className="consumption-table"><thead><tr>
-            <th>Produto</th><th>Loja</th><th>Categoria</th><th>Estoque</th><th>Pedido</th><th>Corte (30d)</th><th>Saldo</th><th>Cobertura</th>
+            <th>Produto</th><th>Pedido</th><th>Estoque</th><th>Saldo</th><th>Cobertura</th><th>Corte (3 meses)</th>
           </tr></thead><tbody>
             {filtered.map((p) => <tr key={`${p.loja}-${p.cod}`}>
-              <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod}</small></div></div></td>
-              <td>{p.loja}</td>
-              <td>{p.categoria ?? "—"}</td>
-              <td><strong className="numeric">{number.format(Math.round(p.estoque))}</strong></td>
+              <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod} · {p.loja}</small><small>{p.categoria ?? "—"}</small></div></div></td>
               <td><strong className="numeric">{number.format(Math.round(p.pedido))}</strong></td>
-              <td>{p.corte30d > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(p.corte30d))}</strong> : <span className="no-projection">—</span>}</td>
+              <td><strong className="numeric">{number.format(Math.round(p.estoque))}</strong></td>
               <td><strong className={`numeric ${p.saldo < 0 ? "escadinha-delta-down" : ""}`}>{number.format(Math.round(p.saldo))}</strong></td>
-              <td>{p.coberturaDias != null ? `${number.format(p.coberturaDias)} dias` : "—"}</td>
+              <td>{p.coberturaDias != null ? <div className="coverage"><strong>{number.format(p.coberturaDias)} dias</strong></div> : "—"}</td>
+              <td>{p.corte3m > 0 ? <div className="coverage"><strong className="escadinha-delta-down">{number.format(Math.round(p.corte3m))}</strong><small className="unit">Últimos 3 meses</small></div> : <span className="no-projection">—</span>}</td>
             </tr>)}
           </tbody></table>{filtered.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
         </section>
