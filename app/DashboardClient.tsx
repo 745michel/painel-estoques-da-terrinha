@@ -1418,7 +1418,7 @@ export default function DashboardClient({
     const mrp = !isInputs ? mrpBySku.get(product.sku) : undefined;
     const mrpQty = (value: number | null | undefined) => (value == null ? <span className="no-projection">—</span> : <strong className="numeric">{number.format(Math.round(value))}</strong>);
     return <tr key={rowKey} className={highlightedProductKey === rowKey ? "selected-row" : ""} onClick={() => { setHighlightedProductKey(rowKey); setSelected(product); }}>
-      <td data-label="Produto / fornecedor"><div className="product-cell"><div><strong>{product.produto}</strong><small>SKU {product.sku} · Fornecedor: {product.fornecedor}</small></div></div></td>
+      <td data-label={isInputs ? "Produto / loja" : "Produto / fornecedor"}><div className="product-cell"><div><strong>{product.produto}</strong><small>SKU {product.sku} · {isInputs ? storeLabel(product.loja) : `Fornecedor: ${product.fornecedor}`}</small></div></div></td>
       {isInputs ? (
         <>
           <td data-label="Escadinha projetada">{product.escadinha > 0 ? <><strong className="numeric">{decimal.format(product.escadinha)}</strong><small className="unit"> {unitLabel(product.unidade, product.escadinha, true)}</small></> : <span className="no-projection">Sem projeção</span>}</td>
