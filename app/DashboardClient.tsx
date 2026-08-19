@@ -1170,10 +1170,37 @@ function PedidosVendaDashboard({
     return true;
   });
 
-  const totalEstoque = filtered.reduce((sum, p) => sum + p.estoque, 0);
-  const totalPedido = filtered.reduce((sum, p) => sum + p.pedido, 0);
-  const totalCorte = filtered.reduce((sum, p) => sum + p.corte.reduce((a, b) => a + b, 0), 0);
-  const saldoNegativo = filtered.filter((p) => p.saldo < 0).length;
+  // Uma linha por loja (empresa do grupo: Matriz, FFAMM, Okker...) parecia produto duplicado
+  // pro usuario - agrupa por produto somando as lojas que estao no filtro atual. Cobertura nao
+  // e somavel direto (dias), entao reconstroi a taxa de venda diaria implicita por loja
+  // (saldo/cobertura) pra agregar de forma correta. Pedido do usuario em 19/08/2026.
+  const agrupados = useMemo(() => {
+    const porCodigo = new Map<number, { produto: PedidosVendaProduto; lojas: Set<string>; taxaDiaria: number }>();
+    for (const p of filtered) {
+      const taxaDiaria = p.coberturaDias ? p.saldo / p.coberturaDias : 0;
+      const atual = porCodigo.get(p.cod);
+      if (!atual) {
+        porCodigo.set(p.cod, { produto: { ...p }, lojas: new Set([p.loja]), taxaDiaria });
+        continue;
+      }
+      atual.lojas.add(p.loja);
+      atual.taxaDiaria += taxaDiaria;
+      atual.produto.estoque += p.estoque;
+      atual.produto.pedido += p.pedido;
+      atual.produto.saldo += p.saldo;
+      atual.produto.corte = atual.produto.corte.map((valor, index) => valor + p.corte[index]);
+    }
+    return Array.from(porCodigo.values()).map(({ produto, lojas, taxaDiaria }) => ({
+      ...produto,
+      loja: lojas.size === 1 ? Array.from(lojas)[0] : `${lojas.size} empresas`,
+      coberturaDias: taxaDiaria !== 0 ? Math.round(produto.saldo / taxaDiaria) : null,
+    })).sort((a, b) => a.produto.localeCompare(b.produto, "pt-BR"));
+  }, [filtered]);
+
+  const totalEstoque = agrupados.reduce((sum, p) => sum + p.estoque, 0);
+  const totalPedido = agrupados.reduce((sum, p) => sum + p.pedido, 0);
+  const totalCorte = agrupados.reduce((sum, p) => sum + p.corte.reduce((a, b) => a + b, 0), 0);
+  const saldoNegativo = agrupados.filter((p) => p.saldo < 0).length;
   const updated = new Date(pedidosVendaData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
   return <main className="app-shell">
@@ -1201,7 +1228,7 @@ function PedidosVendaDashboard({
         <section className="kpi-grid" aria-label="Indicadores principais">
           <div className="kpi-card performance-card">
             <div className="kpi-top"><span className="kpi-icon">▤</span><span className="trend neutral">Filtrado</span></div>
-            <strong>{number.format(filtered.length)}</strong><p>Produtos monitorados</p><div className="mini-rule performance-rule"><span style={{ width: "100%" }} /></div>
+            <strong>{number.format(agrupados.length)}</strong><p>Produtos monitorados</p><div className="mini-rule performance-rule"><span style={{ width: "100%" }} /></div>
             <small>{categories.length || stores.length || selectedProdutos.length ? "Com filtros aplicados" : "Todas as categorias e lojas"}</small>
           </div>
           <div className="kpi-card healthy-card">
@@ -1221,7 +1248,7 @@ function PedidosVendaDashboard({
           </div>
           <div className="kpi-card risk-card">
             <div className="kpi-top"><span className="kpi-icon">!</span><span className="trend bad">Atenção</span></div>
-            <strong>{number.format(saldoNegativo)}</strong><p>Saldo negativo</p><div className="mini-rule"><span style={{ width: `${filtered.length ? Math.round((saldoNegativo / filtered.length) * 100) : 0}%` }} /></div>
+            <strong>{number.format(saldoNegativo)}</strong><p>Saldo negativo</p><div className="mini-rule"><span style={{ width: `${agrupados.length ? Math.round((saldoNegativo / agrupados.length) * 100) : 0}%` }} /></div>
             <small>Pedido maior que o estoque</small>
           </div>
         </section>
@@ -1234,11 +1261,11 @@ function PedidosVendaDashboard({
             <MultiFilter label="Produto" options={productOptions} selected={selectedProdutos} onChange={setSelectedProdutos} />
             {(categories.length > 0 || stores.length > 0 || selectedProdutos.length > 0) && <button className="clear-value-filters" onClick={() => { setCategories([]); setStores([]); setSelectedProdutos([]); }}>Limpar filtros</button>}
           </div></div>
-          <div className="table-wrap consumption-table-wrap"><table className="consumption-table"><thead><tr>
+          <div className="table-wrap consumption-table-wrap"><table className="consumption-table pedidos-venda-table"><thead><tr>
             <th>Produto</th><th>Pedido</th><th>Estoque</th><th>Saldo</th><th>Cobertura</th>
             {mesesCorte.map((mes, index) => <th key={mes} style={index === 0 ? { borderLeft: "2px solid #c7d6cc" } : undefined}>Corte {mesCorteLabel(mes)}</th>)}
           </tr></thead><tbody>
-            {filtered.map((p) => <tr key={`${p.loja}-${p.cod}`}>
+            {agrupados.map((p) => <tr key={p.cod}>
               <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod} · {p.loja}</small><small>{p.categoria ?? "—"}</small></div></div></td>
               <td><strong className="numeric">{number.format(Math.round(p.pedido))}</strong></td>
               <td><strong className="numeric">{number.format(Math.round(p.estoque))}</strong></td>
@@ -1246,7 +1273,7 @@ function PedidosVendaDashboard({
               <td>{p.coberturaDias != null ? <div className="coverage"><strong className={p.coberturaDias < 0 ? "escadinha-delta-down" : ""}>{number.format(p.coberturaDias)} dias</strong></div> : "—"}</td>
               {p.corte.map((valor, index) => <td key={mesesCorte[index]} style={index === 0 ? { borderLeft: "2px solid #c7d6cc" } : undefined}>{valor > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(valor))}</strong> : <span className="no-projection">—</span>}</td>)}
             </tr>)}
-          </tbody></table>{filtered.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
+          </tbody></table>{agrupados.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
         </section>
         <footer>Fonte: produtos_estoque.json (Estoque, Pedido e Cobertura, Power Automate) + dados_cortes.json (Corte) · Atualização manual, sob demanda.</footer>
       </div>
