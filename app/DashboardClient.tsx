@@ -1022,6 +1022,11 @@ function EscadinhaDashboard({
         const semEscadinhaA = planoAnual(a) === 0;
         const semEscadinhaB = planoAnual(b) === 0;
         if (semEscadinhaA !== semEscadinhaB) return semEscadinhaA ? 1 : -1;
+        // Plano zerado a partir do mes atual (revisao recente cortou o resto do ano) tambem vai
+        // pro final, mesmo tendo tido plano nos meses anteriores - pedido do usuario em 19/08/2026.
+        const zeradoAgoraA = (a.plano?.[mesAtualIndex] ?? 0) === 0;
+        const zeradoAgoraB = (b.plano?.[mesAtualIndex] ?? 0) === 0;
+        if (zeradoAgoraA !== zeradoAgoraB) return zeradoAgoraA ? 1 : -1;
         if (hasComparacao) {
           const desvioA = totalDesvioAbsoluto(a);
           const desvioB = totalDesvioAbsoluto(b);
