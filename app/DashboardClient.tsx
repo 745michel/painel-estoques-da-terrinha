@@ -186,6 +186,7 @@ const PRODUTOS_DESCONTINUADOS_MANUALMENTE = new Set([
   "ETIQ ALHO TRIT OKKER 3KG",
   "ETIQ ROSA AVERMELHADO (PMS 706) COLUNAS OKKER 120X49",
   "MP - PREPARACAO FAROFA APIMENTADA KG",
+  "MP - FAROFA ARTESANAL APIMENTADA KG",
 ]);
 
 /**
@@ -226,6 +227,8 @@ const PRODUTOS_SOB_DEMANDA = new Set([
   "BATATA PALHA TRADICIONAL  PUBLIC 100 G - CX 20",
   "BATATA PALHA EXTRA FINA  PUBLIC 100 g - CX 20",
   "LOGISTICA - FILME STRETCH AUTOMATICO",
+  "MP - CALDO DE GALINHA KG",
+  "MP - COLORAU  OKKER KG",
 ]);
 
 /**
@@ -238,6 +241,8 @@ const PRODUTOS_SOB_DEMANDA_POR_LOJA = new Set([
   "14|SACO PLASTICO FARDO LISO 25 X 30  UNID",
   "14|SACO PLASTICO FARDO LISO 25 X 35 UNID",
   "14|SACO PLASTICO FARDO LISO 27 X 40 UNID",
+  "10|MP - PIMENTA CALABRESA FLOCOS KG",
+  "10|MP - ACAFRAO/CURCUMA MOIDA KG",
 ]);
 
 /**
@@ -1726,7 +1731,7 @@ export default function DashboardClient({
             <div className="filters">
               {!mostrarDescontinuados && (
                 <div className="status-tabs">
-                  {(["Todos", "Falta crítica", "Estoque baixo", "Excesso", "Nível ideal"] as const).map((item) => (
+                  {(["Todos", "Falta crítica", "Estoque baixo", "Excesso", "Nível ideal", "Sob demanda", "Estoque com terceiros"] as const).map((item) => (
                     <button key={item} className={status === item ? "selected" : ""} onClick={() => setStatus(item)}>{statusLabel(item)}{item !== "Todos" && <span>{products.filter((p) => p.status === item).length}</span>}</button>
                   ))}
                 </div>
