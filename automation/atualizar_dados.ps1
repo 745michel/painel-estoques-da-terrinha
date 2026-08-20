@@ -117,6 +117,19 @@ Invoke-Step "Gerar dados-estoque.json e dados-insumos.json (leitura das planilha
     finally { Pop-Location }
 }
 
+Invoke-Step "Padronizar Estoque/Saldo/Cobertura de Terceiros com o BI (produtos_estoque.json)" {
+    # Fonte unica com a aba Estoque x Pedidos - pedido do usuario em 20/08/2026, as duas bases
+    # mostravam numeros diferentes pro mesmo produto (planilha Terceiro Estoque X Pedido.xlsm
+    # vs relatorio Power BI). Ver apply_bi_terceiros.py.
+    Push-Location $sheetInspect
+    try {
+        $result = & $pythonExe "apply_bi_terceiros.py" 2>&1
+        if ($LASTEXITCODE -ne 0) { throw "apply_bi_terceiros.py saiu com codigo $LASTEXITCODE`: $result" }
+        Write-Log ($result -join " ")
+    }
+    finally { Pop-Location }
+}
+
 Invoke-Step "Extrair historico de consumo (ODBC direto, sem Power BI)" {
     $result = & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $sheetInspect "extract_consumption_history.ps1") 2>&1
     if ($LASTEXITCODE -ne 0) { throw "extract_consumption_history.ps1 saiu com codigo $LASTEXITCODE`: $($result -join ' | ')" }

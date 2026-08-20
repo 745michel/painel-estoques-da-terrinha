@@ -75,7 +75,7 @@ já configurado nesta máquina.
 
 `automation\atualizar_dados.ps1` roda todo dia às 08:30 via Tarefa Agendada do Windows
 (`AtualizarPainelEstoques`, `Get-ScheduledTask -TaskName AtualizarPainelEstoques`) e cobre
-**terceiros, embalagens/MP e consumo — sem tocar em ninguém, sem Power BI**:
+**terceiros, embalagens/MP e consumo — sem tocar em ninguém, sem abrir nada no Power BI**:
 
 1. `work/sheet-inspect/refresh_workbooks.ps1 -Alvo Todos` — Excel COM abre as duas planilhas,
    `RefreshAll()`, atualiza explicitamente a conexão `Consulta - movimento_estoque` (tem
@@ -83,9 +83,12 @@ já configurado nesta máquina.
    pessoa (lança erro em vez de forçar).
 2. `work/sheet-inspect/extract_products.py` (Python) — lê as planilhas já atualizadas →
    `public/dados-estoque.json` + `public/dados-insumos.json`.
-3. `work/sheet-inspect/extract_consumption_history.ps1` — consulta `movimento_estoque` **direto
+3. `work/sheet-inspect/apply_bi_terceiros.py` (Python, 20/08/2026) — sobrescreve
+   Estoque/Saldo/Cobertura de Terceiros com `produtos_estoque.json` (BI/Power Automate, já
+   sincronizado do SharePoint — não busca nada novo). Ver REGRAS_PAINEL_ESTOQUES.md.
+4. `work/sheet-inspect/extract_consumption_history.ps1` — consulta `movimento_estoque` **direto
    no Postgres via ODBC**, sem passar pelo Power BI → `consumo-mensal-odbc.csv`.
-4. `work/sheet-inspect/build_consumption_history.py` (Python) → `public/dados-consumo-insumos.json`.
+5. `work/sheet-inspect/build_consumption_history.py` (Python) → `public/dados-consumo-insumos.json`.
 
 Cada etapa é sequencial e para a rotina inteira no primeiro erro (log em
 `automation\logs\atualizacao-*.log`) — nunca deixa dados parcialmente atualizados, seguindo a

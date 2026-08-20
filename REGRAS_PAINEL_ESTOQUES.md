@@ -5,6 +5,15 @@ Este arquivo registra as decisões aprovadas durante a construção do painel. D
 ## Fontes reais
 
 - Terceiros: `C:\Users\Daterrinha63\daterrinhaalimentos.com.br\DT - PCP - DADOS\Planilha - Atualização\Terceiro Estoque X Pedido.xlsm`
+  - **Exceção (20/08/2026)**: Estoque, Saldo (e por consequência Carteira = Estoque − Saldo,
+    calculada no frontend) e Cobertura vêm de `produtos_estoque.json` (BI/Power Automate),
+    somado por SKU entre todas as lojas do grupo — `work/sheet-inspect/apply_bi_terceiros.py`,
+    rodado depois de `extract_products.py`. Decisão explícita do usuário: as duas bases
+    mostravam números diferentes pro mesmo produto, e ele escolheu o BI como fonte única
+    (mesma que já alimenta a aba Estoque x Pedidos). Só esses 3 campos — Escadinha projetada,
+    Consumo realizado, Atingimento, Status e entregas continuam vindo só da planilha. Produtos
+    sem correspondência no BI (sob demanda ou descontinuados manualmente) mantêm o valor da
+    planilha sem alteração.
 - Embalagens e matérias-primas: `C:\Users\Daterrinha63\daterrinhaalimentos.com.br\DT - PCP - DADOS\Planilha - Atualização\EMBALAGEM Estoque X Pedido.xlsm`
 - Não usar anexos, cópias ou planilhas-modelo.
 - Antes de extrair dados operacionais, abrir as duas bases no Microsoft Excel, atualizar conexões, consultas e fórmulas, salvar e fechar. Se uma base estiver aberta, bloqueada ou falhar, não publicar dados antigos.
