@@ -46,7 +46,7 @@ type EscadinhaData = {
   desvios: EscadinhaDesvio[];
 };
 
-type Status = "Falta crítica" | "Estoque baixo" | "Excesso" | "Nível ideal" | "Sob demanda";
+type Status = "Falta crítica" | "Estoque baixo" | "Excesso" | "Nível ideal" | "Sob demanda" | "Estoque com terceiros";
 type SourceProduct = InsumosData["produtos"][number];
 type Product = SourceProduct & {
   status: Status;
@@ -85,6 +85,7 @@ const statusClass: Record<Status, string> = {
   Excesso: "excess",
   "Nível ideal": "healthy",
   "Sob demanda": "ondemand",
+  "Estoque com terceiros": "ondemand",
 };
 
 function statusLabel(status: string) {
@@ -180,6 +181,11 @@ const PRODUTOS_DESCONTINUADOS_MANUALMENTE = new Set([
   "TAMPA VERMELHA BALDE OKKER 3.2",
   "TAMPA VERMELHA OKKER P1000",
   "TAMPA VERMELHA OKKER P500",
+  // Marcados sem giro a pedido do usuario em 20/08/2026:
+  "BOBINA TAPIOCA ABC 500 G",
+  "ETIQ ALHO TRIT OKKER 3KG",
+  "ETIQ ROSA AVERMELHADO (PMS 706) COLUNAS OKKER 120X49",
+  "MP - PREPARACAO FAROFA APIMENTADA KG",
 ]);
 
 /**
@@ -192,6 +198,7 @@ const PRODUTOS_DESCONTINUADOS_POR_LOJA = new Set([
   "1|BOBINA PARA FARDOS 113,0 CM LISO",
   "1|MP - ACIDO CITRICO KG",
   "1|MP - SAL REFINADO KG",
+  "14|MP - POLVILHO AZEDO KG",
 ]);
 
 /**
@@ -231,6 +238,23 @@ const PRODUTOS_SOB_DEMANDA_POR_LOJA = new Set([
   "14|SACO PLASTICO FARDO LISO 25 X 30  UNID",
   "14|SACO PLASTICO FARDO LISO 25 X 35 UNID",
   "14|SACO PLASTICO FARDO LISO 27 X 40 UNID",
+]);
+
+/**
+ * Embalagens (bobinas) de produto terceirizado que ficam fisicamente estocadas no fornecedor
+ * terceiro, nunca no nosso estoque - Estoque=0 e um fato estrutural, nao uma falta real, mesmo
+ * com Escadinha/Faturado normais. Status neutro "Estoque com terceiros" em vez de alarme.
+ * Mantida manualmente a pedido do usuario em 20/08/2026.
+ */
+const PRODUTOS_ESTOQUE_COM_TERCEIROS = new Set([
+  "BOBINA BATATA PALHA TRADICIONAL PUBLIC 100G",
+  "BOBINA AMENDOIM SEM PELE TORRADO E SALGADO MIDA DA TERRINHA 80G - UND",
+  "BOBINA AMENDOIM JAPONES MIDA DA TERRINHA 350G - UND",
+  "BOBINA AMENDOIM JAPONES MIDA DA TERRINHA 700G - UND",
+  "BOBINA AMENDOIM JAPONES MIDA DA TERRINHA 80G - UND",
+  "BOBINA AMENDOIM SEM PELE TORRADO E SALGADO MIDA D",
+  "BOBINA BATATA ONDULADA SABOR NATURAL MIDA DA TERRINH",
+  "BOBINA OVINHOS DE AMENDOIM MIDA DA TERRINHA 80G",
 ]);
 
 function isProductDescontinuado(product: SourceProduct, isInputs: boolean) {
@@ -356,6 +380,9 @@ function calculateVisualStatus(source: SourceProduct, useSourceCobertura: boolea
   if (PRODUTOS_SOB_DEMANDA.has(source.produto) || PRODUTOS_SOB_DEMANDA_POR_LOJA.has(`${source.loja}|${source.produto}`)) {
     status = "Sob demanda";
     reason = "Compra sob demanda — só entra pedido quando já existe demanda confirmada do cliente, sem risco real de falta ou excesso.";
+  } else if (PRODUTOS_ESTOQUE_COM_TERCEIROS.has(source.produto)) {
+    status = "Estoque com terceiros";
+    reason = "Embalagem fica estocada no fornecedor terceirizado — estoque zerado aqui é esperado, não é falta real.";
   } else {
     const classified = classifyCoverage(coberturaReal, source.seguranca, today, firstDelivery);
     status = classified.status;
@@ -1499,7 +1526,7 @@ export default function DashboardClient({
       if (sort === "produto") return a.produto.localeCompare(b.produto, "pt-BR");
       if (sort === "excesso") return b.cobertura - a.cobertura;
       if (sort === "atingimento") return a.atingimento - b.atingimento;
-      const rank: Record<string, number> = { "Falta crítica": 0, "Estoque baixo": 1, "Nível ideal": 2, Excesso: 3, "Sob demanda": 4 };
+      const rank: Record<string, number> = { "Falta crítica": 0, "Estoque baixo": 1, "Nível ideal": 2, Excesso: 3, "Sob demanda": 4, "Estoque com terceiros": 5 };
       return rank[a.status] - rank[b.status] || a.cobertura - b.cobertura;
     });
   }, [products, query, selectedStores, selectedSuppliers, selectedProducts, status, safety, performance, sort, selectedTypes]);
