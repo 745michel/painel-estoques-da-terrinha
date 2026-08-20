@@ -67,6 +67,7 @@ type PedidosVendaProduto = {
   estoque: number;
   pedido: number;
   corte: number[];
+  venda: number[];
   saldo: number;
   coberturaDias: number | null;
 };
@@ -1163,15 +1164,18 @@ function PedidosVendaDashboard({
   onSectionChange,
   canViewValues,
   pedidosVendaData,
+  escadinhaData,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
   pedidosVendaData: PedidosVendaData;
+  escadinhaData: EscadinhaData;
 }) {
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
   const [stores, setStores] = useState<string[]>([]);
   const [selectedProdutos, setSelectedProdutos] = useState<string[]>([]);
+  const [selected, setSelected] = useState<PedidosVendaProduto | null>(null);
   const [sortField, setSortField] = useState<"estoque" | "pedido" | "saldo" | "coberturaDias">("pedido");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   function toggleSort(field: typeof sortField) {
@@ -1181,6 +1185,10 @@ function PedidosVendaDashboard({
 
   const produtos = pedidosVendaData.produtos as PedidosVendaProduto[];
   const mesesCorte = pedidosVendaData.mesesCorte;
+  const escadinhaPorCod = useMemo(
+    () => new Map((escadinhaData.produtos as EscadinhaProduto[]).filter((p) => p.cod != null).map((p) => [p.cod as number, p])),
+    [escadinhaData],
+  );
 
   const categoryOptions = useMemo(
     () => Array.from(new Set(produtos.map((p) => p.categoria).filter((c): c is string => Boolean(c))))
@@ -1230,6 +1238,7 @@ function PedidosVendaDashboard({
       atual.produto.pedido += p.pedido;
       atual.produto.saldo += p.saldo;
       atual.produto.corte = atual.produto.corte.map((valor, index) => valor + p.corte[index]);
+      atual.produto.venda = atual.produto.venda.map((valor, index) => valor + p.venda[index]);
     }
     const lista = Array.from(porCodigo.values()).map(({ produto, lojas, taxaDiaria }) => ({
       ...produto,
@@ -1315,7 +1324,7 @@ function PedidosVendaDashboard({
             ))}
             {mesesCorte.map((mes, index) => index).reverse().map((index, posicao) => <th key={mesesCorte[index]} style={{ width: 100, borderLeft: posicao === 0 ? "2px solid #c7d6cc" : undefined }}>Corte {mesCorteLabel(mesesCorte[index])}</th>)}
           </tr></thead><tbody>
-            {agrupados.map((p) => <tr key={p.cod}>
+            {agrupados.map((p) => <tr key={p.cod} onClick={() => setSelected(p)} style={{ cursor: "pointer" }}>
               <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod} · {p.loja}</small><small>{p.categoria ?? "—"}</small></div></div></td>
               <td><strong className="numeric">{number.format(Math.round(p.estoque))}</strong></td>
               <td><strong className="numeric">{number.format(Math.round(p.pedido))}</strong></td>
@@ -1328,6 +1337,39 @@ function PedidosVendaDashboard({
         <footer>Fonte: produtos_estoque.json (Estoque, Pedido e Cobertura, Power Automate) + dados_cortes.json (Corte) · Atualização manual, sob demanda.</footer>
       </div>
     </section>
+
+    {selected && <div className="drawer-backdrop" onClick={() => setSelected(null)}>
+      <div className="drawer" onClick={(event) => event.stopPropagation()}>
+        <button className="drawer-close" onClick={() => setSelected(null)}>×</button>
+        <h2>{selected.produto}</h2>
+        <p className="drawer-sku">Cód. {selected.cod} · {selected.loja} · {selected.categoria ?? "Sem categoria"}</p>
+        <h3 className="drawer-section-label">RESUMO DOS ÚLTIMOS 3 MESES</h3>
+        <div className="table-wrap">
+          <table className="consumption-table escadinha-drawer-table">
+            <thead><tr><th>Mês</th><th>Venda</th><th>Corte</th><th>Escadinha real.</th></tr></thead>
+            <tbody>
+              {mesesCorte.map((mes, index) => index).reverse().map((index) => {
+                const escadinha = escadinhaPorCod.get(selected.cod);
+                const mesNumero = Number(mesesCorte[index].slice(5, 7));
+                const escadinhaReal = escadinha?.real?.[mesNumero - 1];
+                return <tr key={mesesCorte[index]}>
+                  <td>{mesCorteLabel(mesesCorte[index])}</td>
+                  <td><strong className="numeric">{number.format(Math.round(selected.venda[index]))}</strong></td>
+                  <td>{selected.corte[index] > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(selected.corte[index]))}</strong> : <span className="no-projection">—</span>}</td>
+                  <td>{escadinhaReal != null ? <strong className="numeric">{number.format(Math.round(escadinhaReal))}</strong> : <span className="no-projection">Sem correspondência</span>}</td>
+                </tr>;
+              })}
+            </tbody>
+          </table>
+        </div>
+        <div className="drawer-metrics">
+          <div><small>ESTOQUE</small><strong>{number.format(Math.round(selected.estoque))}</strong></div>
+          <div><small>PEDIDO</small><strong>{number.format(Math.round(selected.pedido))}</strong></div>
+          <div><small>SALDO</small><strong className={selected.saldo < 0 ? "escadinha-delta-down" : ""}>{number.format(Math.round(selected.saldo))}</strong></div>
+          <div><small>COBERTURA</small><strong>{selected.coberturaDias != null ? `${number.format(selected.coberturaDias)} dias` : "—"}</strong></div>
+        </div>
+      </div>
+    </div>}
   </main>;
 }
 
@@ -1529,7 +1571,7 @@ export default function DashboardClient({
   if (isValues && valoresData) return <ValuesDashboard onSectionChange={changeSection} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} />;
   if (isConsumption) return <ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} />;
   if (isEscadinha) return <EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} />;
-  if (isPedidosVenda) return <PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} />;
+  if (isPedidosVenda) return <PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} />;
 
   function renderProductRow(product: Product, descontinuado: boolean) {
     const cls = statusClass[product.status as Status];
