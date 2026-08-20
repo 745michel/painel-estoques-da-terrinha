@@ -327,7 +327,7 @@ function classifyCoverage(
   };
 }
 
-function calculateVisualStatus(source: SourceProduct): Product {
+function calculateVisualStatus(source: SourceProduct, useSourceCobertura: boolean = false): Product {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const futureDeliveries = source.entregasProgramadas
@@ -339,8 +339,11 @@ function calculateVisualStatus(source: SourceProduct): Product {
   const dailyUse = dailyUseUnificado(source);
   const safetyStock = source.estoqueSeguranca > 0 ? source.estoqueSeguranca : dailyUse * source.seguranca;
   // Cobertura recalculada com o CMD unificado — substitui a coluna da planilha (fallback só
-  // se não houver CMD nenhum, ex. produto sem consumo e sem segurança configurada).
-  const coberturaReal = dailyUse > 0 ? source.estoque / dailyUse : source.cobertura;
+  // se não houver CMD nenhum, ex. produto sem consumo e sem segurança configurada). Excessão:
+  // Terceiros (useSourceCobertura=true) usa direto o valor do BI (produtos_estoque.json,
+  // já em source.cobertura via apply_bi_terceiros.py) - fonte única com Estoque x Pedidos,
+  // pedido do usuário em 20/08/2026. Insumos continua com a recalculação de sempre.
+  const coberturaReal = useSourceCobertura ? source.cobertura : (dailyUse > 0 ? source.estoque / dailyUse : source.cobertura);
   const projectedAtDelivery = leadTime == null ? null : source.estoque - dailyUse * leadTime;
   const reorderPoint = safetyStock + dailyUse * (leadTime ?? 0);
   const minimumLot = Math.max(0, source.loteMinimo);
@@ -1420,7 +1423,11 @@ export default function DashboardClient({
     setOperationalProductSelections((current) => ({ ...current, [operationalSection]: values }));
   }
   const activeData = isInputs || isConsumption || isValues ? insumosData : estoqueData;
-  const allProducts = useMemo(() => (activeData.produtos as SourceProduct[]).map(calculateVisualStatus), [activeData]);
+  // activeData vira insumosData tambem nas secoes Consumo/Valores (nao so Insumos) - so usar a
+  // Cobertura do BI quando for realmente a base de Terceiros (estoqueData), pra nao vazar pra
+  // Insumos por engano nessas outras secoes.
+  const isTerceirosData = activeData === estoqueData;
+  const allProducts = useMemo(() => (activeData.produtos as SourceProduct[]).map((p) => calculateVisualStatus(p, isTerceirosData)), [activeData, isTerceirosData]);
   // Escadinha atual (Plano M), Real M, %Plano e Corte M - cruzados por SKU com a planilha
   // "Projeto MRP compras remodelado", a pedido do usuario em 12/08/2026. Estoque, Carteira,
   // Saldo e Cobertura NAO vem do MRP (risco de divergencia por filtro instavel da pivot) -
