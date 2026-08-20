@@ -92,6 +92,17 @@ Cada etapa é sequencial e para a rotina inteira no primeiro erro (log em
 regra do REGRAS_PAINEL_ESTOQUES.md. As duas funções Python que escrevem JSON usam
 escrita atômica (`*.tmp` + rename) pelo mesmo motivo.
 
+Duas outras tarefas agendadas separadas, mesmo padrão (log em `automation\logs`, para no
+primeiro erro, publicação/commit+push sempre manual):
+
+- `AtualizarEscadinha` (08:00) → `automation\atualizar_escadinha.ps1` → `extract_escadinha.py`
+  (plano mestre + histórico de revisões + Real do mês em andamento vindo do BI de cortes).
+- `AtualizarPedidosVenda` (08:15, criada em 20/08/2026) →
+  `automation\atualizar_pedidos_venda.ps1` → `extract_pedidos_venda_odbc.ps1` (lookup de
+  categoria/escopo no Postgres) + `build_pedidos_venda.py` → `public/dados-pedidos-venda.json`.
+  Não busca nada novo — só reprocessa `produtos_estoque.json`/`dados_cortes.json`, que já
+  chegam sozinhos via Power Automate.
+
 ## GitHub e hospedagem (11/08/2026)
 
 Código publicado num repositório **privado** no GitHub, sob conta pessoal do usuário
