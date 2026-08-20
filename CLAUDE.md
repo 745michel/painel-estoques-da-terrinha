@@ -71,40 +71,52 @@ cópia isolada. `movimento_estoque` (consumo) e `ficha_custo`/`ficha_estoque` (v
 vêm do mesmo banco Postgres que alimenta o Power BI, acessível pelo DSN ODBC `PostgreSQL35W`
 já configurado nesta máquina.
 
-### Automação (05/08/2026)
+### Automação (05/08/2026, totalmente automática desde 20/08/2026)
 
-`automation\atualizar_dados.ps1` roda todo dia às 08:30 via Tarefa Agendada do Windows
-(`AtualizarPainelEstoques`, `Get-ScheduledTask -TaskName AtualizarPainelEstoques`) e cobre
-**terceiros, embalagens/MP e consumo — sem tocar em ninguém, sem abrir nada no Power BI**:
+**Tarefa agendada única `AtualizarEPublicarPainel`** (`Get-ScheduledTask -TaskName
+AtualizarEPublicarPainel`), 3x por dia (08:10, 14:00, 15:30) →
+`automation\atualizar_e_publicar_tudo.ps1`. Antes eram 3 tarefas separadas
+(`AtualizarPainelEstoques`, `AtualizarEscadinha`, `AtualizarPedidosVenda`), cada uma publicando
+por conta própria — unificadas numa só em 20/08/2026 porque, rodando no mesmo horário, cada
+uma tentando dar `git push` sozinha podia disputar o repositório. Also a partir de 20/08/2026 a
+**publicação (commit + push) passou a ser automática** — pedido explícito do usuário
+("quero usar você só pra criar novos relatórios e melhorias, os dados têm que vir
+automático"). Ninguém mais precisa pedir pra atualizar ou publicar o painel; só pra
+mudar/criar algo novo.
 
-1. `work/sheet-inspect/refresh_workbooks.ps1 -Alvo Todos` — Excel COM abre as duas planilhas,
-   `RefreshAll()`, atualiza explicitamente a conexão `Consulta - movimento_estoque` (tem
-   `RefreshWithRefreshAll=False`), salva e fecha. Já tem guarda contra arquivo aberto por outra
-   pessoa (lança erro em vez de forçar).
-2. `work/sheet-inspect/extract_products.py` (Python) — lê as planilhas já atualizadas →
-   `public/dados-estoque.json` + `public/dados-insumos.json`.
-3. `work/sheet-inspect/apply_bi_terceiros.py` (Python, 20/08/2026) — sobrescreve
-   Estoque/Saldo/Cobertura de Terceiros com `produtos_estoque.json` (BI/Power Automate, já
-   sincronizado do SharePoint — não busca nada novo). Ver REGRAS_PAINEL_ESTOQUES.md.
-4. `work/sheet-inspect/extract_consumption_history.ps1` — consulta `movimento_estoque` **direto
-   no Postgres via ODBC**, sem passar pelo Power BI → `consumo-mensal-odbc.csv`.
-5. `work/sheet-inspect/build_consumption_history.py` (Python) → `public/dados-consumo-insumos.json`.
+O script roda 3 pipelines, cada uma independente (uma falhar não trava as outras — fica com o
+último dado bom, e só os arquivos das pipelines que deram certo entram no commit):
 
-Cada etapa é sequencial e para a rotina inteira no primeiro erro (log em
-`automation\logs\atualizacao-*.log`) — nunca deixa dados parcialmente atualizados, seguindo a
-regra do REGRAS_PAINEL_ESTOQUES.md. As duas funções Python que escrevem JSON usam
-escrita atômica (`*.tmp` + rename) pelo mesmo motivo.
+1. **Terceiros/Embalagens/MP/Consumo** (`automation\atualizar_dados.ps1`):
+   1. `work/sheet-inspect/refresh_workbooks.ps1 -Alvo Todos` — Excel COM abre as duas
+      planilhas, `RefreshAll()`, atualiza explicitamente a conexão `Consulta -
+      movimento_estoque` (tem `RefreshWithRefreshAll=False`), salva e fecha. Guarda contra
+      arquivo aberto por outra pessoa (lança erro em vez de forçar).
+   2. `work/sheet-inspect/extract_products.py` (Python) — lê as planilhas já atualizadas →
+      `public/dados-estoque.json` + `public/dados-insumos.json`.
+   3. `work/sheet-inspect/apply_bi_terceiros.py` (Python, 20/08/2026) — sobrescreve
+      Estoque/Saldo/Cobertura de Terceiros com `produtos_estoque.json` (BI/Power Automate, já
+      sincronizado do SharePoint — não busca nada novo). Ver REGRAS_PAINEL_ESTOQUES.md.
+   4. `work/sheet-inspect/extract_consumption_history.ps1` — consulta `movimento_estoque`
+      **direto no Postgres via ODBC**, sem passar pelo Power BI → `consumo-mensal-odbc.csv`.
+   5. `work/sheet-inspect/build_consumption_history.py` (Python) →
+      `public/dados-consumo-insumos.json`.
+2. **Escadinha** (`automation\atualizar_escadinha.ps1` → `extract_escadinha.py`): plano
+   mestre + histórico de revisões + Real do mês em andamento vindo do BI de cortes.
+3. **Estoque x Pedidos** (`automation\atualizar_pedidos_venda.ps1` →
+   `extract_pedidos_venda_odbc.ps1`, lookup de categoria/escopo no Postgres, +
+   `build_pedidos_venda.py`) → `public/dados-pedidos-venda.json`. Não busca nada novo — só
+   reprocessa `produtos_estoque.json`/`dados_cortes.json`, que já chegam sozinhos via Power
+   Automate.
 
-Duas outras tarefas agendadas separadas, mesmo padrão (log em `automation\logs`, para no
-primeiro erro, publicação/commit+push sempre manual):
-
-- `AtualizarEscadinha` (08:00) → `automation\atualizar_escadinha.ps1` → `extract_escadinha.py`
-  (plano mestre + histórico de revisões + Real do mês em andamento vindo do BI de cortes).
-- `AtualizarPedidosVenda` (08:15, criada em 20/08/2026) →
-  `automation\atualizar_pedidos_venda.ps1` → `extract_pedidos_venda_odbc.ps1` (lookup de
-  categoria/escopo no Postgres) + `build_pedidos_venda.py` → `public/dados-pedidos-venda.json`.
-  Não busca nada novo — só reprocessa `produtos_estoque.json`/`dados_cortes.json`, que já
-  chegam sozinhos via Power Automate.
+Cada etapa dentro de cada pipeline é sequencial e para a pipeline inteira no primeiro erro (log
+em `automation\logs\atualizacao-*.log` e `publicar-tudo-*.log`) — nunca deixa dados
+parcialmente atualizados, seguindo a regra do REGRAS_PAINEL_ESTOQUES.md. As funções Python que
+escrevem JSON usam escrita atômica (`*.tmp` + rename) pelo mesmo motivo. No fim, se
+`git status` mostrar mudança em algum `public/*.json`, o script comita e dá push sozinho
+(`git add`/`commit`/`push` sem `2>&1` de propósito — no PowerShell 5.1 redirecionar stderr de
+um executável nativo pra dentro do pipeline derruba `$LASTEXITCODE` mesmo quando o comando deu
+certo, e isso já causou um falso "FALHA ao publicar" com push que tinha ido certo).
 
 ## GitHub e hospedagem (11/08/2026)
 
