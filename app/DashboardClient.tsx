@@ -1406,7 +1406,7 @@ function PedidosVendaDashboard({
               do "Real": Venda ate o momento no mes vigente, Real oficial da Escadinha nos
               meses ja fechados (ver nota mais abaixo). */}
           <table className="consumption-table pedidos-real-table">
-            <thead><tr><th>Mês</th><th>Escadinha</th><th>Corte</th><th>Realizado</th><th>Atingimento%</th></tr></thead>
+            <thead><tr><th>Mês</th><th>Escadinha</th><th>Realizado</th><th>Corte</th><th>Atingimento%</th></tr></thead>
             <tbody>
               {(() => {
                 const hoje = new Date();
@@ -1434,9 +1434,9 @@ function PedidosVendaDashboard({
                       <strong className={`numeric ${mudou ? (diferenca > 0 ? "escadinha-delta-up" : "escadinha-delta-down") : ""}`}>{number.format(atual)}</strong>
                       {mudou && <small className="unit" style={{ display: "block", marginTop: 2 }}>{diferenca > 0 ? "+" : ""}{number.format(diferenca)}{percentualMudanca != null && ` (${percentualMudanca > 0 ? "+" : ""}${decimal.format(percentualMudanca)}%)`}</small>}
                     </td>
+                    <td><strong className="numeric">{number.format(Math.round(real))}</strong></td>
                     <td>{selected.corte[index] > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(selected.corte[index]))}</strong> : <span className="no-projection">—</span>}</td>
-                    <td><strong className="numeric">{number.format(Math.round(real))}</strong>{ehMesVigente && <small className="unit" style={{ display: "block" }}>venda até o momento</small>}</td>
-                    <td>{atingimento != null ? `${decimal.format(atingimento)}%` : "—"}</td>
+                    <td className="no-wrap">{atingimento != null ? `${decimal.format(atingimento)}%` : "—"}</td>
                   </tr>;
                 });
               })()}
