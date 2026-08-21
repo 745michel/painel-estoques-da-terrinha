@@ -1490,10 +1490,11 @@ function ValorProdutoAcabadoDashboard({
   const productOptions = useMemo(
     () => Array.from(new Set(produtos
       .filter((p) => categories.length === 0 || categories.includes(p.categoria))
+      .filter((p) => fornecedores.length === 0 || fornecedores.includes(p.fornecedor))
       .map((p) => p.produto)))
       .sort((a, b) => a.localeCompare(b, "pt-BR"))
       .map((p) => ({ value: p, label: p })),
-    [produtos, categories],
+    [produtos, categories, fornecedores],
   );
 
   const filtered = produtos.filter((p) => {
@@ -1549,7 +1550,7 @@ function ValorProdutoAcabadoDashboard({
           <div className="filters value-filters"><div className="selects">
             <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={(values) => { setCategories(values); setSelectedProdutos([]); }} />
             <MultiFilter label="Loja" options={storeOptions} selected={stores} onChange={setStores} />
-            <MultiFilter label="Fornecedor" options={supplierOptions} selected={fornecedores} onChange={setFornecedores} />
+            <MultiFilter label="Fornecedor" options={supplierOptions} selected={fornecedores} onChange={(values) => { setFornecedores(values); setSelectedProdutos([]); }} />
             <MultiFilter label="Produto" options={productOptions} selected={selectedProdutos} onChange={setSelectedProdutos} />
             <label>Custo<select value={precoStatus} onChange={(event) => setPrecoStatus(event.target.value as typeof precoStatus)}><option>Todos</option><option>Com preço</option><option>Sem preço</option></select></label>
             <label>Ordenar<select value={sort} onChange={(event) => setSort(event.target.value as typeof sort)}><option value="valor">Maior valor em estoque (R$)</option><option value="estoque">Maior estoque (cx)</option><option value="preco">Maior custo contábil</option></select></label>
