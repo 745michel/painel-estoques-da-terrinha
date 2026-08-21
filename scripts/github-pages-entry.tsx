@@ -48,9 +48,12 @@ function App() {
         setErro(true);
         return;
       }
+      // cache: "no-store" - o GitHub Pages manda Cache-Control: max-age=600 nesses arquivos, e a
+      // automacao atualiza os dados varias vezes por dia. Sem isso, o navegador podia mostrar
+      // valor financeiro com ate 10 minutos de atraso mesmo depois de reabrir a pagina.
       const [response, responseProdutoAcabado] = await Promise.all([
-        fetch("./valor-financeiro.json"),
-        fetch("./valor-financeiro-produto-acabado.json"),
+        fetch("./valor-financeiro.json", { cache: "no-store" }),
+        fetch("./valor-financeiro-produto-acabado.json", { cache: "no-store" }),
       ]);
       if (!response.ok || !responseProdutoAcabado.ok) throw new Error("arquivo indisponivel");
       const data = (await response.json()) as ValoresData;
