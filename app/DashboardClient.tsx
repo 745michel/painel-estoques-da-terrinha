@@ -1256,29 +1256,35 @@ function PedidosVendaDashboard({
 
   // Uma linha por loja (empresa do grupo: Matriz, FFAMM, Okker...) parecia produto duplicado
   // pro usuario - agrupa por produto somando as lojas que estao no filtro atual. Cobertura nao
-  // e somavel direto (dias), entao reconstroi a taxa de venda diaria implicita por loja
-  // (saldo/cobertura) pra agregar de forma correta. Pedido do usuario em 19/08/2026.
+  // e somavel direto (dias) - testado com taxa de venda diaria implicita por loja
+  // (saldo/cobertura) somada e reaplicada, mas empresas com estoque quase zero tem cobertura
+  // perto de zero/negativa e a taxa implicita delas explode, distorcendo o agregado pra baixo
+  // (SKU 38152 deu 8 dias com essa formula, contra os 25 corretos). Usa a cobertura da empresa
+  // com mais estoque, que e a que realmente pesa na decisao de compra - mesma regra do BI
+  // Estoque x Pedidos, confirmada pelo usuario em 20/08/2026.
   const agrupados = useMemo(() => {
-    const porCodigo = new Map<number, { produto: PedidosVendaProduto; lojas: Set<string>; taxaDiaria: number }>();
+    const porCodigo = new Map<number, { produto: PedidosVendaProduto; lojas: Set<string>; maiorEstoque: number; coberturaDominante: number | null }>();
     for (const p of filtered) {
-      const taxaDiaria = p.coberturaDias ? p.saldo / p.coberturaDias : 0;
       const atual = porCodigo.get(p.cod);
       if (!atual) {
-        porCodigo.set(p.cod, { produto: { ...p }, lojas: new Set([p.loja]), taxaDiaria });
+        porCodigo.set(p.cod, { produto: { ...p }, lojas: new Set([p.loja]), maiorEstoque: p.estoque, coberturaDominante: p.coberturaDias });
         continue;
       }
       atual.lojas.add(p.loja);
-      atual.taxaDiaria += taxaDiaria;
+      if (p.estoque > atual.maiorEstoque) {
+        atual.maiorEstoque = p.estoque;
+        atual.coberturaDominante = p.coberturaDias;
+      }
       atual.produto.estoque += p.estoque;
       atual.produto.pedido += p.pedido;
       atual.produto.saldo += p.saldo;
       atual.produto.corte = atual.produto.corte.map((valor, index) => valor + p.corte[index]);
       atual.produto.venda = atual.produto.venda.map((valor, index) => valor + p.venda[index]);
     }
-    const lista = Array.from(porCodigo.values()).map(({ produto, lojas, taxaDiaria }) => ({
+    const lista = Array.from(porCodigo.values()).map(({ produto, lojas, coberturaDominante }) => ({
       ...produto,
       loja: lojas.size === 1 ? Array.from(lojas)[0] : `${lojas.size} empresas`,
-      coberturaDias: taxaDiaria !== 0 ? Math.round(produto.saldo / taxaDiaria) : null,
+      coberturaDias: coberturaDominante != null ? Math.round(coberturaDominante) : null,
     }));
     const sinal = sortDir === "desc" ? -1 : 1;
     return lista.sort((a, b) => {
