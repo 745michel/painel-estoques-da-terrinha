@@ -72,7 +72,7 @@ await fs.writeFile(path.join(root, "work", "valor-financeiro-ci.json"), JSON.str
 // comitado direto) - le a versao ja no checkout pra cruzar com valor_insumos.json. Ver
 // app/lib/valor-produto-acabado.ts. Pedido do usuario em 21/08/2026.
 const pedidosVendaData = JSON.parse(await fs.readFile(path.join(root, "public", "dados-pedidos-venda.json"), "utf8"));
-const valoresProdutoAcabadoData = buildValorProdutoAcabado(pedidosVendaData, rawValor);
+const valoresProdutoAcabadoData = buildValorProdutoAcabado(pedidosVendaData, rawValor, estoqueData as never);
 await fs.writeFile(path.join(root, "work", "valor-financeiro-produto-acabado-ci.json"), JSON.stringify(valoresProdutoAcabadoData, null, 2), "utf8");
 
 console.log(JSON.stringify({

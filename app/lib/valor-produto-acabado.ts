@@ -16,13 +16,17 @@
 
 import { storeKeyFromName } from "./store-names";
 import type pedidosVendaDataType from "../../public/dados-pedidos-venda.json";
+import type estoqueDataType from "../../public/dados-estoque.json";
 import type valoresDataType from "../../data/dados-valores-produto-acabado.json";
 import type { ValorInsumosRow } from "./valor-insumos";
 
 type PedidosVendaData = typeof pedidosVendaDataType;
 type PedidoVendaItem = PedidosVendaData["produtos"][number];
+type EstoqueData = typeof estoqueDataType;
 type ValoresProdutoAcabadoData = typeof valoresDataType;
 type ValorProdutoAcabado = ValoresProdutoAcabadoData["produtos"][number];
+
+export const PRODUCAO_PROPRIA = "Produção própria";
 
 // Categorias de insumo/embalagem/terceirizado do mesmo valor_insumos.json - tudo que nao for
 // isso e produto acabado (a numeracao "01-", "02-"... e so ordem de exibicao do BI, nao uma
@@ -62,7 +66,16 @@ function multiplicadorEmbalagem(texto: string): number {
   return m ? Number(m[1]) : 1;
 }
 
-export function buildValorProdutoAcabado(pedidosVenda: PedidosVendaData, rawRows: ValorInsumosRow[]): ValoresProdutoAcabadoData {
+export function buildValorProdutoAcabado(pedidosVenda: PedidosVendaData, rawRows: ValorInsumosRow[], estoqueTerceiros: EstoqueData): ValoresProdutoAcabadoData {
+  // Fornecedor terceirizado real por SKU (ex.: BATATA PALHA -> ART FRITAS): so existe pra quem
+  // e fabricado por terceiro, vem de dados-estoque.json (mesma base da aba Estoque de
+  // terceiros, onde "loja" = fornecedor). Produto sem correspondencia la e produzido na propria
+  // Da Terrinha. Pedido do usuario em 21/08/2026.
+  const fornecedorPorSku = new Map<string, string>();
+  for (const item of estoqueTerceiros.produtos as { sku: string; fornecedor: string }[]) {
+    if (item.fornecedor && !fornecedorPorSku.has(item.sku)) fornecedorPorSku.set(item.sku, item.fornecedor);
+  }
+
   // custoUnitarioPorCodigoLoja: "codigoBase|lojaKey" -> lista de custos unitarios (BI, variante UND)
   const custoUnitarioPorCodigoLoja = new Map<string, number[]>();
   for (const row of rawRows) {
@@ -113,7 +126,7 @@ export function buildValorProdutoAcabado(pedidosVenda: PedidosVendaData, rawRows
         categoria: base.categoria ?? "Sem categoria",
         sku: String(item.cod),
         produto: item.produto,
-        fornecedor: item.loja,
+        fornecedor: fornecedorPorSku.get(String(item.cod)) ?? PRODUCAO_PROPRIA,
         loja: lojaKey,
         unidade: "cx",
         estoque: item.estoque,

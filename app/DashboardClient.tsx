@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { storeKeyFromName } from "./lib/store-names";
+import { PRODUCAO_PROPRIA } from "./lib/valor-produto-acabado";
 import type estoqueDataType from "../public/dados-estoque.json";
 import type insumosDataType from "../public/dados-insumos.json";
 import type consumoDataType from "../public/dados-consumo-insumos.json";
@@ -1449,6 +1450,7 @@ function ValorProdutoAcabadoDashboard({
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
   const [stores, setStores] = useState<string[]>([]);
+  const [fornecedores, setFornecedores] = useState<string[]>([]);
   const [selectedProdutos, setSelectedProdutos] = useState<string[]>([]);
   const [precoStatus, setPrecoStatus] = useState<"Todos" | "Com preço" | "Sem preço">("Todos");
   const [sort, setSort] = useState<"valor" | "estoque" | "preco">("valor");
@@ -1476,6 +1478,10 @@ function ValorProdutoAcabadoDashboard({
     () => Array.from(new Set(produtos.map((p) => p.loja))).sort((a, b) => a.localeCompare(b, "pt-BR", { numeric: true })).map((l) => ({ value: l, label: storeLabel(l) })),
     [produtos],
   );
+  const supplierOptions = useMemo(
+    () => Array.from(new Set(produtos.map((p) => p.fornecedor))).sort((a, b) => a === PRODUCAO_PROPRIA ? -1 : b === PRODUCAO_PROPRIA ? 1 : a.localeCompare(b, "pt-BR")).map((f) => ({ value: f, label: f })),
+    [produtos],
+  );
   const productOptions = useMemo(
     () => Array.from(new Set(produtos
       .filter((p) => categories.length === 0 || categories.includes(p.categoria))
@@ -1488,6 +1494,7 @@ function ValorProdutoAcabadoDashboard({
   const filtered = produtos.filter((p) => {
     if (categories.length > 0 && !categories.includes(p.categoria)) return false;
     if (stores.length > 0 && !stores.includes(p.loja)) return false;
+    if (fornecedores.length > 0 && !fornecedores.includes(p.fornecedor)) return false;
     if (selectedProdutos.length > 0 && !selectedProdutos.includes(p.produto)) return false;
     if (precoStatus === "Com preço" && p.precoAtual == null) return false;
     if (precoStatus === "Sem preço" && p.precoAtual != null) return false;
@@ -1537,14 +1544,15 @@ function ValorProdutoAcabadoDashboard({
           <div className="filters value-filters"><div className="selects">
             <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={(values) => { setCategories(values); setSelectedProdutos([]); }} />
             <MultiFilter label="Loja" options={storeOptions} selected={stores} onChange={setStores} />
+            <MultiFilter label="Fornecedor" options={supplierOptions} selected={fornecedores} onChange={setFornecedores} />
             <MultiFilter label="Produto" options={productOptions} selected={selectedProdutos} onChange={setSelectedProdutos} />
             <label>Custo<select value={precoStatus} onChange={(event) => setPrecoStatus(event.target.value as typeof precoStatus)}><option>Todos</option><option>Com preço</option><option>Sem preço</option></select></label>
             <label>Ordenar<select value={sort} onChange={(event) => setSort(event.target.value as typeof sort)}><option value="valor">Maior valor em estoque (R$)</option><option value="estoque">Maior estoque (cx)</option><option value="preco">Maior custo contábil</option></select></label>
-            {(categories.length > 0 || stores.length > 0 || selectedProdutos.length > 0 || precoStatus !== "Todos") && <button type="button" className="clear-value-filters" onClick={() => { setCategories([]); setStores([]); setSelectedProdutos([]); setPrecoStatus("Todos"); }}>Limpar filtros</button>}
+            {(categories.length > 0 || stores.length > 0 || fornecedores.length > 0 || selectedProdutos.length > 0 || precoStatus !== "Todos") && <button type="button" className="clear-value-filters" onClick={() => { setCategories([]); setStores([]); setFornecedores([]); setSelectedProdutos([]); setPrecoStatus("Todos"); }}>Limpar filtros</button>}
           </div></div>
           <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th>Produto</th><th>Estoque</th><th>Cobertura (dias)</th><th>Custo contábil</th><th>Valor em estoque</th></tr></thead><tbody>
             {sorted.map((item, index) => { const cobertura = coberturaFor(item); const rowKey = `${item.categoria}-${item.loja}-${item.sku}-${index}`; return <tr key={rowKey} onClick={() => setSelected(item)} style={{ cursor: "pointer" }}>
-              <td><div className="product-cell"><div><strong title={item.produto}>{item.produto}</strong><small>Cód. {item.sku} · {storeLabel(item.loja)}</small><small>{item.categoria}</small></div></div></td>
+              <td><div className="product-cell"><div><strong title={item.produto}>{item.produto}</strong><small>Cód. {item.sku} · {storeLabel(item.loja)}{item.fornecedor !== PRODUCAO_PROPRIA ? ` · ${item.fornecedor}` : ""}</small><small>{item.categoria}</small></div></div></td>
               <td><strong className="numeric">{number.format(Math.round(item.estoque))}</strong><small className="unit"> {item.unidade}</small></td>
               <td>{cobertura != null ? <strong className={cobertura < 0 ? "escadinha-delta-down" : ""}>{number.format(Math.round(cobertura))} dias</strong> : <span className="price-missing">—</span>}</td>
               <td>{item.precoAtual == null ? <span className="price-missing">Não localizado</span> : <><strong>{currency.format(item.precoAtual)}</strong><small className="unit"> / {item.unidade}</small></>}</td>
@@ -1560,7 +1568,7 @@ function ValorProdutoAcabadoDashboard({
       <div className="drawer" onClick={(event) => event.stopPropagation()}>
         <button className="drawer-close" onClick={() => setSelected(null)}>×</button>
         <h2>{selected.produto}</h2>
-        <p className="drawer-sku">Cód. {selected.sku} · {storeLabel(selected.loja)} · {selected.categoria}</p>
+        <p className="drawer-sku">Cód. {selected.sku} · {storeLabel(selected.loja)}{selected.fornecedor !== PRODUCAO_PROPRIA ? ` · ${selected.fornecedor}` : ""} · {selected.categoria}</p>
         <div className="drawer-metrics">
           <div><small>ESTOQUE</small><strong>{number.format(Math.round(selected.estoque))} {selected.unidade}</strong></div>
           <div><small>CUSTO CONTÁBIL</small><strong>{selected.precoAtual != null ? currency.format(selected.precoAtual) : "—"}</strong></div>
