@@ -1231,6 +1231,7 @@ function PedidosVendaDashboard({
     () => new Map((escadinhaData.produtos as EscadinhaProduto[]).filter((p) => p.cod != null).map((p) => [p.cod as number, p])),
     [escadinhaData],
   );
+  const hasComparacaoEscadinha = escadinhaData.dataPublicacaoAnterior != null;
 
   const categoryOptions = useMemo(
     () => Array.from(new Set(produtos.map((p) => p.categoria).filter((c): c is string => Boolean(c))))
@@ -1400,42 +1401,48 @@ function PedidosVendaDashboard({
         </div>
         <h3 className="drawer-section-label">RESUMO DOS ÚLTIMOS 3 MESES</h3>
         <div className="table-wrap">
-          <table className="consumption-table pedidos-drawer-table">
-            <thead><tr><th>Mês</th><th>Venda</th><th>Corte</th><th>Escadinha atual<br /><small className="unit">rev. {fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></th><th>Escadinha real.<br /><small className="unit">rev. {fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></th></tr></thead>
+          {/* Mesmo formato/estilo do drawer da aba Escadinha (Mes / Plano antes->agora /
+              Real / % de atingimento), a pedido do usuario em 21/08/2026 - so troca a fonte
+              do "Real": Venda ate o momento no mes vigente, Real oficial da Escadinha nos
+              meses ja fechados (ver nota mais abaixo). */}
+          <table className="consumption-table escadinha-drawer-table">
+            <thead><tr><th>Mês</th><th>Escadinha{hasComparacaoEscadinha ? " (antes → agora)" : ""}</th><th>Real</th><th>% de atingimento</th></tr></thead>
             <tbody>
               {(() => {
                 const hoje = new Date();
                 const mesVigente = `${hoje.getFullYear()}-${String(hoje.getMonth() + 1).padStart(2, "0")}`;
+                const escadinha = escadinhaPorCod.get(selected.cod);
                 return mesesCorte.map((mes, index) => index).reverse().map((index) => {
-                  const escadinha = escadinhaPorCod.get(selected.cod);
                   const mesNumero = Number(mesesCorte[index].slice(5, 7));
-                  // "Escadinha atual" = Plano do mes, mesma fonte/coluna da aba Escadinha
-                  // (produto.plano). Pedido do usuario em 21/08/2026: replicar aqui igual
-                  // aparece la.
-                  const escadinhaAtual = escadinha?.plano?.[mesNumero - 1];
-                  const escadinhaReal = escadinha?.real?.[mesNumero - 1];
+                  const atual = escadinha?.plano?.[mesNumero - 1] ?? 0;
+                  const anterior = escadinha?.planoAnterior?.[mesNumero - 1] ?? 0;
+                  const mudou = hasComparacaoEscadinha && atual !== anterior;
+                  const diferenca = atual - anterior;
+                  const percentualMudanca = mudou && anterior ? (diferenca / anterior) * 100 : null;
                   // Mes vigente: a Escadinha (upload mensal) ainda nao fechou o mes, entao
                   // mostra o realizado ate o momento (Venda, atualizado todo dia) em vez do
                   // numero congelado da ultima revisao. Quando a revisao nova chegar, o mes
                   // que fechou passa a usar o Real oficial da Escadinha normalmente. Pedido
                   // do usuario em 21/08/2026.
                   const ehMesVigente = mesesCorte[index] === mesVigente;
-                  const valorExibido = ehMesVigente ? selected.venda[index] : escadinhaReal;
-                  return <tr key={mesesCorte[index]}>
+                  const real = ehMesVigente ? selected.venda[index] : (escadinha?.real?.[mesNumero - 1] ?? 0);
+                  const atingimento = atual > 0 ? (real / atual) * 100 : null;
+                  return <tr key={mesesCorte[index]} className={mudou ? "selected-row" : ""}>
                     <td>{mesCorteLabel(mesesCorte[index])}</td>
-                    <td><strong className="numeric">{number.format(Math.round(selected.venda[index]))}</strong></td>
-                    <td>{selected.corte[index] > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(selected.corte[index]))}</strong> : <span className="no-projection">—</span>}</td>
-                    <td>{escadinhaAtual != null ? <strong className="numeric">{number.format(Math.round(escadinhaAtual))}</strong> : <span className="no-projection">Sem correspondência</span>}</td>
                     <td>
-                      {valorExibido != null ? <strong className="numeric">{number.format(Math.round(valorExibido))}</strong> : <span className="no-projection">Sem correspondência</span>}
-                      {ehMesVigente && <small className="unit">venda até o momento</small>}
+                      {mudou && <small className="unit">{number.format(anterior)} → </small>}
+                      <strong className={`numeric ${mudou ? (diferenca > 0 ? "escadinha-delta-up" : "escadinha-delta-down") : ""}`}>{number.format(atual)}</strong>
+                      {mudou && <small className="unit" style={{ display: "block", marginTop: 2 }}>{diferenca > 0 ? "+" : ""}{number.format(diferenca)}{percentualMudanca != null && ` (${percentualMudanca > 0 ? "+" : ""}${decimal.format(percentualMudanca)}%)`}</small>}
                     </td>
+                    <td><strong className="numeric">{number.format(Math.round(real))}</strong>{ehMesVigente && <small className="unit" style={{ display: "block" }}>venda até o momento</small>}</td>
+                    <td>{atingimento != null ? `${decimal.format(atingimento)}%` : "—"}</td>
                   </tr>;
                 });
               })()}
             </tbody>
           </table>
         </div>
+        <p className="drawer-note">Escadinha · revisão de {fullDate.format(localDate(escadinhaData.dataPublicacao))}</p>
       </div>
     </div>}
   </main>;
