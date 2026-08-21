@@ -62,4 +62,16 @@ try {
   await copyFile(financeiroPlaceholder, financeiroDestino);
 }
 
+// Mesmo esquema pra produto acabado (ver app/lib/valor-produto-acabado.ts, pedido do usuario
+// em 21/08/2026).
+const financeiroProdutoAcabadoCi = path.join(root, "work", "valor-financeiro-produto-acabado-ci.json");
+const financeiroProdutoAcabadoPlaceholder = path.join(root, "data", "dados-valores-produto-acabado.json");
+const financeiroProdutoAcabadoDestino = path.join(outputDir, "valor-financeiro-produto-acabado.json");
+try {
+  await copyFile(financeiroProdutoAcabadoCi, financeiroProdutoAcabadoDestino);
+} catch {
+  console.warn("valor-financeiro-produto-acabado-ci.json nao encontrado, usando placeholder");
+  await copyFile(financeiroProdutoAcabadoPlaceholder, financeiroProdutoAcabadoDestino);
+}
+
 console.log(JSON.stringify({ pasta: outputDir, tamanho_html_bytes: Buffer.byteLength(html) }));

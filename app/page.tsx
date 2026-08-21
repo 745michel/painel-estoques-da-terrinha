@@ -8,8 +8,10 @@ import valoresDataStatic from "../data/dados-valores-insumos.json";
 import mrpTerceirosDataStatic from "../public/dados-mrp-terceiros.json";
 import escadinhaDataStatic from "../public/dados-escadinha.json";
 import pedidosVendaDataStatic from "../public/dados-pedidos-venda.json";
+import valoresProdutoAcabadoDataStatic from "../data/dados-valores-produto-acabado.json";
 import { fetchSharePointJson, fetchAccessList, isConfigured, type AccessEntry } from "./lib/sharepoint";
 import { buildValorInsumos, type ValorInsumosRow } from "./lib/valor-insumos";
+import { buildValorProdutoAcabado } from "./lib/valor-produto-acabado";
 
 export const dynamic = "force-dynamic";
 
@@ -20,6 +22,7 @@ type ValoresData = typeof valoresDataStatic;
 type MrpTerceirosData = typeof mrpTerceirosDataStatic;
 type EscadinhaData = typeof escadinhaDataStatic;
 type PedidosVendaData = typeof pedidosVendaDataStatic;
+type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataStatic;
 
 /**
  * Cada loadX tenta o SharePoint (dados atualizados 2x/dia pela automacao local +
@@ -115,6 +118,20 @@ async function loadValoresData(insumosData: InsumosData): Promise<ValoresData> {
   }
 }
 
+async function loadValoresProdutoAcabadoData(pedidosVendaData: PedidosVendaData): Promise<ValoresProdutoAcabadoData> {
+  // Mesmo valor_insumos.json de loadValoresData, so que cruzado com dados-pedidos-venda.json
+  // (produto acabado) em vez de dados-insumos.json - ver app/lib/valor-produto-acabado.ts.
+  // Pedido do usuario em 21/08/2026.
+  if (!isConfigured()) return valoresProdutoAcabadoDataStatic;
+  try {
+    const rawRows = await fetchSharePointJson<ValorInsumosRow[]>("valor_insumos.json");
+    return buildValorProdutoAcabado(pedidosVendaData, rawRows) as ValoresProdutoAcabadoData;
+  } catch (error) {
+    console.error("Falha ao buscar/processar valor_insumos.json (produto acabado) do SharePoint, usando snapshot do build:", error);
+    return valoresProdutoAcabadoDataStatic;
+  }
+}
+
 /**
  * Quem pode logar (qualquer conta Microsoft da empresa) e quem pode ver o que (lista
  * "AcessoPainelEstoques" no SharePoint) sao verificacoes separadas de proposito - login
@@ -190,11 +207,13 @@ export default async function Home() {
     loadPedidosVendaData(),
   ]);
   const valoresData = canViewValues ? await loadValoresData(insumosData) : null;
+  const valoresProdutoAcabadoData = canViewValues ? await loadValoresProdutoAcabadoData(pedidosVendaData) : null;
 
   return (
     <DashboardClient
       canViewValues={canViewValues}
       valoresData={valoresData}
+      valoresProdutoAcabadoData={valoresProdutoAcabadoData}
       estoqueData={estoqueData}
       insumosData={insumosData}
       consumoData={consumoData}

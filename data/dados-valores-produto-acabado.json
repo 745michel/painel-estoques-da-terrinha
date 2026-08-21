@@ -1,0 +1,54 @@
+{
+  "atualizadoEm": "2026-01-01T00:00:00.000Z",
+  "dataReferencia": null,
+  "precosExtraidosEm": "2026-01-01T00:00:00.000Z",
+  "origemEstoque": "produtos_estoque.json (Power Automate) via dados-pedidos-venda.json",
+  "origemPreco": "Power BI (via Power Automate) / valor_insumos.json / ficha_custo.custo_contabil",
+  "moeda": "BRL",
+  "resumo": {
+    "itens": 0,
+    "comPreco": 0,
+    "semPreco": 0,
+    "valorEstoque": 0,
+    "valorEntregas": 0,
+    "valorAposEntregas": 0
+  },
+  "porCategoria": {},
+  "relacionamentos": {},
+  "produtos": [
+    {
+      "categoria": "01-TAPIOCA DA TERRINHA",
+      "sku": "0",
+      "produto": "Placeholder - sem dado real neste arquivo",
+      "fornecedor": "1",
+      "loja": "1",
+      "unidade": "cx",
+      "estoque": 0,
+      "precoAtual": null,
+      "descricaoBi": null,
+      "metodoRelacionamento": null,
+      "valorEstoque": null,
+      "totalProgramado": 0,
+      "valorEntregas": null,
+      "valorAposEntregas": null,
+      "entregasProgramadas": []
+    },
+    {
+      "categoria": "23-SNACKS",
+      "sku": "1",
+      "produto": "Placeholder - sem dado real neste arquivo",
+      "fornecedor": "14",
+      "loja": "14",
+      "unidade": "cx",
+      "estoque": 0,
+      "precoAtual": 0,
+      "descricaoBi": null,
+      "metodoRelacionamento": null,
+      "valorEstoque": 0,
+      "totalProgramado": 0,
+      "valorEntregas": 0,
+      "valorAposEntregas": 0,
+      "entregasProgramadas": []
+    }
+  ]
+}

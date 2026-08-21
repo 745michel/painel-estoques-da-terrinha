@@ -8,8 +8,10 @@ import mrpTerceirosData from "../public/dados-mrp-terceiros.json";
 import escadinhaData from "../public/dados-escadinha.json";
 import pedidosVendaData from "../public/dados-pedidos-venda.json";
 import type valoresDataType from "../data/dados-valores-insumos.json";
+import type valoresProdutoAcabadoDataType from "../data/dados-valores-produto-acabado.json";
 
 type ValoresData = typeof valoresDataType;
+type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
 
 /**
  * Barreira so no navegador (sem servidor no GitHub Pages para proteger de verdade - ver
@@ -33,6 +35,7 @@ function App() {
   const [erro, setErro] = useState(false);
   const [carregando, setCarregando] = useState(false);
   const [valoresData, setValoresData] = useState<ValoresData | null>(null);
+  const [valoresProdutoAcabadoData, setValoresProdutoAcabadoData] = useState<ValoresProdutoAcabadoData | null>(null);
   const [desbloqueado, setDesbloqueado] = useState(false);
 
   async function tentarDesbloquear(event: React.FormEvent) {
@@ -45,10 +48,15 @@ function App() {
         setErro(true);
         return;
       }
-      const response = await fetch("./valor-financeiro.json");
-      if (!response.ok) throw new Error("arquivo indisponivel");
+      const [response, responseProdutoAcabado] = await Promise.all([
+        fetch("./valor-financeiro.json"),
+        fetch("./valor-financeiro-produto-acabado.json"),
+      ]);
+      if (!response.ok || !responseProdutoAcabado.ok) throw new Error("arquivo indisponivel");
       const data = (await response.json()) as ValoresData;
+      const dataProdutoAcabado = (await responseProdutoAcabado.json()) as ValoresProdutoAcabadoData;
       setValoresData(data);
+      setValoresProdutoAcabadoData(dataProdutoAcabado);
       setDesbloqueado(true);
     } catch {
       setErro(true);
@@ -62,6 +70,7 @@ function App() {
       <DashboardClient
         canViewValues={desbloqueado}
         valoresData={desbloqueado ? valoresData : null}
+        valoresProdutoAcabadoData={desbloqueado ? valoresProdutoAcabadoData : null}
         estoqueData={estoqueData}
         insumosData={insumosData}
         consumoData={consumoData}

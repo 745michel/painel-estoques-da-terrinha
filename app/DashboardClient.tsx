@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { storeKeyFromName } from "./lib/store-names";
 import type estoqueDataType from "../public/dados-estoque.json";
 import type insumosDataType from "../public/dados-insumos.json";
 import type consumoDataType from "../public/dados-consumo-insumos.json";
 import type valoresDataType from "../data/dados-valores-insumos.json";
+import type valoresProdutoAcabadoDataType from "../data/dados-valores-produto-acabado.json";
 import type mrpTerceirosDataType from "../public/dados-mrp-terceiros.json";
 
 type EstoqueData = typeof estoqueDataType;
@@ -58,7 +60,7 @@ type Product = SourceProduct & {
   limiteExcesso: number;
   percentualAbaixoSeguranca: number | null;
 };
-type Section = "terceiros" | "insumos" | "consumo" | "valores" | "escadinha" | "pedidosVenda";
+type Section = "terceiros" | "insumos" | "consumo" | "valores" | "escadinha" | "pedidosVenda" | "valorProdutoAcabado";
 type PedidosVendaProduto = {
   cod: number;
   produto: string;
@@ -77,6 +79,7 @@ type PedidosVendaData = {
   produtos: PedidosVendaProduto[];
 };
 type ValuesData = typeof valoresDataType;
+type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
 type ConsumptionItem = ConsumoData["produtos"][number];
 
 const statusClass: Record<Status, string> = {
@@ -687,6 +690,7 @@ function ValuesDashboard({
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         <button className="nav-item active" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>
+        <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -944,6 +948,7 @@ function ConsumptionDashboard({
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -1093,6 +1098,7 @@ function EscadinhaDashboard({
         <button className="nav-item active" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Revisão do plano</strong><small>{fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -1313,6 +1319,7 @@ function PedidosVendaDashboard({
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         <button className="nav-item active" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -1414,9 +1421,137 @@ function PedidosVendaDashboard({
   </main>;
 }
 
+function ValorProdutoAcabadoDashboard({
+  onSectionChange,
+  canViewValues,
+  valoresProdutoAcabadoData,
+  pedidosVendaData,
+}: {
+  onSectionChange: (section: Section) => void;
+  canViewValues: boolean;
+  valoresProdutoAcabadoData: ValoresProdutoAcabadoData;
+  pedidosVendaData: PedidosVendaData;
+}) {
+  const [query, setQuery] = useState("");
+  const [categories, setCategories] = useState<string[]>([]);
+  const [stores, setStores] = useState<string[]>([]);
+  const [precoStatus, setPrecoStatus] = useState<"Todos" | "Com preço" | "Sem preço">("Todos");
+  const [sort, setSort] = useState<"valor" | "estoque" | "preco">("valor");
+  const [selected, setSelected] = useState<(typeof valoresProdutoAcabadoData.produtos)[number] | null>(null);
+
+  const produtos = valoresProdutoAcabadoData.produtos;
+
+  const coberturaPorItem = useMemo(() => {
+    const map = new Map<string, number | null>();
+    for (const p of pedidosVendaData.produtos as { cod: number; loja: string; coberturaDias: number | null }[]) {
+      const key = storeKeyFromName(p.loja);
+      if (key) map.set(`${p.cod}|${key}`, p.coberturaDias);
+    }
+    return map;
+  }, [pedidosVendaData]);
+  function coberturaFor(item: (typeof produtos)[number]) {
+    return coberturaPorItem.get(`${item.sku}|${item.loja}`) ?? null;
+  }
+
+  const categoryOptions = useMemo(
+    () => Array.from(new Set(produtos.map((p) => p.categoria))).sort((a, b) => a.localeCompare(b, "pt-BR")).map((c) => ({ value: c, label: c })),
+    [produtos],
+  );
+  const storeOptions = useMemo(
+    () => Array.from(new Set(produtos.map((p) => p.loja))).sort((a, b) => a.localeCompare(b, "pt-BR", { numeric: true })).map((l) => ({ value: l, label: storeLabel(l) })),
+    [produtos],
+  );
+
+  const filtered = produtos.filter((p) => {
+    if (categories.length > 0 && !categories.includes(p.categoria)) return false;
+    if (stores.length > 0 && !stores.includes(p.loja)) return false;
+    if (precoStatus === "Com preço" && p.precoAtual == null) return false;
+    if (precoStatus === "Sem preço" && p.precoAtual != null) return false;
+    if (query && !p.produto.toLowerCase().includes(query.toLowerCase())) return false;
+    return true;
+  });
+
+  const sorted = [...filtered].sort((a, b) => {
+    if (sort === "estoque") return b.estoque - a.estoque;
+    if (sort === "preco") return (b.precoAtual ?? -1) - (a.precoAtual ?? -1);
+    return (b.valorEstoque ?? 0) - (a.valorEstoque ?? 0);
+  });
+
+  const totalValorEstoque = filtered.reduce((s, p) => s + (p.valorEstoque ?? 0), 0);
+  const semPreco = filtered.filter((p) => p.precoAtual == null).length;
+  const updated = new Date(valoresProdutoAcabadoData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+  const referenceDate = valoresProdutoAcabadoData.dataReferencia ? new Date(valoresProdutoAcabadoData.dataReferencia).toLocaleDateString("pt-BR") : "não informada";
+
+  return <main className="app-shell">
+    <aside className="sidebar">
+      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
+      <nav aria-label="Navegação principal">
+        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
+        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
+        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
+        <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
+        {canViewValues && <button className="nav-item active" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
+      </nav>
+      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
+      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
+    </aside>
+    <section className="workspace">
+      <header className="topbar">
+        <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Valor Produto Acabado</strong></div>
+        <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar produto..." /><kbd>Ctrl K</kbd></label>
+      </header>
+      <div className="content values-content">
+        <div className="page-heading"><div><p className="eyebrow">VALORIZAÇÃO DO ESTOQUE</p><h1>Produto acabado</h1><p>Valor contábil do estoque de produto pronto para venda, por empresa do grupo.</p></div><div className="source-button static-source"><span>↻</span><div><small>Data dos valores</small><strong>Power BI · {referenceDate}</strong></div></div></div>
+        <section className="value-kpis" aria-label="Indicadores financeiros">
+          <div className="value-kpi"><span>Valor em estoque</span><strong>{currency.format(totalValorEstoque)}</strong><small>Custo contábil × estoque atual</small></div>
+          <button className="value-kpi missing" onClick={() => setPrecoStatus("Sem preço")}><span>Custo não localizado</span><strong>{semPreco}</strong><small>Itens sem ficha contábil no BI</small></button>
+        </section>
+        <section className="inventory-panel values-panel">
+          <div className="panel-heading"><div><h2>Composição dos valores</h2><p>{filtered.length} itens encontrados</p></div></div>
+          <div className="filters value-filters"><div className="selects">
+            <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={setCategories} />
+            <MultiFilter label="Loja" options={storeOptions} selected={stores} onChange={setStores} />
+            <label>Custo<select value={precoStatus} onChange={(event) => setPrecoStatus(event.target.value as typeof precoStatus)}><option>Todos</option><option>Com preço</option><option>Sem preço</option></select></label>
+            <label>Ordenar<select value={sort} onChange={(event) => setSort(event.target.value as typeof sort)}><option value="valor">Maior valor em estoque (R$)</option><option value="estoque">Maior estoque (cx)</option><option value="preco">Maior custo contábil</option></select></label>
+            {(categories.length > 0 || stores.length > 0 || precoStatus !== "Todos") && <button type="button" className="clear-value-filters" onClick={() => { setCategories([]); setStores([]); setPrecoStatus("Todos"); }}>Limpar filtros</button>}
+          </div></div>
+          <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th>Produto</th><th>Estoque</th><th>Cobertura (dias)</th><th>Custo contábil</th><th>Valor em estoque</th></tr></thead><tbody>
+            {sorted.map((item, index) => { const cobertura = coberturaFor(item); const rowKey = `${item.categoria}-${item.loja}-${item.sku}-${index}`; return <tr key={rowKey} onClick={() => setSelected(item)} style={{ cursor: "pointer" }}>
+              <td><div className="product-cell"><div><strong title={item.produto}>{item.produto}</strong><small>Cód. {item.sku} · {storeLabel(item.loja)}</small><small>{item.categoria}</small></div></div></td>
+              <td><strong className="numeric">{number.format(Math.round(item.estoque))}</strong><small className="unit"> {item.unidade}</small></td>
+              <td>{cobertura != null ? <strong className={cobertura < 0 ? "escadinha-delta-down" : ""}>{number.format(cobertura)} dias</strong> : <span className="price-missing">—</span>}</td>
+              <td>{item.precoAtual == null ? <span className="price-missing">Não localizado</span> : <><strong>{currency.format(item.precoAtual)}</strong><small className="unit"> / {item.unidade}</small></>}</td>
+              <td>{item.valorEstoque == null ? <span className="price-missing">—</span> : <strong className="money-value">{currency.format(item.valorEstoque)}</strong>}</td>
+            </tr>; })}
+          </tbody></table>{filtered.length === 0 && <div className="empty-state"><strong>Nenhum item encontrado</strong><p>Remova um filtro ou busque por outro termo.</p></div>}</div>
+        </section>
+        <footer>Fonte: valor_insumos.json (Power BI via Power Automate) + dados-pedidos-venda.json (Estoque/Cobertura) · Mesmo parâmetro do Valor dos insumos (custo contábil × estoque, por produto e loja).</footer>
+      </div>
+    </section>
+
+    {selected && <div className="drawer-backdrop" onClick={() => setSelected(null)}>
+      <div className="drawer" onClick={(event) => event.stopPropagation()}>
+        <button className="drawer-close" onClick={() => setSelected(null)}>×</button>
+        <h2>{selected.produto}</h2>
+        <p className="drawer-sku">Cód. {selected.sku} · {storeLabel(selected.loja)} · {selected.categoria}</p>
+        <div className="drawer-metrics">
+          <div><small>ESTOQUE</small><strong>{number.format(Math.round(selected.estoque))} {selected.unidade}</strong></div>
+          <div><small>CUSTO CONTÁBIL</small><strong>{selected.precoAtual != null ? currency.format(selected.precoAtual) : "—"}</strong></div>
+          <div><small>VALOR EM ESTOQUE</small><strong>{selected.valorEstoque != null ? currency.format(selected.valorEstoque) : "—"}</strong></div>
+          <div><small>COBERTURA</small><strong>{coberturaFor(selected) != null ? `${number.format(coberturaFor(selected)!)} dias` : "—"}</strong></div>
+        </div>
+        {selected.descricaoBi && <div className="value-source-note"><small>DESCRIÇÃO NO BI</small><strong>{selected.descricaoBi}</strong></div>}
+      </div>
+    </div>}
+  </main>;
+}
+
 export default function DashboardClient({
   canViewValues,
   valoresData,
+  valoresProdutoAcabadoData,
   estoqueData,
   insumosData,
   consumoData,
@@ -1426,6 +1561,7 @@ export default function DashboardClient({
 }: {
   canViewValues: boolean;
   valoresData: ValuesData | null;
+  valoresProdutoAcabadoData: ValoresProdutoAcabadoData | null;
   estoqueData: EstoqueData;
   insumosData: InsumosData;
   consumoData: ConsumoData;
@@ -1455,6 +1591,7 @@ export default function DashboardClient({
   const isValues = section === "valores";
   const isEscadinha = section === "escadinha";
   const isPedidosVenda = section === "pedidosVenda";
+  const isValorProdutoAcabado = section === "valorProdutoAcabado";
   const operationalSection = isInputs ? "insumos" : "terceiros";
   const selectedProducts = operationalProductSelections[operationalSection];
   function setSelectedProducts(values: string[]) {
@@ -1617,6 +1754,7 @@ export default function DashboardClient({
   if (isConsumption) return <ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} />;
   if (isEscadinha) return <EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} />;
   if (isPedidosVenda) return <PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} />;
+  if (isValorProdutoAcabado && valoresProdutoAcabadoData) return <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} />;
 
   function renderProductRow(product: Product, descontinuado: boolean) {
     const cls = statusClass[product.status as Status];
@@ -1677,6 +1815,7 @@ export default function DashboardClient({
           <button className={`nav-item ${section === "escadinha" ? "active" : ""}`} onClick={() => changeSection("escadinha")}><span>▧</span> Escadinha geral</button>
           <button className={`nav-item ${section === "pedidosVenda" ? "active" : ""}`} onClick={() => changeSection("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
           {canViewValues && <button className={`nav-item ${section === "valores" ? "active" : ""}`} onClick={() => changeSection("valores")}><span>R$</span> Valor dos insumos</button>}
+          {canViewValues && <button className={`nav-item ${section === "valorProdutoAcabado" ? "active" : ""}`} onClick={() => changeSection("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
         </nav>
         <div className="sidebar-note">
           <span className="pulse-dot" />

@@ -10,6 +10,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { fetchSharePointJson } from "../app/lib/sharepoint";
 import { buildValorInsumos, type ValorInsumosRow } from "../app/lib/valor-insumos";
+import { buildValorProdutoAcabado } from "../app/lib/valor-produto-acabado";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 await fs.mkdir(path.join(root, "work"), { recursive: true });
@@ -67,6 +68,13 @@ await fs.writeFile(path.join(root, "public", "dados-mrp-terceiros.json"), JSON.s
 await fs.writeFile(path.join(root, "public", "dados-escadinha.json"), JSON.stringify(escadinhaData, null, 2), "utf8");
 await fs.writeFile(path.join(root, "work", "valor-financeiro-ci.json"), JSON.stringify(valoresData, null, 2), "utf8");
 
+// dados-pedidos-venda.json nao vem do SharePoint (precisa do Postgres, so gerado localmente e
+// comitado direto) - le a versao ja no checkout pra cruzar com valor_insumos.json. Ver
+// app/lib/valor-produto-acabado.ts. Pedido do usuario em 21/08/2026.
+const pedidosVendaData = JSON.parse(await fs.readFile(path.join(root, "public", "dados-pedidos-venda.json"), "utf8"));
+const valoresProdutoAcabadoData = buildValorProdutoAcabado(pedidosVendaData, rawValor);
+await fs.writeFile(path.join(root, "work", "valor-financeiro-produto-acabado-ci.json"), JSON.stringify(valoresProdutoAcabadoData, null, 2), "utf8");
+
 console.log(JSON.stringify({
   estoqueProdutos: (estoqueData as { produtos: unknown[] }).produtos.length,
   insumosProdutos: insumosData.produtos.length,
@@ -74,4 +82,5 @@ console.log(JSON.stringify({
   mrpTerceirosProdutos: (mrpTerceirosData as { produtos: unknown[] }).produtos.length,
   escadinhaProdutos: (escadinhaData as { produtos: unknown[] }).produtos.length,
   valoresItens: valoresData.resumo.itens,
+  valoresProdutoAcabadoItens: valoresProdutoAcabadoData.resumo.itens,
 }));

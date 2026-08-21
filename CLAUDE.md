@@ -147,6 +147,13 @@ finge que esse arquivo não mudou, então nunca mais tenta comitar o conteúdo r
 Se precisar reverter isso (por exemplo pra atualizar o placeholder de propósito):
 `git update-index --no-skip-worktree data/dados-valores-insumos.json`.
 
+**`data/dados-valores-produto-acabado.json` (21/08/2026) segue a mesma regra** — aba nova
+"Valor produto acabado" (`app/lib/valor-produto-acabado.ts`), mesmo parâmetro do Valor dos
+insumos (custo contábil × estoque, `valor_insumos.json` via Power Automate), só que cruzado
+com `dados-pedidos-venda.json` (produto_key) em vez de `dados-insumos.json`. Também senha-
+protegido na versão GitHub Pages (`valor-financeiro-produto-acabado.json`, mesmo hash de
+`SENHA_HASH` em `github-pages-entry.tsx` — uma senha só destrava as duas abas financeiras).
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 
