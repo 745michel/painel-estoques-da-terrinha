@@ -1400,7 +1400,7 @@ function PedidosVendaDashboard({
         </div>
         <h3 className="drawer-section-label">RESUMO DOS ÚLTIMOS 3 MESES</h3>
         <div className="table-wrap">
-          <table className="consumption-table escadinha-drawer-table">
+          <table className="consumption-table pedidos-drawer-table">
             <thead><tr><th>Mês</th><th>Venda</th><th>Corte</th><th>Escadinha atual<br /><small className="unit">rev. {fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></th><th>Escadinha real.<br /><small className="unit">rev. {fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></th></tr></thead>
             <tbody>
               {(() => {
