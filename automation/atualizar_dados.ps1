@@ -27,23 +27,45 @@ function Write-Log {
     Add-Content -LiteralPath $logPath -Value $line
 }
 
+function Limpar-ExcelInvisivel {
+    $excelProcs = @(Get-Process -Name EXCEL -ErrorAction SilentlyContinue)
+    foreach ($proc in ($excelProcs | Where-Object { -not $_.MainWindowTitle })) {
+        Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+    }
+}
+
 function Invoke-Step {
     param(
         [string]$Name,
-        [scriptblock]$Action
+        [scriptblock]$Action,
+        [int]$MaxAttempts = 1
     )
     Write-Log "INICIO: $Name"
     $start = Get-Date
-    try {
-        & $Action
-        $elapsed = [math]::Round(((Get-Date) - $start).TotalSeconds, 1)
-        Write-Log "OK: $Name (${elapsed}s)"
-    }
-    catch {
-        $elapsed = [math]::Round(((Get-Date) - $start).TotalSeconds, 1)
-        Write-Log "FALHA: $Name (${elapsed}s) - $($_.Exception.Message)"
-        Write-Log "ROTINA INTERROMPIDA. Dados anteriores preservados; nada parcial foi publicado."
-        exit 1
+    for ($tentativa = 1; $tentativa -le $MaxAttempts; $tentativa++) {
+        try {
+            & $Action
+            $elapsed = [math]::Round(((Get-Date) - $start).TotalSeconds, 1)
+            Write-Log "OK: $Name (${elapsed}s$(if ($tentativa -gt 1) { ", tentativa $tentativa/$MaxAttempts" }))"
+            return
+        }
+        catch {
+            $elapsed = [math]::Round(((Get-Date) - $start).TotalSeconds, 1)
+            if ($tentativa -lt $MaxAttempts) {
+                # RPC_E_CALL_REJECTED (contencao de COM do Excel entre planilhas) e o erro mais
+                # comum aqui - transitorio, some limpando a instancia invisivel e esperando um
+                # pouco. Pedido do usuario em 21/08/2026: nao parar no primeiro erro, tentar de
+                # novo (ate 3x nos passos de Excel COM).
+                Write-Log "FALHA (tentativa $tentativa/$MaxAttempts): $Name (${elapsed}s) - $($_.Exception.Message) - tentando de novo..."
+                Limpar-ExcelInvisivel
+                Start-Sleep -Seconds 15
+            }
+            else {
+                Write-Log "FALHA: $Name (${elapsed}s, $MaxAttempts tentativas) - $($_.Exception.Message)"
+                Write-Log "ROTINA INTERROMPIDA. Dados anteriores preservados; nada parcial foi publicado."
+                exit 1
+            }
+        }
     }
 }
 
@@ -81,13 +103,13 @@ Invoke-Step "Atualizar planilha de Terceiros (Excel COM)" {
     $result = & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $sheetInspect "refresh_workbooks.ps1") -Alvo Terceiros -SkipMovimentoEstoque 2>&1
     if ($LASTEXITCODE -ne 0) { throw "refresh_workbooks.ps1 (Terceiros) saiu com codigo $LASTEXITCODE`: $($result -join ' | ')" }
     Write-Log ($result -join " ")
-}
+} -MaxAttempts 3
 
 Invoke-Step "Atualizar planilha de Embalagens/MP (Excel COM)" {
     $result = & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $sheetInspect "refresh_workbooks.ps1") -Alvo Embalagens 2>&1
     if ($LASTEXITCODE -ne 0) { throw "refresh_workbooks.ps1 (Embalagens) saiu com codigo $LASTEXITCODE`: $($result -join ' | ')" }
     Write-Log ($result -join " ")
-}
+} -MaxAttempts 3
 
 Invoke-Step "Atualizar planilha MRP Terceiros (Excel COM)" {
     # Plano de compra/producao por terceiro (Carteira, Plano x Real do mes, cortes), cruzado
@@ -95,7 +117,7 @@ Invoke-Step "Atualizar planilha MRP Terceiros (Excel COM)" {
     $result = & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $sheetInspect "refresh_workbooks.ps1") -Alvo MrpTerceiros 2>&1
     if ($LASTEXITCODE -ne 0) { throw "refresh_workbooks.ps1 (MrpTerceiros) saiu com codigo $LASTEXITCODE`: $($result -join ' | ')" }
     Write-Log ($result -join " ")
-}
+} -MaxAttempts 3
 
 Invoke-Step "Gerar dados-mrp-terceiros.json" {
     Push-Location $sheetInspect

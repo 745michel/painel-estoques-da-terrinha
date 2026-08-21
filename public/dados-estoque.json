@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-08-21T09:07:19",
+  "atualizadoEm": "2026-08-21T14:40:54",
   "origem": "Terceiro Estoque X Pedido.xlsm / PROD. ACAB",
   "produtos": [
     {
@@ -1231,20 +1231,25 @@
       "faturado": 38,
       "atingimento": 110.0,
       "desvioProjecao": 4,
-      "loteMinimo": 0,
+      "loteMinimo": 25,
       "proximaEntrada": "2026-08-21T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
-      "sugestaoCompra": 12,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-01T00:00:00",
+          "quantidade": 25
+        }
+      ],
+      "totalProgramado": 25,
+      "sugestaoCompra": 25,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-01",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 9.4
     },
     {
       "sku": "96972",
-      "produto": "PROTEINA COM NUTS DA TERRINHA 40G CX 6",
+      "produto": "PROTEINA COM NUTS DA TERRINHA 40G CX 06",
       "loja": "DUPRATA",
       "fornecedor": "DUPRATA",
       "unidade": "cx",
@@ -1271,7 +1276,7 @@
     },
     {
       "sku": "96969",
-      "produto": "PROTEINA COM COCO DA TERRINHA 40G  - CX 6",
+      "produto": "PROTEINA COM COCO DA TERRINHA 40G  - CX 06",
       "loja": "DUPRATA",
       "fornecedor": "DUPRATA",
       "unidade": "cx",
@@ -1285,16 +1290,21 @@
       "faturado": 30,
       "atingimento": 118.0,
       "desvioProjecao": 4,
-      "loteMinimo": 0,
+      "loteMinimo": 25,
       "proximaEntrada": "2026-08-21T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
-      "sugestaoCompra": 4,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-01T00:00:00",
+          "quantidade": 25
+        }
+      ],
+      "totalProgramado": 25,
+      "sugestaoCompra": 25,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-01",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 15.4
     },
     {
       "sku": "96902",
@@ -1312,16 +1322,21 @@
       "faturado": 28,
       "atingimento": 112.0,
       "desvioProjecao": 3,
-      "loteMinimo": 0,
+      "loteMinimo": 25,
       "proximaEntrada": "2026-08-21T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
-      "sugestaoCompra": 3,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-01T00:00:00",
+          "quantidade": 25
+        }
+      ],
+      "totalProgramado": 25,
+      "sugestaoCompra": 25,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-01",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 16.2
     },
     {
       "sku": "96804",
@@ -1339,16 +1354,21 @@
       "faturado": 38,
       "atingimento": 77.0,
       "desvioProjecao": -12,
-      "loteMinimo": 0,
+      "loteMinimo": 25,
       "proximaEntrada": "2026-08-21T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
-      "sugestaoCompra": 27,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-01T00:00:00",
+          "quantidade": 25
+        }
+      ],
+      "totalProgramado": 25,
+      "sugestaoCompra": 50,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-01",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 3.4
     },
     {
       "sku": "96770",
@@ -1366,20 +1386,25 @@
       "faturado": 99,
       "atingimento": 198.0,
       "desvioProjecao": 49,
-      "loteMinimo": 0,
+      "loteMinimo": 50,
       "proximaEntrada": "2026-08-22T19:29:23.758000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-01T00:00:00",
+          "quantidade": 50
+        }
+      ],
+      "totalProgramado": 50,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-01",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 20.8
     },
     {
       "sku": "96671",
-      "produto": "COCADA COM ABACAXI ZERO DA TERRINHA 22G - CX12",
+      "produto": "COCADA COM ABACAXI ZERO DA TERRINHA 22G - CX 06",
       "loja": "DUPRATA",
       "fornecedor": "DUPRATA",
       "unidade": "cx",
@@ -1393,16 +1418,21 @@
       "faturado": 80,
       "atingimento": 114.3,
       "desvioProjecao": 10,
-      "loteMinimo": 0,
+      "loteMinimo": 70,
       "proximaEntrada": "2026-08-21T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
-      "sugestaoCompra": 30,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-01T00:00:00",
+          "quantidade": 70
+        }
+      ],
+      "totalProgramado": 70,
+      "sugestaoCompra": 70,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-01",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 7.0
     },
     {
       "sku": "96576",
@@ -1420,16 +1450,21 @@
       "faturado": 143,
       "atingimento": 89.4,
       "desvioProjecao": -17,
-      "loteMinimo": 0,
+      "loteMinimo": 150,
       "proximaEntrada": "2026-08-21T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
-      "sugestaoCompra": 12,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-01T00:00:00",
+          "quantidade": 150
+        }
+      ],
+      "totalProgramado": 150,
+      "sugestaoCompra": 150,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-01",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 16.7
     },
     {
       "sku": "96507",
@@ -1447,16 +1482,21 @@
       "faturado": 140,
       "atingimento": 87.2,
       "desvioProjecao": -20,
-      "loteMinimo": 0,
+      "loteMinimo": 30,
       "proximaEntrada": "2026-08-29T20:45:16.528000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-01T00:00:00",
+          "quantidade": 30
+        }
+      ],
+      "totalProgramado": 30,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-01",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 27.9
     },
     {
       "sku": "96374",
@@ -1501,16 +1541,21 @@
       "faturado": 215,
       "atingimento": 107.5,
       "desvioProjecao": 15,
-      "loteMinimo": 0,
+      "loteMinimo": 120,
       "proximaEntrada": "2026-08-21T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
-      "sugestaoCompra": 26,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-01T00:00:00",
+          "quantidade": 120
+        }
+      ],
+      "totalProgramado": 120,
+      "sugestaoCompra": 120,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-01",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 15.3
     },
     {
       "sku": "96176",
@@ -1528,16 +1573,21 @@
       "faturado": 216,
       "atingimento": 107.7,
       "desvioProjecao": 16,
-      "loteMinimo": 0,
+      "loteMinimo": 100,
       "proximaEntrada": "2026-08-24T01:38:46.354000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-01T00:00:00",
+          "quantidade": 100
+        }
+      ],
+      "totalProgramado": 100,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-01",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 22.1
     },
     {
       "sku": "38152",

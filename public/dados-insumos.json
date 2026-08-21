@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-08-21T09:10:57",
+  "atualizadoEm": "2026-08-21T14:45:50",
   "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS",
   "produtos": [
     {
@@ -1330,6 +1330,35 @@
       "desvioProjecao": 9.5,
       "loteMinimo": 500,
       "proximaEntrada": "2027-01-27T10:55:33.160000",
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
+      "sugestaoCompra": 0,
+      "status": "Excesso",
+      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null
+    },
+    {
+      "sku": "113765",
+      "produto": "BOBINA TAPIOCA KRILL 500G",
+      "loja": "1",
+      "fornecedor": "Fornecedor não informado",
+      "tipo": "Embalagem",
+      "categoria": "EMBALAGEM PRIMARIA",
+      "unidade": "kg",
+      "estoque": 228,
+      "saldo": 228,
+      "cobertura": 49.0,
+      "seguranca": 31,
+      "estoqueSeguranca": 144,
+      "consumoMensal": 139,
+      "escadinha": 0.0,
+      "faturado": 139.4,
+      "atingimento": 0,
+      "desvioProjecao": 139.4,
+      "loteMinimo": 501,
+      "proximaEntrada": "2026-09-08T01:04:02.394000",
       "entregasProgramadas": [],
       "totalProgramado": 0,
       "sugestaoCompra": 0,
@@ -8534,7 +8563,7 @@
       "atingimento": 77.8,
       "desvioProjecao": -127.9,
       "loteMinimo": 500,
-      "proximaEntrada": "2026-10-16T02:06:08.285000",
+      "proximaEntrada": "2026-10-04T08:52:59.015000",
       "entregasProgramadas": [
         {
           "data": "2026-08-24T00:00:00",
@@ -8542,10 +8571,10 @@
         },
         {
           "data": "2026-09-07T00:00:00",
-          "quantidade": 500
+          "quantidade": 300
         }
       ],
-      "totalProgramado": 1000,
+      "totalProgramado": 800,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
