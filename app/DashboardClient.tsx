@@ -1402,17 +1402,31 @@ function PedidosVendaDashboard({
           <table className="consumption-table escadinha-drawer-table">
             <thead><tr><th>Mês</th><th>Venda</th><th>Corte</th><th>Escadinha real.<br /><small className="unit">rev. {fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></th></tr></thead>
             <tbody>
-              {mesesCorte.map((mes, index) => index).reverse().map((index) => {
-                const escadinha = escadinhaPorCod.get(selected.cod);
-                const mesNumero = Number(mesesCorte[index].slice(5, 7));
-                const escadinhaReal = escadinha?.real?.[mesNumero - 1];
-                return <tr key={mesesCorte[index]}>
-                  <td>{mesCorteLabel(mesesCorte[index])}</td>
-                  <td><strong className="numeric">{number.format(Math.round(selected.venda[index]))}</strong></td>
-                  <td>{selected.corte[index] > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(selected.corte[index]))}</strong> : <span className="no-projection">—</span>}</td>
-                  <td>{escadinhaReal != null ? <strong className="numeric">{number.format(Math.round(escadinhaReal))}</strong> : <span className="no-projection">Sem correspondência</span>}</td>
-                </tr>;
-              })}
+              {(() => {
+                const hoje = new Date();
+                const mesVigente = `${hoje.getFullYear()}-${String(hoje.getMonth() + 1).padStart(2, "0")}`;
+                return mesesCorte.map((mes, index) => index).reverse().map((index) => {
+                  const escadinha = escadinhaPorCod.get(selected.cod);
+                  const mesNumero = Number(mesesCorte[index].slice(5, 7));
+                  const escadinhaReal = escadinha?.real?.[mesNumero - 1];
+                  // Mes vigente: a Escadinha (upload mensal) ainda nao fechou o mes, entao
+                  // mostra o realizado ate o momento (Venda, atualizado todo dia) em vez do
+                  // numero congelado da ultima revisao. Quando a revisao nova chegar, o mes
+                  // que fechou passa a usar o Real oficial da Escadinha normalmente. Pedido
+                  // do usuario em 21/08/2026.
+                  const ehMesVigente = mesesCorte[index] === mesVigente;
+                  const valorExibido = ehMesVigente ? selected.venda[index] : escadinhaReal;
+                  return <tr key={mesesCorte[index]}>
+                    <td>{mesCorteLabel(mesesCorte[index])}</td>
+                    <td><strong className="numeric">{number.format(Math.round(selected.venda[index]))}</strong></td>
+                    <td>{selected.corte[index] > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(selected.corte[index]))}</strong> : <span className="no-projection">—</span>}</td>
+                    <td>
+                      {valorExibido != null ? <strong className="numeric">{number.format(Math.round(valorExibido))}</strong> : <span className="no-projection">Sem correspondência</span>}
+                      {ehMesVigente && <small className="unit">venda até o momento</small>}
+                    </td>
+                  </tr>;
+                });
+              })()}
             </tbody>
           </table>
         </div>
