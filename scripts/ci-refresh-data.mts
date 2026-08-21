@@ -84,12 +84,3 @@ console.log(JSON.stringify({
   valoresItens: valoresData.resumo.itens,
   valoresProdutoAcabadoItens: valoresProdutoAcabadoData.resumo.itens,
 }));
-
-// DIAGNOSTICO TEMPORARIO (remover depois) - investigar por que "20004 PIPOCA..." fica sem
-// custo contabil em Valor produto acabado. Ver conversa 21/08/2026.
-console.log("DIAGNOSTICO_PIPOCA:", JSON.stringify(
-  rawValor.filter((r) => String(r.descricao ?? r.produto_key ?? "").toUpperCase().includes("PIPOCA")).slice(0, 10),
-));
-console.log("DIAGNOSTICO_AMOSTRA:", JSON.stringify(
-  rawValor.filter((r) => r.custoContabil != null && r.custoContabil > 0 && !["17-FECULA", "EMBALAGEM PRIMARIA", "EMBALAGEM QUARTENARIA", "EMBALAGEM SECUNDARIA", "EMBALAGEM TERCIARIA", "ETIQUETAS E ROTULOS", "MATERIA PRIMA", "TERCEIRIZADOS"].includes(r.categoria)).slice(0, 15),
-));

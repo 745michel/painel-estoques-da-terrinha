@@ -3,16 +3,19 @@
 // Automate). Pedido do usuario em 21/08/2026.
 //
 // Achado real (21/08/2026, testado com o arquivo real via debug_vpa.mts): o custo contabil de
-// produto acabado no BI so vem preenchido na variante UNITARIA (embalagem "- UND"), nunca nas
-// variantes de caixa/fardo que a aba Estoque x Pedidos usa (2.469 de 2.915 linhas com custo
-// tem sufixo "- UND"; a correspondencia direta por produto_key da CX/FD deu 0 de 500 itens
-// com preco). Produtos irmaos (mesma familia, embalagens diferentes) compartilham o mesmo
-// codigo de 5 digitos no inicio da descricao ("00001 TAPIOCA DA TERRINHA 1 KG - CX 12" e
-// "00001 TAPIOCA DA TERRINHA 1 KG - UND" sao o mesmo produto) - nao ha campo de ligacao limpo
-// no produto_d (grade_produto_key/produto_nacional_key vieram vazios nos testados). Por isso
-// o cruzamento e: acha a variante UND do BI com o mesmo prefixo de 5 digitos + mesma loja,
-// multiplica o custo unitario pelo tamanho da embalagem (extraido do proprio texto, "CX 12"/
-// "FD 24" => 12/24 unidades) pra chegar no custo por caixa/fardo.
+// produto acabado no BI quase sempre vem preenchido na variante UNITARIA, nunca nas variantes
+// de caixa/fardo que a aba Estoque x Pedidos usa (a correspondencia direta por produto_key da
+// CX/FD deu 0 de 500 itens com preco). Produtos irmaos (mesma familia, embalagens diferentes)
+// compartilham o mesmo codigo de 5 digitos no inicio da descricao ("00001 TAPIOCA DA TERRINHA
+// 1 KG - CX 12" e "00001 TAPIOCA DA TERRINHA 1 KG - UND" sao o mesmo produto) - nao ha campo de
+// ligacao limpo no produto_d (grade_produto_key/produto_nacional_key vieram vazios nos
+// testados). Por isso o cruzamento e: acha a variante unitaria do BI com o mesmo prefixo de 5
+// digitos + mesma loja, multiplica o custo unitario pelo tamanho da embalagem (extraido do
+// proprio texto, "CX 12"/"FD 24" => 12/24 unidades) pra chegar no custo por caixa/fardo.
+//
+// A variante unitaria nem sempre diz "- UND" explicitamente: produtos como "20004 PIPOCA DE
+// MICROONDAS MANTEIGA CINEMA DA TERRINHA 85G" (sem sufixo nenhum) tambem sao custo por unidade -
+// ver ehVarianteUnitaria() abaixo (achado real via diagnostico no CI, 21/08/2026).
 
 import { storeKeyFromName } from "./store-names";
 import type pedidosVendaDataType from "../../public/dados-pedidos-venda.json";
@@ -57,12 +60,24 @@ function codigoBase(texto: string): string | null {
   return m ? m[1] : null;
 }
 
+// Nem toda linha "unitaria" do BI diz "- UND" explicitamente: produtos como "20004 PIPOCA DE
+// MICROONDAS MANTEIGA CINEMA DA TERRINHA 85G" (sem nenhum sufixo) ou "40002 - CEBOLA GRANULADA
+// OKKER 400 GR" tambem sao custo por unidade, so nao tem embalagem de caixa/fardo anotada no
+// texto. Por isso: conta como variante unitaria quando tem "- UND" OU quando nao tem nenhuma
+// contagem de CX/FD no texto (achado real via diagnostico no CI, 21/08/2026 - a pipoca CX 24
+// ficava sem custo porque a linha do BI e so "...85G", sem "- UND").
+function temContagemDeEmbalagem(texto: string): boolean {
+  return /\b(?:CX|FD)\s*\d+/i.test(texto);
+}
+
 function ehVarianteUnitaria(texto: string): boolean {
-  return /-\s*UND\s*$/i.test(texto.trim());
+  return /-\s*UND\b/i.test(texto) || !temContagemDeEmbalagem(texto);
 }
 
 function multiplicadorEmbalagem(texto: string): number {
-  const m = /-\s*(?:CX|FD)\s*(\d+)/i.exec(texto);
+  // Sem dash obrigatorio antes de CX/FD: a descricao de venda usa "85G CX 24" (espaco), nao
+  // "- CX 24" (com dash) como algumas linhas do BI.
+  const m = /\b(?:CX|FD)\s*(\d+)/i.exec(texto);
   return m ? Number(m[1]) : 1;
 }
 
@@ -131,7 +146,7 @@ export function buildValorProdutoAcabado(pedidosVenda: PedidosVendaData, rawRows
         unidade: "cx",
         estoque: item.estoque,
         precoAtual: custoContabil,
-        descricaoBi: custoContabil !== null ? `Custo unitário (variante UND) × ${multiplicador} un./caixa` : null,
+        descricaoBi: custoContabil !== null ? `Custo unitário do BI × ${multiplicador} un./caixa` : null,
         metodoRelacionamento: custoContabil !== null ? "custo unitário × embalagem" : null,
         valorEstoque,
         totalProgramado: 0,
