@@ -1401,7 +1401,7 @@ function PedidosVendaDashboard({
         <h3 className="drawer-section-label">RESUMO DOS ÚLTIMOS 3 MESES</h3>
         <div className="table-wrap">
           <table className="consumption-table escadinha-drawer-table">
-            <thead><tr><th>Mês</th><th>Venda</th><th>Corte</th><th>Escadinha real.<br /><small className="unit">rev. {fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></th></tr></thead>
+            <thead><tr><th>Mês</th><th>Venda</th><th>Corte</th><th>Escadinha atual<br /><small className="unit">rev. {fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></th><th>Escadinha real.<br /><small className="unit">rev. {fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></th></tr></thead>
             <tbody>
               {(() => {
                 const hoje = new Date();
@@ -1409,6 +1409,10 @@ function PedidosVendaDashboard({
                 return mesesCorte.map((mes, index) => index).reverse().map((index) => {
                   const escadinha = escadinhaPorCod.get(selected.cod);
                   const mesNumero = Number(mesesCorte[index].slice(5, 7));
+                  // "Escadinha atual" = Plano do mes, mesma fonte/coluna da aba Escadinha
+                  // (produto.plano). Pedido do usuario em 21/08/2026: replicar aqui igual
+                  // aparece la.
+                  const escadinhaAtual = escadinha?.plano?.[mesNumero - 1];
                   const escadinhaReal = escadinha?.real?.[mesNumero - 1];
                   // Mes vigente: a Escadinha (upload mensal) ainda nao fechou o mes, entao
                   // mostra o realizado ate o momento (Venda, atualizado todo dia) em vez do
@@ -1421,6 +1425,7 @@ function PedidosVendaDashboard({
                     <td>{mesCorteLabel(mesesCorte[index])}</td>
                     <td><strong className="numeric">{number.format(Math.round(selected.venda[index]))}</strong></td>
                     <td>{selected.corte[index] > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(selected.corte[index]))}</strong> : <span className="no-projection">—</span>}</td>
+                    <td>{escadinhaAtual != null ? <strong className="numeric">{number.format(Math.round(escadinhaAtual))}</strong> : <span className="no-projection">Sem correspondência</span>}</td>
                     <td>
                       {valorExibido != null ? <strong className="numeric">{number.format(Math.round(valorExibido))}</strong> : <span className="no-projection">Sem correspondência</span>}
                       {ehMesVigente && <small className="unit">venda até o momento</small>}
