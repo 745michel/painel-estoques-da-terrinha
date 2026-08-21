@@ -1391,6 +1391,12 @@ function PedidosVendaDashboard({
         <button className="drawer-close" onClick={() => setSelected(null)}>×</button>
         <h2>{selected.produto}</h2>
         <p className="drawer-sku">Cód. {selected.cod} · {selected.loja} · {selected.categoria ?? "Sem categoria"}</p>
+        <div className="drawer-metrics">
+          <div><small>ESTOQUE</small><strong>{number.format(Math.round(selected.estoque))}</strong></div>
+          <div><small>PEDIDO</small><strong>{number.format(Math.round(selected.pedido))}</strong></div>
+          <div><small>SALDO</small><strong className={selected.saldo < 0 ? "escadinha-delta-down" : ""}>{number.format(Math.round(selected.saldo))}</strong></div>
+          <div><small>COBERTURA</small><strong>{selected.coberturaDias != null ? `${number.format(selected.coberturaDias)} dias` : "—"}</strong></div>
+        </div>
         <h3 className="drawer-section-label">RESUMO DOS ÚLTIMOS 3 MESES</h3>
         <div className="table-wrap">
           <table className="consumption-table escadinha-drawer-table">
@@ -1409,12 +1415,6 @@ function PedidosVendaDashboard({
               })}
             </tbody>
           </table>
-        </div>
-        <div className="drawer-metrics">
-          <div><small>ESTOQUE</small><strong>{number.format(Math.round(selected.estoque))}</strong></div>
-          <div><small>PEDIDO</small><strong>{number.format(Math.round(selected.pedido))}</strong></div>
-          <div><small>SALDO</small><strong className={selected.saldo < 0 ? "escadinha-delta-down" : ""}>{number.format(Math.round(selected.saldo))}</strong></div>
-          <div><small>COBERTURA</small><strong>{selected.coberturaDias != null ? `${number.format(selected.coberturaDias)} dias` : "—"}</strong></div>
         </div>
       </div>
     </div>}
@@ -1435,6 +1435,7 @@ function ValorProdutoAcabadoDashboard({
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
   const [stores, setStores] = useState<string[]>([]);
+  const [selectedProdutos, setSelectedProdutos] = useState<string[]>([]);
   const [precoStatus, setPrecoStatus] = useState<"Todos" | "Com preço" | "Sem preço">("Todos");
   const [sort, setSort] = useState<"valor" | "estoque" | "preco">("valor");
   const [selected, setSelected] = useState<(typeof valoresProdutoAcabadoData.produtos)[number] | null>(null);
@@ -1461,10 +1462,19 @@ function ValorProdutoAcabadoDashboard({
     () => Array.from(new Set(produtos.map((p) => p.loja))).sort((a, b) => a.localeCompare(b, "pt-BR", { numeric: true })).map((l) => ({ value: l, label: storeLabel(l) })),
     [produtos],
   );
+  const productOptions = useMemo(
+    () => Array.from(new Set(produtos
+      .filter((p) => categories.length === 0 || categories.includes(p.categoria))
+      .map((p) => p.produto)))
+      .sort((a, b) => a.localeCompare(b, "pt-BR"))
+      .map((p) => ({ value: p, label: p })),
+    [produtos, categories],
+  );
 
   const filtered = produtos.filter((p) => {
     if (categories.length > 0 && !categories.includes(p.categoria)) return false;
     if (stores.length > 0 && !stores.includes(p.loja)) return false;
+    if (selectedProdutos.length > 0 && !selectedProdutos.includes(p.produto)) return false;
     if (precoStatus === "Com preço" && p.precoAtual == null) return false;
     if (precoStatus === "Sem preço" && p.precoAtual != null) return false;
     if (query && !p.produto.toLowerCase().includes(query.toLowerCase())) return false;
@@ -1511,17 +1521,18 @@ function ValorProdutoAcabadoDashboard({
         <section className="inventory-panel values-panel">
           <div className="panel-heading"><div><h2>Composição dos valores</h2><p>{filtered.length} itens encontrados</p></div></div>
           <div className="filters value-filters"><div className="selects">
-            <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={setCategories} />
+            <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={(values) => { setCategories(values); setSelectedProdutos([]); }} />
             <MultiFilter label="Loja" options={storeOptions} selected={stores} onChange={setStores} />
+            <MultiFilter label="Produto" options={productOptions} selected={selectedProdutos} onChange={setSelectedProdutos} />
             <label>Custo<select value={precoStatus} onChange={(event) => setPrecoStatus(event.target.value as typeof precoStatus)}><option>Todos</option><option>Com preço</option><option>Sem preço</option></select></label>
             <label>Ordenar<select value={sort} onChange={(event) => setSort(event.target.value as typeof sort)}><option value="valor">Maior valor em estoque (R$)</option><option value="estoque">Maior estoque (cx)</option><option value="preco">Maior custo contábil</option></select></label>
-            {(categories.length > 0 || stores.length > 0 || precoStatus !== "Todos") && <button type="button" className="clear-value-filters" onClick={() => { setCategories([]); setStores([]); setPrecoStatus("Todos"); }}>Limpar filtros</button>}
+            {(categories.length > 0 || stores.length > 0 || selectedProdutos.length > 0 || precoStatus !== "Todos") && <button type="button" className="clear-value-filters" onClick={() => { setCategories([]); setStores([]); setSelectedProdutos([]); setPrecoStatus("Todos"); }}>Limpar filtros</button>}
           </div></div>
           <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th>Produto</th><th>Estoque</th><th>Cobertura (dias)</th><th>Custo contábil</th><th>Valor em estoque</th></tr></thead><tbody>
             {sorted.map((item, index) => { const cobertura = coberturaFor(item); const rowKey = `${item.categoria}-${item.loja}-${item.sku}-${index}`; return <tr key={rowKey} onClick={() => setSelected(item)} style={{ cursor: "pointer" }}>
               <td><div className="product-cell"><div><strong title={item.produto}>{item.produto}</strong><small>Cód. {item.sku} · {storeLabel(item.loja)}</small><small>{item.categoria}</small></div></div></td>
               <td><strong className="numeric">{number.format(Math.round(item.estoque))}</strong><small className="unit"> {item.unidade}</small></td>
-              <td>{cobertura != null ? <strong className={cobertura < 0 ? "escadinha-delta-down" : ""}>{number.format(cobertura)} dias</strong> : <span className="price-missing">—</span>}</td>
+              <td>{cobertura != null ? <strong className={cobertura < 0 ? "escadinha-delta-down" : ""}>{number.format(Math.round(cobertura))} dias</strong> : <span className="price-missing">—</span>}</td>
               <td>{item.precoAtual == null ? <span className="price-missing">Não localizado</span> : <><strong>{currency.format(item.precoAtual)}</strong><small className="unit"> / {item.unidade}</small></>}</td>
               <td>{item.valorEstoque == null ? <span className="price-missing">—</span> : <strong className="money-value">{currency.format(item.valorEstoque)}</strong>}</td>
             </tr>; })}
@@ -1540,7 +1551,7 @@ function ValorProdutoAcabadoDashboard({
           <div><small>ESTOQUE</small><strong>{number.format(Math.round(selected.estoque))} {selected.unidade}</strong></div>
           <div><small>CUSTO CONTÁBIL</small><strong>{selected.precoAtual != null ? currency.format(selected.precoAtual) : "—"}</strong></div>
           <div><small>VALOR EM ESTOQUE</small><strong>{selected.valorEstoque != null ? currency.format(selected.valorEstoque) : "—"}</strong></div>
-          <div><small>COBERTURA</small><strong>{coberturaFor(selected) != null ? `${number.format(coberturaFor(selected)!)} dias` : "—"}</strong></div>
+          <div><small>COBERTURA</small><strong>{coberturaFor(selected) != null ? `${number.format(Math.round(coberturaFor(selected)!))} dias` : "—"}</strong></div>
         </div>
         {selected.descricaoBi && <div className="value-source-note"><small>DESCRIÇÃO NO BI</small><strong>{selected.descricaoBi}</strong></div>}
       </div>
