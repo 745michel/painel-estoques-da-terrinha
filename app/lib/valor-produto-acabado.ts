@@ -56,8 +56,35 @@ function descricaoTexto(row: ValorInsumosRow): string {
 }
 
 function codigoBase(texto: string): string | null {
-  const m = /^\s*(\d{5})\s/.exec(texto);
+  // A maioria dos codigos tem 5 digitos ("00001"), mas existe pelo menos um caso real de 6
+  // digitos ("002439 FECULA MANDIOCA DA TERRINHA 1 KG") - com \d{5} fixo esse produto nunca
+  // batia (o regex nao casava nada, nem os 5 primeiros digitos, porque exige espaco logo
+  // depois do quinto digito). Achado real via print do usuario em 24/08/2026.
+  const m = /^\s*(\d{4,6})\s/.exec(texto);
   return m ? m[1] : null;
+}
+
+// Fallback pra quando a descricao nao tem nenhum codigo numerico no inicio (ex.: "SEMOLA DE
+// MILHO MESTRE CUCA 1 kg - UND", sem prefixo) - nesse caso o unico jeito de achar a variante
+// unitaria irma e comparar o nome depois de tirar a parte de embalagem (UND/CX n/FD n do
+// final). Achado real via print do usuario em 24/08/2026.
+// "17-FECULA" no BI mistura matéria-prima a granel (ex. "09003 FECULA MANDIOCA TERRAFEC KG",
+// "09011 FECULA MANDIOCA TERRINHA KG" - sem "DA " antes de TERRINHA, sem embalagem) com
+// produto acabado embalado da marca DA TERRINHA (ex. "002439 FECULA MANDIOCA DA TERRINHA 1 KG
+// - UND"). So a granel deveria ficar de fora; a marca "DA TERRINHA" e o sinal mais confiavel
+// pra distinguir. Achado real via print do usuario em 24/08/2026 (essa fecula sumia da aba).
+function ehFeculaEmbaladaDaTerrinha(descricao: string): boolean {
+  return /DA TERRINHA/i.test(descricao);
+}
+
+function nomeBase(texto: string): string {
+  let s = texto.trim().toUpperCase();
+  for (let i = 0; i < 5; i++) {
+    const antes = s;
+    s = s.replace(/\s*-?\s*UND\s*$/i, "").replace(/\s*-?\s*(?:CX|FD)\s*\d+(?:[.,]\d+)?\s*$/i, "").trim();
+    if (s === antes) break;
+  }
+  return s;
 }
 
 // Nem toda linha "unitaria" do BI diz "- UND" explicitamente: produtos como "20004 PIPOCA DE
@@ -92,19 +119,30 @@ export function buildValorProdutoAcabado(pedidosVenda: PedidosVendaData, rawRows
   }
 
   // custoUnitarioPorCodigoLoja: "codigoBase|lojaKey" -> lista de custos unitarios (BI, variante UND)
+  // custoUnitarioPorNomeLoja: mesma ideia, mas por nome normalizado - fallback pra descricao
+  // sem nenhum codigo numerico no inicio (ex.: SEMOLA).
   const custoUnitarioPorCodigoLoja = new Map<string, number[]>();
+  const custoUnitarioPorNomeLoja = new Map<string, number[]>();
   for (const row of rawRows) {
-    if (CATEGORIAS_NAO_ACABADO.has(row.categoria)) continue;
-    if (row.custoContabil == null || row.custoContabil <= 0) continue;
     const descricao = descricaoTexto(row);
+    const ehExcecaoFeculaAcabada = row.categoria === "17-FECULA" && ehFeculaEmbaladaDaTerrinha(descricao);
+    if (CATEGORIAS_NAO_ACABADO.has(row.categoria) && !ehExcecaoFeculaAcabada) continue;
+    if (row.custoContabil == null || row.custoContabil <= 0) continue;
     if (!ehVarianteUnitaria(descricao)) continue;
-    const codigo = codigoBase(descricao);
     const lojaKey = storeKeyFromName(row.loja);
-    if (!codigo || !lojaKey) continue;
-    const key = `${codigo}|${lojaKey}`;
-    const lista = custoUnitarioPorCodigoLoja.get(key);
-    if (lista) lista.push(row.custoContabil);
-    else custoUnitarioPorCodigoLoja.set(key, [row.custoContabil]);
+    if (!lojaKey) continue;
+    const codigo = codigoBase(descricao);
+    if (codigo) {
+      const key = `${codigo}|${lojaKey}`;
+      const lista = custoUnitarioPorCodigoLoja.get(key);
+      if (lista) lista.push(row.custoContabil);
+      else custoUnitarioPorCodigoLoja.set(key, [row.custoContabil]);
+    } else {
+      const key = `${nomeBase(descricao)}|${lojaKey}`;
+      const lista = custoUnitarioPorNomeLoja.get(key);
+      if (lista) lista.push(row.custoContabil);
+      else custoUnitarioPorNomeLoja.set(key, [row.custoContabil]);
+    }
   }
 
   // Agrupa dados-pedidos-venda.json por produto (mesmo cod entre lojas) - mesma unidade de
@@ -127,7 +165,8 @@ export function buildValorProdutoAcabado(pedidosVenda: PedidosVendaData, rawRows
 
     for (const item of itens) {
       const lojaKey = storeKeyFromName(item.loja) ?? item.loja;
-      const custosUnitarios = codigo ? custoUnitarioPorCodigoLoja.get(`${codigo}|${lojaKey}`) : undefined;
+      const custosUnitarios = (codigo ? custoUnitarioPorCodigoLoja.get(`${codigo}|${lojaKey}`) : undefined)
+        ?? custoUnitarioPorNomeLoja.get(`${nomeBase(item.produto)}|${lojaKey}`);
 
       let custoContabil: number | null = null;
       if (custosUnitarios && custosUnitarios.length > 0) {
