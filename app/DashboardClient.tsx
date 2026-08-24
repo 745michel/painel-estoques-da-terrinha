@@ -428,6 +428,25 @@ const MESES_ESCADINHA = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago",
 // usuario em 21/08/2026 pra ele saber o que vale passar pra equipe comercial.
 const ESCADINHA_LIMIAR_ATENCAO = 20;
 const ESCADINHA_LIMIAR_CRITICO = 50;
+
+/**
+ * Linha de alho (marca DA TERRINHA) vai saltar de linha - desvio dela nao deve entrar no
+ * Resumo (nao faz sentido avisar o comercial de algo que ja esta sendo descontinuado).
+ * Fora os molhos que usam alho como ingrediente e os itens da marca OKKER, que sao linhas
+ * diferentes. Mantida manualmente a pedido do usuario em 21/08/2026 - avisar aqui quando
+ * outro item entrar em descontinuacao.
+ */
+const ESCADINHA_LINHA_DESCONTINUADA = new Set([
+  "ALHO DESIDRATADO GRANULADO DA TERRINHA 20 G - CX 24",
+  "ALHO DESID FLOCOS DA TERRINHA 25 G - CX 24",
+  "ALHO FRITO GRANULADO DA TERRINHA POTE 90 G - CX 12",
+  "ALHO PASTA DA TERRINHA 400 G - CX 12",
+  "ALHO PASTA DA TERRINHA 800G - CX 12",
+  "ALHO PASTA DA TERRINHA 2 KG  - CX 06",
+  "ALHO TRITURADO DA TERRINHA 200 G - CX 12",
+  "ALHO FRITO GRANULADO DA TERRINHA POTE 250 G - CX 12",
+  "ALHO TRITURADO DA TERRINHA 1,01 KG - CX 12",
+]);
 const MESES_ESCADINHA_LABEL: Record<string, string> = { jan: "Jan", fev: "Fev", mar: "Mar", abr: "Abr", mai: "Mai", jun: "Jun", jul: "Jul", ago: "Ago", set: "Set", out: "Out", nov: "Nov", dez: "Dez" };
 
 function mesCorteLabel(mes: string) {
@@ -1101,7 +1120,8 @@ function EscadinhaDashboard({
   const desviosFiltrados = useMemo(() => {
     const search = query.trim().toLocaleLowerCase("pt-BR");
     return desvios.filter((d) => (
-      (!search || d.produto.toLocaleLowerCase("pt-BR").includes(search) || String(d.cod).includes(search) || (d.marca ?? "").toLocaleLowerCase("pt-BR").includes(search))
+      !ESCADINHA_LINHA_DESCONTINUADA.has(d.produto)
+      && (!search || d.produto.toLocaleLowerCase("pt-BR").includes(search) || String(d.cod).includes(search) || (d.marca ?? "").toLocaleLowerCase("pt-BR").includes(search))
       && (categories.length === 0 || (d.categoria != null && categories.includes(d.categoria)))
       && (selectedProdutos.length === 0 || selectedProdutos.includes(d.produto))
     ));
