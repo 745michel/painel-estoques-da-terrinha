@@ -1768,6 +1768,11 @@ export default function DashboardClient({
     setPerformance("Todos");
     setSelectedTypes([]);
     setSelected(null);
+    // Terceiros e Insumos reaproveitam o mesmo layout (so troca os dados) - trocar de aba nao
+    // reseta a rolagem da pagina sozinho, entao voltar de uma tabela longa (ex.: Embalagens)
+    // deixava o cabecalho e os cartoes de indicador escondidos acima da dobra. Ver conversa
+    // 24/08/2026.
+    window.scrollTo({ top: 0 });
   }
 
   function exportCsv() {
