@@ -2,7 +2,7 @@
 
 :root { --ink:#17211b; --muted:#66736c; --line:#e6ebe7; --cream:#f5f7f4; --green:#176b45; --green-2:#2f8a61; --red:#c8463a; --amber:#c98218; --blue:#347266; }
 * { box-sizing:border-box; }
-body { margin:0; background:var(--cream); color:var(--ink); font-family:var(--font-geist-sans),Arial,sans-serif; }
+body { margin:0; background:var(--cream); color:var(--ink); font-family:var(--font-geist-sans),Arial,sans-serif; overflow-anchor:none; }
 button,input,select { font:inherit; }
 button { cursor:pointer; }
 .app-shell { min-height:100vh; display:flex; }

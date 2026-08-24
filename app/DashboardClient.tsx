@@ -1768,11 +1768,15 @@ export default function DashboardClient({
     setPerformance("Todos");
     setSelectedTypes([]);
     setSelected(null);
-    // Terceiros e Insumos reaproveitam o mesmo layout (so troca os dados) - trocar de aba nao
-    // reseta a rolagem da pagina sozinho, entao voltar de uma tabela longa (ex.: Embalagens)
-    // deixava o cabecalho e os cartoes de indicador escondidos acima da dobra. Ver conversa
-    // 24/08/2026.
-    window.scrollTo({ top: 0 });
+    // Terceiros e Insumos reaproveitam o mesmo layout/mesma arvore de DOM (so troca os dados) -
+    // trocar de aba nao reseta a rolagem sozinho, entao voltar de uma tabela longa (ex.:
+    // Embalagens) deixava o cabecalho e os cartoes de indicador escondidos acima da dobra.
+    // Chamar scrollTo direto no clique nao bastou: como e a MESMA arvore de DOM (nao desmonta),
+    // o "scroll anchoring" do navegador reajusta a rolagem de novo assim que o conteudo novo
+    // termina de renderizar, depois do nosso reset. requestAnimationFrame (2x, pra garantir que
+    // rodou depois do proximo paint) + overflow-anchor:none no body (globals.css) resolvem os
+    // dois lados do problema. Ver conversa 24/08/2026.
+    requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo({ top: 0 })));
   }
 
   function exportCsv() {
