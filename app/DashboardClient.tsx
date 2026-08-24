@@ -1052,6 +1052,7 @@ function EscadinhaDashboard({
   const [visao, setVisao] = useState<"grade" | "resumo">("grade");
   const [mesesFiltro, setMesesFiltro] = useState<string[]>([]);
   const [semEscadinha, setSemEscadinha] = useState(false);
+  const [nivelFiltro, setNivelFiltro] = useState<"todos" | "cima" | "baixo" | "atencao" | "critico">("todos");
 
   const produtos = escadinhaData.produtos as EscadinhaProduto[];
   const desvios = escadinhaData.desvios as EscadinhaDesvio[];
@@ -1141,6 +1142,17 @@ function EscadinhaDashboard({
     if (abs >= ESCADINHA_LIMIAR_ATENCAO) return "atencao";
     return null;
   }
+  // Filtro por direcao/gravidade do desvio - pedido do usuario em 24/08/2026 ("coloca filtro
+  // dos desvios"). Os cartoes de contagem viram botao (igual as abas "Todos/Falta critica..."
+  // ja usadas no resto do painel).
+  const desviosExibidos = useMemo(() => desviosFiltrados.filter((d) => {
+    if (nivelFiltro === "todos") return true;
+    if (nivelFiltro === "cima") return d.desvio > 0;
+    if (nivelFiltro === "baixo") return d.desvio < 0;
+    const nivel = nivelDesvio(d.desvioPercentual);
+    if (nivelFiltro === "critico") return nivel === "critico";
+    return nivel === "critico" || nivel === "atencao";
+  }), [desviosFiltrados, nivelFiltro]);
   const mesOptions = MESES_ESCADINHA.map((mes) => ({ value: mes, label: MESES_ESCADINHA_LABEL[mes] }));
 
   // Produtos sem escadinha nenhuma no ano (plano zerado o ano inteiro) - pedido do usuario em
@@ -1225,15 +1237,17 @@ function EscadinhaDashboard({
                 </tr>)}
               </tbody></table>{produtosSemEscadinha.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
             </> : !hasComparacao ? <div className="empty-state"><strong>Sem comparação ainda</strong><p>O resumo de desvio aparece a partir da próxima revisão mensal do plano.</p></div> : <>
-              <section className="consumption-summary" style={{ padding: "0 20px 16px" }}>
-                <div><span>Produtos com desvio</span><strong>{number.format(desviosFiltrados.length)}</strong><small>{resumoAumentaram} pra cima · {resumoDiminuiram} pra baixo</small></div>
-                <div><span>Atenção (≥ {ESCADINHA_LIMIAR_ATENCAO}%)</span><strong>{number.format(resumoAtencao)}</strong><small>Vale avisar o comercial</small></div>
-                <div><span>Crítico (≥ {ESCADINHA_LIMIAR_CRITICO}%)</span><strong>{number.format(resumoCriticos)}</strong><small>Salto grande — checar antes de avisar</small></div>
+              <section className="consumption-summary" style={{ padding: "0 20px 16px", gridTemplateColumns: "repeat(5, minmax(0,1fr))" }}>
+                <button type="button" className={nivelFiltro === "todos" ? "selected" : ""} onClick={() => setNivelFiltro("todos")}><span>Produtos com desvio</span><strong>{number.format(desviosFiltrados.length)}</strong><small>{resumoAumentaram} pra cima · {resumoDiminuiram} pra baixo</small></button>
+                <button type="button" className={nivelFiltro === "cima" ? "selected" : ""} onClick={() => setNivelFiltro(nivelFiltro === "cima" ? "todos" : "cima")}><span>Pra cima</span><strong>{number.format(resumoAumentaram)}</strong><small>Plano aumentou</small></button>
+                <button type="button" className={nivelFiltro === "baixo" ? "selected" : ""} onClick={() => setNivelFiltro(nivelFiltro === "baixo" ? "todos" : "baixo")}><span>Pra baixo</span><strong>{number.format(resumoDiminuiram)}</strong><small>Plano diminuiu</small></button>
+                <button type="button" className={nivelFiltro === "atencao" ? "selected" : ""} onClick={() => setNivelFiltro(nivelFiltro === "atencao" ? "todos" : "atencao")}><span>Atenção (≥ {ESCADINHA_LIMIAR_ATENCAO}%)</span><strong>{number.format(resumoAtencao)}</strong><small>Vale avisar o comercial</small></button>
+                <button type="button" className={nivelFiltro === "critico" ? "selected" : ""} onClick={() => setNivelFiltro(nivelFiltro === "critico" ? "todos" : "critico")}><span>Crítico (≥ {ESCADINHA_LIMIAR_CRITICO}%)</span><strong>{number.format(resumoCriticos)}</strong><small>Salto grande — checar antes de avisar</small></button>
               </section>
               <div className="table-wrap consumption-table-wrap"><table className="consumption-table buyer-action-table"><thead><tr>
                 <th>Produto / marca</th><th>Categoria</th><th>Mês</th><th>Antes → Agora</th><th>Desvio</th><th>Desvio %</th>
               </tr></thead><tbody>
-                {desviosFiltrados.map((d) => {
+                {desviosExibidos.map((d) => {
                   const nivel = nivelDesvio(d.desvioPercentual);
                   return <tr key={`${d.cod}-${d.produto}`}>
                     <td><div className="product-cell"><div><strong title={d.produto}>{d.produto}</strong><small>Cód. {d.cod ?? "—"} · {d.marca ?? "Sem marca"}</small></div></div></td>
@@ -1244,7 +1258,7 @@ function EscadinhaDashboard({
                     <td>{d.desvioPercentual != null ? <span className={`trend ${nivel === "critico" ? "critical" : nivel === "atencao" ? "warn" : "neutral"}`}>{d.desvioPercentual > 0 ? "+" : ""}{decimal.format(d.desvioPercentual)}%</span> : "—"}</td>
                   </tr>;
                 })}
-              </tbody></table>{desviosFiltrados.length === 0 && <div className="empty-state"><strong>Nenhum desvio encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
+              </tbody></table>{desviosExibidos.length === 0 && <div className="empty-state"><strong>Nenhum desvio encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
             </>}
           </> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table escadinha-grid"><thead><tr>
             <th>Produto / marca</th><th>Categoria</th>
