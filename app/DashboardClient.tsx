@@ -524,6 +524,14 @@ function storeLabel(store: string) {
   return storeNames[store] ?? `Loja não identificada (código ${store})`;
 }
 
+// Lojas com custo/cobertura vindo de outra base (ex.: Estoque x Pedidos) usam a chave numerica
+// de store-names.ts; quando a loja nao esta mapeada la (ex.: "Da Terrinha - Cambuci"), o texto
+// cru da loja fica no campo em vez da chave - sinal de que nao ha como cruzar custo, sem ser
+// um "produto nao encontrado" de verdade.
+function isLojaSemMapeamento(loja: string) {
+  return Number.isNaN(Number(loja));
+}
+
 function ValuesDashboard({
   onSectionChange,
   valoresData,
@@ -1693,7 +1701,12 @@ function ValorProdutoAcabadoDashboard({
   });
 
   const totalValorEstoque = filtered.reduce((s, p) => s + (p.valorEstoque ?? 0), 0);
-  const semPreco = filtered.filter((p) => p.precoAtual == null).length;
+  // Da Terrinha - Cambuci nao esta em STORE_NAMES (app/lib/store-names.ts) - fica com a loja
+  // como texto cru em vez da chave numerica, entao nunca casa custo do BI. Nao e um produto
+  // "nao encontrado" de verdade, e uma loja sem mapeamento - continua mostrando o Estoque
+  // normalmente, so nao entra na contagem/alerta de custo nao localizado. Pedido do usuario
+  // em 24/08/2026.
+  const semPreco = filtered.filter((p) => p.precoAtual == null && !isLojaSemMapeamento(p.loja)).length;
   const updated = new Date(valoresProdutoAcabadoData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
   const referenceDate = valoresProdutoAcabadoData.dataReferencia ? new Date(valoresProdutoAcabadoData.dataReferencia).toLocaleDateString("pt-BR") : "não informada";
 
@@ -1739,7 +1752,7 @@ function ValorProdutoAcabadoDashboard({
               <td><div className="product-cell"><div><strong title={item.produto}>{item.produto}</strong><small>Cód. {item.sku} · {storeLabel(item.loja)}{item.fornecedor !== PRODUCAO_PROPRIA ? ` · ${item.fornecedor}` : ""}</small><small>{item.categoria}</small></div></div></td>
               <td><strong className="numeric">{number.format(Math.round(item.estoque))}</strong><small className="unit"> {item.unidade}</small></td>
               <td>{cobertura != null ? <strong className={cobertura < 0 ? "escadinha-delta-down" : ""}>{number.format(Math.round(cobertura))} dias</strong> : <span className="price-missing">—</span>}</td>
-              <td>{item.precoAtual == null ? <span className="price-missing">Não localizado</span> : <><strong>{currency.format(item.precoAtual)}</strong><small className="unit"> / {item.unidade}</small></>}</td>
+              <td>{item.precoAtual == null ? <span className="price-missing">{isLojaSemMapeamento(item.loja) ? "—" : "Não localizado"}</span> : <><strong>{currency.format(item.precoAtual)}</strong><small className="unit"> / {item.unidade}</small></>}</td>
               <td>{item.valorEstoque == null ? <span className="price-missing">—</span> : <strong className="money-value">{currency.format(item.valorEstoque)}</strong>}</td>
             </tr>; })}
           </tbody></table>{filtered.length === 0 && <div className="empty-state"><strong>Nenhum item encontrado</strong><p>Remova um filtro ou busque por outro termo.</p></div>}</div>

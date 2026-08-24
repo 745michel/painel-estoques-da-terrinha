@@ -135,7 +135,11 @@ export function buildValorProdutoAcabado(pedidosVenda: PedidosVendaData, rawRows
         custoContabil = money(custoUnitarioMedio * multiplicador);
       }
       const valorEstoque = custoContabil !== null ? money(item.estoque * custoContabil) : null;
-      if (custoContabil !== null) comPreco++; else semPreco++;
+      // Loja sem chave em store-names.ts (ex.: "Da Terrinha - Cambuci") nunca vai casar custo -
+      // nao conta como "produto sem preco" pra nao inflar esse indicador com algo que nao e um
+      // problema de dado, e sim de loja ainda nao mapeada. Pedido do usuario em 24/08/2026.
+      const lojaMapeada = storeKeyFromName(item.loja) !== null;
+      if (lojaMapeada) { if (custoContabil !== null) comPreco++; else semPreco++; }
 
       products.push({
         categoria: base.categoria ?? "Sem categoria",
@@ -163,10 +167,14 @@ export function buildValorProdutoAcabado(pedidosVenda: PedidosVendaData, rawRows
   });
 
   function summarize(items: ValorProdutoAcabado[]) {
+    // comPreco/semPreco so contam loja com chave em store-names.ts - loja sem mapeamento (ex.:
+    // Da Terrinha - Cambuci) nunca vai casar custo, entao entrar nessa conta infla o indicador
+    // com algo que nao e um problema de dado. Ver nota acima, no loop principal.
+    const comMapeamento = items.filter((i) => !Number.isNaN(Number(i.loja)));
     return {
       itens: items.length,
-      comPreco: items.filter((i) => i.precoAtual !== null).length,
-      semPreco: items.filter((i) => i.precoAtual === null).length,
+      comPreco: comMapeamento.filter((i) => i.precoAtual !== null).length,
+      semPreco: comMapeamento.filter((i) => i.precoAtual === null).length,
       valorEstoque: money(items.reduce((s, i) => s + (i.valorEstoque ?? 0), 0)),
       valorEntregas: 0,
       valorAposEntregas: money(items.reduce((s, i) => s + (i.valorAposEntregas ?? 0), 0)),
