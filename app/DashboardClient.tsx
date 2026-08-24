@@ -1768,15 +1768,24 @@ export default function DashboardClient({
     setPerformance("Todos");
     setSelectedTypes([]);
     setSelected(null);
-    // Terceiros e Insumos reaproveitam o mesmo layout/mesma arvore de DOM (so troca os dados) -
-    // trocar de aba nao reseta a rolagem sozinho, entao voltar de uma tabela longa (ex.:
-    // Embalagens) deixava o cabecalho e os cartoes de indicador escondidos acima da dobra.
-    // Chamar scrollTo direto no clique nao bastou: como e a MESMA arvore de DOM (nao desmonta),
-    // o "scroll anchoring" do navegador reajusta a rolagem de novo assim que o conteudo novo
-    // termina de renderizar, depois do nosso reset. requestAnimationFrame (2x, pra garantir que
-    // rodou depois do proximo paint) + overflow-anchor:none no body (globals.css) resolvem os
-    // dois lados do problema. Ver conversa 24/08/2026.
-    requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo({ top: 0 })));
+    // Terceiros e Insumos reaproveitam a mesma arvore de DOM (so troca os dados) - trocar de
+    // aba nao reseta a rolagem sozinho, entao voltar de uma tabela longa (ex.: Embalagens)
+    // deixava o cabecalho e os cartoes de indicador escondidos acima da dobra. Uma tentativa
+    // com MutationObserver observando o body inteiro (childList/subtree/attributes) pra pegar
+    // qualquer rolagem residual chegou a travar a pagina em teste automatizado (mutacoes
+    // demais disparando scrollTo em cascata) - revertida por risco real de travar a pagina de
+    // verdade pra quem usa. Fica so reagindo ao evento "scroll" (mais simples e mais seguro,
+    // sem custo de observar todo o DOM): cobre a maioria dos casos de rolagem residual sem
+    // esse risco. Se ainda escapar em algum caso raro, rolar a pagina manualmente resolve. Ver
+    // conversa 24/08/2026.
+    window.scrollTo({ top: 0 });
+    const desligarEm = Date.now() + 1000;
+    const cancelarRolagem = () => {
+      if (window.scrollY !== 0) window.scrollTo({ top: 0 });
+      if (Date.now() > desligarEm) window.removeEventListener("scroll", cancelarRolagem);
+    };
+    window.addEventListener("scroll", cancelarRolagem, { passive: true });
+    window.setTimeout(() => window.removeEventListener("scroll", cancelarRolagem), 1000);
   }
 
   function exportCsv() {
