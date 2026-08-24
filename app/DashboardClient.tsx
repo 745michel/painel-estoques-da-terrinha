@@ -1039,10 +1039,12 @@ function EscadinhaDashboard({
   onSectionChange,
   canViewValues,
   escadinhaData,
+  pedidosVendaData,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
   escadinhaData: EscadinhaData;
+  pedidosVendaData: PedidosVendaData;
 }) {
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
@@ -1174,6 +1176,32 @@ function EscadinhaDashboard({
       .sort((a, b) => realAnual(b) - realAnual(a));
   }, [produtos, query, categories, selectedProdutos]);
 
+  // Produtos que existem no Estoque x Pedidos (tem venda/estoque de verdade) mas nem aparecem
+  // na base da Escadinha - achado maior e mais grave que o plano zerado acima (55 produtos vs
+  // 5). Pedido do usuario em 24/08/2026 ("existe mais produtos sem previsão de venda").
+  const codsNaEscadinha = useMemo(
+    () => new Set(produtos.filter((p) => p.cod != null).map((p) => p.cod as number)),
+    [produtos],
+  );
+  const produtosSemCorrespondenciaEstoque = useMemo(() => {
+    const search = query.trim().toLocaleLowerCase("pt-BR");
+    const porCod = new Map<number, { cod: number; produto: string; categoria: string | null; vendaAnual: number; lojas: Set<string> }>();
+    for (const p of pedidosVendaData.produtos as PedidosVendaProduto[]) {
+      if (codsNaEscadinha.has(p.cod)) continue;
+      const item = porCod.get(p.cod) ?? { cod: p.cod, produto: p.produto, categoria: p.categoria, vendaAnual: 0, lojas: new Set<string>() };
+      item.vendaAnual += p.venda.reduce((sum, value) => sum + (value ?? 0), 0);
+      item.lojas.add(p.loja);
+      porCod.set(p.cod, item);
+    }
+    return Array.from(porCod.values())
+      .filter((p) => (
+        !ESCADINHA_LINHA_DESCONTINUADA.has(p.produto)
+        && (!search || p.produto.toLocaleLowerCase("pt-BR").includes(search) || String(p.cod).includes(search))
+        && (categories.length === 0 || (p.categoria != null && categories.includes(p.categoria)))
+      ))
+      .sort((a, b) => b.vendaAnual - a.vendaAnual);
+  }, [pedidosVendaData, codsNaEscadinha, query, categories]);
+
   return <main className="app-shell">
     <aside className="sidebar">
       <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
@@ -1218,15 +1246,30 @@ function EscadinhaDashboard({
             <MultiFilter label="Produto" options={productOptions} selected={selectedProdutos} onChange={setSelectedProdutos} />
             {visao === "resumo" && !semEscadinha && <MultiFilter label="Mês" options={mesOptions} selected={mesesFiltro} onChange={setMesesFiltro} />}
             {(categories.length > 0 || selectedProdutos.length > 0 || mesesFiltro.length > 0) && <button className="clear-value-filters" onClick={() => { setCategories([]); setSelectedProdutos([]); setMesesFiltro([]); }}>Limpar filtros</button>}
-            {visao === "resumo" && <label className="toggle-inativos" title="Produtos com plano zerado o ano inteiro - nao entram no desvio porque nao tem revisao anterior pra comparar.">
-              <input type="checkbox" checked={semEscadinha} onChange={(e) => setSemEscadinha(e.target.checked)} /> Ver só {produtosSemEscadinha.length} sem escadinha
+            {visao === "resumo" && <label className="toggle-inativos" title="Duas situações: produtos com plano zerado o ano inteiro na Escadinha, e produtos que vendem/têm estoque no Estoque x Pedidos mas nem aparecem na base da Escadinha.">
+              <input type="checkbox" checked={semEscadinha} onChange={(e) => setSemEscadinha(e.target.checked)} /> Ver só {produtosSemEscadinha.length + produtosSemCorrespondenciaEstoque.length} sem previsão de venda
             </label>}
           </div></div>
           {visao === "resumo" ? <>
             {semEscadinha ? <>
               <section className="consumption-summary" style={{ padding: "0 20px 16px" }}>
-                <div><span>Produtos sem escadinha</span><strong>{number.format(produtosSemEscadinha.length)}</strong><small>Plano zerado o ano inteiro</small></div>
+                <div><span>Sem correspondência na Escadinha</span><strong>{number.format(produtosSemCorrespondenciaEstoque.length)}</strong><small>Têm venda/estoque no Estoque x Pedidos, mas nem aparecem na Escadinha</small></div>
+                <div><span>Com plano zerado</span><strong>{number.format(produtosSemEscadinha.length)}</strong><small>Estão na Escadinha, mas sem plano o ano inteiro</small></div>
               </section>
+              {produtosSemCorrespondenciaEstoque.length > 0 && <>
+                <h3 className="drawer-section-label" style={{ margin: "0 20px 8px" }}>NÃO APARECEM NA ESCADINHA (vêm do Estoque x Pedidos)</h3>
+                <div className="table-wrap consumption-table-wrap"><table className="consumption-table buyer-action-table"><thead><tr>
+                  <th>Produto</th><th>Categoria</th><th>Empresas</th><th>Venda (3 meses)</th>
+                </tr></thead><tbody>
+                  {produtosSemCorrespondenciaEstoque.map((p) => <tr key={p.cod}>
+                    <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod}</small></div></div></td>
+                    <td>{p.categoria ?? "—"}</td>
+                    <td>{p.lojas.size}</td>
+                    <td>{p.vendaAnual > 0 ? <strong className="numeric">{number.format(Math.round(p.vendaAnual))}</strong> : <span className="no-projection">Sem venda</span>}</td>
+                  </tr>)}
+                </tbody></table></div>
+              </>}
+              <h3 className="drawer-section-label" style={{ margin: "20px 20px 8px" }}>NA ESCADINHA, MAS COM PLANO ZERADO</h3>
               <div className="table-wrap consumption-table-wrap"><table className="consumption-table buyer-action-table"><thead><tr>
                 <th>Produto / marca</th><th>Categoria</th><th>Real do ano</th>
               </tr></thead><tbody>
@@ -1944,7 +1987,7 @@ export default function DashboardClient({
 
   if (isValues && valoresData) return <ValuesDashboard onSectionChange={changeSection} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} />;
   if (isConsumption) return <ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} />;
-  if (isEscadinha) return <EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} />;
+  if (isEscadinha) return <EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} pedidosVendaData={pedidosVendaData} />;
   if (isPedidosVenda) return <PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} />;
   if (isValorProdutoAcabado && valoresProdutoAcabadoData) return <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} />;
 
