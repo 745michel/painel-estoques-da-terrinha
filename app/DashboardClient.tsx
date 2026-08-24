@@ -1050,6 +1050,8 @@ function EscadinhaDashboard({
   const [selected, setSelected] = useState<EscadinhaProduto | null>(null);
   const [semestre, setSemestre] = useState<1 | 2>(new Date().getMonth() < 6 ? 1 : 2);
   const [visao, setVisao] = useState<"grade" | "resumo">("grade");
+  const [mesesFiltro, setMesesFiltro] = useState<string[]>([]);
+  const [semEscadinha, setSemEscadinha] = useState(false);
 
   const produtos = escadinhaData.produtos as EscadinhaProduto[];
   const desvios = escadinhaData.desvios as EscadinhaDesvio[];
@@ -1116,7 +1118,8 @@ function EscadinhaDashboard({
 
   // Resumo: todos os produtos com desvio (pra cima ou pra baixo) desde a revisao anterior, em
   // volume e em % - pedido do usuario em 21/08/2026 pra levar pra equipe comercial. Reaproveita
-  // os mesmos filtros de busca/categoria/produto da grade.
+  // os mesmos filtros de busca/categoria/produto da grade, mais um filtro de mes proprio
+  // (pedido do usuario em 24/08/2026: "quero ver so o desvio de julho e agosto").
   const desviosFiltrados = useMemo(() => {
     const search = query.trim().toLocaleLowerCase("pt-BR");
     return desvios.filter((d) => (
@@ -1124,8 +1127,9 @@ function EscadinhaDashboard({
       && (!search || d.produto.toLocaleLowerCase("pt-BR").includes(search) || String(d.cod).includes(search) || (d.marca ?? "").toLocaleLowerCase("pt-BR").includes(search))
       && (categories.length === 0 || (d.categoria != null && categories.includes(d.categoria)))
       && (selectedProdutos.length === 0 || selectedProdutos.includes(d.produto))
+      && (mesesFiltro.length === 0 || mesesFiltro.includes(d.mes))
     ));
-  }, [desvios, query, categories, selectedProdutos]);
+  }, [desvios, query, categories, selectedProdutos, mesesFiltro]);
   const resumoAumentaram = desviosFiltrados.filter((d) => d.desvio > 0).length;
   const resumoDiminuiram = desviosFiltrados.filter((d) => d.desvio < 0).length;
   const resumoAtencao = desviosFiltrados.filter((d) => d.desvioPercentual != null && Math.abs(d.desvioPercentual) >= ESCADINHA_LIMIAR_ATENCAO).length;
@@ -1137,6 +1141,26 @@ function EscadinhaDashboard({
     if (abs >= ESCADINHA_LIMIAR_ATENCAO) return "atencao";
     return null;
   }
+  const mesOptions = MESES_ESCADINHA.map((mes) => ({ value: mes, label: MESES_ESCADINHA_LABEL[mes] }));
+
+  // Produtos sem escadinha nenhuma no ano (plano zerado o ano inteiro) - pedido do usuario em
+  // 24/08/2026. Ordenado pelo Real do ano, maior primeiro: quem ja vende mas nao tem plano
+  // cadastrado e o caso mais urgente de checar.
+  function realAnual(produto: EscadinhaProduto) {
+    return (produto.real ?? []).reduce((sum, value) => sum + (value ?? 0), 0);
+  }
+  const produtosSemEscadinha = useMemo(() => {
+    const search = query.trim().toLocaleLowerCase("pt-BR");
+    return produtos
+      .filter((p) => (
+        planoAnual(p) === 0
+        && !ESCADINHA_LINHA_DESCONTINUADA.has(p.produto)
+        && (!search || p.produto.toLocaleLowerCase("pt-BR").includes(search) || (p.cod != null && String(p.cod).includes(search)) || (p.marca ?? "").toLocaleLowerCase("pt-BR").includes(search))
+        && (categories.length === 0 || (p.categoria != null && categories.includes(p.categoria)))
+        && (selectedProdutos.length === 0 || selectedProdutos.includes(p.produto))
+      ))
+      .sort((a, b) => realAnual(b) - realAnual(a));
+  }, [produtos, query, categories, selectedProdutos]);
 
   return <main className="app-shell">
     <aside className="sidebar">
@@ -1180,10 +1204,27 @@ function EscadinhaDashboard({
           <div className="filters value-filters"><div className="selects">
             <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={(values) => { setCategories(values); setSelectedProdutos([]); }} />
             <MultiFilter label="Produto" options={productOptions} selected={selectedProdutos} onChange={setSelectedProdutos} />
-            {(categories.length > 0 || selectedProdutos.length > 0) && <button className="clear-value-filters" onClick={() => { setCategories([]); setSelectedProdutos([]); }}>Limpar filtros</button>}
+            {visao === "resumo" && !semEscadinha && <MultiFilter label="Mês" options={mesOptions} selected={mesesFiltro} onChange={setMesesFiltro} />}
+            {(categories.length > 0 || selectedProdutos.length > 0 || mesesFiltro.length > 0) && <button className="clear-value-filters" onClick={() => { setCategories([]); setSelectedProdutos([]); setMesesFiltro([]); }}>Limpar filtros</button>}
+            {visao === "resumo" && <label className="toggle-inativos" title="Produtos com plano zerado o ano inteiro - nao entram no desvio porque nao tem revisao anterior pra comparar.">
+              <input type="checkbox" checked={semEscadinha} onChange={(e) => setSemEscadinha(e.target.checked)} /> Ver só {produtosSemEscadinha.length} sem escadinha
+            </label>}
           </div></div>
           {visao === "resumo" ? <>
-            {!hasComparacao ? <div className="empty-state"><strong>Sem comparação ainda</strong><p>O resumo de desvio aparece a partir da próxima revisão mensal do plano.</p></div> : <>
+            {semEscadinha ? <>
+              <section className="consumption-summary" style={{ padding: "0 20px 16px" }}>
+                <div><span>Produtos sem escadinha</span><strong>{number.format(produtosSemEscadinha.length)}</strong><small>Plano zerado o ano inteiro</small></div>
+              </section>
+              <div className="table-wrap consumption-table-wrap"><table className="consumption-table buyer-action-table"><thead><tr>
+                <th>Produto / marca</th><th>Categoria</th><th>Real do ano</th>
+              </tr></thead><tbody>
+                {produtosSemEscadinha.map((p) => <tr key={p.produto}>
+                  <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod ?? "—"} · {p.marca ?? "Sem marca"}</small></div></div></td>
+                  <td>{p.categoria ?? "—"}</td>
+                  <td>{realAnual(p) > 0 ? <><strong className="numeric">{number.format(realAnual(p))}</strong><small className="unit"> {unitLabelEscadinha(p)}</small></> : <span className="no-projection">Sem venda no ano</span>}</td>
+                </tr>)}
+              </tbody></table>{produtosSemEscadinha.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
+            </> : !hasComparacao ? <div className="empty-state"><strong>Sem comparação ainda</strong><p>O resumo de desvio aparece a partir da próxima revisão mensal do plano.</p></div> : <>
               <section className="consumption-summary" style={{ padding: "0 20px 16px" }}>
                 <div><span>Produtos com desvio</span><strong>{number.format(desviosFiltrados.length)}</strong><small>{resumoAumentaram} pra cima · {resumoDiminuiram} pra baixo</small></div>
                 <div><span>Atenção (≥ {ESCADINHA_LIMIAR_ATENCAO}%)</span><strong>{number.format(resumoAtencao)}</strong><small>Vale avisar o comercial</small></div>
