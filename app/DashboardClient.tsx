@@ -1832,7 +1832,21 @@ export default function DashboardClient({
   // Cobertura do BI quando for realmente a base de Terceiros (estoqueData), pra nao vazar pra
   // Insumos por engano nessas outras secoes.
   const isTerceirosData = activeData === estoqueData;
-  const allProducts = useMemo(() => (activeData.produtos as SourceProduct[]).map((p) => calculateVisualStatus(p, isTerceirosData)), [activeData, isTerceirosData]);
+  // Deduplica por loja+SKU+nome completo - a mesma chave de linha da tabela (ver
+  // REGRAS_PAINEL_ESTOQUES.md/CLAUDE.md). A planilha de origem as vezes traz a mesma linha
+  // duplicada (ex.: "BOBINA TAPIOCA KRILL 500G" apareceu 2x identica em 25/08/2026) - sem isso,
+  // alem da linha fantasma na tabela, chaves repetidas nos options do MultiFilter confundem o
+  // React (mesma key em elementos-irmao) e o clique num produto podia acabar afetando outro.
+  const allProducts = useMemo(() => {
+    const mapped = (activeData.produtos as SourceProduct[]).map((p) => calculateVisualStatus(p, isTerceirosData));
+    const vistos = new Set<string>();
+    return mapped.filter((p) => {
+      const chave = `${p.loja}|${p.sku}|${p.produto}`;
+      if (vistos.has(chave)) return false;
+      vistos.add(chave);
+      return true;
+    });
+  }, [activeData, isTerceirosData]);
   // Escadinha atual (Plano M), Real M, %Plano e Corte M - cruzados por SKU com a planilha
   // "Projeto MRP compras remodelado", a pedido do usuario em 12/08/2026. Estoque, Carteira,
   // Saldo e Cobertura NAO vem do MRP (risco de divergencia por filtro instavel da pivot) -
