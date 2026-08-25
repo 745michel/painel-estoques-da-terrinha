@@ -1866,7 +1866,7 @@ export default function DashboardClient({
     () => products
       .filter((product) => selectedSuppliers.length === 0 || selectedSuppliers.includes(product.fornecedor))
       .filter((product) => selectedStores.length === 0 || selectedStores.includes(product.loja))
-      .map((product) => ({ value: `${product.loja}|${product.sku}`, label: product.produto }))
+      .map((product) => ({ value: `${product.loja}|${product.sku}|${product.produto}`, label: product.produto }))
       .sort((a, b) => a.label.localeCompare(b.label, "pt-BR")),
     [products, selectedSuppliers, selectedStores],
   );
@@ -1883,7 +1883,7 @@ export default function DashboardClient({
         (selectedStores.length === 0 || selectedStores.includes(product.loja)) &&
         (selectedSuppliers.length === 0 || selectedSuppliers.includes(product.fornecedor)) &&
         (selectedTypes.length === 0 || selectedTypes.includes(inputType(product))) &&
-        (selectedProducts.length === 0 || selectedProducts.includes(`${product.loja}|${product.sku}`)) &&
+        (selectedProducts.length === 0 || selectedProducts.includes(`${product.loja}|${product.sku}|${product.produto}`)) &&
         (status === "Todos" || product.status === status) &&
         (safety === "Todos" || product.seguranca === Number(safety)) &&
         (performance === "Todos" ||
@@ -1917,7 +1917,7 @@ export default function DashboardClient({
         (selectedStores.length === 0 || selectedStores.includes(product.loja)) &&
         (selectedSuppliers.length === 0 || selectedSuppliers.includes(product.fornecedor)) &&
         (selectedTypes.length === 0 || selectedTypes.includes(inputType(product))) &&
-        (selectedProducts.length === 0 || selectedProducts.includes(`${product.loja}|${product.sku}`))
+        (selectedProducts.length === 0 || selectedProducts.includes(`${product.loja}|${product.sku}|${product.produto}`))
       ))
       .sort((a, b) => a.produto.localeCompare(b.produto, "pt-BR"));
   }, [descontinuados, mostrarDescontinuados, query, selectedStores, selectedSuppliers, selectedTypes, selectedProducts]);
