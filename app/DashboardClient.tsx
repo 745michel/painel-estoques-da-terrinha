@@ -753,7 +753,7 @@ function ValuesDashboard({
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         <button className="nav-item active" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>
-        <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>R$</span> Fornecedores</button>
+        <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -1012,7 +1012,7 @@ function ConsumptionDashboard({
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>R$</span> Fornecedores</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -1252,7 +1252,7 @@ function EscadinhaDashboard({
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>R$</span> Fornecedores</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Revisão do plano</strong><small>{fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -1532,7 +1532,7 @@ function PedidosVendaDashboard({
         <button className="nav-item active" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>R$</span> Fornecedores</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -1754,7 +1754,7 @@ function ValorProdutoAcabadoDashboard({
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item active" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>R$</span> Fornecedores</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -1926,7 +1926,7 @@ function FornecedoresDashboard({
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-        {canViewValues && <button className="nav-item active" onClick={() => onSectionChange("fornecedores")}><span>R$</span> Fornecedores</button>}
+        {canViewValues && <button className="nav-item active" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{new Date(fornecedoresData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -2410,7 +2410,7 @@ export default function DashboardClient({
           <button className={`nav-item ${section === "pedidosVenda" ? "active" : ""}`} onClick={() => changeSection("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
           {canViewValues && <button className={`nav-item ${section === "valores" ? "active" : ""}`} onClick={() => changeSection("valores")}><span>R$</span> Valor dos insumos</button>}
           {canViewValues && <button className={`nav-item ${section === "valorProdutoAcabado" ? "active" : ""}`} onClick={() => changeSection("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-          {canViewValues && <button className={`nav-item ${section === "fornecedores" ? "active" : ""}`} onClick={() => changeSection("fornecedores")}><span>R$</span> Fornecedores</button>}
+          {canViewValues && <button className={`nav-item ${section === "fornecedores" ? "active" : ""}`} onClick={() => changeSection("fornecedores")}><span>🚚</span> Fornecedores</button>}
         </nav>
         <div className="sidebar-note">
           <span className="pulse-dot" />
