@@ -2081,10 +2081,10 @@ function FornecedoresDashboard({
             <p className="forn-timeline-note">Caixas = quantidade faturada convertida pela contagem de embalagem na descrição do produto (ex. &quot;CX20&quot;), ou pela própria unidade quando o produto já é a caixa. Fornecedor que só compra a granel fica com Caixas zerado.</p>
           </section>
 
-          <section className="forn-year-panel">
+          <section className="forn-year-panel forn-year-panel-h">
             <h3>Volume por ano</h3>
             <p>{(tlMetrica === "kg" ? "Kg" : "Caixas")} comprado de {tlFornecedor || "—"} · clique pra tirar/pôr um ano na comparação</p>
-            <div className="forn-year-bars">
+            <div className="forn-year-bars-h">
               {anos.map((ano, i) => {
                 const valor = totalAnoFornecedor(tlFornecedor, ano, tlMetrica);
                 const anterior = i > 0 ? totalAnoFornecedor(tlFornecedor, anos[i - 1], tlMetrica) : null;
@@ -2092,11 +2092,10 @@ function FornecedoresDashboard({
                 const maxValorAno = Math.max(1, ...anos.map((a) => totalAnoFornecedor(tlFornecedor, a, tlMetrica)));
                 const pct = Math.max(valor ? 4 : 0, (valor / maxValorAno) * 100);
                 const ligado = anosAtivos[ano] !== false;
-                return <button type="button" key={ano} className={`forn-yr-col ${ligado ? "" : "off"}`} onClick={() => setAnosAtivos((prev) => ({ ...prev, [ano]: prev[ano] === false }))}>
-                  {delta != null && <span className={`forn-yr-delta ${delta < 0 ? "neg" : ""}`}>{delta >= 0 ? "+" : ""}{decimal.format(delta)}%</span>}
-                  <span className="forn-yr-value">{number.format(Math.round(valor))} {tlMetrica === "kg" ? "kg" : "cx"}</span>
-                  <span className="forn-yr-track"><span className="forn-yr-bar" style={{ height: `${pct}%`, background: ligado ? FORN_ANO_CORES[i % FORN_ANO_CORES.length] : "transparent" }} /></span>
-                  <span className="forn-yr-label">{ano}</span>
+                return <button type="button" key={ano} className={`forn-yr-row ${ligado ? "" : "off"}`} onClick={() => setAnosAtivos((prev) => ({ ...prev, [ano]: prev[ano] === false }))}>
+                  <span className="forn-yr-label-h">{ano}</span>
+                  <span className="forn-yr-track-h"><span className="forn-yr-bar-h" style={{ width: `${pct}%`, background: ligado ? FORN_ANO_CORES[i % FORN_ANO_CORES.length] : "transparent" }} /></span>
+                  <span className="forn-yr-value-h">{number.format(Math.round(valor))} {tlMetrica === "kg" ? "kg" : "cx"}{delta != null && <small className={`forn-yr-delta ${delta < 0 ? "neg" : ""}`}>{delta >= 0 ? "+" : ""}{decimal.format(delta)}%</small>}</span>
                 </button>;
               })}
             </div>
@@ -2188,7 +2187,7 @@ function FornecedoresDashboard({
           <div className="panel-heading"><div><h2>Principais produtos</h2><p>Comprados de {focoFornecedor} em {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p></div></div>
           {produtosFoco.length === 0 ? <div className="empty-state"><strong>Sem produto registrado</strong><p>Nenhuma compra desse fornecedor no período selecionado.</p></div> : produtosFoco.map((p) => <div className="product-row" key={p.p}>
             <span className="pr-name">{p.p}</span>
-            <span className="pr-val">{currency.format(p.valor)}{p.kg ? <span className="pr-kg"> · {number.format(Math.round(p.kg))} kg</span> : ""}</span>
+            <span className="pr-val">{currency.format(p.valor)}{p.kg ? <span className="pr-kg"> · {number.format(Math.round(p.kg))} kg · {currency.format(p.valor / p.kg)}/kg</span> : ""}</span>
           </div>)}
         </section>}
         <footer>Fonte: {fornecedoresData.fonte} · TIPO_OPERACAO=Compra · Matéria-prima = Departamento &quot;Compras&quot;, Produto acabado = &quot;Produto de venda&quot; (nunca somados).</footer>
@@ -2228,7 +2227,7 @@ function FornecedoresDashboard({
         <p className="drawer-section-label">Principais produtos</p>
         {produtosGaveta.length === 0 ? <p className="drawer-empty">Sem produto registrado nesse período pra esse fornecedor.</p> : produtosGaveta.map((p) => <div className="product-row" key={p.p}>
           <span className="pr-name">{p.p}</span>
-          <span className="pr-val">{currency.format(p.valor)}{p.kg ? <span className="pr-kg"> · {number.format(Math.round(p.kg))} kg</span> : ""}</span>
+          <span className="pr-val">{currency.format(p.valor)}{p.kg ? <span className="pr-kg"> · {number.format(Math.round(p.kg))} kg · {currency.format(p.valor / p.kg)}/kg</span> : ""}</span>
         </div>)}
         <p className="drawer-note">Tudo aqui segue o ano selecionado no ranking (ou o período completo, se &quot;Todos&quot; estiver selecionado). Preço médio e variação só existem pra quem compra por peso (kg/ton) — fornecedor de caixa/unidade fica sem esses dois.</p>
       </div>

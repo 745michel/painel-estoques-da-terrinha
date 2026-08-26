@@ -248,10 +248,12 @@ confuso, porque a lista não tinha nada a ver com quem aquele comprador negocia.
 [comprador].ranking` quando há comprador selecionado. Escolher um comprador também sincroniza
 os dois gráficos mensais (Kg/Caixas e Valor) pro fornecedor #1 dele (`escolherComprador`) —
 antes ficavam presos no último fornecedor visto, sem relação nenhuma com o comprador escolhido.
-O painel "Valor pago por ano" virou barra horizontal (`.forn-yr-row`/`.forn-yr-bar-h`) em vez de
-vertical — valores em R$ têm mais dígitos que cabem melhor deitados; "Volume por ano" (Kg/
-Caixas) continua vertical. Fonte dos números dos dois painéis subiu (7.5–9px → 9–12px), estava
-ilegível.
+Os dois painéis ("Valor pago por ano" e "Volume por ano") viraram barra horizontal
+(`.forn-yr-row`/`.forn-yr-bar-h`) em vez de vertical — pedido explícito do usuário pros dois,
+depois de já ter pedido só pro de valor. Fonte dos números dos dois painéis subiu (7.5–9px →
+9–12px), estava
+ilegível. "Principais produtos" (drawer e a lista da visão de foco) ganhou preço médio por SKU
+(`p.valor / p.kg`, só quando `kg > 0`) ao lado do valor e do kg já existentes.
 
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
