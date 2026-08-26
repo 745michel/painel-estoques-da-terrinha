@@ -1817,6 +1817,9 @@ function ValorProdutoAcabadoDashboard({
 const FORN_ANO_CORES = ["#8b6bf0", "#2f8a5c", "#2a93c4", "#c07620"];
 const FORN_MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
 const FORN_LIMITE_TABELA = 50;
+// Pedido explicito do usuario em 26/08/2026: manter so 2025/2026 no comparativo, ranking e
+// graficos - 2024 fica fora da aba Fornecedores.
+const FORN_ANOS_OCULTOS = new Set(["2024"]);
 
 function FornecedoresDashboard({
   onSectionChange,
@@ -1829,7 +1832,7 @@ function FornecedoresDashboard({
 }) {
   const [grupo, setGrupo] = useState<"materia_prima" | "produto_acabado">("materia_prima");
   const grupoAtual = fornecedoresData[grupo];
-  const anos = useMemo(() => Object.keys(grupoAtual.anoData).sort(), [grupoAtual]);
+  const anos = useMemo(() => Object.keys(grupoAtual.anoData).filter((ano) => !FORN_ANOS_OCULTOS.has(ano)).sort(), [grupoAtual]);
   const anoMaisRecente = anos[anos.length - 1] ?? "";
 
   const [anoAtivo, setAnoAtivo] = useState(anoMaisRecente);

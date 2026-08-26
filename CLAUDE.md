@@ -255,6 +255,17 @@ depois de já ter pedido só pro de valor. Fonte dos números dos dois painéis 
 ilegível. "Principais produtos" (drawer e a lista da visão de foco) ganhou preço médio por SKU
 (`p.valor / p.kg`, só quando `kg > 0`) ao lado do valor e do kg já existentes.
 
+**2024 removido da aba Fornecedores (26/08/2026, mesmo dia)**: pedido explícito — "tira a
+informação de 2024 mantém 2025 e 2026". Corrigido na fonte: `ANO_MINIMO` em
+`build_fornecedores.py` subiu de "2020" pra "2025", então 2024 nunca entra em nenhuma estrutura
+(`anoData`, `listaFornecedores`, `serieAnoMes`, `produtos`, `metricas`, `compradores` — inclusive
+o escopo "todos", que soma todos os anos reais). Corrigir só no front (filtrar `anos` na hora de
+montar a legenda/comparativo) teria deixado os agregados "todos" da gaveta e do ranking por
+comprador ainda contaminados com 2024, já que esses vêm prontos do JSON. `DashboardClient.tsx`
+também ganhou uma segunda camada de segurança (`FORN_ANOS_OCULTOS`, filtra `anos` de qualquer
+jeito) — redundante depois do fix na fonte, mas barata e evita reaparecer se algum dia rodar
+com um `data/dados-fornecedores.json` gerado antes dessa mudança.
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 
