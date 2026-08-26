@@ -1,6 +1,6 @@
 {
-  "atualizadoEm": "2026-08-26T08:15:15",
-  "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS",
+  "atualizadoEm": "2026-08-26T10:32:56",
+  "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS (fornecedor e entregas programadas: compras_a_receber.json)",
   "produtos": [
     {
       "sku": "21704",
@@ -418,11 +418,11 @@
           "quantidade": 3000
         },
         {
-          "data": "2026-09-09T00:00:00",
+          "data": "2026-09-16T00:00:00",
           "quantidade": 3000
         },
         {
-          "data": "2026-09-16T00:00:00",
+          "data": "2026-09-09T00:00:00",
           "quantidade": 3000
         },
         {
@@ -501,11 +501,11 @@
           "quantidade": 4000
         },
         {
-          "data": "2026-09-09T00:00:00",
+          "data": "2026-09-16T00:00:00",
           "quantidade": 4000
         },
         {
-          "data": "2026-09-16T00:00:00",
+          "data": "2026-09-09T00:00:00",
           "quantidade": 4000
         },
         {
@@ -519,9 +519,17 @@
         {
           "data": "2026-09-30T00:00:00",
           "quantidade": 250
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 300
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 300
         }
       ],
-      "totalProgramado": 23750,
+      "totalProgramado": 24350,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -623,15 +631,15 @@
       "proximaEntrada": "2026-11-07T12:36:06.983000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-22T00:00:00",
-          "quantidade": 800
-        },
-        {
           "data": "2026-11-05T00:00:00",
           "quantidade": 800
         },
         {
           "data": "2026-11-10T00:00:00",
+          "quantidade": 800
+        },
+        {
+          "data": "2026-10-22T00:00:00",
           "quantidade": 800
         }
       ],
@@ -698,11 +706,11 @@
           "quantidade": 500
         },
         {
-          "data": "2026-09-10T00:00:00",
+          "data": "2026-09-18T00:00:00",
           "quantidade": 500
         },
         {
-          "data": "2026-09-18T00:00:00",
+          "data": "2026-09-10T00:00:00",
           "quantidade": 500
         }
       ],
@@ -805,7 +813,7 @@
       "sku": "113765",
       "produto": "BOBINA TAPIOCA KRILL 500G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -821,14 +829,19 @@
       "desvioProjecao": 139.4,
       "loteMinimo": 500,
       "proximaEntrada": "2026-09-14T01:04:02.394000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 300
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 35,
+      "coberturaNaPrimeiraEntrega": 14.0
     },
     {
       "sku": "51727",
@@ -955,7 +968,7 @@
       "sku": "20324",
       "produto": "BOBINA TAPIOCA OBA 500 G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -971,14 +984,19 @@
       "desvioProjecao": 54.1,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-20T12:02:24.273000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 300
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 35,
+      "coberturaNaPrimeiraEntrega": 81.5
     },
     {
       "sku": "34427",
@@ -1347,7 +1365,7 @@
       "sku": "113765",
       "produto": "BOBINA TAPIOCA KRILL 500G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -1363,14 +1381,19 @@
       "desvioProjecao": 139.4,
       "loteMinimo": 501,
       "proximaEntrada": "2026-09-13T01:04:02.394000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 300
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 35,
+      "coberturaNaPrimeiraEntrega": 14.0
     },
     {
       "sku": "50148",
@@ -1886,11 +1909,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-25T00:00:00",
-          "quantidade": 15000
-        },
-        {
-          "data": "2026-09-02T00:00:00",
-          "quantidade": 12000
+          "quantidade": 2695
         },
         {
           "data": "2026-09-09T00:00:00",
@@ -1923,9 +1942,13 @@
         {
           "data": "2026-10-29T00:00:00",
           "quantidade": 15000
+        },
+        {
+          "data": "2026-09-02T00:00:00",
+          "quantidade": 12000
         }
       ],
-      "totalProgramado": 147000,
+      "totalProgramado": 134695,
       "sugestaoCompra": 10000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -2023,11 +2046,11 @@
       "proximaEntrada": "2026-12-14T22:36:22.187000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-22T00:00:00",
+          "data": "2026-10-22T00:00:00",
           "quantidade": 12000
         },
         {
-          "data": "2026-10-22T00:00:00",
+          "data": "2026-09-22T00:00:00",
           "quantidade": 12000
         }
       ],
@@ -2043,7 +2066,7 @@
       "sku": "45362",
       "produto": "LOGISTICA - FILME STRETCH AUTOMATICO",
       "loja": "1",
-      "fornecedor": "METAFILM EMBALAGENS PLASTICAS LTDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -2072,7 +2095,7 @@
       "sku": "50961",
       "produto": "LOGISTICA - FILME STRETCH MANUAL 500x0,15 / 500x0,25",
       "loja": "1",
-      "fornecedor": "METAFILM EMBALAGENS PLASTICAS LTDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -2496,16 +2519,16 @@
       "proximaEntrada": "2026-09-27T18:21:50.252000",
       "entregasProgramadas": [
         {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 50000
+        },
+        {
           "data": "2026-08-31T00:00:00",
           "quantidade": 46000
         },
         {
           "data": "2026-09-01T00:00:00",
           "quantidade": 100000
-        },
-        {
-          "data": "2026-09-14T00:00:00",
-          "quantidade": 50000
         }
       ],
       "totalProgramado": 196000,
@@ -2539,24 +2562,20 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-25T00:00:00",
-          "quantidade": 70000
-        },
-        {
-          "data": "2026-08-28T00:00:00",
-          "quantidade": 56000
+          "quantidade": 14000
         },
         {
           "data": "2026-09-30T00:00:00",
           "quantidade": 50000
         }
       ],
-      "totalProgramado": 176000,
+      "totalProgramado": 64000,
       "sugestaoCompra": 50000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-08-28",
-      "diasAtePrimeiraEntrega": 2,
-      "coberturaNaPrimeiraEntrega": 19.9
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 35,
+      "coberturaNaPrimeiraEntrega": -13.1
     },
     {
       "sku": "91705",
@@ -2643,10 +2662,6 @@
       "proximaEntrada": "2028-02-19T15:52:18.063000",
       "entregasProgramadas": [
         {
-          "data": "2026-08-28T00:00:00",
-          "quantidade": 27292
-        },
-        {
           "data": "2026-09-07T00:00:00",
           "quantidade": 25000
         },
@@ -2659,13 +2674,13 @@
           "quantidade": 25000
         }
       ],
-      "totalProgramado": 102292,
+      "totalProgramado": 75000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-08-28",
-      "diasAtePrimeiraEntrega": 2,
-      "coberturaNaPrimeiraEntrega": 128.9
+      "primeiraEntrega": "2026-09-07",
+      "diasAtePrimeiraEntrega": 12,
+      "coberturaNaPrimeiraEntrega": 118.9
     },
     {
       "sku": "23804",
@@ -6225,7 +6240,7 @@
       "proximaEntrada": null,
       "entregasProgramadas": [
         {
-          "data": "2026-08-24T00:00:00",
+          "data": "2026-08-31T00:00:00",
           "quantidade": 500
         }
       ],
@@ -6233,9 +6248,9 @@
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-31",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": -5.0
     },
     {
       "sku": "83541",
@@ -6356,25 +6371,25 @@
       "proximaEntrada": "2026-11-09T13:57:13.721000",
       "entregasProgramadas": [
         {
-          "data": "2026-08-24T00:00:00",
-          "quantidade": 2000
-        },
-        {
-          "data": "2026-10-15T00:00:00",
+          "data": "2026-08-31T00:00:00",
           "quantidade": 2000
         },
         {
           "data": "2026-10-29T00:00:00",
           "quantidade": 2000
+        },
+        {
+          "data": "2026-10-15T00:00:00",
+          "quantidade": 2000
         }
       ],
       "totalProgramado": 6000,
       "sugestaoCompra": 0,
-      "status": "Risco de falta",
-      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
-      "primeiraEntrega": "2026-10-15",
-      "diasAtePrimeiraEntrega": 50,
-      "coberturaNaPrimeiraEntrega": 14.8
+      "status": "Excesso",
+      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
+      "primeiraEntrega": "2026-08-31",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 59.8
     },
     {
       "sku": "65088",
@@ -6713,7 +6728,7 @@
       "sku": "45362",
       "produto": "LOGISTICA - FILME STRETCH AUTOMATICO 500x0,30",
       "loja": "11",
-      "fornecedor": "METAFILM EMBALAGENS PLASTICAS LTDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -8167,16 +8182,16 @@
       "proximaEntrada": "2026-09-25T08:22:15.177000",
       "entregasProgramadas": [
         {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 2500
+        },
+        {
           "data": "2026-08-28T00:00:00",
           "quantidade": 2000
         },
         {
           "data": "2026-09-10T00:00:00",
           "quantidade": 2000
-        },
-        {
-          "data": "2026-09-23T00:00:00",
-          "quantidade": 2500
         }
       ],
       "totalProgramado": 6500,
@@ -8301,7 +8316,7 @@
       "proximaEntrada": "2027-01-14T16:56:30.865000",
       "entregasProgramadas": [
         {
-          "data": "2026-08-24T00:00:00",
+          "data": "2026-08-31T00:00:00",
           "quantidade": 250
         },
         {
@@ -8311,11 +8326,11 @@
       ],
       "totalProgramado": 750,
       "sugestaoCompra": 0,
-      "status": "Risco de falta",
-      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
-      "primeiraEntrega": "2026-10-09",
-      "diasAtePrimeiraEntrega": 44,
-      "coberturaNaPrimeiraEntrega": 21.7
+      "status": "Excesso",
+      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
+      "primeiraEntrega": "2026-08-31",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 60.7
     },
     {
       "sku": "72288",
@@ -8368,7 +8383,7 @@
       "proximaEntrada": "2026-12-04T05:10:35.286000",
       "entregasProgramadas": [
         {
-          "data": "2026-08-24T00:00:00",
+          "data": "2026-08-31T00:00:00",
           "quantidade": 300
         },
         {
@@ -8380,9 +8395,9 @@
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-12",
-      "diasAtePrimeiraEntrega": 47,
-      "coberturaNaPrimeiraEntrega": -21.6
+      "primeiraEntrega": "2026-08-31",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 20.4
     },
     {
       "sku": "87000",
@@ -8569,6 +8584,10 @@
       "proximaEntrada": "2026-11-19T09:09:01.460000",
       "entregasProgramadas": [
         {
+          "data": "2026-08-31T00:00:00",
+          "quantidade": 500
+        },
+        {
           "data": "2026-09-07T00:00:00",
           "quantidade": 500
         },
@@ -8581,13 +8600,13 @@
           "quantidade": 500
         }
       ],
-      "totalProgramado": 1500,
+      "totalProgramado": 2000,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-07",
-      "diasAtePrimeiraEntrega": 12,
-      "coberturaNaPrimeiraEntrega": 15.5
+      "primeiraEntrega": "2026-08-31",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 22.5
     },
     {
       "sku": "79364",
@@ -8925,7 +8944,7 @@
       "proximaEntrada": "2026-12-14T23:48:28.315000",
       "entregasProgramadas": [
         {
-          "data": "2026-08-24T00:00:00",
+          "data": "2026-08-31T00:00:00",
           "quantidade": 300
         },
         {
@@ -8937,9 +8956,9 @@
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-12",
-      "diasAtePrimeiraEntrega": 47,
-      "coberturaNaPrimeiraEntrega": -19.6
+      "primeiraEntrega": "2026-08-31",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 22.4
     },
     {
       "sku": "72295",
@@ -9231,13 +9250,9 @@
         {
           "data": "2026-09-09T00:00:00",
           "quantidade": 500
-        },
-        {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 500
         }
       ],
-      "totalProgramado": 1000,
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -9825,7 +9840,7 @@
       "sku": "72304",
       "produto": "BOBINA PAPRICA PICANTE EM PO DA TERRINHA 15 G",
       "loja": "14",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9841,19 +9856,14 @@
       "desvioProjecao": 39.6,
       "loteMinimo": 500,
       "proximaEntrada": "2027-03-01T12:01:36.874000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-10-23T00:00:00",
-          "quantidade": 500
-        }
-      ],
-      "totalProgramado": 500,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-10-23",
-      "diasAtePrimeiraEntrega": 58,
-      "coberturaNaPrimeiraEntrega": 75.3
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null
     },
     {
       "sku": "72306",
@@ -10066,7 +10076,7 @@
       "proximaEntrada": "2026-12-08T05:42:20.813000",
       "entregasProgramadas": [
         {
-          "data": "2026-08-24T00:00:00",
+          "data": "2026-08-31T00:00:00",
           "quantidade": 250
         },
         {
@@ -10082,9 +10092,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-09-07",
-      "diasAtePrimeiraEntrega": 12,
-      "coberturaNaPrimeiraEntrega": 34.3
+      "primeiraEntrega": "2026-08-31",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 41.3
     },
     {
       "sku": "72310",
@@ -10466,11 +10476,11 @@
       "proximaEntrada": "2026-10-29T10:26:43.099000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-01T00:00:00",
+          "data": "2026-09-16T00:00:00",
           "quantidade": 18000
         },
         {
-          "data": "2026-09-16T00:00:00",
+          "data": "2026-09-01T00:00:00",
           "quantidade": 18000
         }
       ],
@@ -10769,7 +10779,7 @@
       "sku": "45362",
       "produto": "LOGISTICA - FILME STRETCH AUTOMATICO",
       "loja": "14",
-      "fornecedor": "METAFILM EMBALAGENS PLASTICAS LTDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -10798,7 +10808,7 @@
       "sku": "50961",
       "produto": "LOGISTICA - FILME STRETCH MANUAL 500x0,15 / 500x0,25",
       "loja": "14",
-      "fornecedor": "METAFILM EMBALAGENS PLASTICAS LTDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -12287,7 +12297,7 @@
       "sku": "42081",
       "produto": "MP - GRAO DE BICO 9MM KG",
       "loja": "14",
-      "fornecedor": "TIGRE ALIMENTOS DO BRASIL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12303,13 +12313,8 @@
       "desvioProjecao": -2742.6,
       "loteMinimo": 5000,
       "proximaEntrada": "2026-10-20T19:09:33.380000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-08-24T00:00:00",
-          "quantidade": 14000
-        }
-      ],
-      "totalProgramado": 14000,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -12397,7 +12402,7 @@
       "proximaEntrada": "2026-09-05T06:04:53.560000",
       "entregasProgramadas": [
         {
-          "data": "2026-08-17T00:00:00",
+          "data": "2026-08-31T00:00:00",
           "quantidade": 14000
         }
       ],
@@ -12405,9 +12410,9 @@
       "sugestaoCompra": 10000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-31",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 4.0
     },
     {
       "sku": "41904",
@@ -12523,7 +12528,7 @@
       "proximaEntrada": "2026-08-31T23:19:56.408000",
       "entregasProgramadas": [
         {
-          "data": "2026-08-18T00:00:00",
+          "data": "2026-08-31T00:00:00",
           "quantidade": 40000
         },
         {
@@ -12539,9 +12544,9 @@
       "sugestaoCompra": 90000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-09",
-      "diasAtePrimeiraEntrega": 14,
-      "coberturaNaPrimeiraEntrega": -12.6
+      "primeiraEntrega": "2026-08-31",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": -3.6
     },
     {
       "sku": "120332",
