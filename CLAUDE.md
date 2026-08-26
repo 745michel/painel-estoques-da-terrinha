@@ -230,6 +230,17 @@ mostrar os outros" (uso em reunião/apresentação com o fornecedor específico)
 da tabela/Top 10 continua só abrindo a gaveta lateral de detalhe (`selectedFornecedor`,
 inalterado) — o filtro de foco é um controle separado, deliberado.
 
+**Ranking por comprador (26/08/2026, mesmo dia)**: pedido do usuário — "quero saber o ranking
+de fornecedores de cada comprador". `compras_produto.json` tem `comprador_nome` (37 compradores
+distintos, 99,8% de cobertura). `build_fornecedores.py` ganhou `AcumuladorGrupo.comprador_acc` +
+`montar_compradores()`: novo campo `compradores` em cada grupo (`listaCompradores` ordenada por
+valor total + `porComprador[escopo][comprador]` com o ranking de fornecedores daquele comprador,
+mesma forma de `anoData[ano].top`). Na UI, um `<select>` ao lado do filtro "focar fornecedor"
+(mesma linha, `.forn-comprador-select`) troca `rankingContexto` inteiro (Top 10, tabela, KPIs)
+pra mostrar só os fornecedores daquele comprador — reaproveita a mesma separação
+Matéria-prima/Produto acabado e os mesmos anos de sempre. Selecionar um comprador limpa o foco
+de fornecedor (e vice-versa) pra não misturar os dois modos de filtro.
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 

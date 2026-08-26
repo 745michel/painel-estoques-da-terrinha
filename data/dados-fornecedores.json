@@ -807,6 +807,138 @@
      ]
     }
    }
+  },
+  "compradores": {
+   "listaCompradores": [
+    "COMPRADOR EXEMPLO A",
+    "COMPRADOR EXEMPLO B"
+   ],
+   "porComprador": {
+    "2024": {
+     "COMPRADOR EXEMPLO A": {
+      "total": 500000,
+      "totalKg": 250000,
+      "fornecedores": 2,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 150000
+       },
+       {
+        "f": "FORNECEDOR EXEMPLO B",
+        "valor": 200000,
+        "kg": 100000
+       }
+      ]
+     },
+     "COMPRADOR EXEMPLO B": {
+      "total": 300000,
+      "totalKg": 140000,
+      "fornecedores": 1,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 140000
+       }
+      ]
+     }
+    },
+    "2025": {
+     "COMPRADOR EXEMPLO A": {
+      "total": 500000,
+      "totalKg": 250000,
+      "fornecedores": 2,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 150000
+       },
+       {
+        "f": "FORNECEDOR EXEMPLO B",
+        "valor": 200000,
+        "kg": 100000
+       }
+      ]
+     },
+     "COMPRADOR EXEMPLO B": {
+      "total": 300000,
+      "totalKg": 140000,
+      "fornecedores": 1,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 140000
+       }
+      ]
+     }
+    },
+    "2026": {
+     "COMPRADOR EXEMPLO A": {
+      "total": 500000,
+      "totalKg": 250000,
+      "fornecedores": 2,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 150000
+       },
+       {
+        "f": "FORNECEDOR EXEMPLO B",
+        "valor": 200000,
+        "kg": 100000
+       }
+      ]
+     },
+     "COMPRADOR EXEMPLO B": {
+      "total": 300000,
+      "totalKg": 140000,
+      "fornecedores": 1,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 140000
+       }
+      ]
+     }
+    },
+    "todos": {
+     "COMPRADOR EXEMPLO A": {
+      "total": 500000,
+      "totalKg": 250000,
+      "fornecedores": 2,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 150000
+       },
+       {
+        "f": "FORNECEDOR EXEMPLO B",
+        "valor": 200000,
+        "kg": 100000
+       }
+      ]
+     },
+     "COMPRADOR EXEMPLO B": {
+      "total": 300000,
+      "totalKg": 140000,
+      "fornecedores": 1,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 140000
+       }
+      ]
+     }
+    }
+   }
   }
  },
  "produto_acabado": {
@@ -1613,6 +1745,138 @@
        "preco": 2.25
       }
      ]
+    }
+   }
+  },
+  "compradores": {
+   "listaCompradores": [
+    "COMPRADOR EXEMPLO A",
+    "COMPRADOR EXEMPLO B"
+   ],
+   "porComprador": {
+    "2024": {
+     "COMPRADOR EXEMPLO A": {
+      "total": 500000,
+      "totalKg": 250000,
+      "fornecedores": 2,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 150000
+       },
+       {
+        "f": "FORNECEDOR EXEMPLO B",
+        "valor": 200000,
+        "kg": 100000
+       }
+      ]
+     },
+     "COMPRADOR EXEMPLO B": {
+      "total": 300000,
+      "totalKg": 140000,
+      "fornecedores": 1,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 140000
+       }
+      ]
+     }
+    },
+    "2025": {
+     "COMPRADOR EXEMPLO A": {
+      "total": 500000,
+      "totalKg": 250000,
+      "fornecedores": 2,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 150000
+       },
+       {
+        "f": "FORNECEDOR EXEMPLO B",
+        "valor": 200000,
+        "kg": 100000
+       }
+      ]
+     },
+     "COMPRADOR EXEMPLO B": {
+      "total": 300000,
+      "totalKg": 140000,
+      "fornecedores": 1,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 140000
+       }
+      ]
+     }
+    },
+    "2026": {
+     "COMPRADOR EXEMPLO A": {
+      "total": 500000,
+      "totalKg": 250000,
+      "fornecedores": 2,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 150000
+       },
+       {
+        "f": "FORNECEDOR EXEMPLO B",
+        "valor": 200000,
+        "kg": 100000
+       }
+      ]
+     },
+     "COMPRADOR EXEMPLO B": {
+      "total": 300000,
+      "totalKg": 140000,
+      "fornecedores": 1,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 140000
+       }
+      ]
+     }
+    },
+    "todos": {
+     "COMPRADOR EXEMPLO A": {
+      "total": 500000,
+      "totalKg": 250000,
+      "fornecedores": 2,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 150000
+       },
+       {
+        "f": "FORNECEDOR EXEMPLO B",
+        "valor": 200000,
+        "kg": 100000
+       }
+      ]
+     },
+     "COMPRADOR EXEMPLO B": {
+      "total": 300000,
+      "totalKg": 140000,
+      "fornecedores": 1,
+      "ranking": [
+       {
+        "f": "FORNECEDOR EXEMPLO A",
+        "valor": 300000,
+        "kg": 140000
+       }
+      ]
+     }
     }
    }
   }
