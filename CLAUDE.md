@@ -210,6 +210,15 @@ CI. Em vez disso, `work/sheet-inspect/build_fornecedores.py` já agrega tudo **l
 arquivo de 97 mil linhas. Mesma senha das outras duas abas financeiras
 (`valor-financeiro-fornecedores.json`).
 
+**Card de valor mensal (26/08/2026)**: `serieAnoMes` ganhou o campo `valor` (além de `kg`/
+`caixas`) — pedido do usuário pra ver, ao escolher um fornecedor, o gráfico de Kg comprado
+mês a mês **e** o de Valor pago mês a mês juntos (dois cards escuros empilhados, mesma
+comparação de anos), não só um com toggle. Selecionar um fornecedor na tabela/Top 10 agora
+também sincroniza os dois gráficos (`abrirGaveta` seta `tlFornecedor`/`tlBusca`, antes só
+abria a gaveta lateral sem mexer no gráfico). Layout geral (KPIs + gráficos + tabela) inspirado
+num dashboard de referência que o usuário mandou, mas com a paleta de cores do próprio painel,
+não a do exemplo.
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 

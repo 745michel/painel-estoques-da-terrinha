@@ -86,7 +86,7 @@ type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
 // fornecedor sao dinamicas - inferir do JSON travaria o tipo nas chaves literais do arquivo
 // (placeholder ou real) do momento do build, quebrando toda indexacao por variavel.
 type FornecedorLinha = { f: string; valor: number; kg: number };
-type FornecedorMesSerie = { kg: number; caixas: number };
+type FornecedorMesSerie = { kg: number; caixas: number; valor: number };
 type FornecedorMetrica = {
   valor: number;
   kg: number;
@@ -1892,7 +1892,7 @@ function FornecedoresDashboard({
   const top3 = [...rankingContexto.lista].sort((a, b) => b.valor - a.valor).slice(0, 3).reduce((s, r) => s + r.valor, 0);
   const concentracaoTop3 = rankingContexto.total > 0 ? Math.round((top3 / rankingContexto.total) * 100) : 0;
 
-  function totalAnoFornecedor(fornecedor: string, ano: string, metrica: "kg" | "caixas") {
+  function totalAnoFornecedor(fornecedor: string, ano: string, metrica: "kg" | "caixas" | "valor") {
     const meses = grupoAtual.serieAnoMes[fornecedor]?.[ano];
     if (!meses) return 0;
     return meses.reduce((s, m) => s + m[metrica], 0);
@@ -1904,9 +1904,15 @@ function FornecedoresDashboard({
     1,
     ...anosLigados.flatMap((ano) => (serieFornecedor?.[ano] ?? []).map((m) => m[tlMetrica])),
   );
+  const maxMensalValor = Math.max(
+    1,
+    ...anosLigados.flatMap((ano) => (serieFornecedor?.[ano] ?? []).map((m) => m.valor)),
+  );
 
   function abrirGaveta(fornecedor: string) {
     setSelectedFornecedor(fornecedor);
+    setTlFornecedor(fornecedor);
+    setTlBusca(fornecedor);
   }
 
   const escopoGaveta = anoRanking === "todos" ? "todos" : anoRanking;
@@ -2017,6 +2023,63 @@ function FornecedoresDashboard({
                 return <button type="button" key={ano} className={`forn-yr-col ${ligado ? "" : "off"}`} onClick={() => setAnosAtivos((prev) => ({ ...prev, [ano]: prev[ano] === false }))}>
                   {delta != null && <span className={`forn-yr-delta ${delta < 0 ? "neg" : ""}`}>{delta >= 0 ? "+" : ""}{decimal.format(delta)}%</span>}
                   <span className="forn-yr-value">{number.format(Math.round(valor))} {tlMetrica === "kg" ? "kg" : "cx"}</span>
+                  <span className="forn-yr-track"><span className="forn-yr-bar" style={{ height: `${pct}%`, background: ligado ? FORN_ANO_CORES[i % FORN_ANO_CORES.length] : "transparent" }} /></span>
+                  <span className="forn-yr-label">{ano}</span>
+                </button>;
+              })}
+            </div>
+          </section>
+        </div>
+
+        <div className="forn-timeline-row">
+          <section className="forn-timeline-card">
+            <div className="forn-timeline-heading">
+              <div>
+                <p className="forn-timeline-eyebrow">COMPARATIVO ANUAL · POR FORNECEDOR</p>
+                <h2>{tlFornecedor || "—"}</h2>
+                <p className="forn-timeline-sub">Mostrando <strong style={{ color: "#fff" }}>Valor pago (R$)</strong> · comparando {anos.join(" vs ")}</p>
+              </div>
+            </div>
+            <div className="forn-timeline-legend">
+              {anos.map((ano) => <span key={ano} className={anosAtivos[ano] === false ? "off" : ""} onClick={() => setAnosAtivos((prev) => ({ ...prev, [ano]: prev[ano] === false }))}>
+                <i style={{ background: FORN_ANO_CORES[anos.indexOf(ano) % FORN_ANO_CORES.length] }} />{ano}
+              </span>)}
+            </div>
+            <div className="forn-timeline-chart-wrap">
+              <div className="forn-timeline-chart">
+                {FORN_MESES.map((mesLabel, mIdx) => <div className="forn-tl-group" key={mesLabel}>
+                  <div className="forn-tl-bars">
+                    {anosLigados.map((ano) => {
+                      const valor = serieFornecedor?.[ano]?.[mIdx]?.valor ?? 0;
+                      const pct = Math.max(valor ? 4 : 0, (valor / maxMensalValor) * 100);
+                      const cor = FORN_ANO_CORES[anos.indexOf(ano) % FORN_ANO_CORES.length];
+                      return <div className="forn-tl-bar-col" key={ano} title={`${ano} · ${currency.format(valor)}`}>
+                        <span className="forn-tl-value">{valor ? fmtCompacto(valor) : ""}</span>
+                        <span className="forn-tl-bar" style={{ height: `${pct}%`, background: cor }} />
+                      </div>;
+                    })}
+                  </div>
+                  <span className="forn-tl-month">{mesLabel}</span>
+                </div>)}
+              </div>
+            </div>
+            <p className="forn-timeline-note">Valor pago (R$) por mês, líquido de estorno e devolução — mesma fonte do ranking.</p>
+          </section>
+
+          <section className="forn-year-panel">
+            <h3>Valor pago por ano</h3>
+            <p>Pago a {tlFornecedor || "—"} · clique pra tirar/pôr um ano na comparação</p>
+            <div className="forn-year-bars">
+              {anos.map((ano, i) => {
+                const valor = totalAnoFornecedor(tlFornecedor, ano, "valor");
+                const anterior = i > 0 ? totalAnoFornecedor(tlFornecedor, anos[i - 1], "valor") : null;
+                const delta = anterior && anterior > 0 ? ((valor - anterior) / anterior) * 100 : null;
+                const maxValorAno = Math.max(1, ...anos.map((a) => totalAnoFornecedor(tlFornecedor, a, "valor")));
+                const pct = Math.max(valor ? 4 : 0, (valor / maxValorAno) * 100);
+                const ligado = anosAtivos[ano] !== false;
+                return <button type="button" key={ano} className={`forn-yr-col ${ligado ? "" : "off"}`} onClick={() => setAnosAtivos((prev) => ({ ...prev, [ano]: prev[ano] === false }))}>
+                  {delta != null && <span className={`forn-yr-delta ${delta < 0 ? "neg" : ""}`}>{delta >= 0 ? "+" : ""}{decimal.format(delta)}%</span>}
+                  <span className="forn-yr-value">{currency.format(valor)}</span>
                   <span className="forn-yr-track"><span className="forn-yr-bar" style={{ height: `${pct}%`, background: ligado ? FORN_ANO_CORES[i % FORN_ANO_CORES.length] : "transparent" }} /></span>
                   <span className="forn-yr-label">{ano}</span>
                 </button>;
