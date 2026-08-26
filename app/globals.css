@@ -168,14 +168,25 @@ th{color:#46594e;font-size:8px;font-weight:800}td{color:#20352a;font-size:10px}.
 .forn-year-panel p{margin:0 0 16px;color:#66776d;font-size:9px;line-height:1.5}
 .forn-year-bars{display:flex;justify-content:space-around;align-items:flex-end;height:150px;gap:10px}
 .forn-yr-col{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;border:0;background:transparent;flex:1;min-width:0}
-.forn-yr-col .forn-yr-delta{font-size:7.5px;font-weight:700;color:#2f8a5c}
+.forn-yr-col .forn-yr-delta{font-size:9px;font-weight:700;color:#2f8a5c}
 .forn-yr-col .forn-yr-delta.neg{color:#c8463a}
-.forn-yr-col .forn-yr-value{font-size:9px;font-weight:750;color:var(--ink)}
+.forn-yr-col .forn-yr-value{font-size:12px;font-weight:750;color:var(--ink)}
 .forn-yr-col .forn-yr-track{width:100%;max-width:64px;height:100px;display:flex;align-items:flex-end;background:#f5f7f4;border-radius:6px}
 .forn-yr-col .forn-yr-bar{width:100%;border-radius:6px;min-height:4px;border:2px solid transparent;transition:.15s}
 .forn-yr-col.off .forn-yr-bar{background:transparent!important;border-color:#cfdad3}
 .forn-yr-col.off .forn-yr-value,.forn-yr-col.off .forn-yr-delta{color:#8a958f}
-.forn-yr-col .forn-yr-label{font-size:9px;color:#3e5146;font-weight:750;margin-top:2px}
+.forn-yr-col .forn-yr-label{font-size:11px;color:#3e5146;font-weight:750;margin-top:2px}
+
+.forn-year-bars-h{display:flex;flex-direction:column;gap:14px}
+.forn-yr-row{display:flex;align-items:center;gap:12px;width:100%;cursor:pointer;border:0;background:transparent;padding:0}
+.forn-yr-label-h{flex:0 0 46px;font-size:12px;color:#3e5146;font-weight:800;text-align:left}
+.forn-yr-track-h{flex:1;height:24px;background:#f5f7f4;border-radius:7px;display:flex;align-items:stretch;overflow:hidden}
+.forn-yr-bar-h{height:100%;border-radius:7px;min-width:4px;border:2px solid transparent;transition:.15s}
+.forn-yr-row.off .forn-yr-bar-h{background:transparent!important;border-color:#cfdad3}
+.forn-yr-value-h{flex:0 0 auto;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:750;color:var(--ink);white-space:nowrap;min-width:120px;justify-content:flex-end}
+.forn-yr-row.off .forn-yr-value-h{color:#8a958f}
+.forn-yr-value-h .forn-yr-delta{font-size:9px;font-weight:700;color:#2f8a5c}
+.forn-yr-value-h .forn-yr-delta.neg{color:#c8463a}
 .forn-yr-col.off .forn-yr-label{color:#8a958f}
 .forn-foco-filter{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
 .forn-foco-input{flex:0 1 380px;display:flex;align-items:center;gap:9px;background:#fff;border:1px solid #cfdad3;border-radius:10px;padding:10px 14px;box-shadow:0 2px 7px #173c2a0d}

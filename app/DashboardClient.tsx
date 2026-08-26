@@ -1936,6 +1936,19 @@ function FornecedoresDashboard({
     setTlFornecedor(fornecedor);
   }
 
+  function escolherComprador(comprador: string) {
+    setCompradorFiltro(comprador);
+    if (!comprador) return;
+    setFocoFornecedor(null);
+    setFocoBusca("");
+    const topFornecedor = grupoAtual.compradores.porComprador[escopoGaveta]?.[comprador]?.ranking[0]?.f;
+    if (topFornecedor) setTlFornecedor(topFornecedor);
+  }
+
+  const fornecedoresParaFoco = compradorFiltro
+    ? (grupoAtual.compradores.porComprador[escopoGaveta]?.[compradorFiltro]?.ranking.map((r) => r.f) ?? [])
+    : grupoAtual.listaFornecedores;
+
   const metricaFoco = focoFornecedor ? grupoAtual.metricas[escopoGaveta]?.[focoFornecedor] ?? null : null;
   const produtosFoco = focoFornecedor ? grupoAtual.produtos[escopoGaveta]?.[focoFornecedor] ?? [] : [];
 
@@ -1984,13 +1997,13 @@ function FornecedoresDashboard({
                 const digitado = event.target.value;
                 setFocoBusca(digitado);
                 if (!digitado) { setFocoFornecedor(null); return; }
-                const achado = grupoAtual.listaFornecedores.find((f) => f.toLocaleLowerCase("pt-BR") === digitado.toLocaleLowerCase("pt-BR"));
-                if (achado) { focarFornecedor(achado); setCompradorFiltro(""); }
+                const achado = fornecedoresParaFoco.find((f) => f.toLocaleLowerCase("pt-BR") === digitado.toLocaleLowerCase("pt-BR"));
+                if (achado) focarFornecedor(achado);
               }}
             />
           </label>
           <datalist id="forn-foco-datalist">
-            {grupoAtual.listaFornecedores.map((f) => <option key={f} value={f} />)}
+            {fornecedoresParaFoco.map((f) => <option key={f} value={f} />)}
           </datalist>
           {focoFornecedor && <button type="button" className="forn-foco-clear" onClick={() => { setFocoFornecedor(null); setFocoBusca(""); }}>× Voltar para o ranking completo</button>}
 
@@ -1998,10 +2011,7 @@ function FornecedoresDashboard({
             <span>🧑</span>
             <select
               value={compradorFiltro}
-              onChange={(event) => {
-                setCompradorFiltro(event.target.value);
-                if (event.target.value) { setFocoFornecedor(null); setFocoBusca(""); }
-              }}
+              onChange={(event) => escolherComprador(event.target.value)}
             >
               <option value="">Ver todos os fornecedores</option>
               {grupoAtual.compradores.listaCompradores.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -2128,10 +2138,10 @@ function FornecedoresDashboard({
             <p className="forn-timeline-note">Valor pago (R$) por mês, líquido de estorno e devolução — mesma fonte do ranking.</p>
           </section>
 
-          <section className="forn-year-panel">
+          <section className="forn-year-panel forn-year-panel-h">
             <h3>Valor pago por ano</h3>
             <p>Pago a {tlFornecedor || "—"} · clique pra tirar/pôr um ano na comparação</p>
-            <div className="forn-year-bars">
+            <div className="forn-year-bars-h">
               {anos.map((ano, i) => {
                 const valor = totalAnoFornecedor(tlFornecedor, ano, "valor");
                 const anterior = i > 0 ? totalAnoFornecedor(tlFornecedor, anos[i - 1], "valor") : null;
@@ -2139,11 +2149,10 @@ function FornecedoresDashboard({
                 const maxValorAno = Math.max(1, ...anos.map((a) => totalAnoFornecedor(tlFornecedor, a, "valor")));
                 const pct = Math.max(valor ? 4 : 0, (valor / maxValorAno) * 100);
                 const ligado = anosAtivos[ano] !== false;
-                return <button type="button" key={ano} className={`forn-yr-col ${ligado ? "" : "off"}`} onClick={() => setAnosAtivos((prev) => ({ ...prev, [ano]: prev[ano] === false }))}>
-                  {delta != null && <span className={`forn-yr-delta ${delta < 0 ? "neg" : ""}`}>{delta >= 0 ? "+" : ""}{decimal.format(delta)}%</span>}
-                  <span className="forn-yr-value">{currency.format(valor)}</span>
-                  <span className="forn-yr-track"><span className="forn-yr-bar" style={{ height: `${pct}%`, background: ligado ? FORN_ANO_CORES[i % FORN_ANO_CORES.length] : "transparent" }} /></span>
-                  <span className="forn-yr-label">{ano}</span>
+                return <button type="button" key={ano} className={`forn-yr-row ${ligado ? "" : "off"}`} onClick={() => setAnosAtivos((prev) => ({ ...prev, [ano]: prev[ano] === false }))}>
+                  <span className="forn-yr-label-h">{ano}</span>
+                  <span className="forn-yr-track-h"><span className="forn-yr-bar-h" style={{ width: `${pct}%`, background: ligado ? FORN_ANO_CORES[i % FORN_ANO_CORES.length] : "transparent" }} /></span>
+                  <span className="forn-yr-value-h">{currency.format(valor)}{delta != null && <small className={`forn-yr-delta ${delta < 0 ? "neg" : ""}`}>{delta >= 0 ? "+" : ""}{decimal.format(delta)}%</small>}</span>
                 </button>;
               })}
             </div>

@@ -241,6 +241,18 @@ pra mostrar só os fornecedores daquele comprador — reaproveita a mesma separa
 Matéria-prima/Produto acabado e os mesmos anos de sempre. Selecionar um comprador limpa o foco
 de fornecedor (e vice-versa) pra não misturar os dois modos de filtro.
 
+**Ajustes finos do comprador (26/08/2026, mesmo dia)**: o campo "Focar num fornecedor
+específico" listava todos os fornecedores do grupo, mesmo com um comprador selecionado —
+confuso, porque a lista não tinha nada a ver com quem aquele comprador negocia. Agora
+(`fornecedoresParaFoco`) o datalist filtra pros fornecedores do `porComprador[escopo]
+[comprador].ranking` quando há comprador selecionado. Escolher um comprador também sincroniza
+os dois gráficos mensais (Kg/Caixas e Valor) pro fornecedor #1 dele (`escolherComprador`) —
+antes ficavam presos no último fornecedor visto, sem relação nenhuma com o comprador escolhido.
+O painel "Valor pago por ano" virou barra horizontal (`.forn-yr-row`/`.forn-yr-bar-h`) em vez de
+vertical — valores em R$ têm mais dígitos que cabem melhor deitados; "Volume por ano" (Kg/
+Caixas) continua vertical. Fonte dos números dos dois painéis subiu (7.5–9px → 9–12px), estava
+ilegível.
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 
