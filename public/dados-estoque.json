@@ -23,11 +23,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-28T00:00:00",
-          "quantidade": 1200,
+          "quantidade": 100,
           "pedido": 470575
         }
       ],
-      "totalProgramado": 1200,
+      "totalProgramado": 100,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -110,11 +110,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-28T00:00:00",
-          "quantidade": 1800,
+          "quantidade": 150,
           "pedido": 470575
         }
       ],
-      "totalProgramado": 1800,
+      "totalProgramado": 150,
       "sugestaoCompra": 0,
       "status": "Saudável",
       "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
@@ -143,11 +143,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-28T00:00:00",
-          "quantidade": 1500,
+          "quantidade": 125,
           "pedido": 470575
         }
       ],
-      "totalProgramado": 1500,
+      "totalProgramado": 125,
       "sugestaoCompra": 0,
       "status": "Saudável",
       "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
@@ -275,11 +275,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-28T00:00:00",
-          "quantidade": 2640,
+          "quantidade": 220,
           "pedido": 470575
         }
       ],
-      "totalProgramado": 2640,
+      "totalProgramado": 220,
       "sugestaoCompra": 220,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -335,11 +335,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-28T00:00:00",
-          "quantidade": 2400,
+          "quantidade": 200,
           "pedido": 470575
         }
       ],
-      "totalProgramado": 2400,
+      "totalProgramado": 200,
       "sugestaoCompra": 200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -368,11 +368,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-28T00:00:00",
-          "quantidade": 1080,
+          "quantidade": 90,
           "pedido": 470575
         }
       ],
-      "totalProgramado": 1080,
+      "totalProgramado": 90,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -428,11 +428,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-28T00:00:00",
-          "quantidade": 2400,
+          "quantidade": 200,
           "pedido": 470575
         }
       ],
-      "totalProgramado": 2400,
+      "totalProgramado": 200,
       "sugestaoCompra": 200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -674,14 +674,25 @@
       "desvioProjecao": 2048,
       "loteMinimo": 1100,
       "proximaEntrada": "2026-08-26T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-27T00:00:00",
+          "quantidade": 1100,
+          "pedido": 463530
+        },
+        {
+          "data": "2026-08-28T00:00:00",
+          "quantidade": 840,
+          "pedido": 469086
+        }
+      ],
+      "totalProgramado": 1940,
       "sugestaoCompra": 5500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-27",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 5.9
     },
     {
       "sku": "75877",
@@ -809,14 +820,20 @@
       "desvioProjecao": -235,
       "loteMinimo": 400,
       "proximaEntrada": "2026-08-26T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-28T00:00:00",
+          "quantidade": 400,
+          "pedido": 469086
+        }
+      ],
+      "totalProgramado": 400,
       "sugestaoCompra": 400,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-28",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 14.2
     },
     {
       "sku": "114300",
@@ -971,14 +988,20 @@
       "desvioProjecao": -240,
       "loteMinimo": 400,
       "proximaEntrada": "2026-08-26T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-28T00:00:00",
+          "quantidade": 400,
+          "pedido": 469086
+        }
+      ],
+      "totalProgramado": 400,
       "sugestaoCompra": 400,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-28",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 13.8
     },
     {
       "sku": "41542",
@@ -1109,26 +1132,26 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-26T00:00:00",
-          "quantidade": 49920,
+          "quantidade": 2080,
           "pedido": 450276
         },
         {
           "data": "2026-09-08T00:00:00",
-          "quantidade": 49920,
+          "quantidade": 2080,
           "pedido": 450309
         },
         {
           "data": "2026-09-22T00:00:00",
-          "quantidade": 49920,
+          "quantidade": 2080,
           "pedido": 463608
         },
         {
           "data": "2026-09-29T00:00:00",
-          "quantidade": 49920,
+          "quantidade": 2080,
           "pedido": 463609
         }
       ],
-      "totalProgramado": 199680,
+      "totalProgramado": 8320,
       "sugestaoCompra": 6240,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1157,21 +1180,21 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-26T00:00:00",
-          "quantidade": 10800,
+          "quantidade": 900,
           "pedido": 450276
         },
         {
           "data": "2026-09-22T00:00:00",
-          "quantidade": 9600,
+          "quantidade": 800,
           "pedido": 463608
         },
         {
           "data": "2026-09-29T00:00:00",
-          "quantidade": 9600,
+          "quantidade": 800,
           "pedido": 463609
         }
       ],
-      "totalProgramado": 30000,
+      "totalProgramado": 2500,
       "sugestaoCompra": 1800,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1200,11 +1223,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-03T00:00:00",
-          "quantidade": 1800,
+          "quantidade": 150,
           "pedido": 472122
         }
       ],
-      "totalProgramado": 1800,
+      "totalProgramado": 150,
       "sugestaoCompra": 12,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1260,11 +1283,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-03T00:00:00",
-          "quantidade": 1800,
+          "quantidade": 300,
           "pedido": 472122
         }
       ],
-      "totalProgramado": 1800,
+      "totalProgramado": 300,
       "sugestaoCompra": 7,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1359,11 +1382,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-03T00:00:00",
-          "quantidade": 3600,
+          "quantidade": 300,
           "pedido": 472122
         }
       ],
-      "totalProgramado": 3600,
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -1392,11 +1415,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-03T00:00:00",
-          "quantidade": 5040,
+          "quantidade": 840,
           "pedido": 472122
         }
       ],
-      "totalProgramado": 5040,
+      "totalProgramado": 840,
       "sugestaoCompra": 31,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1425,11 +1448,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-03T00:00:00",
-          "quantidade": 10800,
+          "quantidade": 900,
           "pedido": 472122
         }
       ],
-      "totalProgramado": 10800,
+      "totalProgramado": 900,
       "sugestaoCompra": 19,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1458,11 +1481,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-03T00:00:00",
-          "quantidade": 2160,
+          "quantidade": 180,
           "pedido": 472122
         }
       ],
-      "totalProgramado": 2160,
+      "totalProgramado": 180,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -1518,11 +1541,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-03T00:00:00",
-          "quantidade": 8640,
+          "quantidade": 720,
           "pedido": 472122
         }
       ],
-      "totalProgramado": 8640,
+      "totalProgramado": 720,
       "sugestaoCompra": 29,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1551,11 +1574,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-03T00:00:00",
-          "quantidade": 7200,
+          "quantidade": 600,
           "pedido": 472122
         }
       ],
-      "totalProgramado": 7200,
+      "totalProgramado": 600,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -1584,11 +1607,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-11T00:00:00",
-          "quantidade": 64000,
+          "quantidade": 3200,
           "pedido": 463741
         }
       ],
-      "totalProgramado": 64000,
+      "totalProgramado": 3200,
       "sugestaoCompra": 3200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1617,11 +1640,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-10T00:00:00",
-          "quantidade": 48000,
+          "quantidade": 4000,
           "pedido": 454702
         }
       ],
-      "totalProgramado": 48000,
+      "totalProgramado": 4000,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -1704,11 +1727,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-08T00:00:00",
-          "quantidade": 89760,
+          "quantidade": 3740,
           "pedido": 463273
         }
       ],
-      "totalProgramado": 89760,
+      "totalProgramado": 3740,
       "sugestaoCompra": 7480,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1737,11 +1760,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-10T00:00:00",
-          "quantidade": 26000,
+          "quantidade": 2600,
           "pedido": 454702
         }
       ],
-      "totalProgramado": 26000,
+      "totalProgramado": 2600,
       "sugestaoCompra": 22,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1767,14 +1790,20 @@
       "desvioProjecao": -998,
       "loteMinimo": 3000,
       "proximaEntrada": "2026-08-26T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-28T00:00:00",
+          "quantidade": 3000,
+          "pedido": 470380
+        }
+      ],
+      "totalProgramado": 3000,
       "sugestaoCompra": 6000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-28",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 0.2
     },
     {
       "sku": "89120",
@@ -1821,14 +1850,20 @@
       "desvioProjecao": -231,
       "loteMinimo": 0,
       "proximaEntrada": "2026-08-26T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-28T00:00:00",
+          "quantidade": 128,
+          "pedido": 467169
+        }
+      ],
+      "totalProgramado": 128,
       "sugestaoCompra": 140,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-28",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 4.0
     },
     {
       "sku": "121256",
@@ -1848,14 +1883,20 @@
       "desvioProjecao": -250,
       "loteMinimo": 0,
       "proximaEntrada": "2026-08-26T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-28T00:00:00",
+          "quantidade": 165,
+          "pedido": 467169
+        }
+      ],
+      "totalProgramado": 165,
       "sugestaoCompra": 281,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-28",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": -0.7
     },
     {
       "sku": "121223",
@@ -1929,14 +1970,20 @@
       "desvioProjecao": -52,
       "loteMinimo": 0,
       "proximaEntrada": "2026-08-26T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-28T00:00:00",
+          "quantidade": 128,
+          "pedido": 467169
+        }
+      ],
+      "totalProgramado": 128,
       "sugestaoCompra": 44,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-28",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 4.9
     },
     {
       "sku": "121124",
@@ -1956,14 +2003,20 @@
       "desvioProjecao": -179,
       "loteMinimo": 0,
       "proximaEntrada": "2026-08-26T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-28T00:00:00",
+          "quantidade": 176,
+          "pedido": 467169
+        }
+      ],
+      "totalProgramado": 176,
       "sugestaoCompra": 131,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-28",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 4.9
     },
     {
       "sku": "121091",
@@ -2013,26 +2066,26 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-03T00:00:00",
-          "quantidade": 17280,
+          "quantidade": 1440,
           "pedido": 467371
         },
         {
           "data": "2026-09-10T00:00:00",
-          "quantidade": 17280,
+          "quantidade": 1440,
           "pedido": 467374
         },
         {
           "data": "2026-09-17T00:00:00",
-          "quantidade": 17280,
+          "quantidade": 1440,
           "pedido": 467375
         },
         {
           "data": "2026-09-30T00:00:00",
-          "quantidade": 17280,
+          "quantidade": 1440,
           "pedido": 467377
         }
       ],
-      "totalProgramado": 69120,
+      "totalProgramado": 5760,
       "sugestaoCompra": 2880,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -2088,16 +2141,16 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-28T00:00:00",
-          "quantidade": 18000,
+          "quantidade": 1500,
           "pedido": 467380
         },
         {
           "data": "2026-09-14T00:00:00",
-          "quantidade": 18000,
+          "quantidade": 1500,
           "pedido": 467381
         }
       ],
-      "totalProgramado": 36000,
+      "totalProgramado": 3000,
       "sugestaoCompra": 1500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -2153,11 +2206,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-25T00:00:00",
-          "quantidade": 5760,
+          "quantidade": 240,
           "pedido": 458956
         }
       ],
-      "totalProgramado": 5760,
+      "totalProgramado": 240,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -2285,11 +2338,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-25T00:00:00",
-          "quantidade": 20160,
+          "quantidade": 840,
           "pedido": 458956
         }
       ],
-      "totalProgramado": 20160,
+      "totalProgramado": 840,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -2399,11 +2452,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-15T00:00:00",
-          "quantidade": 9210,
+          "quantidade": 921,
           "pedido": 467378
         }
       ],
-      "totalProgramado": 9210,
+      "totalProgramado": 921,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",

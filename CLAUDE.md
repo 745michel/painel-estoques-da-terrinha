@@ -105,6 +105,23 @@ O script roda 3 pipelines, cada uma independente (uma falhar não trava as outra
       entram linhas com `qtd_unidades_pendentes > 0`. Cobertura de fornecedor ficou parecida com
       antes (~370/472 insumos sem fornecedor conhecido) — não é regressão, o arquivo só cobre
       pedidos em aberto.
+
+      **Duas correções em 26/08/2026, pedidas pelo usuário ao ver o resultado real**:
+      1. `qtd_unidades_pendentes` vem em unidade base (peça/pacote), não em caixa — mas
+         Terceiros mostra tudo em `cx`. `multiplicador_caixa()` extrai o "CX 12"/"FD 24" da
+         descrição do produto (mesmo regex `\b(?:CX|FD)\s*[-.]?\s*(\d{1,3})\b` do protótipo de
+         Fornecedores) e divide a quantidade pendente por ele antes de virar `entregasProgramadas`
+         — sem isso uma entrega de 840 caixas aparecia como "20.160 cx". Só se aplica a
+         Terceiros; Embalagens/MP já usa `kg`/`unidade` direto, sem esse problema.
+      2. Vários terceiros (ART FRITAS, APLAF, MALTA & REZENDE, COPRA, INDC, SEARA) tinham
+         `produto_key` **diferente** do `sku` da planilha de Terceiros para o mesmo produto —
+         a compra é registrada com um código "industrial" prefixado "INDL - " na descrição
+         (ex.: produto_key `77761` "INDL - BATATA PALHA..." vs sku `75879` "BATATA PALHA..." na
+         planilha). Nenhuma entrega desses terceiros aparecia. Fallback: quando o `produto_key`
+         não casa, casa por descrição normalizada (maiúsculas, sem acento, sem prefixo "INDL - ",
+         só alfanumérico) — recupera ~12 produtos que antes ficavam sem nenhuma entrega, mas
+         ainda não é 100% (alguns simplesmente não têm pedido em aberto agora, outros têm
+         descrição divergente demais pro fallback casar).
    3. `work/sheet-inspect/apply_bi_terceiros.py` (Python, 20/08/2026) — sobrescreve
       Estoque/Saldo/Cobertura de Terceiros com `produtos_estoque.json` (BI/Power Automate, já
       sincronizado do SharePoint — não busca nada novo). Ver REGRAS_PAINEL_ESTOQUES.md.
