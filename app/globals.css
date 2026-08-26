@@ -121,19 +121,6 @@ th{color:#46594e;font-size:8px;font-weight:800}td{color:#20352a;font-size:10px}.
 .forn-drawer-ticket{margin:0;font-size:18px;font-weight:750;color:#173c2a}
 .forn-drawer-preco-serie{display:flex;align-items:flex-end;gap:8px;height:64px;padding:6px 2px 0}.forn-drawer-preco-serie .forn-dp-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}.forn-dp-val{font-size:7px;color:#516259;white-space:nowrap}.forn-dp-track{width:100%;max-width:22px;height:38px;display:flex;align-items:flex-end}.forn-dp-bar{width:100%;background:linear-gradient(180deg,#4a86dd,#2166c4);border-radius:3px 3px 0 0;min-height:2px}.forn-dp-month{font-size:7px;color:#8a958e;text-transform:uppercase}
 
-/* top 10, duas barras (valor e kg) com escalas independentes */
-.forn-rank-chart-legend{display:flex;gap:16px;padding:8px 22px 0;font-size:8px;color:#52655b;font-weight:700}.forn-rank-chart-legend span{display:inline-flex;align-items:center;gap:5px}.forn-rank-chart-legend i{width:8px;height:8px;border-radius:3px;display:inline-block}
-.forn-rank-chart{padding:8px 22px 20px}
-.forn-rank-bar-row{display:grid;grid-template-columns:150px 1fr 1fr;align-items:center;gap:16px;padding:7px 0;cursor:pointer}
-.forn-rank-bar-row .forn-rk-name{font-size:10px;font-weight:700;color:#20352a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.forn-rk-metric{display:grid;grid-template-columns:1fr 92px;align-items:center;gap:8px}
-.forn-rk-metric .forn-rk-track{height:14px;border-radius:5px;background:#eef3f0;overflow:hidden;position:relative}
-.forn-rk-metric .forn-rk-fill{height:100%;border-radius:5px}
-.forn-rk-valor .forn-rk-fill{background:linear-gradient(90deg,#3fae72,#1f8a56)}
-.forn-rk-kg .forn-rk-fill{background:linear-gradient(90deg,#4a86dd,#2166c4)}
-.forn-rk-metric .forn-rk-value{font-size:9.5px;font-weight:750;text-align:right;color:#173c2a;white-space:nowrap}
-.forn-rk-metric .forn-rk-value.muted{color:#a3ada6;font-weight:600}
-
 /* comparativo anual (padrao claro do painel) + painel "volume por ano" */
 :root{--forn-ano-1:#8b6bf0;--forn-ano-2:#2f8a5c;--forn-ano-3:#2a93c4;--forn-ano-4:#c07620}
 .forn-timeline-row{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:24px}
@@ -188,4 +175,3 @@ th{color:#46594e;font-size:8px;font-weight:800}td{color:#20352a;font-size:10px}.
 .forn-foco-clear:hover{border-color:#77a88d;background:#eff7f2}
 .forn-produtos-foco{min-height:0}
 @media(max-width:1050px){.forn-timeline-row{grid-template-columns:1fr}}
-@media(max-width:760px){.forn-rank-bar-row{grid-template-columns:1fr;gap:6px}.forn-rk-metric{grid-template-columns:1fr 70px}}

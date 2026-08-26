@@ -85,11 +85,12 @@ type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
 // EscadinhaProduto/EscadinhaDesvio acima: as chaves de ano ("2025", "2026", ...) e de
 // fornecedor sao dinamicas - inferir do JSON travaria o tipo nas chaves literais do arquivo
 // (placeholder ou real) do momento do build, quebrando toda indexacao por variavel.
-type FornecedorLinha = { f: string; valor: number; kg: number };
+type FornecedorLinha = { f: string; valor: number; kg: number; caixas: number };
 type FornecedorMesSerie = { kg: number; caixas: number; valor: number };
 type FornecedorMetrica = {
   valor: number;
   kg: number;
+  caixas: number;
   precoMedioKg: number | null;
   variacaoPrecoPct: number | null;
   notas: number;
@@ -1868,9 +1869,10 @@ function FornecedoresDashboard({
     const mapa = new Map<string, FornecedorLinha>();
     for (const ano of anos) {
       for (const linha of grupoAtual.anoData[ano].top) {
-        const atual = mapa.get(linha.f) ?? { f: linha.f, valor: 0, kg: 0 };
+        const atual = mapa.get(linha.f) ?? { f: linha.f, valor: 0, kg: 0, caixas: 0 };
         atual.valor += linha.valor;
         atual.kg += linha.kg;
+        atual.caixas += linha.caixas;
         mapa.set(linha.f, atual);
       }
     }
@@ -1894,9 +1896,6 @@ function FornecedoresDashboard({
   }, [anoRanking, grupoAtual, combinadoTop, compradorFiltro]);
 
   const rankingOrdenado = useMemo(() => [...rankingContexto.lista].sort((a, b) => b.valor - a.valor), [rankingContexto]);
-  const top10 = rankingOrdenado.slice(0, 10);
-  const maxValorTop10 = Math.max(1, ...top10.map((r) => r.valor));
-  const maxKgTop10 = Math.max(1, ...top10.map((r) => r.kg));
 
   const buscaNormalizada = query.trim().toLocaleLowerCase("pt-BR");
   const filtradoCompleto = buscaNormalizada
@@ -1957,7 +1956,7 @@ function FornecedoresDashboard({
   const produtosFoco = focoFornecedor ? grupoAtual.produtos[escopoGaveta]?.[focoFornecedor] ?? [] : [];
   const produtosComprador = compradorFiltro ? grupoAtual.compradores.porComprador[escopoGaveta]?.[compradorFiltro]?.produtos ?? [] : [];
 
-  function qtdProduto(p: { kg: number; caixas: number }) {
+  function qtdCaixaOuKg(p: { kg: number; caixas: number }) {
     if (p.caixas > 0) return `${number.format(Math.round(p.caixas))} cx`;
     if (p.kg > 0) return `${number.format(Math.round(p.kg))} kg`;
     return "";
@@ -2038,7 +2037,7 @@ function FornecedoresDashboard({
         {focoFornecedor ? (
           <section className="value-kpis" aria-label={`Indicadores de ${focoFornecedor}`}>
             <div className="value-kpi total"><span>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta})</span><strong>{currency.format(metricaFoco?.valor ?? 0)}</strong><small>Líquido de estorno e devolução de compra</small></div>
-            <div className="value-kpi"><span>Kg comprado</span><strong>{metricaFoco?.kg ? `${number.format(Math.round(metricaFoco.kg))} kg` : "não pesado (cx/un)"}</strong><small>&nbsp;</small></div>
+            <div className="value-kpi"><span>Kg/Caixa comprado</span><strong>{metricaFoco && qtdCaixaOuKg(metricaFoco) || "não pesado (cx/un)"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi"><span>Preço médio</span><strong>{metricaFoco?.precoMedioKg != null ? `${currency.format(metricaFoco.precoMedioKg)}/kg` : "—"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi missing"><span>Variação de preço</span><strong className={metricaFoco?.variacaoPrecoPct == null ? "" : metricaFoco.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaFoco?.variacaoPrecoPct != null ? `${metricaFoco.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaFoco.variacaoPrecoPct)}%` : "—"}</strong><small>&nbsp;</small></div>
           </section>
@@ -2175,28 +2174,18 @@ function FornecedoresDashboard({
               <div className="panel-heading"><div><h2>Principais produtos · {compradorFiltro}</h2><p>Comprados por ele, em todos os fornecedores, {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p></div></div>
               {produtosComprador.length === 0 ? <div className="empty-state"><strong>Sem produto registrado</strong><p>Nenhuma compra desse comprador no período selecionado.</p></div> : produtosComprador.map((p) => <div className="product-row" key={p.p}>
                 <span className="pr-name">{p.p}</span>
-                <span className="pr-val">{currency.format(p.valor)}{qtdProduto(p) && <span className="pr-kg"> · {qtdProduto(p)}</span>}</span>
+                <span className="pr-val">{currency.format(p.valor)}{qtdCaixaOuKg(p) && <span className="pr-kg"> · {qtdCaixaOuKg(p)}</span>}</span>
               </div>)}
             </>
           ) : (
-            <>
-              <div className="panel-heading"><div><h2>Top 10</h2><p>Ordenado por valor pago · kg do lado · clique numa linha pra ver os produtos</p></div></div>
-              <div className="forn-rank-chart-legend"><span><i style={{ background: "#1f8a56" }} />Valor pago</span><span><i style={{ background: "#2166c4" }} />Kg comprado (escala própria)</span></div>
-              <div className="forn-rank-chart">
-                {top10.map((r) => <div className="forn-rank-bar-row" key={r.f} onClick={() => abrirGaveta(r.f)}>
-                  <span className="forn-rk-name" title={r.f}>{r.f}</span>
-                  <span className="forn-rk-metric forn-rk-valor"><span className="forn-rk-track"><span className="forn-rk-fill" style={{ width: `${(r.valor / maxValorTop10) * 100}%` }} /></span><span className="forn-rk-value">{currency.format(r.valor)}</span></span>
-                  <span className="forn-rk-metric forn-rk-kg"><span className="forn-rk-track"><span className="forn-rk-fill" style={{ width: `${(r.kg / maxKgTop10) * 100}%` }} /></span><span className={`forn-rk-value ${r.kg ? "" : "muted"}`}>{r.kg ? `${number.format(Math.round(r.kg))} kg` : "sem kg"}</span></span>
-                </div>)}
-              </div>
-            </>
+            <div className="panel-heading"><div><h2>Ranking de fornecedores</h2><p>Ordenado por valor pago · clique numa linha pra ver os produtos</p></div></div>
           )}
-          <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th style={{ width: 40 }}>#</th><th>Fornecedor</th><th>Valor pago</th><th>Kg comprado</th><th>% do total</th></tr></thead><tbody>
+          <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th style={{ width: 40 }}>#</th><th>Fornecedor</th><th>Valor pago</th><th>Kg/Caixa comprado</th><th>% do total</th></tr></thead><tbody>
             {filtrado.map((r, i) => <tr key={r.f} onClick={() => abrirGaveta(r.f)} style={{ cursor: "pointer" }}>
               <td><span className={`rk-badge ${i < 3 ? "top3" : ""}`}>{i + 1}</span></td>
               <td><div className="product-cell"><div><strong>{r.f}</strong></div></div></td>
               <td><strong className="money-value">{currency.format(r.valor)}</strong></td>
-              <td>{r.kg ? <strong>{number.format(Math.round(r.kg))} kg</strong> : <span className="price-missing">não pesado (cx/un)</span>}</td>
+              <td>{qtdCaixaOuKg(r) ? <strong>{qtdCaixaOuKg(r)}</strong> : <span className="price-missing">não pesado (cx/un)</span>}</td>
               <td>{rankingContexto.total > 0 ? decimal.format((r.valor / rankingContexto.total) * 100) : "0"}%</td>
             </tr>)}
           </tbody></table>
@@ -2210,7 +2199,7 @@ function FornecedoresDashboard({
           <div className="panel-heading"><div><h2>Principais produtos</h2><p>Comprados de {focoFornecedor} em {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p></div></div>
           {produtosFoco.length === 0 ? <div className="empty-state"><strong>Sem produto registrado</strong><p>Nenhuma compra desse fornecedor no período selecionado.</p></div> : produtosFoco.map((p) => <div className="product-row" key={p.p}>
             <span className="pr-name">{p.p}</span>
-            <span className="pr-val">{currency.format(p.valor)}{qtdProduto(p) && <span className="pr-kg"> · {qtdProduto(p)}</span>}</span>
+            <span className="pr-val">{currency.format(p.valor)}{qtdCaixaOuKg(p) && <span className="pr-kg"> · {qtdCaixaOuKg(p)}</span>}</span>
           </div>)}
         </section>}
         <footer>Fonte: {fornecedoresData.fonte} · TIPO_OPERACAO=Compra · Matéria-prima = Departamento &quot;Compras&quot;, Produto acabado = &quot;Produto de venda&quot; (nunca somados).</footer>
@@ -2224,7 +2213,7 @@ function FornecedoresDashboard({
         <p className="drawer-sku">Produtos comprados em {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p>
         <div className="drawer-metrics">
           <div><small>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta})</small><strong>{currency.format(metricaGaveta?.valor ?? 0)}</strong></div>
-          <div><small>Kg comprado</small><strong>{metricaGaveta?.kg ? `${number.format(Math.round(metricaGaveta.kg))} kg` : "não pesado (cx/un)"}</strong></div>
+          <div><small>Kg/Caixa comprado</small><strong>{metricaGaveta && qtdCaixaOuKg(metricaGaveta) || "não pesado (cx/un)"}</strong></div>
           <div><small>Preço médio</small><strong>{metricaGaveta?.precoMedioKg != null ? `${currency.format(metricaGaveta.precoMedioKg)}/kg` : "não pesado (cx/un)"}</strong></div>
           <div><small>Variação de preço</small><strong className={metricaGaveta?.variacaoPrecoPct == null ? "" : metricaGaveta.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaGaveta?.variacaoPrecoPct != null ? `${metricaGaveta.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaGaveta.variacaoPrecoPct)}%` : "—"}</strong></div>
           <div><small>Notas fiscais</small><strong>{number.format(metricaGaveta?.notas ?? 0)}</strong></div>
@@ -2250,7 +2239,7 @@ function FornecedoresDashboard({
         <p className="drawer-section-label">Principais produtos</p>
         {produtosGaveta.length === 0 ? <p className="drawer-empty">Sem produto registrado nesse período pra esse fornecedor.</p> : produtosGaveta.map((p) => <div className="product-row" key={p.p}>
           <span className="pr-name">{p.p}</span>
-          <span className="pr-val">{currency.format(p.valor)}{qtdProduto(p) && <span className="pr-kg"> · {qtdProduto(p)}</span>}</span>
+          <span className="pr-val">{currency.format(p.valor)}{qtdCaixaOuKg(p) && <span className="pr-kg"> · {qtdCaixaOuKg(p)}</span>}</span>
         </div>)}
         <p className="drawer-note">Tudo aqui segue o ano selecionado no ranking (ou o período completo, se &quot;Todos&quot; estiver selecionado). Preço médio e variação só existem pra quem compra por peso (kg/ton) — fornecedor de caixa/unidade fica sem esses dois.</p>
       </div>

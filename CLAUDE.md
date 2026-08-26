@@ -291,6 +291,23 @@ inteiro — `listaCompradores` e `porComprador` só trazem esses 5 (ou menos, se
 compra num grupo/ano — ex.: Hamilton não aparece em produto_acabado). Se um novo comprador
 precisar entrar, é só adicionar o nome exato (como aparece em `comprador_nome`) nesse set.
 
+**Top 10 removido, caixa em todo lugar de fornecedor (26/08/2026, mesmo dia)**: pedido
+explícito — "segunda imagem não quero essa visão pois é repetida" (o gráfico Top 10 padrão,
+sem comprador filtrado, também repetia a tabela logo abaixo — não só o caso do comprador) e
+"esses fornecedores não pode aparecer kg tem que ser caixa" (ART FRITAS, APLAF, DICOCO etc. —
+os mesmos terceiros/coempacotadores que só fazem sentido em caixa). Duas mudanças:
+1. O gráfico Top 10 (barras de valor+kg por fornecedor) foi removido de vez — nos dois modos,
+   com ou sem comprador filtrado. Com comprador filtrado continua mostrando "Principais
+   produtos" (ver nota acima); sem comprador filtrado, vai direto pro cabeçalho da tabela.
+   CSS morto do gráfico (`forn-rank-*`) removido.
+2. `caixas` agora existe em **todo** nível de fornecedor, não só produto:
+   `por_ano_fornecedor` (usado em `anoData[ano].top`), `metrica_acc` (usado em `metricas`,
+   inclusive a gaveta) e `comprador_acc` (usado no ranking por comprador) — mesmo cálculo de
+   `serie_mes`/`produto_acc`. `qtdCaixaOuKg()` no front (renomeada de `qtdProduto`, mesma
+   função reaproveitada pra produto E fornecedor) decide caixa vs kg em todo lugar que mostra
+   quantidade de fornecedor: coluna da tabela (agora "Kg/Caixa comprado"), KPI da visão de
+   foco, e o stat da gaveta lateral.
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 

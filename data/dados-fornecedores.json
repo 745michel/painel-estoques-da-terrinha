@@ -11,12 +11,14 @@
      {
       "f": "FORNECEDOR EXEMPLO A",
       "valor": 600000,
-      "kg": 300000
+      "kg": 300000,
+      "caixas": 0
      },
      {
       "f": "FORNECEDOR EXEMPLO B",
       "valor": 400000,
-      "kg": 200000
+      "kg": 200000,
+      "caixas": 0
      }
     ]
    },
@@ -28,12 +30,14 @@
      {
       "f": "FORNECEDOR EXEMPLO A",
       "valor": 601000,
-      "kg": 300100
+      "kg": 300100,
+      "caixas": 0
      },
      {
       "f": "FORNECEDOR EXEMPLO B",
       "valor": 401000,
-      "kg": 200100
+      "kg": 200100,
+      "caixas": 0
      }
     ]
    },
@@ -45,12 +49,14 @@
      {
       "f": "FORNECEDOR EXEMPLO A",
       "valor": 602000,
-      "kg": 300200
+      "kg": 300200,
+      "caixas": 0
      },
      {
       "f": "FORNECEDOR EXEMPLO B",
       "valor": 402000,
-      "kg": 200200
+      "kg": 200200,
+      "caixas": 0
      }
     ]
    }
@@ -594,7 +600,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     },
     "FORNECEDOR EXEMPLO B": {
      "valor": 400000,
@@ -604,7 +611,8 @@
      "notas": 30,
      "pedidos": 15,
      "ticketMedioNota": 12500,
-     "serieMensalPreco": []
+     "serieMensalPreco": [],
+     "caixas": 0
     }
    },
    "2025": {
@@ -641,7 +649,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     },
     "FORNECEDOR EXEMPLO B": {
      "valor": 400000,
@@ -676,7 +685,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     }
    },
    "2026": {
@@ -713,7 +723,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     },
     "FORNECEDOR EXEMPLO B": {
      "valor": 400000,
@@ -748,7 +759,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     }
    },
    "todos": {
@@ -785,7 +797,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     },
     "FORNECEDOR EXEMPLO B": {
      "valor": 400000,
@@ -820,7 +833,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     }
    }
   },
@@ -839,12 +853,14 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 150000
+        "kg": 150000,
+        "caixas": 0
        },
        {
         "f": "FORNECEDOR EXEMPLO B",
         "valor": 200000,
-        "kg": 100000
+        "kg": 100000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -870,7 +886,8 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 140000
+        "kg": 140000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -898,12 +915,14 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 150000
+        "kg": 150000,
+        "caixas": 0
        },
        {
         "f": "FORNECEDOR EXEMPLO B",
         "valor": 200000,
-        "kg": 100000
+        "kg": 100000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -929,7 +948,8 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 140000
+        "kg": 140000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -957,12 +977,14 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 150000
+        "kg": 150000,
+        "caixas": 0
        },
        {
         "f": "FORNECEDOR EXEMPLO B",
         "valor": 200000,
-        "kg": 100000
+        "kg": 100000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -988,7 +1010,8 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 140000
+        "kg": 140000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -1016,12 +1039,14 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 150000
+        "kg": 150000,
+        "caixas": 0
        },
        {
         "f": "FORNECEDOR EXEMPLO B",
         "valor": 200000,
-        "kg": 100000
+        "kg": 100000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -1047,7 +1072,8 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 140000
+        "kg": 140000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -1079,12 +1105,14 @@
      {
       "f": "FORNECEDOR EXEMPLO A",
       "valor": 600000,
-      "kg": 300000
+      "kg": 300000,
+      "caixas": 0
      },
      {
       "f": "FORNECEDOR EXEMPLO B",
       "valor": 400000,
-      "kg": 200000
+      "kg": 200000,
+      "caixas": 0
      }
     ]
    },
@@ -1096,12 +1124,14 @@
      {
       "f": "FORNECEDOR EXEMPLO A",
       "valor": 601000,
-      "kg": 300100
+      "kg": 300100,
+      "caixas": 0
      },
      {
       "f": "FORNECEDOR EXEMPLO B",
       "valor": 401000,
-      "kg": 200100
+      "kg": 200100,
+      "caixas": 0
      }
     ]
    },
@@ -1113,12 +1143,14 @@
      {
       "f": "FORNECEDOR EXEMPLO A",
       "valor": 602000,
-      "kg": 300200
+      "kg": 300200,
+      "caixas": 0
      },
      {
       "f": "FORNECEDOR EXEMPLO B",
       "valor": 402000,
-      "kg": 200200
+      "kg": 200200,
+      "caixas": 0
      }
     ]
    }
@@ -1662,7 +1694,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     },
     "FORNECEDOR EXEMPLO B": {
      "valor": 400000,
@@ -1672,7 +1705,8 @@
      "notas": 30,
      "pedidos": 15,
      "ticketMedioNota": 12500,
-     "serieMensalPreco": []
+     "serieMensalPreco": [],
+     "caixas": 0
     }
    },
    "2025": {
@@ -1709,7 +1743,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     },
     "FORNECEDOR EXEMPLO B": {
      "valor": 400000,
@@ -1744,7 +1779,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     }
    },
    "2026": {
@@ -1781,7 +1817,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     },
     "FORNECEDOR EXEMPLO B": {
      "valor": 400000,
@@ -1816,7 +1853,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     }
    },
    "todos": {
@@ -1853,7 +1891,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     },
     "FORNECEDOR EXEMPLO B": {
      "valor": 400000,
@@ -1888,7 +1927,8 @@
        "mes": "2026-06",
        "preco": 2.25
       }
-     ]
+     ],
+     "caixas": 0
     }
    }
   },
@@ -1907,12 +1947,14 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 150000
+        "kg": 150000,
+        "caixas": 0
        },
        {
         "f": "FORNECEDOR EXEMPLO B",
         "valor": 200000,
-        "kg": 100000
+        "kg": 100000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -1938,7 +1980,8 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 140000
+        "kg": 140000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -1966,12 +2009,14 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 150000
+        "kg": 150000,
+        "caixas": 0
        },
        {
         "f": "FORNECEDOR EXEMPLO B",
         "valor": 200000,
-        "kg": 100000
+        "kg": 100000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -1997,7 +2042,8 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 140000
+        "kg": 140000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -2025,12 +2071,14 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 150000
+        "kg": 150000,
+        "caixas": 0
        },
        {
         "f": "FORNECEDOR EXEMPLO B",
         "valor": 200000,
-        "kg": 100000
+        "kg": 100000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -2056,7 +2104,8 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 140000
+        "kg": 140000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -2084,12 +2133,14 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 150000
+        "kg": 150000,
+        "caixas": 0
        },
        {
         "f": "FORNECEDOR EXEMPLO B",
         "valor": 200000,
-        "kg": 100000
+        "kg": 100000,
+        "caixas": 0
        }
       ],
       "produtos": [
@@ -2115,7 +2166,8 @@
        {
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
-        "kg": 140000
+        "kg": 140000,
+        "caixas": 0
        }
       ],
       "produtos": [
