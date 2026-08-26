@@ -253,7 +253,8 @@ Os dois painéis ("Valor pago por ano" e "Volume por ano") viraram barra horizon
 depois de já ter pedido só pro de valor. Fonte dos números dos dois painéis subiu (7.5–9px →
 9–12px), estava
 ilegível. "Principais produtos" (drawer e a lista da visão de foco) ganhou preço médio por SKU
-(`p.valor / p.kg`, só quando `kg > 0`) ao lado do valor e do kg já existentes.
+(`p.valor / p.kg`, só quando `kg > 0`) ao lado do valor e do kg já existentes — **revertido no
+mesmo dia**, ver nota mais abaixo.
 
 **2024 removido da aba Fornecedores (26/08/2026, mesmo dia)**: pedido explícito — "tira a
 informação de 2024 mantém 2025 e 2026". Corrigido na fonte: `ANO_MINIMO` em
@@ -265,6 +266,30 @@ comprador ainda contaminados com 2024, já que esses vêm prontos do JSON. `Dash
 também ganhou uma segunda camada de segurança (`FORN_ANOS_OCULTOS`, filtra `anos` de qualquer
 jeito) — redundante depois do fix na fonte, mas barata e evita reaparecer se algum dia rodar
 com um `data/dados-fornecedores.json` gerado antes dessa mudança.
+
+**Top 10 vira "Principais produtos" no filtro de comprador; caixa em vez de kg; sem preço/kg
+(26/08/2026, mesmo dia)**: o gráfico Top 10 (barras de fornecedor) repetia a mesma informação já
+mostrada na tabela logo abaixo quando um comprador estava filtrado — pedido do usuário pra
+trocar por produtos ali. `produto_comprador_acc` (novo, agregado dentro
+de `montar_compradores`) agrega produtos comprados por aquele comprador **através de todos os
+fornecedores dele**, e `porComprador[escopo][comprador].produtos` (top 6, mesma forma de
+`produtos[escopo][fornecedor]`) substitui o gráfico só quando `compradorFiltro` está ativo — a
+tabela de fornecedores continua igual embaixo. `produto_acc` (e o novo `produto_comprador_acc`)
+ganharam `caixas` (mesmo cálculo de `serie_mes`, via `multiplicador_caixa`/
+`eh_caixa_como_unidade`) — pedido explícito: "o que for caixa coloca caixa não kg". A função
+`qtdProduto()` no front decide: caixas > 0 → mostra caixas, senão kg. O preço médio por SKU
+adicionado horas antes foi removido dos três lugares que mostram produto (drawer, foco,
+comprador) — pedido explícito "não quero valor por kg".
+
+**Comprador filtrado pra 5 nomes (26/08/2026, mesmo dia)**: pedido explícito — "quero que
+mantenha esses compradores... o restante tira". `COMPRADORES_PERMITIDOS` em
+`build_fornecedores.py` (nomes completos, batidos contra `comprador_nome` real do
+`compras_produto.json` — o usuário deu versões abreviadas: "MARTA JESUS"→"MARTA DE JESUS",
+"VICTOR FELIPE"→"VITOR FELIPE", "DILMA TEODORA"→"DILMA TEODORA DA SILVA", "GISELA SANTOS"→
+"GISELLA SANTOS", "HAMILTON ALVES"→"HAMILTON ALVES DE JESUS BATISTA") filtra `montar_compradores`
+inteiro — `listaCompradores` e `porComprador` só trazem esses 5 (ou menos, se algum não tiver
+compra num grupo/ano — ex.: Hamilton não aparece em produto_acabado). Se um novo comprador
+precisar entrar, é só adicionar o nome exato (como aparece em `comprador_nome`) nesse set.
 
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.

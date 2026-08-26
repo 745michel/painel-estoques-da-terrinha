@@ -443,24 +443,28 @@
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ],
     "FORNECEDOR EXEMPLO B": [
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ]
    },
@@ -469,24 +473,28 @@
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ],
     "FORNECEDOR EXEMPLO B": [
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ]
    },
@@ -495,24 +503,28 @@
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ],
     "FORNECEDOR EXEMPLO B": [
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ]
    },
@@ -521,24 +533,28 @@
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ],
     "FORNECEDOR EXEMPLO B": [
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ]
    }
@@ -830,6 +846,20 @@
         "valor": 200000,
         "kg": 100000
        }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
+       }
       ]
      },
      "COMPRADOR EXEMPLO B": {
@@ -841,6 +871,20 @@
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
         "kg": 140000
+       }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
        }
       ]
      }
@@ -861,6 +905,20 @@
         "valor": 200000,
         "kg": 100000
        }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
+       }
       ]
      },
      "COMPRADOR EXEMPLO B": {
@@ -872,6 +930,20 @@
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
         "kg": 140000
+       }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
        }
       ]
      }
@@ -892,6 +964,20 @@
         "valor": 200000,
         "kg": 100000
        }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
+       }
       ]
      },
      "COMPRADOR EXEMPLO B": {
@@ -903,6 +989,20 @@
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
         "kg": 140000
+       }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
        }
       ]
      }
@@ -923,6 +1023,20 @@
         "valor": 200000,
         "kg": 100000
        }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
+       }
       ]
      },
      "COMPRADOR EXEMPLO B": {
@@ -934,6 +1048,20 @@
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
         "kg": 140000
+       }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
        }
       ]
      }
@@ -1383,24 +1511,28 @@
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ],
     "FORNECEDOR EXEMPLO B": [
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ]
    },
@@ -1409,24 +1541,28 @@
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ],
     "FORNECEDOR EXEMPLO B": [
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ]
    },
@@ -1435,24 +1571,28 @@
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ],
     "FORNECEDOR EXEMPLO B": [
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ]
    },
@@ -1461,24 +1601,28 @@
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ],
     "FORNECEDOR EXEMPLO B": [
      {
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
-      "kg": 150000
+      "kg": 150000,
+      "caixas": 0
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
-      "kg": 70000
+      "kg": 70000,
+      "caixas": 0
      }
     ]
    }
@@ -1770,6 +1914,20 @@
         "valor": 200000,
         "kg": 100000
        }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
+       }
       ]
      },
      "COMPRADOR EXEMPLO B": {
@@ -1781,6 +1939,20 @@
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
         "kg": 140000
+       }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
        }
       ]
      }
@@ -1801,6 +1973,20 @@
         "valor": 200000,
         "kg": 100000
        }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
+       }
       ]
      },
      "COMPRADOR EXEMPLO B": {
@@ -1812,6 +1998,20 @@
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
         "kg": 140000
+       }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
        }
       ]
      }
@@ -1832,6 +2032,20 @@
         "valor": 200000,
         "kg": 100000
        }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
+       }
       ]
      },
      "COMPRADOR EXEMPLO B": {
@@ -1843,6 +2057,20 @@
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
         "kg": 140000
+       }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
        }
       ]
      }
@@ -1863,6 +2091,20 @@
         "valor": 200000,
         "kg": 100000
        }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
+       }
       ]
      },
      "COMPRADOR EXEMPLO B": {
@@ -1874,6 +2116,20 @@
         "f": "FORNECEDOR EXEMPLO A",
         "valor": 300000,
         "kg": 140000
+       }
+      ],
+      "produtos": [
+       {
+        "p": "MP - PRODUTO EXEMPLO 1 KG",
+        "valor": 200000,
+        "kg": 100000,
+        "caixas": 0
+       },
+       {
+        "p": "PRODUTO EXEMPLO EM CAIXA",
+        "valor": 80000,
+        "kg": 0,
+        "caixas": 4000
        }
       ]
      }

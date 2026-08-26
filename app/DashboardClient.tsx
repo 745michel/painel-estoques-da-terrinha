@@ -97,12 +97,13 @@ type FornecedorMetrica = {
   ticketMedioNota: number;
   serieMensalPreco: { mes: string; preco: number }[];
 };
-type CompradorDado = { total: number; totalKg: number; fornecedores: number; ranking: FornecedorLinha[] };
+type FornecedorProduto = { p: string; valor: number; kg: number; caixas: number };
+type CompradorDado = { total: number; totalKg: number; fornecedores: number; ranking: FornecedorLinha[]; produtos: FornecedorProduto[] };
 type FornecedoresGrupo = {
   anoData: Record<string, { total: number; totalKg: number; fornecedores: number; top: FornecedorLinha[] }>;
   listaFornecedores: string[];
   serieAnoMes: Record<string, Record<string, FornecedorMesSerie[]>>;
-  produtos: Record<string, Record<string, { p: string; valor: number; kg: number }[]>>;
+  produtos: Record<string, Record<string, FornecedorProduto[]>>;
   metricas: Record<string, Record<string, FornecedorMetrica | null>>;
   compradores: { listaCompradores: string[]; porComprador: Record<string, Record<string, CompradorDado>> };
 };
@@ -1954,6 +1955,13 @@ function FornecedoresDashboard({
 
   const metricaFoco = focoFornecedor ? grupoAtual.metricas[escopoGaveta]?.[focoFornecedor] ?? null : null;
   const produtosFoco = focoFornecedor ? grupoAtual.produtos[escopoGaveta]?.[focoFornecedor] ?? [] : [];
+  const produtosComprador = compradorFiltro ? grupoAtual.compradores.porComprador[escopoGaveta]?.[compradorFiltro]?.produtos ?? [] : [];
+
+  function qtdProduto(p: { kg: number; caixas: number }) {
+    if (p.caixas > 0) return `${number.format(Math.round(p.caixas))} cx`;
+    if (p.kg > 0) return `${number.format(Math.round(p.kg))} kg`;
+    return "";
+  }
 
   const fmtCompacto = (v: number) => (Math.abs(v) >= 1000 ? `${(v / 1000).toLocaleString("pt-BR", { maximumFractionDigits: 1 })}k` : number.format(Math.round(v)));
 
@@ -2162,15 +2170,27 @@ function FornecedoresDashboard({
         </div>
 
         {!focoFornecedor && <section className="inventory-panel values-panel">
-          <div className="panel-heading"><div><h2>{compradorFiltro ? `Top 10 · fornecedores de ${compradorFiltro}` : "Top 10"}</h2><p>Ordenado por valor pago · kg do lado · clique numa linha pra ver os produtos</p></div></div>
-          <div className="forn-rank-chart-legend"><span><i style={{ background: "#1f8a56" }} />Valor pago</span><span><i style={{ background: "#2166c4" }} />Kg comprado (escala própria)</span></div>
-          <div className="forn-rank-chart">
-            {top10.map((r) => <div className="forn-rank-bar-row" key={r.f} onClick={() => abrirGaveta(r.f)}>
-              <span className="forn-rk-name" title={r.f}>{r.f}</span>
-              <span className="forn-rk-metric forn-rk-valor"><span className="forn-rk-track"><span className="forn-rk-fill" style={{ width: `${(r.valor / maxValorTop10) * 100}%` }} /></span><span className="forn-rk-value">{currency.format(r.valor)}</span></span>
-              <span className="forn-rk-metric forn-rk-kg"><span className="forn-rk-track"><span className="forn-rk-fill" style={{ width: `${(r.kg / maxKgTop10) * 100}%` }} /></span><span className={`forn-rk-value ${r.kg ? "" : "muted"}`}>{r.kg ? `${number.format(Math.round(r.kg))} kg` : "sem kg"}</span></span>
-            </div>)}
-          </div>
+          {compradorFiltro ? (
+            <>
+              <div className="panel-heading"><div><h2>Principais produtos · {compradorFiltro}</h2><p>Comprados por ele, em todos os fornecedores, {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p></div></div>
+              {produtosComprador.length === 0 ? <div className="empty-state"><strong>Sem produto registrado</strong><p>Nenhuma compra desse comprador no período selecionado.</p></div> : produtosComprador.map((p) => <div className="product-row" key={p.p}>
+                <span className="pr-name">{p.p}</span>
+                <span className="pr-val">{currency.format(p.valor)}{qtdProduto(p) && <span className="pr-kg"> · {qtdProduto(p)}</span>}</span>
+              </div>)}
+            </>
+          ) : (
+            <>
+              <div className="panel-heading"><div><h2>Top 10</h2><p>Ordenado por valor pago · kg do lado · clique numa linha pra ver os produtos</p></div></div>
+              <div className="forn-rank-chart-legend"><span><i style={{ background: "#1f8a56" }} />Valor pago</span><span><i style={{ background: "#2166c4" }} />Kg comprado (escala própria)</span></div>
+              <div className="forn-rank-chart">
+                {top10.map((r) => <div className="forn-rank-bar-row" key={r.f} onClick={() => abrirGaveta(r.f)}>
+                  <span className="forn-rk-name" title={r.f}>{r.f}</span>
+                  <span className="forn-rk-metric forn-rk-valor"><span className="forn-rk-track"><span className="forn-rk-fill" style={{ width: `${(r.valor / maxValorTop10) * 100}%` }} /></span><span className="forn-rk-value">{currency.format(r.valor)}</span></span>
+                  <span className="forn-rk-metric forn-rk-kg"><span className="forn-rk-track"><span className="forn-rk-fill" style={{ width: `${(r.kg / maxKgTop10) * 100}%` }} /></span><span className={`forn-rk-value ${r.kg ? "" : "muted"}`}>{r.kg ? `${number.format(Math.round(r.kg))} kg` : "sem kg"}</span></span>
+                </div>)}
+              </div>
+            </>
+          )}
           <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th style={{ width: 40 }}>#</th><th>Fornecedor</th><th>Valor pago</th><th>Kg comprado</th><th>% do total</th></tr></thead><tbody>
             {filtrado.map((r, i) => <tr key={r.f} onClick={() => abrirGaveta(r.f)} style={{ cursor: "pointer" }}>
               <td><span className={`rk-badge ${i < 3 ? "top3" : ""}`}>{i + 1}</span></td>
@@ -2190,7 +2210,7 @@ function FornecedoresDashboard({
           <div className="panel-heading"><div><h2>Principais produtos</h2><p>Comprados de {focoFornecedor} em {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p></div></div>
           {produtosFoco.length === 0 ? <div className="empty-state"><strong>Sem produto registrado</strong><p>Nenhuma compra desse fornecedor no período selecionado.</p></div> : produtosFoco.map((p) => <div className="product-row" key={p.p}>
             <span className="pr-name">{p.p}</span>
-            <span className="pr-val">{currency.format(p.valor)}{p.kg ? <span className="pr-kg"> · {number.format(Math.round(p.kg))} kg · {currency.format(p.valor / p.kg)}/kg</span> : ""}</span>
+            <span className="pr-val">{currency.format(p.valor)}{qtdProduto(p) && <span className="pr-kg"> · {qtdProduto(p)}</span>}</span>
           </div>)}
         </section>}
         <footer>Fonte: {fornecedoresData.fonte} · TIPO_OPERACAO=Compra · Matéria-prima = Departamento &quot;Compras&quot;, Produto acabado = &quot;Produto de venda&quot; (nunca somados).</footer>
@@ -2230,7 +2250,7 @@ function FornecedoresDashboard({
         <p className="drawer-section-label">Principais produtos</p>
         {produtosGaveta.length === 0 ? <p className="drawer-empty">Sem produto registrado nesse período pra esse fornecedor.</p> : produtosGaveta.map((p) => <div className="product-row" key={p.p}>
           <span className="pr-name">{p.p}</span>
-          <span className="pr-val">{currency.format(p.valor)}{p.kg ? <span className="pr-kg"> · {number.format(Math.round(p.kg))} kg · {currency.format(p.valor / p.kg)}/kg</span> : ""}</span>
+          <span className="pr-val">{currency.format(p.valor)}{qtdProduto(p) && <span className="pr-kg"> · {qtdProduto(p)}</span>}</span>
         </div>)}
         <p className="drawer-note">Tudo aqui segue o ano selecionado no ranking (ou o período completo, se &quot;Todos&quot; estiver selecionado). Preço médio e variação só existem pra quem compra por peso (kg/ton) — fornecedor de caixa/unidade fica sem esses dois.</p>
       </div>
