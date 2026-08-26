@@ -2186,7 +2186,7 @@ function FornecedoresDashboard({
           {buscaNormalizada && <p className="forn-table-limit-note">{filtradoCompleto.length} fornecedor{filtradoCompleto.length === 1 ? "" : "es"} encontrado{filtradoCompleto.length === 1 ? "" : "s"} pra &quot;{query}&quot;.</p>}
         </section>}
 
-        {focoFornecedor && <section className="inventory-panel values-panel">
+        {focoFornecedor && <section className="inventory-panel forn-produtos-foco">
           <div className="panel-heading"><div><h2>Principais produtos</h2><p>Comprados de {focoFornecedor} em {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p></div></div>
           {produtosFoco.length === 0 ? <div className="empty-state"><strong>Sem produto registrado</strong><p>Nenhuma compra desse fornecedor no período selecionado.</p></div> : produtosFoco.map((p) => <div className="product-row" key={p.p}>
             <span className="pr-name">{p.p}</span>
