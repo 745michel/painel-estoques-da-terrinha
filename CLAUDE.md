@@ -93,7 +93,18 @@ O script roda 3 pipelines, cada uma independente (uma falhar não trava as outra
       movimento_estoque` (tem `RefreshWithRefreshAll=False`), salva e fecha. Guarda contra
       arquivo aberto por outra pessoa (lança erro em vez de forçar).
    2. `work/sheet-inspect/extract_products.py` (Python) — lê as planilhas já atualizadas →
-      `public/dados-estoque.json` + `public/dados-insumos.json`.
+      `public/dados-estoque.json` + `public/dados-insumos.json`. **Entregas programadas e
+      fornecedor de Embalagens/MP (26/08/2026)**: pararam de vir de colunas fixas da planilha
+      (Terceiros) e da aba "comprasareceber 2" (Embalagens/MP) — agora as duas vêm de
+      `compras_a_receber.json` (Power Automate, mesma pasta sincronizada de
+      `compras_produto.json`), casando por `produto_key == sku`. Em Terceiros o `loja_key`
+      desse arquivo não corresponde ao nome do terceiro/coempacotador (é a unidade interna que
+      fez a compra, não quem vai entregar) — por isso o casamento ali é só por `sku`; em
+      Embalagens/MP o `loja` já é o código numérico, então usa `(loja_key, sku)`. A data usada é
+      `data_agendamento` (mais confiável que a janela original quando o fornecedor atrasa), e só
+      entram linhas com `qtd_unidades_pendentes > 0`. Cobertura de fornecedor ficou parecida com
+      antes (~370/472 insumos sem fornecedor conhecido) — não é regressão, o arquivo só cobre
+      pedidos em aberto.
    3. `work/sheet-inspect/apply_bi_terceiros.py` (Python, 20/08/2026) — sobrescreve
       Estoque/Saldo/Cobertura de Terceiros com `produtos_estoque.json` (BI/Power Automate, já
       sincronizado do SharePoint — não busca nada novo). Ver REGRAS_PAINEL_ESTOQUES.md.
