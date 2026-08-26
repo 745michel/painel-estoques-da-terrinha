@@ -154,6 +154,23 @@ com `dados-pedidos-venda.json` (produto_key) em vez de `dados-insumos.json`. Tam
 protegido na versão GitHub Pages (`valor-financeiro-produto-acabado.json`, mesmo hash de
 `SENHA_HASH` em `github-pages-entry.tsx` — uma senha só destrava as duas abas financeiras).
 
+**`data/dados-fornecedores.json` (26/08/2026) segue a mesma regra, com um pipeline diferente**
+— aba nova "Fornecedores" (`FornecedoresDashboard` em `app/DashboardClient.tsx`): ranking de
+fornecedores por valor pago e kg comprado, separado em dois grupos que nunca são somados
+(`materia_prima` = Departamento "Compras" no relatório oficial, `produto_acabado` =
+Departamento "Produto de venda"), com comparativo mensal 2025×2026 por fornecedor e gaveta de
+detalhe (preço médio, variação de preço, notas fiscais, pedidos, produtos comprados). Fonte:
+`compras_produto.json` (relatório "Compra por Produto", Power Automate, ~97 mil linhas, ~87 MB)
+— **não segue o padrão do Valor produto acabado** (que cruza dados no navegador/CI a partir de
+linhas brutas) porque o arquivo bruto é grande demais pra buscar do SharePoint a cada 30 min no
+CI. Em vez disso, `work/sheet-inspect/build_fornecedores.py` já agrega tudo **localmente**
+(nova pipeline `automation\atualizar_fornecedores.ps1`, parte de
+`atualizar_e_publicar_tudo.ps1`) e copia só o resultado pequeno (~2 MB) para
+`fornecedores_agregado.json` na pasta sincronizada do SharePoint — é só isso que
+`scripts/ci-refresh-data.mts` busca (`work/valor-financeiro-fornecedores-ci.json`), nunca o
+arquivo de 97 mil linhas. Mesma senha das outras duas abas financeiras
+(`valor-financeiro-fornecedores.json`).
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 

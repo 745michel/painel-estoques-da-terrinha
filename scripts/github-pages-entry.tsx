@@ -9,9 +9,11 @@ import escadinhaData from "../public/dados-escadinha.json";
 import pedidosVendaData from "../public/dados-pedidos-venda.json";
 import type valoresDataType from "../data/dados-valores-insumos.json";
 import type valoresProdutoAcabadoDataType from "../data/dados-valores-produto-acabado.json";
+import type fornecedoresDataType from "../data/dados-fornecedores.json";
 
 type ValoresData = typeof valoresDataType;
 type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
+type FornecedoresData = typeof fornecedoresDataType;
 
 /**
  * Barreira so no navegador (sem servidor no GitHub Pages para proteger de verdade - ver
@@ -36,6 +38,7 @@ function App() {
   const [carregando, setCarregando] = useState(false);
   const [valoresData, setValoresData] = useState<ValoresData | null>(null);
   const [valoresProdutoAcabadoData, setValoresProdutoAcabadoData] = useState<ValoresProdutoAcabadoData | null>(null);
+  const [fornecedoresData, setFornecedoresData] = useState<FornecedoresData | null>(null);
   const [desbloqueado, setDesbloqueado] = useState(false);
 
   async function tentarDesbloquear(event: React.FormEvent) {
@@ -51,15 +54,18 @@ function App() {
       // cache: "no-store" - o GitHub Pages manda Cache-Control: max-age=600 nesses arquivos, e a
       // automacao atualiza os dados varias vezes por dia. Sem isso, o navegador podia mostrar
       // valor financeiro com ate 10 minutos de atraso mesmo depois de reabrir a pagina.
-      const [response, responseProdutoAcabado] = await Promise.all([
+      const [response, responseProdutoAcabado, responseFornecedores] = await Promise.all([
         fetch("./valor-financeiro.json", { cache: "no-store" }),
         fetch("./valor-financeiro-produto-acabado.json", { cache: "no-store" }),
+        fetch("./valor-financeiro-fornecedores.json", { cache: "no-store" }),
       ]);
-      if (!response.ok || !responseProdutoAcabado.ok) throw new Error("arquivo indisponivel");
+      if (!response.ok || !responseProdutoAcabado.ok || !responseFornecedores.ok) throw new Error("arquivo indisponivel");
       const data = (await response.json()) as ValoresData;
       const dataProdutoAcabado = (await responseProdutoAcabado.json()) as ValoresProdutoAcabadoData;
+      const dataFornecedores = (await responseFornecedores.json()) as FornecedoresData;
       setValoresData(data);
       setValoresProdutoAcabadoData(dataProdutoAcabado);
+      setFornecedoresData(dataFornecedores);
       setDesbloqueado(true);
     } catch {
       setErro(true);
@@ -74,6 +80,7 @@ function App() {
         canViewValues={desbloqueado}
         valoresData={desbloqueado ? valoresData : null}
         valoresProdutoAcabadoData={desbloqueado ? valoresProdutoAcabadoData : null}
+        fornecedoresData={desbloqueado ? fornecedoresData : null}
         estoqueData={estoqueData}
         insumosData={insumosData}
         consumoData={consumoData}

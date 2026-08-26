@@ -75,6 +75,26 @@ const pedidosVendaData = JSON.parse(await fs.readFile(path.join(root, "public", 
 const valoresProdutoAcabadoData = buildValorProdutoAcabado(pedidosVendaData, rawValor, estoqueData as never);
 await fs.writeFile(path.join(root, "work", "valor-financeiro-produto-acabado-ci.json"), JSON.stringify(valoresProdutoAcabadoData, null, 2), "utf8");
 
+// fornecedores_agregado.json ja vem pronto (agregado localmente por work/sheet-inspect/
+// build_fornecedores.py a partir de compras_produto.json, ~87 MB - nunca buscado aqui, so o
+// resultado ja agregado, ~1-2 MB). Busca isolada e tolerante: se o arquivo ainda nao existe no
+// SharePoint (antes da primeira execucao local dessa pipeline) ou a busca falhar, nao derruba
+// o resto do refresh - so fica sem o CI file, e build-github-pages.mjs cai pro placeholder.
+let fornecedoresItens = { materia_prima: 0, produto_acabado: 0 };
+try {
+  const fornecedoresData = await fetchSharePointJson<{
+    materia_prima: { listaFornecedores: unknown[] };
+    produto_acabado: { listaFornecedores: unknown[] };
+  }>("fornecedores_agregado.json");
+  await fs.writeFile(path.join(root, "work", "valor-financeiro-fornecedores-ci.json"), JSON.stringify(fornecedoresData), "utf8");
+  fornecedoresItens = {
+    materia_prima: fornecedoresData.materia_prima.listaFornecedores.length,
+    produto_acabado: fornecedoresData.produto_acabado.listaFornecedores.length,
+  };
+} catch (error) {
+  console.warn(`fornecedores_agregado.json indisponivel no SharePoint (${(error as Error).message}) - build cai pro placeholder.`);
+}
+
 console.log(JSON.stringify({
   estoqueProdutos: (estoqueData as { produtos: unknown[] }).produtos.length,
   insumosProdutos: insumosData.produtos.length,
@@ -83,4 +103,5 @@ console.log(JSON.stringify({
   escadinhaProdutos: (escadinhaData as { produtos: unknown[] }).produtos.length,
   valoresItens: valoresData.resumo.itens,
   valoresProdutoAcabadoItens: valoresProdutoAcabadoData.resumo.itens,
+  fornecedoresItens,
 }));

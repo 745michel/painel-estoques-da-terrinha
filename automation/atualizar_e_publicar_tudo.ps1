@@ -1,6 +1,9 @@
 <#
-Roda as 3 rotinas de dados (Terceiros/Embalagens/Consumo + BI, Escadinha, Estoque x Pedidos) e,
-se pelo menos uma gerar mudanca real, comita e publica sozinho (git add + commit + push).
+Roda as 4 rotinas de dados (Terceiros/Embalagens/Consumo + BI, Escadinha, Estoque x Pedidos,
+Fornecedores) e, se pelo menos uma das 3 primeiras (as que tocam public/*.json) gerar mudanca
+real, comita e publica sozinho (git add + commit + push). Fornecedores nunca entra nesse commit
+- e dado financeiro (data/dados-fornecedores.json, skip-worktree), copiado direto pro SharePoint
+pelo proprio build_fornecedores.py, igual valor_insumos.json.
 Substitui as 3 tarefas agendadas separadas (AtualizarPainelEstoques, AtualizarEscadinha,
 AtualizarPedidosVenda), que rodavam no mesmo horario e podiam disputar o git ao tentar publicar
 cada uma por conta propria. Criado a pedido do usuario em 20/08/2026: "quero usar voce so pra
@@ -50,6 +53,7 @@ $resultados = [ordered]@{
     "Terceiros/Embalagens/Consumo/BI" = Invoke-Pipeline "Terceiros/Embalagens/Consumo/BI" (Join-Path $PSScriptRoot "atualizar_dados.ps1")
     "Escadinha"                        = Invoke-Pipeline "Escadinha" (Join-Path $PSScriptRoot "atualizar_escadinha.ps1")
     "Estoque x Pedidos"                = Invoke-Pipeline "Estoque x Pedidos" (Join-Path $PSScriptRoot "atualizar_pedidos_venda.ps1")
+    "Fornecedores"                     = Invoke-Pipeline "Fornecedores" (Join-Path $PSScriptRoot "atualizar_fornecedores.ps1")
 }
 
 $falhas = $resultados.GetEnumerator() | Where-Object { -not $_.Value } | ForEach-Object { $_.Key }

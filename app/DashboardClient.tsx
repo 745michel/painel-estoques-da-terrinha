@@ -61,7 +61,7 @@ type Product = SourceProduct & {
   limiteExcesso: number;
   percentualAbaixoSeguranca: number | null;
 };
-type Section = "terceiros" | "insumos" | "consumo" | "valores" | "escadinha" | "pedidosVenda" | "valorProdutoAcabado";
+type Section = "terceiros" | "insumos" | "consumo" | "valores" | "escadinha" | "pedidosVenda" | "valorProdutoAcabado" | "fornecedores";
 type PedidosVendaProduto = {
   cod: number;
   produto: string;
@@ -81,6 +81,35 @@ type PedidosVendaData = {
 };
 type ValuesData = typeof valoresDataType;
 type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
+// Tipo declarado a mao (nao inferido do JSON via "typeof ... import") pelo mesmo motivo de
+// EscadinhaProduto/EscadinhaDesvio acima: as chaves de ano ("2025", "2026", ...) e de
+// fornecedor sao dinamicas - inferir do JSON travaria o tipo nas chaves literais do arquivo
+// (placeholder ou real) do momento do build, quebrando toda indexacao por variavel.
+type FornecedorLinha = { f: string; valor: number; kg: number };
+type FornecedorMesSerie = { kg: number; caixas: number };
+type FornecedorMetrica = {
+  valor: number;
+  kg: number;
+  precoMedioKg: number | null;
+  variacaoPrecoPct: number | null;
+  notas: number;
+  pedidos: number;
+  ticketMedioNota: number;
+  serieMensalPreco: { mes: string; preco: number }[];
+};
+type FornecedoresGrupo = {
+  anoData: Record<string, { total: number; totalKg: number; fornecedores: number; top: FornecedorLinha[] }>;
+  listaFornecedores: string[];
+  serieAnoMes: Record<string, Record<string, FornecedorMesSerie[]>>;
+  produtos: Record<string, Record<string, { p: string; valor: number; kg: number }[]>>;
+  metricas: Record<string, Record<string, FornecedorMetrica | null>>;
+};
+type FornecedoresData = {
+  atualizadoEm: string;
+  fonte: string;
+  materia_prima: FornecedoresGrupo;
+  produto_acabado: FornecedoresGrupo;
+};
 type ConsumptionItem = ConsumoData["produtos"][number];
 
 const statusClass: Record<Status, string> = {
@@ -724,6 +753,7 @@ function ValuesDashboard({
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         <button className="nav-item active" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>
+        <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>R$</span> Fornecedores</button>
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -982,6 +1012,7 @@ function ConsumptionDashboard({
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>R$</span> Fornecedores</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -1221,6 +1252,7 @@ function EscadinhaDashboard({
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>R$</span> Fornecedores</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Revisão do plano</strong><small>{fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -1500,6 +1532,7 @@ function PedidosVendaDashboard({
         <button className="nav-item active" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>R$</span> Fornecedores</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -1721,6 +1754,7 @@ function ValorProdutoAcabadoDashboard({
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item active" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>R$</span> Fornecedores</button>}
       </nav>
       <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
       <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -1778,10 +1812,305 @@ function ValorProdutoAcabadoDashboard({
   </main>;
 }
 
+const FORN_ANO_CORES = ["#8b6bf0", "#2f8a5c", "#2a93c4", "#c07620"];
+const FORN_MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+const FORN_LIMITE_TABELA = 50;
+
+function FornecedoresDashboard({
+  onSectionChange,
+  canViewValues,
+  fornecedoresData,
+}: {
+  onSectionChange: (section: Section) => void;
+  canViewValues: boolean;
+  fornecedoresData: FornecedoresData;
+}) {
+  const [grupo, setGrupo] = useState<"materia_prima" | "produto_acabado">("materia_prima");
+  const grupoAtual = fornecedoresData[grupo];
+  const anos = useMemo(() => Object.keys(grupoAtual.anoData).sort(), [grupoAtual]);
+  const anoMaisRecente = anos[anos.length - 1] ?? "";
+
+  const [anoAtivo, setAnoAtivo] = useState(anoMaisRecente);
+  const anoRanking = anos.includes(anoAtivo) ? anoAtivo : anoMaisRecente;
+  const [query, setQuery] = useState("");
+  const [selectedFornecedor, setSelectedFornecedor] = useState<string | null>(null);
+
+  const [tlFornecedor, setTlFornecedor] = useState(grupoAtual.listaFornecedores[0] ?? "");
+  const [tlBusca, setTlBusca] = useState(grupoAtual.listaFornecedores[0] ?? "");
+  const [tlMetrica, setTlMetrica] = useState<"kg" | "caixas">("kg");
+  const [anosAtivos, setAnosAtivos] = useState<Record<string, boolean>>({});
+
+  function trocarGrupo(novoGrupo: "materia_prima" | "produto_acabado") {
+    setGrupo(novoGrupo);
+    const novoGrupoData = fornecedoresData[novoGrupo];
+    const novosAnos = Object.keys(novoGrupoData.anoData).sort();
+    setAnoAtivo(novosAnos[novosAnos.length - 1] ?? "");
+    setQuery("");
+    setSelectedFornecedor(null);
+    const primeiroFornecedor = novoGrupoData.listaFornecedores[0] ?? "";
+    setTlFornecedor(primeiroFornecedor);
+    setTlBusca(primeiroFornecedor);
+    setAnosAtivos({});
+  }
+
+  // combinado "todos" - soma valor/kg por fornecedor atraves de todos os anos do grupo
+  const combinadoTop = useMemo(() => {
+    const mapa = new Map<string, FornecedorLinha>();
+    for (const ano of anos) {
+      for (const linha of grupoAtual.anoData[ano].top) {
+        const atual = mapa.get(linha.f) ?? { f: linha.f, valor: 0, kg: 0 };
+        atual.valor += linha.valor;
+        atual.kg += linha.kg;
+        mapa.set(linha.f, atual);
+      }
+    }
+    return Array.from(mapa.values()).sort((a, b) => b.valor - a.valor);
+  }, [grupoAtual, anos]);
+
+  const rankingContexto = useMemo(() => {
+    if (anoRanking === "todos" || !grupoAtual.anoData[anoRanking]) {
+      const total = combinadoTop.reduce((s, r) => s + r.valor, 0);
+      const totalKg = combinadoTop.reduce((s, r) => s + r.kg, 0);
+      return { lista: combinadoTop, total, totalKg, fornecedores: grupoAtual.listaFornecedores.length };
+    }
+    const d = grupoAtual.anoData[anoRanking];
+    return { lista: d.top, total: d.total, totalKg: d.totalKg, fornecedores: d.fornecedores };
+  }, [anoRanking, grupoAtual, combinadoTop]);
+
+  const rankingOrdenado = useMemo(() => [...rankingContexto.lista].sort((a, b) => b.valor - a.valor), [rankingContexto]);
+  const top10 = rankingOrdenado.slice(0, 10);
+  const maxValorTop10 = Math.max(1, ...top10.map((r) => r.valor));
+  const maxKgTop10 = Math.max(1, ...top10.map((r) => r.kg));
+
+  const buscaNormalizada = query.trim().toLocaleLowerCase("pt-BR");
+  const filtradoCompleto = buscaNormalizada
+    ? rankingOrdenado.filter((r) => r.f.toLocaleLowerCase("pt-BR").includes(buscaNormalizada))
+    : rankingOrdenado;
+  const filtrado = buscaNormalizada ? filtradoCompleto : filtradoCompleto.slice(0, FORN_LIMITE_TABELA);
+  const escondidos = filtradoCompleto.length - filtrado.length;
+
+  const top3 = [...rankingContexto.lista].sort((a, b) => b.valor - a.valor).slice(0, 3).reduce((s, r) => s + r.valor, 0);
+  const concentracaoTop3 = rankingContexto.total > 0 ? Math.round((top3 / rankingContexto.total) * 100) : 0;
+
+  function totalAnoFornecedor(fornecedor: string, ano: string, metrica: "kg" | "caixas") {
+    const meses = grupoAtual.serieAnoMes[fornecedor]?.[ano];
+    if (!meses) return 0;
+    return meses.reduce((s, m) => s + m[metrica], 0);
+  }
+
+  const anosLigados = anos.filter((ano) => anosAtivos[ano] !== false);
+  const serieFornecedor = grupoAtual.serieAnoMes[tlFornecedor];
+  const maxMensal = Math.max(
+    1,
+    ...anosLigados.flatMap((ano) => (serieFornecedor?.[ano] ?? []).map((m) => m[tlMetrica])),
+  );
+
+  function abrirGaveta(fornecedor: string) {
+    setSelectedFornecedor(fornecedor);
+  }
+
+  const escopoGaveta = anoRanking === "todos" ? "todos" : anoRanking;
+  const metricaGaveta = selectedFornecedor ? grupoAtual.metricas[escopoGaveta]?.[selectedFornecedor] ?? null : null;
+  const produtosGaveta = selectedFornecedor ? grupoAtual.produtos[escopoGaveta]?.[selectedFornecedor] ?? [] : [];
+
+  const fmtCompacto = (v: number) => (Math.abs(v) >= 1000 ? `${(v / 1000).toLocaleString("pt-BR", { maximumFractionDigits: 1 })}k` : number.format(Math.round(v)));
+
+  return <main className="app-shell">
+    <aside className="sidebar">
+      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
+      <nav aria-label="Navegação principal">
+        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
+        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
+        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
+        <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
+        {canViewValues && <button className="nav-item active" onClick={() => onSectionChange("fornecedores")}><span>R$</span> Fornecedores</button>}
+      </nav>
+      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{new Date(fornecedoresData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}</small></div></div>
+      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
+    </aside>
+    <section className="workspace">
+      <header className="topbar">
+        <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Fornecedores</strong></div>
+        <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar fornecedor na tabela..." /><kbd>Ctrl K</kbd></label>
+      </header>
+      <div className="content values-content">
+        <div className="page-heading">
+          <div><p className="eyebrow">COMPRAS · FORNECEDORES</p><h1>Ranking de Fornecedores</h1><p>Quanto pagamos e quanto comprou em kg, por fornecedor — matéria-prima e produto acabado separados.</p></div>
+          <button className="source-button" onClick={() => setSelectedFornecedor(null)}><span>↻</span><div><small>Fonte atual</small><strong>SharePoint · Compra por Produto</strong></div></button>
+        </div>
+
+        <div className="view-toggle forn-dept-toggle">
+          <button className={grupo === "materia_prima" ? "selected" : ""} onClick={() => trocarGrupo("materia_prima")}>Matéria-prima</button>
+          <button className={grupo === "produto_acabado" ? "selected" : ""} onClick={() => trocarGrupo("produto_acabado")}>Produto acabado</button>
+        </div>
+
+        <div className="forn-timeline-row">
+          <section className="forn-timeline-card">
+            <div className="forn-timeline-heading">
+              <div>
+                <p className="forn-timeline-eyebrow">COMPARATIVO ANUAL · POR FORNECEDOR</p>
+                <h2>{tlFornecedor || "—"}</h2>
+                <p className="forn-timeline-sub">Mostrando <strong style={{ color: "#fff" }}>{tlMetrica === "kg" ? "Kg" : "Caixas"}</strong> · comparando {anos.join(" vs ")} · clique num ano no painel ao lado pra tirar da comparação</p>
+              </div>
+              <div className="forn-timeline-controls">
+                <input
+                  className="forn-timeline-select"
+                  list="forn-fornecedores-datalist"
+                  value={tlBusca}
+                  placeholder="Digite o fornecedor..."
+                  onChange={(event) => {
+                    const digitado = event.target.value;
+                    setTlBusca(digitado);
+                    const achado = grupoAtual.listaFornecedores.find((f) => f.toLocaleLowerCase("pt-BR") === digitado.toLocaleLowerCase("pt-BR"));
+                    if (achado) { setTlFornecedor(achado); abrirGaveta(achado); }
+                  }}
+                />
+                <datalist id="forn-fornecedores-datalist">
+                  {grupoAtual.listaFornecedores.map((f) => <option key={f} value={f} />)}
+                </datalist>
+                <div className="forn-timeline-toggle">
+                  <button className={tlMetrica === "kg" ? "selected" : ""} onClick={() => setTlMetrica("kg")}>Kg</button>
+                  <button className={tlMetrica === "caixas" ? "selected" : ""} onClick={() => setTlMetrica("caixas")}>Caixas</button>
+                </div>
+              </div>
+            </div>
+            <div className="forn-timeline-legend">
+              {anos.map((ano) => <span key={ano} className={anosAtivos[ano] === false ? "off" : ""} onClick={() => setAnosAtivos((prev) => ({ ...prev, [ano]: prev[ano] === false }))}>
+                <i style={{ background: FORN_ANO_CORES[anos.indexOf(ano) % FORN_ANO_CORES.length] }} />{ano}
+              </span>)}
+            </div>
+            <div className="forn-timeline-chart-wrap">
+              <div className="forn-timeline-chart">
+                {FORN_MESES.map((mesLabel, mIdx) => <div className="forn-tl-group" key={mesLabel}>
+                  <div className="forn-tl-bars">
+                    {anosLigados.map((ano) => {
+                      const valor = serieFornecedor?.[ano]?.[mIdx]?.[tlMetrica] ?? 0;
+                      const pct = Math.max(valor ? 4 : 0, (valor / maxMensal) * 100);
+                      const cor = FORN_ANO_CORES[anos.indexOf(ano) % FORN_ANO_CORES.length];
+                      return <div className="forn-tl-bar-col" key={ano} title={`${ano} · ${number.format(Math.round(valor))} ${tlMetrica === "kg" ? "kg" : "cx"}`}>
+                        <span className="forn-tl-value">{valor ? `${fmtCompacto(valor)} ${tlMetrica === "kg" ? "kg" : "cx"}` : ""}</span>
+                        <span className="forn-tl-bar" style={{ height: `${pct}%`, background: cor }} />
+                      </div>;
+                    })}
+                  </div>
+                  <span className="forn-tl-month">{mesLabel}</span>
+                </div>)}
+              </div>
+            </div>
+            <p className="forn-timeline-note">Caixas = quantidade faturada convertida pela contagem de embalagem na descrição do produto (ex. &quot;CX20&quot;), ou pela própria unidade quando o produto já é a caixa. Fornecedor que só compra a granel fica com Caixas zerado.</p>
+          </section>
+
+          <section className="forn-year-panel">
+            <h3>Volume por ano</h3>
+            <p>{(tlMetrica === "kg" ? "Kg" : "Caixas")} comprado de {tlFornecedor || "—"} · clique pra tirar/pôr um ano na comparação</p>
+            <div className="forn-year-bars">
+              {anos.map((ano, i) => {
+                const valor = totalAnoFornecedor(tlFornecedor, ano, tlMetrica);
+                const anterior = i > 0 ? totalAnoFornecedor(tlFornecedor, anos[i - 1], tlMetrica) : null;
+                const delta = anterior && anterior > 0 ? ((valor - anterior) / anterior) * 100 : null;
+                const maxValorAno = Math.max(1, ...anos.map((a) => totalAnoFornecedor(tlFornecedor, a, tlMetrica)));
+                const pct = Math.max(valor ? 4 : 0, (valor / maxValorAno) * 100);
+                const ligado = anosAtivos[ano] !== false;
+                return <button type="button" key={ano} className={`forn-yr-col ${ligado ? "" : "off"}`} onClick={() => setAnosAtivos((prev) => ({ ...prev, [ano]: prev[ano] === false }))}>
+                  {delta != null && <span className={`forn-yr-delta ${delta < 0 ? "neg" : ""}`}>{delta >= 0 ? "+" : ""}{decimal.format(delta)}%</span>}
+                  <span className="forn-yr-value">{number.format(Math.round(valor))} {tlMetrica === "kg" ? "kg" : "cx"}</span>
+                  <span className="forn-yr-track"><span className="forn-yr-bar" style={{ height: `${pct}%`, background: ligado ? FORN_ANO_CORES[i % FORN_ANO_CORES.length] : "transparent" }} /></span>
+                  <span className="forn-yr-label">{ano}</span>
+                </button>;
+              })}
+            </div>
+          </section>
+        </div>
+
+        <div className="view-toggle forn-year-toggle">
+          {anos.map((ano) => <button key={ano} className={anoRanking === ano ? "selected" : ""} onClick={() => setAnoAtivo(ano)}>{ano === anoMaisRecente ? `${ano} (até agora)` : ano}</button>)}
+          <button className={anoRanking === "todos" ? "selected" : ""} onClick={() => setAnoAtivo("todos")}>Todos ({anos[0]}–{anoMaisRecente})</button>
+        </div>
+
+        <section className="value-kpis" aria-label="Indicadores de fornecedores">
+          <div className="value-kpi total"><span>Total pago no período</span><strong>{currency.format(rankingContexto.total)}</strong><small>Líquido de estorno e devolução de compra</small></div>
+          <div className="value-kpi"><span>Total comprado</span><strong>{number.format(Math.round(rankingContexto.totalKg / 1000))} t</strong><small>Só linhas com peso identificado (kg/ton)</small></div>
+          <div className="value-kpi"><span>Fornecedores no período</span><strong>{number.format(rankingContexto.fornecedores)}</strong><small>&nbsp;</small></div>
+          <div className="value-kpi missing"><span>Concentração top 3</span><strong>{concentracaoTop3}%</strong><small>Do valor total pago vem de só 3 fornecedores</small></div>
+        </section>
+
+        <section className="inventory-panel values-panel">
+          <div className="panel-heading"><div><h2>Top 10</h2><p>Ordenado por valor pago · kg do lado · clique numa linha pra ver os produtos</p></div></div>
+          <div className="forn-rank-chart-legend"><span><i style={{ background: "#1f8a56" }} />Valor pago</span><span><i style={{ background: "#2166c4" }} />Kg comprado (escala própria)</span></div>
+          <div className="forn-rank-chart">
+            {top10.map((r) => <div className="forn-rank-bar-row" key={r.f} onClick={() => abrirGaveta(r.f)}>
+              <span className="forn-rk-name" title={r.f}>{r.f}</span>
+              <span className="forn-rk-metric forn-rk-valor"><span className="forn-rk-track"><span className="forn-rk-fill" style={{ width: `${(r.valor / maxValorTop10) * 100}%` }} /></span><span className="forn-rk-value">{currency.format(r.valor)}</span></span>
+              <span className="forn-rk-metric forn-rk-kg"><span className="forn-rk-track"><span className="forn-rk-fill" style={{ width: `${(r.kg / maxKgTop10) * 100}%` }} /></span><span className={`forn-rk-value ${r.kg ? "" : "muted"}`}>{r.kg ? `${number.format(Math.round(r.kg))} kg` : "sem kg"}</span></span>
+            </div>)}
+          </div>
+          <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th style={{ width: 40 }}>#</th><th>Fornecedor</th><th>Valor pago</th><th>Kg comprado</th><th>% do total</th></tr></thead><tbody>
+            {filtrado.map((r, i) => <tr key={r.f} onClick={() => abrirGaveta(r.f)} style={{ cursor: "pointer" }}>
+              <td><span className={`rk-badge ${i < 3 ? "top3" : ""}`}>{i + 1}</span></td>
+              <td><div className="product-cell"><div><strong>{r.f}</strong></div></div></td>
+              <td><strong className="money-value">{currency.format(r.valor)}</strong></td>
+              <td>{r.kg ? <strong>{number.format(Math.round(r.kg))} kg</strong> : <span className="price-missing">não pesado (cx/un)</span>}</td>
+              <td>{rankingContexto.total > 0 ? decimal.format((r.valor / rankingContexto.total) * 100) : "0"}%</td>
+            </tr>)}
+          </tbody></table>
+            {filtrado.length === 0 && <div className="empty-state"><strong>Nenhum fornecedor encontrado</strong><p>Tente outro termo de busca.</p></div>}
+          </div>
+          {escondidos > 0 && <p className="forn-table-limit-note">Mostrando os {FORN_LIMITE_TABELA} primeiros (por valor) de {filtradoCompleto.length} fornecedores. Use a busca acima pra achar qualquer um dos outros {escondidos}.</p>}
+          {buscaNormalizada && <p className="forn-table-limit-note">{filtradoCompleto.length} fornecedor{filtradoCompleto.length === 1 ? "" : "es"} encontrado{filtradoCompleto.length === 1 ? "" : "s"} pra &quot;{query}&quot;.</p>}
+        </section>
+        <footer>Fonte: {fornecedoresData.fonte} · TIPO_OPERACAO=Compra · Matéria-prima = Departamento &quot;Compras&quot;, Produto acabado = &quot;Produto de venda&quot; (nunca somados).</footer>
+      </div>
+    </section>
+
+    {selectedFornecedor && <div className="drawer-backdrop" onClick={() => setSelectedFornecedor(null)}>
+      <div className="drawer" onClick={(event) => event.stopPropagation()}>
+        <button className="drawer-close" onClick={() => setSelectedFornecedor(null)}>×</button>
+        <h2>{selectedFornecedor}</h2>
+        <p className="drawer-sku">Produtos comprados em {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p>
+        <div className="drawer-metrics">
+          <div><small>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta})</small><strong>{currency.format(metricaGaveta?.valor ?? 0)}</strong></div>
+          <div><small>Kg comprado</small><strong>{metricaGaveta?.kg ? `${number.format(Math.round(metricaGaveta.kg))} kg` : "não pesado (cx/un)"}</strong></div>
+          <div><small>Preço médio</small><strong>{metricaGaveta?.precoMedioKg != null ? `${currency.format(metricaGaveta.precoMedioKg)}/kg` : "não pesado (cx/un)"}</strong></div>
+          <div><small>Variação de preço</small><strong className={metricaGaveta?.variacaoPrecoPct == null ? "" : metricaGaveta.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaGaveta?.variacaoPrecoPct != null ? `${metricaGaveta.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaGaveta.variacaoPrecoPct)}%` : "—"}</strong></div>
+          <div><small>Notas fiscais</small><strong>{number.format(metricaGaveta?.notas ?? 0)}</strong></div>
+          <div><small>Pedidos</small><strong>{number.format(metricaGaveta?.pedidos ?? 0)}</strong></div>
+        </div>
+        <p className="drawer-section-label">Ticket médio por nota</p>
+        <p className="forn-drawer-ticket">{currency.format(metricaGaveta?.ticketMedioNota ?? 0)} / nota</p>
+        {metricaGaveta && metricaGaveta.serieMensalPreco.length > 0 && <>
+          <p className="drawer-section-label">Preço por kg — últimos meses</p>
+          <div className="forn-drawer-preco-serie">
+            {metricaGaveta.serieMensalPreco.map((s) => {
+              const maxPreco = Math.max(1, ...metricaGaveta.serieMensalPreco.map((p) => p.preco));
+              const [anoMes, mesMes] = s.mes.split("-");
+              const mesLbl = `${FORN_MESES[Number(mesMes) - 1]}/${anoMes.slice(2)}`;
+              return <div className="forn-dp-col" key={s.mes}>
+                <span className="forn-dp-val">{s.preco.toLocaleString("pt-BR", { minimumFractionDigits: 4, maximumFractionDigits: 4 })}</span>
+                <span className="forn-dp-track"><span className="forn-dp-bar" style={{ height: `${Math.max(6, (s.preco / maxPreco) * 100)}%` }} /></span>
+                <span className="forn-dp-month">{mesLbl}</span>
+              </div>;
+            })}
+          </div>
+        </>}
+        <p className="drawer-section-label">Principais produtos</p>
+        {produtosGaveta.length === 0 ? <p className="drawer-empty">Sem produto registrado nesse período pra esse fornecedor.</p> : produtosGaveta.map((p) => <div className="product-row" key={p.p}>
+          <span className="pr-name">{p.p}</span>
+          <span className="pr-val">{currency.format(p.valor)}{p.kg ? <span className="pr-kg"> · {number.format(Math.round(p.kg))} kg</span> : ""}</span>
+        </div>)}
+        <p className="drawer-note">Tudo aqui segue o ano selecionado no ranking (ou o período completo, se &quot;Todos&quot; estiver selecionado). Preço médio e variação só existem pra quem compra por peso (kg/ton) — fornecedor de caixa/unidade fica sem esses dois.</p>
+      </div>
+    </div>}
+  </main>;
+}
+
 export default function DashboardClient({
   canViewValues,
   valoresData,
   valoresProdutoAcabadoData,
+  fornecedoresData,
   estoqueData,
   insumosData,
   consumoData,
@@ -1792,6 +2121,7 @@ export default function DashboardClient({
   canViewValues: boolean;
   valoresData: ValuesData | null;
   valoresProdutoAcabadoData: ValoresProdutoAcabadoData | null;
+  fornecedoresData: FornecedoresData | null;
   estoqueData: EstoqueData;
   insumosData: InsumosData;
   consumoData: ConsumoData;
@@ -1822,6 +2152,7 @@ export default function DashboardClient({
   const isEscadinha = section === "escadinha";
   const isPedidosVenda = section === "pedidosVenda";
   const isValorProdutoAcabado = section === "valorProdutoAcabado";
+  const isFornecedores = section === "fornecedores";
   const operationalSection = isInputs ? "insumos" : "terceiros";
   const selectedProducts = operationalProductSelections[operationalSection];
   function setSelectedProducts(values: string[]) {
@@ -2017,6 +2348,7 @@ export default function DashboardClient({
   if (isEscadinha) return <EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} pedidosVendaData={pedidosVendaData} />;
   if (isPedidosVenda) return <PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} />;
   if (isValorProdutoAcabado && valoresProdutoAcabadoData) return <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} />;
+  if (isFornecedores && fornecedoresData) return <FornecedoresDashboard onSectionChange={changeSection} canViewValues={canViewValues} fornecedoresData={fornecedoresData} />;
 
   function renderProductRow(product: Product, descontinuado: boolean) {
     const cls = statusClass[product.status as Status];
@@ -2078,6 +2410,7 @@ export default function DashboardClient({
           <button className={`nav-item ${section === "pedidosVenda" ? "active" : ""}`} onClick={() => changeSection("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
           {canViewValues && <button className={`nav-item ${section === "valores" ? "active" : ""}`} onClick={() => changeSection("valores")}><span>R$</span> Valor dos insumos</button>}
           {canViewValues && <button className={`nav-item ${section === "valorProdutoAcabado" ? "active" : ""}`} onClick={() => changeSection("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
+          {canViewValues && <button className={`nav-item ${section === "fornecedores" ? "active" : ""}`} onClick={() => changeSection("fornecedores")}><span>R$</span> Fornecedores</button>}
         </nav>
         <div className="sidebar-note">
           <span className="pulse-dot" />

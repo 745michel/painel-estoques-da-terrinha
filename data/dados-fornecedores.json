@@ -1,0 +1,1476 @@
+{
+ "atualizadoEm": "2026-01-01T00:00:00.000Z",
+ "fonte": "Compra por Produto (compras_produto.json) - PLACEHOLDER, sem dados reais",
+ "materia_prima": {
+  "anoData": {
+   "2024": {
+    "total": 1000000,
+    "totalKg": 500000,
+    "fornecedores": 2,
+    "top": [
+     {
+      "f": "FORNECEDOR EXEMPLO A",
+      "valor": 600000,
+      "kg": 300000
+     },
+     {
+      "f": "FORNECEDOR EXEMPLO B",
+      "valor": 400000,
+      "kg": 200000
+     }
+    ]
+   },
+   "2025": {
+    "total": 1100000,
+    "totalKg": 510000,
+    "fornecedores": 2,
+    "top": [
+     {
+      "f": "FORNECEDOR EXEMPLO A",
+      "valor": 601000,
+      "kg": 300100
+     },
+     {
+      "f": "FORNECEDOR EXEMPLO B",
+      "valor": 401000,
+      "kg": 200100
+     }
+    ]
+   },
+   "2026": {
+    "total": 1200000,
+    "totalKg": 520000,
+    "fornecedores": 2,
+    "top": [
+     {
+      "f": "FORNECEDOR EXEMPLO A",
+      "valor": 602000,
+      "kg": 300200
+     },
+     {
+      "f": "FORNECEDOR EXEMPLO B",
+      "valor": 402000,
+      "kg": 200200
+     }
+    ]
+   }
+  },
+  "listaFornecedores": [
+   "FORNECEDOR EXEMPLO A",
+   "FORNECEDOR EXEMPLO B"
+  ],
+  "serieAnoMes": {
+   "FORNECEDOR EXEMPLO A": {
+    "2024": [
+     {
+      "kg": 25000,
+      "caixas": 0
+     },
+     {
+      "kg": 25100,
+      "caixas": 1010
+     },
+     {
+      "kg": 25200,
+      "caixas": 1020
+     },
+     {
+      "kg": 25300,
+      "caixas": 0
+     },
+     {
+      "kg": 25400,
+      "caixas": 1040
+     },
+     {
+      "kg": 25500,
+      "caixas": 1050
+     },
+     {
+      "kg": 25600,
+      "caixas": 0
+     },
+     {
+      "kg": 25700,
+      "caixas": 1070
+     },
+     {
+      "kg": 25800,
+      "caixas": 1080
+     },
+     {
+      "kg": 25900,
+      "caixas": 0
+     },
+     {
+      "kg": 26000,
+      "caixas": 1100
+     },
+     {
+      "kg": 26100,
+      "caixas": 1110
+     }
+    ],
+    "2025": [
+     {
+      "kg": 25000,
+      "caixas": 0
+     },
+     {
+      "kg": 25100,
+      "caixas": 1010
+     },
+     {
+      "kg": 25200,
+      "caixas": 1020
+     },
+     {
+      "kg": 25300,
+      "caixas": 0
+     },
+     {
+      "kg": 25400,
+      "caixas": 1040
+     },
+     {
+      "kg": 25500,
+      "caixas": 1050
+     },
+     {
+      "kg": 25600,
+      "caixas": 0
+     },
+     {
+      "kg": 25700,
+      "caixas": 1070
+     },
+     {
+      "kg": 25800,
+      "caixas": 1080
+     },
+     {
+      "kg": 25900,
+      "caixas": 0
+     },
+     {
+      "kg": 26000,
+      "caixas": 1100
+     },
+     {
+      "kg": 26100,
+      "caixas": 1110
+     }
+    ],
+    "2026": [
+     {
+      "kg": 25000,
+      "caixas": 0
+     },
+     {
+      "kg": 25100,
+      "caixas": 1010
+     },
+     {
+      "kg": 25200,
+      "caixas": 1020
+     },
+     {
+      "kg": 25300,
+      "caixas": 0
+     },
+     {
+      "kg": 25400,
+      "caixas": 1040
+     },
+     {
+      "kg": 25500,
+      "caixas": 1050
+     },
+     {
+      "kg": 25600,
+      "caixas": 0
+     },
+     {
+      "kg": 25700,
+      "caixas": 1070
+     },
+     {
+      "kg": 25800,
+      "caixas": 1080
+     },
+     {
+      "kg": 25900,
+      "caixas": 0
+     },
+     {
+      "kg": 26000,
+      "caixas": 1100
+     },
+     {
+      "kg": 26100,
+      "caixas": 1110
+     }
+    ]
+   },
+   "FORNECEDOR EXEMPLO B": {
+    "2024": [
+     {
+      "kg": 25000,
+      "caixas": 0
+     },
+     {
+      "kg": 25100,
+      "caixas": 1010
+     },
+     {
+      "kg": 25200,
+      "caixas": 1020
+     },
+     {
+      "kg": 25300,
+      "caixas": 0
+     },
+     {
+      "kg": 25400,
+      "caixas": 1040
+     },
+     {
+      "kg": 25500,
+      "caixas": 1050
+     },
+     {
+      "kg": 25600,
+      "caixas": 0
+     },
+     {
+      "kg": 25700,
+      "caixas": 1070
+     },
+     {
+      "kg": 25800,
+      "caixas": 1080
+     },
+     {
+      "kg": 25900,
+      "caixas": 0
+     },
+     {
+      "kg": 26000,
+      "caixas": 1100
+     },
+     {
+      "kg": 26100,
+      "caixas": 1110
+     }
+    ],
+    "2025": [
+     {
+      "kg": 25000,
+      "caixas": 0
+     },
+     {
+      "kg": 25100,
+      "caixas": 1010
+     },
+     {
+      "kg": 25200,
+      "caixas": 1020
+     },
+     {
+      "kg": 25300,
+      "caixas": 0
+     },
+     {
+      "kg": 25400,
+      "caixas": 1040
+     },
+     {
+      "kg": 25500,
+      "caixas": 1050
+     },
+     {
+      "kg": 25600,
+      "caixas": 0
+     },
+     {
+      "kg": 25700,
+      "caixas": 1070
+     },
+     {
+      "kg": 25800,
+      "caixas": 1080
+     },
+     {
+      "kg": 25900,
+      "caixas": 0
+     },
+     {
+      "kg": 26000,
+      "caixas": 1100
+     },
+     {
+      "kg": 26100,
+      "caixas": 1110
+     }
+    ],
+    "2026": [
+     {
+      "kg": 25000,
+      "caixas": 0
+     },
+     {
+      "kg": 25100,
+      "caixas": 1010
+     },
+     {
+      "kg": 25200,
+      "caixas": 1020
+     },
+     {
+      "kg": 25300,
+      "caixas": 0
+     },
+     {
+      "kg": 25400,
+      "caixas": 1040
+     },
+     {
+      "kg": 25500,
+      "caixas": 1050
+     },
+     {
+      "kg": 25600,
+      "caixas": 0
+     },
+     {
+      "kg": 25700,
+      "caixas": 1070
+     },
+     {
+      "kg": 25800,
+      "caixas": 1080
+     },
+     {
+      "kg": 25900,
+      "caixas": 0
+     },
+     {
+      "kg": 26000,
+      "caixas": 1100
+     },
+     {
+      "kg": 26100,
+      "caixas": 1110
+     }
+    ]
+   }
+  },
+  "produtos": {
+   "2024": {
+    "FORNECEDOR EXEMPLO A": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ],
+    "FORNECEDOR EXEMPLO B": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ]
+   },
+   "2025": {
+    "FORNECEDOR EXEMPLO A": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ],
+    "FORNECEDOR EXEMPLO B": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ]
+   },
+   "2026": {
+    "FORNECEDOR EXEMPLO A": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ],
+    "FORNECEDOR EXEMPLO B": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ]
+   },
+   "todos": {
+    "FORNECEDOR EXEMPLO A": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ],
+    "FORNECEDOR EXEMPLO B": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ]
+   }
+  },
+  "metricas": {
+   "2024": {
+    "FORNECEDOR EXEMPLO A": {
+     "valor": 500000,
+     "kg": 250000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": 5.3,
+     "notas": 40,
+     "pedidos": 20,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    },
+    "FORNECEDOR EXEMPLO B": {
+     "valor": 400000,
+     "kg": 200000,
+     "precoMedioKg": null,
+     "variacaoPrecoPct": null,
+     "notas": 30,
+     "pedidos": 15,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": []
+    }
+   },
+   "2025": {
+    "FORNECEDOR EXEMPLO A": {
+     "valor": 500000,
+     "kg": 250000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": 5.3,
+     "notas": 40,
+     "pedidos": 20,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    },
+    "FORNECEDOR EXEMPLO B": {
+     "valor": 400000,
+     "kg": 200000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": -3.1,
+     "notas": 30,
+     "pedidos": 15,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    }
+   },
+   "2026": {
+    "FORNECEDOR EXEMPLO A": {
+     "valor": 500000,
+     "kg": 250000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": 5.3,
+     "notas": 40,
+     "pedidos": 20,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    },
+    "FORNECEDOR EXEMPLO B": {
+     "valor": 400000,
+     "kg": 200000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": -3.1,
+     "notas": 30,
+     "pedidos": 15,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    }
+   },
+   "todos": {
+    "FORNECEDOR EXEMPLO A": {
+     "valor": 500000,
+     "kg": 250000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": 5.3,
+     "notas": 40,
+     "pedidos": 20,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    },
+    "FORNECEDOR EXEMPLO B": {
+     "valor": 400000,
+     "kg": 200000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": -3.1,
+     "notas": 30,
+     "pedidos": 15,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    }
+   }
+  }
+ },
+ "produto_acabado": {
+  "anoData": {
+   "2024": {
+    "total": 1000000,
+    "totalKg": 500000,
+    "fornecedores": 2,
+    "top": [
+     {
+      "f": "FORNECEDOR EXEMPLO A",
+      "valor": 600000,
+      "kg": 300000
+     },
+     {
+      "f": "FORNECEDOR EXEMPLO B",
+      "valor": 400000,
+      "kg": 200000
+     }
+    ]
+   },
+   "2025": {
+    "total": 1100000,
+    "totalKg": 510000,
+    "fornecedores": 2,
+    "top": [
+     {
+      "f": "FORNECEDOR EXEMPLO A",
+      "valor": 601000,
+      "kg": 300100
+     },
+     {
+      "f": "FORNECEDOR EXEMPLO B",
+      "valor": 401000,
+      "kg": 200100
+     }
+    ]
+   },
+   "2026": {
+    "total": 1200000,
+    "totalKg": 520000,
+    "fornecedores": 2,
+    "top": [
+     {
+      "f": "FORNECEDOR EXEMPLO A",
+      "valor": 602000,
+      "kg": 300200
+     },
+     {
+      "f": "FORNECEDOR EXEMPLO B",
+      "valor": 402000,
+      "kg": 200200
+     }
+    ]
+   }
+  },
+  "listaFornecedores": [
+   "FORNECEDOR EXEMPLO A",
+   "FORNECEDOR EXEMPLO B"
+  ],
+  "serieAnoMes": {
+   "FORNECEDOR EXEMPLO A": {
+    "2024": [
+     {
+      "kg": 25000,
+      "caixas": 0
+     },
+     {
+      "kg": 25100,
+      "caixas": 1010
+     },
+     {
+      "kg": 25200,
+      "caixas": 1020
+     },
+     {
+      "kg": 25300,
+      "caixas": 0
+     },
+     {
+      "kg": 25400,
+      "caixas": 1040
+     },
+     {
+      "kg": 25500,
+      "caixas": 1050
+     },
+     {
+      "kg": 25600,
+      "caixas": 0
+     },
+     {
+      "kg": 25700,
+      "caixas": 1070
+     },
+     {
+      "kg": 25800,
+      "caixas": 1080
+     },
+     {
+      "kg": 25900,
+      "caixas": 0
+     },
+     {
+      "kg": 26000,
+      "caixas": 1100
+     },
+     {
+      "kg": 26100,
+      "caixas": 1110
+     }
+    ],
+    "2025": [
+     {
+      "kg": 25000,
+      "caixas": 0
+     },
+     {
+      "kg": 25100,
+      "caixas": 1010
+     },
+     {
+      "kg": 25200,
+      "caixas": 1020
+     },
+     {
+      "kg": 25300,
+      "caixas": 0
+     },
+     {
+      "kg": 25400,
+      "caixas": 1040
+     },
+     {
+      "kg": 25500,
+      "caixas": 1050
+     },
+     {
+      "kg": 25600,
+      "caixas": 0
+     },
+     {
+      "kg": 25700,
+      "caixas": 1070
+     },
+     {
+      "kg": 25800,
+      "caixas": 1080
+     },
+     {
+      "kg": 25900,
+      "caixas": 0
+     },
+     {
+      "kg": 26000,
+      "caixas": 1100
+     },
+     {
+      "kg": 26100,
+      "caixas": 1110
+     }
+    ],
+    "2026": [
+     {
+      "kg": 25000,
+      "caixas": 0
+     },
+     {
+      "kg": 25100,
+      "caixas": 1010
+     },
+     {
+      "kg": 25200,
+      "caixas": 1020
+     },
+     {
+      "kg": 25300,
+      "caixas": 0
+     },
+     {
+      "kg": 25400,
+      "caixas": 1040
+     },
+     {
+      "kg": 25500,
+      "caixas": 1050
+     },
+     {
+      "kg": 25600,
+      "caixas": 0
+     },
+     {
+      "kg": 25700,
+      "caixas": 1070
+     },
+     {
+      "kg": 25800,
+      "caixas": 1080
+     },
+     {
+      "kg": 25900,
+      "caixas": 0
+     },
+     {
+      "kg": 26000,
+      "caixas": 1100
+     },
+     {
+      "kg": 26100,
+      "caixas": 1110
+     }
+    ]
+   },
+   "FORNECEDOR EXEMPLO B": {
+    "2024": [
+     {
+      "kg": 25000,
+      "caixas": 0
+     },
+     {
+      "kg": 25100,
+      "caixas": 1010
+     },
+     {
+      "kg": 25200,
+      "caixas": 1020
+     },
+     {
+      "kg": 25300,
+      "caixas": 0
+     },
+     {
+      "kg": 25400,
+      "caixas": 1040
+     },
+     {
+      "kg": 25500,
+      "caixas": 1050
+     },
+     {
+      "kg": 25600,
+      "caixas": 0
+     },
+     {
+      "kg": 25700,
+      "caixas": 1070
+     },
+     {
+      "kg": 25800,
+      "caixas": 1080
+     },
+     {
+      "kg": 25900,
+      "caixas": 0
+     },
+     {
+      "kg": 26000,
+      "caixas": 1100
+     },
+     {
+      "kg": 26100,
+      "caixas": 1110
+     }
+    ],
+    "2025": [
+     {
+      "kg": 25000,
+      "caixas": 0
+     },
+     {
+      "kg": 25100,
+      "caixas": 1010
+     },
+     {
+      "kg": 25200,
+      "caixas": 1020
+     },
+     {
+      "kg": 25300,
+      "caixas": 0
+     },
+     {
+      "kg": 25400,
+      "caixas": 1040
+     },
+     {
+      "kg": 25500,
+      "caixas": 1050
+     },
+     {
+      "kg": 25600,
+      "caixas": 0
+     },
+     {
+      "kg": 25700,
+      "caixas": 1070
+     },
+     {
+      "kg": 25800,
+      "caixas": 1080
+     },
+     {
+      "kg": 25900,
+      "caixas": 0
+     },
+     {
+      "kg": 26000,
+      "caixas": 1100
+     },
+     {
+      "kg": 26100,
+      "caixas": 1110
+     }
+    ],
+    "2026": [
+     {
+      "kg": 25000,
+      "caixas": 0
+     },
+     {
+      "kg": 25100,
+      "caixas": 1010
+     },
+     {
+      "kg": 25200,
+      "caixas": 1020
+     },
+     {
+      "kg": 25300,
+      "caixas": 0
+     },
+     {
+      "kg": 25400,
+      "caixas": 1040
+     },
+     {
+      "kg": 25500,
+      "caixas": 1050
+     },
+     {
+      "kg": 25600,
+      "caixas": 0
+     },
+     {
+      "kg": 25700,
+      "caixas": 1070
+     },
+     {
+      "kg": 25800,
+      "caixas": 1080
+     },
+     {
+      "kg": 25900,
+      "caixas": 0
+     },
+     {
+      "kg": 26000,
+      "caixas": 1100
+     },
+     {
+      "kg": 26100,
+      "caixas": 1110
+     }
+    ]
+   }
+  },
+  "produtos": {
+   "2024": {
+    "FORNECEDOR EXEMPLO A": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ],
+    "FORNECEDOR EXEMPLO B": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ]
+   },
+   "2025": {
+    "FORNECEDOR EXEMPLO A": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ],
+    "FORNECEDOR EXEMPLO B": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ]
+   },
+   "2026": {
+    "FORNECEDOR EXEMPLO A": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ],
+    "FORNECEDOR EXEMPLO B": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ]
+   },
+   "todos": {
+    "FORNECEDOR EXEMPLO A": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ],
+    "FORNECEDOR EXEMPLO B": [
+     {
+      "p": "MP - PRODUTO EXEMPLO 1 KG",
+      "valor": 300000,
+      "kg": 150000
+     },
+     {
+      "p": "MP - PRODUTO EXEMPLO 2 KG",
+      "valor": 150000,
+      "kg": 70000
+     }
+    ]
+   }
+  },
+  "metricas": {
+   "2024": {
+    "FORNECEDOR EXEMPLO A": {
+     "valor": 500000,
+     "kg": 250000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": 5.3,
+     "notas": 40,
+     "pedidos": 20,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    },
+    "FORNECEDOR EXEMPLO B": {
+     "valor": 400000,
+     "kg": 200000,
+     "precoMedioKg": null,
+     "variacaoPrecoPct": null,
+     "notas": 30,
+     "pedidos": 15,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": []
+    }
+   },
+   "2025": {
+    "FORNECEDOR EXEMPLO A": {
+     "valor": 500000,
+     "kg": 250000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": 5.3,
+     "notas": 40,
+     "pedidos": 20,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    },
+    "FORNECEDOR EXEMPLO B": {
+     "valor": 400000,
+     "kg": 200000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": -3.1,
+     "notas": 30,
+     "pedidos": 15,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    }
+   },
+   "2026": {
+    "FORNECEDOR EXEMPLO A": {
+     "valor": 500000,
+     "kg": 250000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": 5.3,
+     "notas": 40,
+     "pedidos": 20,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    },
+    "FORNECEDOR EXEMPLO B": {
+     "valor": 400000,
+     "kg": 200000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": -3.1,
+     "notas": 30,
+     "pedidos": 15,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    }
+   },
+   "todos": {
+    "FORNECEDOR EXEMPLO A": {
+     "valor": 500000,
+     "kg": 250000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": 5.3,
+     "notas": 40,
+     "pedidos": 20,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    },
+    "FORNECEDOR EXEMPLO B": {
+     "valor": 400000,
+     "kg": 200000,
+     "precoMedioKg": 2.1234,
+     "variacaoPrecoPct": -3.1,
+     "notas": 30,
+     "pedidos": 15,
+     "ticketMedioNota": 12500,
+     "serieMensalPreco": [
+      {
+       "mes": "2026-01",
+       "preco": 2
+      },
+      {
+       "mes": "2026-02",
+       "preco": 2.05
+      },
+      {
+       "mes": "2026-03",
+       "preco": 2.1
+      },
+      {
+       "mes": "2026-04",
+       "preco": 2.15
+      },
+      {
+       "mes": "2026-05",
+       "preco": 2.2
+      },
+      {
+       "mes": "2026-06",
+       "preco": 2.25
+      }
+     ]
+    }
+   }
+  }
+ }
+}

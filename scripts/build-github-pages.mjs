@@ -74,4 +74,16 @@ try {
   await copyFile(financeiroProdutoAcabadoPlaceholder, financeiroProdutoAcabadoDestino);
 }
 
+// Mesmo esquema pra fornecedores (ver work/sheet-inspect/build_fornecedores.py, pedido do
+// usuario em 26/08/2026) - CI so buscou o agregado pequeno, nunca o compras_produto.json bruto.
+const financeiroFornecedoresCi = path.join(root, "work", "valor-financeiro-fornecedores-ci.json");
+const financeiroFornecedoresPlaceholder = path.join(root, "data", "dados-fornecedores.json");
+const financeiroFornecedoresDestino = path.join(outputDir, "valor-financeiro-fornecedores.json");
+try {
+  await copyFile(financeiroFornecedoresCi, financeiroFornecedoresDestino);
+} catch {
+  console.warn("valor-financeiro-fornecedores-ci.json nao encontrado, usando placeholder");
+  await copyFile(financeiroFornecedoresPlaceholder, financeiroFornecedoresDestino);
+}
+
 console.log(JSON.stringify({ pasta: outputDir, tamanho_html_bytes: Buffer.byteLength(html) }));

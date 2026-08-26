@@ -108,3 +108,73 @@ th{color:#46594e;font-size:8px;font-weight:800}td{color:#20352a;font-size:10px}.
 @media(max-width:1050px){.consumption-chart-actions{width:100%;justify-content:space-between}}
 .pedidos-venda-table{min-width:0!important}.pedidos-venda-table th:first-child,.pedidos-venda-table td:first-child{min-width:260px}
 .sortable-column{appearance:none;border:0;background:transparent;padding:0;margin:0;color:inherit;font:inherit;font-weight:inherit;text-transform:inherit;letter-spacing:inherit;cursor:pointer;width:100%;text-align:right}.sortable-column:hover{color:#1e6844}
+
+/* ---------- aba Fornecedores (ranking por valor/kg, comparativo anual, gaveta) ---------- */
+.rk-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:7px;background:#edf3ef;color:#235f43;font-weight:800;font-size:9px}.rk-badge.top3{background:#e3a72f;color:#4a2c05}
+.product-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #eef1ef}.product-row:last-child{border-bottom:0}.pr-name{font-size:9px;color:#2b3a31;line-height:1.35}.pr-val{font-size:10px;font-weight:750;color:#145b39;white-space:nowrap;text-align:right}.pr-kg{color:#8a958e;font-weight:500}
+.drawer-empty{color:#8a958e;font-size:9px;padding:10px 0}
+.drawer-metrics strong.up{color:#b83f36}.drawer-metrics strong.down{color:#1f8a56}
+
+.forn-dept-toggle{margin-bottom:14px}
+.forn-year-toggle{margin-bottom:16px;flex-wrap:wrap}
+.forn-table-limit-note{margin:12px 20px 16px;color:#52655b;font-size:9px;background:#f5f8f6;border:1px solid #e2e8e4;border-radius:9px;padding:9px 13px}
+.forn-drawer-ticket{margin:0;font-size:18px;font-weight:750;color:#173c2a}
+.forn-drawer-preco-serie{display:flex;align-items:flex-end;gap:8px;height:64px;padding:6px 2px 0}.forn-drawer-preco-serie .forn-dp-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}.forn-dp-val{font-size:7px;color:#516259;white-space:nowrap}.forn-dp-track{width:100%;max-width:22px;height:38px;display:flex;align-items:flex-end}.forn-dp-bar{width:100%;background:linear-gradient(180deg,#4a86dd,#2166c4);border-radius:3px 3px 0 0;min-height:2px}.forn-dp-month{font-size:7px;color:#8a958e;text-transform:uppercase}
+
+/* top 10, duas barras (valor e kg) com escalas independentes */
+.forn-rank-chart-legend{display:flex;gap:16px;padding:8px 22px 0;font-size:8px;color:#52655b;font-weight:700}.forn-rank-chart-legend span{display:inline-flex;align-items:center;gap:5px}.forn-rank-chart-legend i{width:8px;height:8px;border-radius:3px;display:inline-block}
+.forn-rank-chart{padding:8px 22px 20px}
+.forn-rank-bar-row{display:grid;grid-template-columns:150px 1fr 1fr;align-items:center;gap:16px;padding:7px 0;cursor:pointer}
+.forn-rank-bar-row .forn-rk-name{font-size:10px;font-weight:700;color:#20352a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.forn-rk-metric{display:grid;grid-template-columns:1fr 92px;align-items:center;gap:8px}
+.forn-rk-metric .forn-rk-track{height:14px;border-radius:5px;background:#eef3f0;overflow:hidden;position:relative}
+.forn-rk-metric .forn-rk-fill{height:100%;border-radius:5px}
+.forn-rk-valor .forn-rk-fill{background:linear-gradient(90deg,#3fae72,#1f8a56)}
+.forn-rk-kg .forn-rk-fill{background:linear-gradient(90deg,#4a86dd,#2166c4)}
+.forn-rk-metric .forn-rk-value{font-size:9.5px;font-weight:750;text-align:right;color:#173c2a;white-space:nowrap}
+.forn-rk-metric .forn-rk-value.muted{color:#a3ada6;font-weight:600}
+
+/* comparativo anual (card escuro, pedido explicito do usuario) + painel "volume por ano" */
+:root{--forn-surface:#1a1530;--forn-ano-1:#8b6bf0;--forn-ano-2:#2f8a5c;--forn-ano-3:#2a93c4;--forn-ano-4:#c07620}
+.forn-timeline-row{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:24px}
+.forn-timeline-card{background:var(--forn-surface);border:1px solid #33295c;border-radius:16px;padding:20px 22px 16px;box-shadow:0 10px 30px #0d0a1cb3;color:#e9e6f5;min-width:0}
+.forn-timeline-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.forn-timeline-eyebrow{color:#a99fd6;font-size:9px;letter-spacing:.13em;font-weight:800;margin:0 0 6px;text-transform:uppercase}
+.forn-timeline-heading h2{margin:0;font-size:16px;color:#fff;letter-spacing:-.02em}
+.forn-timeline-sub{margin:5px 0 0;color:#a49bc9;font-size:10px}
+.forn-timeline-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.forn-timeline-select{background:#241d47;border:1px solid #3d3268;color:#e9e6f5;border-radius:9px;padding:8px 12px;font-size:10px;font-weight:700;width:230px;outline:0}
+.forn-timeline-select::placeholder{color:#8579b8}
+.forn-timeline-toggle{display:flex;border:1px solid #3d3268;border-radius:9px;padding:3px;background:#201a3c}
+.forn-timeline-toggle button{border:0;background:transparent;color:#a99fd6;font-size:10px;font-weight:750;padding:8px 14px;border-radius:7px}
+.forn-timeline-toggle button.selected{background:#3d3268;color:#fff}
+.forn-timeline-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+.forn-timeline-legend span{display:inline-flex;align-items:center;gap:6px;font-size:9px;color:#c3badf;font-weight:700;cursor:pointer;user-select:none}
+.forn-timeline-legend span.off{opacity:.35}
+.forn-timeline-legend i{width:9px;height:9px;border-radius:3px;display:inline-block}
+.forn-timeline-chart-wrap{overflow-x:auto;padding-bottom:4px}
+.forn-timeline-chart{display:flex;align-items:flex-end;gap:14px;min-height:230px;padding:24px 4px 0;position:relative}
+.forn-tl-group{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px}
+.forn-tl-bars{display:flex;align-items:flex-end;gap:4px;height:170px}
+.forn-tl-bar-col{width:20px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;position:relative}
+.forn-tl-bar-col .forn-tl-value{font-size:7.5px;font-weight:750;color:#f0eef8;white-space:nowrap;margin-bottom:3px}
+.forn-tl-bar-col .forn-tl-bar{width:100%;border-radius:4px 4px 0 0;min-height:2px;transition:filter .12s}
+.forn-tl-bar-col:hover .forn-tl-bar{filter:brightness(1.2)}
+.forn-tl-group .forn-tl-month{font-size:8px;color:#a49bc9;text-transform:uppercase;letter-spacing:.04em}
+.forn-timeline-note{margin:14px 2px 2px;color:#8d84b3;font-size:8px;line-height:1.5}
+.forn-year-panel{background:var(--forn-surface);border:1px solid #33295c;border-radius:16px;padding:20px 22px 16px;color:#e9e6f5;min-width:0}
+.forn-year-panel h3{margin:0 0 5px;font-size:14px;color:#fff}
+.forn-year-panel p{margin:0 0 16px;color:#a49bc9;font-size:9px;line-height:1.5}
+.forn-year-bars{display:flex;justify-content:space-around;align-items:flex-end;height:150px;gap:10px}
+.forn-yr-col{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;border:0;background:transparent;flex:1;min-width:0}
+.forn-yr-col .forn-yr-delta{font-size:7.5px;font-weight:700;color:#7fdba0}
+.forn-yr-col .forn-yr-delta.neg{color:#e2896f}
+.forn-yr-col .forn-yr-value{font-size:9px;font-weight:750;color:#f0eef8}
+.forn-yr-col .forn-yr-track{width:100%;max-width:64px;height:100px;display:flex;align-items:flex-end}
+.forn-yr-col .forn-yr-bar{width:100%;border-radius:6px;min-height:4px;border:2px solid transparent;transition:.15s}
+.forn-yr-col.off .forn-yr-bar{background:transparent!important;border-color:#463a78}
+.forn-yr-col.off .forn-yr-value,.forn-yr-col.off .forn-yr-delta{color:#6a6291}
+.forn-yr-col .forn-yr-label{font-size:9px;color:#c3badf;font-weight:750;margin-top:2px}
+.forn-yr-col.off .forn-yr-label{color:#7a7099}
+@media(max-width:1050px){.forn-timeline-row{grid-template-columns:1fr}}
+@media(max-width:760px){.forn-rank-bar-row{grid-template-columns:1fr;gap:6px}.forn-rk-metric{grid-template-columns:1fr 70px}}

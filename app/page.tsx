@@ -9,6 +9,7 @@ import mrpTerceirosDataStatic from "../public/dados-mrp-terceiros.json";
 import escadinhaDataStatic from "../public/dados-escadinha.json";
 import pedidosVendaDataStatic from "../public/dados-pedidos-venda.json";
 import valoresProdutoAcabadoDataStatic from "../data/dados-valores-produto-acabado.json";
+import fornecedoresDataStatic from "../data/dados-fornecedores.json";
 import { fetchSharePointJson, fetchAccessList, isConfigured, type AccessEntry } from "./lib/sharepoint";
 import { buildValorInsumos, type ValorInsumosRow } from "./lib/valor-insumos";
 import { buildValorProdutoAcabado } from "./lib/valor-produto-acabado";
@@ -23,6 +24,7 @@ type MrpTerceirosData = typeof mrpTerceirosDataStatic;
 type EscadinhaData = typeof escadinhaDataStatic;
 type PedidosVendaData = typeof pedidosVendaDataStatic;
 type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataStatic;
+type FornecedoresData = typeof fornecedoresDataStatic;
 
 /**
  * Cada loadX tenta o SharePoint (dados atualizados 2x/dia pela automacao local +
@@ -132,6 +134,20 @@ async function loadValoresProdutoAcabadoData(pedidosVendaData: PedidosVendaData,
   }
 }
 
+async function loadFornecedoresData(): Promise<FornecedoresData> {
+  // fornecedores_agregado.json ja vem pronto (agregado localmente por
+  // work/sheet-inspect/build_fornecedores.py a partir de compras_produto.json, ~87 MB - nunca
+  // buscado aqui, so o resultado ja agregado). Sem transformacao client-side, ao contrario de
+  // loadValoresProdutoAcabadoData. Pedido do usuario em 26/08/2026.
+  if (!isConfigured()) return fornecedoresDataStatic;
+  try {
+    return await fetchSharePointJson<FornecedoresData>("fornecedores_agregado.json");
+  } catch (error) {
+    console.error("Falha ao buscar fornecedores_agregado.json do SharePoint, usando snapshot do build:", error);
+    return fornecedoresDataStatic;
+  }
+}
+
 /**
  * Quem pode logar (qualquer conta Microsoft da empresa) e quem pode ver o que (lista
  * "AcessoPainelEstoques" no SharePoint) sao verificacoes separadas de proposito - login
@@ -208,12 +224,14 @@ export default async function Home() {
   ]);
   const valoresData = canViewValues ? await loadValoresData(insumosData) : null;
   const valoresProdutoAcabadoData = canViewValues ? await loadValoresProdutoAcabadoData(pedidosVendaData, estoqueData) : null;
+  const fornecedoresData = canViewValues ? await loadFornecedoresData() : null;
 
   return (
     <DashboardClient
       canViewValues={canViewValues}
       valoresData={valoresData}
       valoresProdutoAcabadoData={valoresProdutoAcabadoData}
+      fornecedoresData={fornecedoresData}
       estoqueData={estoqueData}
       insumosData={insumosData}
       consumoData={consumoData}
