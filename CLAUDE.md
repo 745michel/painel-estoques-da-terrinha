@@ -269,6 +269,17 @@ recriando a tarefa com esses dois parâmetros. Se a atualização voltar a "não
 nenhum log em `automation\logs`, suspeite primeiro de energia/bateria ou de sessão do Windows
 não estar logada (`LogonType Interactive` exige sessão ativa do usuário no horário exato).
 
+**Tarefa morta pelo limite de execução em 26/08/2026 14:00**: a rodada das 14:00 rodou até o
+fim (as 4 pipelines terminaram, inclusive Fornecedores) mas nunca comitou/publicou. Causa:
+`ExecutionTimeLimit` da tarefa estava em 20 min (`PT20M`, herdado de quando só existiam as 3
+pipelines mais leves) — com Fornecedores (lê `compras_produto.json`, ~87 MB) a rotina passou a
+levar ~20–25 min, e o Windows mata a tarefa (`LastTaskResult 267014` = terminada) bem no fim,
+antes do passo de `git add`/`commit`/`push`. `Get-ScheduledTaskInfo` mostra "terminada", não
+"falhou" — não aparece como erro óbvio no log (o log só para de crescer no meio). Corrigido
+subindo o limite pra 1h (`Set-ScheduledTask -Settings` com `ExecutionTimeLimit = "PT1H"`). Se a
+publicação automática voltar a "sumir" sem erro no log, com o log parando no meio de uma
+pipeline, suspeite deste limite antes de mais nada.
+
 **Validado de ponta a ponta em 05/08/2026** (execução limpa, sem Excel aberto antes): Terceiros
 138s + Embalagens 245s + extração das planilhas 26s + consumo ODBC 14s + JSON de consumo <1s ≈
 7min. A query M `movimento_estoque` da planilha de Embalagens foi reescrita pelo usuário para
