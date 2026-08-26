@@ -119,9 +119,20 @@ O script roda 3 pipelines, cada uma independente (uma falhar não trava as outra
          (ex.: produto_key `77761` "INDL - BATATA PALHA..." vs sku `75879` "BATATA PALHA..." na
          planilha). Nenhuma entrega desses terceiros aparecia. Fallback: quando o `produto_key`
          não casa, casa por descrição normalizada (maiúsculas, sem acento, sem prefixo "INDL - ",
-         só alfanumérico) — recupera ~12 produtos que antes ficavam sem nenhuma entrega, mas
-         ainda não é 100% (alguns simplesmente não têm pedido em aberto agora, outros têm
-         descrição divergente demais pro fallback casar).
+         só alfanumérico) — recupera ~12 produtos que antes ficavam sem nenhuma entrega.
+
+      **3º nível de casamento em 26/08/2026** (`melhor_match_fuzzy`): a descrição normalizada
+      exata ainda falhava quando um lado abrevia palavra que o outro escreve por extenso (ex.:
+      planilha "BATATA PALHA... TRADIC 100G" x compras_a_receber "...TRADICIONAL 100G" — 93%
+      de similaridade, mas não é igual). Como último recurso, quando produto_key e descrição
+      exata não casam: restringe candidatos ao mesmo fornecedor (nome da planilha contido no
+      nome do compras_a_receber ou vice-versa, ex. "ART FRITAS" dentro de "ART FRITAS
+      INDUSTRIA") e pega a descrição mais parecida por `difflib.SequenceMatcher`, só aceita
+      se ≥ 85% (`LIMIAR_FUZZY`). Recuperou ART FRITAS de 3/12 pra 10/12, SEARA e INDC completos.
+      APLAF e COPRA continuam sem nenhuma entrega — não é falha de casamento, esses dois
+      fornecedores simplesmente **não aparecem** em nenhuma linha do `compras_a_receber.json`
+      (confirmado buscando o nome no arquivo inteiro) — se isso for inesperado, o problema está
+      na origem (Controladoria), não no painel.
    3. `work/sheet-inspect/apply_bi_terceiros.py` (Python, 20/08/2026) — sobrescreve
       Estoque/Saldo/Cobertura de Terceiros com `produtos_estoque.json` (BI/Power Automate, já
       sincronizado do SharePoint — não busca nada novo). Ver REGRAS_PAINEL_ESTOQUES.md.
