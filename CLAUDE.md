@@ -212,12 +212,23 @@ arquivo de 97 mil linhas. Mesma senha das outras duas abas financeiras
 
 **Card de valor mensal (26/08/2026)**: `serieAnoMes` ganhou o campo `valor` (além de `kg`/
 `caixas`) — pedido do usuário pra ver, ao escolher um fornecedor, o gráfico de Kg comprado
-mês a mês **e** o de Valor pago mês a mês juntos (dois cards escuros empilhados, mesma
-comparação de anos), não só um com toggle. Selecionar um fornecedor na tabela/Top 10 agora
-também sincroniza os dois gráficos (`abrirGaveta` seta `tlFornecedor`/`tlBusca`, antes só
-abria a gaveta lateral sem mexer no gráfico). Layout geral (KPIs + gráficos + tabela) inspirado
-num dashboard de referência que o usuário mandou, mas com a paleta de cores do próprio painel,
-não a do exemplo.
+mês a mês **e** o de Valor pago mês a mês juntos (dois cards empilhados, mesma comparação de
+anos), não só um com toggle. Selecionar um fornecedor na tabela/Top 10 sincroniza os dois
+gráficos (`abrirGaveta` seta `tlFornecedor`). Layout geral (KPIs + gráficos + tabela) inspirado
+num dashboard de referência que o usuário mandou, mas com a paleta de cores do próprio painel.
+
+**Reajustes de layout (26/08/2026, mesmo dia)**: os dois cards de comparativo mensal eram
+escuros (fundo roxo-marinho) — trocado pro padrão claro do resto do painel (mesma paleta de
+`.value-kpi`/`.inventory-panel`) a pedido do usuário. KPIs (Total pago/Total comprado/
+Fornecedores/Concentração top 3) subiram pro topo da página, logo abaixo do toggle de
+departamento — antes ficavam depois dos dois gráficos. Novo filtro "focar fornecedor"
+(`.forn-foco-filter`, campo de busca com datalist, fora dos cards de gráfico) — ao escolher
+alguém ali, some o Top 10 e a tabela completa da tela, mostrando só os KPIs, os dois gráficos
+mensais e a lista de produtos daquele fornecedor (`focoFornecedor`/`focarFornecedor`). Pedido
+explícito: "vou chamar os fornecedores e mostrar o que fizemos de compra deles, não podemos
+mostrar os outros" (uso em reunião/apresentação com o fornecedor específico). Clicar numa linha
+da tabela/Top 10 continua só abrindo a gaveta lateral de detalhe (`selectedFornecedor`,
+inalterado) — o filtro de foco é um controle separado, deliberado.
 
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
