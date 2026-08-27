@@ -369,6 +369,12 @@ de "Principais produtos") subiu pro topo da página, na mesma linha dos outros f
 (`.forn-foco-filter`, ao lado de "Focar fornecedores" e do `<select>` de comprador) — um só
 campo, filtra qualquer tabela de produtos que estiver visível na tela.
 
+**Linha de total no card de histórico mensal (27/08/2026, mesmo dia)**: `<tfoot>` soma os 12
+meses de cada ano (valor, kg, caixas — separado, não junto) e recalcula a % comparação em cima
+dos totais anuais (não é média das % mensais, é `(totalB−totalA)/totalA`, correto pra
+agregado). Linha destacada com fundo levemente cinza e borda superior mais grossa
+(`.forn-produto-mes-total`).
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 

@@ -2317,7 +2317,19 @@ function FornecedoresDashboard({
               {anoB && <td>{pct != null ? <strong className={pct >= 0 ? "up" : "down"}>{pct >= 0 ? "+" : ""}{decimal.format(pct)}%</strong> : "—"}</td>}
             </tr>;
           })}
-        </tbody></table></div>
+        </tbody><tfoot>{(() => {
+          const somaA = (produtoAberto.serieAnoMes[anos[0]] ?? []).reduce((s, m) => ({ valor: s.valor + m.valor, kg: s.kg + m.kg, caixas: s.caixas + m.caixas }), { valor: 0, kg: 0, caixas: 0 });
+          const somaB = anos[1] ? (produtoAberto.serieAnoMes[anos[1]] ?? []).reduce((s, m) => ({ valor: s.valor + m.valor, kg: s.kg + m.kg, caixas: s.caixas + m.caixas }), { valor: 0, kg: 0, caixas: 0 }) : null;
+          const pctTotal = somaB && somaA.valor > 0 ? ((somaB.valor - somaA.valor) / somaA.valor) * 100 : null;
+          return <tr className="forn-produto-mes-total">
+            <td><strong>Total</strong></td>
+            <td><strong className="money-value">{currency.format(somaA.valor)}</strong></td>
+            <td><strong>{qtdCaixaOuKg(somaA) || "—"}</strong></td>
+            {somaB && <td><strong className="money-value">{currency.format(somaB.valor)}</strong></td>}
+            {somaB && <td><strong>{qtdCaixaOuKg(somaB) || "—"}</strong></td>}
+            {somaB && <td>{pctTotal != null ? <strong className={pctTotal >= 0 ? "up" : "down"}>{pctTotal >= 0 ? "+" : ""}{decimal.format(pctTotal)}%</strong> : "—"}</td>}
+          </tr>;
+        })()}</tfoot></table></div>
         <p className="drawer-note">% comparação = variação do valor pago em {anos[1]} contra o mesmo mês de {anos[0]}.</p>
       </div>
     </div>}
