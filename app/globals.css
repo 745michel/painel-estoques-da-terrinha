@@ -171,6 +171,8 @@ th{color:#46594e;font-size:8px;font-weight:800}td{color:#20352a;font-size:10px}.
 .forn-foco-input input::placeholder{color:#8a958f}
 .forn-comprador-select{flex:0 1 260px}
 .forn-comprador-select select{border:0;outline:0;width:100%;color:var(--ink);font-size:11px;background:transparent;font-weight:700}
+.forn-grupo-interno-toggle{display:flex;align-items:center;gap:8px;font-size:10px;color:#3e5146;font-weight:700;cursor:pointer;user-select:none}
+.forn-grupo-interno-toggle input{accent-color:#24734e;width:14px;height:14px}
 .forn-foco-clear{border:1px solid #d7e2db;background:#fff;color:#2b684d;border-radius:9px;padding:9px 13px;font-size:10px;font-weight:750;white-space:nowrap}
 .forn-foco-clear:hover{border-color:#77a88d;background:#eff7f2}
 .forn-produtos-foco{min-height:0}

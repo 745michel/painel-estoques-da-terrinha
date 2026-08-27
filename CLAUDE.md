@@ -375,6 +375,18 @@ dos totais anuais (não é média das % mensais, é `(totalB−totalA)/totalA`, 
 agregado). Linha destacada com fundo levemente cinza e borda superior mais grossa
 (`.forn-produto-mes-total`).
 
+**Empresas do grupo ocultas por padrão (27/08/2026, mesmo dia)**: 2JM Amidos e Terrafec
+(Fécula Mandioca e Primavera) são empresas do próprio grupo Da Terrinha, não fornecedores
+externos de verdade — distorciam o ranking/KPIs. Investigado primeiro se o campo `Intercompany`
+do `compras_produto.json` resolvia isso de forma genérica: não resolve, vem "Sim" pra ~2.140
+fornecedores completamente externos também (parece ser flag por nota fiscal, não por
+fornecedor) — inútil pra esse filtro. `FORN_GRUPO_INTERNO` (novo, `DashboardClient.tsx`, só
+3 nomes exatos: "2JM AMIDOS", "TERRAFEC FECULA MANDIOCA", "TERRAFEC PRIMAVERA") filtra o
+`rankingContexto` por padrão. Checkbox "Incluir empresas do grupo" (`.forn-grupo-interno-toggle`,
+mesma linha dos outros filtros) reverte isso quando marcado. Continuam escolhíveis no filtro
+"Focar fornecedores" independente do checkbox — selecionar um deles ali pula a exclusão (senão
+a lista ficaria vazia depois de filtrar pelo nome escolhido).
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 

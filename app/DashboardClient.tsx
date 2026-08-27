@@ -1823,6 +1823,10 @@ const FORN_LIMITE_TABELA = 50;
 // Pedido explicito do usuario em 26/08/2026: manter so 2025/2026 no comparativo, ranking e
 // graficos - 2024 fica fora da aba Fornecedores.
 const FORN_ANOS_OCULTOS = new Set(["2024"]);
+// Empresas do proprio grupo (2JM Amidos, Terrafec) - pedido do usuario, 27/08/2026: ficam fora
+// do ranking/KPIs por padrao (distorcem "fornecedor externo"), mas continuam escolhiveis no
+// filtro "Focar fornecedores" e via checkbox "Incluir empresas do grupo".
+const FORN_GRUPO_INTERNO = new Set(["2JM AMIDOS", "TERRAFEC FECULA MANDIOCA", "TERRAFEC PRIMAVERA"]);
 
 function FornecedoresDashboard({
   onSectionChange,
@@ -1845,6 +1849,7 @@ function FornecedoresDashboard({
   const [focoFornecedores, setFocoFornecedores] = useState<string[]>([]);
   const [compradorFiltro, setCompradorFiltro] = useState("");
   const [buscaProduto, setBuscaProduto] = useState("");
+  const [mostrarGrupoInterno, setMostrarGrupoInterno] = useState(false);
   const [produtoAberto, setProdutoAberto] = useState<{ nome: string; serieAnoMes: Record<string, FornecedorProdutoMes[]> } | null>(null);
 
   const [tlFornecedor, setTlFornecedor] = useState(grupoAtual.listaFornecedores[0] ?? "");
@@ -1893,11 +1898,13 @@ function FornecedoresDashboard({
     if (focoFornecedores.length > 0) {
       const set = new Set(focoFornecedores);
       base = base.filter((r) => set.has(r.f));
+    } else if (!mostrarGrupoInterno) {
+      base = base.filter((r) => !FORN_GRUPO_INTERNO.has(r.f));
     }
     const total = base.reduce((s, r) => s + r.valor, 0);
     const totalKg = base.reduce((s, r) => s + r.kg, 0);
     return { lista: base, total, totalKg, fornecedores: base.length };
-  }, [anoRanking, grupoAtual, combinadoTop, compradorFiltro, focoFornecedores]);
+  }, [anoRanking, grupoAtual, combinadoTop, compradorFiltro, focoFornecedores, mostrarGrupoInterno]);
 
   const rankingOrdenado = useMemo(() => [...rankingContexto.lista].sort((a, b) => b.valor - a.valor), [rankingContexto]);
 
@@ -2078,6 +2085,11 @@ function FornecedoresDashboard({
           <label className="forn-foco-input">
             <span>⌕</span>
             <input value={buscaProduto} onChange={(event) => setBuscaProduto(event.target.value)} placeholder="Buscar produto em Principais produtos..." />
+          </label>
+
+          <label className="forn-grupo-interno-toggle">
+            <input type="checkbox" checked={mostrarGrupoInterno} onChange={(event) => setMostrarGrupoInterno(event.target.checked)} />
+            <span>Incluir empresas do grupo (2JM, Terrafec)</span>
           </label>
         </div>
 
