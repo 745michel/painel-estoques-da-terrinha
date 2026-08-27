@@ -348,6 +348,19 @@ os mesmos terceiros/coempacotadores que só fazem sentido em caixa). Duas mudan�
    "BATATA PALHA DA TERRINHA TRADICIONAL 100G - CX20" foi de duas linhas (R$3.174.273 +
    R$501.316) pra uma só (R$3.675.589), soma batendo exato.
 
+**Card de histórico mensal por produto + busca (27/08/2026)**: pedido do usuário — clicar num
+produto em "Principais produtos" agora abre um card (mesmo padrão visual da gaveta lateral,
+`.forn-produto-drawer`, mais largo — 680px) com uma tabela mês a mês (jan-dez) comparando os
+dois anos reais lado a lado: valor e Kg/Caixa de cada ano, mais "% comparação" (variação do
+valor do ano mais recente contra o mesmo mês do ano anterior — mesma convenção de cor de
+`variacaoPrecoPct`, subida em vermelho). Fonte: `produto_mes_acc`/`produto_comprador_mes_acc`
+(novo em `build_fornecedores.py`, mesma ideia de `serie_mes` só que também guardando o produto,
+não só o fornecedor) — anexado como `serieAnoMes` em cada linha de produto (só nos escopos de
+ano real, não em "todos", pra não duplicar à toa). Tamanho do arquivo subiu de ~2,5 MB pra
+~3,5 MB — ainda ok pra baixar uma vez só ao abrir a aba. Também adicionado um campo de busca
+(`.forn-produto-busca`) no topo de toda tabela de "Principais produtos" (foco por fornecedor e
+comprador filtrado), filtro simples por nome contido.
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 

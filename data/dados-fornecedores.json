@@ -450,13 +450,389 @@
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
       "kg": 150000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
       "kg": 70000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      }
     ],
     "FORNECEDOR EXEMPLO B": [
@@ -464,13 +840,389 @@
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
       "kg": 150000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
       "kg": 70000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      }
     ]
    },
@@ -480,13 +1232,389 @@
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
       "kg": 150000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
       "kg": 70000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      }
     ],
     "FORNECEDOR EXEMPLO B": [
@@ -494,13 +1622,389 @@
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
       "kg": 150000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
       "kg": 70000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      }
     ]
    },
@@ -510,13 +2014,389 @@
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
       "kg": 150000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
       "kg": 70000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      }
     ],
     "FORNECEDOR EXEMPLO B": [
@@ -524,13 +2404,389 @@
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
       "kg": 150000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
       "kg": 70000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      }
     ]
    },
@@ -868,13 +3124,389 @@
         "p": "MP - PRODUTO EXEMPLO 1 KG",
         "valor": 200000,
         "kg": 100000,
-        "caixas": 0
+        "caixas": 0,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        },
        {
         "p": "PRODUTO EXEMPLO EM CAIXA",
         "valor": 80000,
         "kg": 0,
-        "caixas": 4000
+        "caixas": 4000,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        }
       ]
      },
@@ -895,13 +3527,389 @@
         "p": "MP - PRODUTO EXEMPLO 1 KG",
         "valor": 200000,
         "kg": 100000,
-        "caixas": 0
+        "caixas": 0,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        },
        {
         "p": "PRODUTO EXEMPLO EM CAIXA",
         "valor": 80000,
         "kg": 0,
-        "caixas": 4000
+        "caixas": 4000,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        }
       ]
      }
@@ -930,13 +3938,389 @@
         "p": "MP - PRODUTO EXEMPLO 1 KG",
         "valor": 200000,
         "kg": 100000,
-        "caixas": 0
+        "caixas": 0,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        },
        {
         "p": "PRODUTO EXEMPLO EM CAIXA",
         "valor": 80000,
         "kg": 0,
-        "caixas": 4000
+        "caixas": 4000,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        }
       ]
      },
@@ -957,13 +4341,389 @@
         "p": "MP - PRODUTO EXEMPLO 1 KG",
         "valor": 200000,
         "kg": 100000,
-        "caixas": 0
+        "caixas": 0,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        },
        {
         "p": "PRODUTO EXEMPLO EM CAIXA",
         "valor": 80000,
         "kg": 0,
-        "caixas": 4000
+        "caixas": 4000,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        }
       ]
      }
@@ -992,13 +4752,389 @@
         "p": "MP - PRODUTO EXEMPLO 1 KG",
         "valor": 200000,
         "kg": 100000,
-        "caixas": 0
+        "caixas": 0,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        },
        {
         "p": "PRODUTO EXEMPLO EM CAIXA",
         "valor": 80000,
         "kg": 0,
-        "caixas": 4000
+        "caixas": 4000,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        }
       ]
      },
@@ -1019,13 +5155,389 @@
         "p": "MP - PRODUTO EXEMPLO 1 KG",
         "valor": 200000,
         "kg": 100000,
-        "caixas": 0
+        "caixas": 0,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        },
        {
         "p": "PRODUTO EXEMPLO EM CAIXA",
         "valor": 80000,
         "kg": 0,
-        "caixas": 4000
+        "caixas": 4000,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        }
       ]
      }
@@ -1544,13 +6056,389 @@
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
       "kg": 150000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
       "kg": 70000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      }
     ],
     "FORNECEDOR EXEMPLO B": [
@@ -1558,13 +6446,389 @@
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
       "kg": 150000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
       "kg": 70000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      }
     ]
    },
@@ -1574,13 +6838,389 @@
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
       "kg": 150000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
       "kg": 70000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      }
     ],
     "FORNECEDOR EXEMPLO B": [
@@ -1588,13 +7228,389 @@
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
       "kg": 150000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
       "kg": 70000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      }
     ]
    },
@@ -1604,13 +7620,389 @@
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
       "kg": 150000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
       "kg": 70000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      }
     ],
     "FORNECEDOR EXEMPLO B": [
@@ -1618,13 +8010,389 @@
       "p": "MP - PRODUTO EXEMPLO 1 KG",
       "valor": 300000,
       "kg": 150000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      },
      {
       "p": "MP - PRODUTO EXEMPLO 2 KG",
       "valor": 150000,
       "kg": 70000,
-      "caixas": 0
+      "caixas": 0,
+      "serieAnoMes": {
+       "2024": [
+        {
+         "valor": 1000,
+         "kg": 100,
+         "caixas": 0
+        },
+        {
+         "valor": 2000,
+         "kg": 200,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4000,
+         "kg": 400,
+         "caixas": 0
+        },
+        {
+         "valor": 5000,
+         "kg": 500,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7000,
+         "kg": 700,
+         "caixas": 0
+        },
+        {
+         "valor": 8000,
+         "kg": 800,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10000,
+         "kg": 1000,
+         "caixas": 0
+        },
+        {
+         "valor": 11000,
+         "kg": 1100,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        }
+       ],
+       "2025": [
+        {
+         "valor": 1200,
+         "kg": 120,
+         "caixas": 0
+        },
+        {
+         "valor": 2400,
+         "kg": 240,
+         "caixas": 0
+        },
+        {
+         "valor": 3600,
+         "kg": 360,
+         "caixas": 0
+        },
+        {
+         "valor": 4800,
+         "kg": 480,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7200,
+         "kg": 720,
+         "caixas": 0
+        },
+        {
+         "valor": 8400,
+         "kg": 840,
+         "caixas": 0
+        },
+        {
+         "valor": 9600,
+         "kg": 960,
+         "caixas": 0
+        },
+        {
+         "valor": 10800,
+         "kg": 1080,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13200,
+         "kg": 1320,
+         "caixas": 0
+        },
+        {
+         "valor": 14400,
+         "kg": 1440,
+         "caixas": 0
+        }
+       ],
+       "2026": [
+        {
+         "valor": 1500,
+         "kg": 150,
+         "caixas": 0
+        },
+        {
+         "valor": 3000,
+         "kg": 300,
+         "caixas": 0
+        },
+        {
+         "valor": 4500,
+         "kg": 450,
+         "caixas": 0
+        },
+        {
+         "valor": 6000,
+         "kg": 600,
+         "caixas": 0
+        },
+        {
+         "valor": 7500,
+         "kg": 750,
+         "caixas": 0
+        },
+        {
+         "valor": 9000,
+         "kg": 900,
+         "caixas": 0
+        },
+        {
+         "valor": 10500,
+         "kg": 1050,
+         "caixas": 0
+        },
+        {
+         "valor": 12000,
+         "kg": 1200,
+         "caixas": 0
+        },
+        {
+         "valor": 13500,
+         "kg": 1350,
+         "caixas": 0
+        },
+        {
+         "valor": 15000,
+         "kg": 1500,
+         "caixas": 0
+        },
+        {
+         "valor": 16500,
+         "kg": 1650,
+         "caixas": 0
+        },
+        {
+         "valor": 18000,
+         "kg": 1800,
+         "caixas": 0
+        }
+       ]
+      }
      }
     ]
    },
@@ -1962,13 +8730,389 @@
         "p": "MP - PRODUTO EXEMPLO 1 KG",
         "valor": 200000,
         "kg": 100000,
-        "caixas": 0
+        "caixas": 0,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        },
        {
         "p": "PRODUTO EXEMPLO EM CAIXA",
         "valor": 80000,
         "kg": 0,
-        "caixas": 4000
+        "caixas": 4000,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        }
       ]
      },
@@ -1989,13 +9133,389 @@
         "p": "MP - PRODUTO EXEMPLO 1 KG",
         "valor": 200000,
         "kg": 100000,
-        "caixas": 0
+        "caixas": 0,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        },
        {
         "p": "PRODUTO EXEMPLO EM CAIXA",
         "valor": 80000,
         "kg": 0,
-        "caixas": 4000
+        "caixas": 4000,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        }
       ]
      }
@@ -2024,13 +9544,389 @@
         "p": "MP - PRODUTO EXEMPLO 1 KG",
         "valor": 200000,
         "kg": 100000,
-        "caixas": 0
+        "caixas": 0,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        },
        {
         "p": "PRODUTO EXEMPLO EM CAIXA",
         "valor": 80000,
         "kg": 0,
-        "caixas": 4000
+        "caixas": 4000,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        }
       ]
      },
@@ -2051,13 +9947,389 @@
         "p": "MP - PRODUTO EXEMPLO 1 KG",
         "valor": 200000,
         "kg": 100000,
-        "caixas": 0
+        "caixas": 0,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        },
        {
         "p": "PRODUTO EXEMPLO EM CAIXA",
         "valor": 80000,
         "kg": 0,
-        "caixas": 4000
+        "caixas": 4000,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        }
       ]
      }
@@ -2086,13 +10358,389 @@
         "p": "MP - PRODUTO EXEMPLO 1 KG",
         "valor": 200000,
         "kg": 100000,
-        "caixas": 0
+        "caixas": 0,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        },
        {
         "p": "PRODUTO EXEMPLO EM CAIXA",
         "valor": 80000,
         "kg": 0,
-        "caixas": 4000
+        "caixas": 4000,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        }
       ]
      },
@@ -2113,13 +10761,389 @@
         "p": "MP - PRODUTO EXEMPLO 1 KG",
         "valor": 200000,
         "kg": 100000,
-        "caixas": 0
+        "caixas": 0,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        },
        {
         "p": "PRODUTO EXEMPLO EM CAIXA",
         "valor": 80000,
         "kg": 0,
-        "caixas": 4000
+        "caixas": 4000,
+        "serieAnoMes": {
+         "2024": [
+          {
+           "valor": 1000,
+           "kg": 100,
+           "caixas": 0
+          },
+          {
+           "valor": 2000,
+           "kg": 200,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4000,
+           "kg": 400,
+           "caixas": 0
+          },
+          {
+           "valor": 5000,
+           "kg": 500,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7000,
+           "kg": 700,
+           "caixas": 0
+          },
+          {
+           "valor": 8000,
+           "kg": 800,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10000,
+           "kg": 1000,
+           "caixas": 0
+          },
+          {
+           "valor": 11000,
+           "kg": 1100,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          }
+         ],
+         "2025": [
+          {
+           "valor": 1200,
+           "kg": 120,
+           "caixas": 0
+          },
+          {
+           "valor": 2400,
+           "kg": 240,
+           "caixas": 0
+          },
+          {
+           "valor": 3600,
+           "kg": 360,
+           "caixas": 0
+          },
+          {
+           "valor": 4800,
+           "kg": 480,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7200,
+           "kg": 720,
+           "caixas": 0
+          },
+          {
+           "valor": 8400,
+           "kg": 840,
+           "caixas": 0
+          },
+          {
+           "valor": 9600,
+           "kg": 960,
+           "caixas": 0
+          },
+          {
+           "valor": 10800,
+           "kg": 1080,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13200,
+           "kg": 1320,
+           "caixas": 0
+          },
+          {
+           "valor": 14400,
+           "kg": 1440,
+           "caixas": 0
+          }
+         ],
+         "2026": [
+          {
+           "valor": 1500,
+           "kg": 150,
+           "caixas": 0
+          },
+          {
+           "valor": 3000,
+           "kg": 300,
+           "caixas": 0
+          },
+          {
+           "valor": 4500,
+           "kg": 450,
+           "caixas": 0
+          },
+          {
+           "valor": 6000,
+           "kg": 600,
+           "caixas": 0
+          },
+          {
+           "valor": 7500,
+           "kg": 750,
+           "caixas": 0
+          },
+          {
+           "valor": 9000,
+           "kg": 900,
+           "caixas": 0
+          },
+          {
+           "valor": 10500,
+           "kg": 1050,
+           "caixas": 0
+          },
+          {
+           "valor": 12000,
+           "kg": 1200,
+           "caixas": 0
+          },
+          {
+           "valor": 13500,
+           "kg": 1350,
+           "caixas": 0
+          },
+          {
+           "valor": 15000,
+           "kg": 1500,
+           "caixas": 0
+          },
+          {
+           "valor": 16500,
+           "kg": 1650,
+           "caixas": 0
+          },
+          {
+           "valor": 18000,
+           "kg": 1800,
+           "caixas": 0
+          }
+         ]
+        }
        }
       ]
      }

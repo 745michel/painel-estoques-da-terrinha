@@ -98,7 +98,8 @@ type FornecedorMetrica = {
   ticketMedioNota: number;
   serieMensalPreco: { mes: string; preco: number }[];
 };
-type FornecedorProduto = { p: string; valor: number; kg: number; caixas: number };
+type FornecedorProdutoMes = { valor: number; kg: number; caixas: number };
+type FornecedorProduto = { p: string; valor: number; kg: number; caixas: number; serieAnoMes?: Record<string, FornecedorProdutoMes[]> };
 type CompradorDado = { total: number; totalKg: number; fornecedores: number; ranking: FornecedorLinha[]; produtos: FornecedorProduto[] };
 type FornecedoresGrupo = {
   anoData: Record<string, { total: number; totalKg: number; fornecedores: number; top: FornecedorLinha[] }>;
@@ -1843,6 +1844,8 @@ function FornecedoresDashboard({
   const [selectedFornecedor, setSelectedFornecedor] = useState<string | null>(null);
   const [focoFornecedores, setFocoFornecedores] = useState<string[]>([]);
   const [compradorFiltro, setCompradorFiltro] = useState("");
+  const [buscaProduto, setBuscaProduto] = useState("");
+  const [produtoAberto, setProdutoAberto] = useState<{ nome: string; serieAnoMes: Record<string, FornecedorProdutoMes[]> } | null>(null);
 
   const [tlFornecedor, setTlFornecedor] = useState(grupoAtual.listaFornecedores[0] ?? "");
   const [tlMetrica, setTlMetrica] = useState<"kg" | "caixas">("kg");
@@ -1972,20 +1975,30 @@ function FornecedoresDashboard({
     return linhas;
   }
 
+  function abrirProduto(l: ReturnType<typeof produtosPorAno>[number]) {
+    const serie = anos.map((ano) => l.dados[ano].serieAnoMes).find((s) => s != null);
+    if (serie) setProdutoAberto({ nome: l.nome, serieAnoMes: serie });
+  }
+
   function renderTabelaProdutos(linhas: ReturnType<typeof produtosPorAno>) {
     if (linhas.length === 0) return <div className="empty-state"><strong>Sem produto registrado</strong><p>Nenhuma compra no período selecionado.</p></div>;
-    return <div className="table-wrap forn-produtos-tabela-wrap"><table className="values-table forn-produtos-tabela"><thead><tr>
-      <th>Produto</th>
-      {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>])}
-    </tr></thead><tbody>
-      {linhas.map((l) => <tr key={l.nome}>
-        <td><div className="product-cell"><div><strong>{l.nome}</strong></div></div></td>
-        {anos.flatMap((ano) => [
-          <td key={`${ano}-v`}>{l.dados[ano].valor ? <strong className="money-value">{currency.format(l.dados[ano].valor)}</strong> : <span className="price-missing">—</span>}</td>,
-          <td key={`${ano}-q`}>{qtdCaixaOuKg(l.dados[ano]) || "—"}</td>,
-        ])}
-      </tr>)}
-    </tbody></table></div>;
+    const buscaNorm = buscaProduto.trim().toLocaleLowerCase("pt-BR");
+    const filtradas = buscaNorm ? linhas.filter((l) => l.nome.toLocaleLowerCase("pt-BR").includes(buscaNorm)) : linhas;
+    return <>
+      <label className="forn-produto-busca"><span>⌕</span><input value={buscaProduto} onChange={(event) => setBuscaProduto(event.target.value)} placeholder="Buscar produto..." /></label>
+      {filtradas.length === 0 ? <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Tente outro termo de busca.</p></div> : <div className="table-wrap forn-produtos-tabela-wrap"><table className="values-table forn-produtos-tabela"><thead><tr>
+        <th>Produto</th>
+        {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>])}
+      </tr></thead><tbody>
+        {filtradas.map((l) => <tr key={l.nome} onClick={() => abrirProduto(l)} style={{ cursor: "pointer" }}>
+          <td><div className="product-cell"><div><strong>{l.nome}</strong></div></div></td>
+          {anos.flatMap((ano) => [
+            <td key={`${ano}-v`}>{l.dados[ano].valor ? <strong className="money-value">{currency.format(l.dados[ano].valor)}</strong> : <span className="price-missing">—</span>}</td>,
+            <td key={`${ano}-q`}>{qtdCaixaOuKg(l.dados[ano]) || "—"}</td>,
+          ])}
+        </tr>)}
+      </tbody></table></div>}
+    </>;
   }
 
   const produtosPorFornecedorFoco = focoFornecedores.map((f) => ({ fornecedor: f, linhas: produtosPorAno((ano) => grupoAtual.produtos[ano]?.[f] ?? []) }));
@@ -2271,6 +2284,37 @@ function FornecedoresDashboard({
           <span className="pr-val">{currency.format(p.valor)}{qtdCaixaOuKg(p) && <span className="pr-kg"> · {qtdCaixaOuKg(p)}</span>}</span>
         </div>)}
         <p className="drawer-note">Tudo aqui segue o ano selecionado no ranking (ou o período completo, se &quot;Todos&quot; estiver selecionado). Preço médio e variação só existem pra quem compra por peso (kg/ton) — fornecedor de caixa/unidade fica sem esses dois.</p>
+      </div>
+    </div>}
+
+    {produtoAberto && <div className="drawer-backdrop" onClick={() => setProdutoAberto(null)}>
+      <div className="drawer forn-produto-drawer" onClick={(event) => event.stopPropagation()}>
+        <button className="drawer-close" onClick={() => setProdutoAberto(null)}>×</button>
+        <p className="eyebrow">HISTÓRICO MENSAL</p>
+        <h2>{produtoAberto.nome}</h2>
+        <div className="table-wrap"><table className="values-table forn-produto-mes-tabela"><thead><tr>
+          <th>Mês</th>
+          <th>{anos[0]} · Valor</th>
+          <th>{anos[0]} · Kg/Caixa</th>
+          {anos[1] && <th>{anos[1]} · Valor</th>}
+          {anos[1] && <th>{anos[1]} · Kg/Caixa</th>}
+          {anos[1] && <th>% comparação</th>}
+        </tr></thead><tbody>
+          {FORN_MESES.map((mesLabel, i) => {
+            const anoA = produtoAberto.serieAnoMes[anos[0]]?.[i] ?? { valor: 0, kg: 0, caixas: 0 };
+            const anoB = anos[1] ? produtoAberto.serieAnoMes[anos[1]]?.[i] ?? { valor: 0, kg: 0, caixas: 0 } : null;
+            const pct = anoB && anoA.valor > 0 ? ((anoB.valor - anoA.valor) / anoA.valor) * 100 : null;
+            return <tr key={mesLabel}>
+              <td style={{ textTransform: "capitalize" }}>{mesLabel}</td>
+              <td>{anoA.valor ? <strong className="money-value">{currency.format(anoA.valor)}</strong> : <span className="price-missing">—</span>}</td>
+              <td>{qtdCaixaOuKg(anoA) || "—"}</td>
+              {anoB && <td>{anoB.valor ? <strong className="money-value">{currency.format(anoB.valor)}</strong> : <span className="price-missing">—</span>}</td>}
+              {anoB && <td>{qtdCaixaOuKg(anoB) || "—"}</td>}
+              {anoB && <td>{pct != null ? <strong className={pct >= 0 ? "up" : "down"}>{pct >= 0 ? "+" : ""}{decimal.format(pct)}%</strong> : "—"}</td>}
+            </tr>;
+          })}
+        </tbody></table></div>
+        <p className="drawer-note">% comparação = variação do valor pago em {anos[1]} contra o mesmo mês de {anos[0]}.</p>
       </div>
     </div>}
   </main>;
