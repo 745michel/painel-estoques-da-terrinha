@@ -1937,7 +1937,6 @@ function FornecedoresDashboard({
   function mudarFocoFornecedores(valores: string[]) {
     setFocoFornecedores(valores);
     if (valores.length > 0) {
-      setCompradorFiltro("");
       setTlFornecedor(valores[0]);
     }
   }
@@ -2072,7 +2071,7 @@ function FornecedoresDashboard({
 
         {focoFornecedores.length > 0 ? (
           <section className="value-kpis" aria-label={`Indicadores de ${focoFornecedores.join(", ")}`}>
-            <div className="value-kpi total"><span>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}){focoFornecedores.length > 1 ? ` · ${focoFornecedores.length} fornecedores` : ""}</span><strong>{currency.format(metricaFocoCombinada?.valor ?? 0)}</strong><small>Líquido de estorno e devolução de compra</small></div>
+            <div className="value-kpi total"><span>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}){compradorFiltro ? ` · comprador: ${compradorFiltro}` : ""}{focoFornecedores.length > 1 ? ` · ${focoFornecedores.length} fornecedores` : ""}</span><strong>{currency.format(metricaFocoCombinada?.valor ?? 0)}</strong><small>Líquido de estorno e devolução de compra</small></div>
             <div className="value-kpi"><span>Kg/Caixa comprado</span><strong>{metricaFocoCombinada && qtdCaixaOuKg(metricaFocoCombinada) || "não pesado (cx/un)"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi"><span>Preço médio</span><strong>{metricaFocoCombinada?.precoMedioKg != null ? `${currency.format(metricaFocoCombinada.precoMedioKg)}/kg` : "—"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi missing"><span>Variação de preço</span><strong className={metricaFocoCombinada?.variacaoPrecoPct == null ? "" : metricaFocoCombinada.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaFocoCombinada?.variacaoPrecoPct != null ? `${metricaFocoCombinada.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaFocoCombinada.variacaoPrecoPct)}%` : focoFornecedores.length > 1 ? "vários" : "—"}</strong><small>&nbsp;</small></div>
@@ -2229,7 +2228,7 @@ function FornecedoresDashboard({
         </section>}
 
         {produtosPorFornecedorFoco.map(({ fornecedor, linhas }) => <section className="inventory-panel forn-produtos-foco" key={fornecedor}>
-          <div className="panel-heading"><div><h2>Principais produtos · {fornecedor}</h2><p>Por ano — {anos.join(" e ")}</p></div></div>
+          <div className="panel-heading"><div><h2>Principais produtos · {fornecedor}</h2><p>Por ano — {anos.join(" e ")}{compradorFiltro ? ` · comprador: ${compradorFiltro}` : ""}</p></div></div>
           {renderTabelaProdutos(linhas)}
         </section>)}
         <footer>Fonte: {fornecedoresData.fonte} · TIPO_OPERACAO=Compra · Matéria-prima = Departamento &quot;Compras&quot;, Produto acabado = &quot;Produto de venda&quot; (nunca somados).</footer>

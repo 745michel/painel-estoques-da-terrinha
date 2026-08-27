@@ -330,6 +330,24 @@ os mesmos terceiros/coempacotadores que só fazem sentido em caixa). Duas mudan�
    filtrado; a gaveta lateral (`selectedFornecedor`, mais estreita) manteve a lista simples de
    antes — uma tabela de 5 colunas não cabe bem em 440px.
 
+**Dois bugs corrigidos, mesmo dia (27/08/2026)**:
+1. Escolher um fornecedor no filtro "Focar fornecedores" enquanto um comprador estava
+   filtrado limpava o comprador (`mudarFocoFornecedores` chamava `setCompradorFiltro("")`)
+   — pedido explícito pra não acontecer: "quando eu clico no comprador e escolho o
+   fornecedor, o comprador some, não pode acontecer". `rankingContexto` já filtrava os dois
+   em conjunto corretamente (comprador restringe a lista, foco filtra ainda mais) — só a
+   limpeza indevida do estado foi removida. Cabeçalhos (KPI e "Principais produtos") agora
+   mostram o comprador ativo também quando um fornecedor específico dele está focado.
+2. Produtos com nome quase igual entre notas (abreviação inconsistente na origem — ex.:
+   "BATATA PALHA DT TRADICIONAL" x "BATATA PALHA DA TERRINHA TRADICIONAL", "DT" = "DA
+   TERRINHA") apareciam como duas linhas separadas em "Principais produtos", cada uma com
+   valor/kg parciais. `normalizar_produto_chave()` (novo, `build_fornecedores.py`) expande
+   `\bDT\b` → "DA TERRINHA" só pra fins de **agrupamento** (`AcumuladorGrupo.chave_produto`) —
+   o nome exibido continua o original, escolhendo a variante mais completa (mais caracteres)
+   entre as que apareceram (`nomes_canonicos`). Validado: ART FRITAS INDUSTRIA 2026 —
+   "BATATA PALHA DA TERRINHA TRADICIONAL 100G - CX20" foi de duas linhas (R$3.174.273 +
+   R$501.316) pra uma só (R$3.675.589), soma batendo exato.
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 
