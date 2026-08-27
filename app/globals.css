@@ -179,8 +179,6 @@ th{color:#46594e;font-size:8px;font-weight:800}td{color:#20352a;font-size:10px}.
 .forn-produtos-tabela th:first-child,.forn-produtos-tabela td:first-child{min-width:260px}
 .forn-produtos-tabela th:not(:first-child),.forn-produtos-tabela td:not(:first-child){text-align:right;white-space:nowrap}
 .forn-produtos-tabela td{padding:8px 12px}
-.forn-produto-busca{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #cfdad3;border-radius:9px;padding:8px 12px;margin-bottom:12px;max-width:320px}
-.forn-produto-busca input{border:0;outline:0;width:100%;color:var(--ink);font-size:10px;background:transparent}
 .forn-produto-drawer{width:min(920px,94vw);padding:26px}
 .forn-produto-mes-tabela{min-width:0!important;table-layout:auto}
 .forn-produto-mes-tabela th,.forn-produto-mes-tabela td{padding:10px 14px;font-size:9px;min-width:0!important}

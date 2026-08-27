@@ -1985,7 +1985,6 @@ function FornecedoresDashboard({
     const buscaNorm = buscaProduto.trim().toLocaleLowerCase("pt-BR");
     const filtradas = buscaNorm ? linhas.filter((l) => l.nome.toLocaleLowerCase("pt-BR").includes(buscaNorm)) : linhas;
     return <>
-      <label className="forn-produto-busca"><span>⌕</span><input value={buscaProduto} onChange={(event) => setBuscaProduto(event.target.value)} placeholder="Buscar produto..." /></label>
       {filtradas.length === 0 ? <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Tente outro termo de busca.</p></div> : <div className="table-wrap forn-produtos-tabela-wrap"><table className="values-table forn-produtos-tabela"><thead><tr>
         <th>Produto</th>
         {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>])}
@@ -2074,6 +2073,11 @@ function FornecedoresDashboard({
               <option value="">Ver todos os fornecedores</option>
               {grupoAtual.compradores.listaCompradores.map((c) => <option key={c} value={c}>{c}</option>)}
             </select>
+          </label>
+
+          <label className="forn-foco-input">
+            <span>⌕</span>
+            <input value={buscaProduto} onChange={(event) => setBuscaProduto(event.target.value)} placeholder="Buscar produto em Principais produtos..." />
           </label>
         </div>
 

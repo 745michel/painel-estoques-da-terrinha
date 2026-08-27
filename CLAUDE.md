@@ -357,9 +357,17 @@ valor do ano mais recente contra o mesmo mês do ano anterior — mesma convenç
 (novo em `build_fornecedores.py`, mesma ideia de `serie_mes` só que também guardando o produto,
 não só o fornecedor) — anexado como `serieAnoMes` em cada linha de produto (só nos escopos de
 ano real, não em "todos", pra não duplicar à toa). Tamanho do arquivo subiu de ~2,5 MB pra
-~3,5 MB — ainda ok pra baixar uma vez só ao abrir a aba. Também adicionado um campo de busca
-(`.forn-produto-busca`) no topo de toda tabela de "Principais produtos" (foco por fornecedor e
-comprador filtrado), filtro simples por nome contido.
+~3,5 MB — ainda ok pra baixar uma vez só ao abrir a aba.
+
+**Sem limite de 6 produtos + busca no topo (27/08/2026, mesmo dia)**: pedido do usuário —
+"tudo que eu compre do fornecedor selecionado". `TOP_PRODUTOS` em `build_fornecedores.py`
+virou `None` (sem corte) — "Principais produtos" mostra todos os itens comprados daquele
+fornecedor/comprador, não só os 6 mais caros (fornecedor com mais SKUs distintos chegou a 120
+produtos; a maioria fica bem abaixo disso, média de ~3). Arquivo subiu de ~3,5 MB pra ~6 MB —
+ainda razoável pra um download único. O campo de busca (antes duplicado dentro de cada tabela
+de "Principais produtos") subiu pro topo da página, na mesma linha dos outros filtros
+(`.forn-foco-filter`, ao lado de "Focar fornecedores" e do `<select>` de comprador) — um só
+campo, filtra qualquer tabela de produtos que estiver visível na tela.
 
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
