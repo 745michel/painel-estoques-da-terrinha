@@ -387,6 +387,14 @@ mesma linha dos outros filtros) reverte isso quando marcado. Continuam escolhív
 "Focar fornecedores" independente do checkbox — selecionar um deles ali pula a exclusão (senão
 a lista ficaria vazia depois de filtrar pelo nome escolhido).
 
+**Custo unitário em "Principais produtos" (27/08/2026, mesmo dia)**: `custoUnitario()` (novo,
+igual `qtdCaixaOuKg()` na lógica de escolher caixa vs kg — `valor / caixas` quando tem caixa,
+senão `valor / kg`) — diferente do "valor por kg" que foi removido antes por pedido explícito
+("não quero valor por kg"), esse divide pela unidade certa em vez de sempre kg. Só na tabela
+"Principais produtos" (mais uma coluna por ano, cabe bem — tabela é full-width). Não adicionado
+no card de histórico mensal (`.forn-produto-mes-tabela`) de propósito — já tinha tido problema
+de coluna sobrando ali antes, e dá pra calcular de cabeça a partir de Valor/Kg-Caixa que já tem.
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 

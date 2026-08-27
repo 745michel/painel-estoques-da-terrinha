@@ -1994,13 +1994,14 @@ function FornecedoresDashboard({
     return <>
       {filtradas.length === 0 ? <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Tente outro termo de busca.</p></div> : <div className="table-wrap forn-produtos-tabela-wrap"><table className="values-table forn-produtos-tabela"><thead><tr>
         <th>Produto</th>
-        {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>])}
+        {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>, <th key={`${ano}-c`}>{ano} · Custo unitário</th>])}
       </tr></thead><tbody>
         {filtradas.map((l) => <tr key={l.nome} onClick={() => abrirProduto(l)} style={{ cursor: "pointer" }}>
           <td><div className="product-cell"><div><strong>{l.nome}</strong></div></div></td>
           {anos.flatMap((ano) => [
             <td key={`${ano}-v`}>{l.dados[ano].valor ? <strong className="money-value">{currency.format(l.dados[ano].valor)}</strong> : <span className="price-missing">—</span>}</td>,
             <td key={`${ano}-q`}>{qtdCaixaOuKg(l.dados[ano]) || "—"}</td>,
+            <td key={`${ano}-c`}>{custoUnitario(l.dados[ano]) || "—"}</td>,
           ])}
         </tr>)}
       </tbody></table></div>}
@@ -2025,6 +2026,12 @@ function FornecedoresDashboard({
   function qtdCaixaOuKg(p: { kg: number; caixas: number }) {
     if (p.caixas > 0) return `${number.format(Math.round(p.caixas))} cx`;
     if (p.kg > 0) return `${number.format(Math.round(p.kg))} kg`;
+    return "";
+  }
+
+  function custoUnitario(p: { valor: number; kg: number; caixas: number }) {
+    if (p.caixas > 0) return `${currency.format(p.valor / p.caixas)}/cx`;
+    if (p.kg > 0) return `${currency.format(p.valor / p.kg)}/kg`;
     return "";
   }
 
