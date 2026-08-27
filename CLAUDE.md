@@ -407,6 +407,18 @@ linha e reaproveita `custoUnitario()` no front, garantindo a mesma unidade das o
 Nova coluna "Preço última NF" na tabela "Principais produtos" (não no card mensal, mesmo motivo
 do custo unitário — já apertado).
 
+**"Principais produtos" soma quando N fornecedores focados (27/08/2026, mesmo dia)**: pedido
+explícito — "quando eu escolher dois fornecedores... pode juntar os valores kg ou caixa, pois
+vou analisar tudo que foi comprado nessa aba". Antes, cada fornecedor selecionado em "Focar
+fornecedores" ganhava sua própria seção/tabela de produtos separada — confuso (o usuário achou
+que o filtro de busca "não funcionava" porque tinha várias tabelas soltas). `somarProdutos()`
+(novo) funde as listas de todos os fornecedores focados pelo **nome do produto** — mesmo produto
+em fornecedores diferentes vira uma linha só, valor/kg/caixas somados, `serieAnoMes` somado
+mês a mês também (pro card de histórico continuar correto quando clicado). `ultimaNf` fica
+`undefined` quando o produto veio de mais de um fornecedor — não dá pra saber "a última NF de
+qual dos dois" de forma não ambígua, melhor mostrar "—" do que um valor questionável. Uma
+tabela só agora, título muda pra "N fornecedores (somado)" quando mais de um está selecionado.
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 

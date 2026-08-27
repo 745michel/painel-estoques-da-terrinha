@@ -1963,6 +1963,35 @@ function FornecedoresDashboard({
     ? (grupoAtual.compradores.porComprador[escopoGaveta]?.[compradorFiltro]?.ranking.map((r) => r.f) ?? [])
     : grupoAtual.listaFornecedores;
 
+  function somarProdutos(listas: FornecedorProduto[][]): FornecedorProduto[] {
+    const porNome = new Map<string, FornecedorProduto>();
+    for (const lista of listas) {
+      for (const p of lista) {
+        const atual = porNome.get(p.p);
+        if (!atual) {
+          porNome.set(p.p, { ...p });
+          continue;
+        }
+        atual.valor += p.valor;
+        atual.kg += p.kg;
+        atual.caixas += p.caixas;
+        if (p.serieAnoMes) {
+          atual.serieAnoMes = atual.serieAnoMes ?? {};
+          for (const ano of Object.keys(p.serieAnoMes)) {
+            const mesesP = p.serieAnoMes[ano];
+            const mesesAtual = atual.serieAnoMes[ano];
+            atual.serieAnoMes[ano] = mesesAtual
+              ? mesesP.map((m, i) => ({ valor: m.valor + mesesAtual[i].valor, kg: m.kg + mesesAtual[i].kg, caixas: m.caixas + mesesAtual[i].caixas }))
+              : mesesP.map((m) => ({ ...m }));
+          }
+        }
+        // preco da ultima NF fica ambiguo somando fornecedores diferentes
+        atual.ultimaNf = undefined;
+      }
+    }
+    return [...porNome.values()];
+  }
+
   function produtosPorAno(getLista: (ano: string) => FornecedorProduto[]) {
     const porAno: Record<string, FornecedorProduto[]> = {};
     for (const ano of anos) porAno[ano] = getLista(ano);
@@ -2012,7 +2041,9 @@ function FornecedoresDashboard({
     </>;
   }
 
-  const produtosPorFornecedorFoco = focoFornecedores.map((f) => ({ fornecedor: f, linhas: produtosPorAno((ano) => grupoAtual.produtos[ano]?.[f] ?? []) }));
+  const produtosFocoCombinado = focoFornecedores.length > 0
+    ? produtosPorAno((ano) => somarProdutos(focoFornecedores.map((f) => grupoAtual.produtos[ano]?.[f] ?? [])))
+    : [];
   const metricasFoco = focoFornecedores
     .map((f) => grupoAtual.metricas[escopoGaveta]?.[f])
     .filter((m): m is FornecedorMetrica => m != null);
@@ -2267,10 +2298,10 @@ function FornecedoresDashboard({
           {buscaNormalizada && <p className="forn-table-limit-note">{filtradoCompleto.length} fornecedor{filtradoCompleto.length === 1 ? "" : "es"} encontrado{filtradoCompleto.length === 1 ? "" : "s"} pra &quot;{query}&quot;.</p>}
         </section>}
 
-        {produtosPorFornecedorFoco.map(({ fornecedor, linhas }) => <section className="inventory-panel forn-produtos-foco" key={fornecedor}>
-          <div className="panel-heading"><div><h2>Principais produtos · {fornecedor}</h2><p>Por ano — {anos.join(" e ")}{compradorFiltro ? ` · comprador: ${compradorFiltro}` : ""}</p></div></div>
-          {renderTabelaProdutos(linhas)}
-        </section>)}
+        {focoFornecedores.length > 0 && <section className="inventory-panel forn-produtos-foco">
+          <div className="panel-heading"><div><h2>Principais produtos · {focoFornecedores.length > 1 ? `${focoFornecedores.length} fornecedores (somado)` : focoFornecedores[0]}</h2><p>Por ano — {anos.join(" e ")}{compradorFiltro ? ` · comprador: ${compradorFiltro}` : ""}</p></div></div>
+          {renderTabelaProdutos(produtosFocoCombinado)}
+        </section>}
         <footer>Fonte: {fornecedoresData.fonte} · TIPO_OPERACAO=Compra · Matéria-prima = Departamento &quot;Compras&quot;, Produto acabado = &quot;Produto de venda&quot; (nunca somados).</footer>
       </div>
     </section>
