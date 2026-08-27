@@ -395,6 +395,18 @@ senão `valor / kg`) — diferente do "valor por kg" que foi removido antes por 
 no card de histórico mensal (`.forn-produto-mes-tabela`) de propósito — já tinha tido problema
 de coluna sobrando ali antes, e dá pra calcular de cabeça a partir de Valor/Kg-Caixa que já tem.
 
+**Preço da última NF (27/08/2026, mesmo dia)**: pedido do usuário — quer o preço unitário só
+da nota fiscal mais recente, separado do custo médio ponderado do período. `ultima_nf_fornecedor`/
+`ultima_nf_comprador` (novo, `build_fornecedores.py`) guarda, por fornecedor/comprador +
+produto, a linha com `data_emissao` mais recente (comparação de string ISO, funciona porque o
+formato já vem `AAAA-MM-DD...`) — **não** usa o campo `custo_liq_unit` da fonte porque ele é
+sempre por kg/unidade base, mesmo pra produto de caixa (confirmado: `custo_liq_unit ==
+Custo_liquido_total/volume_kgs` em toda amostra testada) — inconsistente com a coluna de custo
+unitário já existente, que às vezes é por caixa. Em vez disso guarda valor/kg/caixas da própria
+linha e reaproveita `custoUnitario()` no front, garantindo a mesma unidade das outras colunas.
+Nova coluna "Preço última NF" na tabela "Principais produtos" (não no card mensal, mesmo motivo
+do custo unitário — já apertado).
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 

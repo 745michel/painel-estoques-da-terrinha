@@ -99,7 +99,7 @@ type FornecedorMetrica = {
   serieMensalPreco: { mes: string; preco: number }[];
 };
 type FornecedorProdutoMes = { valor: number; kg: number; caixas: number };
-type FornecedorProduto = { p: string; valor: number; kg: number; caixas: number; serieAnoMes?: Record<string, FornecedorProdutoMes[]> };
+type FornecedorProduto = { p: string; valor: number; kg: number; caixas: number; serieAnoMes?: Record<string, FornecedorProdutoMes[]>; ultimaNf?: FornecedorProdutoMes };
 type CompradorDado = { total: number; totalKg: number; fornecedores: number; ranking: FornecedorLinha[]; produtos: FornecedorProduto[] };
 type FornecedoresGrupo = {
   anoData: Record<string, { total: number; totalKg: number; fornecedores: number; top: FornecedorLinha[] }>;
@@ -1971,12 +1971,14 @@ function FornecedoresDashboard({
     const linhas = [...nomes].map((nome) => {
       const dados: Record<string, FornecedorProduto> = {};
       let valorTotal = 0;
+      let ultimaNf: FornecedorProdutoMes | undefined;
       for (const ano of anos) {
         const item = porAno[ano].find((p) => p.p === nome);
         dados[ano] = item ?? { p: nome, valor: 0, kg: 0, caixas: 0 };
         valorTotal += dados[ano].valor;
+        if (item?.ultimaNf) ultimaNf = item.ultimaNf;
       }
-      return { nome, dados, valorTotal };
+      return { nome, dados, valorTotal, ultimaNf };
     });
     linhas.sort((a, b) => b.valorTotal - a.valorTotal);
     return linhas;
@@ -1995,6 +1997,7 @@ function FornecedoresDashboard({
       {filtradas.length === 0 ? <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Tente outro termo de busca.</p></div> : <div className="table-wrap forn-produtos-tabela-wrap"><table className="values-table forn-produtos-tabela"><thead><tr>
         <th>Produto</th>
         {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>, <th key={`${ano}-c`}>{ano} · Custo unitário</th>])}
+        <th>Preço última NF</th>
       </tr></thead><tbody>
         {filtradas.map((l) => <tr key={l.nome} onClick={() => abrirProduto(l)} style={{ cursor: "pointer" }}>
           <td><div className="product-cell"><div><strong>{l.nome}</strong></div></div></td>
@@ -2003,6 +2006,7 @@ function FornecedoresDashboard({
             <td key={`${ano}-q`}>{qtdCaixaOuKg(l.dados[ano]) || "—"}</td>,
             <td key={`${ano}-c`}>{custoUnitario(l.dados[ano]) || "—"}</td>,
           ])}
+          <td>{l.ultimaNf ? custoUnitario(l.ultimaNf) || "—" : "—"}</td>
         </tr>)}
       </tbody></table></div>}
     </>;
