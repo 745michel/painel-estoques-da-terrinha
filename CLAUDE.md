@@ -308,6 +308,28 @@ os mesmos terceiros/coempacotadores que só fazem sentido em caixa). Duas mudan�
    quantidade de fornecedor: coluna da tabela (agora "Kg/Caixa comprado"), KPI da visão de
    foco, e o stat da gaveta lateral.
 
+**Foco multi-fornecedor + tabela de produtos por ano (27/08/2026)**: dois pedidos do usuário.
+1. "Gostaria de filtrar mais de um fornecedor" — o filtro "Focar num fornecedor específico"
+   (antes um `<input>` com datalist, um valor só) virou `focoFornecedores: string[]`,
+   usando o mesmo componente `MultiFilter` (checkbox + busca) já usado em Terceiros/Insumos —
+   consistência de UI, sem inventar componente novo. Com N fornecedores selecionados: KPIs
+   somam valor/kg/caixas dos N (`metricaFocoCombinada` — preço médio recalculado do zero por
+   `valorTotal/kgTotal`, corretamente ponderado; variação de preço só existe com exatamente 1
+   selecionado, com N>1 mostra "vários"), a tabela principal fica restrita a esses N
+   fornecedores (mesmo mecanismo do filtro de comprador — filtra `rankingContexto.lista` por
+   nome), e aparece uma seção "Principais produtos" **por fornecedor** (não uma lista
+   combinada — evita ambiguidade se dois fornecedores tiverem produto de nome parecido).
+2. "Quando clicar no fornecedor mostra tudo que ele comprou aqui, com números de 2025 e 2026,
+   com coluna de valor e kg ou caixa" — a lista simples de produtos (`.product-row`, só um
+   ano por vez, olhando `escopoGaveta`) virou tabela de verdade (`produtosPorAno()` +
+   `renderTabelaProdutos()`): uma linha por produto, colunas Valor e Kg/Caixa **para cada ano**
+   (2025 e 2026 lado a lado), ordenada pelo valor total somado dos dois anos. Casa produto por
+   nome entre os dois anos — se um produto só foi top 6 num dos anos, o outro ano fica "—"
+   nessa linha (aproximação aceitável pra uma visão de "principais produtos", não uma lista
+   exaustiva). Usada na visão de foco (por fornecedor) e no "Principais produtos" do comprador
+   filtrado; a gaveta lateral (`selectedFornecedor`, mais estreita) manteve a lista simples de
+   antes — uma tabela de 5 colunas não cabe bem em 440px.
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 

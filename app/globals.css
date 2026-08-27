@@ -174,4 +174,9 @@ th{color:#46594e;font-size:8px;font-weight:800}td{color:#20352a;font-size:10px}.
 .forn-foco-clear{border:1px solid #d7e2db;background:#fff;color:#2b684d;border-radius:9px;padding:9px 13px;font-size:10px;font-weight:750;white-space:nowrap}
 .forn-foco-clear:hover{border-color:#77a88d;background:#eff7f2}
 .forn-produtos-foco{min-height:0}
+.forn-produtos-tabela-wrap{min-height:0;max-height:min(60vh,520px)}
+.forn-produtos-tabela{min-width:0;width:100%}
+.forn-produtos-tabela th:first-child,.forn-produtos-tabela td:first-child{min-width:260px}
+.forn-produtos-tabela th:not(:first-child),.forn-produtos-tabela td:not(:first-child){text-align:right;white-space:nowrap}
+.forn-produtos-tabela td{padding:8px 12px}
 @media(max-width:1050px){.forn-timeline-row{grid-template-columns:1fr}}

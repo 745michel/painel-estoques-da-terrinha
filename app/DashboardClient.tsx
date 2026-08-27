@@ -1841,8 +1841,7 @@ function FornecedoresDashboard({
   const anoRanking = anos.includes(anoAtivo) ? anoAtivo : anoMaisRecente;
   const [query, setQuery] = useState("");
   const [selectedFornecedor, setSelectedFornecedor] = useState<string | null>(null);
-  const [focoFornecedor, setFocoFornecedor] = useState<string | null>(null);
-  const [focoBusca, setFocoBusca] = useState("");
+  const [focoFornecedores, setFocoFornecedores] = useState<string[]>([]);
   const [compradorFiltro, setCompradorFiltro] = useState("");
 
   const [tlFornecedor, setTlFornecedor] = useState(grupoAtual.listaFornecedores[0] ?? "");
@@ -1856,8 +1855,7 @@ function FornecedoresDashboard({
     setAnoAtivo(novosAnos[novosAnos.length - 1] ?? "");
     setQuery("");
     setSelectedFornecedor(null);
-    setFocoFornecedor(null);
-    setFocoBusca("");
+    setFocoFornecedores([]);
     setCompradorFiltro("");
     const primeiroFornecedor = novoGrupoData.listaFornecedores[0] ?? "";
     setTlFornecedor(primeiroFornecedor);
@@ -1880,20 +1878,23 @@ function FornecedoresDashboard({
   }, [grupoAtual, anos]);
 
   const rankingContexto = useMemo(() => {
+    let base;
     if (compradorFiltro) {
       const escopo = anoRanking === "todos" ? "todos" : anoRanking;
-      const dado = grupoAtual.compradores.porComprador[escopo]?.[compradorFiltro];
-      if (!dado) return { lista: [], total: 0, totalKg: 0, fornecedores: 0 };
-      return { lista: dado.ranking, total: dado.total, totalKg: dado.totalKg, fornecedores: dado.fornecedores };
+      base = grupoAtual.compradores.porComprador[escopo]?.[compradorFiltro]?.ranking ?? [];
+    } else if (anoRanking === "todos" || !grupoAtual.anoData[anoRanking]) {
+      base = combinadoTop;
+    } else {
+      base = grupoAtual.anoData[anoRanking].top;
     }
-    if (anoRanking === "todos" || !grupoAtual.anoData[anoRanking]) {
-      const total = combinadoTop.reduce((s, r) => s + r.valor, 0);
-      const totalKg = combinadoTop.reduce((s, r) => s + r.kg, 0);
-      return { lista: combinadoTop, total, totalKg, fornecedores: grupoAtual.listaFornecedores.length };
+    if (focoFornecedores.length > 0) {
+      const set = new Set(focoFornecedores);
+      base = base.filter((r) => set.has(r.f));
     }
-    const d = grupoAtual.anoData[anoRanking];
-    return { lista: d.top, total: d.total, totalKg: d.totalKg, fornecedores: d.fornecedores };
-  }, [anoRanking, grupoAtual, combinadoTop, compradorFiltro]);
+    const total = base.reduce((s, r) => s + r.valor, 0);
+    const totalKg = base.reduce((s, r) => s + r.kg, 0);
+    return { lista: base, total, totalKg, fornecedores: base.length };
+  }, [anoRanking, grupoAtual, combinadoTop, compradorFiltro, focoFornecedores]);
 
   const rankingOrdenado = useMemo(() => [...rankingContexto.lista].sort((a, b) => b.valor - a.valor), [rankingContexto]);
 
@@ -1933,17 +1934,18 @@ function FornecedoresDashboard({
   const metricaGaveta = selectedFornecedor ? grupoAtual.metricas[escopoGaveta]?.[selectedFornecedor] ?? null : null;
   const produtosGaveta = selectedFornecedor ? grupoAtual.produtos[escopoGaveta]?.[selectedFornecedor] ?? [] : [];
 
-  function focarFornecedor(fornecedor: string) {
-    setFocoFornecedor(fornecedor);
-    setFocoBusca(fornecedor);
-    setTlFornecedor(fornecedor);
+  function mudarFocoFornecedores(valores: string[]) {
+    setFocoFornecedores(valores);
+    if (valores.length > 0) {
+      setCompradorFiltro("");
+      setTlFornecedor(valores[0]);
+    }
   }
 
   function escolherComprador(comprador: string) {
     setCompradorFiltro(comprador);
     if (!comprador) return;
-    setFocoFornecedor(null);
-    setFocoBusca("");
+    setFocoFornecedores([]);
     const topFornecedor = grupoAtual.compradores.porComprador[escopoGaveta]?.[comprador]?.ranking[0]?.f;
     if (topFornecedor) setTlFornecedor(topFornecedor);
   }
@@ -1952,9 +1954,55 @@ function FornecedoresDashboard({
     ? (grupoAtual.compradores.porComprador[escopoGaveta]?.[compradorFiltro]?.ranking.map((r) => r.f) ?? [])
     : grupoAtual.listaFornecedores;
 
-  const metricaFoco = focoFornecedor ? grupoAtual.metricas[escopoGaveta]?.[focoFornecedor] ?? null : null;
-  const produtosFoco = focoFornecedor ? grupoAtual.produtos[escopoGaveta]?.[focoFornecedor] ?? [] : [];
-  const produtosComprador = compradorFiltro ? grupoAtual.compradores.porComprador[escopoGaveta]?.[compradorFiltro]?.produtos ?? [] : [];
+  function produtosPorAno(getLista: (ano: string) => FornecedorProduto[]) {
+    const porAno: Record<string, FornecedorProduto[]> = {};
+    for (const ano of anos) porAno[ano] = getLista(ano);
+    const nomes = new Set<string>();
+    for (const ano of anos) for (const p of porAno[ano]) nomes.add(p.p);
+    const linhas = [...nomes].map((nome) => {
+      const dados: Record<string, FornecedorProduto> = {};
+      let valorTotal = 0;
+      for (const ano of anos) {
+        const item = porAno[ano].find((p) => p.p === nome);
+        dados[ano] = item ?? { p: nome, valor: 0, kg: 0, caixas: 0 };
+        valorTotal += dados[ano].valor;
+      }
+      return { nome, dados, valorTotal };
+    });
+    linhas.sort((a, b) => b.valorTotal - a.valorTotal);
+    return linhas;
+  }
+
+  function renderTabelaProdutos(linhas: ReturnType<typeof produtosPorAno>) {
+    if (linhas.length === 0) return <div className="empty-state"><strong>Sem produto registrado</strong><p>Nenhuma compra no período selecionado.</p></div>;
+    return <div className="table-wrap forn-produtos-tabela-wrap"><table className="values-table forn-produtos-tabela"><thead><tr>
+      <th>Produto</th>
+      {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>])}
+    </tr></thead><tbody>
+      {linhas.map((l) => <tr key={l.nome}>
+        <td><div className="product-cell"><div><strong>{l.nome}</strong></div></div></td>
+        {anos.flatMap((ano) => [
+          <td key={`${ano}-v`}>{l.dados[ano].valor ? <strong className="money-value">{currency.format(l.dados[ano].valor)}</strong> : <span className="price-missing">—</span>}</td>,
+          <td key={`${ano}-q`}>{qtdCaixaOuKg(l.dados[ano]) || "—"}</td>,
+        ])}
+      </tr>)}
+    </tbody></table></div>;
+  }
+
+  const produtosPorFornecedorFoco = focoFornecedores.map((f) => ({ fornecedor: f, linhas: produtosPorAno((ano) => grupoAtual.produtos[ano]?.[f] ?? []) }));
+  const metricasFoco = focoFornecedores
+    .map((f) => grupoAtual.metricas[escopoGaveta]?.[f])
+    .filter((m): m is FornecedorMetrica => m != null);
+  const metricaFocoCombinada = metricasFoco.length === 0 ? null : {
+    valor: metricasFoco.reduce((s, m) => s + m.valor, 0),
+    kg: metricasFoco.reduce((s, m) => s + m.kg, 0),
+    caixas: metricasFoco.reduce((s, m) => s + m.caixas, 0),
+    precoMedioKg: null as number | null,
+    variacaoPrecoPct: metricasFoco.length === 1 ? metricasFoco[0].variacaoPrecoPct : null,
+  };
+  if (metricaFocoCombinada && metricaFocoCombinada.kg > 0) {
+    metricaFocoCombinada.precoMedioKg = metricaFocoCombinada.valor / metricaFocoCombinada.kg;
+  }
 
   function qtdCaixaOuKg(p: { kg: number; caixas: number }) {
     if (p.caixas > 0) return `${number.format(Math.round(p.caixas))} cx`;
@@ -1997,25 +2045,13 @@ function FornecedoresDashboard({
         </div>
 
         <div className="forn-foco-filter">
-          <label className="forn-foco-input">
-            <span>🔎</span>
-            <input
-              list="forn-foco-datalist"
-              value={focoBusca}
-              placeholder="Focar num fornecedor específico (esconde os outros)..."
-              onChange={(event) => {
-                const digitado = event.target.value;
-                setFocoBusca(digitado);
-                if (!digitado) { setFocoFornecedor(null); return; }
-                const achado = fornecedoresParaFoco.find((f) => f.toLocaleLowerCase("pt-BR") === digitado.toLocaleLowerCase("pt-BR"));
-                if (achado) focarFornecedor(achado);
-              }}
-            />
-          </label>
-          <datalist id="forn-foco-datalist">
-            {fornecedoresParaFoco.map((f) => <option key={f} value={f} />)}
-          </datalist>
-          {focoFornecedor && <button type="button" className="forn-foco-clear" onClick={() => { setFocoFornecedor(null); setFocoBusca(""); }}>× Voltar para o ranking completo</button>}
+          <MultiFilter
+            label="Focar fornecedores"
+            options={fornecedoresParaFoco.map((f) => ({ value: f, label: f }))}
+            selected={focoFornecedores}
+            onChange={mudarFocoFornecedores}
+          />
+          {focoFornecedores.length > 0 && <button type="button" className="forn-foco-clear" onClick={() => setFocoFornecedores([])}>× Voltar para o ranking completo</button>}
 
           <label className="forn-foco-input forn-comprador-select">
             <span>🧑</span>
@@ -2034,12 +2070,12 @@ function FornecedoresDashboard({
           <button className={anoRanking === "todos" ? "selected" : ""} onClick={() => setAnoAtivo("todos")}>Todos ({anos[0]}–{anoMaisRecente})</button>
         </div>
 
-        {focoFornecedor ? (
-          <section className="value-kpis" aria-label={`Indicadores de ${focoFornecedor}`}>
-            <div className="value-kpi total"><span>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta})</span><strong>{currency.format(metricaFoco?.valor ?? 0)}</strong><small>Líquido de estorno e devolução de compra</small></div>
-            <div className="value-kpi"><span>Kg/Caixa comprado</span><strong>{metricaFoco && qtdCaixaOuKg(metricaFoco) || "não pesado (cx/un)"}</strong><small>&nbsp;</small></div>
-            <div className="value-kpi"><span>Preço médio</span><strong>{metricaFoco?.precoMedioKg != null ? `${currency.format(metricaFoco.precoMedioKg)}/kg` : "—"}</strong><small>&nbsp;</small></div>
-            <div className="value-kpi missing"><span>Variação de preço</span><strong className={metricaFoco?.variacaoPrecoPct == null ? "" : metricaFoco.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaFoco?.variacaoPrecoPct != null ? `${metricaFoco.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaFoco.variacaoPrecoPct)}%` : "—"}</strong><small>&nbsp;</small></div>
+        {focoFornecedores.length > 0 ? (
+          <section className="value-kpis" aria-label={`Indicadores de ${focoFornecedores.join(", ")}`}>
+            <div className="value-kpi total"><span>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}){focoFornecedores.length > 1 ? ` · ${focoFornecedores.length} fornecedores` : ""}</span><strong>{currency.format(metricaFocoCombinada?.valor ?? 0)}</strong><small>Líquido de estorno e devolução de compra</small></div>
+            <div className="value-kpi"><span>Kg/Caixa comprado</span><strong>{metricaFocoCombinada && qtdCaixaOuKg(metricaFocoCombinada) || "não pesado (cx/un)"}</strong><small>&nbsp;</small></div>
+            <div className="value-kpi"><span>Preço médio</span><strong>{metricaFocoCombinada?.precoMedioKg != null ? `${currency.format(metricaFocoCombinada.precoMedioKg)}/kg` : "—"}</strong><small>&nbsp;</small></div>
+            <div className="value-kpi missing"><span>Variação de preço</span><strong className={metricaFocoCombinada?.variacaoPrecoPct == null ? "" : metricaFocoCombinada.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaFocoCombinada?.variacaoPrecoPct != null ? `${metricaFocoCombinada.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaFocoCombinada.variacaoPrecoPct)}%` : focoFornecedores.length > 1 ? "vários" : "—"}</strong><small>&nbsp;</small></div>
           </section>
         ) : (
           <section className="value-kpis" aria-label="Indicadores de fornecedores">
@@ -2168,14 +2204,11 @@ function FornecedoresDashboard({
           </section>
         </div>
 
-        {!focoFornecedor && <section className="inventory-panel values-panel">
+        {focoFornecedores.length === 0 && <section className="inventory-panel values-panel">
           {compradorFiltro ? (
             <>
-              <div className="panel-heading"><div><h2>Principais produtos · {compradorFiltro}</h2><p>Comprados por ele, em todos os fornecedores, {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p></div></div>
-              {produtosComprador.length === 0 ? <div className="empty-state"><strong>Sem produto registrado</strong><p>Nenhuma compra desse comprador no período selecionado.</p></div> : produtosComprador.map((p) => <div className="product-row" key={p.p}>
-                <span className="pr-name">{p.p}</span>
-                <span className="pr-val">{currency.format(p.valor)}{qtdCaixaOuKg(p) && <span className="pr-kg"> · {qtdCaixaOuKg(p)}</span>}</span>
-              </div>)}
+              <div className="panel-heading"><div><h2>Principais produtos · {compradorFiltro}</h2><p>Comprados por ele, em todos os fornecedores, por ano</p></div></div>
+              {renderTabelaProdutos(produtosPorAno((ano) => grupoAtual.compradores.porComprador[ano]?.[compradorFiltro]?.produtos ?? []))}
             </>
           ) : (
             <div className="panel-heading"><div><h2>Ranking de fornecedores</h2><p>Ordenado por valor pago · clique numa linha pra ver os produtos</p></div></div>
@@ -2195,13 +2228,10 @@ function FornecedoresDashboard({
           {buscaNormalizada && <p className="forn-table-limit-note">{filtradoCompleto.length} fornecedor{filtradoCompleto.length === 1 ? "" : "es"} encontrado{filtradoCompleto.length === 1 ? "" : "s"} pra &quot;{query}&quot;.</p>}
         </section>}
 
-        {focoFornecedor && <section className="inventory-panel forn-produtos-foco">
-          <div className="panel-heading"><div><h2>Principais produtos</h2><p>Comprados de {focoFornecedor} em {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p></div></div>
-          {produtosFoco.length === 0 ? <div className="empty-state"><strong>Sem produto registrado</strong><p>Nenhuma compra desse fornecedor no período selecionado.</p></div> : produtosFoco.map((p) => <div className="product-row" key={p.p}>
-            <span className="pr-name">{p.p}</span>
-            <span className="pr-val">{currency.format(p.valor)}{qtdCaixaOuKg(p) && <span className="pr-kg"> · {qtdCaixaOuKg(p)}</span>}</span>
-          </div>)}
-        </section>}
+        {produtosPorFornecedorFoco.map(({ fornecedor, linhas }) => <section className="inventory-panel forn-produtos-foco" key={fornecedor}>
+          <div className="panel-heading"><div><h2>Principais produtos · {fornecedor}</h2><p>Por ano — {anos.join(" e ")}</p></div></div>
+          {renderTabelaProdutos(linhas)}
+        </section>)}
         <footer>Fonte: {fornecedoresData.fonte} · TIPO_OPERACAO=Compra · Matéria-prima = Departamento &quot;Compras&quot;, Produto acabado = &quot;Produto de venda&quot; (nunca somados).</footer>
       </div>
     </section>
