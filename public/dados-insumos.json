@@ -189,7 +189,7 @@
       "sku": "11144",
       "produto": "BOBINA PARA FARDOS 90,0 CM 500G LISO",
       "loja": "1",
-      "fornecedor": "PLASTIMARAU IND EMBAL FLEXIVEL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -205,20 +205,14 @@
       "desvioProjecao": -56.9,
       "loteMinimo": 500,
       "proximaEntrada": "2027-03-22T12:15:12.985000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-08-28T00:00:00",
-          "quantidade": 600,
-          "pedido": 459397
-        }
-      ],
-      "totalProgramado": 600,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-08-28",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 133.8
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null
     },
     {
       "sku": "87278",
@@ -467,7 +461,7 @@
       "sku": "96245",
       "produto": "BOBINA TAPIOCA DA TERRINHA 1 KG TRILAMINADA",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -483,14 +477,45 @@
       "desvioProjecao": 0.0,
       "loteMinimo": 500,
       "proximaEntrada": null,
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-31T00:00:00",
+          "quantidade": 3200,
+          "pedido": 444402
+        },
+        {
+          "data": "2026-09-02T00:00:00",
+          "quantidade": 3000,
+          "pedido": 459492
+        },
+        {
+          "data": "2026-09-16T00:00:00",
+          "quantidade": 3000,
+          "pedido": 459494
+        },
+        {
+          "data": "2026-09-09T00:00:00",
+          "quantidade": 3000,
+          "pedido": 459495
+        },
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 3000,
+          "pedido": 459496
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 3000,
+          "pedido": 459497
+        }
+      ],
+      "totalProgramado": 18200,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-31",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": -3.0
     },
     {
       "sku": "14546",
@@ -2202,7 +2227,7 @@
       "sku": "70901",
       "produto": "MP - ACIDO CITRICO KG",
       "loja": "1",
-      "fornecedor": "DAXIA DOCE AROMA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2376,7 +2401,7 @@
       "sku": "70909",
       "produto": "MP - GOMA XANTANA MESH (TIPO 200)  KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DAXIA DOCE AROMA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4144,7 +4169,7 @@
       "sku": "70901",
       "produto": "MP - ACIDO CITRICO KG",
       "loja": "10",
-      "fornecedor": "DAXIA DOCE AROMA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4160,20 +4185,14 @@
       "desvioProjecao": 174.6,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-28T04:40:36.123000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-08-31T00:00:00",
-          "quantidade": 700,
-          "pedido": 469022
-        }
-      ],
-      "totalProgramado": 700,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-08-31",
-      "diasAtePrimeiraEntrega": 3,
-      "coberturaNaPrimeiraEntrega": 0.9
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null
     },
     {
       "sku": "70900",
@@ -4342,7 +4361,7 @@
       "sku": "70908",
       "produto": "MP - AROMA DE ALHO ID AO NAT OKKER KG",
       "loja": "10",
-      "fornecedor": "LAPIENDRIUS INDUSTRIA E COMERCIO LTDA.",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4358,20 +4377,14 @@
       "desvioProjecao": 15.8,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-02T19:57:38.064000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-03T00:00:00",
-          "quantidade": 100,
-          "pedido": 469028
-        }
-      ],
-      "totalProgramado": 100,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-03",
-      "diasAtePrimeiraEntrega": 6,
-      "coberturaNaPrimeiraEntrega": 6.1
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null
     },
     {
       "sku": "70899",
@@ -4551,7 +4564,7 @@
       "sku": "70909",
       "produto": "MP - GOMA XANTANA MESH (TIPO 200)  KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DAXIA DOCE AROMA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4567,14 +4580,20 @@
       "desvioProjecao": 24.1,
       "loteMinimo": 100,
       "proximaEntrada": "2026-08-22T11:25:46.340000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-28T00:00:00",
+          "quantidade": 100,
+          "pedido": 472413
+        }
+      ],
+      "totalProgramado": 100,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-28",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 9.5
     },
     {
       "sku": "70872",
@@ -4685,7 +4704,7 @@
       "proximaEntrada": "2026-09-02T16:54:10.650000",
       "entregasProgramadas": [
         {
-          "data": "2026-08-20T00:00:00",
+          "data": "2026-09-02T00:00:00",
           "quantidade": 2300,
           "pedido": 460612
         }
@@ -4694,9 +4713,9 @@
       "sugestaoCompra": 1700,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-02",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": -4.3
     },
     {
       "sku": "42227",
@@ -4847,7 +4866,7 @@
       "sku": "70889",
       "produto": "MP - VINAGRE DE ALCOOL SIMPLES OKKER LT",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "EMBAVI",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4863,14 +4882,20 @@
       "desvioProjecao": -47.2,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-08-22T17:11:44.641000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-02T00:00:00",
+          "quantidade": 1000,
+          "pedido": 472414
+        }
+      ],
+      "totalProgramado": 1000,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-02",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 4.7
     },
     {
       "sku": "70671",
@@ -6469,7 +6494,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-08-31T00:00:00",
-          "quantidade": 2000,
+          "quantidade": 1926,
           "pedido": 450573
         },
         {
@@ -6483,7 +6508,7 @@
           "pedido": 466779
         }
       ],
-      "totalProgramado": 6000,
+      "totalProgramado": 5926,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -6860,7 +6885,7 @@
       "sku": "70901",
       "produto": "MP - ACIDO CITRICO KG",
       "loja": "11",
-      "fornecedor": "DAXIA DOCE AROMA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7156,7 +7181,7 @@
       "sku": "66767",
       "produto": "MP - GLUTAMATO MONOSSODICO GRANEL KILO",
       "loja": "11",
-      "fornecedor": "CONDMAX QUALIDADE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7172,14 +7197,8 @@
       "desvioProjecao": -469.6,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-26T02:32:36.394000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-08-25T00:00:00",
-          "quantidade": 1500,
-          "pedido": 472093
-        }
-      ],
-      "totalProgramado": 1500,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -11900,7 +11919,7 @@
       "sku": "42912",
       "produto": "MP - CURRY KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "REINO ALIMENTOS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -11916,14 +11935,20 @@
       "desvioProjecao": -83.5,
       "loteMinimo": 100,
       "proximaEntrada": "2026-08-28T22:54:06.199000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-04T00:00:00",
+          "quantidade": 600,
+          "pedido": 459549
+        }
+      ],
+      "totalProgramado": 600,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-04",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 9.0
     },
     {
       "sku": "9228",
@@ -12167,7 +12192,7 @@
       "sku": "44902",
       "produto": "MP - FARINHA DE MILHO AMARELA  KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "BONAMIL P S Z DE OLIVEIRA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12183,14 +12208,25 @@
       "desvioProjecao": -1442.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-08-13T16:11:30.317000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-28T00:00:00",
+          "quantidade": 5000,
+          "pedido": 472199
+        },
+        {
+          "data": "2026-09-08T00:00:00",
+          "quantidade": 5000,
+          "pedido": 472217
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 5800,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-08-28",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 0.7
     },
     {
       "sku": "41567",
@@ -12428,7 +12464,7 @@
       "sku": "92972",
       "produto": "MP - GORDURA AGP 600 BD KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MASTERSENSE INGREDIE",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12444,8 +12480,14 @@
       "desvioProjecao": -446.9,
       "loteMinimo": 100,
       "proximaEntrada": "2026-08-28T12:06:52.803000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-25T00:00:00",
+          "quantidade": 5002,
+          "pedido": 471726
+        }
+      ],
+      "totalProgramado": 5002,
       "sugestaoCompra": 0,
       "status": "Saudável",
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
@@ -13199,7 +13241,7 @@
       "sku": "93004",
       "produto": "MP - SORO DE LEITE PARA CHOCOLATE",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "SAKAS INGREDIENTES ALIMENTARES LTDA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13215,8 +13257,14 @@
       "desvioProjecao": -131.3,
       "loteMinimo": 100,
       "proximaEntrada": "2026-08-20T23:36:23.830000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-08-26T00:00:00",
+          "quantidade": 1500,
+          "pedido": 472151
+        }
+      ],
+      "totalProgramado": 1500,
       "sugestaoCompra": 400,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
