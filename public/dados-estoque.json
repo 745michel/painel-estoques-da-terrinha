@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-08-28T14:03:13",
+  "atualizadoEm": "2026-08-28T14:48:04",
   "origem": "Terceiro Estoque X Pedido.xlsm / PROD. ACAB (entregas programadas: compras_a_receber.json)",
   "produtos": [
     {
@@ -157,7 +157,7 @@
     },
     {
       "sku": "70276",
-      "produto": "MOLHO DE ALHO COM PIMENTA DA TERRINHA 150 ML - CX",
+      "produto": "MOLHO DE ALHO COM PIMENTA DA TERRINHA 150 ML - CX 12",
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
@@ -190,7 +190,7 @@
     },
     {
       "sku": "70278",
-      "produto": "MOLHO DE PIMENTA CAROLINA REAPER DA TERRINHA 150 M",
+      "produto": "MOLHO DE PIMENTA CAROLINA REAPER DA TERRINHA 150 ML - CX 12",
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
@@ -223,7 +223,7 @@
     },
     {
       "sku": "70274",
-      "produto": "MOLHO DE PIMENTA CREMOSO DA TERRINHA 150 ML - CX 1",
+      "produto": "MOLHO DE PIMENTA CREMOSO DA TERRINHA 150 ML - CX 12",
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
@@ -382,7 +382,7 @@
     },
     {
       "sku": "75896",
-      "produto": "PIMENTA BICO DOCE DEFUMADA DA TERRINHA 270 G - CX",
+      "produto": "PIMENTA BICO DOCE DEFUMADA DA TERRINHA 270 G - CX 12",
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
@@ -512,14 +512,20 @@
       "desvioProjecao": 597,
       "loteMinimo": 500,
       "proximaEntrada": "2026-08-28T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-10T00:00:00",
+          "quantidade": 500,
+          "pedido": 472301
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 13,
+      "coberturaNaPrimeiraEntrega": -1.2
     },
     {
       "sku": "90781",
@@ -566,14 +572,20 @@
       "desvioProjecao": 258,
       "loteMinimo": 250,
       "proximaEntrada": "2026-08-28T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-10T00:00:00",
+          "quantidade": 250,
+          "pedido": 472301
+        }
+      ],
+      "totalProgramado": 250,
       "sugestaoCompra": 250,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 13,
+      "coberturaNaPrimeiraEntrega": 8.6
     },
     {
       "sku": "90801",
@@ -1066,7 +1078,7 @@
     },
     {
       "sku": "41544",
-      "produto": "OLEO DE COCO DA TERRINHA SEM SABOR 200ml - UND FD",
+      "produto": "OLEO DE COCO DA TERRINHA SEM SABOR 200ml - FD 12",
       "loja": "COPRA",
       "fornecedor": "COPRA",
       "unidade": "cx",
@@ -2041,7 +2053,7 @@
     },
     {
       "sku": "87682",
-      "produto": "FARINHA FLOCADA PANKO DA TERRINHA 200 GR - CX 12.0",
+      "produto": "FARINHA FLOCADA PANKO DA TERRINHA 200 GR - CX 12",
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
@@ -2214,7 +2226,7 @@
     },
     {
       "sku": "87630",
-      "produto": "PIPOCA DE MICROONDAS CARAMELO DA TERRINHA 85G CX",
+      "produto": "PIPOCA DE MICROONDAS CARAMELO DA TERRINHA 85G CX 24",
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
@@ -2247,7 +2259,7 @@
     },
     {
       "sku": "87628",
-      "produto": "PIPOCA DE MICROONDAS MANTEIGA CINEMA DA TERRINHA 8",
+      "produto": "PIPOCA DE MICROONDAS MANTEIGA CINEMA DA TERRINHA 85 CX 24",
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
@@ -2280,7 +2292,7 @@
     },
     {
       "sku": "87624",
-      "produto": "PIPOCA DE MICROONDAS NATURAL C SAL DA TERRINHA 85G",
+      "produto": "PIPOCA DE MICROONDAS NATURAL C SAL DA TERRINHA 85G CX 24",
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
@@ -2460,7 +2472,7 @@
     },
     {
       "sku": "63307",
-      "produto": "FLOCOS DE MILHO ( CUSCUZ ) DA TERRINHA 500 G - FD",
+      "produto": "FLOCOS DE MILHO ( CUSCUZ ) DA TERRINHA 500 G - FD 30",
       "loja": "SEARA",
       "fornecedor": "SEARA",
       "unidade": "cx",
@@ -2476,14 +2488,25 @@
       "desvioProjecao": -989,
       "loteMinimo": 980,
       "proximaEntrada": "2026-08-28T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-04T00:00:00",
+          "quantidade": 980,
+          "pedido": 450078
+        },
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 980,
+          "pedido": 472148
+        }
+      ],
+      "totalProgramado": 1960,
       "sugestaoCompra": 980,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-04",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 7.6
     }
   ]
 }
