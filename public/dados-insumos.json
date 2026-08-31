@@ -1,6 +1,6 @@
 {
-  "atualizadoEm": "2026-08-31T14:10:23",
-  "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS (fornecedor e entregas programadas: compras_a_receber.json)",
+  "atualizadoEm": "2026-08-31T15:36:11",
+  "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS (fornecedor e entregas programadas: compras_a_receber.json; projecaoBom: ficha_tecnica.json + dados-escadinha.json)",
   "produtos": [
     {
       "sku": "21704",
@@ -29,7 +29,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "50982",
@@ -69,7 +71,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-24",
       "diasAtePrimeiraEntrega": 24,
-      "coberturaNaPrimeiraEntrega": 97.4
+      "coberturaNaPrimeiraEntrega": 97.4,
+      "temFichaTecnica": true,
+      "projecaoBom": 1540.0
     },
     {
       "sku": "13384",
@@ -104,7 +108,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-10-20",
       "diasAtePrimeiraEntrega": 50,
-      "coberturaNaPrimeiraEntrega": 18.7
+      "coberturaNaPrimeiraEntrega": 18.7,
+      "temFichaTecnica": true,
+      "projecaoBom": 440.2
     },
     {
       "sku": "50981",
@@ -144,7 +150,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-24",
       "diasAtePrimeiraEntrega": 24,
-      "coberturaNaPrimeiraEntrega": 43.0
+      "coberturaNaPrimeiraEntrega": 43.0,
+      "temFichaTecnica": true,
+      "projecaoBom": 2640.0
     },
     {
       "sku": "91000",
@@ -173,7 +181,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "11144",
@@ -202,7 +212,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 234.8
     },
     {
       "sku": "87278",
@@ -231,7 +243,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "30049",
@@ -266,7 +280,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-30",
       "diasAtePrimeiraEntrega": 30,
-      "coberturaNaPrimeiraEntrega": -30.0
+      "coberturaNaPrimeiraEntrega": -30.0,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "121685",
@@ -311,7 +327,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-15",
       "diasAtePrimeiraEntrega": 15,
-      "coberturaNaPrimeiraEntrega": 101.1
+      "coberturaNaPrimeiraEntrega": 101.1,
+      "temFichaTecnica": true,
+      "projecaoBom": 576.0
     },
     {
       "sku": "121686",
@@ -356,7 +374,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-15",
       "diasAtePrimeiraEntrega": 15,
-      "coberturaNaPrimeiraEntrega": 41.0
+      "coberturaNaPrimeiraEntrega": 41.0,
+      "temFichaTecnica": true,
+      "projecaoBom": 588.0
     },
     {
       "sku": "92323",
@@ -385,7 +405,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 115.2
     },
     {
       "sku": "8067",
@@ -440,7 +462,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": 16.6
+      "coberturaNaPrimeiraEntrega": 16.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 13593.6
     },
     {
       "sku": "96245",
@@ -495,7 +519,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": -4.0
+      "coberturaNaPrimeiraEntrega": -4.0,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "14546",
@@ -570,7 +596,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": 16.8
+      "coberturaNaPrimeiraEntrega": 16.8,
+      "temFichaTecnica": true,
+      "projecaoBom": 16296.0
     },
     {
       "sku": "17905",
@@ -610,7 +638,9 @@
       "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 42.2
+      "coberturaNaPrimeiraEntrega": 42.2,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "17904",
@@ -645,7 +675,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-28",
       "diasAtePrimeiraEntrega": 28,
-      "coberturaNaPrimeiraEntrega": 67.3
+      "coberturaNaPrimeiraEntrega": 67.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 1185.6
     },
     {
       "sku": "72009",
@@ -695,7 +727,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-10-22",
       "diasAtePrimeiraEntrega": 52,
-      "coberturaNaPrimeiraEntrega": 24.9
+      "coberturaNaPrimeiraEntrega": 24.9,
+      "temFichaTecnica": true,
+      "projecaoBom": 2964.2
     },
     {
       "sku": "12746",
@@ -724,7 +758,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "25384",
@@ -769,7 +805,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 17.0
+      "coberturaNaPrimeiraEntrega": 17.0,
+      "temFichaTecnica": true,
+      "projecaoBom": 1092.0
     },
     {
       "sku": "91704",
@@ -798,7 +836,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70227",
@@ -827,7 +867,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 18.0
     },
     {
       "sku": "70228",
@@ -856,7 +898,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 19.7
     },
     {
       "sku": "113765",
@@ -891,7 +935,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-30",
       "diasAtePrimeiraEntrega": 30,
-      "coberturaNaPrimeiraEntrega": 19.0
+      "coberturaNaPrimeiraEntrega": 19.0,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "51727",
@@ -920,7 +966,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 86.4
     },
     {
       "sku": "69127",
@@ -955,7 +1003,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-14",
       "diasAtePrimeiraEntrega": 14,
-      "coberturaNaPrimeiraEntrega": 9.0
+      "coberturaNaPrimeiraEntrega": 9.0,
+      "temFichaTecnica": true,
+      "projecaoBom": 138.2
     },
     {
       "sku": "98585",
@@ -984,7 +1034,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "83500",
@@ -1013,7 +1065,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 109.2
     },
     {
       "sku": "20324",
@@ -1048,7 +1102,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-30",
       "diasAtePrimeiraEntrega": 30,
-      "coberturaNaPrimeiraEntrega": 86.5
+      "coberturaNaPrimeiraEntrega": 86.5,
+      "temFichaTecnica": true,
+      "projecaoBom": 195.8
     },
     {
       "sku": "34427",
@@ -1083,7 +1139,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-24",
       "diasAtePrimeiraEntrega": 24,
-      "coberturaNaPrimeiraEntrega": 48.8
+      "coberturaNaPrimeiraEntrega": 48.8,
+      "temFichaTecnica": true,
+      "projecaoBom": 346.5
     },
     {
       "sku": "77021",
@@ -1112,7 +1170,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "77020",
@@ -1147,7 +1207,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 13.8
     },
     {
       "sku": "76820",
@@ -1176,7 +1238,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "76819",
@@ -1205,7 +1269,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "84480",
@@ -1234,7 +1300,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 115.5
     },
     {
       "sku": "6765",
@@ -1269,7 +1337,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-29",
       "diasAtePrimeiraEntrega": 29,
-      "coberturaNaPrimeiraEntrega": 108.1
+      "coberturaNaPrimeiraEntrega": 108.1,
+      "temFichaTecnica": true,
+      "projecaoBom": 141.1
     },
     {
       "sku": "80802",
@@ -1298,7 +1368,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "20124",
@@ -1327,7 +1399,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 9.6
     },
     {
       "sku": "20125",
@@ -1356,7 +1430,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 42.0
     },
     {
       "sku": "85200",
@@ -1385,7 +1461,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 96.0
     },
     {
       "sku": "85201",
@@ -1414,7 +1492,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 76.8
     },
     {
       "sku": "113765",
@@ -1449,7 +1529,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-30",
       "diasAtePrimeiraEntrega": 30,
-      "coberturaNaPrimeiraEntrega": 19.0
+      "coberturaNaPrimeiraEntrega": 19.0,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "50148",
@@ -1484,7 +1566,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-28",
       "diasAtePrimeiraEntrega": 28,
-      "coberturaNaPrimeiraEntrega": -1.7
+      "coberturaNaPrimeiraEntrega": -1.7,
+      "temFichaTecnica": true,
+      "projecaoBom": 89.6
     },
     {
       "sku": "50149",
@@ -1513,7 +1597,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 70.0
     },
     {
       "sku": "50152",
@@ -1542,7 +1628,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 30.0
     },
     {
       "sku": "51968",
@@ -1571,7 +1659,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 77.3
     },
     {
       "sku": "50187",
@@ -1600,7 +1690,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 84.5
     },
     {
       "sku": "46910",
@@ -1629,7 +1721,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 34.6
     },
     {
       "sku": "31349",
@@ -1658,7 +1752,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 42.0
     },
     {
       "sku": "9408",
@@ -1687,7 +1783,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 147.0
     },
     {
       "sku": "12744",
@@ -1716,7 +1814,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "94280",
@@ -1751,7 +1851,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": 19.9
+      "coberturaNaPrimeiraEntrega": 19.9,
+      "temFichaTecnica": true,
+      "projecaoBom": 96.0
     },
     {
       "sku": "94279",
@@ -1780,7 +1882,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 46.1
     },
     {
       "sku": "41583",
@@ -1809,7 +1913,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "79303",
@@ -1849,7 +1955,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-14",
       "diasAtePrimeiraEntrega": 14,
-      "coberturaNaPrimeiraEntrega": 6.8
+      "coberturaNaPrimeiraEntrega": 6.8,
+      "temFichaTecnica": true,
+      "projecaoBom": 12500.0
     },
     {
       "sku": "41584",
@@ -1878,7 +1986,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "10724",
@@ -1948,7 +2058,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": 7.4
+      "coberturaNaPrimeiraEntrega": 7.4,
+      "temFichaTecnica": true,
+      "projecaoBom": 38000.0
     },
     {
       "sku": "10725",
@@ -2028,7 +2140,9 @@
       "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
       "primeiraEntrega": "2026-09-02",
       "diasAtePrimeiraEntrega": 2,
-      "coberturaNaPrimeiraEntrega": 15.6
+      "coberturaNaPrimeiraEntrega": 15.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 48500.0
     },
     {
       "sku": "25484",
@@ -2068,7 +2182,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-11",
       "diasAtePrimeiraEntrega": 11,
-      "coberturaNaPrimeiraEntrega": 8.3
+      "coberturaNaPrimeiraEntrega": 8.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 5700.0
     },
     {
       "sku": "79161",
@@ -2108,7 +2224,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-29",
       "diasAtePrimeiraEntrega": 29,
-      "coberturaNaPrimeiraEntrega": 10.3
+      "coberturaNaPrimeiraEntrega": 10.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 6402.0
     },
     {
       "sku": "82260",
@@ -2148,7 +2266,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-22",
       "diasAtePrimeiraEntrega": 22,
-      "coberturaNaPrimeiraEntrega": 15.4
+      "coberturaNaPrimeiraEntrega": 15.4,
+      "temFichaTecnica": true,
+      "projecaoBom": 10000.0
     },
     {
       "sku": "45362",
@@ -2177,7 +2297,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 3144.3
     },
     {
       "sku": "50961",
@@ -2206,7 +2328,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 7.0
     },
     {
       "sku": "70901",
@@ -2235,7 +2359,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70900",
@@ -2275,7 +2401,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-03",
       "diasAtePrimeiraEntrega": 3,
-      "coberturaNaPrimeiraEntrega": 9.2
+      "coberturaNaPrimeiraEntrega": 9.2,
+      "temFichaTecnica": true,
+      "projecaoBom": 600.6
     },
     {
       "sku": "85980",
@@ -2304,7 +2432,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 40.8
     },
     {
       "sku": "45683",
@@ -2339,7 +2469,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-14",
       "diasAtePrimeiraEntrega": 14,
-      "coberturaNaPrimeiraEntrega": 14.9
+      "coberturaNaPrimeiraEntrega": 14.9,
+      "temFichaTecnica": true,
+      "projecaoBom": 157.1
     },
     {
       "sku": "9228",
@@ -2368,7 +2500,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 17150.2
     },
     {
       "sku": "41663",
@@ -2397,7 +2531,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70909",
@@ -2437,7 +2573,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-03",
       "diasAtePrimeiraEntrega": 3,
-      "coberturaNaPrimeiraEntrega": 14.1
+      "coberturaNaPrimeiraEntrega": 14.1,
+      "temFichaTecnica": true,
+      "projecaoBom": 70.6
     },
     {
       "sku": "46310",
@@ -2466,7 +2604,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 3862.7
     },
     {
       "sku": "80165",
@@ -2506,7 +2646,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 2.3
+      "coberturaNaPrimeiraEntrega": 2.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 1256.2
     },
     {
       "sku": "49800",
@@ -2546,7 +2688,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-15",
       "diasAtePrimeiraEntrega": 15,
-      "coberturaNaPrimeiraEntrega": 10.6
+      "coberturaNaPrimeiraEntrega": 10.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 157.1
     },
     {
       "sku": "42060",
@@ -2575,7 +2719,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70897",
@@ -2615,7 +2761,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-03",
       "diasAtePrimeiraEntrega": 3,
-      "coberturaNaPrimeiraEntrega": 10.5
+      "coberturaNaPrimeiraEntrega": 10.5,
+      "temFichaTecnica": true,
+      "projecaoBom": 65.1
     },
     {
       "sku": "70229",
@@ -2644,7 +2792,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1080.0
     },
     {
       "sku": "78860",
@@ -2684,7 +2834,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-01",
       "diasAtePrimeiraEntrega": 1,
-      "coberturaNaPrimeiraEntrega": 28.5
+      "coberturaNaPrimeiraEntrega": 28.5,
+      "temFichaTecnica": true,
+      "projecaoBom": 150000.0
     },
     {
       "sku": "25804",
@@ -2719,7 +2871,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-30",
       "diasAtePrimeiraEntrega": 30,
-      "coberturaNaPrimeiraEntrega": 11.4
+      "coberturaNaPrimeiraEntrega": 11.4,
+      "temFichaTecnica": true,
+      "projecaoBom": 60000.0
     },
     {
       "sku": "91705",
@@ -2748,7 +2902,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "34469",
@@ -2783,7 +2939,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-14",
       "diasAtePrimeiraEntrega": 14,
-      "coberturaNaPrimeiraEntrega": 58.3
+      "coberturaNaPrimeiraEntrega": 58.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 18000.0
     },
     {
       "sku": "50153",
@@ -2828,7 +2986,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-07",
       "diasAtePrimeiraEntrega": 7,
-      "coberturaNaPrimeiraEntrega": 241.8
+      "coberturaNaPrimeiraEntrega": 241.8,
+      "temFichaTecnica": true,
+      "projecaoBom": 4000.0
     },
     {
       "sku": "23804",
@@ -2857,7 +3017,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 8400.0
     },
     {
       "sku": "81121",
@@ -2892,7 +3054,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-10-30",
       "diasAtePrimeiraEntrega": 60,
-      "coberturaNaPrimeiraEntrega": 23.4
+      "coberturaNaPrimeiraEntrega": 23.4,
+      "temFichaTecnica": true,
+      "projecaoBom": 120000.0
     },
     {
       "sku": "70705",
@@ -2921,7 +3085,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70707",
@@ -2950,7 +3116,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 90.0
     },
     {
       "sku": "70667",
@@ -2985,7 +3153,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": 56.9
+      "coberturaNaPrimeiraEntrega": 56.9,
+      "temFichaTecnica": true,
+      "projecaoBom": 3600.0
     },
     {
       "sku": "70668",
@@ -3014,7 +3184,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70708",
@@ -3049,7 +3221,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": -2.9
+      "coberturaNaPrimeiraEntrega": -2.9,
+      "temFichaTecnica": true,
+      "projecaoBom": 6000.0
     },
     {
       "sku": "71853",
@@ -3078,7 +3252,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70834",
@@ -3107,7 +3283,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 300.0
     },
     {
       "sku": "70832",
@@ -3136,7 +3314,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 600.0
     },
     {
       "sku": "70836",
@@ -3165,7 +3345,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 500.0
     },
     {
       "sku": "70838",
@@ -3194,7 +3376,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1070.0
     },
     {
       "sku": "70839",
@@ -3223,7 +3407,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 570.0
     },
     {
       "sku": "77041",
@@ -3252,7 +3438,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "77044",
@@ -3281,7 +3469,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1110.0
     },
     {
       "sku": "52987",
@@ -3310,7 +3500,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1150.0
     },
     {
       "sku": "77043",
@@ -3339,7 +3531,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "77040",
@@ -3368,7 +3562,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1015.0
     },
     {
       "sku": "70720",
@@ -3397,7 +3593,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 8280.0
     },
     {
       "sku": "70723",
@@ -3426,7 +3624,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 180.0
     },
     {
       "sku": "70734",
@@ -3455,7 +3655,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 240.0
     },
     {
       "sku": "70735",
@@ -3484,7 +3686,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 5160.0
     },
     {
       "sku": "70731",
@@ -3513,7 +3717,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 4680.0
     },
     {
       "sku": "70730",
@@ -3542,7 +3748,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70739",
@@ -3571,7 +3779,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 7680.0
     },
     {
       "sku": "70746",
@@ -3600,7 +3810,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70747",
@@ -3629,7 +3841,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70748",
@@ -3658,7 +3872,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70799",
@@ -3687,7 +3903,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 12000.0
     },
     {
       "sku": "70742",
@@ -3716,7 +3934,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 3360.0
     },
     {
       "sku": "70743",
@@ -3745,7 +3965,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "70744",
@@ -3774,7 +3996,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 90.0
     },
     {
       "sku": "70745",
@@ -3803,7 +4027,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 16200.0
     },
     {
       "sku": "70749",
@@ -3832,7 +4058,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70750",
@@ -3861,7 +4089,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70751",
@@ -3890,7 +4120,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 180.0
     },
     {
       "sku": "70800",
@@ -3919,7 +4151,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 16800.0
     },
     {
       "sku": "70755",
@@ -3948,7 +4182,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 27000.0
     },
     {
       "sku": "70756",
@@ -3977,7 +4213,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "70758",
@@ -4006,7 +4244,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 13080.0
     },
     {
       "sku": "70760",
@@ -4035,7 +4275,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "77440",
@@ -4064,7 +4306,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 3295.0
     },
     {
       "sku": "70805",
@@ -4093,7 +4337,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70774",
@@ -4122,7 +4368,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70806",
@@ -4151,7 +4399,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 14400.0
     },
     {
       "sku": "77441",
@@ -4180,7 +4430,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "42064",
@@ -4209,7 +4461,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 8.1
     },
     {
       "sku": "70901",
@@ -4238,7 +4492,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1023.7
     },
     {
       "sku": "70900",
@@ -4273,7 +4529,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 7.3
+      "coberturaNaPrimeiraEntrega": 7.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 966.7
     },
     {
       "sku": "44143",
@@ -4302,7 +4560,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "42164",
@@ -4331,7 +4591,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 32684.8
     },
     {
       "sku": "72659",
@@ -4366,7 +4628,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-03",
       "diasAtePrimeiraEntrega": 3,
-      "coberturaNaPrimeiraEntrega": 12.8
+      "coberturaNaPrimeiraEntrega": 12.8,
+      "temFichaTecnica": true,
+      "projecaoBom": 1789.5
     },
     {
       "sku": "70875",
@@ -4401,7 +4665,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 3117.8
     },
     {
       "sku": "70908",
@@ -4430,7 +4696,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 87.8
     },
     {
       "sku": "70899",
@@ -4459,7 +4727,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 138.6
     },
     {
       "sku": "70887",
@@ -4488,7 +4758,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "70888",
@@ -4517,7 +4789,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "44465",
@@ -4546,7 +4820,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 227.9
     },
     {
       "sku": "71887",
@@ -4575,7 +4851,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70907",
@@ -4604,7 +4882,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "70909",
@@ -4639,7 +4919,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 155.3
     },
     {
       "sku": "70872",
@@ -4668,7 +4950,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.1
     },
     {
       "sku": "70878",
@@ -4697,7 +4981,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1.9
     },
     {
       "sku": "70894",
@@ -4726,7 +5012,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 343.4
     },
     {
       "sku": "70882",
@@ -4761,7 +5049,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-02",
       "diasAtePrimeiraEntrega": 2,
-      "coberturaNaPrimeiraEntrega": -1.3
+      "coberturaNaPrimeiraEntrega": -1.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 3265.0
     },
     {
       "sku": "42227",
@@ -4790,7 +5080,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "71687",
@@ -4819,7 +5111,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1051.2
     },
     {
       "sku": "44624",
@@ -4848,7 +5142,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70897",
@@ -4877,7 +5173,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 136.0
     },
     {
       "sku": "41862",
@@ -4906,7 +5204,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 43.2
     },
     {
       "sku": "70889",
@@ -4941,7 +5241,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-02",
       "diasAtePrimeiraEntrega": 2,
-      "coberturaNaPrimeiraEntrega": 7.7
+      "coberturaNaPrimeiraEntrega": 7.7,
+      "temFichaTecnica": true,
+      "projecaoBom": 2617.1
     },
     {
       "sku": "70671",
@@ -4970,7 +5272,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 16800.0
     },
     {
       "sku": "70672",
@@ -4999,7 +5303,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 51840.0
     },
     {
       "sku": "70674",
@@ -5034,7 +5340,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-10",
       "diasAtePrimeiraEntrega": 10,
-      "coberturaNaPrimeiraEntrega": 7.7
+      "coberturaNaPrimeiraEntrega": 7.7,
+      "temFichaTecnica": true,
+      "projecaoBom": 12000.0
     },
     {
       "sku": "70673",
@@ -5063,7 +5371,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 48360.0
     },
     {
       "sku": "70676",
@@ -5092,7 +5402,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "114634",
@@ -5121,7 +5433,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "76543",
@@ -5150,7 +5464,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "76541",
@@ -5179,7 +5495,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "76546",
@@ -5208,7 +5526,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "76539",
@@ -5237,7 +5557,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "76542",
@@ -5266,7 +5588,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "78120",
@@ -5295,7 +5619,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "77544",
@@ -5324,7 +5650,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "76540",
@@ -5353,7 +5681,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "76547",
@@ -5382,7 +5712,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "77543",
@@ -5411,7 +5743,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70757",
@@ -5440,7 +5774,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70785",
@@ -5469,7 +5805,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70733",
@@ -5498,7 +5836,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 240.0
     },
     {
       "sku": "72660",
@@ -5527,7 +5867,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "72661",
@@ -5556,7 +5898,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "72070",
@@ -5585,7 +5929,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 600.0
     },
     {
       "sku": "71852",
@@ -5614,7 +5960,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70695",
@@ -5643,7 +5991,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70678",
@@ -5672,7 +6022,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "70697",
@@ -5701,7 +6053,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "70713",
@@ -5730,7 +6084,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70712",
@@ -5759,7 +6115,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70679",
@@ -5788,7 +6146,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70680",
@@ -5817,7 +6177,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70682",
@@ -5846,7 +6208,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "70717",
@@ -5875,7 +6239,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "120068",
@@ -5910,7 +6276,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": 81.9
+      "coberturaNaPrimeiraEntrega": 81.9,
+      "temFichaTecnica": true,
+      "projecaoBom": 3600.0
     },
     {
       "sku": "120069",
@@ -5945,7 +6313,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": 10.3
+      "coberturaNaPrimeiraEntrega": 10.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 6090.0
     },
     {
       "sku": "70686",
@@ -5974,7 +6344,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 16800.0
     },
     {
       "sku": "70688",
@@ -6003,7 +6375,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 48360.0
     },
     {
       "sku": "78484",
@@ -6038,7 +6412,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-10-08",
       "diasAtePrimeiraEntrega": 38,
-      "coberturaNaPrimeiraEntrega": 56.7
+      "coberturaNaPrimeiraEntrega": 56.7,
+      "temFichaTecnica": true,
+      "projecaoBom": 1105.0
     },
     {
       "sku": "57853",
@@ -6067,7 +6443,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 288.0
     },
     {
       "sku": "57890",
@@ -6102,7 +6480,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-30",
       "diasAtePrimeiraEntrega": 30,
-      "coberturaNaPrimeiraEntrega": 102.3
+      "coberturaNaPrimeiraEntrega": 102.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 403.2
     },
     {
       "sku": "120464",
@@ -6131,7 +6511,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 60.0
     },
     {
       "sku": "57899",
@@ -6166,7 +6548,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-30",
       "diasAtePrimeiraEntrega": 30,
-      "coberturaNaPrimeiraEntrega": 90.5
+      "coberturaNaPrimeiraEntrega": 90.5,
+      "temFichaTecnica": true,
+      "projecaoBom": 840.0
     },
     {
       "sku": "57894",
@@ -6195,7 +6579,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 288.0
     },
     {
       "sku": "83540",
@@ -6230,7 +6616,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": 20.8
+      "coberturaNaPrimeiraEntrega": 20.8,
+      "temFichaTecnica": true,
+      "projecaoBom": 115.2
     },
     {
       "sku": "57893",
@@ -6259,7 +6647,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 72.0
     },
     {
       "sku": "31152",
@@ -6288,7 +6678,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 270.0
     },
     {
       "sku": "31151",
@@ -6317,7 +6709,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 540.0
     },
     {
       "sku": "118123",
@@ -6346,7 +6740,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "36917",
@@ -6381,7 +6777,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-10-08",
       "diasAtePrimeiraEntrega": 38,
-      "coberturaNaPrimeiraEntrega": 72.1
+      "coberturaNaPrimeiraEntrega": 72.1,
+      "temFichaTecnica": true,
+      "projecaoBom": 288.4
     },
     {
       "sku": "117131",
@@ -6416,7 +6814,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 0.0
+      "coberturaNaPrimeiraEntrega": 0.0,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "83541",
@@ -6451,7 +6851,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-25",
       "diasAtePrimeiraEntrega": 25,
-      "coberturaNaPrimeiraEntrega": 79.8
+      "coberturaNaPrimeiraEntrega": 79.8,
+      "temFichaTecnica": true,
+      "projecaoBom": 133.9
     },
     {
       "sku": "121718",
@@ -6480,7 +6882,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 618.0
     },
     {
       "sku": "72227",
@@ -6515,7 +6919,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 2.4
+      "coberturaNaPrimeiraEntrega": 2.4,
+      "temFichaTecnica": true,
+      "projecaoBom": 1271.4
     },
     {
       "sku": "36914",
@@ -6560,7 +6966,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 54.2
+      "coberturaNaPrimeiraEntrega": 54.2,
+      "temFichaTecnica": true,
+      "projecaoBom": 3914.0
     },
     {
       "sku": "65088",
@@ -6589,7 +6997,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 26.0
     },
     {
       "sku": "65089",
@@ -6618,7 +7028,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 44.2
     },
     {
       "sku": "114888",
@@ -6647,7 +7059,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "91703",
@@ -6676,7 +7090,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 20.6
     },
     {
       "sku": "57915",
@@ -6705,7 +7121,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1152.0
     },
     {
       "sku": "21704",
@@ -6745,7 +7163,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 45.2
+      "coberturaNaPrimeiraEntrega": 45.2,
+      "temFichaTecnica": true,
+      "projecaoBom": 1578.2
     },
     {
       "sku": "79120",
@@ -6774,7 +7194,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 480.0
     },
     {
       "sku": "57920",
@@ -6809,7 +7231,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-10-29",
       "diasAtePrimeiraEntrega": 59,
-      "coberturaNaPrimeiraEntrega": 63.3
+      "coberturaNaPrimeiraEntrega": 63.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 122.4
     },
     {
       "sku": "87340",
@@ -6838,7 +7262,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 307.2
     },
     {
       "sku": "57921",
@@ -6867,7 +7293,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 108.0
     },
     {
       "sku": "37450",
@@ -6896,7 +7324,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 4500.0
     },
     {
       "sku": "45362",
@@ -6925,7 +7355,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 943.3
     },
     {
       "sku": "70901",
@@ -6954,7 +7386,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 3.5
     },
     {
       "sku": "42164",
@@ -6983,7 +7417,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2369.5
     },
     {
       "sku": "74147",
@@ -7012,7 +7448,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "76361",
@@ -7041,7 +7479,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "83400",
@@ -7070,7 +7510,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 19.5
     },
     {
       "sku": "49946",
@@ -7099,7 +7541,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1824.8
     },
     {
       "sku": "43563",
@@ -7128,7 +7572,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 718.0
     },
     {
       "sku": "41565",
@@ -7157,7 +7603,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "42104",
@@ -7186,7 +7634,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "52027",
@@ -7215,7 +7665,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "66767",
@@ -7244,7 +7696,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1378.6
     },
     {
       "sku": "36169",
@@ -7273,7 +7727,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 13499.1
     },
     {
       "sku": "42058",
@@ -7302,7 +7758,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "42227",
@@ -7331,7 +7789,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 184.8
     },
     {
       "sku": "44467",
@@ -7360,7 +7820,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 134.3
     },
     {
       "sku": "61970",
@@ -7389,7 +7851,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 66.4
     },
     {
       "sku": "42126",
@@ -7418,7 +7882,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 10404.0
     },
     {
       "sku": "76359",
@@ -7447,7 +7913,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "80460",
@@ -7476,7 +7944,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "44353",
@@ -7505,7 +7975,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "36910",
@@ -7534,7 +8006,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1196.3
     },
     {
       "sku": "46042",
@@ -7563,7 +8037,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1993.9
     },
     {
       "sku": "79922",
@@ -7592,7 +8068,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 179.5
     },
     {
       "sku": "42060",
@@ -7621,7 +8099,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "44624",
@@ -7650,7 +8130,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 646.2
     },
     {
       "sku": "70897",
@@ -7679,7 +8161,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2.2
     },
     {
       "sku": "49688",
@@ -7708,7 +8192,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "49342",
@@ -7737,7 +8223,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "73288",
@@ -7766,7 +8254,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "120533",
@@ -7795,7 +8285,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 9.0
     },
     {
       "sku": "72292",
@@ -7824,7 +8316,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 108.0
     },
     {
       "sku": "72287",
@@ -7853,7 +8347,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 43.2
     },
     {
       "sku": "72298",
@@ -7882,7 +8378,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 4.3
     },
     {
       "sku": "72299",
@@ -7911,7 +8409,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 11.5
     },
     {
       "sku": "120498",
@@ -7940,7 +8440,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1.2
     },
     {
       "sku": "120530",
@@ -7969,7 +8471,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 4.8
     },
     {
       "sku": "120531",
@@ -7998,7 +8502,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 9.0
     },
     {
       "sku": "120532",
@@ -8027,7 +8533,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1.8
     },
     {
       "sku": "116999",
@@ -8056,7 +8564,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 14.2
     },
     {
       "sku": "117035",
@@ -8085,7 +8595,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 12.5
     },
     {
       "sku": "117032",
@@ -8114,7 +8626,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 14.2
     },
     {
       "sku": "117036",
@@ -8143,7 +8657,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 12.5
     },
     {
       "sku": "117033",
@@ -8172,7 +8688,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 14.2
     },
     {
       "sku": "117037",
@@ -8201,7 +8719,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 12.5
     },
     {
       "sku": "117034",
@@ -8230,7 +8750,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 14.2
     },
     {
       "sku": "117065",
@@ -8259,7 +8781,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 12.5
     },
     {
       "sku": "76659",
@@ -8294,7 +8818,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-23",
       "diasAtePrimeiraEntrega": 23,
-      "coberturaNaPrimeiraEntrega": 74.1
+      "coberturaNaPrimeiraEntrega": 74.1,
+      "temFichaTecnica": true,
+      "projecaoBom": 1246.0
     },
     {
       "sku": "94032",
@@ -8323,7 +8849,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "76660",
@@ -8368,7 +8896,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-10",
       "diasAtePrimeiraEntrega": 10,
-      "coberturaNaPrimeiraEntrega": 53.9
+      "coberturaNaPrimeiraEntrega": 53.9,
+      "temFichaTecnica": true,
+      "projecaoBom": 2670.0
     },
     {
       "sku": "94033",
@@ -8397,7 +8927,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "72300",
@@ -8432,7 +8964,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-10-12",
       "diasAtePrimeiraEntrega": 42,
-      "coberturaNaPrimeiraEntrega": 29.6
+      "coberturaNaPrimeiraEntrega": 29.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 39.6
     },
     {
       "sku": "72649",
@@ -8461,7 +8995,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 300.0
     },
     {
       "sku": "72301",
@@ -8501,7 +9037,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 65.7
+      "coberturaNaPrimeiraEntrega": 65.7,
+      "temFichaTecnica": true,
+      "projecaoBom": 144.0
     },
     {
       "sku": "72288",
@@ -8530,7 +9068,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 21.6
     },
     {
       "sku": "86380",
@@ -8570,7 +9110,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 23.4
+      "coberturaNaPrimeiraEntrega": 23.4,
+      "temFichaTecnica": true,
+      "projecaoBom": 129.6
     },
     {
       "sku": "87000",
@@ -8599,7 +9141,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "72294",
@@ -8639,7 +9183,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-18",
       "diasAtePrimeiraEntrega": 18,
-      "coberturaNaPrimeiraEntrega": 37.6
+      "coberturaNaPrimeiraEntrega": 37.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 144.0
     },
     {
       "sku": "62368",
@@ -8668,7 +9214,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 60.0
     },
     {
       "sku": "81281",
@@ -8708,7 +9256,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": 6.7
+      "coberturaNaPrimeiraEntrega": 6.7,
+      "temFichaTecnica": true,
+      "projecaoBom": 432.0
     },
     {
       "sku": "57926",
@@ -8737,7 +9287,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 60.0
     },
     {
       "sku": "72308",
@@ -8787,7 +9339,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 22.6
+      "coberturaNaPrimeiraEntrega": 22.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 360.0
     },
     {
       "sku": "79364",
@@ -8822,7 +9376,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-28",
       "diasAtePrimeiraEntrega": 28,
-      "coberturaNaPrimeiraEntrega": 29.9
+      "coberturaNaPrimeiraEntrega": 29.9,
+      "temFichaTecnica": true,
+      "projecaoBom": 259.2
     },
     {
       "sku": "79360",
@@ -8851,7 +9407,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 70.0
     },
     {
       "sku": "79361",
@@ -8880,7 +9438,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 144.0
     },
     {
       "sku": "79363",
@@ -8915,7 +9475,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-28",
       "diasAtePrimeiraEntrega": 28,
-      "coberturaNaPrimeiraEntrega": 56.5
+      "coberturaNaPrimeiraEntrega": 56.5,
+      "temFichaTecnica": true,
+      "projecaoBom": 230.4
     },
     {
       "sku": "79362",
@@ -8950,7 +9512,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 28.4
+      "coberturaNaPrimeiraEntrega": 28.4,
+      "temFichaTecnica": true,
+      "projecaoBom": 250.0
     },
     {
       "sku": "75535",
@@ -8979,7 +9543,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 14.4
     },
     {
       "sku": "77542",
@@ -9008,7 +9574,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 600.0
     },
     {
       "sku": "57848",
@@ -9037,7 +9605,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 43.2
     },
     {
       "sku": "72302",
@@ -9077,7 +9647,9 @@
       "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": 34.1
+      "coberturaNaPrimeiraEntrega": 34.1,
+      "temFichaTecnica": true,
+      "projecaoBom": 144.0
     },
     {
       "sku": "72293",
@@ -9106,7 +9678,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 57.6
     },
     {
       "sku": "72296",
@@ -9146,7 +9720,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 27.4
+      "coberturaNaPrimeiraEntrega": 27.4,
+      "temFichaTecnica": true,
+      "projecaoBom": 108.0
     },
     {
       "sku": "72295",
@@ -9175,7 +9751,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 57.6
     },
     {
       "sku": "91621",
@@ -9204,7 +9782,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 4.0
     },
     {
       "sku": "91623",
@@ -9233,7 +9813,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 14.0
     },
     {
       "sku": "91622",
@@ -9262,7 +9844,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 14.0
     },
     {
       "sku": "91627",
@@ -9291,7 +9875,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 7.0
     },
     {
       "sku": "91624",
@@ -9320,7 +9906,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 8.0
     },
     {
       "sku": "91625",
@@ -9349,7 +9937,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 11.2
     },
     {
       "sku": "91626",
@@ -9378,7 +9968,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 3.0
     },
     {
       "sku": "72297",
@@ -9413,7 +10005,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-10-12",
       "diasAtePrimeiraEntrega": 42,
-      "coberturaNaPrimeiraEntrega": 63.7
+      "coberturaNaPrimeiraEntrega": 63.7,
+      "temFichaTecnica": true,
+      "projecaoBom": 50.4
     },
     {
       "sku": "81282",
@@ -9448,7 +10042,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-09",
       "diasAtePrimeiraEntrega": 9,
-      "coberturaNaPrimeiraEntrega": 67.8
+      "coberturaNaPrimeiraEntrega": 67.8,
+      "temFichaTecnica": true,
+      "projecaoBom": 144.0
     },
     {
       "sku": "84280",
@@ -9477,7 +10073,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 200.0
     },
     {
       "sku": "81283",
@@ -9506,7 +10104,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 72.0
     },
     {
       "sku": "79180",
@@ -9535,7 +10135,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 120.0
     },
     {
       "sku": "57914",
@@ -9564,7 +10166,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 240.0
     },
     {
       "sku": "57929",
@@ -9593,7 +10197,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 144.3
     },
     {
       "sku": "81284",
@@ -9628,7 +10234,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-10-30",
       "diasAtePrimeiraEntrega": 60,
-      "coberturaNaPrimeiraEntrega": 81.6
+      "coberturaNaPrimeiraEntrega": 81.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 64.8
     },
     {
       "sku": "81285",
@@ -9663,7 +10271,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-10-30",
       "diasAtePrimeiraEntrega": 60,
-      "coberturaNaPrimeiraEntrega": -12.0
+      "coberturaNaPrimeiraEntrega": -12.0,
+      "temFichaTecnica": true,
+      "projecaoBom": 180.0
     },
     {
       "sku": "86381",
@@ -9698,7 +10308,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 114.3
+      "coberturaNaPrimeiraEntrega": 114.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 112.8
     },
     {
       "sku": "87001",
@@ -9727,7 +10339,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "72528",
@@ -9762,7 +10376,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-10-26",
       "diasAtePrimeiraEntrega": 56,
-      "coberturaNaPrimeiraEntrega": 61.6
+      "coberturaNaPrimeiraEntrega": 61.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 50.4
     },
     {
       "sku": "103073",
@@ -9797,7 +10413,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-08",
       "diasAtePrimeiraEntrega": 8,
-      "coberturaNaPrimeiraEntrega": 61.7
+      "coberturaNaPrimeiraEntrega": 61.7,
+      "temFichaTecnica": true,
+      "projecaoBom": 324.0
     },
     {
       "sku": "81286",
@@ -9826,7 +10444,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1440.0
     },
     {
       "sku": "91649",
@@ -9855,7 +10475,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 76.8
     },
     {
       "sku": "57847",
@@ -9884,7 +10506,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 25.2
     },
     {
       "sku": "72651",
@@ -9913,7 +10537,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 300.0
     },
     {
       "sku": "72290",
@@ -9942,7 +10568,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 252.0
     },
     {
       "sku": "120563",
@@ -9971,7 +10599,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 4.8
     },
     {
       "sku": "120596",
@@ -10000,7 +10630,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 12.0
     },
     {
       "sku": "72303",
@@ -10029,7 +10661,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 129.6
     },
     {
       "sku": "72304",
@@ -10058,7 +10692,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 122.4
     },
     {
       "sku": "72306",
@@ -10093,7 +10729,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-10-12",
       "diasAtePrimeiraEntrega": 42,
-      "coberturaNaPrimeiraEntrega": 27.0
+      "coberturaNaPrimeiraEntrega": 27.0,
+      "temFichaTecnica": true,
+      "projecaoBom": 36.0
     },
     {
       "sku": "72307",
@@ -10122,7 +10760,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 14.4
     },
     {
       "sku": "72305",
@@ -10151,7 +10791,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 108.0
     },
     {
       "sku": "83200",
@@ -10186,7 +10828,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-15",
       "diasAtePrimeiraEntrega": 15,
-      "coberturaNaPrimeiraEntrega": 83.1
+      "coberturaNaPrimeiraEntrega": 83.1,
+      "temFichaTecnica": true,
+      "projecaoBom": 108.0
     },
     {
       "sku": "72291",
@@ -10221,7 +10865,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-10-26",
       "diasAtePrimeiraEntrega": 56,
-      "coberturaNaPrimeiraEntrega": 70.3
+      "coberturaNaPrimeiraEntrega": 70.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 50.4
     },
     {
       "sku": "83201",
@@ -10250,7 +10896,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 252.0
     },
     {
       "sku": "72309",
@@ -10295,7 +10943,9 @@
       "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 38.2
+      "coberturaNaPrimeiraEntrega": 38.2,
+      "temFichaTecnica": true,
+      "projecaoBom": 144.0
     },
     {
       "sku": "72310",
@@ -10324,7 +10974,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 18.0
     },
     {
       "sku": "75536",
@@ -10359,7 +11011,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-10-26",
       "diasAtePrimeiraEntrega": 56,
-      "coberturaNaPrimeiraEntrega": 67.6
+      "coberturaNaPrimeiraEntrega": 67.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 28.8
     },
     {
       "sku": "75537",
@@ -10388,7 +11042,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 50.4
     },
     {
       "sku": "91641",
@@ -10417,7 +11073,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2003.3
     },
     {
       "sku": "91642",
@@ -10446,7 +11104,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 7100.0
     },
     {
       "sku": "91643",
@@ -10475,7 +11135,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 7084.3
     },
     {
       "sku": "91647",
@@ -10504,7 +11166,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 3566.0
     },
     {
       "sku": "91644",
@@ -10533,7 +11197,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 28.3
     },
     {
       "sku": "91645",
@@ -10562,7 +11228,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 4020.4
     },
     {
       "sku": "91646",
@@ -10591,7 +11259,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1530.0
     },
     {
       "sku": "79940",
@@ -10626,7 +11296,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-21",
       "diasAtePrimeiraEntrega": 21,
-      "coberturaNaPrimeiraEntrega": 16.1
+      "coberturaNaPrimeiraEntrega": 16.1,
+      "temFichaTecnica": true,
+      "projecaoBom": 5750.0
     },
     {
       "sku": "117098",
@@ -10655,7 +11327,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1600.0
     },
     {
       "sku": "78981",
@@ -10695,7 +11369,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-01",
       "diasAtePrimeiraEntrega": 1,
-      "coberturaNaPrimeiraEntrega": 37.0
+      "coberturaNaPrimeiraEntrega": 37.0,
+      "temFichaTecnica": true,
+      "projecaoBom": 22000.0
     },
     {
       "sku": "94034",
@@ -10724,7 +11400,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "92796",
@@ -10753,7 +11431,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 6000.0
     },
     {
       "sku": "92797",
@@ -10782,7 +11462,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2500.0
     },
     {
       "sku": "73127",
@@ -10842,7 +11524,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-02",
       "diasAtePrimeiraEntrega": 2,
-      "coberturaNaPrimeiraEntrega": 20.9
+      "coberturaNaPrimeiraEntrega": 20.9,
+      "temFichaTecnica": true,
+      "projecaoBom": 46660.0
     },
     {
       "sku": "99080",
@@ -10882,7 +11566,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-02",
       "diasAtePrimeiraEntrega": 2,
-      "coberturaNaPrimeiraEntrega": 24.2
+      "coberturaNaPrimeiraEntrega": 24.2,
+      "temFichaTecnica": true,
+      "projecaoBom": 7200.0
     },
     {
       "sku": "98321",
@@ -10932,7 +11618,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-09",
       "diasAtePrimeiraEntrega": 9,
-      "coberturaNaPrimeiraEntrega": 31.6
+      "coberturaNaPrimeiraEntrega": 31.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 30500.0
     },
     {
       "sku": "72187",
@@ -10961,7 +11649,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "117824",
@@ -10990,7 +11680,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 200.0
     },
     {
       "sku": "45362",
@@ -11019,7 +11711,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 731.5
     },
     {
       "sku": "50961",
@@ -11048,7 +11742,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "42064",
@@ -11083,7 +11779,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 14.5
+      "coberturaNaPrimeiraEntrega": 14.5,
+      "temFichaTecnica": true,
+      "projecaoBom": 1149.0
     },
     {
       "sku": "92971",
@@ -11112,7 +11810,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 7476.3
     },
     {
       "sku": "80060",
@@ -11141,7 +11841,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 3232.0
     },
     {
       "sku": "42072",
@@ -11170,7 +11872,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 93.6
     },
     {
       "sku": "44143",
@@ -11199,7 +11903,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 36.0
     },
     {
       "sku": "42164",
@@ -11228,7 +11934,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 79.2
     },
     {
       "sku": "93000",
@@ -11257,7 +11965,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 8.0
     },
     {
       "sku": "41903",
@@ -11292,7 +12002,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-02",
       "diasAtePrimeiraEntrega": 2,
-      "coberturaNaPrimeiraEntrega": -0.2
+      "coberturaNaPrimeiraEntrega": -0.2,
+      "temFichaTecnica": true,
+      "projecaoBom": 35271.9
     },
     {
       "sku": "93012",
@@ -11327,7 +12039,9 @@
       "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 17.6
+      "coberturaNaPrimeiraEntrega": 17.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 1068.0
     },
     {
       "sku": "45309",
@@ -11356,7 +12070,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 50.4
     },
     {
       "sku": "44882",
@@ -11385,7 +12101,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 472.3
     },
     {
       "sku": "42043",
@@ -11414,7 +12132,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1069.7
     },
     {
       "sku": "41598",
@@ -11443,7 +12163,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 6100.0
     },
     {
       "sku": "42079",
@@ -11472,7 +12194,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 29280.0
     },
     {
       "sku": "41600",
@@ -11501,7 +12225,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 6000.0
     },
     {
       "sku": "44202",
@@ -11530,7 +12256,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "41967",
@@ -11559,7 +12287,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 14.7
     },
     {
       "sku": "41962",
@@ -11594,7 +12324,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-15",
       "diasAtePrimeiraEntrega": 15,
-      "coberturaNaPrimeiraEntrega": -2.3
+      "coberturaNaPrimeiraEntrega": -2.3,
+      "temFichaTecnica": true,
+      "projecaoBom": 50.0
     },
     {
       "sku": "41963",
@@ -11623,7 +12355,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 50.0
     },
     {
       "sku": "41964",
@@ -11652,7 +12386,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 39.2
     },
     {
       "sku": "41966",
@@ -11681,7 +12417,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "43783",
@@ -11710,7 +12448,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "41969",
@@ -11745,7 +12485,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-15",
       "diasAtePrimeiraEntrega": 15,
-      "coberturaNaPrimeiraEntrega": 97.7
+      "coberturaNaPrimeiraEntrega": 97.7,
+      "temFichaTecnica": true,
+      "projecaoBom": 45.7
     },
     {
       "sku": "41970",
@@ -11774,7 +12516,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 17.5
     },
     {
       "sku": "46783",
@@ -11803,7 +12547,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2520.0
     },
     {
       "sku": "78882",
@@ -11832,7 +12578,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2785.7
     },
     {
       "sku": "78880",
@@ -11861,7 +12609,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 7400.6
     },
     {
       "sku": "42066",
@@ -11890,7 +12640,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 111.8
     },
     {
       "sku": "41565",
@@ -11919,7 +12671,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "42254",
@@ -11948,7 +12702,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 979.2
     },
     {
       "sku": "49670",
@@ -11977,7 +12733,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 440.6
     },
     {
       "sku": "42912",
@@ -12012,7 +12770,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-04",
       "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": 12.0
+      "coberturaNaPrimeiraEntrega": 12.0,
+      "temFichaTecnica": true,
+      "projecaoBom": 316.8
     },
     {
       "sku": "9228",
@@ -12041,7 +12801,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "41983",
@@ -12070,7 +12832,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 268.8
     },
     {
       "sku": "42027",
@@ -12105,7 +12869,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-18",
       "diasAtePrimeiraEntrega": 18,
-      "coberturaNaPrimeiraEntrega": 9.1
+      "coberturaNaPrimeiraEntrega": 9.1,
+      "temFichaTecnica": true,
+      "projecaoBom": 8400.0
     },
     {
       "sku": "93014",
@@ -12134,7 +12900,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 24.0
     },
     {
       "sku": "30231",
@@ -12163,7 +12931,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "43077",
@@ -12192,7 +12962,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "42102",
@@ -12221,7 +12993,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "42104",
@@ -12250,7 +13024,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "44902",
@@ -12285,7 +13061,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-08",
       "diasAtePrimeiraEntrega": 8,
-      "coberturaNaPrimeiraEntrega": 5.1
+      "coberturaNaPrimeiraEntrega": 5.1,
+      "temFichaTecnica": true,
+      "projecaoBom": 12820.5
     },
     {
       "sku": "41567",
@@ -12314,7 +13092,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "41825",
@@ -12343,7 +13123,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 6100.0
     },
     {
       "sku": "41602",
@@ -12372,7 +13154,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 107380.0
     },
     {
       "sku": "46423",
@@ -12401,7 +13185,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "41604",
@@ -12430,7 +13216,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 969.6
     },
     {
       "sku": "79782",
@@ -12459,7 +13247,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 64978.3
     },
     {
       "sku": "42023",
@@ -12488,7 +13278,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 790.8
     },
     {
       "sku": "80040",
@@ -12517,7 +13309,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "92972",
@@ -12552,7 +13346,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 4544.5
     },
     {
       "sku": "42081",
@@ -12581,7 +13377,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 5124.0
     },
     {
       "sku": "42919",
@@ -12610,7 +13408,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 29.9
     },
     {
       "sku": "93009",
@@ -12639,7 +13439,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1068.0
     },
     {
       "sku": "43342",
@@ -12674,7 +13476,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-08",
       "diasAtePrimeiraEntrega": 8,
-      "coberturaNaPrimeiraEntrega": -2.6
+      "coberturaNaPrimeiraEntrega": -2.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 10500.0
     },
     {
       "sku": "41904",
@@ -12709,7 +13513,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-09-03",
       "diasAtePrimeiraEntrega": 3,
-      "coberturaNaPrimeiraEntrega": -1.4
+      "coberturaNaPrimeiraEntrega": -1.4,
+      "temFichaTecnica": true,
+      "projecaoBom": 415.0
     },
     {
       "sku": "42068",
@@ -12738,7 +13544,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 188.8
     },
     {
       "sku": "70894",
@@ -12767,7 +13575,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 10.9
     },
     {
       "sku": "42109",
@@ -12812,7 +13622,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 1.5
+      "coberturaNaPrimeiraEntrega": 1.5,
+      "temFichaTecnica": true,
+      "projecaoBom": 134200.0
     },
     {
       "sku": "120332",
@@ -12841,7 +13653,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1224.0
     },
     {
       "sku": "43524",
@@ -12870,7 +13684,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2400.0
     },
     {
       "sku": "93013",
@@ -12899,7 +13715,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 37.4
     },
     {
       "sku": "42051",
@@ -12928,7 +13746,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 46.1
     },
     {
       "sku": "42062",
@@ -12957,7 +13777,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 7202.4
     },
     {
       "sku": "45306",
@@ -12992,7 +13814,9 @@
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-09-15",
       "diasAtePrimeiraEntrega": 15,
-      "coberturaNaPrimeiraEntrega": 7.1
+      "coberturaNaPrimeiraEntrega": 7.1,
+      "temFichaTecnica": true,
+      "projecaoBom": 744.3
     },
     {
       "sku": "45305",
@@ -13027,7 +13851,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-15",
       "diasAtePrimeiraEntrega": 15,
-      "coberturaNaPrimeiraEntrega": 16.7
+      "coberturaNaPrimeiraEntrega": 16.7,
+      "temFichaTecnica": true,
+      "projecaoBom": 673.9
     },
     {
       "sku": "92974",
@@ -13056,7 +13882,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 534.0
     },
     {
       "sku": "42227",
@@ -13085,7 +13913,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 205.5
     },
     {
       "sku": "42077",
@@ -13114,7 +13944,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 249.6
     },
     {
       "sku": "44467",
@@ -13149,7 +13981,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-08-31",
       "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 8.6
+      "coberturaNaPrimeiraEntrega": 8.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 801.5
     },
     {
       "sku": "42126",
@@ -13178,7 +14012,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "78980",
@@ -13207,7 +14043,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 10.9
     },
     {
       "sku": "43582",
@@ -13236,7 +14074,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2800.0
     },
     {
       "sku": "42127",
@@ -13265,7 +14105,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 7320.0
     },
     {
       "sku": "44624",
@@ -13294,7 +14136,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 159.6
     },
     {
       "sku": "93004",
@@ -13329,7 +14173,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1335.1
     },
     {
       "sku": "79922",
@@ -13358,7 +14204,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2354.4
     },
     {
       "sku": "49688",
@@ -13387,7 +14235,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 16968.0
     },
     {
       "sku": "41862",
@@ -13416,7 +14266,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2496.0
     },
     {
       "sku": "41864",
@@ -13445,7 +14297,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 495.9
     },
     {
       "sku": "42742",
@@ -13474,7 +14328,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 252.0
     },
     {
       "sku": "41863",
@@ -13503,7 +14359,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 872.9
     },
     {
       "sku": "41859",
@@ -13532,7 +14390,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "42052",
@@ -13561,7 +14421,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "93005",
@@ -13590,7 +14452,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 24.0
     },
     {
       "sku": "92706",
@@ -13619,7 +14483,9 @@
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 60000.0
     },
     {
       "sku": "117890",
@@ -13648,7 +14514,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2400.0
     },
     {
       "sku": "92786",
@@ -13677,7 +14545,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 25000.0
     },
     {
       "sku": "92792",
@@ -13706,7 +14576,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 60000.0
     },
     {
       "sku": "92793",
@@ -13735,7 +14607,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 60000.0
     },
     {
       "sku": "92794",
@@ -13764,7 +14638,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 25000.0
     },
     {
       "sku": "92795",
@@ -13793,7 +14669,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 25000.0
     },
     {
       "sku": "117923",
@@ -13822,7 +14700,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2400.0
     },
     {
       "sku": "77769",
@@ -13851,7 +14731,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1600.0
     },
     {
       "sku": "53108",
@@ -13880,7 +14762,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "53109",
@@ -13909,7 +14793,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "55328",
@@ -13938,7 +14824,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "55310",
@@ -13967,7 +14855,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "53110",
@@ -13996,7 +14886,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "53111",
@@ -14025,7 +14917,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "55507",
@@ -14054,7 +14948,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "46918",
@@ -14083,7 +14979,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "53112",
@@ -14112,7 +15010,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "120959",
@@ -14141,7 +15041,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "53113",
@@ -14170,7 +15072,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1560.0
     },
     {
       "sku": "55308",
@@ -14199,7 +15103,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "55312",
@@ -14228,7 +15134,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "74682",
@@ -14257,7 +15165,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 1800.0
     },
     {
       "sku": "53127",
@@ -14286,7 +15196,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "72313",
@@ -14315,7 +15227,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 4800.0
     },
     {
       "sku": "55647",
@@ -14344,7 +15258,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "49969",
@@ -14373,7 +15289,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 960.0
     },
     {
       "sku": "43583",
@@ -14402,7 +15320,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "49342",
@@ -14431,7 +15351,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "43586",
@@ -14460,7 +15382,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "86060",
@@ -14495,7 +15419,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": "2026-09-14",
       "diasAtePrimeiraEntrega": 14,
-      "coberturaNaPrimeiraEntrega": 32.6
+      "coberturaNaPrimeiraEntrega": 32.6,
+      "temFichaTecnica": true,
+      "projecaoBom": 14000.0
     },
     {
       "sku": "43585",
@@ -14524,7 +15450,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 8240.0
     },
     {
       "sku": "43584",
@@ -14553,7 +15481,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2580.0
     },
     {
       "sku": "43587",
@@ -14582,7 +15512,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2701.3
     },
     {
       "sku": "73288",
@@ -14611,7 +15543,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "73287",
@@ -14640,7 +15574,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0
     },
     {
       "sku": "77640",
@@ -14669,7 +15605,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 48000.0
     },
     {
       "sku": "92790",
@@ -14698,7 +15636,9 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 60000.0
     },
     {
       "sku": "92788",
@@ -14727,7 +15667,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 25000.0
     },
     {
       "sku": "117857",
@@ -14756,7 +15698,9 @@
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 2400.0
     }
   ]
 }
