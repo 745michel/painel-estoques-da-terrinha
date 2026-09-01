@@ -99,7 +99,7 @@ type FornecedorMetrica = {
   serieMensalPreco: { mes: string; preco: number }[];
 };
 type FornecedorProdutoMes = { valor: number; kg: number; caixas: number };
-type FornecedorProduto = { p: string; valor: number; kg: number; caixas: number; serieAnoMes?: Record<string, FornecedorProdutoMes[]>; ultimaNf?: FornecedorProdutoMes };
+type FornecedorProduto = { p: string; valor: number; valorBruto: number; kg: number; caixas: number; serieAnoMes?: Record<string, FornecedorProdutoMes[]>; ultimaNf?: FornecedorProdutoMes };
 type CompradorDado = { total: number; totalKg: number; fornecedores: number; ranking: FornecedorLinha[]; produtos: FornecedorProduto[] };
 type FornecedoresGrupo = {
   anoData: Record<string, { total: number; totalKg: number; fornecedores: number; top: FornecedorLinha[] }>;
@@ -1817,7 +1817,10 @@ function ValorProdutoAcabadoDashboard({
   </main>;
 }
 
-const FORN_ANO_CORES = ["#8b6bf0", "#2f8a5c", "#2a93c4", "#c07620"];
+// Cores do proprio painel (laranja da sidebar + verde principal), nao mais roxo/azul
+// genericos - pedido do usuario em 01/09/2026: "coloque uma cor que seja do estilo do
+// painel em todos os graficos".
+const FORN_ANO_CORES = ["#9c480d", "#176b45", "#2f8a61", "#c98218"];
 const FORN_MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
 const FORN_LIMITE_TABELA = 50;
 // Pedido explicito do usuario em 26/08/2026: manter so 2025/2026 no comparativo, ranking e
@@ -1843,12 +1846,14 @@ function FornecedoresDashboard({
   const anoMaisRecente = anos[anos.length - 1] ?? "";
 
   const [anoAtivo, setAnoAtivo] = useState(anoMaisRecente);
-  const anoRanking = anos.includes(anoAtivo) ? anoAtivo : anoMaisRecente;
+  // anoAtivo pode ser "todos" (sentinela, nao existe em anoData) - sem esse caso especial aqui,
+  // o fallback pra anoMaisRecente sempre vencia e o botao "Todos" nunca fazia efeito nenhum
+  // (achado real em 01/09/2026).
+  const anoRanking = anoAtivo === "todos" || anos.includes(anoAtivo) ? anoAtivo : anoMaisRecente;
   const [query, setQuery] = useState("");
   const [selectedFornecedor, setSelectedFornecedor] = useState<string | null>(null);
   const [focoFornecedores, setFocoFornecedores] = useState<string[]>([]);
-  const [compradorFiltro, setCompradorFiltro] = useState("");
-  const [buscaProduto, setBuscaProduto] = useState("");
+  const [produtosSelecionados, setProdutosSelecionados] = useState<string[]>([]);
   const [mostrarGrupoInterno, setMostrarGrupoInterno] = useState(false);
   const [produtoAberto, setProdutoAberto] = useState<{ nome: string; serieAnoMes: Record<string, FornecedorProdutoMes[]> } | null>(null);
 
@@ -1864,7 +1869,7 @@ function FornecedoresDashboard({
     setQuery("");
     setSelectedFornecedor(null);
     setFocoFornecedores([]);
-    setCompradorFiltro("");
+    setProdutosSelecionados([]);
     const primeiroFornecedor = novoGrupoData.listaFornecedores[0] ?? "";
     setTlFornecedor(primeiroFornecedor);
     setAnosAtivos({});
@@ -1886,15 +1891,7 @@ function FornecedoresDashboard({
   }, [grupoAtual, anos]);
 
   const rankingContexto = useMemo(() => {
-    let base;
-    if (compradorFiltro) {
-      const escopo = anoRanking === "todos" ? "todos" : anoRanking;
-      base = grupoAtual.compradores.porComprador[escopo]?.[compradorFiltro]?.ranking ?? [];
-    } else if (anoRanking === "todos" || !grupoAtual.anoData[anoRanking]) {
-      base = combinadoTop;
-    } else {
-      base = grupoAtual.anoData[anoRanking].top;
-    }
+    let base = anoRanking === "todos" || !grupoAtual.anoData[anoRanking] ? combinadoTop : grupoAtual.anoData[anoRanking].top;
     if (focoFornecedores.length > 0) {
       const set = new Set(focoFornecedores);
       base = base.filter((r) => set.has(r.f));
@@ -1904,7 +1901,7 @@ function FornecedoresDashboard({
     const total = base.reduce((s, r) => s + r.valor, 0);
     const totalKg = base.reduce((s, r) => s + r.kg, 0);
     return { lista: base, total, totalKg, fornecedores: base.length };
-  }, [anoRanking, grupoAtual, combinadoTop, compradorFiltro, focoFornecedores, mostrarGrupoInterno]);
+  }, [anoRanking, grupoAtual, combinadoTop, focoFornecedores, mostrarGrupoInterno]);
 
   const rankingOrdenado = useMemo(() => [...rankingContexto.lista].sort((a, b) => b.valor - a.valor), [rankingContexto]);
 
@@ -1946,22 +1943,13 @@ function FornecedoresDashboard({
 
   function mudarFocoFornecedores(valores: string[]) {
     setFocoFornecedores(valores);
+    setProdutosSelecionados([]);
     if (valores.length > 0) {
       setTlFornecedor(valores[0]);
     }
   }
 
-  function escolherComprador(comprador: string) {
-    setCompradorFiltro(comprador);
-    if (!comprador) return;
-    setFocoFornecedores([]);
-    const topFornecedor = grupoAtual.compradores.porComprador[escopoGaveta]?.[comprador]?.ranking[0]?.f;
-    if (topFornecedor) setTlFornecedor(topFornecedor);
-  }
-
-  const fornecedoresParaFoco = compradorFiltro
-    ? (grupoAtual.compradores.porComprador[escopoGaveta]?.[compradorFiltro]?.ranking.map((r) => r.f) ?? [])
-    : grupoAtual.listaFornecedores;
+  const fornecedoresParaFoco = grupoAtual.listaFornecedores;
 
   function somarProdutos(listas: FornecedorProduto[][]): FornecedorProduto[] {
     const porNome = new Map<string, FornecedorProduto>();
@@ -1973,6 +1961,7 @@ function FornecedoresDashboard({
           continue;
         }
         atual.valor += p.valor;
+        atual.valorBruto += p.valorBruto;
         atual.kg += p.kg;
         atual.caixas += p.caixas;
         if (p.serieAnoMes) {
@@ -2003,7 +1992,7 @@ function FornecedoresDashboard({
       let ultimaNf: FornecedorProdutoMes | undefined;
       for (const ano of anos) {
         const item = porAno[ano].find((p) => p.p === nome);
-        dados[ano] = item ?? { p: nome, valor: 0, kg: 0, caixas: 0 };
+        dados[ano] = item ?? { p: nome, valor: 0, valorBruto: 0, kg: 0, caixas: 0 };
         valorTotal += dados[ano].valor;
         if (item?.ultimaNf) ultimaNf = item.ultimaNf;
       }
@@ -2020,12 +2009,11 @@ function FornecedoresDashboard({
 
   function renderTabelaProdutos(linhas: ReturnType<typeof produtosPorAno>) {
     if (linhas.length === 0) return <div className="empty-state"><strong>Sem produto registrado</strong><p>Nenhuma compra no período selecionado.</p></div>;
-    const buscaNorm = buscaProduto.trim().toLocaleLowerCase("pt-BR");
-    const filtradas = buscaNorm ? linhas.filter((l) => l.nome.toLocaleLowerCase("pt-BR").includes(buscaNorm)) : linhas;
+    const filtradas = produtosSelecionados.length > 0 ? linhas.filter((l) => produtosSelecionados.includes(l.nome)) : linhas;
     return <>
-      {filtradas.length === 0 ? <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Tente outro termo de busca.</p></div> : <div className="table-wrap forn-produtos-tabela-wrap"><table className="values-table forn-produtos-tabela"><thead><tr>
+      {filtradas.length === 0 ? <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro pra ver os produtos.</p></div> : <div className="table-wrap forn-produtos-tabela-wrap"><table className="values-table forn-produtos-tabela"><thead><tr>
         <th>Produto</th>
-        {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>, <th key={`${ano}-c`}>{ano} · Custo unitário</th>])}
+        {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>, <th key={`${ano}-c`}>{ano} · Custo unitário</th>, <th key={`${ano}-b`}>{ano} · Preço bruto</th>])}
         <th>Preço última NF</th>
       </tr></thead><tbody>
         {filtradas.map((l) => <tr key={l.nome} onClick={() => abrirProduto(l)} style={{ cursor: "pointer" }}>
@@ -2034,6 +2022,7 @@ function FornecedoresDashboard({
             <td key={`${ano}-v`}>{l.dados[ano].valor ? <strong className="money-value">{currency.format(l.dados[ano].valor)}</strong> : <span className="price-missing">—</span>}</td>,
             <td key={`${ano}-q`}>{qtdCaixaOuKg(l.dados[ano]) || "—"}</td>,
             <td key={`${ano}-c`}>{custoUnitario(l.dados[ano]) || "—"}</td>,
+            <td key={`${ano}-b`}>{precoBruto(l.dados[ano]) || "—"}</td>,
           ])}
           <td>{l.ultimaNf ? custoUnitario(l.ultimaNf) || "—" : "—"}</td>
         </tr>)}
@@ -2044,6 +2033,7 @@ function FornecedoresDashboard({
   const produtosFocoCombinado = focoFornecedores.length > 0
     ? produtosPorAno((ano) => somarProdutos(focoFornecedores.map((f) => grupoAtual.produtos[ano]?.[f] ?? [])))
     : [];
+  const opcoesProduto = produtosFocoCombinado.map((l) => l.nome).sort((a, b) => a.localeCompare(b, "pt-BR"));
   const metricasFoco = focoFornecedores
     .map((f) => grupoAtual.metricas[escopoGaveta]?.[f])
     .filter((m): m is FornecedorMetrica => m != null);
@@ -2067,6 +2057,15 @@ function FornecedoresDashboard({
   function custoUnitario(p: { valor: number; kg: number; caixas: number }) {
     if (p.caixas > 0) return `${currency.format(p.valor / p.caixas)}/cx`;
     if (p.kg > 0) return `${currency.format(p.valor / p.kg)}/kg`;
+    return "";
+  }
+
+  // Preco bruto (antes de descontar PIS/COFINS) por caixa/kg - pedido do usuario, 01/09/2026,
+  // pra analise ao focar um fornecedor especifico. Mesma logica de custoUnitario, so que a
+  // partir de valorBruto (total_produto na fonte) em vez de valor (Custo_liquido_total).
+  function precoBruto(p: { valorBruto: number; kg: number; caixas: number }) {
+    if (p.caixas > 0) return `${currency.format(p.valorBruto / p.caixas)}/cx`;
+    if (p.kg > 0) return `${currency.format(p.valorBruto / p.kg)}/kg`;
     return "";
   }
 
@@ -2113,21 +2112,12 @@ function FornecedoresDashboard({
           />
           {focoFornecedores.length > 0 && <button type="button" className="forn-foco-clear" onClick={() => setFocoFornecedores([])}>× Voltar para o ranking completo</button>}
 
-          <label className="forn-foco-input forn-comprador-select">
-            <span>🧑</span>
-            <select
-              value={compradorFiltro}
-              onChange={(event) => escolherComprador(event.target.value)}
-            >
-              <option value="">Ver todos os fornecedores</option>
-              {grupoAtual.compradores.listaCompradores.map((c) => <option key={c} value={c}>{c}</option>)}
-            </select>
-          </label>
-
-          <label className="forn-foco-input">
-            <span>⌕</span>
-            <input value={buscaProduto} onChange={(event) => setBuscaProduto(event.target.value)} placeholder="Buscar produto em Principais produtos..." />
-          </label>
+          {focoFornecedores.length > 0 && <MultiFilter
+            label="Produto"
+            options={opcoesProduto.map((p) => ({ value: p, label: p }))}
+            selected={produtosSelecionados}
+            onChange={setProdutosSelecionados}
+          />}
 
           <label className="forn-grupo-interno-toggle">
             <input type="checkbox" checked={mostrarGrupoInterno} onChange={(event) => setMostrarGrupoInterno(event.target.checked)} />
@@ -2142,16 +2132,16 @@ function FornecedoresDashboard({
 
         {focoFornecedores.length > 0 ? (
           <section className="value-kpis" aria-label={`Indicadores de ${focoFornecedores.join(", ")}`}>
-            <div className="value-kpi total"><span>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}){compradorFiltro ? ` · comprador: ${compradorFiltro}` : ""}{focoFornecedores.length > 1 ? ` · ${focoFornecedores.length} fornecedores` : ""}</span><strong>{currency.format(metricaFocoCombinada?.valor ?? 0)}</strong><small>Líquido de estorno e devolução de compra</small></div>
+            <div className="value-kpi total"><span>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}){focoFornecedores.length > 1 ? ` · ${focoFornecedores.length} fornecedores` : ""}</span><strong>{currency.format(metricaFocoCombinada?.valor ?? 0)}</strong><small>Líquido de estorno e devolução de compra</small></div>
             <div className="value-kpi"><span>Kg/Caixa comprado</span><strong>{metricaFocoCombinada && qtdCaixaOuKg(metricaFocoCombinada) || "não pesado (cx/un)"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi"><span>Preço médio</span><strong>{metricaFocoCombinada?.precoMedioKg != null ? `${currency.format(metricaFocoCombinada.precoMedioKg)}/kg` : "—"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi missing"><span>Variação de preço</span><strong className={metricaFocoCombinada?.variacaoPrecoPct == null ? "" : metricaFocoCombinada.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaFocoCombinada?.variacaoPrecoPct != null ? `${metricaFocoCombinada.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaFocoCombinada.variacaoPrecoPct)}%` : focoFornecedores.length > 1 ? "vários" : "—"}</strong><small>&nbsp;</small></div>
           </section>
         ) : (
           <section className="value-kpis" aria-label="Indicadores de fornecedores">
-            <div className="value-kpi total"><span>Total pago no período{compradorFiltro ? ` · ${compradorFiltro}` : ""}</span><strong>{currency.format(rankingContexto.total)}</strong><small>Líquido de estorno e devolução de compra</small></div>
+            <div className="value-kpi total"><span>Total pago no período</span><strong>{currency.format(rankingContexto.total)}</strong><small>Líquido de estorno e devolução de compra</small></div>
             <div className="value-kpi"><span>Total comprado</span><strong>{number.format(Math.round(rankingContexto.totalKg / 1000))} t</strong><small>Só linhas com peso identificado (kg/ton)</small></div>
-            <div className="value-kpi"><span>{compradorFiltro ? "Fornecedores negociados" : "Fornecedores no período"}</span><strong>{number.format(rankingContexto.fornecedores)}</strong><small>&nbsp;</small></div>
+            <div className="value-kpi"><span>Fornecedores no período</span><strong>{number.format(rankingContexto.fornecedores)}</strong><small>&nbsp;</small></div>
             <div className="value-kpi missing"><span>Concentração top 3</span><strong>{concentracaoTop3}%</strong><small>Do valor total pago vem de só 3 fornecedores</small></div>
           </section>
         )}
@@ -2275,14 +2265,7 @@ function FornecedoresDashboard({
         </div>
 
         {focoFornecedores.length === 0 && <section className="inventory-panel values-panel">
-          {compradorFiltro ? (
-            <>
-              <div className="panel-heading"><div><h2>Principais produtos · {compradorFiltro}</h2><p>Comprados por ele, em todos os fornecedores, por ano</p></div></div>
-              {renderTabelaProdutos(produtosPorAno((ano) => grupoAtual.compradores.porComprador[ano]?.[compradorFiltro]?.produtos ?? []))}
-            </>
-          ) : (
-            <div className="panel-heading"><div><h2>Ranking de fornecedores</h2><p>Ordenado por valor pago · clique numa linha pra ver os produtos</p></div></div>
-          )}
+          <div className="panel-heading"><div><h2>Ranking de fornecedores</h2><p>Ordenado por valor pago · clique numa linha pra ver os produtos</p></div></div>
           <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th style={{ width: 40 }}>#</th><th>Fornecedor</th><th>Valor pago</th><th>Kg/Caixa comprado</th><th>% do total</th></tr></thead><tbody>
             {filtrado.map((r, i) => <tr key={r.f} onClick={() => abrirGaveta(r.f)} style={{ cursor: "pointer" }}>
               <td><span className={`rk-badge ${i < 3 ? "top3" : ""}`}>{i + 1}</span></td>
@@ -2299,7 +2282,7 @@ function FornecedoresDashboard({
         </section>}
 
         {focoFornecedores.length > 0 && <section className="inventory-panel forn-produtos-foco">
-          <div className="panel-heading"><div><h2>Principais produtos · {focoFornecedores.length > 1 ? `${focoFornecedores.length} fornecedores (somado)` : focoFornecedores[0]}</h2><p>Por ano — {anos.join(" e ")}{compradorFiltro ? ` · comprador: ${compradorFiltro}` : ""}</p></div></div>
+          <div className="panel-heading"><div><h2>Principais produtos · {focoFornecedores.length > 1 ? `${focoFornecedores.length} fornecedores (somado)` : focoFornecedores[0]}</h2><p>Por ano — {anos.join(" e ")}</p></div></div>
           {renderTabelaProdutos(produtosFocoCombinado)}
         </section>}
         <footer>Fonte: {fornecedoresData.fonte} · TIPO_OPERACAO=Compra · Matéria-prima = Departamento &quot;Compras&quot;, Produto acabado = &quot;Produto de venda&quot; (nunca somados).</footer>
@@ -2601,10 +2584,10 @@ export default function DashboardClient({
   }
 
   function exportCsv() {
-    const header = ["SKU", "Produto", "Fornecedor", "Unidade de medida", "Escadinha projetada", "Faturado", "Atingimento %", "Desvio", "Estoque", "Cobertura", "Segurança", "Status", ...scheduleDates.map((date) => `Entrega ${new Date(date).toLocaleDateString("pt-BR")}`), "Total programado", "Sugestão de compra"];
+    const header = ["SKU", "Produto", "Fornecedor", "Unidade de medida", "Escadinha projetada", "Projeção BOM (teste)", "Faturado", "Atingimento %", "Desvio", "Estoque", "Cobertura", "Segurança", "Status", ...scheduleDates.map((date) => `Entrega ${new Date(date).toLocaleDateString("pt-BR")}`), "Total programado", "Sugestão de compra"];
     const rows = filtered.map((p) => {
       const deliveries = new Map(p.entregasProgramadas.map((item) => [item.data, item.quantidade]));
-      return [p.sku, p.produto, p.fornecedor, p.unidade, p.escadinha, p.faturado, p.atingimento, p.desvioProjecao, p.estoque, p.cobertura, p.seguranca, statusLabel(p.status), ...scheduleDates.map((date) => deliveries.get(date) ?? ""), p.totalProgramado, p.sugestaoCompra];
+      return [p.sku, p.produto, p.fornecedor, p.unidade, p.escadinha, p.temFichaTecnica ? p.projecaoBom : "", p.faturado, p.atingimento, p.desvioProjecao, p.estoque, p.cobertura, p.seguranca, statusLabel(p.status), ...scheduleDates.map((date) => deliveries.get(date) ?? ""), p.totalProgramado, p.sugestaoCompra];
     });
     const csv = [header, ...rows]
       .map((row) => row.map((cell) => `"${String(cell).replaceAll('"', '""')}"`).join(";"))
@@ -2647,6 +2630,7 @@ export default function DashboardClient({
       {isInputs ? (
         <>
           <td data-label="Escadinha projetada">{product.escadinha > 0 ? <><strong className="numeric">{decimal.format(product.escadinha)}</strong><small className="unit"> {unitLabel(product.unidade, product.escadinha, true)}</small></> : <span className="no-projection">Sem projeção</span>}</td>
+          <td data-label="Projeção BOM">{product.temFichaTecnica ? <><strong className="numeric">{decimal.format(product.projecaoBom ?? 0)}</strong><small className="unit"> {unitLabel(product.unidade, product.projecaoBom ?? 0, true)}</small></> : <span className="no-projection" title="Sem ficha técnica cadastrada para este item">—</span>}</td>
           <td data-label="Consumo realizado"><strong className="numeric">{decimal.format(product.faturado)}</strong><small className="unit"> {unitLabel(product.unidade, product.faturado, true)}</small></td>
           <td data-label="Atingimento">{product.escadinha > 0 ? <div className="performance-cell"><div><strong className={performance}>{decimal.format(product.atingimento)}%</strong><small>{product.desvioProjecao >= 0 ? "+" : ""}{decimal.format(product.desvioProjecao)} {unitLabel(product.unidade, product.desvioProjecao, true)}</small></div><div className="sales-track"><span className={performance} style={{ width: `${Math.min(100, product.atingimento)}%` }} /><i /></div></div> : <span className="no-projection">—</span>}</td>
           <td data-label="Estoque"><strong className="numeric">{number.format(product.estoque)}</strong><small className="unit"> {unitLabel(product.unidade, product.estoque, true)}</small></td>
@@ -2781,9 +2765,9 @@ export default function DashboardClient({
               </div>
             </div>
             <div className="table-wrap">
-              <table className={isInputs ? "sticky-core-columns" : "terceiros-groups"} style={{ minWidth: `${(isInputs ? 1120 : 1720) + scheduleDates.length * 78}px` }}>
+              <table className={isInputs ? "sticky-core-columns" : "terceiros-groups"} style={{ minWidth: `${(isInputs ? 1270 : 1720) + scheduleDates.length * 78}px` }}>
                 <thead><tr>{isInputs ? <>
-                  <th>Produto / fornecedor</th><th>Escadinha projetada</th><th>Consumo realizado</th><th>Atingimento</th><th>Estoque atual</th><th>Cobertura</th><th>Status</th>
+                  <th>Produto / fornecedor</th><th>Escadinha projetada</th><th>Projeção BOM<small className="th-hint">Teste — ficha técnica</small></th><th>Consumo realizado</th><th>Atingimento</th><th>Estoque atual</th><th>Cobertura</th><th>Status</th>
                 </> : <>
                   <th>Produto / fornecedor</th><th>Estoque atual</th><th>Carteira</th><th>Saldo</th><th>Cobertura</th><th>Escadinha atual</th><th>Real M</th><th>%Plano</th><th>Corte M</th><th>Status</th>
                 </>}{scheduleDates.map((date, index) => { const overdue = isPastDelivery(date); return <th className={`delivery-date-heading ${index === 0 ? "delivery-block-start" : ""} ${overdue ? "overdue-delivery" : ""}`} title={overdue ? "Entrega em atraso" : undefined} key={date}><span>{overdue ? "Em atraso" : "Entrega"}</span><strong>{deliveryColumnDate.format(new Date(date))}</strong></th>; })}<th className="delivery-total-heading delivery-block-end"><span>Total</span><strong>Programado</strong></th><th /></tr></thead>
