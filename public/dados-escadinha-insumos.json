@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-09-02T11:13:22.973446",
+  "atualizadoEm": "2026-09-02T14:07:54.602892",
   "origem": "ficha_tecnica.json + dados-escadinha.json (explosão BOM × plano de produção)",
   "dataPublicacao": "2026-08-13",
   "dataPublicacaoAnterior": "2026-07-03",
@@ -329,6 +329,13 @@
       "sku": "70907",
       "produto": "MP - COLORAU  OKKER KG",
       "loja": "10",
+      "tipo": "Matéria-prima",
+      "fornecedor": "Fornecedor não informado"
+    },
+    {
+      "sku": "41565",
+      "produto": "MP - COLORIFICO PO ESPECIAL KG",
+      "loja": "11",
       "tipo": "Matéria-prima",
       "fornecedor": "Fornecedor não informado"
     },
@@ -2087,9 +2094,7 @@
         {
           "codRaiz": 79007,
           "produtoRaiz": "COCO FLOCOS UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-          "caminho": [
-            "SUB -  COCO FLOCOS UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.187004,
           "mensal": [
             284.433,
@@ -2111,9 +2116,7 @@
         {
           "codRaiz": 79006,
           "produtoRaiz": "COCO RALADO UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-          "caminho": [
-            "SUB - COCO RALADO UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.155656,
           "mensal": [
             71.135,
@@ -2157,9 +2160,7 @@
         {
           "codRaiz": 79005,
           "produtoRaiz": "COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G - CX 50",
-          "caminho": [
-            "SUB - COCO RALADO UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.16621,
           "mensal": [
             82.606,
@@ -2198,124 +2199,6 @@
             0.0
           ],
           "escadinhaPlanoAnual": 254,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 77762,
-      "descricao": "INDL - BATATA PALHA DA TERRINHA TRADICIONAL 100 g - UND",
-      "mensal": [
-        222820.0,
-        200000.0,
-        240000.0,
-        300000.0,
-        300000.0,
-        340000.0,
-        340000.0,
-        300000.0,
-        320000.0,
-        400000.0,
-        400000.0,
-        320000.0
-      ],
-      "mensalAnterior": [
-        222820.0,
-        200000.0,
-        240000.0,
-        300000.0,
-        300000.0,
-        340000.0,
-        340000.0,
-        340000.0,
-        340000.0,
-        400000.0,
-        400000.0,
-        320000.0
-      ],
-      "totalAno": 3682820.0,
-      "detalhamento": [
-        {
-          "codRaiz": 75877,
-          "produtoRaiz": "BATATA PALHA DA TERRINHA TRADIC 100G - CX20",
-          "caminho": [],
-          "consumoPorUnidade": 20.0,
-          "mensal": [
-            222820.0,
-            200000.0,
-            240000.0,
-            300000.0,
-            300000.0,
-            340000.0,
-            340000.0,
-            300000.0,
-            320000.0,
-            400000.0,
-            400000.0,
-            320000.0
-          ],
-          "escadinhaPlanoAnual": 184141,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 77760,
-      "descricao": "INDL - BATATA PALHA DA TERRINHA EX FINA 100G - UND",
-      "mensal": [
-        137080.0,
-        130000.0,
-        140000.0,
-        140000.0,
-        160000.0,
-        220000.0,
-        200000.0,
-        140000.0,
-        160000.0,
-        200000.0,
-        240000.0,
-        200000.0
-      ],
-      "mensalAnterior": [
-        137080.0,
-        130000.0,
-        140000.0,
-        140000.0,
-        160000.0,
-        220000.0,
-        200000.0,
-        200000.0,
-        200000.0,
-        240000.0,
-        240000.0,
-        200000.0
-      ],
-      "totalAno": 2067080.0,
-      "detalhamento": [
-        {
-          "codRaiz": 75879,
-          "produtoRaiz": "BATATA PALHA DA TERRINHA EX FINA 100G CX 20",
-          "caminho": [],
-          "consumoPorUnidade": 20.0,
-          "mensal": [
-            137080.0,
-            130000.0,
-            140000.0,
-            140000.0,
-            160000.0,
-            220000.0,
-            200000.0,
-            140000.0,
-            160000.0,
-            200000.0,
-            240000.0,
-            200000.0
-          ],
-          "escadinhaPlanoAnual": 103354,
           "escadinhaUnidade": "CX"
         }
       ]
@@ -2435,65 +2318,6 @@
           ],
           "escadinhaPlanoAnual": 107959,
           "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 57776,
-      "descricao": "INDL - FUBA MIMOSO DA TERRINHA BOBINA 500 G",
-      "mensal": [
-        42228.0,
-        48000.0,
-        60000.0,
-        66000.0,
-        78000.0,
-        78000.0,
-        60000.0,
-        42000.0,
-        48000.0,
-        54000.0,
-        54000.0,
-        50400.0
-      ],
-      "mensalAnterior": [
-        42228.0,
-        48000.0,
-        60000.0,
-        66000.0,
-        78000.0,
-        78000.0,
-        60000.0,
-        66000.0,
-        66000.0,
-        66000.0,
-        66000.0,
-        66000.0
-      ],
-      "totalAno": 680628.0,
-      "detalhamento": [
-        {
-          "codRaiz": 47982,
-          "produtoRaiz": "FUBA MIMOSO DA TERRINHA 500 G FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 12.0,
-          "mensal": [
-            42228.0,
-            48000.0,
-            60000.0,
-            66000.0,
-            78000.0,
-            78000.0,
-            60000.0,
-            42000.0,
-            48000.0,
-            54000.0,
-            54000.0,
-            50400.0
-          ],
-          "escadinhaPlanoAnual": 56719,
-          "escadinhaUnidade": "FD"
         }
       ]
     },
@@ -2640,65 +2464,6 @@
     {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 93209,
-      "descricao": "INDL - CREME DE AVELA DAVELA 140 G UN",
-      "mensal": [
-        48560.0,
-        35000.0,
-        40000.0,
-        45000.0,
-        55000.0,
-        65000.0,
-        50000.0,
-        60000.0,
-        50000.0,
-        60000.0,
-        70000.0,
-        50000.0
-      ],
-      "mensalAnterior": [
-        48560.0,
-        35000.0,
-        40000.0,
-        45000.0,
-        55000.0,
-        65000.0,
-        50000.0,
-        50000.0,
-        50000.0,
-        60000.0,
-        70000.0,
-        50000.0
-      ],
-      "totalAno": 628560.0,
-      "detalhamento": [
-        {
-          "codRaiz": 89103,
-          "produtoRaiz": "CREME DE AVELA DA TERRINHA 140 G UN CX 18.0",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            48560.0,
-            35000.0,
-            40000.0,
-            45000.0,
-            55000.0,
-            65000.0,
-            50000.0,
-            60000.0,
-            50000.0,
-            60000.0,
-            70000.0,
-            50000.0
-          ],
-          "escadinhaPlanoAnual": 62856,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 10724,
       "descricao": "CAIXA PAPELAO TAPIOCA DA TERRINHA 12 X 1KG - UNID",
       "mensal": [
@@ -2752,124 +2517,6 @@
           ],
           "escadinhaPlanoAnual": 523129,
           "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 57774,
-      "descricao": "INDL - FARINHA ROSCA DA TERRINHA 500 G",
-      "mensal": [
-        26472.0,
-        30000.0,
-        32400.0,
-        38400.0,
-        42000.0,
-        42000.0,
-        36000.0,
-        30000.0,
-        32400.0,
-        32400.0,
-        32400.0,
-        32400.0
-      ],
-      "mensalAnterior": [
-        26472.0,
-        30000.0,
-        32400.0,
-        38400.0,
-        42000.0,
-        42000.0,
-        36000.0,
-        36000.0,
-        39600.0,
-        42000.0,
-        42000.0,
-        42000.0
-      ],
-      "totalAno": 406872.0,
-      "detalhamento": [
-        {
-          "codRaiz": 48043,
-          "produtoRaiz": "FARINHA ROSCA DA TERRINHA 500 G - FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 12.0,
-          "mensal": [
-            26472.0,
-            30000.0,
-            32400.0,
-            38400.0,
-            42000.0,
-            42000.0,
-            36000.0,
-            30000.0,
-            32400.0,
-            32400.0,
-            32400.0,
-            32400.0
-          ],
-          "escadinhaPlanoAnual": 33906,
-          "escadinhaUnidade": "FD"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 57912,
-      "descricao": "INDL - FLOCOS DE MILHO ( CUSCUZ ) DA TERRINHA 500 G",
-      "mensal": [
-        17760.0,
-        18000.0,
-        21000.0,
-        30000.0,
-        30000.0,
-        30000.0,
-        30000.0,
-        48000.0,
-        36000.0,
-        36000.0,
-        36000.0,
-        36000.0
-      ],
-      "mensalAnterior": [
-        17760.0,
-        18000.0,
-        21000.0,
-        30000.0,
-        30000.0,
-        30000.0,
-        30000.0,
-        30000.0,
-        30000.0,
-        30000.0,
-        30000.0,
-        30000.0
-      ],
-      "totalAno": 368760.0,
-      "detalhamento": [
-        {
-          "codRaiz": 63307,
-          "produtoRaiz": "FLOCOS DE MILHO ( CUSCUZ ) DA TERRINHA 500 G - FD 30",
-          "caminho": [],
-          "consumoPorUnidade": 30.0,
-          "mensal": [
-            17760.0,
-            18000.0,
-            21000.0,
-            30000.0,
-            30000.0,
-            30000.0,
-            30000.0,
-            48000.0,
-            36000.0,
-            36000.0,
-            36000.0,
-            36000.0
-          ],
-          "escadinhaPlanoAnual": 12292,
-          "escadinhaUnidade": "FD"
         }
       ]
     },
@@ -3831,65 +3478,6 @@
     {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 93211,
-      "descricao": "INDL - CREME DE AVELA DAVELA 290 G UN",
-      "mensal": [
-        16700.0,
-        12000.0,
-        15000.0,
-        17000.0,
-        20000.0,
-        35000.0,
-        25000.0,
-        25000.0,
-        30000.0,
-        35000.0,
-        30000.0,
-        30000.0
-      ],
-      "mensalAnterior": [
-        16700.0,
-        12000.0,
-        15000.0,
-        17000.0,
-        20000.0,
-        35000.0,
-        25000.0,
-        25000.0,
-        30000.0,
-        35000.0,
-        30000.0,
-        30000.0
-      ],
-      "totalAno": 290700.0,
-      "detalhamento": [
-        {
-          "codRaiz": 89120,
-          "produtoRaiz": "CREME DE AVELA DA TERRINHA 290 G UN CX 12.0",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            16700.0,
-            12000.0,
-            15000.0,
-            17000.0,
-            20000.0,
-            35000.0,
-            25000.0,
-            25000.0,
-            30000.0,
-            35000.0,
-            30000.0,
-            30000.0
-          ],
-          "escadinhaPlanoAnual": 29070,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 64389,
       "descricao": "INSUMO - CHA - ETIQUETA DIVERSAS",
       "mensal": [
@@ -4412,183 +4000,6 @@
             5.0
           ],
           "escadinhaPlanoAnual": 4208,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 57777,
-      "descricao": "INDL - FUBA MIMOSO DA TERRINHA BOBINA 1 KG",
-      "mensal": [
-        9380.0,
-        21000.0,
-        22000.0,
-        20000.0,
-        25000.0,
-        25000.0,
-        25000.0,
-        20000.0,
-        22000.0,
-        22000.0,
-        22000.0,
-        22000.0
-      ],
-      "mensalAnterior": [
-        9380.0,
-        21000.0,
-        22000.0,
-        20000.0,
-        25000.0,
-        25000.0,
-        25000.0,
-        27000.0,
-        27000.0,
-        27000.0,
-        27000.0,
-        27000.0
-      ],
-      "totalAno": 255380.0,
-      "detalhamento": [
-        {
-          "codRaiz": 48003,
-          "produtoRaiz": "FUBA MIMOSO DA TERRINHA 1 KG FD 10",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            9380.0,
-            21000.0,
-            22000.0,
-            20000.0,
-            25000.0,
-            25000.0,
-            25000.0,
-            20000.0,
-            22000.0,
-            22000.0,
-            22000.0,
-            22000.0
-          ],
-          "escadinhaPlanoAnual": 25538,
-          "escadinhaUnidade": "FD"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 57782,
-      "descricao": "INDL - TRIGO PARA KIBE DA TERRINHA BOBINA 500 G",
-      "mensal": [
-        19164.0,
-        14400.0,
-        15600.0,
-        24000.0,
-        26400.0,
-        26400.0,
-        20400.0,
-        20400.0,
-        20400.0,
-        21600.0,
-        24000.0,
-        21600.0
-      ],
-      "mensalAnterior": [
-        19164.0,
-        14400.0,
-        15600.0,
-        24000.0,
-        26400.0,
-        26400.0,
-        20400.0,
-        20400.0,
-        21600.0,
-        24000.0,
-        30000.0,
-        28800.0
-      ],
-      "totalAno": 254364.0,
-      "detalhamento": [
-        {
-          "codRaiz": 48123,
-          "produtoRaiz": "TRIGO PARA KIBE DA TERRINHA 500 G FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 12.0,
-          "mensal": [
-            19164.0,
-            14400.0,
-            15600.0,
-            24000.0,
-            26400.0,
-            26400.0,
-            20400.0,
-            20400.0,
-            20400.0,
-            21600.0,
-            24000.0,
-            21600.0
-          ],
-          "escadinhaPlanoAnual": 21197,
-          "escadinhaUnidade": "FD"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120695,
-      "descricao": "INDL - AMENDOIM JAPONES MIDA DA TERRINHA 80G",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        48000.0,
-        84000.0,
-        72000.0,
-        4800.0,
-        6000.0,
-        7200.0,
-        8400.0,
-        9600.0,
-        9600.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        48000.0,
-        84000.0,
-        72000.0,
-        4800.0,
-        6000.0,
-        7200.0,
-        8400.0,
-        9600.0,
-        9600.0
-      ],
-      "totalAno": 249600.0,
-      "detalhamento": [
-        {
-          "codRaiz": 121091,
-          "produtoRaiz": "AMENDOIM JAPONES 80G CX 24",
-          "caminho": [],
-          "consumoPorUnidade": 24.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            48000.0,
-            84000.0,
-            72000.0,
-            4800.0,
-            6000.0,
-            7200.0,
-            8400.0,
-            9600.0,
-            9600.0
-          ],
-          "escadinhaPlanoAnual": 10400,
           "escadinhaUnidade": "CX"
         }
       ]
@@ -5646,65 +5057,6 @@
     {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120761,
-      "descricao": "INDL - AMENDOIM SEM PELE TORRADO E SALGADO MIDA DA TERRINHA 80G",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        36000.0,
-        48000.0,
-        43200.0,
-        4800.0,
-        6000.0,
-        7200.0,
-        8400.0,
-        8400.0,
-        7200.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        36000.0,
-        48000.0,
-        43200.0,
-        4800.0,
-        6000.0,
-        7200.0,
-        9600.0,
-        9600.0,
-        8400.0
-      ],
-      "totalAno": 169200.0,
-      "detalhamento": [
-        {
-          "codRaiz": 121190,
-          "produtoRaiz": "AMENDOIM DESCASCADO SALGADO 80G CX 24",
-          "caminho": [],
-          "consumoPorUnidade": 24.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            36000.0,
-            48000.0,
-            43200.0,
-            4800.0,
-            6000.0,
-            7200.0,
-            8400.0,
-            8400.0,
-            7200.0
-          ],
-          "escadinhaPlanoAnual": 7050,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 79303,
       "descricao": "CAIXA DE PAPELAO NA MEDIDA 12X490G",
       "mensal": [
@@ -5816,65 +5168,6 @@
             10000.0
           ],
           "escadinhaPlanoAnual": 107959,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117395,
-      "descricao": "INDL - BATATA ONDULADA SABOR NATURAL MIDA DA TERRINHA 40G - UND",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        14000.0,
-        19000.0,
-        19000.0,
-        7000.0,
-        4000.0,
-        5000.0,
-        6000.0,
-        6000.0,
-        6000.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        14000.0,
-        19000.0,
-        19000.0,
-        7000.0,
-        8000.0,
-        9000.0,
-        10000.0,
-        11000.0,
-        10000.0
-      ],
-      "totalAno": 86000.0,
-      "detalhamento": [
-        {
-          "codRaiz": 114298,
-          "produtoRaiz": "BATATA ONDULADA NATURAL 40G CX 20",
-          "caminho": [],
-          "consumoPorUnidade": 20.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            14000.0,
-            19000.0,
-            19000.0,
-            7000.0,
-            4000.0,
-            5000.0,
-            6000.0,
-            6000.0,
-            6000.0
-          ],
-          "escadinhaPlanoAnual": 4300,
           "escadinhaUnidade": "CX"
         }
       ]
@@ -6264,65 +5557,6 @@
     {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120794,
-      "descricao": "INDL - OVINHOS DE AMENDOIM MIDA DA TERRINHA 80G - UND",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        14400.0,
-        21600.0,
-        20400.0,
-        3000.0,
-        3000.0,
-        3600.0,
-        4200.0,
-        4200.0,
-        4200.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        14400.0,
-        21600.0,
-        20400.0,
-        3000.0,
-        4200.0,
-        5400.0,
-        6000.0,
-        6000.0,
-        6000.0
-      ],
-      "totalAno": 78600.0,
-      "detalhamento": [
-        {
-          "codRaiz": 121256,
-          "produtoRaiz": "OVINHO DE AMENDOIM 80G CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 12.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            14400.0,
-            21600.0,
-            20400.0,
-            3000.0,
-            3000.0,
-            3600.0,
-            4200.0,
-            4200.0,
-            4200.0
-          ],
-          "escadinhaPlanoAnual": 6550,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 50153,
       "descricao": "SACO POUCH TAPIOCA TAEQ 560 GR SOLTINHA",
       "mensal": [
@@ -6375,124 +5609,6 @@
             4000.0
           ],
           "escadinhaPlanoAnual": 6929,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 92770,
-      "descricao": "INDL - NOVO CHA DE CAMOMILA DA TERRINHA 07 G - UND",
-      "mensal": [
-        3460.0,
-        4000.0,
-        4500.0,
-        5000.0,
-        6000.0,
-        7000.0,
-        10000.0,
-        7000.0,
-        6000.0,
-        5500.0,
-        5500.0,
-        5000.0
-      ],
-      "mensalAnterior": [
-        3460.0,
-        4000.0,
-        4500.0,
-        5000.0,
-        6000.0,
-        7000.0,
-        10000.0,
-        7000.0,
-        6000.0,
-        5500.0,
-        5500.0,
-        5000.0
-      ],
-      "totalAno": 68960.0,
-      "detalhamento": [
-        {
-          "codRaiz": 90701,
-          "produtoRaiz": "CHA DE CAMOMILA DA TERRINHA 07 G - FD 10",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            3460.0,
-            4000.0,
-            4500.0,
-            5000.0,
-            6000.0,
-            7000.0,
-            10000.0,
-            7000.0,
-            6000.0,
-            5500.0,
-            5500.0,
-            5000.0
-          ],
-          "escadinhaPlanoAnual": 6896,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 92772,
-      "descricao": "INDL - NOVO CHA DE CIDREIRA DA TERRINHA 07 G - UND",
-      "mensal": [
-        2170.0,
-        3500.0,
-        4500.0,
-        5000.0,
-        6000.0,
-        7000.0,
-        10000.0,
-        7000.0,
-        6000.0,
-        5000.0,
-        5000.0,
-        5000.0
-      ],
-      "mensalAnterior": [
-        2170.0,
-        3500.0,
-        4500.0,
-        5000.0,
-        6000.0,
-        7000.0,
-        10000.0,
-        7000.0,
-        6000.0,
-        5000.0,
-        5000.0,
-        5000.0
-      ],
-      "totalAno": 66170.0,
-      "detalhamento": [
-        {
-          "codRaiz": 90781,
-          "produtoRaiz": "CHA DE CIDREIRA DA TERRINHA 07 G - FD 10",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            2170.0,
-            3500.0,
-            4500.0,
-            5000.0,
-            6000.0,
-            7000.0,
-            10000.0,
-            7000.0,
-            6000.0,
-            5000.0,
-            5000.0,
-            5000.0
-          ],
-          "escadinhaPlanoAnual": 6617,
           "escadinhaUnidade": "CX"
         }
       ]
@@ -6603,360 +5719,6 @@
     {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117263,
-      "descricao": "INDL - BATATA LISA SABOR NATURAL MIDA DA TERRINHA 40G - UND",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        6600.0,
-        9000.0,
-        9000.0,
-        7000.0,
-        4000.0,
-        5000.0,
-        6000.0,
-        6000.0,
-        6000.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        6600.0,
-        9000.0,
-        9000.0,
-        7000.0,
-        9000.0,
-        10000.0,
-        10000.0,
-        10000.0,
-        10000.0
-      ],
-      "totalAno": 58600.0,
-      "detalhamento": [
-        {
-          "codRaiz": 114261,
-          "produtoRaiz": "BATATA LISA NATURAL 40G CX 20",
-          "caminho": [],
-          "consumoPorUnidade": 20.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            6600.0,
-            9000.0,
-            9000.0,
-            7000.0,
-            4000.0,
-            5000.0,
-            6000.0,
-            6000.0,
-            6000.0
-          ],
-          "escadinhaPlanoAnual": 2930,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117365,
-      "descricao": "INDL - BATATA ONDULADA SABOR CHURRASCO MIDA DA TERRINHA 40G - UND",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        6000.0,
-        8000.0,
-        8000.0,
-        7000.0,
-        4000.0,
-        5000.0,
-        6000.0,
-        6000.0,
-        6000.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        6000.0,
-        8000.0,
-        8000.0,
-        7000.0,
-        8000.0,
-        9000.0,
-        10000.0,
-        10000.0,
-        9000.0
-      ],
-      "totalAno": 56000.0,
-      "detalhamento": [
-        {
-          "codRaiz": 114296,
-          "produtoRaiz": "BATATA ONDULADA CHURRASCO 40G CX 20",
-          "caminho": [],
-          "consumoPorUnidade": 20.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            6000.0,
-            8000.0,
-            8000.0,
-            7000.0,
-            4000.0,
-            5000.0,
-            6000.0,
-            6000.0,
-            6000.0
-          ],
-          "escadinhaPlanoAnual": 2800,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117329,
-      "descricao": "INDL - BATATA ONDULADA COM CEBOLA E SALSA MIDA DA TERRINHA 40G - UND",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        5000.0,
-        7000.0,
-        7000.0,
-        7000.0,
-        4000.0,
-        5000.0,
-        6000.0,
-        6000.0,
-        6000.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        5000.0,
-        7000.0,
-        7000.0,
-        7000.0,
-        8000.0,
-        9000.0,
-        10000.0,
-        10000.0,
-        9000.0
-      ],
-      "totalAno": 53000.0,
-      "detalhamento": [
-        {
-          "codRaiz": 114294,
-          "produtoRaiz": "BATATA ONDULADA CEBOLA E SALSA 40G CX 20",
-          "caminho": [],
-          "consumoPorUnidade": 20.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            5000.0,
-            7000.0,
-            7000.0,
-            7000.0,
-            4000.0,
-            5000.0,
-            6000.0,
-            6000.0,
-            6000.0
-          ],
-          "escadinhaPlanoAnual": 2650,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 92774,
-      "descricao": "INDL - NOVO CHA DE HORTELA DA TERRINHA 07 G - UND",
-      "mensal": [
-        1730.0,
-        2200.0,
-        2700.0,
-        3000.0,
-        4000.0,
-        7000.0,
-        7000.0,
-        4000.0,
-        3000.0,
-        3000.0,
-        3000.0,
-        3000.0
-      ],
-      "mensalAnterior": [
-        1730.0,
-        2200.0,
-        2700.0,
-        3000.0,
-        4000.0,
-        7000.0,
-        7000.0,
-        6000.0,
-        5000.0,
-        3000.0,
-        3000.0,
-        3000.0
-      ],
-      "totalAno": 43630.0,
-      "detalhamento": [
-        {
-          "codRaiz": 90801,
-          "produtoRaiz": "CHA DE HORTELA DA TERRINHA 07 G - FD 10",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            1730.0,
-            2200.0,
-            2700.0,
-            3000.0,
-            4000.0,
-            7000.0,
-            7000.0,
-            4000.0,
-            3000.0,
-            3000.0,
-            3000.0,
-            3000.0
-          ],
-          "escadinhaPlanoAnual": 4363,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 92782,
-      "descricao": "INDL - NOVO CHA DE ERVA DOCE DA TERRINHA 11,2 G - UND",
-      "mensal": [
-        1140.0,
-        2000.0,
-        2200.0,
-        3000.0,
-        5000.0,
-        5000.0,
-        7000.0,
-        3500.0,
-        3500.0,
-        3500.0,
-        3500.0,
-        3500.0
-      ],
-      "mensalAnterior": [
-        1140.0,
-        2000.0,
-        2200.0,
-        3000.0,
-        5000.0,
-        5000.0,
-        7000.0,
-        6000.0,
-        4000.0,
-        3500.0,
-        3500.0,
-        3500.0
-      ],
-      "totalAno": 42840.0,
-      "detalhamento": [
-        {
-          "codRaiz": 90941,
-          "produtoRaiz": "CHA DE ERVA DOCE DA TERRINHA 11,2G - FD 10",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            1140.0,
-            2000.0,
-            2200.0,
-            3000.0,
-            5000.0,
-            5000.0,
-            7000.0,
-            3500.0,
-            3500.0,
-            3500.0,
-            3500.0,
-            3500.0
-          ],
-          "escadinhaPlanoAnual": 4284,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 92784,
-      "descricao": "INDL - NOVO CHA QUENTAO DA TERRINHA 11,2 G - UND",
-      "mensal": [
-        980.0,
-        1200.0,
-        1400.0,
-        3000.0,
-        5000.0,
-        6500.0,
-        7500.0,
-        4000.0,
-        3500.0,
-        3500.0,
-        3000.0,
-        2500.0
-      ],
-      "mensalAnterior": [
-        980.0,
-        1200.0,
-        1400.0,
-        3000.0,
-        5000.0,
-        6500.0,
-        7500.0,
-        5000.0,
-        4500.0,
-        3500.0,
-        3000.0,
-        2500.0
-      ],
-      "totalAno": 42080.0,
-      "detalhamento": [
-        {
-          "codRaiz": 90981,
-          "produtoRaiz": "CHA QUENTAO DA TERRINHA 11,2G - FD 10",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            980.0,
-            1200.0,
-            1400.0,
-            3000.0,
-            5000.0,
-            6500.0,
-            7500.0,
-            4000.0,
-            3500.0,
-            3500.0,
-            3000.0,
-            2500.0
-          ],
-          "escadinhaPlanoAnual": 4208,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 46310,
       "descricao": "MP - LEITE EM PO INTEGRAL KG",
       "mensal": [
@@ -7009,65 +5771,6 @@
             3862.74
           ],
           "escadinhaPlanoAnual": 107959,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117494,
-      "descricao": "INDL - BATATA ONDULADA SABOR NATURAL MIDA DA TERRINHA 70G",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        6500.0,
-        8500.0,
-        8500.0,
-        3500.0,
-        2000.0,
-        2500.0,
-        3000.0,
-        3000.0,
-        3000.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        6500.0,
-        8500.0,
-        8500.0,
-        3500.0,
-        4000.0,
-        4500.0,
-        5000.0,
-        5000.0,
-        4500.0
-      ],
-      "totalAno": 40500.0,
-      "detalhamento": [
-        {
-          "codRaiz": 114306,
-          "produtoRaiz": "BATATA ONDULADA NATURAL 70G CX 10",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            6500.0,
-            8500.0,
-            8500.0,
-            3500.0,
-            2000.0,
-            2500.0,
-            3000.0,
-            3000.0,
-            3000.0
-          ],
-          "escadinhaPlanoAnual": 4050,
           "escadinhaUnidade": "CX"
         }
       ]
@@ -10009,65 +8712,6 @@
     {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120629,
-      "descricao": "INDL - AMENDOIM JAPONES MIDA DA TERRINHA 350G",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        7200.0,
-        10800.0,
-        8400.0,
-        2400.0,
-        1200.0,
-        1200.0,
-        1200.0,
-        1200.0,
-        1200.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        7200.0,
-        10800.0,
-        8400.0,
-        2400.0,
-        3000.0,
-        3600.0,
-        4200.0,
-        4800.0,
-        4800.0
-      ],
-      "totalAno": 34800.0,
-      "detalhamento": [
-        {
-          "codRaiz": 121124,
-          "produtoRaiz": "AMENDOIM JAPONES 350G CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 12.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            7200.0,
-            10800.0,
-            8400.0,
-            2400.0,
-            1200.0,
-            1200.0,
-            1200.0,
-            1200.0,
-            1200.0
-          ],
-          "escadinhaPlanoAnual": 2900,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 50981,
       "descricao": "BOBINA PARA FARDOS 78,0 CM 1 KG TAPIOCA DA TERRINHA COM COD. BARRAS",
       "mensal": [
@@ -10121,242 +8765,6 @@
           ],
           "escadinhaPlanoAnual": 994088,
           "escadinhaUnidade": "FD"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 92780,
-      "descricao": "INDL - NOVO CHA DE BOLDO DA TERRINHA 07 G - UND",
-      "mensal": [
-        810.0,
-        1000.0,
-        1200.0,
-        2000.0,
-        2500.0,
-        3000.0,
-        3500.0,
-        2000.0,
-        3500.0,
-        3500.0,
-        3500.0,
-        3500.0
-      ],
-      "mensalAnterior": [
-        810.0,
-        1000.0,
-        1200.0,
-        2000.0,
-        2500.0,
-        3000.0,
-        3500.0,
-        3500.0,
-        3500.0,
-        3500.0,
-        3500.0,
-        3500.0
-      ],
-      "totalAno": 30010.0,
-      "detalhamento": [
-        {
-          "codRaiz": 90821,
-          "produtoRaiz": "CHA DE BOLDO DA TERRINHA 07 G - FD 10",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            810.0,
-            1000.0,
-            1200.0,
-            2000.0,
-            2500.0,
-            3000.0,
-            3500.0,
-            2000.0,
-            3500.0,
-            3500.0,
-            3500.0,
-            3500.0
-          ],
-          "escadinhaPlanoAnual": 3001,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117397,
-      "descricao": "INDL - BATATA LISA SABOR NATURAL MIDA DA TERRINHA 70G - UND",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        3000.0,
-        4000.0,
-        4000.0,
-        3500.0,
-        2000.0,
-        2500.0,
-        3000.0,
-        3000.0,
-        3000.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        3000.0,
-        4000.0,
-        4000.0,
-        3500.0,
-        4000.0,
-        4500.0,
-        5000.0,
-        5000.0,
-        4500.0
-      ],
-      "totalAno": 28000.0,
-      "detalhamento": [
-        {
-          "codRaiz": 114300,
-          "produtoRaiz": "BATATA LISA NATURAL 70G CX 10",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            3000.0,
-            4000.0,
-            4000.0,
-            3500.0,
-            2000.0,
-            2500.0,
-            3000.0,
-            3000.0,
-            3000.0
-          ],
-          "escadinhaPlanoAnual": 2800,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117461,
-      "descricao": "INDL - BATATA ONDULADA SABOR CHURRASCO MIDA DA TERRINHA 70G - UND",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        2500.0,
-        3500.0,
-        3500.0,
-        3500.0,
-        2000.0,
-        2500.0,
-        3000.0,
-        3000.0,
-        3000.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        2500.0,
-        3500.0,
-        3500.0,
-        3500.0,
-        4000.0,
-        4500.0,
-        5000.0,
-        5000.0,
-        4500.0
-      ],
-      "totalAno": 26500.0,
-      "detalhamento": [
-        {
-          "codRaiz": 114304,
-          "produtoRaiz": "BATATA ONDULADA CHURRASCO 70G CX 10",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            2500.0,
-            3500.0,
-            3500.0,
-            3500.0,
-            2000.0,
-            2500.0,
-            3000.0,
-            3000.0,
-            3000.0
-          ],
-          "escadinhaPlanoAnual": 2650,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117428,
-      "descricao": "INDL - BATATA ONDULADA COM CEBOLA E SALSA MIDA DA TERRINHA 70G - UND",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        2300.0,
-        3000.0,
-        3000.0,
-        3500.0,
-        2000.0,
-        2500.0,
-        3000.0,
-        3000.0,
-        3000.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        2300.0,
-        3000.0,
-        3000.0,
-        3500.0,
-        4000.0,
-        4500.0,
-        5000.0,
-        5000.0,
-        4500.0
-      ],
-      "totalAno": 25300.0,
-      "detalhamento": [
-        {
-          "codRaiz": 114302,
-          "produtoRaiz": "BATATA ONDULADA CEBOLA E SALSA 70G CX 10",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            2300.0,
-            3000.0,
-            3000.0,
-            3500.0,
-            2000.0,
-            2500.0,
-            3000.0,
-            3000.0,
-            3000.0
-          ],
-          "escadinhaPlanoAnual": 2530,
-          "escadinhaUnidade": "CX"
         }
       ]
     },
@@ -10525,124 +8933,6 @@
     {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 53269,
-      "descricao": "INDL - TRIGO PARA KIBE OBA 500GR",
-      "mensal": [
-        0.0,
-        1800.0,
-        1800.0,
-        2100.0,
-        2400.0,
-        2400.0,
-        2100.0,
-        1440.0,
-        1440.0,
-        1440.0,
-        1440.0,
-        1440.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        1800.0,
-        1800.0,
-        2100.0,
-        2400.0,
-        2400.0,
-        2100.0,
-        2100.0,
-        2100.0,
-        2100.0,
-        2400.0,
-        2100.0
-      ],
-      "totalAno": 19800.0,
-      "detalhamento": [
-        {
-          "codRaiz": 52670,
-          "produtoRaiz": "TRIGO PARA KIBE OBA 500 G CX 12.0",
-          "caminho": [],
-          "consumoPorUnidade": 12.0,
-          "mensal": [
-            0.0,
-            1800.0,
-            1800.0,
-            2100.0,
-            2400.0,
-            2400.0,
-            2100.0,
-            1440.0,
-            1440.0,
-            1440.0,
-            1440.0,
-            1440.0
-          ],
-          "escadinhaPlanoAnual": 1650,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120728,
-      "descricao": "INDL - AMENDOIM SEM PELE TORRADO E SALGADO MIDA DA TERRINHA 350G",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        3600.0,
-        6000.0,
-        4800.0,
-        2400.0,
-        600.0,
-        600.0,
-        600.0,
-        600.0,
-        600.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        3600.0,
-        6000.0,
-        4800.0,
-        2400.0,
-        3000.0,
-        3600.0,
-        4200.0,
-        4200.0,
-        3600.0
-      ],
-      "totalAno": 19800.0,
-      "detalhamento": [
-        {
-          "codRaiz": 121223,
-          "produtoRaiz": "AMENDOIM DESCASCADO. SALGADO 350G CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 12.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            3600.0,
-            6000.0,
-            4800.0,
-            2400.0,
-            600.0,
-            600.0,
-            600.0,
-            600.0,
-            600.0
-          ],
-          "escadinhaPlanoAnual": 1650,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 50982,
       "descricao": "BOBINA PARA FARDOS 500G TAPIOCA DATERRINHA COM COD. BARRAS",
       "mensal": [
@@ -10702,124 +8992,6 @@
     {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 53267,
-      "descricao": "INDL - FARINHA ROSCA OBA 500GR",
-      "mensal": [
-        0.0,
-        0.0,
-        1800.0,
-        1800.0,
-        1800.0,
-        1800.0,
-        1800.0,
-        1440.0,
-        1440.0,
-        1440.0,
-        1440.0,
-        1440.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        1800.0,
-        1800.0,
-        1800.0,
-        1800.0,
-        1800.0,
-        1800.0,
-        1800.0,
-        1800.0,
-        1800.0,
-        1800.0
-      ],
-      "totalAno": 16200.0,
-      "detalhamento": [
-        {
-          "codRaiz": 52658,
-          "produtoRaiz": "FARINHA ROSCA OBA 500 G CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 12.0,
-          "mensal": [
-            0.0,
-            0.0,
-            1800.0,
-            1800.0,
-            1800.0,
-            1800.0,
-            1800.0,
-            1440.0,
-            1440.0,
-            1440.0,
-            1440.0,
-            1440.0
-          ],
-          "escadinhaPlanoAnual": 1350,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 92776,
-      "descricao": "INDL - NOVO CHA VERDE DA TERRINHA 11,2 G - UND",
-      "mensal": [
-        640.0,
-        1100.0,
-        1300.0,
-        1500.0,
-        2000.0,
-        1300.0,
-        2000.0,
-        1500.0,
-        1200.0,
-        1200.0,
-        1200.0,
-        1200.0
-      ],
-      "mensalAnterior": [
-        640.0,
-        1100.0,
-        1300.0,
-        1500.0,
-        2000.0,
-        1300.0,
-        2000.0,
-        1500.0,
-        1200.0,
-        1200.0,
-        1200.0,
-        1200.0
-      ],
-      "totalAno": 16140.0,
-      "detalhamento": [
-        {
-          "codRaiz": 90961,
-          "produtoRaiz": "CHA VERDE DA TERRINHA 11,2G - FD 10",
-          "caminho": [],
-          "consumoPorUnidade": 10.0,
-          "mensal": [
-            640.0,
-            1100.0,
-            1300.0,
-            1500.0,
-            2000.0,
-            1300.0,
-            2000.0,
-            1500.0,
-            1200.0,
-            1200.0,
-            1200.0,
-            1200.0
-          ],
-          "escadinhaPlanoAnual": 1614,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 70229,
       "descricao": "SACO POUCH TAPIOCA BEM GOMA PRONTA 560GR",
       "mensal": [
@@ -10872,65 +9044,6 @@
             1080.0
           ],
           "escadinhaPlanoAnual": 1201,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120762,
-      "descricao": "INDL - OVINHOS DE AMENDOIM MIDA DA TERRINHA 350G - UND",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        2400.0,
-        3600.0,
-        3000.0,
-        2400.0,
-        600.0,
-        600.0,
-        600.0,
-        600.0,
-        600.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        2400.0,
-        3600.0,
-        3000.0,
-        2400.0,
-        3000.0,
-        3600.0,
-        4200.0,
-        4800.0,
-        4800.0
-      ],
-      "totalAno": 14400.0,
-      "detalhamento": [
-        {
-          "codRaiz": 121289,
-          "produtoRaiz": "OVINHO DE AMENDOIM 350G CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 12.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            2400.0,
-            3600.0,
-            3000.0,
-            2400.0,
-            600.0,
-            600.0,
-            600.0,
-            600.0,
-            600.0
-          ],
-          "escadinhaPlanoAnual": 1200,
           "escadinhaUnidade": "CX"
         }
       ]
@@ -11049,65 +9162,6 @@
             1256.24
           ],
           "escadinhaPlanoAnual": 107959,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120662,
-      "descricao": "INDL - AMENDOIM JAPONES MIDA DA TERRINHA 700G",
-      "mensal": [
-        0.0,
-        0.0,
-        0.0,
-        2400.0,
-        3600.0,
-        3000.0,
-        1200.0,
-        600.0,
-        600.0,
-        600.0,
-        600.0,
-        600.0
-      ],
-      "mensalAnterior": [
-        0.0,
-        0.0,
-        0.0,
-        2400.0,
-        3600.0,
-        3000.0,
-        1200.0,
-        1200.0,
-        1200.0,
-        1200.0,
-        1200.0,
-        1200.0
-      ],
-      "totalAno": 13200.0,
-      "detalhamento": [
-        {
-          "codRaiz": 121157,
-          "produtoRaiz": "AMENDOIM JAPONES 700G CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 12.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            2400.0,
-            3600.0,
-            3000.0,
-            1200.0,
-            600.0,
-            600.0,
-            600.0,
-            600.0,
-            600.0
-          ],
-          "escadinhaPlanoAnual": 1100,
           "escadinhaUnidade": "CX"
         }
       ]
@@ -37977,9 +36031,7 @@
         {
           "codRaiz": 75956,
           "produtoRaiz": "COLORIFICO DA TERRINHA 1,01 KG - FD 12",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 11.875682,
           "mensal": [
             7600.436,
@@ -38001,9 +36053,7 @@
         {
           "codRaiz": 75956,
           "produtoRaiz": "COLORIFICO DA TERRINHA 1,01 KG - FD 12",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 11.6958,
           "mensal": [
             7485.312,
@@ -38025,9 +36075,7 @@
         {
           "codRaiz": 72094,
           "produtoRaiz": "COLORIFICO DA TERRINHA 70 G  - CX 24",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 1.66752,
           "mensal": [
             4782.447,
@@ -38049,9 +36097,7 @@
         {
           "codRaiz": 50722,
           "produtoRaiz": "COLORIFICO DA TERRINHA 500 G - FD 12",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 5.8865,
           "mensal": [
             2849.066,
@@ -38073,9 +36119,7 @@
         {
           "codRaiz": 71701,
           "produtoRaiz": "COLORIFICO DA TERRINHA 1 KG - CX 06 (OBA)",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 5.8865,
           "mensal": [
             0.0,
@@ -38097,9 +36141,7 @@
         {
           "codRaiz": 75363,
           "produtoRaiz": "COLORIFICO MERCADAO 70 G  - CX 24",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 1.6598,
           "mensal": [
             134.444,
@@ -40938,9 +38980,7 @@
         {
           "codRaiz": 79006,
           "produtoRaiz": "COCO RALADO UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-          "caminho": [
-            "SUB - COCO RALADO UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 1.556563,
           "mensal": [
             711.35,
@@ -40962,9 +39002,7 @@
         {
           "codRaiz": 79005,
           "produtoRaiz": "COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G - CX 50",
-          "caminho": [
-            "SUB - COCO RALADO UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 1.662098,
           "mensal": [
             826.062,
@@ -42180,9 +40218,7 @@
         {
           "codRaiz": 79007,
           "produtoRaiz": "COCO FLOCOS UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-          "caminho": [
-            "SUB -  COCO FLOCOS UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.709326,
           "mensal": [
             1078.885,
@@ -42204,9 +40240,7 @@
         {
           "codRaiz": 79006,
           "produtoRaiz": "COCO RALADO UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-          "caminho": [
-            "SUB - COCO RALADO UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.732882,
           "mensal": [
             334.927,
@@ -42228,9 +40262,7 @@
         {
           "codRaiz": 79005,
           "produtoRaiz": "COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G - CX 50",
-          "caminho": [
-            "SUB - COCO RALADO UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.782571,
           "mensal": [
             388.938,
@@ -42348,9 +40380,7 @@
         {
           "codRaiz": 79007,
           "produtoRaiz": "COCO FLOCOS UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-          "caminho": [
-            "SUB -  COCO FLOCOS UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 1.547621,
           "mensal": [
             2353.932,
@@ -42630,9 +40660,7 @@
         {
           "codRaiz": 75956,
           "produtoRaiz": "COLORIFICO DA TERRINHA 1,01 KG - FD 12",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.430294,
           "mensal": [
             275.388,
@@ -42654,9 +40682,7 @@
         {
           "codRaiz": 75956,
           "produtoRaiz": "COLORIFICO DA TERRINHA 1,01 KG - FD 12",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.423776,
           "mensal": [
             271.217,
@@ -42678,9 +40704,7 @@
         {
           "codRaiz": 72094,
           "produtoRaiz": "COLORIFICO DA TERRINHA 70 G  - CX 24",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.06042,
           "mensal": [
             173.283,
@@ -42702,9 +40726,7 @@
         {
           "codRaiz": 79007,
           "produtoRaiz": "COCO FLOCOS UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-          "caminho": [
-            "SUB -  COCO FLOCOS UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.077381,
           "mensal": [
             117.697,
@@ -42726,9 +40748,7 @@
         {
           "codRaiz": 50722,
           "produtoRaiz": "COLORIFICO DA TERRINHA 500 G - FD 12",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.213287,
           "mensal": [
             103.231,
@@ -42750,9 +40770,7 @@
         {
           "codRaiz": 79006,
           "produtoRaiz": "COCO RALADO UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-          "caminho": [
-            "SUB - COCO RALADO UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.077828,
           "mensal": [
             35.567,
@@ -42774,9 +40792,7 @@
         {
           "codRaiz": 79005,
           "produtoRaiz": "COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G - CX 50",
-          "caminho": [
-            "SUB - COCO RALADO UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.083105,
           "mensal": [
             41.303,
@@ -42798,9 +40814,7 @@
         {
           "codRaiz": 71701,
           "produtoRaiz": "COLORIFICO DA TERRINHA 1 KG - CX 06 (OBA)",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.213287,
           "mensal": [
             0.0,
@@ -42822,9 +40836,7 @@
         {
           "codRaiz": 75363,
           "produtoRaiz": "COLORIFICO MERCADAO 70 G  - CX 24",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.06014,
           "mensal": [
             4.871,
@@ -43082,9 +41094,7 @@
         {
           "codRaiz": 75956,
           "produtoRaiz": "COLORIFICO DA TERRINHA 1,01 KG - FD 12",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.430294,
           "mensal": [
             275.388,
@@ -43106,9 +41116,7 @@
         {
           "codRaiz": 75956,
           "produtoRaiz": "COLORIFICO DA TERRINHA 1,01 KG - FD 12",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.423776,
           "mensal": [
             271.217,
@@ -43130,9 +41138,7 @@
         {
           "codRaiz": 72094,
           "produtoRaiz": "COLORIFICO DA TERRINHA 70 G  - CX 24",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.06042,
           "mensal": [
             173.283,
@@ -43154,9 +41160,7 @@
         {
           "codRaiz": 50722,
           "produtoRaiz": "COLORIFICO DA TERRINHA 500 G - FD 12",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.213287,
           "mensal": [
             103.231,
@@ -43178,9 +41182,7 @@
         {
           "codRaiz": 71701,
           "produtoRaiz": "COLORIFICO DA TERRINHA 1 KG - CX 06 (OBA)",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.213287,
           "mensal": [
             0.0,
@@ -43202,9 +41204,7 @@
         {
           "codRaiz": 75363,
           "produtoRaiz": "COLORIFICO MERCADAO 70 G  - CX 24",
-          "caminho": [
-            "MP - COLORIFICO PO ESPECIAL KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.06014,
           "mensal": [
             4.871,
@@ -53488,9 +51488,7 @@
         {
           "codRaiz": 79007,
           "produtoRaiz": "COCO FLOCOS UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-          "caminho": [
-            "SUB -  COCO FLOCOS UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.00245,
           "mensal": [
             3.727,
@@ -53512,9 +51510,7 @@
         {
           "codRaiz": 79006,
           "produtoRaiz": "COCO RALADO UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-          "caminho": [
-            "SUB - COCO RALADO UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.002445,
           "mensal": [
             1.117,
@@ -53536,9 +51532,7 @@
         {
           "codRaiz": 79005,
           "produtoRaiz": "COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G - CX 50",
-          "caminho": [
-            "SUB - COCO RALADO UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.002611,
           "mensal": [
             1.298,
@@ -53597,9 +51591,7 @@
         {
           "codRaiz": 79007,
           "produtoRaiz": "COCO FLOCOS UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-          "caminho": [
-            "SUB -  COCO FLOCOS UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.00245,
           "mensal": [
             3.727,
@@ -53621,9 +51613,7 @@
         {
           "codRaiz": 79006,
           "produtoRaiz": "COCO RALADO UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-          "caminho": [
-            "SUB - COCO RALADO UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.002445,
           "mensal": [
             1.117,
@@ -53645,9 +51635,7 @@
         {
           "codRaiz": 79005,
           "produtoRaiz": "COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G - CX 50",
-          "caminho": [
-            "SUB - COCO RALADO UMIDO ADOCADO KG"
-          ],
+          "caminho": [],
           "consumoPorUnidade": 0.002611,
           "mensal": [
             1.298,
@@ -54386,28 +52374,6 @@
       "desvioPercentual": -35.7
     },
     {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 77760,
-      "descricao": "INDL - BATATA PALHA DA TERRINHA EX FINA 100G - UND",
-      "mes": "ago",
-      "planoAnterior": 200000.0,
-      "planoAtual": 140000.0,
-      "desvio": -60000.0,
-      "desvioPercentual": -30.0
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 77762,
-      "descricao": "INDL - BATATA PALHA DA TERRINHA TRADICIONAL 100 g - UND",
-      "mes": "ago",
-      "planoAnterior": 340000.0,
-      "planoAtual": 300000.0,
-      "desvio": -40000.0,
-      "desvioPercentual": -11.8
-    },
-    {
       "loja": "11",
       "lojaLabel": "11 (2JM Amidos)",
       "sku": 81171,
@@ -54443,17 +52409,6 @@
     {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 57776,
-      "descricao": "INDL - FUBA MIMOSO DA TERRINHA BOBINA 500 G",
-      "mes": "ago",
-      "planoAnterior": 66000.0,
-      "planoAtual": 42000.0,
-      "desvio": -24000.0,
-      "desvioPercentual": -36.4
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 78860,
       "descricao": "SACO POUCH TAPIOCA DA TERRINHA 490GR",
       "mes": "ago",
@@ -54483,17 +52438,6 @@
       "planoAtual": 36120.0,
       "desvio": -18600.0,
       "desvioPercentual": -34.0
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 57912,
-      "descricao": "INDL - FLOCOS DE MILHO ( CUSCUZ ) DA TERRINHA 500 G",
-      "mes": "ago",
-      "planoAnterior": 30000.0,
-      "planoAtual": 48000.0,
-      "desvio": 18000.0,
-      "desvioPercentual": 60.0
     },
     {
       "loja": "14",
@@ -54617,28 +52561,6 @@
       "desvioPercentual": 20.0
     },
     {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 93209,
-      "descricao": "INDL - CREME DE AVELA DAVELA 140 G UN",
-      "mes": "ago",
-      "planoAnterior": 50000.0,
-      "planoAtual": 60000.0,
-      "desvio": 10000.0,
-      "desvioPercentual": 20.0
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 57774,
-      "descricao": "INDL - FARINHA ROSCA DA TERRINHA 500 G",
-      "mes": "out",
-      "planoAnterior": 42000.0,
-      "planoAtual": 32400.0,
-      "desvio": -9600.0,
-      "desvioPercentual": -22.9
-    },
-    {
       "loja": "10",
       "lojaLabel": "10 (Okker – Matriz)",
       "sku": 70755,
@@ -54694,17 +52616,6 @@
       "desvioPercentual": -14.2
     },
     {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 57782,
-      "descricao": "INDL - TRIGO PARA KIBE DA TERRINHA BOBINA 500 G",
-      "mes": "dez",
-      "planoAnterior": 28800.0,
-      "planoAtual": 21600.0,
-      "desvio": -7200.0,
-      "desvioPercentual": -25.0
-    },
-    {
       "loja": "10",
       "lojaLabel": "10 (Okker – Matriz)",
       "sku": 70671,
@@ -54736,17 +52647,6 @@
       "planoAtual": 0.0,
       "desvio": -7200.0,
       "desvioPercentual": -100.0
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 57777,
-      "descricao": "INDL - FUBA MIMOSO DA TERRINHA BOBINA 1 KG",
-      "mes": "ago",
-      "planoAnterior": 27000.0,
-      "planoAtual": 20000.0,
-      "desvio": -7000.0,
-      "desvioPercentual": -25.9
     },
     {
       "loja": "1",
@@ -54892,28 +52792,6 @@
       "desvioPercentual": -23.3
     },
     {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117263,
-      "descricao": "INDL - BATATA LISA SABOR NATURAL MIDA DA TERRINHA 40G - UND",
-      "mes": "ago",
-      "planoAnterior": 9000.0,
-      "planoAtual": 4000.0,
-      "desvio": -5000.0,
-      "desvioPercentual": -55.6
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117395,
-      "descricao": "INDL - BATATA ONDULADA SABOR NATURAL MIDA DA TERRINHA 40G - UND",
-      "mes": "nov",
-      "planoAnterior": 11000.0,
-      "planoAtual": 6000.0,
-      "desvio": -5000.0,
-      "desvioPercentual": -45.5
-    },
-    {
       "loja": "14",
       "lojaLabel": "14 (Da Terrinha – Filial SP)",
       "sku": 78981,
@@ -54947,39 +52825,6 @@
       "desvioPercentual": -28.6
     },
     {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120762,
-      "descricao": "INDL - OVINHOS DE AMENDOIM MIDA DA TERRINHA 350G - UND",
-      "mes": "nov",
-      "planoAnterior": 4800.0,
-      "planoAtual": 600.0,
-      "desvio": -4200.0,
-      "desvioPercentual": -87.5
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117329,
-      "descricao": "INDL - BATATA ONDULADA COM CEBOLA E SALSA MIDA DA TERRINHA 40G - UND",
-      "mes": "ago",
-      "planoAnterior": 8000.0,
-      "planoAtual": 4000.0,
-      "desvio": -4000.0,
-      "desvioPercentual": -50.0
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117365,
-      "descricao": "INDL - BATATA ONDULADA SABOR CHURRASCO MIDA DA TERRINHA 40G - UND",
-      "mes": "ago",
-      "planoAnterior": 8000.0,
-      "planoAtual": 4000.0,
-      "desvio": -4000.0,
-      "desvioPercentual": -50.0
-    },
-    {
       "loja": "14",
       "lojaLabel": "14 (Da Terrinha – Filial SP)",
       "sku": 79782,
@@ -55000,28 +52845,6 @@
       "planoAtual": 12967.8,
       "desvio": -3662.8,
       "desvioPercentual": -22.0
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120629,
-      "descricao": "INDL - AMENDOIM JAPONES MIDA DA TERRINHA 350G",
-      "mes": "nov",
-      "planoAnterior": 4800.0,
-      "planoAtual": 1200.0,
-      "desvio": -3600.0,
-      "desvioPercentual": -75.0
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120728,
-      "descricao": "INDL - AMENDOIM SEM PELE TORRADO E SALGADO MIDA DA TERRINHA 350G",
-      "mes": "out",
-      "planoAnterior": 4200.0,
-      "planoAtual": 600.0,
-      "desvio": -3600.0,
-      "desvioPercentual": -85.7
     },
     {
       "loja": "10",
@@ -55090,17 +52913,6 @@
       "desvioPercentual": -41.7
     },
     {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 92782,
-      "descricao": "INDL - NOVO CHA DE ERVA DOCE DA TERRINHA 11,2 G - UND",
-      "mes": "ago",
-      "planoAnterior": 6000.0,
-      "planoAtual": 3500.0,
-      "desvio": -2500.0,
-      "desvioPercentual": -41.7
-    },
-    {
       "loja": "14",
       "lojaLabel": "14 (Da Terrinha – Filial SP)",
       "sku": 72313,
@@ -55147,50 +52959,6 @@
     {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117397,
-      "descricao": "INDL - BATATA LISA SABOR NATURAL MIDA DA TERRINHA 70G - UND",
-      "mes": "ago",
-      "planoAnterior": 4000.0,
-      "planoAtual": 2000.0,
-      "desvio": -2000.0,
-      "desvioPercentual": -50.0
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117428,
-      "descricao": "INDL - BATATA ONDULADA COM CEBOLA E SALSA MIDA DA TERRINHA 70G - UND",
-      "mes": "ago",
-      "planoAnterior": 4000.0,
-      "planoAtual": 2000.0,
-      "desvio": -2000.0,
-      "desvioPercentual": -50.0
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117461,
-      "descricao": "INDL - BATATA ONDULADA SABOR CHURRASCO MIDA DA TERRINHA 70G - UND",
-      "mes": "ago",
-      "planoAnterior": 4000.0,
-      "planoAtual": 2000.0,
-      "desvio": -2000.0,
-      "desvioPercentual": -50.0
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 117494,
-      "descricao": "INDL - BATATA ONDULADA SABOR NATURAL MIDA DA TERRINHA 70G",
-      "mes": "ago",
-      "planoAnterior": 4000.0,
-      "planoAtual": 2000.0,
-      "desvio": -2000.0,
-      "desvioPercentual": -50.0
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 79303,
       "descricao": "CAIXA DE PAPELAO NA MEDIDA 12X490G",
       "mes": "ago",
@@ -55198,17 +52966,6 @@
       "planoAtual": 12500.0,
       "desvio": -2000.0,
       "desvioPercentual": -13.8
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 92774,
-      "descricao": "INDL - NOVO CHA DE HORTELA DA TERRINHA 07 G - UND",
-      "mes": "ago",
-      "planoAnterior": 6000.0,
-      "planoAtual": 4000.0,
-      "desvio": -2000.0,
-      "desvioPercentual": -33.3
     },
     {
       "loja": "14",
@@ -55264,17 +53021,6 @@
       "planoAtual": 6100.0,
       "desvio": -1830.0,
       "desvioPercentual": -23.1
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120794,
-      "descricao": "INDL - OVINHOS DE AMENDOIM MIDA DA TERRINHA 80G - UND",
-      "mes": "set",
-      "planoAnterior": 5400.0,
-      "planoAtual": 3600.0,
-      "desvio": -1800.0,
-      "desvioPercentual": -33.3
     },
     {
       "loja": "1",
@@ -55340,17 +53086,6 @@
       "planoAnterior": 3505.9,
       "planoAtual": 2003.3,
       "desvio": -1502.6,
-      "desvioPercentual": -42.9
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 92780,
-      "descricao": "INDL - NOVO CHA DE BOLDO DA TERRINHA 07 G - UND",
-      "mes": "ago",
-      "planoAnterior": 3500.0,
-      "planoAtual": 2000.0,
-      "desvio": -1500.0,
       "desvioPercentual": -42.9
     },
     {
@@ -55442,17 +53177,6 @@
       "desvioPercentual": -33.3
     },
     {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120761,
-      "descricao": "INDL - AMENDOIM SEM PELE TORRADO E SALGADO MIDA DA TERRINHA 80G",
-      "mes": "out",
-      "planoAnterior": 9600.0,
-      "planoAtual": 8400.0,
-      "desvio": -1200.0,
-      "desvioPercentual": -12.5
-    },
-    {
       "loja": "10",
       "lojaLabel": "10 (Okker – Matriz)",
       "sku": 70667,
@@ -55519,17 +53243,6 @@
       "desvioPercentual": 20.0
     },
     {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 92784,
-      "descricao": "INDL - NOVO CHA QUENTAO DA TERRINHA 11,2 G - UND",
-      "mes": "ago",
-      "planoAnterior": 5000.0,
-      "planoAtual": 4000.0,
-      "desvio": -1000.0,
-      "desvioPercentual": -20.0
-    },
-    {
       "loja": "11",
       "lojaLabel": "11 (2JM Amidos)",
       "sku": 72227,
@@ -55539,17 +53252,6 @@
       "planoAtual": 1271.4,
       "desvio": 969.8,
       "desvioPercentual": 321.6
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 53269,
-      "descricao": "INDL - TRIGO PARA KIBE OBA 500GR",
-      "mes": "nov",
-      "planoAnterior": 2400.0,
-      "planoAtual": 1440.0,
-      "desvio": -960.0,
-      "desvioPercentual": -40.0
     },
     {
       "loja": "11",
@@ -55638,17 +53340,6 @@
       "planoAtual": 150.0,
       "desvio": -600.0,
       "desvioPercentual": -80.0
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 120662,
-      "descricao": "INDL - AMENDOIM JAPONES MIDA DA TERRINHA 700G",
-      "mes": "ago",
-      "planoAnterior": 1200.0,
-      "planoAtual": 600.0,
-      "desvio": -600.0,
-      "desvioPercentual": -50.0
     },
     {
       "loja": "14",
@@ -55880,17 +53571,6 @@
       "planoAtual": 1069.7,
       "desvio": -361.2,
       "desvioPercentual": -25.2
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 53267,
-      "descricao": "INDL - FARINHA ROSCA OBA 500GR",
-      "mes": "ago",
-      "planoAnterior": 1800.0,
-      "planoAtual": 1440.0,
-      "desvio": -360.0,
-      "desvioPercentual": -20.0
     },
     {
       "loja": "14",

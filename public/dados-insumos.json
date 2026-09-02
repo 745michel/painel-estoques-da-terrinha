@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-09-02T08:20:38.189746",
+  "atualizadoEm": "2026-09-02T14:06:31",
   "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS (fornecedor e entregas programadas: compras_a_receber.json; projecaoBom: ficha_tecnica.json + dados-escadinha.json)",
   "produtos": [
     {
@@ -7701,8 +7701,8 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "temFichaTecnica": true,
-      "projecaoBom": 0.0
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "42104",
@@ -12737,8 +12737,8 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "temFichaTecnica": true,
-      "projecaoBom": 0.0
+      "temFichaTecnica": false,
+      "projecaoBom": null
     },
     {
       "sku": "42254",
