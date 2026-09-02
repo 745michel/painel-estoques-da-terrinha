@@ -511,6 +511,12 @@ const MESES_ESCADINHA = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago",
 // usuario em 21/08/2026 pra ele saber o que vale passar pra equipe comercial.
 const ESCADINHA_LIMIAR_ATENCAO = 20;
 const ESCADINHA_LIMIAR_CRITICO = 50;
+// Escadinha de insumos: pedido do usuario, 01/09/2026 - "pode tirar da visão, mas deixa em
+// algum canto caso precise ver". Agua de producao, lenha e mandioca in natura sao insumos de
+// base/commodity com numeros muito grandes (poluem a ordenacao por maior valor) - ficam fora
+// por padrao, mas continuam escolhiveis pelo filtro de Insumo (mesmo padrao do
+// FORN_GRUPO_INTERNO em Fornecedores: selecionar explicitamente pula a exclusao).
+const ESCADINHA_INSUMOS_OCULTOS_PADRAO = new Set([4954, 72507, 50095]);
 
 /**
  * Linha de alho (marca DA TERRINHA) vai saltar de linha - desvio dela nao deve entrar no
@@ -1493,6 +1499,7 @@ function EscadinhaInsumosDashboard({
   const [semestre, setSemestre] = useState<1 | 2>(new Date().getMonth() < 6 ? 1 : 2);
   const [visao, setVisao] = useState<"grade" | "resumo" | "semFicha">("grade");
   const [nivelFiltro, setNivelFiltro] = useState<"todos" | "cima" | "baixo" | "atencao" | "critico">("todos");
+  const [mostrarOcultos, setMostrarOcultos] = useState(false);
 
   function abrirDetalhe(linha: EscadinhaInsumoLinha) {
     setSelected(linha);
@@ -1549,9 +1556,10 @@ function EscadinhaInsumosDashboard({
         (!search || l.descricao.toLocaleLowerCase("pt-BR").includes(search) || String(l.sku).includes(search))
         && (lojas.length === 0 || lojas.includes(l.loja))
         && (insumosSelecionados.length === 0 || insumosSelecionados.includes(String(l.sku)))
+        && (mostrarOcultos || insumosSelecionados.includes(String(l.sku)) || !ESCADINHA_INSUMOS_OCULTOS_PADRAO.has(l.sku))
       ))
       .sort((a, b) => b.totalAno - a.totalAno);
-  }, [linhas, query, lojas, insumosSelecionados]);
+  }, [linhas, query, lojas, insumosSelecionados, mostrarOcultos]);
 
   const pendentes = escadinhaInsumosData.produtosSemFichaGeral.filter((p) => p.categoria === "pendente_escadinha");
   const terceiros = escadinhaInsumosData.produtosSemFichaGeral.filter((p) => p.categoria === "terceiro");
@@ -1569,8 +1577,9 @@ function EscadinhaInsumosDashboard({
       (!search || d.descricao.toLocaleLowerCase("pt-BR").includes(search) || String(d.sku).includes(search))
       && (lojas.length === 0 || lojas.includes(d.loja))
       && (insumosSelecionados.length === 0 || insumosSelecionados.includes(String(d.sku)))
+      && (mostrarOcultos || insumosSelecionados.includes(String(d.sku)) || !ESCADINHA_INSUMOS_OCULTOS_PADRAO.has(d.sku))
     ));
-  }, [escadinhaInsumosData.desvios, query, lojas, insumosSelecionados]);
+  }, [escadinhaInsumosData.desvios, query, lojas, insumosSelecionados, mostrarOcultos]);
   const resumoAumentaram = desviosFiltrados.filter((d) => d.desvio > 0).length;
   const resumoDiminuiram = desviosFiltrados.filter((d) => d.desvio < 0).length;
   const resumoAtencao = desviosFiltrados.filter((d) => d.desvioPercentual != null && Math.abs(d.desvioPercentual) >= ESCADINHA_LIMIAR_ATENCAO).length;
@@ -1634,6 +1643,9 @@ function EscadinhaInsumosDashboard({
             <MultiFilter label="Loja" options={lojaOptions} selected={lojas} onChange={setLojas} />
             <MultiFilter label="Insumo" options={insumoOptions} selected={insumosSelecionados} onChange={setInsumosSelecionados} />
             {(lojas.length > 0 || insumosSelecionados.length > 0) && <button className="clear-value-filters" onClick={() => { setLojas([]); setInsumosSelecionados([]); }}>Limpar filtros</button>}
+            <label className="toggle-inativos" title="Água de produção, lenha e mandioca in natura ficam fora da visão por padrão (números muito grandes de insumo de base) — marque pra ver, ou escolha um deles no filtro de Insumo acima.">
+              <input type="checkbox" checked={mostrarOcultos} onChange={(e) => setMostrarOcultos(e.target.checked)} /> Incluir água, lenha e mandioca in natura
+            </label>
           </div></div>}
 
           {visao === "resumo" ? (!hasComparacao ? <div className="empty-state"><strong>Sem comparação ainda</strong><p>O resumo de desvio aparece a partir da próxima revisão mensal do plano da Escadinha.</p></div> : <>

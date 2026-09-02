@@ -519,6 +519,23 @@ padrão de 440px) e "coloca um filtro pra eu poder filtrar os produtos". Nova cl
 do painel. Campo de busca filtra a lista de produtos-contribuintes por nome/código, sem afetar
 a tabela de 12 meses acima.
 
+**3 insumos ocultos por padrão + "INDL" excluído (01/09/2026, mesmo dia)**: pedido do usuário
+depois de investigar um caso de necessidade "estranha" na tapioca (rastreamento completo, ver
+histórico — tapioca→fécula é relação direta, sem distorção; achado real é uma cadeia de 4-6
+níveis pra farinha/fécula de mandioca na loja 11 passando por "SUB - RENDIMENTO FÉCULA",
+rendimento 29,5%, ainda pendente de confirmação com quem mantém a ficha técnica). Dois pedidos
+separados: (1) "pode tirar da visão, mas deixa em algum canto caso precise ver" — água de
+produção, lenha e mandioca in natura (`ESCADINHA_INSUMOS_OCULTOS_PADRAO`, `app/
+DashboardClient.tsx`) ficam fora da grade/resumo por padrão (números de commodity muito
+grandes, poluíam a ordenação), com um checkbox "Incluir água, lenha e mandioca in natura" pra
+mostrar de novo — mesmo padrão do `FORN_GRUPO_INTERNO` em Fornecedores, inclusive continuam
+escolhíveis pelo filtro de Insumo mesmo com o checkbox desligado. (2) "produtos INDL = não
+precisa ter na escadinha insumos" — insumos cujo nome vem com o prefixo "INDL -" (código
+industrial interno de item de terceiro/co-packer, ver nota de 26/08/2026 acima) são excluídos
+direto na explosão (`bom_explosion.py`, `gerar_escadinha_insumos()`) — 33 das 447 linhas
+tinham esse prefixo, removidas dos dois arquivos de saída (grade e resumo), não é um toggle,
+é exclusão de dado mesmo.
+
 **Totais em toda tabela + escadinha projetada no card do topo + filtro removido (01/09/2026,
 mesmo dia)**: pedido do usuário — "quero total em todos os cards de todas as abas que tenha
 esse tipo de informação" (`<tfoot>` novo na grade principal, no card de 12 meses e no
@@ -544,6 +561,28 @@ início da recursão e propagado pra cada contribuição). (4) Coluna "Realizado
 cruza por `(sku, loja)` com `dados-consumo-insumos.json` (Consumo de insumos, pipeline ODBC já
 confiável) — só o mês corrente pra trás, mesmo padrão de disponibilidade da Escadinha geral;
 não precisou de cálculo novo, só um `Map` de lookup no componente.
+
+**Bug real corrigido na explosão BOM — insumo que também é receita própria nunca virava folha
+(02/09/2026)**: usuário reportou 4 SKUs faltando na "Projeção BOM" (76361, 44624, 42227,
+77041). O 77041 é caso já conhecido e correto — genuinamente sem ficha técnica cadastrada
+(`temFichaTecnica: false`). Os outros três eram um bug de verdade: SKU 44624 ("MP - SALSA
+DESIDRATADA FLOCOS KG"), por exemplo, é insumo de receitas de verdade (ex.: 200 cx/mês de
+"ALHO TEMPERADO MINEIRO OKKER 200 GR" consumindo 0,015/un) **e também** tem sua própria ficha
+técnica de 1 linha (vira "MP - SALSA DESIDRATADA OKKER KG" cru, consumo=1, rendimento=1) — o
+mesmo padrão de "sub-receita" documentado na investigação da tapioca/fécula, só que aqui o
+"insumo intermediário" de destino (70873/70868/73948 pros três casos) não existe em nenhuma
+linha de Embalagens/MP. `_explodir()` em `bom_explosion.py` sempre continuava a recursão quando
+o insumo também aparecia como `produto_key` (`if insumo_key in bom:`), então a necessidade
+inteira ia parar num SKU "cru" que ninguém rastreia — não mudava de coluna, **sumia** do
+relatório. Corrigido: `_explodir()` agora recebe `skus_rastreados` (todo SKU que existe em
+Embalagens/MP, montado de `todos_skus_insumos` dentro de `gerar_escadinha_insumos()`) e só
+continua a recursão quando o insumo **não** é um SKU rastreado — se for, para ali e registra a
+necessidade nele mesmo, mesmo tendo receita própria. Confirmado que isso não afeta a cadeia
+legítima de 4-6 níveis da fécula de mandioca (loja 11, "SUB - RENDIMENTO FÉCULA") — nenhum nó
+intermediário dela existe em Embalagens/MP, então continua sendo explodida normalmente. Depois
+da correção: SKU 44624 passou a mostrar 3,3/658,8/159,6 (lojas 10/11/14), 42227 mostra
+13,8/189,5/186,3, 76361 mostra 73,2 (loja 11) — todos exatos aos consumos reais das receitas
+que os usam, confirmados via reprodução manual contra `ficha_tecnica.json`.
 
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
