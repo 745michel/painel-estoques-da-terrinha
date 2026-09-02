@@ -419,6 +419,132 @@ mês a mês também (pro card de histórico continuar correto quando clicado). `
 qual dos dois" de forma não ambígua, melhor mostrar "—" do que um valor questionável. Uma
 tabela só agora, título muda pra "N fornecedores (somado)" quando mais de um está selecionado.
 
+**"Projeção BOM" em Embalagens/MP (31/08/2026)**: nova coluna de teste, ao lado de "Escadinha
+projetada" (não substitui — pedido explícito do usuário, comparar ao vivo por um tempo antes
+de trocar de vez). Calcula a necessidade de cada insumo explodindo o plano mensal da Escadinha
+pela ficha técnica (BOM), em vez de depender do XLOOKUP pra aba "Dinamica Insumo" da planilha
+(descoberto nessa investigação: aquele valor "atual" também é derivado — média de 3 meses de
+uma tabela dinâmica sobre `consumo_receita` — não é um número observado; por isso as duas
+colunas divergem sem que uma esteja necessariamente errada).
+
+Fonte: `ficha_tecnica.json` (SharePoint, mesma pasta de `compras_produto.json`), uma linha por
+(receita, insumo, loja). `work/sheet-inspect/bom_explosion.py` (novo, importado por
+`extract_products.py`) faz a explosão recursiva (BOM multinível) e grava `projecaoBom` (número
+ou `null`) e `temFichaTecnica` (bool) em cada produto de `public/dados-insumos.json`. Duas
+correções críticas validadas antes de entrar em produção (ver histórico de teste em
+`work/sheet-inspect/test_explosao_ficha_tecnica.py`/`explosao_necessidade_mensal.py`):
+1. `consumo_receita` é o gasto da **batelada inteira** da receita, não por unidade do produto
+   acabado — precisa dividir por `rendimento` (tamanho da batelada). Sem isso um insumo chegou
+   a aparecer inflado em 940x (Colorífico Pó Especial, rendimento=572).
+2. `loja_key` 14 (Da Terrinha – Filial SP) não existe na ficha técnica de propósito — segundo
+   o T.I. (Lele), a ficha das lojas 1 e 14 é uma única (centralização formal em andamento). O
+   cálculo roda uma vez com o BOM da loja 1 (cobre as duas), e o resultado é dividido entre "1"
+   e "14" usando a própria extração de Embalagens/MP da rodada atual como índice de onde cada
+   SKU já é reportado hoje (não como valor de cálculo) — na prática quase todo SKU já existe
+   hoje só de um lado (78 só na loja 1, 224 só na 14, de 305 conferidos); só 1 SKU (filme
+   stretch automático) tinha valor real dos dois lados, dividido proporcional ao "atual" de
+   cada um.
+
+17 SKUs de Embalagens/MP não têm nenhuma ficha técnica cadastrada (nem ativa, nem inativa) —
+pedido explícito do usuário: mostrar em branco (`—`) na coluna nova em vez do valor antigo, pra
+ficar visível que aquele item não passou pelo cálculo novo (`temFichaTecnica: false`). A loja
+10 (Okker) mostrou um viés sistemático no teste (calculado ~51% acima do atual, em média,
+contra perto de zero nas outras lojas) — ainda não explicado; migrada junto mesmo assim
+(decisão do usuário) porque o modo lado a lado deixa esse viés visível na prática sem risco.
+
+`extract_products.py` cai pra `projecaoBom: null`/`temFichaTecnica: null` em todo o lote se
+`ficha_tecnica.json` ou `dados-escadinha.json` não puderem ser lidos (try/except deliberado,
+foge do padrão "para tudo no primeiro erro" do resto do pipeline) — essa coluna depende de um
+arquivo do SharePoint e de outra pipeline (Escadinha, que pode não ter rodado ainda no mesmo
+ciclo) e não pode derrubar Embalagens/MP inteiro (que tem os campos críticos de estoque).
+
+Ordem do pipeline (31/08/2026, decisão do usuário): "Terceiros/Embalagens/Consumo/BI" roda
+**antes** de "Escadinha" dentro de `atualizar_e_publicar_tudo.ps1` — então se a Escadinha for
+revisada, a `projecaoBom` só reflete a revisão na rodada seguinte (até ~1 ciclo de atraso, não
+na mesma rodada). Usuário optou por manter essa ordem por enquanto ("deixa nesse formato").
+
+**Terceiro achado, mesmo dia — duplicatas na ficha técnica da loja 10 (Okker)**: 715 das 1.665
+combinações (receita, insumo) da loja 10 têm 2 a 4 linhas **ativas** duplicadas pro mesmo
+`ficha_tecnica_key`, com `consumo_receita` diferente entre elas (parece duas versões da mesma
+receita exportadas juntas — algumas diferenças pequenas tipo arredondamento, outras grandes
+tipo receita reformulada). A loja 1 não tem esse problema (0 duplicatas em 2.937 linhas).
+`bom_explosion.py` estava somando as duplicatas (bug), inflando a loja 10 em ~50-150% —
+corrigido pra agrupar por `(loja, ficha_tecnica_key, produto_key_insumo)` e usar a **média**
+das duplicatas como valor neutro provisório (sem campo de data/versão pra saber qual é a
+atual). Depois da correção, a loja 10 melhorou bastante (média do desvio caiu de +51,3% pra
++29,4%) mas ainda mostra um viés positivo real (mediana +25,3%) — não totalmente explicado
+ainda, vale investigar mais antes de confiar 100% nesses números. Reportar ao T.I. qual versão
+da ficha da Okker é a correta é o próximo passo natural.
+
+**Aba "Escadinha de insumos" (01/09/2026)**: nova aba, pedido do usuário — "mesmo padrão [da
+Escadinha geral], a diferença que será insumo". Mesma explosão BOM que alimenta "Projeção BOM"
+em Embalagens/MP (`work/sheet-inspect/bom_explosion.py`, chamada uma vez só por
+`extract_products.py` — `gerar_escadinha_insumos()` alimenta as duas saídas, pra nunca
+divergir entre si; achado real que motivou esse refactor: rodar a mesma conta em dois scripts
+separados gerou uma divergência falsa quando só um deles foi re-executado depois da ficha
+técnica atualizar no SharePoint, ver "MP - AROMA..." mais acima). Grava
+`public/dados-escadinha-insumos.json` (mesmo padrão não-financeiro de `dados-insumos.json` —
+committed direto, sem placeholder/skip-worktree).
+
+UI (`EscadinhaInsumosDashboard`, `app/DashboardClient.tsx`) replica a grade da Escadinha geral:
+filtro por loja, alternância 1º/2º semestre, tabela com total anual, e um "Sem ficha" que lista
+os insumos de Embalagens/MP e produtos da escadinha sem ficha técnica cadastrada. Clicar numa
+linha abre o drawer com os 12 meses **e** um "Como cheguei nesse número" (mesmo recurso de
+detalhamento validado nos testes locais — lista cada produto da escadinha que contribuiu pro
+insumo, com o consumo por unidade e o total do ano, útil pra auditar qualquer SKU sem perguntar).
+
+Fio condutor até a tela: `automation/atualizar_dados.ps1` copia o JSON novo pra pasta
+sincronizada do SharePoint (passo tolerante — se o arquivo ainda não existir numa rodada onde a
+ficha técnica falhou, pula sem quebrar a cópia dos arquivos essenciais) →
+`scripts/ci-refresh-data.mts` busca de lá no Action (também tolerante, `try/catch` isolado) →
+`scripts/build-github-pages.mjs`/`github-pages-entry.tsx` embutem no bundle estático via import
+direto (mesmo padrão 100% operacional de `dados-consumo-insumos.json` — sem senha, sem fetch em
+tempo de execução). `app/page.tsx` segue o mesmo padrão pro caminho servidor (`loadEscadinhaInsumosData`).
+
+**Comparação com a revisão anterior + aba "Resumo" (01/09/2026, mesmo dia)**: pedido do
+usuário — "quero comparação com a última escadinha igual a escadinha geral, e uma aba de
+resumo pra saber quais itens foram mudados". `dados-escadinha.json` já guarda `plano` (atual) e
+`planoAnterior` por produto — `gerar_escadinha_insumos()` explode os dois (mesmo BOM, só troca
+o plano de entrada) em vez de precisar de um histórico próprio, e calcula o desvio por
+`(loja, insumo, mês)`. Grade ganhou destaque de célula (`escadinha-delta-up`/`-down`, mesmas
+classes CSS da Escadinha geral) nos meses que mudaram; nova visão "Resumo" replica os cartões
+de filtro (Pra cima/Pra baixo/Atenção ≥20%/Crítico ≥50%) e a tabela de desvios da Escadinha
+geral, um por um, só que por insumo em vez de produto acabado. Some sozinha se
+`dataPublicacaoAnterior` ainda não existir (primeira captura, sem nada pra comparar).
+
+**Drawer mais largo + filtro no detalhamento (01/09/2026, mesmo dia)**: pedido do usuário — "quero
+esse card mais aberto" (38 produtos contribuindo pra um insumo só ficava apertado na largura
+padrão de 440px) e "coloca um filtro pra eu poder filtrar os produtos". Nova classe
+`.escadinha-insumos-drawer` (920px) só nesse drawer — não mudou a largura padrão usada no resto
+do painel. Campo de busca filtra a lista de produtos-contribuintes por nome/código, sem afetar
+a tabela de 12 meses acima.
+
+**Totais em toda tabela + escadinha projetada no card do topo + filtro removido (01/09/2026,
+mesmo dia)**: pedido do usuário — "quero total em todos os cards de todas as abas que tenha
+esse tipo de informação" (`<tfoot>` novo na grade principal, no card de 12 meses e no
+detalhamento, sempre somando as colunas visíveis — inclusive um "Total ano" no card que soma
+igual ao "Total" do detalhamento, validado batendo exato: 313.696 cx nos dois em teste), "queria
+a escadinha aqui também de caixa/fardo" (card de 12 meses ganhou a mesma coluna "Escadinha
+projetada" que já existia só no detalhamento — soma `mensal[i] / consumoPorUnidade` de cada
+contribuinte por mês; se os contribuintes tiverem unidades diferentes entre si, mostra
+"cx/fardo (misto)" em vez de fingir que é uma unidade só), e "esse filtro pode tirar não
+precisa" (removido o campo de busca dentro do detalhamento que tinha sido pedido antes — a
+lista inteira aparece direto, sem filtro).
+
+**Data da revisão no cabeçalho + filtro de insumo + escadinha projetada (caixa) + insumo
+realizado (01/09/2026, mesmo dia)**: mais 4 pedidos do usuário na mesma sessão. (1) Cabeçalho
+da tabela de Resumo mostra as datas reais de publicação (`dataPublicacaoAnterior`/
+`dataPublicacao`, agora repassadas por `extract_products.py` pro JSON) em vez do texto genérico
+"revisão anterior". (2) `MultiFilter` de "Insumo" ao lado do de "Loja" (447 combinações
+loja×insumo viram ~350 insumos distintos, com SKU no rótulo pra desambiguar). (3) O
+detalhamento (drawer) ganhou a coluna "Escadinha projetada" — plano anual do PRODUTO raiz em
+si (não do insumo), na unidade que a escadinha usa pra ele (`CX`/`FD` → cx/fardos) — campo
+novo em `bom_explosion.py` (`raiz["planoAnual"]`/`raiz["unidade"]`, capturado uma vez no
+início da recursão e propagado pra cada contribuição). (4) Coluna "Realizado" (grade e drawer)
+cruza por `(sku, loja)` com `dados-consumo-insumos.json` (Consumo de insumos, pipeline ODBC já
+confiável) — só o mês corrente pra trás, mesmo padrão de disponibilidade da Escadinha geral;
+não precisou de cálculo novo, só um `Map` de lookup no componente.
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 

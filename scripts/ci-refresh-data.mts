@@ -1,7 +1,7 @@
 // Roda dentro do GitHub Actions (secrets protegidos la, nunca expostos ao navegador).
 // Busca os datasets do SharePoint e grava:
 //   - public/dados-estoque.json, dados-insumos.json, dados-consumo-insumos.json,
-//     dados-mrp-terceiros.json, dados-escadinha.json
+//     dados-mrp-terceiros.json, dados-escadinha.json, dados-escadinha-insumos.json
 //     (operacional - embutido no bundle estatico pelo build-github-pages.mjs)
 //   - work/valor-financeiro-ci.json (financeiro - fica FORA do bundle, copiado como
 //     arquivo separado por build-github-pages.mjs, so buscado depois da senha no navegador)
@@ -20,6 +20,16 @@ const insumosData = await fetchSharePointJson<{ produtos: unknown[] }>("dados-in
 const consumoData = await fetchSharePointJson("dados-consumo-insumos.json");
 const mrpTerceirosData = await fetchSharePointJson("dados-mrp-terceiros.json");
 const escadinhaData = await fetchSharePointJson("dados-escadinha.json");
+
+// Escadinha de insumos (explosao BOM x plano de producao) - opcional/tolerante igual
+// fornecedores_agregado.json abaixo: gerado por extract_products.py so quando a ficha
+// tecnica do SharePoint esta disponivel, pode ainda nao existir na primeira execucao.
+let escadinhaInsumosData: unknown = null;
+try {
+  escadinhaInsumosData = await fetchSharePointJson("dados-escadinha-insumos.json");
+} catch (error) {
+  console.warn(`dados-escadinha-insumos.json indisponivel no SharePoint (${(error as Error).message}) - build cai pro placeholder.`);
+}
 
 // O fluxo do Power Automate que gera valor_insumos.json roda no horario dele, independente
 // deste workflow (que dispara a cada 30 min). Se o cron cair no meio da janela em que o
@@ -66,6 +76,9 @@ await fs.writeFile(path.join(root, "public", "dados-insumos.json"), JSON.stringi
 await fs.writeFile(path.join(root, "public", "dados-consumo-insumos.json"), JSON.stringify(consumoData, null, 2), "utf8");
 await fs.writeFile(path.join(root, "public", "dados-mrp-terceiros.json"), JSON.stringify(mrpTerceirosData, null, 2), "utf8");
 await fs.writeFile(path.join(root, "public", "dados-escadinha.json"), JSON.stringify(escadinhaData, null, 2), "utf8");
+if (escadinhaInsumosData) {
+  await fs.writeFile(path.join(root, "public", "dados-escadinha-insumos.json"), JSON.stringify(escadinhaInsumosData, null, 2), "utf8");
+}
 await fs.writeFile(path.join(root, "work", "valor-financeiro-ci.json"), JSON.stringify(valoresData, null, 2), "utf8");
 
 // dados-pedidos-venda.json nao vem do SharePoint (precisa do Postgres, so gerado localmente e

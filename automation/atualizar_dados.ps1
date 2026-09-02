@@ -175,9 +175,17 @@ Invoke-Step "Publicar copia dos JSONs locais no SharePoint (DT-BI)" {
         (Join-Path $projectRoot "public\dados-estoque.json"),
         (Join-Path $projectRoot "public\dados-insumos.json"),
         (Join-Path $projectRoot "public\dados-consumo-insumos.json"),
-        (Join-Path $projectRoot "public\dados-mrp-terceiros.json")
+        (Join-Path $projectRoot "public\dados-mrp-terceiros.json"),
+        (Join-Path $projectRoot "public\dados-escadinha-insumos.json")
     )
     foreach ($arquivo in $arquivos) {
+        # dados-escadinha-insumos.json e opcional (depende da ficha tecnica do SharePoint,
+        # que extract_products.py pode pular via try/except sem quebrar o resto) - nao
+        # existir ainda nao pode travar a copia dos arquivos essenciais.
+        if (-not (Test-Path -LiteralPath $arquivo)) {
+            Write-Log "Pulado (arquivo nao existe ainda): $(Split-Path -Leaf $arquivo)"
+            continue
+        }
         Copy-Item -LiteralPath $arquivo -Destination $destino -Force
         Write-Log "Copiado: $(Split-Path -Leaf $arquivo)"
     }

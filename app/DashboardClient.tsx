@@ -48,6 +48,55 @@ type EscadinhaData = {
   produtos: EscadinhaProduto[];
   desvios: EscadinhaDesvio[];
 };
+// Escadinha de insumos (01/09/2026): explosao BOM (ficha tecnica x plano de producao) mes a
+// mes, por (loja, insumo). Tipo declarado a mao pelo mesmo motivo de EscadinhaProduto acima -
+// "detalhamento"/"caminho" podem vir vazios em linhas sem multinivel, o que travaria a
+// inferencia via "typeof ... import" em "never[]".
+type EscadinhaInsumoContribuicao = {
+  codRaiz: number | null;
+  produtoRaiz: string;
+  caminho: string[];
+  consumoPorUnidade: number;
+  mensal: number[];
+  escadinhaPlanoAnual: number | null;
+  escadinhaUnidade: string | null;
+};
+type EscadinhaInsumoLinha = {
+  loja: string;
+  lojaLabel: string;
+  sku: number;
+  descricao: string;
+  mensal: number[];
+  mensalAnterior: number[] | null;
+  totalAno: number;
+  detalhamento: EscadinhaInsumoContribuicao[];
+};
+type EscadinhaInsumoDesvio = {
+  loja: string;
+  lojaLabel: string;
+  sku: number;
+  descricao: string;
+  mes: string;
+  planoAnterior: number;
+  planoAtual: number;
+  desvio: number;
+  desvioPercentual: number | null;
+};
+type EscadinhaInsumoSemFicha = { cod: number | null; produto: string; categoria: string };
+type EscadinhaInsumoSemFichaTecnica = { sku: string; produto: string; loja: string; tipo: string | null; fornecedor: string | null };
+type EscadinhaInsumosData = {
+  atualizadoEm: string;
+  dataPublicacao: string | null;
+  dataPublicacaoAnterior: string | null;
+  meses: string[];
+  produtosEscadinha: number;
+  produtosComFicha: number;
+  produtosSemFichaGeral: EscadinhaInsumoSemFicha[];
+  insumosSemFichaTecnica: EscadinhaInsumoSemFichaTecnica[];
+  hasComparacao: boolean;
+  linhas: EscadinhaInsumoLinha[];
+  desvios: EscadinhaInsumoDesvio[];
+};
 
 type Status = "Falta crítica" | "Estoque baixo" | "Excesso" | "Nível ideal" | "Sob demanda" | "Estoque com terceiros";
 type SourceProduct = InsumosData["produtos"][number];
@@ -61,7 +110,7 @@ type Product = SourceProduct & {
   limiteExcesso: number;
   percentualAbaixoSeguranca: number | null;
 };
-type Section = "terceiros" | "insumos" | "consumo" | "valores" | "escadinha" | "pedidosVenda" | "valorProdutoAcabado" | "fornecedores";
+type Section = "terceiros" | "insumos" | "consumo" | "valores" | "escadinha" | "escadinhaInsumos" | "pedidosVenda" | "valorProdutoAcabado" | "fornecedores";
 type PedidosVendaProduto = {
   cod: number;
   produto: string;
@@ -755,6 +804,7 @@ function ValuesDashboard({
         <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
         <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         <button className="nav-item active" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>
@@ -1014,6 +1064,7 @@ function ConsumptionDashboard({
         <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
         <button className="nav-item active" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
@@ -1254,6 +1305,7 @@ function EscadinhaDashboard({
         <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
         <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
         <button className="nav-item active" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
@@ -1417,6 +1469,339 @@ function EscadinhaDashboard({
   </main>;
 }
 
+// Escadinha de insumos (01/09/2026, pedido do usuario: "mesmo padrao [da Escadinha geral], a
+// diferenca que sera insumo") - mesma explosao BOM que alimenta "Projeção BOM" em Embalagens/MP
+// (work/sheet-inspect/bom_explosion.py, chamado por extract_products.py), só que aqui mostrada
+// mes a mes, por (loja, insumo), no mesmo padrao de grade da Escadinha geral. "Detalhamento" no
+// drawer (quais produtos da escadinha entraram naquele numero) é o mesmo recurso validado nos
+// testes locais antes de migrar (pedido do usuario: "quero saber qual conta usei").
+function EscadinhaInsumosDashboard({
+  onSectionChange,
+  canViewValues,
+  escadinhaInsumosData,
+  consumoData,
+}: {
+  onSectionChange: (section: Section) => void;
+  canViewValues: boolean;
+  escadinhaInsumosData: EscadinhaInsumosData;
+  consumoData: ConsumoData;
+}) {
+  const [query, setQuery] = useState("");
+  const [lojas, setLojas] = useState<string[]>([]);
+  const [insumosSelecionados, setInsumosSelecionados] = useState<string[]>([]);
+  const [selected, setSelected] = useState<EscadinhaInsumoLinha | null>(null);
+  const [semestre, setSemestre] = useState<1 | 2>(new Date().getMonth() < 6 ? 1 : 2);
+  const [visao, setVisao] = useState<"grade" | "resumo" | "semFicha">("grade");
+  const [nivelFiltro, setNivelFiltro] = useState<"todos" | "cima" | "baixo" | "atencao" | "critico">("todos");
+
+  function abrirDetalhe(linha: EscadinhaInsumoLinha) {
+    setSelected(linha);
+  }
+
+  const linhas = escadinhaInsumosData.linhas;
+  const meses = escadinhaInsumosData.meses;
+  const mesAtualIndex = new Date().getMonth();
+  const mesesSemestre = semestre === 1 ? meses.slice(0, 6) : meses.slice(6, 12);
+  const indiceMesesSemestre = semestre === 1 ? [0, 1, 2, 3, 4, 5] : [6, 7, 8, 9, 10, 11];
+  const mesLabel = (m: string) => m.charAt(0).toUpperCase() + m.slice(1);
+
+  // Insumo realizado (pedido do usuario, 01/09/2026: "e o insumo realizado é possível?") -
+  // consumo real ja existe em Consumo de insumos (dados-consumo-insumos.json, pipeline ODBC
+  // confiavel), so cruza por (sku, loja) + mes do ano corrente - nao precisa de calculo novo.
+  const anoAtual = new Date().getFullYear();
+  const realPorSkuLoja = useMemo(() => {
+    const mapa = new Map<string, number[]>();
+    for (const p of consumoData.produtos as { sku: string; loja: string; historico: { mes: string; consumoLiquido: number }[] }[]) {
+      const anual = Array<number | null>(12).fill(null);
+      for (const h of p.historico) {
+        const [ano, mesNum] = h.mes.split("-");
+        if (Number(ano) === anoAtual) anual[Number(mesNum) - 1] = h.consumoLiquido;
+      }
+      mapa.set(`${p.sku}-${p.loja}`, anual as number[]);
+    }
+    return mapa;
+  }, [consumoData, anoAtual]);
+  function realDoInsumo(sku: number, loja: string): (number | null)[] {
+    return realPorSkuLoja.get(`${sku}-${loja}`) ?? Array(12).fill(null);
+  }
+
+  const lojaOptions = useMemo(
+    () => Array.from(new Set(linhas.map((l) => l.loja)))
+      .sort((a, b) => a.localeCompare(b, "pt-BR"))
+      .map((l) => ({ value: l, label: (linhas.find((x) => x.loja === l)?.lojaLabel) ?? l })),
+    [linhas],
+  );
+  const insumoOptions = useMemo(() => {
+    const porSku = new Map<string, string>();
+    for (const l of linhas) {
+      const key = String(l.sku);
+      if (!porSku.has(key)) porSku.set(key, l.descricao || `SKU ${l.sku}`);
+    }
+    return Array.from(porSku.entries())
+      .map(([sku, descricao]) => ({ value: sku, label: `${descricao} (SKU ${sku})` }))
+      .sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
+  }, [linhas]);
+
+  const filtered = useMemo(() => {
+    const search = query.trim().toLocaleLowerCase("pt-BR");
+    return linhas
+      .filter((l) => (
+        (!search || l.descricao.toLocaleLowerCase("pt-BR").includes(search) || String(l.sku).includes(search))
+        && (lojas.length === 0 || lojas.includes(l.loja))
+        && (insumosSelecionados.length === 0 || insumosSelecionados.includes(String(l.sku)))
+      ))
+      .sort((a, b) => b.totalAno - a.totalAno);
+  }, [linhas, query, lojas, insumosSelecionados]);
+
+  const pendentes = escadinhaInsumosData.produtosSemFichaGeral.filter((p) => p.categoria === "pendente_escadinha");
+  const terceiros = escadinhaInsumosData.produtosSemFichaGeral.filter((p) => p.categoria === "terceiro");
+  const insumosSemFicha = escadinhaInsumosData.insumosSemFichaTecnica;
+
+  // Resumo: comparacao com a revisao anterior da Escadinha, mesmo padrao da Escadinha geral
+  // (pedido do usuario, 01/09/2026: "quero comparação com a última escadinha... e uma aba de
+  // resumo para saber quais itens foram mudados"). dados-escadinha.json ja guarda "plano" e
+  // "planoAnterior" por produto - bom_explosion.py explode os dois e calcula o desvio por
+  // insumo, sem precisar de historico proprio.
+  const hasComparacao = escadinhaInsumosData.hasComparacao;
+  const desviosFiltrados = useMemo(() => {
+    const search = query.trim().toLocaleLowerCase("pt-BR");
+    return escadinhaInsumosData.desvios.filter((d) => (
+      (!search || d.descricao.toLocaleLowerCase("pt-BR").includes(search) || String(d.sku).includes(search))
+      && (lojas.length === 0 || lojas.includes(d.loja))
+      && (insumosSelecionados.length === 0 || insumosSelecionados.includes(String(d.sku)))
+    ));
+  }, [escadinhaInsumosData.desvios, query, lojas, insumosSelecionados]);
+  const resumoAumentaram = desviosFiltrados.filter((d) => d.desvio > 0).length;
+  const resumoDiminuiram = desviosFiltrados.filter((d) => d.desvio < 0).length;
+  const resumoAtencao = desviosFiltrados.filter((d) => d.desvioPercentual != null && Math.abs(d.desvioPercentual) >= ESCADINHA_LIMIAR_ATENCAO).length;
+  const resumoCriticos = desviosFiltrados.filter((d) => d.desvioPercentual != null && Math.abs(d.desvioPercentual) >= ESCADINHA_LIMIAR_CRITICO).length;
+  function nivelDesvioInsumo(percentual: number | null) {
+    if (percentual == null) return null;
+    const abs = Math.abs(percentual);
+    if (abs >= ESCADINHA_LIMIAR_CRITICO) return "critico";
+    if (abs >= ESCADINHA_LIMIAR_ATENCAO) return "atencao";
+    return null;
+  }
+  const desviosExibidos = useMemo(() => desviosFiltrados.filter((d) => {
+    if (nivelFiltro === "todos") return true;
+    if (nivelFiltro === "cima") return d.desvio > 0;
+    if (nivelFiltro === "baixo") return d.desvio < 0;
+    const nivel = nivelDesvioInsumo(d.desvioPercentual);
+    if (nivelFiltro === "critico") return nivel === "critico";
+    return nivel === "critico" || nivel === "atencao";
+  }), [desviosFiltrados, nivelFiltro]);
+
+  return <main className="app-shell">
+    <aside className="sidebar">
+      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
+      <nav aria-label="Navegação principal">
+        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
+        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
+        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
+        <button className="nav-item active" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
+        <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
+      </nav>
+      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Explosão BOM</strong><small>{fullDate.format(localDate(escadinhaInsumosData.atualizadoEm))}</small></div></div>
+      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
+    </aside>
+    <section className="workspace">
+      <header className="topbar">
+        <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Escadinha de Insumos</strong></div>
+        <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar insumo ou SKU..." /><kbd>Ctrl K</kbd></label>
+      </header>
+      <div className="content consumption-content">
+        <div className="page-heading"><div><p className="eyebrow">EXPLOSÃO DE NECESSIDADE (TESTE)</p><h1>Escadinha de insumos</h1><p>Necessidade de cada insumo mês a mês, calculada explodindo o plano de produção pela ficha técnica (BOM) — não substitui a Escadinha projetada de Embalagens/MP, é uma visão complementar ainda em validação.</p></div><div className="source-button static-source"><span>↻</span><div><small>Fonte atual</small><strong>ficha_tecnica.json + dados-escadinha.json</strong></div></div></div>
+
+        <div className="empty-state" style={{ marginBottom: 24 }}>
+          <strong>Ainda em teste — números podem divergir da Escadinha projetada atual</strong>
+          <p>Essa aba explode o plano da Escadinha pela ficha técnica (BOM), mês a mês. É um cálculo diferente do que já existe em Embalagens/MP (coluna &quot;Escadinha projetada&quot;, vinda da planilha) — as duas colunas podem não bater exatamente, e isso não significa que uma está errada. Clique numa linha pra ver quais produtos entraram no número.</p>
+        </div>
+
+        <section className="consumption-summary">
+          <div><span>Produtos na escadinha</span><strong>{number.format(escadinhaInsumosData.produtosEscadinha)}</strong><small>{escadinhaInsumosData.produtosComFicha} com ficha técnica ativa</small></div>
+          <div><span>Combinações loja × insumo</span><strong>{number.format(linhas.length)}</strong><small>{lojaOptions.length} lojas com resultado</small></div>
+          <div><span>Insumos sem ficha técnica</span><strong>{number.format(insumosSemFicha.length)}</strong><small>Não entram nesse cálculo</small></div>
+          <div className="partial"><span>Produtos da escadinha sem ficha</span><strong>{escadinhaInsumosData.produtosSemFichaGeral.length}</strong><small>{terceiros.length} terceiros · {pendentes.length} pendentes</small></div>
+        </section>
+
+        <section className="inventory-panel consumption-panel">
+          <div className="panel-heading"><div><p className="eyebrow">{visao === "semFicha" ? "SEM FICHA TÉCNICA" : visao === "resumo" ? "RESUMO DE DESVIOS" : "NECESSIDADE MÊS A MÊS"}</p><h2>{visao === "semFicha" ? "Itens fora do cálculo" : visao === "resumo" ? "Insumos com necessidade mudada" : "Necessidade calculada por insumo"}</h2><p>{visao === "semFicha" ? "Insumos de Embalagens/MP e produtos da Escadinha sem ficha técnica cadastrada." : visao === "resumo" ? `Quanto a necessidade calculada mudou de uma revisão da escadinha pra outra — maior desvio primeiro. Destacado em laranja ≥ ${ESCADINHA_LIMIAR_ATENCAO}%, em vermelho ≥ ${ESCADINHA_LIMIAR_CRITICO}%.` : "Ordenado do maior para o menor total anual; clique numa linha pra ver a conta completa."}</p></div><div className="unit-switch"><button className={semestre === 1 && visao === "grade" ? "active" : ""} onClick={() => { setSemestre(1); setVisao("grade"); }}>1º semestre</button><button className={semestre === 2 && visao === "grade" ? "active" : ""} onClick={() => { setSemestre(2); setVisao("grade"); }}>2º semestre</button><button className={visao === "resumo" ? "active" : ""} onClick={() => setVisao("resumo")}>Resumo{hasComparacao ? ` (${escadinhaInsumosData.desvios.length})` : ""}</button><button className={visao === "semFicha" ? "active" : ""} onClick={() => setVisao("semFicha")}>Sem ficha ({insumosSemFicha.length + escadinhaInsumosData.produtosSemFichaGeral.length})</button></div></div>
+          {visao !== "semFicha" && <div className="filters value-filters"><div className="selects">
+            <MultiFilter label="Loja" options={lojaOptions} selected={lojas} onChange={setLojas} />
+            <MultiFilter label="Insumo" options={insumoOptions} selected={insumosSelecionados} onChange={setInsumosSelecionados} />
+            {(lojas.length > 0 || insumosSelecionados.length > 0) && <button className="clear-value-filters" onClick={() => { setLojas([]); setInsumosSelecionados([]); }}>Limpar filtros</button>}
+          </div></div>}
+
+          {visao === "resumo" ? (!hasComparacao ? <div className="empty-state"><strong>Sem comparação ainda</strong><p>O resumo de desvio aparece a partir da próxima revisão mensal do plano da Escadinha.</p></div> : <>
+            <section className="consumption-summary" style={{ padding: "0 20px 16px", gridTemplateColumns: "repeat(5, minmax(0,1fr))" }}>
+              <button type="button" className={nivelFiltro === "todos" ? "selected" : ""} onClick={() => setNivelFiltro("todos")}><span>Insumos com desvio</span><strong>{number.format(desviosFiltrados.length)}</strong><small>{resumoAumentaram} pra cima · {resumoDiminuiram} pra baixo</small></button>
+              <button type="button" className={nivelFiltro === "cima" ? "selected" : ""} onClick={() => setNivelFiltro(nivelFiltro === "cima" ? "todos" : "cima")}><span>Pra cima</span><strong>{number.format(resumoAumentaram)}</strong><small>Necessidade aumentou</small></button>
+              <button type="button" className={nivelFiltro === "baixo" ? "selected" : ""} onClick={() => setNivelFiltro(nivelFiltro === "baixo" ? "todos" : "baixo")}><span>Pra baixo</span><strong>{number.format(resumoDiminuiram)}</strong><small>Necessidade diminuiu</small></button>
+              <button type="button" className={nivelFiltro === "atencao" ? "selected" : ""} onClick={() => setNivelFiltro(nivelFiltro === "atencao" ? "todos" : "atencao")}><span>Atenção (≥ {ESCADINHA_LIMIAR_ATENCAO}%)</span><strong>{number.format(resumoAtencao)}</strong><small>Vale acompanhar</small></button>
+              <button type="button" className={nivelFiltro === "critico" ? "selected" : ""} onClick={() => setNivelFiltro(nivelFiltro === "critico" ? "todos" : "critico")}><span>Crítico (≥ {ESCADINHA_LIMIAR_CRITICO}%)</span><strong>{number.format(resumoCriticos)}</strong><small>Salto grande — checar antes</small></button>
+            </section>
+            <div className="table-wrap consumption-table-wrap"><table className="consumption-table buyer-action-table"><thead><tr>
+              <th>Insumo</th><th>Loja</th><th>Mês</th><th title="Necessidade calculada pelo plano anterior vs. pelo plano atual da escadinha (não é consumo real).">Necessidade calculada<br /><small className="unit">{escadinhaInsumosData.dataPublicacaoAnterior ? fullDate.format(localDate(escadinhaInsumosData.dataPublicacaoAnterior)) : "rev. anterior"} → {escadinhaInsumosData.dataPublicacao ? fullDate.format(localDate(escadinhaInsumosData.dataPublicacao)) : "atual"}</small></th><th>Desvio</th><th>Desvio %</th>
+            </tr></thead><tbody>
+              {desviosExibidos.map((d) => {
+                const nivel = nivelDesvioInsumo(d.desvioPercentual);
+                const linhaCorrespondente = linhas.find((l) => l.loja === d.loja && l.sku === d.sku);
+                return <tr
+                  key={`${d.loja}-${d.sku}-${d.mes}`}
+                  style={{ cursor: linhaCorrespondente ? "pointer" : "default" }}
+                  onClick={() => linhaCorrespondente && abrirDetalhe(linhaCorrespondente)}
+                >
+                  <td><div className="product-cell"><div><strong title={d.descricao}>{d.descricao || "(sem descrição)"}</strong><small>SKU {d.sku}</small></div></div></td>
+                  <td>{d.lojaLabel}</td>
+                  <td>{MESES_ESCADINHA_LABEL[d.mes]}</td>
+                  <td>{number.format(d.planoAnterior)} → <strong className="numeric">{number.format(d.planoAtual)}</strong></td>
+                  <td><strong className={`numeric ${d.desvio > 0 ? "escadinha-delta-up" : "escadinha-delta-down"}`}>{d.desvio > 0 ? "+" : ""}{number.format(d.desvio)}</strong></td>
+                  <td>{d.desvioPercentual != null ? <span className={`trend ${nivel === "critico" ? "critical" : nivel === "atencao" ? "warn" : "neutral"}`}>{d.desvioPercentual > 0 ? "+" : ""}{decimal.format(d.desvioPercentual)}%</span> : "—"}</td>
+                </tr>;
+              })}
+            </tbody>
+            {desviosExibidos.length > 0 && <tfoot><tr className="escadinha-total-row">
+              <td colSpan={4}><strong>Total ({desviosExibidos.length} desvio{desviosExibidos.length === 1 ? "" : "s"})</strong></td>
+              <td><strong className={`numeric ${desviosExibidos.reduce((s, d) => s + d.desvio, 0) > 0 ? "escadinha-delta-up" : "escadinha-delta-down"}`}>{desviosExibidos.reduce((s, d) => s + d.desvio, 0) > 0 ? "+" : ""}{number.format(desviosExibidos.reduce((s, d) => s + d.desvio, 0))}</strong></td>
+              <td />
+            </tr></tfoot>}
+            </table>{desviosExibidos.length === 0 && <div className="empty-state"><strong>Nenhum desvio encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
+          </>) : visao === "semFicha" ? <>
+            <h3 className="drawer-section-label" style={{ margin: "0 20px 8px" }}>INSUMOS DE EMBALAGENS/MP SEM FICHA TÉCNICA ({insumosSemFicha.length})</h3>
+            <div className="table-wrap consumption-table-wrap"><table className="consumption-table buyer-action-table"><thead><tr>
+              <th>Produto / loja</th><th>SKU</th><th>Tipo</th><th>Fornecedor</th>
+            </tr></thead><tbody>
+              {insumosSemFicha.map((p) => <tr key={`${p.sku}-${p.loja}`}>
+                <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Loja {p.loja}</small></div></div></td>
+                <td>{p.sku}</td>
+                <td>{p.tipo ?? "—"}</td>
+                <td>{p.fornecedor ?? "—"}</td>
+              </tr>)}
+            </tbody></table>{insumosSemFicha.length === 0 && <div className="empty-state"><strong>Nenhum item</strong><p>Todos os insumos de Embalagens/MP têm ficha técnica.</p></div>}</div>
+            <h3 className="drawer-section-label" style={{ margin: "20px 20px 8px" }}>PRODUTOS DA ESCADINHA SEM FICHA TÉCNICA ({escadinhaInsumosData.produtosSemFichaGeral.length})</h3>
+            <div className="table-wrap consumption-table-wrap"><table className="consumption-table buyer-action-table"><thead><tr>
+              <th>Produto</th><th>Código</th><th>Situação</th>
+            </tr></thead><tbody>
+              {escadinhaInsumosData.produtosSemFichaGeral.map((p) => <tr key={`${p.cod}-${p.produto}`}>
+                <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong></div></div></td>
+                <td>{p.cod ?? "—"}</td>
+                <td>{p.categoria === "terceiro" ? "Produção de terceiros (esperado)" : p.categoria === "pendente_escadinha" ? "Produto nosso, ficha pendente" : "—"}</td>
+              </tr>)}
+            </tbody></table></div>
+          </> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table escadinha-grid"><thead><tr>
+            <th>Insumo</th><th>Loja</th>
+            {mesesSemestre.map((mes, i) => <th key={mes} className={indiceMesesSemestre[i] === mesAtualIndex ? "escadinha-mes-atual" : ""}>{mesLabel(mes)}</th>)}
+            <th>Total anual</th>
+          </tr></thead><tbody>
+            {filtered.map((linha) => <tr key={`${linha.loja}-${linha.sku}`} className={selected?.sku === linha.sku && selected?.loja === linha.loja ? "selected-row" : ""} onClick={() => abrirDetalhe(linha)}>
+              <td><div className="product-cell"><div><strong title={linha.descricao}>{linha.descricao || "(sem descrição)"}</strong><small>SKU {linha.sku}</small></div></div></td>
+              <td>{linha.lojaLabel}</td>
+              {indiceMesesSemestre.map((index) => {
+                const atual = linha.mensal[index];
+                const anterior = linha.mensalAnterior?.[index] ?? null;
+                const mudou = hasComparacao && anterior != null && Math.abs(atual - anterior) >= 0.1;
+                const diferenca = mudou ? atual - (anterior as number) : 0;
+                const percentual = mudou && anterior ? (diferenca / anterior) * 100 : null;
+                const real = index <= mesAtualIndex ? realDoInsumo(linha.sku, linha.loja)[index] : null;
+                return <td key={index} className={`${index === mesAtualIndex ? "escadinha-mes-atual" : ""} ${mudou ? (diferenca > 0 ? "escadinha-delta-up" : "escadinha-delta-down") : ""}`}>
+                  <strong className="numeric">{number.format(atual)}</strong>
+                  {mudou && <small className="unit">{diferenca > 0 ? "+" : ""}{number.format(diferenca)}{percentual != null && ` (${percentual > 0 ? "+" : ""}${decimal.format(percentual)}%)`}</small>}
+                  {real != null && <small className="escadinha-real">Real: {number.format(real)}</small>}
+                </td>;
+              })}
+              <td><strong className="numeric">{number.format(linha.totalAno)}</strong></td>
+            </tr>)}
+          </tbody>
+          {filtered.length > 0 && <tfoot><tr className="escadinha-total-row">
+            <td><strong>Total ({filtered.length} insumo{filtered.length === 1 ? "" : "s"})</strong></td>
+            <td />
+            {indiceMesesSemestre.map((index) => <td key={index}><strong className="numeric">{number.format(filtered.reduce((s, l) => s + l.mensal[index], 0))}</strong></td>)}
+            <td><strong className="numeric">{number.format(filtered.reduce((s, l) => s + l.totalAno, 0))}</strong></td>
+          </tr></tfoot>}
+          </table>{filtered.length === 0 && <div className="empty-state"><strong>Nenhum insumo encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>}
+        </section>
+        <footer>Fonte: ficha_tecnica.json + dados-escadinha.json, explosão BOM recursiva (work/sheet-inspect/bom_explosion.py). Mesmo cálculo que alimenta a coluna &quot;Projeção BOM&quot; em Embalagens/MP.</footer>
+      </div>
+    </section>
+
+    {selected && (() => {
+      const detalheOrdenado = selected.detalhamento
+        .slice()
+        .sort((a, b) => b.mensal.reduce((s, v) => s + v, 0) - a.mensal.reduce((s, v) => s + v, 0));
+      // Escadinha projetada mes a mes NESTE nivel (soma de plano/insumo de cada produto que
+      // contribui) - pedido do usuario, 01/09/2026: "queria a escadinha aqui também de
+      // caixa/fardo pra eu fazer a comparação com o insumo". mensal[i] de cada contribuinte ja
+      // e (plano do produto x consumo por unidade) - dividir de volta pelo consumo por unidade
+      // devolve o plano do produto naquele mes.
+      const escadinhaMensal = meses.map((_, i) => detalheOrdenado.reduce(
+        (s, c) => s + (c.consumoPorUnidade > 0 ? c.mensal[i] / c.consumoPorUnidade : 0), 0,
+      ));
+      const unidadesContribuintes = new Set(detalheOrdenado.map((c) => c.escadinhaUnidade).filter(Boolean));
+      const unidadeEscadinha = unidadesContribuintes.size === 1
+        ? ([...unidadesContribuintes][0] === "FD" ? "fardos" : "cx")
+        : unidadesContribuintes.size > 1 ? "cx/fardo (misto)" : "";
+      return <div className="drawer-backdrop" onClick={() => setSelected(null)}>
+      <div className="drawer escadinha-insumos-drawer" onClick={(event) => event.stopPropagation()}>
+        <button className="drawer-close" onClick={() => setSelected(null)}>×</button>
+        <h2>{selected.descricao || "(sem descrição)"}</h2>
+        <p className="drawer-sku">SKU {selected.sku} · {selected.lojaLabel}</p>
+        <div className="table-wrap">
+          <table className="consumption-table escadinha-drawer-table">
+            <thead><tr><th>Mês</th><th title="Soma do plano dos produtos da escadinha que usam esse insumo, na unidade deles (caixa/fardo) — não é a necessidade do insumo, é a produção planejada.">Escadinha projetada</th><th>Necessidade calculada</th><th>Realizado</th></tr></thead>
+            <tbody>
+              {meses.map((mes, index) => {
+                const real = index <= mesAtualIndex ? realDoInsumo(selected.sku, selected.loja)[index] : null;
+                return <tr key={mes} className={index === mesAtualIndex ? "selected-row" : ""}>
+                  <td>{mesLabel(mes)}</td>
+                  <td>{unidadesContribuintes.size > 0 ? <>{number.format(escadinhaMensal[index])} <small className="unit">{unidadeEscadinha}</small></> : <span className="no-projection">—</span>}</td>
+                  <td><strong className="numeric">{number.format(selected.mensal[index])}</strong></td>
+                  <td>{real != null ? <strong className="numeric">{number.format(real)}</strong> : <span className="no-projection">—</span>}</td>
+                </tr>;
+              })}
+            </tbody>
+            <tfoot><tr className="escadinha-total-row">
+              <td><strong>Total ano</strong></td>
+              <td>{unidadesContribuintes.size > 0 ? <strong className="numeric">{number.format(escadinhaMensal.reduce((s, v) => s + v, 0))} <small className="unit">{unidadeEscadinha}</small></strong> : "—"}</td>
+              <td><strong className="numeric">{number.format(selected.mensal.reduce((s, v) => s + v, 0))}</strong></td>
+              <td><strong className="numeric">{number.format(meses.reduce((s, _, i) => s + (i <= mesAtualIndex ? (realDoInsumo(selected.sku, selected.loja)[i] ?? 0) : 0), 0))}</strong></td>
+            </tr></tfoot>
+          </table>
+        </div>
+        <h3 className="drawer-section-label" style={{ marginTop: 20 }}>COMO CHEGUEI NESSE NÚMERO ({selected.detalhamento.length} produto{selected.detalhamento.length === 1 ? "" : "s"} da escadinha)</h3>
+        {selected.detalhamento.length === 0 ? <p style={{ color: "var(--muted, #667)", fontSize: 13 }}>Sem detalhamento disponível pra essa linha.</p> : <div className="table-wrap">
+          <table className="consumption-table escadinha-drawer-table">
+            <thead><tr><th>Produto da escadinha</th><th title="Plano anual do PRODUTO em si (não do insumo), na unidade que a escadinha usa pra ele.">Escadinha projetada</th><th>Consumo/un.</th><th>Total ano (insumo)</th></tr></thead>
+            <tbody>
+              {detalheOrdenado.map((c) => <tr key={`${c.codRaiz}-${c.produtoRaiz}`}>
+                <td>
+                  <div className="product-cell"><div>
+                    <strong title={c.produtoRaiz}>{c.produtoRaiz}</strong>
+                    <small>Cód. {c.codRaiz ?? "—"}{c.caminho.length > 0 ? ` · via ${c.caminho.join(" → ")}` : ""}</small>
+                  </div></div>
+                </td>
+                <td>{c.escadinhaPlanoAnual != null ? <>{number.format(c.escadinhaPlanoAnual)} <small className="unit">{c.escadinhaUnidade === "FD" ? "fardos" : "cx"}</small></> : "—"}</td>
+                <td>{new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 4 }).format(c.consumoPorUnidade)}</td>
+                <td><strong className="numeric">{number.format(c.mensal.reduce((s, v) => s + v, 0))}</strong></td>
+              </tr>)}
+            </tbody>
+            <tfoot><tr className="escadinha-total-row">
+              <td><strong>Total ({detalheOrdenado.length})</strong></td>
+              <td>{unidadesContribuintes.size > 0 ? <strong className="numeric">{number.format(detalheOrdenado.reduce((s, c) => s + (c.escadinhaPlanoAnual ?? 0), 0))} <small className="unit">{unidadeEscadinha}</small></strong> : "—"}</td>
+              <td />
+              <td><strong className="numeric">{number.format(detalheOrdenado.reduce((s, c) => s + c.mensal.reduce((a, b) => a + b, 0), 0))}</strong></td>
+            </tr></tfoot>
+          </table>
+        </div>}
+      </div>
+    </div>;
+    })()}
+  </main>;
+}
+
 function PedidosVendaDashboard({
   onSectionChange,
   canViewValues,
@@ -1534,6 +1919,7 @@ function PedidosVendaDashboard({
         <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
         <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item active" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
@@ -1756,6 +2142,7 @@ function ValorProdutoAcabadoDashboard({
         <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
         <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item active" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
@@ -2079,6 +2466,7 @@ function FornecedoresDashboard({
         <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
         <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
@@ -2383,6 +2771,7 @@ export default function DashboardClient({
   consumoData,
   mrpTerceirosData,
   escadinhaData,
+  escadinhaInsumosData,
   pedidosVendaData,
 }: {
   canViewValues: boolean;
@@ -2394,6 +2783,7 @@ export default function DashboardClient({
   consumoData: ConsumoData;
   mrpTerceirosData: MrpTerceirosData;
   escadinhaData: EscadinhaData;
+  escadinhaInsumosData: EscadinhaInsumosData;
   pedidosVendaData: PedidosVendaData;
 }) {
   const [section, setSection] = useState<Section>("terceiros");
@@ -2417,6 +2807,7 @@ export default function DashboardClient({
   const isConsumption = section === "consumo";
   const isValues = section === "valores";
   const isEscadinha = section === "escadinha";
+  const isEscadinhaInsumos = section === "escadinhaInsumos";
   const isPedidosVenda = section === "pedidosVenda";
   const isValorProdutoAcabado = section === "valorProdutoAcabado";
   const isFornecedores = section === "fornecedores";
@@ -2613,6 +3004,7 @@ export default function DashboardClient({
   if (isValues && valoresData) return <ValuesDashboard onSectionChange={changeSection} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} />;
   if (isConsumption) return <ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} />;
   if (isEscadinha) return <EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} pedidosVendaData={pedidosVendaData} />;
+  if (isEscadinhaInsumos) return <EscadinhaInsumosDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaInsumosData={escadinhaInsumosData} consumoData={consumoData} />;
   if (isPedidosVenda) return <PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} />;
   if (isValorProdutoAcabado && valoresProdutoAcabadoData) return <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} />;
   if (isFornecedores && fornecedoresData) return <FornecedoresDashboard onSectionChange={changeSection} canViewValues={canViewValues} fornecedoresData={fornecedoresData} />;
@@ -2675,6 +3067,7 @@ export default function DashboardClient({
           <button className={`nav-item ${section === "insumos" ? "active" : ""}`} onClick={() => changeSection("insumos")}><span>▤</span> Embalagens e MP</button>
           <button className={`nav-item ${section === "consumo" ? "active" : ""}`} onClick={() => changeSection("consumo")}><span>◫</span> Consumo de insumos</button>
           <button className={`nav-item ${section === "escadinha" ? "active" : ""}`} onClick={() => changeSection("escadinha")}><span>▧</span> Escadinha geral</button>
+          <button className={`nav-item ${section === "escadinhaInsumos" ? "active" : ""}`} onClick={() => changeSection("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
           <button className={`nav-item ${section === "pedidosVenda" ? "active" : ""}`} onClick={() => changeSection("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
           {canViewValues && <button className={`nav-item ${section === "valores" ? "active" : ""}`} onClick={() => changeSection("valores")}><span>R$</span> Valor dos insumos</button>}
           {canViewValues && <button className={`nav-item ${section === "valorProdutoAcabado" ? "active" : ""}`} onClick={() => changeSection("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}

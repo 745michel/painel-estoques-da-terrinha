@@ -7,6 +7,7 @@ import consumoDataStatic from "../public/dados-consumo-insumos.json";
 import valoresDataStatic from "../data/dados-valores-insumos.json";
 import mrpTerceirosDataStatic from "../public/dados-mrp-terceiros.json";
 import escadinhaDataStatic from "../public/dados-escadinha.json";
+import escadinhaInsumosDataStatic from "../public/dados-escadinha-insumos.json";
 import pedidosVendaDataStatic from "../public/dados-pedidos-venda.json";
 import valoresProdutoAcabadoDataStatic from "../data/dados-valores-produto-acabado.json";
 import fornecedoresDataStatic from "../data/dados-fornecedores.json";
@@ -22,6 +23,7 @@ type ConsumoData = typeof consumoDataStatic;
 type ValoresData = typeof valoresDataStatic;
 type MrpTerceirosData = typeof mrpTerceirosDataStatic;
 type EscadinhaData = typeof escadinhaDataStatic;
+type EscadinhaInsumosData = typeof escadinhaInsumosDataStatic;
 type PedidosVendaData = typeof pedidosVendaDataStatic;
 type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataStatic;
 type FornecedoresData = typeof fornecedoresDataStatic;
@@ -91,6 +93,21 @@ async function loadEscadinhaData(): Promise<EscadinhaData> {
   } catch (error) {
     console.error("Falha ao buscar dados-escadinha.json do SharePoint, usando snapshot do build:", error);
     return escadinhaDataStatic;
+  }
+}
+
+async function loadEscadinhaInsumosData(): Promise<EscadinhaInsumosData> {
+  // Escadinha de insumos (aba nova, 01/09/2026, "mesmo padrao da Escadinha geral, a diferenca
+  // que sera insumo"): explosao BOM (ficha tecnica x plano de producao) mes a mes, por
+  // (loja, insumo) - work/sheet-inspect/bom_explosion.py, chamado por extract_products.py.
+  // Mesma fonte unica que alimenta o campo "projecaoBom" de Embalagens/MP - nunca diverge
+  // entre as duas. Ver CLAUDE.md.
+  if (!isConfigured()) return escadinhaInsumosDataStatic;
+  try {
+    return await fetchSharePointJson<EscadinhaInsumosData>("dados-escadinha-insumos.json");
+  } catch (error) {
+    console.error("Falha ao buscar dados-escadinha-insumos.json do SharePoint, usando snapshot do build:", error);
+    return escadinhaInsumosDataStatic;
   }
 }
 
@@ -214,12 +231,13 @@ export default async function Home() {
     return <AcessoNaoAutorizado email={email!} />;
   }
 
-  const [estoqueData, insumosData, consumoData, mrpTerceirosData, escadinhaData, pedidosVendaData] = await Promise.all([
+  const [estoqueData, insumosData, consumoData, mrpTerceirosData, escadinhaData, escadinhaInsumosData, pedidosVendaData] = await Promise.all([
     loadEstoqueData(),
     loadInsumosData(),
     loadConsumoData(),
     loadMrpTerceirosData(),
     loadEscadinhaData(),
+    loadEscadinhaInsumosData(),
     loadPedidosVendaData(),
   ]);
   const valoresData = canViewValues ? await loadValoresData(insumosData) : null;
@@ -237,6 +255,7 @@ export default async function Home() {
       consumoData={consumoData}
       mrpTerceirosData={mrpTerceirosData}
       escadinhaData={escadinhaData}
+      escadinhaInsumosData={escadinhaInsumosData}
       pedidosVendaData={pedidosVendaData}
     />
   );
