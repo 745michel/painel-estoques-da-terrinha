@@ -119,15 +119,21 @@ Invoke-Step "Atualizar planilha MRP Terceiros (Excel COM)" {
     Write-Log ($result -join " ")
 } -MaxAttempts 3
 
-Invoke-Step "Gerar dados-mrp-terceiros.json" {
-    Push-Location $sheetInspect
-    try {
-        $result = & $pythonExe "extract_mrp_terceiros.py" 2>&1
-        if ($LASTEXITCODE -ne 0) { throw "extract_mrp_terceiros.py saiu com codigo $LASTEXITCODE`: $result" }
-        Write-Log ($result -join " ")
-    }
-    finally { Pop-Location }
-}
+# Desligado em 02/09/2026, a pedido do usuario: a UI de Terceiros parou de ler
+# dados-mrp-terceiros.json (Escadinha atual/Real M/%Plano/Corte M passaram a vir de
+# dados-escadinha.json - ver CLAUDE.md) - rodar essa etapa 3x por dia so pra gerar um arquivo
+# que nada mais consome nao vale o tempo/risco de abrir a planilha externa "Projeto MRP
+# compras remodelado". Reversivel: descomente o Invoke-Step abaixo pra religar (o script
+# extract_mrp_terceiros.py continua intacto).
+# Invoke-Step "Gerar dados-mrp-terceiros.json" {
+#     Push-Location $sheetInspect
+#     try {
+#         $result = & $pythonExe "extract_mrp_terceiros.py" 2>&1
+#         if ($LASTEXITCODE -ne 0) { throw "extract_mrp_terceiros.py saiu com codigo $LASTEXITCODE`: $result" }
+#         Write-Log ($result -join " ")
+#     }
+#     finally { Pop-Location }
+# }
 
 Invoke-Step "Gerar dados-estoque.json e dados-insumos.json (leitura das planilhas)" {
     Push-Location $sheetInspect

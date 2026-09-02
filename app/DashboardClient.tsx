@@ -28,6 +28,7 @@ type EscadinhaProduto = {
   plano?: number[];
   planoAnterior?: number[];
   real?: number[];
+  corte?: number[];
   cobertura?: number[];
 };
 type EscadinhaDesvio = {
@@ -2848,15 +2849,25 @@ export default function DashboardClient({
       return true;
     });
   }, [activeData, isTerceirosData]);
-  // Escadinha atual (Plano M), Real M, %Plano e Corte M - cruzados por SKU com a planilha
-  // "Projeto MRP compras remodelado", a pedido do usuario em 12/08/2026. Estoque, Carteira,
-  // Saldo e Cobertura NAO vem do MRP (risco de divergencia por filtro instavel da pivot) -
-  // usam os campos nativos de dados-estoque.json (mesma fonte do Status/Cobertura de sempre).
-  // Carteira = Estoque - Saldo. Ver conversa 17/08/2026.
-  const mrpBySku = useMemo(
-    () => new Map((mrpTerceirosData.produtos as MrpTerceirosItem[]).map((item) => [item.sku, item])),
-    [mrpTerceirosData],
+  // Estoque, Carteira, Saldo e Cobertura usam os campos nativos de dados-estoque.json (mesma
+  // fonte do Status/Cobertura de sempre). Carteira = Estoque - Saldo. Ver conversa 17/08/2026.
+  //
+  // Escadinha atual/Real M/%Plano/Corte M deixaram de vir da planilha "Projeto MRP compras
+  // remodelado" em 02/09/2026 - o "Plano M" dessa pivot podia divergir do "Escadinha"/
+  // atingimento mostrado no drawer, que vinha de outra planilha (Terceiro Estoque X
+  // Pedido.xlsm) - dois arquivos mantidos por pessoas/processos diferentes, sem garantia de
+  // sincronismo (risco ja documentado desde 12/08/2026: "divergencia por filtro instavel da
+  // pivot"). Pedido explicito do usuario: "a escadinha quero que vc pega da nossa base
+  // escadinha, quero que vc pega da fonte onde temos o realizado do mes, sem ser das
+  // planilhas" - agora os quatro vem de dados-escadinha.json (mesma base da aba "Escadinha
+  // geral", plano mestre + Real/Corte do BI de cortes), cruzado por "cod" (SKU numerico) no
+  // mes atual. mrpTerceirosData/dados-mrp-terceiros.json ficaram sem nenhum uso na UI depois
+  // dessa troca - o pipeline que gera o arquivo continua rodando, so nao e mais lido aqui.
+  const escadinhaPorCod = useMemo(
+    () => new Map((escadinhaData.produtos as EscadinhaProduto[]).filter((p) => p.cod != null).map((p) => [p.cod as number, p])),
+    [escadinhaData],
   );
+  const mesAtualIndexTerceiros = new Date().getMonth();
   const [mostrarDescontinuados, setMostrarDescontinuados] = useState(false);
   // Itens descontinuados (sem projeção/consumo/entrega, ou marcados manualmente): nunca
   // contam nos indicadores de crítico/excesso nem entram nas abas de status — só aparecem
@@ -3027,8 +3038,12 @@ export default function DashboardClient({
     const deliveries = new Map(product.entregasProgramadas.map((item) => [item.data, item.quantidade]));
     const bar = Math.min(100, Math.max(4, (product.cobertura / Math.max(product.seguranca * 1.7, product.cobertura)) * 100));
     const rowKey = `${product.loja}-${product.sku}-${product.produto}`;
-    const mrp = !isInputs ? mrpBySku.get(product.sku) : undefined;
     const mrpQty = (value: number | null | undefined) => (value == null ? <span className="no-projection">—</span> : <strong className="numeric">{number.format(Math.round(value))}</strong>);
+    const escadinhaBase = !isInputs && /^\d+$/.test(product.sku) ? escadinhaPorCod.get(Number(product.sku)) : undefined;
+    const escadinhaPlano = escadinhaBase?.plano?.[mesAtualIndexTerceiros] ?? null;
+    const escadinhaReal = escadinhaBase?.real?.[mesAtualIndexTerceiros] ?? null;
+    const escadinhaCorte = escadinhaBase?.corte?.[mesAtualIndexTerceiros] ?? null;
+    const escadinhaPercentual = escadinhaPlano != null && escadinhaPlano > 0 && escadinhaReal != null ? (escadinhaReal / escadinhaPlano) * 100 : null;
     return <tr key={rowKey} className={highlightedProductKey === rowKey ? "selected-row" : ""} onClick={() => { setHighlightedProductKey(rowKey); setSelected(product); }}>
       <td data-label={isInputs ? "Produto / loja" : "Produto / fornecedor"}><div className="product-cell"><div><strong>{product.produto}</strong><small>SKU {product.sku} · {isInputs ? storeLabel(product.loja) : `Fornecedor: ${product.fornecedor}`}</small></div></div></td>
       {isInputs ? (
@@ -3046,10 +3061,10 @@ export default function DashboardClient({
           <td data-label="Carteira">{mrpQty(product.estoque - product.saldo)}</td>
           <td data-label="Saldo">{mrpQty(product.saldo)}</td>
           <td data-label="Cobertura">{descontinuado ? <span className="no-projection">—</span> : <div className="coverage"><strong>{number.format(Math.round(product.cobertura))} dias</strong><small className="unit">Segurança: {product.seguranca} dias</small><div><span className={cls} style={{ width: `${bar}%` }} /></div></div>}</td>
-          <td data-label="Escadinha atual">{mrpQty(mrp?.planoMes ?? (product.escadinha > 0 ? product.escadinha : null))}</td>
-          <td data-label="Real M">{mrpQty(mrp?.realMes ?? (product.faturado > 0 ? product.faturado : null))}</td>
-          <td data-label="%Plano">{mrp?.percentualPlano != null ? <strong className="numeric">{decimal.format(mrp.percentualPlano * 100)}%</strong> : product.escadinha > 0 ? <strong className="numeric">{decimal.format(product.atingimento)}%</strong> : <span className="no-projection">—</span>}</td>
-          <td data-label="Corte M">{mrpQty(mrp?.corteMes)}</td>
+          <td data-label="Escadinha atual">{mrpQty(escadinhaPlano)}</td>
+          <td data-label="Real M">{mrpQty(escadinhaReal)}</td>
+          <td data-label="%Plano">{escadinhaPercentual != null ? <strong className="numeric">{decimal.format(escadinhaPercentual)}%</strong> : <span className="no-projection">—</span>}</td>
+          <td data-label="Corte M">{mrpQty(escadinhaCorte)}</td>
         </>
       )}
       <td data-label="Status" title={descontinuado ? "Sem projeção, consumo recente ou entrega programada — não conta nos indicadores de crítico/excesso." : product.motivoStatus}>{descontinuado ? <span className="no-projection">Sem giro</span> : <span className={`status-pill ${cls}`}><i />{statusLabel(product.status)}</span>}</td>
@@ -3063,9 +3078,30 @@ export default function DashboardClient({
     </tr>;
   }
 
-  const selectedMrp = selected && !isInputs ? mrpBySku.get(selected.sku) : undefined;
-  const selectedMonthlyValues = selectedMrp ? [selectedMrp.realMes1, selectedMrp.realMes2, selectedMrp.realMes3].filter((v): v is number => v != null) : [];
-  const selectedMonthlyAvg = selectedMonthlyValues.length > 0 ? selectedMonthlyValues.reduce((a, b) => a + b, 0) / selectedMonthlyValues.length : selected?.consumoMensal ?? 0;
+  // Projetado/Realizado do drawer (Terceiros) tambem vem da base Escadinha geral, nao mais da
+  // planilha MRP - pedido explicito do usuario em 02/09/2026: "a escadinha quero que vc pega
+  // da nossa base escadinha, quero que vc pega da fonte onde temos o realizado do mes, sem ser
+  // das planilhas". Em Embalagens/MP (isInputs) continua tudo igual, mantendo os campos
+  // nativos de dados-insumos.json.
+  const selectedEscadinhaBase = selected && !isInputs && /^\d+$/.test(selected.sku) ? escadinhaPorCod.get(Number(selected.sku)) : undefined;
+  const projetadoSelecionado = !isInputs ? (selectedEscadinhaBase?.plano?.[mesAtualIndexTerceiros] ?? null) : (selected ? selected.escadinha : null);
+  const realizadoSelecionado = !isInputs ? (selectedEscadinhaBase?.real?.[mesAtualIndexTerceiros] ?? null) : (selected ? selected.faturado : null);
+  const atingimentoSelecionado = projetadoSelecionado != null && projetadoSelecionado > 0 && realizadoSelecionado != null ? (realizadoSelecionado / projetadoSelecionado) * 100 : null;
+  const desvioSelecionado = projetadoSelecionado != null && realizadoSelecionado != null ? realizadoSelecionado - projetadoSelecionado : null;
+  // Historico de 3 meses (Real + Corte) tambem deixou de vir do MRP em 02/09/2026 - "Corte"
+  // agora vem de corteRoteiroCx em dados_cortes.json (mesmo BI de cortes do Real), somado por
+  // mes em extract_escadinha.py e gravado como escadinhaBase.corte. Pedido explicito do
+  // usuario: "os dados cortes vc pode puxar daqui [dados_cortes.json] e o realizado tbm se
+  // tiver".
+  const historicoMeses = !isInputs && selectedEscadinhaBase
+    ? [1, 2, 3]
+      .filter((n) => mesAtualIndexTerceiros - n >= 0)
+      .map((n) => ({ n, real: selectedEscadinhaBase.real?.[mesAtualIndexTerceiros - n] ?? null, corte: selectedEscadinhaBase.corte?.[mesAtualIndexTerceiros - n] ?? null }))
+    : [];
+  // "Consumo mensal (media 3 meses)" seguia a mesma media do MRP (realMes1/2/3) - agora usa os
+  // mesmos 3 meses ja calculados acima em historicoMeses, unica fonte restante pro Terceiros.
+  const historicoRealValores = historicoMeses.map((h) => h.real).filter((v): v is number => v != null);
+  const selectedMonthlyAvg = historicoRealValores.length > 0 ? historicoRealValores.reduce((a, b) => a + b, 0) / historicoRealValores.length : selected?.consumoMensal ?? 0;
 
   return (
     <main className="app-shell">
@@ -3189,7 +3225,7 @@ export default function DashboardClient({
         </div>
       </section>
 
-      {selected && <div className="drawer-backdrop" onClick={() => setSelected(null)}><aside className="drawer" onClick={(e) => e.stopPropagation()}><button className="drawer-close" onClick={() => setSelected(null)}>×</button><p className="eyebrow">DETALHE DO PRODUTO</p><h2>{selected.produto}</h2><p className="drawer-sku">SKU {selected.sku} · {isInputs ? storeLabel(selected.loja) : selected.fornecedor}</p><span className={`status-pill ${statusClass[selected.status as Status]}`}><i />{statusLabel(selected.status)}</span><div className="drawer-performance"><div><small>ATINGIMENTO DA ESCADINHA</small><strong className={performanceClass(selected.atingimento, selected.escadinha)}>{selected.escadinha > 0 ? `${decimal.format(selected.atingimento)}%` : "Sem projeção"}</strong></div><div className="drawer-performance-bar"><span className={performanceClass(selected.atingimento, selected.escadinha)} style={{ width: `${Math.min(100, selected.atingimento)}%` }} /><i /></div><p>{decimal.format(selected.faturado)} {unitLabel(selected.unidade, selected.faturado)} {isInputs ? "consumido" : "faturado"} de {decimal.format(selected.escadinha)} {unitLabel(selected.unidade, selected.escadinha)} projetado · desvio de {selected.desvioProjecao >= 0 ? "+" : ""}{decimal.format(selected.desvioProjecao)} {unitLabel(selected.unidade, selected.desvioProjecao)}</p></div><div className="drawer-metrics"><div><small>Projetado (Escadinha)</small><strong>{decimal.format(selected.escadinha)} {unitLabel(selected.unidade, selected.escadinha)}</strong></div><div><small>{isInputs ? "Consumo realizado" : "Realizado do mês"}</small><strong>{isInputs || selectedMrp?.realMes == null ? `${decimal.format(selected.faturado)} ${unitLabel(selected.unidade, selected.faturado)}` : `${decimal.format(selectedMrp.realMes)} ${unitLabel(selected.unidade, selectedMrp.realMes)}`}</strong></div><div><small>Estoque atual</small><strong>{number.format(selected.estoque)} {unitLabel(selected.unidade, selected.estoque)}</strong></div><div><small>Cobertura</small><strong>{number.format(Math.round(selected.cobertura))} dias</strong></div><div><small>Estoque de segurança</small><strong>{selected.seguranca} dias</strong></div><div><small>Ponto de pedido</small><strong>{number.format(selected.pontoPedido)} {unitLabel(selected.unidade, selected.pontoPedido)}</strong></div><div><small>Estoque projetado na entrega</small><strong>{selected.estoqueProjetadoEntrega == null ? "Sem entrega futura" : `${number.format(selected.estoqueProjetadoEntrega)} ${unitLabel(selected.unidade, selected.estoqueProjetadoEntrega)}`}</strong></div><div><small>Limite de excesso</small><strong>{number.format(selected.limiteExcesso)} {unitLabel(selected.unidade, selected.limiteExcesso)}</strong></div><div><small>{selectedMonthlyValues.length > 0 ? "Consumo mensal (média 3 meses)" : "Consumo mensal"}</small><strong>{number.format(Math.round(selectedMonthlyAvg))} {unitLabel(selected.unidade, selectedMonthlyAvg)}</strong></div></div>{selectedMrp && <section className="drawer-mrp-history"><p className="eyebrow">HISTÓRICO DE COMPRA (MRP)</p><h3>Realizado e corte dos últimos 3 meses</h3><div className="drawer-mrp-months">{[1, 2, 3].map((n) => { const real = n === 1 ? selectedMrp.realMes1 : n === 2 ? selectedMrp.realMes2 : selectedMrp.realMes3; const corte = n === 1 ? selectedMrp.corteMes1 : n === 2 ? selectedMrp.corteMes2 : selectedMrp.corteMes3; return <div className="drawer-mrp-month" key={n}><small>{monthsAgoLabel(n)}</small><div><span>Real</span><strong>{real == null ? "—" : number.format(Math.round(real))}</strong></div><div><span>Corte</span><strong className={corte != null && corte > 0 ? "trend-up" : ""}>{corte == null ? "—" : number.format(Math.round(corte))}</strong></div></div>; })}</div></section>}<section className="delivery-schedule"><div className="schedule-heading"><div><small>AGENDA DE RECEBIMENTO</small><h3>Entregas programadas</h3></div><strong>{number.format(selected.totalProgramado)} {unitLabel(selected.unidade, selected.totalProgramado)}</strong></div>{selected.entregasProgramadas.length > 0 ? <div className="delivery-timeline">{selected.entregasProgramadas.map((item, index) => <div className="delivery-item" key={`${item.data}-${index}`}><span><i /></span><div><strong>{deliveryDateLong.format(new Date(item.data))}</strong><small>{index === 0 ? "Próxima entrega" : `Entrega ${index + 1}`}</small>{item.pedido != null && <b className="delivery-pedido">Pedido {item.pedido}</b>}</div><b>{number.format(item.quantidade)} {unitLabel(selected.unidade, item.quantidade)}</b></div>)}</div> : <div className="empty-schedule">Nenhuma entrega programada para este produto.</div>}</section><div className="recommendation"><small>RECOMENDAÇÃO</small><strong>{selected.status === "Falta crítica" ? "Antecipar a primeira entrega do fornecedor" : selected.status === "Estoque baixo" ? "Cobrir o ponto de pedido e acompanhar o recebimento" : selected.status === "Excesso" ? "Suspender ou reagendar entregas futuras" : "Manter operação normal"}</strong><p>{selected.motivoStatus}</p></div><button className="primary-button full" onClick={() => { setNotice(`Ação registrada para o SKU ${selected.sku}.`); setSelected(null); }}>Marcar como analisado</button></aside></div>}
+      {selected && <div className="drawer-backdrop" onClick={() => setSelected(null)}><aside className="drawer" onClick={(e) => e.stopPropagation()}><button className="drawer-close" onClick={() => setSelected(null)}>×</button><p className="eyebrow">DETALHE DO PRODUTO</p><h2>{selected.produto}</h2><p className="drawer-sku">SKU {selected.sku} · {isInputs ? storeLabel(selected.loja) : selected.fornecedor}</p><span className={`status-pill ${statusClass[selected.status as Status]}`}><i />{statusLabel(selected.status)}</span><div className="drawer-performance"><div><small>ATINGIMENTO DA ESCADINHA</small><strong className={performanceClass(atingimentoSelecionado ?? 0, projetadoSelecionado ?? 0)}>{projetadoSelecionado != null && projetadoSelecionado > 0 && atingimentoSelecionado != null ? `${decimal.format(atingimentoSelecionado)}%` : "Sem projeção"}</strong></div><div className="drawer-performance-bar"><span className={performanceClass(atingimentoSelecionado ?? 0, projetadoSelecionado ?? 0)} style={{ width: `${Math.min(100, atingimentoSelecionado ?? 0)}%` }} /><i /></div><p>{realizadoSelecionado == null ? "—" : decimal.format(realizadoSelecionado)} {unitLabel(selected.unidade, realizadoSelecionado ?? 0)} {isInputs ? "consumido" : "faturado"} de {projetadoSelecionado == null ? "—" : decimal.format(projetadoSelecionado)} {unitLabel(selected.unidade, projetadoSelecionado ?? 0)} projetado · desvio de {desvioSelecionado == null ? "—" : `${desvioSelecionado >= 0 ? "+" : ""}${decimal.format(desvioSelecionado)}`} {desvioSelecionado != null && unitLabel(selected.unidade, desvioSelecionado)}</p></div><div className="drawer-metrics"><div><small>Projetado (Escadinha)</small><strong>{projetadoSelecionado == null ? "—" : `${decimal.format(projetadoSelecionado)} ${unitLabel(selected.unidade, projetadoSelecionado)}`}</strong></div><div><small>{isInputs ? "Consumo realizado" : "Realizado do mês"}</small><strong>{realizadoSelecionado == null ? "—" : `${decimal.format(realizadoSelecionado)} ${unitLabel(selected.unidade, realizadoSelecionado)}`}</strong></div><div><small>Estoque atual</small><strong>{number.format(selected.estoque)} {unitLabel(selected.unidade, selected.estoque)}</strong></div><div><small>Cobertura</small><strong>{number.format(Math.round(selected.cobertura))} dias</strong></div><div><small>Estoque de segurança</small><strong>{selected.seguranca} dias</strong></div><div><small>Ponto de pedido</small><strong>{number.format(selected.pontoPedido)} {unitLabel(selected.unidade, selected.pontoPedido)}</strong></div><div><small>Estoque projetado na entrega</small><strong>{selected.estoqueProjetadoEntrega == null ? "Sem entrega futura" : `${number.format(selected.estoqueProjetadoEntrega)} ${unitLabel(selected.unidade, selected.estoqueProjetadoEntrega)}`}</strong></div><div><small>Limite de excesso</small><strong>{number.format(selected.limiteExcesso)} {unitLabel(selected.unidade, selected.limiteExcesso)}</strong></div><div><small>{historicoRealValores.length > 0 ? "Consumo mensal (média 3 meses)" : "Consumo mensal"}</small><strong>{number.format(Math.round(selectedMonthlyAvg))} {unitLabel(selected.unidade, selectedMonthlyAvg)}</strong></div></div>{historicoMeses.length > 0 && <section className="drawer-mrp-history"><p className="eyebrow">HISTÓRICO (ESCADINHA)</p><h3>Realizado e corte dos últimos 3 meses</h3><div className="drawer-mrp-months">{historicoMeses.map(({ n, real, corte }) => <div className="drawer-mrp-month" key={n}><small>{monthsAgoLabel(n)}</small><div><span>Real</span><strong>{real == null ? "—" : number.format(Math.round(real))}</strong></div><div><span>Corte</span><strong className={corte != null && corte > 0 ? "trend-up" : ""}>{corte == null ? "—" : number.format(Math.round(corte))}</strong></div></div>)}</div></section>}<section className="delivery-schedule"><div className="schedule-heading"><div><small>AGENDA DE RECEBIMENTO</small><h3>Entregas programadas</h3></div><strong>{number.format(selected.totalProgramado)} {unitLabel(selected.unidade, selected.totalProgramado)}</strong></div>{selected.entregasProgramadas.length > 0 ? <div className="delivery-timeline">{selected.entregasProgramadas.map((item, index) => <div className="delivery-item" key={`${item.data}-${index}`}><span><i /></span><div><strong>{deliveryDateLong.format(new Date(item.data))}</strong><small>{index === 0 ? "Próxima entrega" : `Entrega ${index + 1}`}</small>{item.pedido != null && <b className="delivery-pedido">Pedido {item.pedido}</b>}</div><b>{number.format(item.quantidade)} {unitLabel(selected.unidade, item.quantidade)}</b></div>)}</div> : <div className="empty-schedule">Nenhuma entrega programada para este produto.</div>}</section><div className="recommendation"><small>RECOMENDAÇÃO</small><strong>{selected.status === "Falta crítica" ? "Antecipar a primeira entrega do fornecedor" : selected.status === "Estoque baixo" ? "Cobrir o ponto de pedido e acompanhar o recebimento" : selected.status === "Excesso" ? "Suspender ou reagendar entregas futuras" : "Manter operação normal"}</strong><p>{selected.motivoStatus}</p></div><button className="primary-button full" onClick={() => { setNotice(`Ação registrada para o SKU ${selected.sku}.`); setSelected(null); }}>Marcar como analisado</button></aside></div>}
       {notice && <div className="toast"><span>✓</span>{notice}</div>}
     </main>
   );

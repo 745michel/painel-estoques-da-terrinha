@@ -584,6 +584,34 @@ da correção: SKU 44624 passou a mostrar 3,3/658,8/159,6 (lojas 10/11/14), 4222
 13,8/189,5/186,3, 76361 mostra 73,2 (loja 11) — todos exatos aos consumos reais das receitas
 que os usam, confirmados via reprodução manual contra `ficha_tecnica.json`.
 
+**Terceiros parou de usar a planilha MRP remodelada; Escadinha/Real/Corte agora vêm de
+dados-escadinha.json (02/09/2026)**: usuário notou que "Escadinha atual" (tabela) e "Projetado
+(Escadinha)" (drawer) mostravam números diferentes pro mesmo produto (ex.: SKU 78461 — 10.000
+na tabela contra 13.000 no drawer). Causa: dois arquivos Excel mantidos por processos
+diferentes, sem garantia de sincronismo — a tabela cruzava por SKU com o "Plano M"/"Real M"/
+"Corte M" da pivô "Terceiro e Revenda" em `Projeto MRP compras remodelado v3 (5).xlsx`
+(`extract_mrp_terceiros.py` → `dados-mrp-terceiros.json`), enquanto o drawer usava a coluna
+"Escadinha" nativa da `Terceiro Estoque X Pedido.xlsm` — risco já registrado desde 12/08/2026
+("divergência por filtro instável da pivot"), mas nunca tinha causado um número visivelmente
+errado até agora. Pedido explícito do usuário: "a escadinha quero que vc pega da nossa base
+escadinha, quero que vc pega da fonte onde temos o realizado do mês, sem ser das planilhas".
+
+Agora **Escadinha atual/Projetado, Real M/Realizado do mês, %Plano/Atingimento, Corte M e
+Consumo mensal (média 3 meses)** — tabela e drawer, só na aba Terceiros — vêm todos de
+`dados-escadinha.json` (mesma base da aba "Escadinha geral"), cruzados por `cod` (SKU numérico)
+no mês atual. `corte` é campo novo nesse arquivo (`extract_escadinha.py`,
+`corte_ano_por_produto()`): soma `corteRoteiroCx` de `dados_cortes.json` (mesmo BI de cortes que
+já alimenta o `real`) por mês/produto — pedido explícito: "os dados cortes vc pode puxar daqui
+[dados_cortes.json] e o realizado tbm se tiver". Embalagens/MP (`isInputs`) não foi tocado —
+continua com os campos nativos de `dados-insumos.json`. 4 dos 81 produtos de Terceiros não têm
+correspondente em `dados-escadinha.json` (ex.: BATATA PALHA EXTRA FINA PUBLIC) — mostram "—" em
+vez de um valor vindo de planilha.
+
+Com isso, `dados-mrp-terceiros.json`/a planilha MRP remodelada ficaram sem nenhum uso na UI —
+pedido do usuário pra desligar a geração (reversível): o passo "Gerar dados-mrp-terceiros.json"
+em `automation/atualizar_dados.ps1` foi comentado (não apagado), com nota de como religar.
+`extract_mrp_terceiros.py` continua intacto, só não roda mais nas 3 execuções diárias.
+
 `exports/*.html` (snapshots offline antigos do Codex, com dados financeiros reais embutidos)
 e `.env*` nunca são comitados — ambos no `.gitignore`.
 
