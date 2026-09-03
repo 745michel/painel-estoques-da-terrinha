@@ -2461,6 +2461,36 @@ function FornecedoresDashboard({
     ? produtosPorAno((ano) => somarProdutos(focoFornecedores.map((f) => grupoAtual.produtos[ano]?.[f] ?? [])))
     : [];
   const opcoesProduto = produtosFocoCombinado.map((l) => l.nome).sort((a, b) => a.localeCompare(b, "pt-BR"));
+
+  // Lista de produtos de TODOS os fornecedores do grupo, pro filtro "Produto" funcionar mesmo
+  // sem nenhum fornecedor focado - pedido do usuario, 03/09/2026: "quero que o filtro de
+  // produtos apareça sem os outros filtros estar selecionado... quando eu escolher um item
+  // especifico, quero ver quais fornecedores eu compro e quanto paguei".
+  const opcoesProdutoGlobal = useMemo(() => {
+    const nomes = new Set<string>();
+    for (const fornecedor of grupoAtual.listaFornecedores) {
+      for (const p of grupoAtual.produtos[escopoGaveta]?.[fornecedor] ?? []) nomes.add(p.p);
+    }
+    return [...nomes].sort((a, b) => a.localeCompare(b, "pt-BR"));
+  }, [grupoAtual, escopoGaveta]);
+
+  // Com produto(s) selecionado(s) e nenhum fornecedor focado: ranking de QUEM vende esse
+  // produto e quanto pagamos a cada um (valor/kg/caixas somados so daquele produto, nao do
+  // fornecedor inteiro).
+  const rankingPorProdutoSelecionado = useMemo(() => {
+    if (produtosSelecionados.length === 0) return null;
+    const nomesSet = new Set(produtosSelecionados);
+    const linhas: { f: string; valor: number; valorBruto: number; kg: number; caixas: number }[] = [];
+    for (const fornecedor of grupoAtual.listaFornecedores) {
+      let valor = 0, valorBruto = 0, kg = 0, caixas = 0;
+      for (const p of grupoAtual.produtos[escopoGaveta]?.[fornecedor] ?? []) {
+        if (nomesSet.has(p.p)) { valor += p.valor; valorBruto += p.valorBruto; kg += p.kg; caixas += p.caixas; }
+      }
+      if (valor > 0 || kg > 0 || caixas > 0) linhas.push({ f: fornecedor, valor, valorBruto, kg, caixas });
+    }
+    linhas.sort((a, b) => b.valor - a.valor);
+    return linhas;
+  }, [produtosSelecionados, grupoAtual, escopoGaveta]);
   const metricasFoco = focoFornecedores
     .map((f) => grupoAtual.metricas[escopoGaveta]?.[f])
     .filter((m): m is FornecedorMetrica => m != null);
@@ -2540,12 +2570,13 @@ function FornecedoresDashboard({
           />
           {focoFornecedores.length > 0 && <button type="button" className="forn-foco-clear" onClick={() => setFocoFornecedores([])}>× Voltar para o ranking completo</button>}
 
-          {focoFornecedores.length > 0 && <MultiFilter
+          <MultiFilter
             label="Produto"
-            options={opcoesProduto.map((p) => ({ value: p, label: p }))}
+            options={(focoFornecedores.length > 0 ? opcoesProduto : opcoesProdutoGlobal).map((p) => ({ value: p, label: p }))}
             selected={produtosSelecionados}
             onChange={setProdutosSelecionados}
-          />}
+          />
+          {produtosSelecionados.length > 0 && <button type="button" className="forn-foco-clear" onClick={() => setProdutosSelecionados([])}>× Limpar produto</button>}
 
           <label className="forn-grupo-interno-toggle">
             <input type="checkbox" checked={mostrarGrupoInterno} onChange={(event) => setMostrarGrupoInterno(event.target.checked)} />
@@ -2692,7 +2723,7 @@ function FornecedoresDashboard({
           </section>
         </div>
 
-        {focoFornecedores.length === 0 && <section className="inventory-panel values-panel">
+        {focoFornecedores.length === 0 && produtosSelecionados.length === 0 && <section className="inventory-panel values-panel">
           <div className="panel-heading"><div><h2>Ranking de fornecedores</h2><p>Ordenado por valor pago · clique numa linha pra ver os produtos</p></div></div>
           <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th style={{ width: 40 }}>#</th><th>Fornecedor</th><th>Valor pago</th><th>Kg/Caixa comprado</th><th>% do total</th></tr></thead><tbody>
             {filtrado.map((r, i) => <tr key={r.f} onClick={() => abrirGaveta(r.f)} style={{ cursor: "pointer" }}>
@@ -2708,6 +2739,28 @@ function FornecedoresDashboard({
           {escondidos > 0 && <p className="forn-table-limit-note">Mostrando os {FORN_LIMITE_TABELA} primeiros (por valor) de {filtradoCompleto.length} fornecedores. Use a busca acima pra achar qualquer um dos outros {escondidos}.</p>}
           {buscaNormalizada && <p className="forn-table-limit-note">{filtradoCompleto.length} fornecedor{filtradoCompleto.length === 1 ? "" : "es"} encontrado{filtradoCompleto.length === 1 ? "" : "s"} pra &quot;{query}&quot;.</p>}
         </section>}
+
+        {focoFornecedores.length === 0 && produtosSelecionados.length > 0 && (() => {
+          const base = rankingPorProdutoSelecionado ?? [];
+          const filtradoProduto = buscaNormalizada ? base.filter((r) => r.f.toLocaleLowerCase("pt-BR").includes(buscaNormalizada)) : base;
+          const totalProduto = base.reduce((s, r) => s + r.valor, 0);
+          const tituloProduto = produtosSelecionados.length > 1 ? `${produtosSelecionados.length} produtos` : produtosSelecionados[0];
+          return <section className="inventory-panel values-panel">
+            <div className="panel-heading"><div><h2>Fornecedores · {tituloProduto}</h2><p>Quem vende esse{produtosSelecionados.length > 1 ? "s" : ""} produto{produtosSelecionados.length > 1 ? "s" : ""} e quanto pagamos a cada um · {anoRanking === "todos" ? `${anos[0]}–${anoMaisRecente}` : anoRanking}</p></div></div>
+            <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th style={{ width: 40 }}>#</th><th>Fornecedor</th><th>Valor pago</th><th>Kg/Caixa comprado</th><th>Preço bruto</th><th>% do total</th></tr></thead><tbody>
+              {filtradoProduto.map((r, i) => <tr key={r.f} onClick={() => abrirGaveta(r.f)} style={{ cursor: "pointer" }}>
+                <td><span className={`rk-badge ${i < 3 ? "top3" : ""}`}>{i + 1}</span></td>
+                <td><div className="product-cell"><div><strong>{r.f}</strong></div></div></td>
+                <td><strong className="money-value">{currency.format(r.valor)}</strong></td>
+                <td>{qtdCaixaOuKg(r) ? <strong>{qtdCaixaOuKg(r)}</strong> : <span className="price-missing">não pesado (cx/un)</span>}</td>
+                <td>{precoBruto(r) || "—"}</td>
+                <td>{totalProduto > 0 ? decimal.format((r.valor / totalProduto) * 100) : "0"}%</td>
+              </tr>)}
+            </tbody></table>
+              {filtradoProduto.length === 0 && <div className="empty-state"><strong>Nenhum fornecedor encontrado</strong><p>{base.length === 0 ? "Nenhum fornecedor vende esse produto no período selecionado." : "Tente outro termo de busca."}</p></div>}
+            </div>
+          </section>;
+        })()}
 
         {focoFornecedores.length > 0 && <section className="inventory-panel forn-produtos-foco">
           <div className="panel-heading"><div><h2>Principais produtos · {focoFornecedores.length > 1 ? `${focoFornecedores.length} fornecedores (somado)` : focoFornecedores[0]}</h2><p>Por ano — {anos.join(" e ")}</p></div></div>
