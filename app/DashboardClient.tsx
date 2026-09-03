@@ -559,8 +559,8 @@ function monthsAgoLabel(monthsAgo: number) {
   return label.charAt(0).toLocaleUpperCase("pt-BR") + label.slice(1);
 }
 
-function performanceClass(value: number, projected: number) {
-  if (projected <= 0) return "nodata";
+function performanceClass(value: number | null, projected: number) {
+  if (value == null || projected <= 0) return "nodata";
   if (value < 85) return "low";
   if (value < 100) return "near";
   return "above";
@@ -911,9 +911,9 @@ function ValuesDashboard({
       {selectedOperational ? <span className={`status-pill ${statusClass[selectedOperational.status]}`}><i />{statusLabel(selectedOperational.status)}</span> : <span className={`type-pill ${selectedValue.categoria === "Bobina" ? "bobina" : selectedValue.categoria === "Matéria-prima" ? "mp" : "packaging"}`}>{inputTypeOptions.find((option) => option.value === selectedValue.categoria)?.label ?? selectedValue.categoria}</span>}
       {selectedOperational && <>
         <div className="drawer-performance">
-          <div><small>ATINGIMENTO DA ESCADINHA</small><strong className={performanceClass(selectedOperational.atingimento, selectedOperational.escadinha)}>{selectedOperational.escadinha > 0 ? `${decimal.format(selectedOperational.atingimento)}%` : "Sem projeção"}</strong></div>
-          <div className="drawer-performance-bar"><span className={performanceClass(selectedOperational.atingimento, selectedOperational.escadinha)} style={{ width: `${Math.min(100, selectedOperational.atingimento)}%` }} /><i /></div>
-          <p>{decimal.format(selectedOperational.faturado)} {unitLabel(selectedOperational.unidade, selectedOperational.faturado)} consumido de {decimal.format(selectedOperational.escadinha)} {unitLabel(selectedOperational.unidade, selectedOperational.escadinha)} projetado · desvio de {selectedOperational.desvioProjecao >= 0 ? "+" : ""}{decimal.format(selectedOperational.desvioProjecao)} {unitLabel(selectedOperational.unidade, selectedOperational.desvioProjecao)}</p>
+          <div><small>ATINGIMENTO DA ESCADINHA</small><strong className={performanceClass(selectedOperational.atingimento, selectedOperational.escadinha)}>{selectedOperational.escadinha > 0 && selectedOperational.atingimento != null ? `${decimal.format(selectedOperational.atingimento)}%` : "Sem projeção"}</strong></div>
+          <div className="drawer-performance-bar"><span className={performanceClass(selectedOperational.atingimento, selectedOperational.escadinha)} style={{ width: `${Math.min(100, selectedOperational.atingimento ?? 0)}%` }} /><i /></div>
+          <p>{decimal.format(selectedOperational.faturado)} {unitLabel(selectedOperational.unidade, selectedOperational.faturado)} consumido de {decimal.format(selectedOperational.escadinha)} {unitLabel(selectedOperational.unidade, selectedOperational.escadinha)} projetado · desvio de {(selectedOperational.desvioProjecao ?? 0) >= 0 ? "+" : ""}{decimal.format(selectedOperational.desvioProjecao ?? 0)} {unitLabel(selectedOperational.unidade, selectedOperational.desvioProjecao ?? 0)}</p>
         </div>
         <div className="drawer-metrics">
           <div><small>Projetado (Escadinha)</small><strong>{decimal.format(selectedOperational.escadinha)} {unitLabel(selectedOperational.unidade, selectedOperational.escadinha)}</strong></div>
@@ -3007,7 +3007,7 @@ export default function DashboardClient({
   const [valueSelectedProducts, setValueSelectedProducts] = useState<string[]>([]);
   const [safety, setSafety] = useState("Todos");
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
-  const [performance, setPerformance] = useState<"Todos" | "Abaixo de 85%" | "De 85% a 99%" | "100% ou mais">("Todos");
+  const [performance, setPerformance] = useState<"Todos" | "Abaixo de 85%" | "De 85% a 99%" | "100% ou mais" | "Sem ficha técnica">("Todos");
   const [sort, setSort] = useState("urgencia");
   const [selected, setSelected] = useState<Product | null>(null);
   const [highlightedProductKey, setHighlightedProductKey] = useState("");
@@ -3110,15 +3110,20 @@ export default function DashboardClient({
         (status === "Todos" || product.status === status) &&
         (safety === "Todos" || product.seguranca === Number(safety)) &&
         (performance === "Todos" ||
-          (performance === "Abaixo de 85%" && product.escadinha > 0 && product.atingimento < 85) ||
-          (performance === "De 85% a 99%" && product.atingimento >= 85 && product.atingimento < 100) ||
-          (performance === "100% ou mais" && product.atingimento >= 100))
+          (performance === "Sem ficha técnica" && product.atingimento == null) ||
+          (performance === "Abaixo de 85%" && (isInputs ? product.atingimento != null : product.escadinha > 0) && (product.atingimento ?? 0) < 85) ||
+          (performance === "De 85% a 99%" && product.atingimento != null && product.atingimento >= 85 && product.atingimento < 100) ||
+          (performance === "100% ou mais" && product.atingimento != null && product.atingimento >= 100))
       );
     });
 
     return [...result].sort((a, b) => {
-      const aSemProjecao = a.escadinha <= 0;
-      const bSemProjecao = b.escadinha <= 0;
+      // "Sem projecao" (fica no fim da lista, junto com "sem consumo" logo abaixo): em
+      // Terceiros continua sendo escadinha<=0 (como sempre foi); em Embalagens/MP passou a
+      // ser atingimento==null (sem ficha tecnica cadastrada) desde que o atingimento deixou
+      // de vir da projecao nativa da planilha - pedido do usuario, 03/09/2026.
+      const aSemProjecao = isInputs ? a.atingimento == null : a.escadinha <= 0;
+      const bSemProjecao = isInputs ? b.atingimento == null : b.escadinha <= 0;
       if (aSemProjecao !== bSemProjecao) return aSemProjecao ? 1 : -1;
       const aSemConsumo = a.consumoMensal <= 0;
       const bSemConsumo = b.consumoMensal <= 0;
@@ -3126,11 +3131,11 @@ export default function DashboardClient({
       if (sort === "cobertura") return a.cobertura - b.cobertura;
       if (sort === "produto") return a.produto.localeCompare(b.produto, "pt-BR");
       if (sort === "excesso") return b.cobertura - a.cobertura;
-      if (sort === "atingimento") return a.atingimento - b.atingimento;
+      if (sort === "atingimento") return (a.atingimento ?? 0) - (b.atingimento ?? 0);
       const rank: Record<string, number> = { "Falta crítica": 0, "Estoque baixo": 1, "Nível ideal": 2, Excesso: 3, "Sob demanda": 4, "Estoque com terceiros": 5 };
       return rank[a.status] - rank[b.status] || a.cobertura - b.cobertura;
     });
-  }, [products, query, selectedStores, selectedSuppliers, selectedProducts, status, safety, performance, sort, selectedTypes]);
+  }, [products, query, selectedStores, selectedSuppliers, selectedProducts, status, safety, performance, sort, selectedTypes, isInputs]);
   const descontinuadosFiltered = useMemo(() => {
     if (!mostrarDescontinuados) return [];
     const normalized = query.trim().toLocaleLowerCase("pt-BR");
@@ -3156,10 +3161,13 @@ export default function DashboardClient({
   const attention = [...critical, ...risk];
   const suggestedUnits = attention.reduce((sum, p) => sum + p.sugestaoCompra, 0);
   const excessUnits = excess.reduce((sum, p) => sum + Math.max(0, p.estoque - p.limiteExcesso), 0);
-  const projectedTotal = products.reduce((sum, p) => sum + p.escadinha, 0);
+  // Em Embalagens/MP o "total projetado" passou a ser a soma da Projecao BOM (nao mais a
+  // projecao nativa da planilha) - pedido do usuario, 03/09/2026, mesma troca do atingimento
+  // por linha, aplicada tambem no KPI de portfolio pra nao ficar inconsistente com as linhas.
+  const projectedTotal = products.reduce((sum, p) => sum + (isInputs ? (p.projecaoBom ?? 0) : p.escadinha), 0);
   const soldTotal = products.reduce((sum, p) => sum + p.faturado, 0);
   const portfolioAttainment = projectedTotal > 0 ? (soldTotal / projectedTotal) * 100 : 0;
-  const belowTarget = products.filter((p) => p.escadinha > 0 && p.atingimento < 85).length;
+  const belowTarget = products.filter((p) => (isInputs ? p.atingimento != null : p.escadinha > 0) && (p.atingimento ?? 0) < 85).length;
   const scheduledDeliveries = products.reduce((sum, p) => sum + p.entregasProgramadas.length, 0);
   const scheduledUnits = products.reduce((sum, p) => sum + p.totalProgramado, 0);
 
@@ -3195,10 +3203,17 @@ export default function DashboardClient({
   }
 
   function exportCsv() {
-    const header = ["SKU", "Produto", "Fornecedor", "Unidade de medida", "Escadinha projetada", "Projeção BOM (teste)", "Faturado", "Atingimento %", "Desvio", "Estoque", "Cobertura", "Segurança", "Status", ...scheduleDates.map((date) => `Entrega ${new Date(date).toLocaleDateString("pt-BR")}`), "Total programado", "Sugestão de compra"];
+    // Embalagens/MP aposentou a "Escadinha projetada" (projecao nativa da planilha) como
+    // coluna e como base do atingimento/desvio - pedido do usuario, 03/09/2026, "Projeção BOM"
+    // vira a unica projecao. Terceiros nao muda (continua com a "Escadinha projetada" de
+    // sempre, sem a coluna Projeção BOM que nunca existiu la de verdade).
+    const header = isInputs
+      ? ["SKU", "Produto", "Fornecedor", "Unidade de medida", "Projeção BOM", "Faturado", "Atingimento %", "Desvio", "Estoque", "Cobertura", "Segurança", "Status", ...scheduleDates.map((date) => `Entrega ${new Date(date).toLocaleDateString("pt-BR")}`), "Total programado", "Sugestão de compra"]
+      : ["SKU", "Produto", "Fornecedor", "Unidade de medida", "Escadinha projetada", "Faturado", "Atingimento %", "Desvio", "Estoque", "Cobertura", "Segurança", "Status", ...scheduleDates.map((date) => `Entrega ${new Date(date).toLocaleDateString("pt-BR")}`), "Total programado", "Sugestão de compra"];
     const rows = filtered.map((p) => {
       const deliveries = new Map(p.entregasProgramadas.map((item) => [item.data, item.quantidade]));
-      return [p.sku, p.produto, p.fornecedor, p.unidade, p.escadinha, p.temFichaTecnica ? p.projecaoBom : "", p.faturado, p.atingimento, p.desvioProjecao, p.estoque, p.cobertura, p.seguranca, statusLabel(p.status), ...scheduleDates.map((date) => deliveries.get(date) ?? ""), p.totalProgramado, p.sugestaoCompra];
+      const projecao = isInputs ? (p.temFichaTecnica ? p.projecaoBom : "") : p.escadinha;
+      return [p.sku, p.produto, p.fornecedor, p.unidade, projecao, p.faturado, p.atingimento ?? "", p.desvioProjecao ?? "", p.estoque, p.cobertura, p.seguranca, statusLabel(p.status), ...scheduleDates.map((date) => deliveries.get(date) ?? ""), p.totalProgramado, p.sugestaoCompra];
     });
     const csv = [header, ...rows]
       .map((row) => row.map((cell) => `"${String(cell).replaceAll('"', '""')}"`).join(";"))
@@ -3231,7 +3246,7 @@ export default function DashboardClient({
 
   function renderProductRow(product: Product, descontinuado: boolean) {
     const cls = statusClass[product.status as Status];
-    const performance = performanceClass(product.atingimento, product.escadinha);
+    const performance = performanceClass(product.atingimento, isInputs ? (product.projecaoBom ?? 0) : product.escadinha);
     const deliveries = new Map(product.entregasProgramadas.map((item) => [item.data, item.quantidade]));
     const bar = Math.min(100, Math.max(4, (product.cobertura / Math.max(product.seguranca * 1.7, product.cobertura)) * 100));
     const rowKey = `${product.loja}-${product.sku}-${product.produto}`;
@@ -3245,10 +3260,9 @@ export default function DashboardClient({
       <td data-label={isInputs ? "Produto / loja" : "Produto / fornecedor"}><div className="product-cell"><div><strong>{product.produto}</strong><small>SKU {product.sku} · {isInputs ? storeLabel(product.loja) : `Fornecedor: ${product.fornecedor}`}</small></div></div></td>
       {isInputs ? (
         <>
-          <td data-label="Escadinha projetada">{product.escadinha > 0 ? <><strong className="numeric">{decimal.format(product.escadinha)}</strong><small className="unit"> {unitLabel(product.unidade, product.escadinha, true)}</small></> : <span className="no-projection">Sem projeção</span>}</td>
           <td data-label="Projeção BOM">{product.temFichaTecnica ? <><strong className="numeric">{decimal.format(product.projecaoBom ?? 0)}</strong><small className="unit"> {unitLabel(product.unidade, product.projecaoBom ?? 0, true)}</small></> : <span className="no-projection" title="Sem ficha técnica cadastrada para este item">—</span>}</td>
           <td data-label="Consumo realizado"><strong className="numeric">{decimal.format(product.faturado)}</strong><small className="unit"> {unitLabel(product.unidade, product.faturado, true)}</small></td>
-          <td data-label="Atingimento">{product.escadinha > 0 ? <div className="performance-cell"><div><strong className={performance}>{decimal.format(product.atingimento)}%</strong><small>{product.desvioProjecao >= 0 ? "+" : ""}{decimal.format(product.desvioProjecao)} {unitLabel(product.unidade, product.desvioProjecao, true)}</small></div><div className="sales-track"><span className={performance} style={{ width: `${Math.min(100, product.atingimento)}%` }} /><i /></div></div> : <span className="no-projection">—</span>}</td>
+          <td data-label="Atingimento">{product.atingimento != null ? <div className="performance-cell"><div><strong className={performance}>{decimal.format(product.atingimento)}%</strong><small>{(product.desvioProjecao ?? 0) >= 0 ? "+" : ""}{decimal.format(product.desvioProjecao ?? 0)} {unitLabel(product.unidade, product.desvioProjecao ?? 0, true)}</small></div><div className="sales-track"><span className={performance} style={{ width: `${Math.min(100, product.atingimento)}%` }} /><i /></div></div> : <span className="no-projection" title="Sem ficha técnica cadastrada para este item">—</span>}</td>
           <td data-label="Estoque"><strong className="numeric">{number.format(product.estoque)}</strong><small className="unit"> {unitLabel(product.unidade, product.estoque, true)}</small></td>
           <td data-label="Cobertura">{descontinuado ? <span className="no-projection">—</span> : <div className="coverage"><strong>{number.format(Math.round(product.cobertura))} dias</strong><small className="unit">Segurança: {product.seguranca} dias</small><div><span className={cls} style={{ width: `${bar}%` }} /></div></div>}</td>
         </>
@@ -3366,7 +3380,7 @@ export default function DashboardClient({
               <small>{Math.round((healthy.length / products.length) * 100)}% do portfólio controlado</small>
             </button>
             <div className="kpi-card performance-card">
-              <div className="kpi-top"><span className="kpi-icon">%</span><span className={`trend ${portfolioAttainment >= 100 ? "good" : "warn"}`}>{isInputs ? "Consumo / Escadinha" : "Faturado / Escadinha"}</span></div>
+              <div className="kpi-top"><span className="kpi-icon">%</span><span className={`trend ${portfolioAttainment >= 100 ? "good" : "warn"}`}>{isInputs ? "Consumo / Projeção BOM" : "Faturado / Escadinha"}</span></div>
               <strong>{decimal.format(portfolioAttainment)}<sup>%</sup></strong><p>Atingimento total da projeção</p><div className="mini-rule performance-rule"><span style={{ width: `${Math.min(100, portfolioAttainment)}%` }} /></div>
               <small>{belowTarget} produtos abaixo da faixa de 85%</small>
             </div>
@@ -3390,7 +3404,7 @@ export default function DashboardClient({
                 {!mostrarDescontinuados && (
                   <>
                     <label>Segurança<select value={safety} onChange={(e) => setSafety(e.target.value)}><option>Todos</option>{safetyOptions.map((days) => <option key={days} value={days}>{days} dias</option>)}</select></label>
-                    <label>Atingimento<select value={performance} onChange={(e) => setPerformance(e.target.value as typeof performance)}><option>Todos</option><option>Abaixo de 85%</option><option>De 85% a 99%</option><option>100% ou mais</option></select></label>
+                    <label>Atingimento<select value={performance} onChange={(e) => setPerformance(e.target.value as typeof performance)}><option>Todos</option><option>Abaixo de 85%</option><option>De 85% a 99%</option><option>100% ou mais</option>{isInputs && <option>Sem ficha técnica</option>}</select></label>
                     <label>Ordenar<select value={sort} onChange={(e) => setSort(e.target.value)}><option value="urgencia">Maior urgência</option><option value="atingimento">Menor atingimento</option><option value="cobertura">Menor cobertura</option><option value="excesso">Maior excesso</option><option value="produto">Produto A–Z</option></select></label>
                   </>
                 )}
@@ -3403,9 +3417,9 @@ export default function DashboardClient({
               </div>
             </div>
             <div className="table-wrap">
-              <table className={isInputs ? "sticky-core-columns" : "terceiros-groups"} style={{ minWidth: `${(isInputs ? 1270 : 1720) + scheduleDates.length * 78}px` }}>
+              <table className={isInputs ? "sticky-core-columns" : "terceiros-groups"} style={{ minWidth: `${(isInputs ? 1120 : 1720) + scheduleDates.length * 78}px` }}>
                 <thead><tr>{isInputs ? <>
-                  <th>Produto / fornecedor</th><th>Escadinha projetada</th><th>Projeção BOM<small className="th-hint">Teste — ficha técnica</small></th><th>Consumo realizado</th><th>Atingimento</th><th>Estoque atual</th><th>Cobertura</th><th>Status</th>
+                  <th>Produto / fornecedor</th><th>Projeção BOM<small className="th-hint">Ficha técnica</small></th><th>Consumo realizado</th><th>Atingimento</th><th>Estoque atual</th><th>Cobertura</th><th>Status</th>
                 </> : <>
                   <th>Produto / fornecedor</th><th>Estoque atual</th><th>Carteira</th><th>Saldo</th><th>Cobertura</th><th>Escadinha atual</th><th>Real M</th><th>%Plano</th><th>Corte M</th><th>Status</th>
                 </>}{scheduleDates.map((date, index) => { const overdue = isPastDelivery(date); return <th className={`delivery-date-heading ${index === 0 ? "delivery-block-start" : ""} ${overdue ? "overdue-delivery" : ""}`} title={overdue ? "Entrega em atraso" : undefined} key={date}><span>{overdue ? "Em atraso" : "Entrega"}</span><strong>{deliveryColumnDate.format(new Date(date))}</strong></th>; })}<th className="delivery-total-heading delivery-block-end"><span>Total</span><strong>Programado</strong></th><th /></tr></thead>
