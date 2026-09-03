@@ -2800,15 +2800,17 @@ function FornecedoresDashboard({
             <div><small>Preço bruto</small><strong>{precoBruto(itemFocoGaveta) || "não pesado (cx/un)"}</strong></div>
           </div>
           {(() => {
-            const meses: { mes: string; valorBruto: number }[] = [];
+            const meses: { mes: string; valorBruto: number; kg: number; caixas: number }[] = [];
             for (const ano of anos) {
               const serie = itemFocoGaveta.serieAnoMes?.[ano];
               if (!serie) continue;
-              serie.forEach((m, i) => { if (m.valorBruto > 0) meses.push({ mes: `${ano}-${String(i + 1).padStart(2, "0")}`, valorBruto: m.valorBruto }); });
+              serie.forEach((m, i) => { if (m.valorBruto > 0 || m.kg > 0 || m.caixas > 0) meses.push({ mes: `${ano}-${String(i + 1).padStart(2, "0")}`, valorBruto: m.valorBruto, kg: m.kg, caixas: m.caixas }); });
             }
             const ultimosMeses = meses.slice(-6);
             if (ultimosMeses.length === 0) return null;
             const maxValor = Math.max(1, ...ultimosMeses.map((m) => m.valorBruto));
+            const usaCaixa = itemFocoGaveta.caixas > 0;
+            const maxQtd = Math.max(1, ...ultimosMeses.map((m) => (usaCaixa ? m.caixas : m.kg)));
             return <>
               <p className="drawer-section-label">Valor bruto pago — últimos meses</p>
               <div className="forn-drawer-preco-serie">
@@ -2822,9 +2824,21 @@ function FornecedoresDashboard({
                   </div>;
                 })}
               </div>
+              <p className="drawer-section-label">{usaCaixa ? "Caixas compradas" : "Kg comprado"} — últimos meses</p>
+              <div className="forn-drawer-preco-serie">
+                {ultimosMeses.map((m) => {
+                  const [anoMes, mesMes] = m.mes.split("-");
+                  const mesLbl = `${FORN_MESES[Number(mesMes) - 1]}/${anoMes.slice(2)}`;
+                  const qtd = usaCaixa ? m.caixas : m.kg;
+                  return <div className="forn-dp-col" key={m.mes}>
+                    <span className="forn-dp-val">{fmtCompacto(qtd)}</span>
+                    <span className="forn-dp-track"><span className="forn-dp-bar" style={{ height: `${Math.max(6, (qtd / maxQtd) * 100)}%` }} /></span>
+                    <span className="forn-dp-month">{mesLbl}</span>
+                  </div>;
+                })}
+              </div>
             </>;
           })()}
-          <button type="button" className="forn-foco-clear" onClick={() => setProdutosSelecionados([])}>Ver relação completa com {selectedFornecedor}</button>
           <p className="drawer-note">Mostrando só o{produtosSelecionados.length > 1 ? "s" : ""} produto{produtosSelecionados.length > 1 ? "s" : ""} filtrado{produtosSelecionados.length > 1 ? "s" : ""}. Tudo aqui segue o ano selecionado no ranking (ou o período completo, se &quot;Todos&quot; estiver selecionado).</p>
         </> : <>
           <p className="drawer-sku">Produtos comprados em {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p>
