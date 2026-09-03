@@ -2257,7 +2257,11 @@ function FornecedoresDashboard({
   const [mostrarGrupoInterno, setMostrarGrupoInterno] = useState(false);
   const [produtoAberto, setProdutoAberto] = useState<{ nome: string; serieAnoMes: Record<string, FornecedorProdutoMes[]> } | null>(null);
 
-  const [tlFornecedor, setTlFornecedor] = useState(grupoAtual.listaFornecedores[0] ?? "");
+  // null = "Todos os fornecedores" (agregado) - pedido do usuario, 03/09/2026: "quando todos
+  // tiverem selecionados, e possivel aparecer tudo sem estar focado um fornecedor nos
+  // graficos" - antes os graficos sempre ficavam presos no fornecedor #1 mesmo sem nenhum
+  // foco/clique explicito.
+  const [tlFornecedor, setTlFornecedor] = useState<string | null>(null);
   const [tlMetrica, setTlMetrica] = useState<"kg" | "caixas">("kg");
   const [anosAtivos, setAnosAtivos] = useState<Record<string, boolean>>({});
 
@@ -2270,8 +2274,7 @@ function FornecedoresDashboard({
     setSelectedFornecedor(null);
     setFocoFornecedores([]);
     setProdutosSelecionados([]);
-    const primeiroFornecedor = novoGrupoData.listaFornecedores[0] ?? "";
-    setTlFornecedor(primeiroFornecedor);
+    setTlFornecedor(null);
     setAnosAtivos({});
   }
 
@@ -2315,14 +2318,38 @@ function FornecedoresDashboard({
   const top3 = [...rankingContexto.lista].sort((a, b) => b.valor - a.valor).slice(0, 3).reduce((s, r) => s + r.valor, 0);
   const concentracaoTop3 = rankingContexto.total > 0 ? Math.round((top3 / rankingContexto.total) * 100) : 0;
 
-  function totalAnoFornecedor(fornecedor: string, ano: string, metrica: "kg" | "caixas" | "valor" | "valorBruto") {
-    const meses = grupoAtual.serieAnoMes[fornecedor]?.[ano];
+  // Soma mensal de TODOS os fornecedores visiveis no ranking atual (rankingContexto ja filtra
+  // por foco/comprador/grupo-interno) - usada nos graficos quando nenhum fornecedor especifico
+  // esta selecionado (tlFornecedor === null), pra mostrar o agregado em vez de travar num
+  // fornecedor arbitrario.
+  const serieAgregada = useMemo(() => {
+    const porAno: Record<string, FornecedorMesSerie[]> = {};
+    for (const ano of anos) {
+      const meses: FornecedorMesSerie[] = Array.from({ length: 12 }, () => ({ kg: 0, caixas: 0, valor: 0, valorBruto: 0 }));
+      for (const r of rankingContexto.lista) {
+        const serieF = grupoAtual.serieAnoMes[r.f]?.[ano];
+        if (!serieF) continue;
+        serieF.forEach((m, i) => {
+          meses[i].kg += m.kg;
+          meses[i].caixas += m.caixas;
+          meses[i].valor += m.valor;
+          meses[i].valorBruto += m.valorBruto;
+        });
+      }
+      porAno[ano] = meses;
+    }
+    return porAno;
+  }, [rankingContexto, grupoAtual, anos]);
+
+  function totalAnoFornecedor(fornecedor: string | null, ano: string, metrica: "kg" | "caixas" | "valor" | "valorBruto") {
+    const meses = fornecedor ? grupoAtual.serieAnoMes[fornecedor]?.[ano] : serieAgregada[ano];
     if (!meses) return 0;
     return meses.reduce((s, m) => s + m[metrica], 0);
   }
 
   const anosLigados = anos.filter((ano) => anosAtivos[ano] !== false);
-  const serieFornecedor = grupoAtual.serieAnoMes[tlFornecedor];
+  const tlLabel = tlFornecedor ?? `Todos os fornecedores (${rankingContexto.fornecedores})`;
+  const serieFornecedor = tlFornecedor ? grupoAtual.serieAnoMes[tlFornecedor] : serieAgregada;
   const maxMensal = Math.max(
     1,
     ...anosLigados.flatMap((ano) => (serieFornecedor?.[ano] ?? []).map((m) => m[tlMetrica])),
@@ -2377,9 +2404,7 @@ function FornecedoresDashboard({
   function mudarFocoFornecedores(valores: string[]) {
     setFocoFornecedores(valores);
     setProdutosSelecionados([]);
-    if (valores.length > 0) {
-      setTlFornecedor(valores[0]);
-    }
+    setTlFornecedor(valores.length > 0 ? valores[0] : null);
   }
 
   const fornecedoresParaFoco = grupoAtual.listaFornecedores;
@@ -2595,7 +2620,7 @@ function FornecedoresDashboard({
             selected={focoFornecedores}
             onChange={mudarFocoFornecedores}
           />
-          {focoFornecedores.length > 0 && <button type="button" className="forn-foco-clear" onClick={() => setFocoFornecedores([])}>× Voltar para o ranking completo</button>}
+          {focoFornecedores.length > 0 && <button type="button" className="forn-foco-clear" onClick={() => mudarFocoFornecedores([])}>× Voltar para o ranking completo</button>}
 
           <MultiFilter
             label="Produto"
@@ -2637,10 +2662,11 @@ function FornecedoresDashboard({
             <div className="forn-timeline-heading">
               <div>
                 <p className="forn-timeline-eyebrow">COMPARATIVO ANUAL · POR FORNECEDOR</p>
-                <h2>{tlFornecedor || "—"}</h2>
+                <h2>{tlLabel}</h2>
                 <p className="forn-timeline-sub">Mostrando <strong>{tlMetrica === "kg" ? "Kg" : "Caixas"}</strong> · comparando {anos.join(" vs ")} · clique num ano no painel ao lado pra tirar da comparação</p>
               </div>
               <div className="forn-timeline-controls">
+                {tlFornecedor && <button type="button" className="forn-foco-clear" onClick={() => setTlFornecedor(null)}>× Ver todos os fornecedores</button>}
                 <div className="forn-timeline-toggle">
                   <button className={tlMetrica === "kg" ? "selected" : ""} onClick={() => setTlMetrica("kg")}>Kg</button>
                   <button className={tlMetrica === "caixas" ? "selected" : ""} onClick={() => setTlMetrica("caixas")}>Caixas</button>
@@ -2675,7 +2701,7 @@ function FornecedoresDashboard({
 
           <section className="forn-year-panel forn-year-panel-h">
             <h3>Volume por ano</h3>
-            <p>{(tlMetrica === "kg" ? "Kg" : "Caixas")} comprado de {tlFornecedor || "—"} · clique pra tirar/pôr um ano na comparação</p>
+            <p>{(tlMetrica === "kg" ? "Kg" : "Caixas")} comprado de {tlLabel} · clique pra tirar/pôr um ano na comparação</p>
             <div className="forn-year-bars-h">
               {anos.map((ano, i) => {
                 const valor = totalAnoFornecedor(tlFornecedor, ano, tlMetrica);
@@ -2699,9 +2725,10 @@ function FornecedoresDashboard({
             <div className="forn-timeline-heading">
               <div>
                 <p className="forn-timeline-eyebrow">COMPARATIVO ANUAL · POR FORNECEDOR</p>
-                <h2>{tlFornecedor || "—"}</h2>
+                <h2>{tlLabel}</h2>
                 <p className="forn-timeline-sub">Mostrando <strong>Valor bruto pago (R$)</strong> · comparando {anos.join(" vs ")}</p>
               </div>
+              {tlFornecedor && <button type="button" className="forn-foco-clear" onClick={() => setTlFornecedor(null)}>× Ver todos os fornecedores</button>}
             </div>
             <div className="forn-timeline-legend">
               {anos.map((ano) => <span key={ano} className={anosAtivos[ano] === false ? "off" : ""} onClick={() => setAnosAtivos((prev) => ({ ...prev, [ano]: prev[ano] === false }))}>
@@ -2731,7 +2758,7 @@ function FornecedoresDashboard({
 
           <section className="forn-year-panel forn-year-panel-h">
             <h3>Valor bruto pago por ano</h3>
-            <p>Pago a {tlFornecedor || "—"} · clique pra tirar/pôr um ano na comparação</p>
+            <p>Pago a {tlLabel} · clique pra tirar/pôr um ano na comparação</p>
             <div className="forn-year-bars-h">
               {anos.map((ano, i) => {
                 const valor = totalAnoFornecedor(tlFornecedor, ano, "valorBruto");
