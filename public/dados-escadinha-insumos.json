@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-09-03T08:19:49.380191",
+  "atualizadoEm": "2026-09-03T12:11:24.637802",
   "origem": "ficha_tecnica.json + dados-escadinha.json (explosão BOM × plano de produção)",
   "dataPublicacao": "2026-08-13",
   "dataPublicacaoAnterior": "2026-07-03",
@@ -397,34 +397,34 @@
       "sku": 4,
       "descricao": "MP - FECULA DE MANDIOCA Kg",
       "mensal": [
-        1308861.3,
-        1883228.8,
-        2161073.0,
-        2195868.9,
-        2486478.6,
-        2441220.0,
-        2229693.0,
-        2085830.8,
-        2221813.3,
-        2479543.3,
-        2455700.1,
-        2050392.5
+        1311426.7,
+        1884249.5,
+        2162093.7,
+        2196889.5,
+        2487499.2,
+        2443261.4,
+        2231734.4,
+        2087191.7,
+        2223174.3,
+        2480904.2,
+        2457061.0,
+        2051753.5
       ],
       "mensalAnterior": [
-        1308861.3,
-        1883228.8,
-        2161073.0,
-        2195868.9,
-        2486478.6,
-        2441220.0,
-        2230033.3,
-        2297357.7,
-        2368969.0,
-        2512545.5,
-        2505033.3,
-        2050732.8
+        1311426.7,
+        1884249.5,
+        2162093.7,
+        2196889.5,
+        2487499.2,
+        2443261.4,
+        2232074.6,
+        2299399.1,
+        2371010.4,
+        2514586.9,
+        2507074.6,
+        2052774.1
       ],
-      "totalAno": 25999703.6,
+      "totalAno": 26017239.1,
       "detalhamento": [
         {
           "codRaiz": 27745,
@@ -1175,6 +1175,28 @@
           "escadinhaUnidade": "CX"
         },
         {
+          "codRaiz": 76201,
+          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
+          "caminho": [],
+          "consumoPorUnidade": 6.804573,
+          "mensal": [
+            2565.324,
+            1020.686,
+            1020.686,
+            1020.686,
+            1020.686,
+            2041.372,
+            2041.372,
+            1360.915,
+            1360.915,
+            1360.915,
+            1360.915,
+            1360.915
+          ],
+          "escadinhaPlanoAnual": 2577,
+          "escadinhaUnidade": "CX"
+        },
+        {
           "codRaiz": 72874,
           "produtoRaiz": "TAPIOCA DO BEM 500 G - CX 24",
           "caminho": [],
@@ -1270,34 +1292,34 @@
       "sku": 4954,
       "descricao": "MP - AGUA PRODUCAO ML",
       "mensal": [
-        615079.5,
-        884743.3,
-        1015319.7,
-        1031883.1,
-        1168501.9,
-        1147248.4,
-        1047766.9,
-        980258.0,
-        1044166.3,
-        1165278.3,
-        1154081.5,
-        963664.0
+        616284.1,
+        885222.6,
+        1015799.0,
+        1032362.4,
+        1168981.2,
+        1148207.1,
+        1048725.5,
+        980897.1,
+        1044805.4,
+        1165917.4,
+        1154720.6,
+        964303.0
       ],
       "mensalAnterior": [
-        615079.5,
-        884743.3,
-        1015319.7,
-        1031883.1,
-        1168501.9,
-        1147248.4,
-        1047926.7,
-        1079591.0,
-        1113270.6,
-        1180776.1,
-        1177248.4,
-        963823.7
+        616284.1,
+        885222.6,
+        1015799.0,
+        1032362.4,
+        1168981.2,
+        1148207.1,
+        1048885.3,
+        1080549.7,
+        1114229.2,
+        1181734.8,
+        1178207.0,
+        964782.4
       ],
-      "totalAno": 12217990.9,
+      "totalAno": 12226225.4,
       "detalhamento": [
         {
           "codRaiz": 27745,
@@ -2045,6 +2067,28 @@
             460.142
           ],
           "escadinhaPlanoAnual": 2336,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 76201,
+          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
+          "caminho": [],
+          "consumoPorUnidade": 3.195427,
+          "mensal": [
+            1204.676,
+            479.314,
+            479.314,
+            479.314,
+            479.314,
+            958.628,
+            958.628,
+            639.085,
+            639.085,
+            639.085,
+            639.085,
+            639.085
+          ],
+          "escadinhaPlanoAnual": 2577,
           "escadinhaUnidade": "CX"
         },
         {
@@ -5237,34 +5281,34 @@
       "sku": 79161,
       "descricao": "CAIXA PAPELAO TAPIOCA MARCA PROPRIA",
       "mensal": [
-        2621.0,
-        6840.0,
+        2998.0,
         6990.0,
-        7333.0,
-        7433.0,
-        8283.0,
-        6202.0,
-        6402.0,
-        7102.0,
-        8102.0,
-        6802.0,
-        6202.0
+        7140.0,
+        7483.0,
+        7583.0,
+        8583.0,
+        6502.0,
+        6602.0,
+        7302.0,
+        8302.0,
+        7002.0,
+        6402.0
       ],
       "mensalAnterior": [
-        2621.0,
-        6840.0,
+        2998.0,
         6990.0,
-        7333.0,
-        7433.0,
-        8283.0,
-        6202.0,
-        6202.0,
+        7140.0,
+        7483.0,
+        7583.0,
+        8583.0,
+        6502.0,
+        6502.0,
+        7402.0,
+        8402.0,
         7102.0,
-        8102.0,
-        6802.0,
-        6202.0
+        6502.0
       ],
-      "totalAno": 80312.0,
+      "totalAno": 82889.0,
       "detalhamento": [
         {
           "codRaiz": 37336,
@@ -5462,6 +5506,28 @@
             292.0
           ],
           "escadinhaPlanoAnual": 2831,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 76201,
+          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            377.0,
+            150.0,
+            150.0,
+            150.0,
+            150.0,
+            300.0,
+            300.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0
+          ],
+          "escadinhaPlanoAnual": 2577,
           "escadinhaUnidade": "CX"
         },
         {
@@ -5781,34 +5847,34 @@
       "sku": 45362,
       "descricao": "LOGISTICA - FILME STRETCH AUTOMATICO 500x0,30",
       "mensal": [
-        1910.4,
-        2686.1,
-        3071.7,
-        3217.9,
-        3685.8,
-        3817.3,
-        3452.1,
-        3138.2,
-        3323.6,
-        3688.4,
-        3696.6,
-        3138.3
+        1913.1,
+        2687.1,
+        3072.8,
+        3219.1,
+        3686.8,
+        3819.5,
+        3454.2,
+        3139.6,
+        3324.9,
+        3689.8,
+        3698.0,
+        3139.8
       ],
       "mensalAnterior": [
-        1910.4,
-        2686.1,
-        3071.7,
-        3217.9,
-        3685.8,
-        3817.3,
-        3452.4,
-        3509.3,
-        3608.7,
-        3813.3,
-        3826.1,
-        3222.0
+        1913.1,
+        2687.1,
+        3072.8,
+        3219.1,
+        3686.8,
+        3819.5,
+        3454.6,
+        3511.5,
+        3610.9,
+        3815.4,
+        3828.2,
+        3224.1
       ],
-      "totalAno": 38826.4,
+      "totalAno": 38844.7,
       "detalhamento": [
         {
           "codRaiz": 27745,
@@ -7436,6 +7502,28 @@
             2.085
           ],
           "escadinhaPlanoAnual": 2831,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 76201,
+          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
+          "caminho": [],
+          "consumoPorUnidade": 0.007139,
+          "mensal": [
+            2.692,
+            1.071,
+            1.071,
+            1.071,
+            1.071,
+            2.142,
+            2.142,
+            1.428,
+            1.428,
+            1.428,
+            1.428,
+            1.428
+          ],
+          "escadinhaPlanoAnual": 2577,
           "escadinhaUnidade": "CX"
         },
         {
@@ -11815,6 +11903,65 @@
             40.76
           ],
           "escadinhaPlanoAnual": 107959,
+          "escadinhaUnidade": "CX"
+        }
+      ]
+    },
+    {
+      "loja": "1",
+      "lojaLabel": "1 (Da Terrinha – Matriz)",
+      "sku": 77021,
+      "descricao": "BOBINA TAPIOCA OKKER 400 G",
+      "mensal": [
+        62.2,
+        24.8,
+        24.8,
+        24.8,
+        24.8,
+        49.5,
+        49.5,
+        33.0,
+        33.0,
+        33.0,
+        33.0,
+        33.0
+      ],
+      "mensalAnterior": [
+        62.2,
+        24.8,
+        24.8,
+        24.8,
+        24.8,
+        49.5,
+        49.5,
+        49.5,
+        49.5,
+        49.5,
+        49.5,
+        49.5
+      ],
+      "totalAno": 425.4,
+      "detalhamento": [
+        {
+          "codRaiz": 76201,
+          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
+          "caminho": [],
+          "consumoPorUnidade": 0.165,
+          "mensal": [
+            62.205,
+            24.75,
+            24.75,
+            24.75,
+            24.75,
+            49.5,
+            49.5,
+            33.0,
+            33.0,
+            33.0,
+            33.0,
+            33.0
+          ],
+          "escadinhaPlanoAnual": 2577,
           "escadinhaUnidade": "CX"
         }
       ]
@@ -26680,34 +26827,34 @@
       "sku": 50095,
       "descricao": "MP - MANDIOCA IN NATURA KG",
       "mensal": [
-        1412840.9,
-        1368898.0,
-        1577140.5,
-        1688751.6,
-        1939700.4,
-        2026435.7,
-        1773062.0,
-        2282866.0,
-        1909543.1,
-        2094248.1,
-        2256091.4,
-        1991165.4
+        1404433.2,
+        1365552.7,
+        1573795.3,
+        1685406.4,
+        1936355.2,
+        2019745.2,
+        1766371.6,
+        2278405.7,
+        1905082.8,
+        2089787.8,
+        2251631.1,
+        1986705.1
       ],
       "mensalAnterior": [
-        1412840.9,
-        1368898.0,
-        1577140.5,
-        1688751.6,
-        1939700.4,
-        2026435.7,
-        1773062.0,
-        1801516.9,
-        1901462.4,
-        2066851.5,
-        2228694.8,
-        1944452.9
+        1404433.2,
+        1365552.7,
+        1573795.3,
+        1685406.4,
+        1936355.2,
+        2019745.2,
+        1766371.6,
+        1794826.4,
+        1894772.0,
+        2060161.0,
+        2222004.4,
+        1937762.4
       ],
-      "totalAno": 22320743.1,
+      "totalAno": 22263272.1,
       "detalhamento": [
         {
           "codRaiz": 36609,
@@ -27322,31 +27469,6 @@
             6000.654
           ],
           "escadinhaPlanoAnual": 18880,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76201,
-          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
-          "caminho": [
-            "09014 FECULA MANDIOCA BIG BAG KG",
-            "SUB - RENDIMENTO FECULA KG"
-          ],
-          "consumoPorUnidade": 22.301515,
-          "mensal": [
-            8407.671,
-            3345.227,
-            3345.227,
-            3345.227,
-            3345.227,
-            6690.455,
-            6690.455,
-            4460.303,
-            4460.303,
-            4460.303,
-            4460.303,
-            4460.303
-          ],
-          "escadinhaPlanoAnual": 2577,
           "escadinhaUnidade": "CX"
         },
         {
@@ -28118,34 +28240,34 @@
       "sku": 72507,
       "descricao": "MP - LENHA KG",
       "mensal": [
-        130057.0,
-        120353.1,
-        139719.9,
-        147830.5,
-        170937.5,
-        177420.7,
-        155435.7,
-        184434.9,
-        168040.6,
-        184894.2,
-        200172.2,
-        175743.2
+        129660.1,
+        120195.2,
+        139562.1,
+        147672.6,
+        170779.6,
+        177104.9,
+        155119.9,
+        184224.4,
+        167830.0,
+        184683.6,
+        199961.7,
+        175532.7
       ],
       "mensalAnterior": [
-        130057.0,
-        120353.1,
-        139719.9,
-        147830.5,
-        170937.5,
-        177420.7,
-        155435.7,
-        157735.1,
-        166976.6,
-        182202.7,
-        197480.7,
-        171228.3
+        129660.1,
+        120195.2,
+        139562.1,
+        147672.6,
+        170779.6,
+        177104.9,
+        155119.9,
+        157419.3,
+        166660.8,
+        181886.9,
+        197164.9,
+        170912.5
       ],
-      "totalAno": 1955039.5,
+      "totalAno": 1952326.8,
       "detalhamento": [
         {
           "codRaiz": 36609,
@@ -29217,30 +29339,6 @@
             283.231
           ],
           "escadinhaPlanoAnual": 18880,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76201,
-          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
-          "caminho": [
-            "09014 FECULA MANDIOCA BIG BAG KG"
-          ],
-          "consumoPorUnidade": 1.052632,
-          "mensal": [
-            396.842,
-            157.895,
-            157.895,
-            157.895,
-            157.895,
-            315.789,
-            315.789,
-            210.526,
-            210.526,
-            210.526,
-            210.526,
-            210.526
-          ],
-          "escadinhaPlanoAnual": 2577,
           "escadinhaUnidade": "CX"
         },
         {
@@ -30718,34 +30816,34 @@
       "sku": 21704,
       "descricao": "BOBINA PARA FARDO LISA 1050 X 55",
       "mensal": [
-        1231.0,
-        1049.7,
-        1191.6,
-        1343.1,
-        1416.7,
-        1452.3,
-        1368.3,
-        1562.2,
-        1542.3,
-        1572.9,
-        1572.9,
-        1539.5
+        1221.6,
+        1045.9,
+        1187.8,
+        1339.3,
+        1412.9,
+        1444.8,
+        1360.8,
+        1557.2,
+        1537.3,
+        1567.9,
+        1567.9,
+        1534.5
       ],
       "mensalAnterior": [
-        1231.0,
-        1049.7,
-        1191.6,
-        1343.1,
-        1416.7,
-        1452.3,
-        1368.3,
-        1375.4,
-        1476.6,
-        1471.0,
-        1471.0,
-        1401.4
+        1221.6,
+        1045.9,
+        1187.8,
+        1339.3,
+        1412.9,
+        1444.8,
+        1360.8,
+        1367.9,
+        1469.1,
+        1463.5,
+        1463.5,
+        1393.9
       ],
-      "totalAno": 16842.5,
+      "totalAno": 16777.9,
       "detalhamento": [
         {
           "codRaiz": 48054,
@@ -31075,28 +31173,6 @@
             10.861
           ],
           "escadinhaPlanoAnual": 4679,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76201,
-          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
-          "caminho": [],
-          "consumoPorUnidade": 0.025,
-          "mensal": [
-            9.425,
-            3.75,
-            3.75,
-            3.75,
-            3.75,
-            7.5,
-            7.5,
-            5.0,
-            5.0,
-            5.0,
-            5.0,
-            5.0
-          ],
-          "escadinhaPlanoAnual": 2577,
           "escadinhaUnidade": "CX"
         },
         {
@@ -31548,34 +31624,34 @@
       "sku": 42060,
       "descricao": "MP - SAL REFINADO KG",
       "mensal": [
-        780.2,
-        726.9,
-        858.1,
-        925.9,
-        1131.5,
-        1172.7,
-        1022.9,
-        1121.7,
-        1143.4,
-        1352.8,
-        1550.5,
-        1265.9
+        763.7,
+        720.4,
+        851.5,
+        919.4,
+        1124.9,
+        1159.6,
+        1009.7,
+        1113.0,
+        1134.6,
+        1344.1,
+        1541.8,
+        1257.1
       ],
       "mensalAnterior": [
-        780.2,
-        726.9,
-        858.1,
-        925.9,
-        1131.5,
-        1172.7,
-        1022.9,
-        1028.6,
-        1122.5,
-        1306.8,
-        1504.5,
-        1194.6
+        763.7,
+        720.4,
+        851.5,
+        919.4,
+        1124.9,
+        1159.6,
+        1009.7,
+        1015.4,
+        1109.4,
+        1293.6,
+        1491.3,
+        1181.4
       ],
-      "totalAno": 13052.5,
+      "totalAno": 12939.8,
       "detalhamento": [
         {
           "codRaiz": 36609,
@@ -31732,28 +31808,6 @@
           "escadinhaUnidade": "FD"
         },
         {
-          "codRaiz": 76201,
-          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
-          "caminho": [],
-          "consumoPorUnidade": 0.04386,
-          "mensal": [
-            16.535,
-            6.579,
-            6.579,
-            6.579,
-            6.579,
-            13.158,
-            13.158,
-            8.772,
-            8.772,
-            8.772,
-            8.772,
-            8.772
-          ],
-          "escadinhaPlanoAnual": 2577,
-          "escadinhaUnidade": "CX"
-        },
-        {
           "codRaiz": 72088,
           "produtoRaiz": "FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - FD 24",
           "caminho": [],
@@ -31864,34 +31918,34 @@
       "sku": 45362,
       "descricao": "LOGISTICA - FILME STRETCH AUTOMATICO 500x0,30",
       "mensal": [
-        650.5,
-        617.7,
-        709.5,
-        782.9,
-        904.2,
-        928.1,
-        793.0,
-        943.3,
-        884.3,
-        998.7,
-        1104.7,
-        929.4
+        647.2,
+        616.3,
+        708.2,
+        781.6,
+        902.9,
+        925.5,
+        790.4,
+        941.5,
+        882.5,
+        997.0,
+        1102.9,
+        927.6
       ],
       "mensalAnterior": [
-        650.5,
-        617.7,
-        709.5,
-        782.9,
-        904.2,
-        928.1,
-        793.0,
-        818.1,
-        866.2,
-        983.3,
-        1089.2,
-        906.6
+        647.2,
+        616.3,
+        708.2,
+        781.6,
+        902.9,
+        925.5,
+        790.4,
+        815.5,
+        863.5,
+        980.6,
+        1086.6,
+        904.0
       ],
-      "totalAno": 10246.3,
+      "totalAno": 10223.6,
       "detalhamento": [
         {
           "codRaiz": 36609,
@@ -32332,28 +32386,6 @@
           ],
           "escadinhaPlanoAnual": 2810,
           "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 76201,
-          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
-          "caminho": [],
-          "consumoPorUnidade": 0.0088,
-          "mensal": [
-            3.318,
-            1.32,
-            1.32,
-            1.32,
-            1.32,
-            2.64,
-            2.64,
-            1.76,
-            1.76,
-            1.76,
-            1.76,
-            1.76
-          ],
-          "escadinhaPlanoAnual": 2577,
-          "escadinhaUnidade": "CX"
         },
         {
           "codRaiz": 85780,
@@ -35001,65 +35033,6 @@
     {
       "loja": "11",
       "lojaLabel": "11 (2JM Amidos)",
-      "sku": 77021,
-      "descricao": "BOBINA TAPIOCA OKKER 400 G",
-      "mensal": [
-        62.2,
-        24.8,
-        24.8,
-        24.8,
-        24.8,
-        49.5,
-        49.5,
-        33.0,
-        33.0,
-        33.0,
-        33.0,
-        33.0
-      ],
-      "mensalAnterior": [
-        62.2,
-        24.8,
-        24.8,
-        24.8,
-        24.8,
-        49.5,
-        49.5,
-        49.5,
-        49.5,
-        49.5,
-        49.5,
-        49.5
-      ],
-      "totalAno": 425.4,
-      "detalhamento": [
-        {
-          "codRaiz": 76201,
-          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
-          "caminho": [],
-          "consumoPorUnidade": 0.165,
-          "mensal": [
-            62.205,
-            24.75,
-            24.75,
-            24.75,
-            24.75,
-            49.5,
-            49.5,
-            33.0,
-            33.0,
-            33.0,
-            33.0,
-            33.0
-          ],
-          "escadinhaPlanoAnual": 2577,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "11",
-      "lojaLabel": "11 (2JM Amidos)",
       "sku": 65088,
       "descricao": "BOBINA FAROFA PRONTA TRADICIONAL DIA 1 KG",
       "mensal": [
@@ -35510,124 +35483,6 @@
           ],
           "escadinhaPlanoAnual": 8000,
           "escadinhaUnidade": "FD"
-        }
-      ]
-    },
-    {
-      "loja": "11",
-      "lojaLabel": "11 (2JM Amidos)",
-      "sku": 70901,
-      "descricao": "MP - ACIDO CITRICO KG",
-      "mensal": [
-        6.6,
-        2.6,
-        2.6,
-        2.6,
-        2.6,
-        5.3,
-        5.3,
-        3.5,
-        3.5,
-        3.5,
-        3.5,
-        3.5
-      ],
-      "mensalAnterior": [
-        6.6,
-        2.6,
-        2.6,
-        2.6,
-        2.6,
-        5.3,
-        5.3,
-        5.3,
-        5.3,
-        5.3,
-        5.3,
-        5.3
-      ],
-      "totalAno": 45.1,
-      "detalhamento": [
-        {
-          "codRaiz": 76201,
-          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
-          "caminho": [],
-          "consumoPorUnidade": 0.017544,
-          "mensal": [
-            6.614,
-            2.632,
-            2.632,
-            2.632,
-            2.632,
-            5.263,
-            5.263,
-            3.509,
-            3.509,
-            3.509,
-            3.509,
-            3.509
-          ],
-          "escadinhaPlanoAnual": 2577,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "11",
-      "lojaLabel": "11 (2JM Amidos)",
-      "sku": 70897,
-      "descricao": "MP - SORBATO DE POTASSIO KG",
-      "mensal": [
-        4.1,
-        1.6,
-        1.6,
-        1.6,
-        1.6,
-        3.3,
-        3.3,
-        2.2,
-        2.2,
-        2.2,
-        2.2,
-        2.2
-      ],
-      "mensalAnterior": [
-        4.1,
-        1.6,
-        1.6,
-        1.6,
-        1.6,
-        3.3,
-        3.3,
-        3.3,
-        3.3,
-        3.3,
-        3.3,
-        3.3
-      ],
-      "totalAno": 28.1,
-      "detalhamento": [
-        {
-          "codRaiz": 76201,
-          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
-          "caminho": [],
-          "consumoPorUnidade": 0.010965,
-          "mensal": [
-            4.134,
-            1.645,
-            1.645,
-            1.645,
-            1.645,
-            3.29,
-            3.29,
-            2.193,
-            2.193,
-            2.193,
-            2.193,
-            2.193
-          ],
-          "escadinhaPlanoAnual": 2577,
-          "escadinhaUnidade": "CX"
         }
       ]
     },
@@ -42460,34 +42315,34 @@
       "sku": 45362,
       "descricao": "LOGISTICA - FILME STRETCH AUTOMATICO 500x0,30",
       "mensal": [
-        444.5,
-        624.9,
-        714.7,
-        748.7,
-        857.5,
-        888.1,
-        803.1,
-        730.1,
-        773.2,
-        858.1,
-        860.0,
-        730.2
+        445.1,
+        625.2,
+        714.9,
+        748.9,
+        857.8,
+        888.6,
+        803.6,
+        730.5,
+        773.6,
+        858.4,
+        860.4,
+        730.5
       ],
       "mensalAnterior": [
-        444.5,
-        624.9,
-        714.7,
-        748.7,
-        857.5,
-        888.1,
-        803.2,
-        816.5,
-        839.6,
-        887.2,
-        890.2,
-        749.6
+        445.1,
+        625.2,
+        714.9,
+        748.9,
+        857.8,
+        888.6,
+        803.7,
+        817.0,
+        840.1,
+        887.7,
+        890.7,
+        750.1
       ],
-      "totalAno": 9033.1,
+      "totalAno": 9037.5,
       "detalhamento": [
         {
           "codRaiz": 27745,
@@ -44115,6 +43970,28 @@
             0.485
           ],
           "escadinhaPlanoAnual": 2831,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 76201,
+          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
+          "caminho": [],
+          "consumoPorUnidade": 0.001661,
+          "mensal": [
+            0.626,
+            0.249,
+            0.249,
+            0.249,
+            0.249,
+            0.498,
+            0.498,
+            0.332,
+            0.332,
+            0.332,
+            0.332,
+            0.332
+          ],
+          "escadinhaPlanoAnual": 2577,
           "escadinhaUnidade": "CX"
         },
         {
@@ -52135,10 +52012,10 @@
       "sku": 50095,
       "descricao": "MP - MANDIOCA IN NATURA KG",
       "mes": "ago",
-      "planoAnterior": 1801516.9,
-      "planoAtual": 2282866.0,
-      "desvio": 481349.1,
-      "desvioPercentual": 26.7
+      "planoAnterior": 1794826.4,
+      "planoAtual": 2278405.7,
+      "desvio": 483579.3,
+      "desvioPercentual": 26.9
     },
     {
       "loja": "1",
@@ -52146,9 +52023,9 @@
       "sku": 4,
       "descricao": "MP - FECULA DE MANDIOCA Kg",
       "mes": "ago",
-      "planoAnterior": 2297357.7,
-      "planoAtual": 2085830.8,
-      "desvio": -211526.9,
+      "planoAnterior": 2299399.1,
+      "planoAtual": 2087191.7,
+      "desvio": -212207.4,
       "desvioPercentual": -9.2
     },
     {
@@ -52157,9 +52034,9 @@
       "sku": 4954,
       "descricao": "MP - AGUA PRODUCAO ML",
       "mes": "ago",
-      "planoAnterior": 1079591.0,
-      "planoAtual": 980258.0,
-      "desvio": -99333.0,
+      "planoAnterior": 1080549.7,
+      "planoAtual": 980897.1,
+      "desvio": -99652.6,
       "desvioPercentual": -9.2
     },
     {
@@ -52190,10 +52067,10 @@
       "sku": 72507,
       "descricao": "MP - LENHA KG",
       "mes": "ago",
-      "planoAnterior": 157735.1,
-      "planoAtual": 184434.9,
-      "desvio": 26699.8,
-      "desvioPercentual": 16.9
+      "planoAnterior": 157419.3,
+      "planoAtual": 184224.4,
+      "desvio": 26805.1,
+      "desvioPercentual": 17.0
     },
     {
       "loja": "14",
@@ -53356,9 +53233,9 @@
       "sku": 45362,
       "descricao": "LOGISTICA - FILME STRETCH AUTOMATICO 500x0,30",
       "mes": "ago",
-      "planoAnterior": 3509.3,
-      "planoAtual": 3138.2,
-      "desvio": -371.1,
+      "planoAnterior": 3511.5,
+      "planoAtual": 3139.6,
+      "desvio": -371.9,
       "desvioPercentual": -10.6
     },
     {
@@ -53529,17 +53406,6 @@
     {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
-      "sku": 79161,
-      "descricao": "CAIXA PAPELAO TAPIOCA MARCA PROPRIA",
-      "mes": "ago",
-      "planoAnterior": 6202.0,
-      "planoAtual": 6402.0,
-      "desvio": 200.0,
-      "desvioPercentual": 3.2
-    },
-    {
-      "loja": "1",
-      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 128583,
       "descricao": "CAIXA AMENDOIM MIDA 80GR",
       "mes": "out",
@@ -53576,10 +53442,10 @@
       "sku": 21704,
       "descricao": "BOBINA PARA FARDO LISA 1050 X 55",
       "mes": "ago",
-      "planoAnterior": 1375.4,
-      "planoAtual": 1562.2,
-      "desvio": 186.8,
-      "desvioPercentual": 13.6
+      "planoAnterior": 1367.9,
+      "planoAtual": 1557.2,
+      "desvio": 189.3,
+      "desvioPercentual": 13.8
     },
     {
       "loja": "14",
@@ -53653,10 +53519,10 @@
       "sku": 45362,
       "descricao": "LOGISTICA - FILME STRETCH AUTOMATICO 500x0,30",
       "mes": "ago",
-      "planoAnterior": 818.1,
-      "planoAtual": 943.3,
-      "desvio": 125.2,
-      "desvioPercentual": 15.3
+      "planoAnterior": 815.5,
+      "planoAtual": 941.5,
+      "desvio": 126.0,
+      "desvioPercentual": 15.5
     },
     {
       "loja": "14",
@@ -53780,6 +53646,17 @@
       "desvioPercentual": -33.3
     },
     {
+      "loja": "1",
+      "lojaLabel": "1 (Da Terrinha – Matriz)",
+      "sku": 79161,
+      "descricao": "CAIXA PAPELAO TAPIOCA MARCA PROPRIA",
+      "mes": "ago",
+      "planoAnterior": 6502.0,
+      "planoAtual": 6602.0,
+      "desvio": 100.0,
+      "desvioPercentual": 1.5
+    },
+    {
       "loja": "10",
       "lojaLabel": "10 (Okker – Matriz)",
       "sku": 70834,
@@ -53824,6 +53701,17 @@
       "desvioPercentual": 10.9
     },
     {
+      "loja": "11",
+      "lojaLabel": "11 (2JM Amidos)",
+      "sku": 42060,
+      "descricao": "MP - SAL REFINADO KG",
+      "mes": "ago",
+      "planoAnterior": 1015.4,
+      "planoAtual": 1113.0,
+      "desvio": 97.6,
+      "desvioPercentual": 9.6
+    },
+    {
       "loja": "14",
       "lojaLabel": "14 (Da Terrinha – Filial SP)",
       "sku": 93009,
@@ -53857,17 +53745,6 @@
       "desvioPercentual": 5.5
     },
     {
-      "loja": "11",
-      "lojaLabel": "11 (2JM Amidos)",
-      "sku": 42060,
-      "descricao": "MP - SAL REFINADO KG",
-      "mes": "ago",
-      "planoAnterior": 1028.6,
-      "planoAtual": 1121.7,
-      "desvio": 93.1,
-      "desvioPercentual": 9.1
-    },
-    {
       "loja": "14",
       "lojaLabel": "14 (Da Terrinha – Filial SP)",
       "sku": 57914,
@@ -53884,9 +53761,9 @@
       "sku": 45362,
       "descricao": "LOGISTICA - FILME STRETCH AUTOMATICO 500x0,30",
       "mes": "ago",
-      "planoAnterior": 816.5,
-      "planoAtual": 730.1,
-      "desvio": -86.4,
+      "planoAnterior": 817.0,
+      "planoAtual": 730.5,
+      "desvio": -86.5,
       "desvioPercentual": -10.6
     },
     {
@@ -54495,8 +54372,8 @@
       "desvioPercentual": -45.4
     },
     {
-      "loja": "11",
-      "lojaLabel": "11 (2JM Amidos)",
+      "loja": "1",
+      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 77021,
       "descricao": "BOBINA TAPIOCA OKKER 400 G",
       "mes": "ago",
@@ -55012,17 +54889,6 @@
       "desvioPercentual": -12.5
     },
     {
-      "loja": "11",
-      "lojaLabel": "11 (2JM Amidos)",
-      "sku": 70901,
-      "descricao": "MP - ACIDO CITRICO KG",
-      "mes": "ago",
-      "planoAnterior": 5.3,
-      "planoAtual": 3.5,
-      "desvio": -1.8,
-      "desvioPercentual": -34.0
-    },
-    {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 50961,
@@ -55043,17 +54909,6 @@
       "planoAtual": 6.0,
       "desvio": -1.6,
       "desvioPercentual": -21.1
-    },
-    {
-      "loja": "11",
-      "lojaLabel": "11 (2JM Amidos)",
-      "sku": 70897,
-      "descricao": "MP - SORBATO DE POTASSIO KG",
-      "mes": "ago",
-      "planoAnterior": 3.3,
-      "planoAtual": 2.2,
-      "desvio": -1.1,
-      "desvioPercentual": -33.3
     },
     {
       "loja": "11",
