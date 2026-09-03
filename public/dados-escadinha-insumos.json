@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-09-03T12:11:24.637802",
+  "atualizadoEm": "2026-09-03T14:11:33.789776",
   "origem": "ficha_tecnica.json + dados-escadinha.json (explosão BOM × plano de produção)",
   "dataPublicacao": "2026-08-13",
   "dataPublicacaoAnterior": "2026-07-03",
@@ -263,9 +263,23 @@
   ],
   "insumosSemFichaTecnica": [
     {
+      "sku": "87000",
+      "produto": "BOBINA CANELA EM CASCA QUEBRADA COOP 25G",
+      "loja": "14",
+      "tipo": "Embalagem",
+      "fornecedor": "Fornecedor não informado"
+    },
+    {
       "sku": "117131",
       "produto": "BOBINA FAROFA PRONTA PUBLIC TRADICIONAL 300G",
       "loja": "11",
+      "tipo": "Embalagem",
+      "fornecedor": "Fornecedor não informado"
+    },
+    {
+      "sku": "87001",
+      "produto": "BOBINA LOURO EM FOLHAS COOP 10G",
+      "loja": "14",
       "tipo": "Embalagem",
       "fornecedor": "Fornecedor não informado"
     },
@@ -365,6 +379,13 @@
       "produto": "MP - PREPARACAO FAROFA TRADICIONAL KG",
       "loja": "11",
       "tipo": "Matéria-prima",
+      "fornecedor": "Fornecedor não informado"
+    },
+    {
+      "sku": "46918",
+      "produto": "SACO PLAST FARINHA MILHO AMAR COOP 500G",
+      "loja": "14",
+      "tipo": "Embalagem",
       "fornecedor": "Fornecedor não informado"
     },
     {
