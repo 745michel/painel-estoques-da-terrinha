@@ -135,7 +135,7 @@ type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
 // EscadinhaProduto/EscadinhaDesvio acima: as chaves de ano ("2025", "2026", ...) e de
 // fornecedor sao dinamicas - inferir do JSON travaria o tipo nas chaves literais do arquivo
 // (placeholder ou real) do momento do build, quebrando toda indexacao por variavel.
-type FornecedorLinha = { f: string; valor: number; kg: number; caixas: number };
+type FornecedorLinha = { f: string; valor: number; valorBruto: number; kg: number; caixas: number };
 type FornecedorMesSerie = { kg: number; caixas: number; valor: number; valorBruto: number };
 type FornecedorMetrica = {
   valor: number;
@@ -2283,8 +2283,9 @@ function FornecedoresDashboard({
     const mapa = new Map<string, FornecedorLinha>();
     for (const ano of anos) {
       for (const linha of grupoAtual.anoData[ano].top) {
-        const atual = mapa.get(linha.f) ?? { f: linha.f, valor: 0, kg: 0, caixas: 0 };
+        const atual = mapa.get(linha.f) ?? { f: linha.f, valor: 0, valorBruto: 0, kg: 0, caixas: 0 };
         atual.valor += linha.valor;
+        atual.valorBruto += linha.valorBruto;
         atual.kg += linha.kg;
         atual.caixas += linha.caixas;
         mapa.set(linha.f, atual);
@@ -2302,8 +2303,9 @@ function FornecedoresDashboard({
       base = base.filter((r) => !FORN_GRUPO_INTERNO.has(r.f));
     }
     const total = base.reduce((s, r) => s + r.valor, 0);
+    const totalBruto = base.reduce((s, r) => s + r.valorBruto, 0);
     const totalKg = base.reduce((s, r) => s + r.kg, 0);
-    return { lista: base, total, totalKg, fornecedores: base.length };
+    return { lista: base, total, totalBruto, totalKg, fornecedores: base.length };
   }, [anoRanking, grupoAtual, combinadoTop, focoFornecedores, mostrarGrupoInterno]);
 
   const rankingOrdenado = useMemo(() => [...rankingContexto.lista].sort((a, b) => b.valor - a.valor), [rankingContexto]);
@@ -2650,7 +2652,7 @@ function FornecedoresDashboard({
           </section>
         ) : (
           <section className="value-kpis" aria-label="Indicadores de fornecedores">
-            <div className="value-kpi total"><span>Total pago no período</span><strong>{currency.format(rankingContexto.total)}</strong><small>Líquido de estorno e devolução de compra</small></div>
+            <div className="value-kpi total"><span>Total pago no período</span><strong>{currency.format(rankingContexto.totalBruto)}</strong><small>Valor bruto, antes de descontar PIS/COFINS</small></div>
             <div className="value-kpi"><span>Total comprado</span><strong>{number.format(Math.round(rankingContexto.totalKg / 1000))} t</strong><small>Só linhas com peso identificado (kg/ton)</small></div>
             <div className="value-kpi"><span>Fornecedores no período</span><strong>{number.format(rankingContexto.fornecedores)}</strong><small>&nbsp;</small></div>
             <div className="value-kpi missing"><span>Concentração top 3</span><strong>{concentracaoTop3}%</strong><small>Do valor total pago vem de só 3 fornecedores</small></div>
