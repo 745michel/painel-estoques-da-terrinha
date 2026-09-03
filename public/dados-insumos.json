@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-09-03T14:08:57",
+  "atualizadoEm": "2026-09-03T15:02:11.659689",
   "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS (fornecedor e entregas programadas: compras_a_receber.json; projecaoBom: ficha_tecnica.json + dados-escadinha.json)",
   "produtos": [
     {
@@ -7816,6 +7816,37 @@
       "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
       "projecaoBom": 13761.5
+    },
+    {
+      "sku": "34734",
+      "produto": "MP - OLEO DE SOJA REFINADO A GRANEL - L",
+      "loja": "11",
+      "fornecedor": "Fornecedor não informado",
+      "tipo": "Matéria-prima",
+      "categoria": "MATERIA PRIMA",
+      "unidade": "kg",
+      "estoque": 3379,
+      "saldo": 3379,
+      "cobertura": 21.6,
+      "seguranca": 15,
+      "estoqueSeguranca": 2344,
+      "consumoMensal": 4688,
+      "escadinha": 4688.0,
+      "faturado": 2953.1,
+      "atingimento": 63.0,
+      "desvioProjecao": -1734.8,
+      "loteMinimo": 100,
+      "proximaEntrada": "2026-09-09T14:57:50.327000",
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
+      "sugestaoCompra": 0,
+      "status": "Saudável",
+      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null,
+      "temFichaTecnica": true,
+      "projecaoBom": 3987.7
     },
     {
       "sku": "42058",
