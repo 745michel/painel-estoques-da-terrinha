@@ -136,7 +136,7 @@ type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
 // fornecedor sao dinamicas - inferir do JSON travaria o tipo nas chaves literais do arquivo
 // (placeholder ou real) do momento do build, quebrando toda indexacao por variavel.
 type FornecedorLinha = { f: string; valor: number; kg: number; caixas: number };
-type FornecedorMesSerie = { kg: number; caixas: number; valor: number };
+type FornecedorMesSerie = { kg: number; caixas: number; valor: number; valorBruto: number };
 type FornecedorMetrica = {
   valor: number;
   kg: number;
@@ -2315,7 +2315,7 @@ function FornecedoresDashboard({
   const top3 = [...rankingContexto.lista].sort((a, b) => b.valor - a.valor).slice(0, 3).reduce((s, r) => s + r.valor, 0);
   const concentracaoTop3 = rankingContexto.total > 0 ? Math.round((top3 / rankingContexto.total) * 100) : 0;
 
-  function totalAnoFornecedor(fornecedor: string, ano: string, metrica: "kg" | "caixas" | "valor") {
+  function totalAnoFornecedor(fornecedor: string, ano: string, metrica: "kg" | "caixas" | "valor" | "valorBruto") {
     const meses = grupoAtual.serieAnoMes[fornecedor]?.[ano];
     if (!meses) return 0;
     return meses.reduce((s, m) => s + m[metrica], 0);
@@ -2329,7 +2329,7 @@ function FornecedoresDashboard({
   );
   const maxMensalValor = Math.max(
     1,
-    ...anosLigados.flatMap((ano) => (serieFornecedor?.[ano] ?? []).map((m) => m.valor)),
+    ...anosLigados.flatMap((ano) => (serieFornecedor?.[ano] ?? []).map((m) => m.valorBruto)),
   );
 
   function abrirGaveta(fornecedor: string) {
@@ -2357,7 +2357,20 @@ function FornecedoresDashboard({
       for (const p of lista) {
         const atual = porNome.get(p.p);
         if (!atual) {
-          porNome.set(p.p, { ...p });
+          // clone profundo de serieAnoMes: sem isso o objeto do primeiro fornecedor era
+          // reaproveitado por referencia e o merge abaixo mutava os dados originais de
+          // grupoAtual.produtos (import estatico, mesma referencia em toda a vida do
+          // componente) - a cada re-render (cada clique pra abrir/fechar o card) somava de
+          // novo em cima do que ja tinha sido somado antes, entao o valor "mudava sozinho"
+          // toda vez que o card era reaberto. Achado real do usuario (02/09/2026): "toda vez
+          // que eu abro o valor muda".
+          const clone: FornecedorProduto = { ...p };
+          if (p.serieAnoMes) {
+            clone.serieAnoMes = Object.fromEntries(
+              Object.entries(p.serieAnoMes).map(([ano, meses]) => [ano, meses.map((m) => ({ ...m }))]),
+            );
+          }
+          porNome.set(p.p, clone);
           continue;
         }
         atual.valor += p.valor;
@@ -2403,8 +2416,23 @@ function FornecedoresDashboard({
   }
 
   function abrirProduto(l: ReturnType<typeof produtosPorAno>[number]) {
-    const serie = anos.map((ano) => l.dados[ano].serieAnoMes).find((s) => s != null);
-    if (serie) setProdutoAberto({ nome: l.nome, serieAnoMes: serie });
+    // serieAnoMes ja vem com todos os anos embutidos em cada entrada de produto (ver
+    // _serie_mensal_produto no build_fornecedores.py) - por isso pegamos so UMA entrada por
+    // fornecedor (o primeiro ano em que ela aparece), nunca as duas: um fornecedor presente
+    // nos dois anos tem a mesma serieAnoMes duplicada em l.dados["2025"] e l.dados["2026"], e
+    // somar as duas dobraria o valor. So precisamos somar entre FORNECEDORES diferentes, o
+    // que o somarProdutos ja faz corretamente (e sem mutar os dados originais).
+    const porFornecedor = focoFornecedores
+      .map((f) => {
+        for (const ano of anos) {
+          const item = grupoAtual.produtos[ano]?.[f]?.find((p) => p.p === l.nome);
+          if (item) return item;
+        }
+        return null;
+      })
+      .filter((item): item is FornecedorProduto => item != null);
+    const [merged] = somarProdutos([porFornecedor]);
+    if (merged?.serieAnoMes) setProdutoAberto({ nome: l.nome, serieAnoMes: merged.serieAnoMes });
   }
 
   function renderTabelaProdutos(linhas: ReturnType<typeof produtosPorAno>) {
@@ -2413,7 +2441,7 @@ function FornecedoresDashboard({
     return <>
       {filtradas.length === 0 ? <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro pra ver os produtos.</p></div> : <div className="table-wrap forn-produtos-tabela-wrap"><table className="values-table forn-produtos-tabela"><thead><tr>
         <th>Produto</th>
-        {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>, <th key={`${ano}-c`}>{ano} · Custo unitário</th>, <th key={`${ano}-b`}>{ano} · Preço bruto</th>])}
+        {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>, <th key={`${ano}-b`}>{ano} · Preço bruto</th>])}
         <th>Preço última NF</th>
       </tr></thead><tbody>
         {filtradas.map((l) => <tr key={l.nome} onClick={() => abrirProduto(l)} style={{ cursor: "pointer" }}>
@@ -2421,7 +2449,6 @@ function FornecedoresDashboard({
           {anos.flatMap((ano) => [
             <td key={`${ano}-v`}>{l.dados[ano].valor ? <strong className="money-value">{currency.format(l.dados[ano].valor)}</strong> : <span className="price-missing">—</span>}</td>,
             <td key={`${ano}-q`}>{qtdCaixaOuKg(l.dados[ano]) || "—"}</td>,
-            <td key={`${ano}-c`}>{custoUnitario(l.dados[ano]) || "—"}</td>,
             <td key={`${ano}-b`}>{precoBruto(l.dados[ano]) || "—"}</td>,
           ])}
           <td>{l.ultimaNf ? custoUnitario(l.ultimaNf) || "—" : "—"}</td>
@@ -2615,7 +2642,7 @@ function FornecedoresDashboard({
               <div>
                 <p className="forn-timeline-eyebrow">COMPARATIVO ANUAL · POR FORNECEDOR</p>
                 <h2>{tlFornecedor || "—"}</h2>
-                <p className="forn-timeline-sub">Mostrando <strong>Valor pago (R$)</strong> · comparando {anos.join(" vs ")}</p>
+                <p className="forn-timeline-sub">Mostrando <strong>Valor bruto pago (R$)</strong> · comparando {anos.join(" vs ")}</p>
               </div>
             </div>
             <div className="forn-timeline-legend">
@@ -2628,7 +2655,7 @@ function FornecedoresDashboard({
                 {FORN_MESES.map((mesLabel, mIdx) => <div className="forn-tl-group" key={mesLabel}>
                   <div className="forn-tl-bars">
                     {anosLigados.map((ano) => {
-                      const valor = serieFornecedor?.[ano]?.[mIdx]?.valor ?? 0;
+                      const valor = serieFornecedor?.[ano]?.[mIdx]?.valorBruto ?? 0;
                       const pct = Math.max(valor ? 4 : 0, (valor / maxMensalValor) * 100);
                       const cor = FORN_ANO_CORES[anos.indexOf(ano) % FORN_ANO_CORES.length];
                       return <div className="forn-tl-bar-col" key={ano} title={`${ano} · ${currency.format(valor)}`}>
@@ -2641,18 +2668,18 @@ function FornecedoresDashboard({
                 </div>)}
               </div>
             </div>
-            <p className="forn-timeline-note">Valor pago (R$) por mês, líquido de estorno e devolução — mesma fonte do ranking.</p>
+            <p className="forn-timeline-note">Valor bruto pago (R$) por mês, antes de descontar PIS/COFINS.</p>
           </section>
 
           <section className="forn-year-panel forn-year-panel-h">
-            <h3>Valor pago por ano</h3>
+            <h3>Valor bruto pago por ano</h3>
             <p>Pago a {tlFornecedor || "—"} · clique pra tirar/pôr um ano na comparação</p>
             <div className="forn-year-bars-h">
               {anos.map((ano, i) => {
-                const valor = totalAnoFornecedor(tlFornecedor, ano, "valor");
-                const anterior = i > 0 ? totalAnoFornecedor(tlFornecedor, anos[i - 1], "valor") : null;
+                const valor = totalAnoFornecedor(tlFornecedor, ano, "valorBruto");
+                const anterior = i > 0 ? totalAnoFornecedor(tlFornecedor, anos[i - 1], "valorBruto") : null;
                 const delta = anterior && anterior > 0 ? ((valor - anterior) / anterior) * 100 : null;
-                const maxValorAno = Math.max(1, ...anos.map((a) => totalAnoFornecedor(tlFornecedor, a, "valor")));
+                const maxValorAno = Math.max(1, ...anos.map((a) => totalAnoFornecedor(tlFornecedor, a, "valorBruto")));
                 const pct = Math.max(valor ? 4 : 0, (valor / maxValorAno) * 100);
                 const ligado = anosAtivos[ano] !== false;
                 return <button type="button" key={ano} className={`forn-yr-row ${ligado ? "" : "off"}`} onClick={() => setAnosAtivos((prev) => ({ ...prev, [ano]: prev[ano] === false }))}>
