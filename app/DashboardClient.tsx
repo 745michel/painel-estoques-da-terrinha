@@ -148,7 +148,7 @@ type FornecedorMetrica = {
   ticketMedioNota: number;
   serieMensalPreco: { mes: string; preco: number }[];
 };
-type FornecedorProdutoMes = { valor: number; kg: number; caixas: number };
+type FornecedorProdutoMes = { valor: number; valorBruto: number; kg: number; caixas: number };
 type FornecedorProduto = { p: string; valor: number; valorBruto: number; kg: number; caixas: number; serieAnoMes?: Record<string, FornecedorProdutoMes[]>; ultimaNf?: FornecedorProdutoMes };
 type CompradorDado = { total: number; totalKg: number; fornecedores: number; ranking: FornecedorLinha[]; produtos: FornecedorProduto[] };
 type FornecedoresGrupo = {
@@ -2341,6 +2341,26 @@ function FornecedoresDashboard({
   const metricaGaveta = selectedFornecedor ? grupoAtual.metricas[escopoGaveta]?.[selectedFornecedor] ?? null : null;
   const produtosGaveta = selectedFornecedor ? grupoAtual.produtos[escopoGaveta]?.[selectedFornecedor] ?? [] : [];
 
+  // Pedido do usuario, 03/09/2026: ao clicar num fornecedor vindo do filtro de produto (sem
+  // fornecedor focado), a gaveta mostra so o(s) produto(s) selecionado(s) - "no card vc so vai
+  // por o item selecionado" - em vez da relacao inteira com aquele fornecedor. Pega uma
+  // entrada por produto (o primeiro ano-bucket em que ele aparece - serieAnoMes ja vem com
+  // todos os anos embutidos, ver nota de somarProdutos) e soma entre os produtos selecionados
+  // se mais de um estiver ativo.
+  const itemFocoGaveta = useMemo(() => {
+    if (!selectedFornecedor || produtosSelecionados.length === 0) return null;
+    const porProduto: FornecedorProduto[] = [];
+    for (const nome of produtosSelecionados) {
+      for (const ano of anos) {
+        const item = grupoAtual.produtos[ano]?.[selectedFornecedor]?.find((p) => p.p === nome);
+        if (item) { porProduto.push(item); break; }
+      }
+    }
+    if (porProduto.length === 0) return null;
+    const [merged] = somarProdutos([porProduto]);
+    return merged ?? null;
+  }, [selectedFornecedor, produtosSelecionados, grupoAtual, anos]);
+
   function mudarFocoFornecedores(valores: string[]) {
     setFocoFornecedores(valores);
     setProdutosSelecionados([]);
@@ -2383,7 +2403,7 @@ function FornecedoresDashboard({
             const mesesP = p.serieAnoMes[ano];
             const mesesAtual = atual.serieAnoMes[ano];
             atual.serieAnoMes[ano] = mesesAtual
-              ? mesesP.map((m, i) => ({ valor: m.valor + mesesAtual[i].valor, kg: m.kg + mesesAtual[i].kg, caixas: m.caixas + mesesAtual[i].caixas }))
+              ? mesesP.map((m, i) => ({ valor: m.valor + mesesAtual[i].valor, valorBruto: m.valorBruto + mesesAtual[i].valorBruto, kg: m.kg + mesesAtual[i].kg, caixas: m.caixas + mesesAtual[i].caixas }))
               : mesesP.map((m) => ({ ...m }));
           }
         }
@@ -2451,7 +2471,7 @@ function FornecedoresDashboard({
             <td key={`${ano}-q`}>{qtdCaixaOuKg(l.dados[ano]) || "—"}</td>,
             <td key={`${ano}-b`}>{precoBruto(l.dados[ano]) || "—"}</td>,
           ])}
-          <td>{l.ultimaNf ? custoUnitario(l.ultimaNf) || "—" : "—"}</td>
+          <td>{l.ultimaNf ? precoBruto(l.ultimaNf) || "—" : "—"}</td>
         </tr>)}
       </tbody></table></div>}
     </>;
@@ -2511,15 +2531,9 @@ function FornecedoresDashboard({
     return "";
   }
 
-  function custoUnitario(p: { valor: number; kg: number; caixas: number }) {
-    if (p.caixas > 0) return `${currency.format(p.valor / p.caixas)}/cx`;
-    if (p.kg > 0) return `${currency.format(p.valor / p.kg)}/kg`;
-    return "";
-  }
-
   // Preco bruto (antes de descontar PIS/COFINS) por caixa/kg - pedido do usuario, 01/09/2026,
-  // pra analise ao focar um fornecedor especifico. Mesma logica de custoUnitario, so que a
-  // partir de valorBruto (total_produto na fonte) em vez de valor (Custo_liquido_total).
+  // pra analise ao focar um fornecedor especifico e (03/09/2026) tambem pro "Preco ultima NF",
+  // que passou a usar bruto em vez de liquido a pedido do usuario.
   function precoBruto(p: { valorBruto: number; kg: number; caixas: number }) {
     if (p.caixas > 0) return `${currency.format(p.valorBruto / p.caixas)}/cx`;
     if (p.kg > 0) return `${currency.format(p.valorBruto / p.kg)}/kg`;
@@ -2774,38 +2788,78 @@ function FornecedoresDashboard({
       <div className="drawer" onClick={(event) => event.stopPropagation()}>
         <button className="drawer-close" onClick={() => setSelectedFornecedor(null)}>×</button>
         <h2>{selectedFornecedor}</h2>
-        <p className="drawer-sku">Produtos comprados em {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p>
-        <div className="drawer-metrics">
-          <div><small>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta})</small><strong>{currency.format(metricaGaveta?.valor ?? 0)}</strong></div>
-          <div><small>Kg/Caixa comprado</small><strong>{metricaGaveta && qtdCaixaOuKg(metricaGaveta) || "não pesado (cx/un)"}</strong></div>
-          <div><small>Preço médio</small><strong>{metricaGaveta?.precoMedioKg != null ? `${currency.format(metricaGaveta.precoMedioKg)}/kg` : "não pesado (cx/un)"}</strong></div>
-          <div><small>Variação de preço</small><strong className={metricaGaveta?.variacaoPrecoPct == null ? "" : metricaGaveta.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaGaveta?.variacaoPrecoPct != null ? `${metricaGaveta.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaGaveta.variacaoPrecoPct)}%` : "—"}</strong></div>
-          <div><small>Notas fiscais</small><strong>{number.format(metricaGaveta?.notas ?? 0)}</strong></div>
-          <div><small>Pedidos</small><strong>{number.format(metricaGaveta?.pedidos ?? 0)}</strong></div>
-        </div>
-        <p className="drawer-section-label">Ticket médio por nota</p>
-        <p className="forn-drawer-ticket">{currency.format(metricaGaveta?.ticketMedioNota ?? 0)} / nota</p>
-        {metricaGaveta && metricaGaveta.serieMensalPreco.length > 0 && <>
-          <p className="drawer-section-label">Preço por kg — últimos meses</p>
-          <div className="forn-drawer-preco-serie">
-            {metricaGaveta.serieMensalPreco.map((s) => {
-              const maxPreco = Math.max(1, ...metricaGaveta.serieMensalPreco.map((p) => p.preco));
-              const [anoMes, mesMes] = s.mes.split("-");
-              const mesLbl = `${FORN_MESES[Number(mesMes) - 1]}/${anoMes.slice(2)}`;
-              return <div className="forn-dp-col" key={s.mes}>
-                <span className="forn-dp-val">{s.preco.toLocaleString("pt-BR", { minimumFractionDigits: 4, maximumFractionDigits: 4 })}</span>
-                <span className="forn-dp-track"><span className="forn-dp-bar" style={{ height: `${Math.max(6, (s.preco / maxPreco) * 100)}%` }} /></span>
-                <span className="forn-dp-month">{mesLbl}</span>
-              </div>;
-            })}
+        {itemFocoGaveta ? <>
+          {/* Gaveta aberta a partir do filtro de Produto (sem fornecedor focado) - pedido do
+              usuario, 03/09/2026: "no card vc so vai por o item selecionado" - so o produto
+              filtrado, nao a relacao inteira com o fornecedor. */}
+          <p className="drawer-sku">Produto{produtosSelecionados.length > 1 ? "s" : ""} filtrado{produtosSelecionados.length > 1 ? "s" : ""}: {produtosSelecionados.join(", ")}</p>
+          <div className="drawer-metrics">
+            <div><small>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta})</small><strong>{currency.format(itemFocoGaveta.valor)}</strong></div>
+            <div><small>Kg/Caixa comprado</small><strong>{qtdCaixaOuKg(itemFocoGaveta) || "não pesado (cx/un)"}</strong></div>
+            <div><small>Preço médio</small><strong>{itemFocoGaveta.kg > 0 ? `${currency.format(itemFocoGaveta.valor / itemFocoGaveta.kg)}/kg` : "não pesado (cx/un)"}</strong></div>
+            <div><small>Preço bruto</small><strong>{precoBruto(itemFocoGaveta) || "não pesado (cx/un)"}</strong></div>
           </div>
+          {(() => {
+            const meses: { mes: string; valorBruto: number }[] = [];
+            for (const ano of anos) {
+              const serie = itemFocoGaveta.serieAnoMes?.[ano];
+              if (!serie) continue;
+              serie.forEach((m, i) => { if (m.valorBruto > 0) meses.push({ mes: `${ano}-${String(i + 1).padStart(2, "0")}`, valorBruto: m.valorBruto }); });
+            }
+            const ultimosMeses = meses.slice(-6);
+            if (ultimosMeses.length === 0) return null;
+            const maxValor = Math.max(1, ...ultimosMeses.map((m) => m.valorBruto));
+            return <>
+              <p className="drawer-section-label">Valor bruto pago — últimos meses</p>
+              <div className="forn-drawer-preco-serie">
+                {ultimosMeses.map((m) => {
+                  const [anoMes, mesMes] = m.mes.split("-");
+                  const mesLbl = `${FORN_MESES[Number(mesMes) - 1]}/${anoMes.slice(2)}`;
+                  return <div className="forn-dp-col" key={m.mes}>
+                    <span className="forn-dp-val">{fmtCompacto(m.valorBruto)}</span>
+                    <span className="forn-dp-track"><span className="forn-dp-bar" style={{ height: `${Math.max(6, (m.valorBruto / maxValor) * 100)}%` }} /></span>
+                    <span className="forn-dp-month">{mesLbl}</span>
+                  </div>;
+                })}
+              </div>
+            </>;
+          })()}
+          <button type="button" className="forn-foco-clear" onClick={() => setProdutosSelecionados([])}>Ver relação completa com {selectedFornecedor}</button>
+          <p className="drawer-note">Mostrando só o{produtosSelecionados.length > 1 ? "s" : ""} produto{produtosSelecionados.length > 1 ? "s" : ""} filtrado{produtosSelecionados.length > 1 ? "s" : ""}. Tudo aqui segue o ano selecionado no ranking (ou o período completo, se &quot;Todos&quot; estiver selecionado).</p>
+        </> : <>
+          <p className="drawer-sku">Produtos comprados em {escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}</p>
+          <div className="drawer-metrics">
+            <div><small>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta})</small><strong>{currency.format(metricaGaveta?.valor ?? 0)}</strong></div>
+            <div><small>Kg/Caixa comprado</small><strong>{metricaGaveta && qtdCaixaOuKg(metricaGaveta) || "não pesado (cx/un)"}</strong></div>
+            <div><small>Preço médio</small><strong>{metricaGaveta?.precoMedioKg != null ? `${currency.format(metricaGaveta.precoMedioKg)}/kg` : "não pesado (cx/un)"}</strong></div>
+            <div><small>Variação de preço</small><strong className={metricaGaveta?.variacaoPrecoPct == null ? "" : metricaGaveta.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaGaveta?.variacaoPrecoPct != null ? `${metricaGaveta.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaGaveta.variacaoPrecoPct)}%` : "—"}</strong></div>
+            <div><small>Notas fiscais</small><strong>{number.format(metricaGaveta?.notas ?? 0)}</strong></div>
+            <div><small>Pedidos</small><strong>{number.format(metricaGaveta?.pedidos ?? 0)}</strong></div>
+          </div>
+          <p className="drawer-section-label">Ticket médio por nota</p>
+          <p className="forn-drawer-ticket">{currency.format(metricaGaveta?.ticketMedioNota ?? 0)} / nota</p>
+          {metricaGaveta && metricaGaveta.serieMensalPreco.length > 0 && <>
+            <p className="drawer-section-label">Preço por kg — últimos meses</p>
+            <div className="forn-drawer-preco-serie">
+              {metricaGaveta.serieMensalPreco.map((s) => {
+                const maxPreco = Math.max(1, ...metricaGaveta.serieMensalPreco.map((p) => p.preco));
+                const [anoMes, mesMes] = s.mes.split("-");
+                const mesLbl = `${FORN_MESES[Number(mesMes) - 1]}/${anoMes.slice(2)}`;
+                return <div className="forn-dp-col" key={s.mes}>
+                  <span className="forn-dp-val">{s.preco.toLocaleString("pt-BR", { minimumFractionDigits: 4, maximumFractionDigits: 4 })}</span>
+                  <span className="forn-dp-track"><span className="forn-dp-bar" style={{ height: `${Math.max(6, (s.preco / maxPreco) * 100)}%` }} /></span>
+                  <span className="forn-dp-month">{mesLbl}</span>
+                </div>;
+              })}
+            </div>
+          </>}
+          <p className="drawer-section-label">Principais produtos</p>
+          {produtosGaveta.length === 0 ? <p className="drawer-empty">Sem produto registrado nesse período pra esse fornecedor.</p> : produtosGaveta.map((p) => <div className="product-row" key={p.p}>
+            <span className="pr-name">{p.p}</span>
+            <span className="pr-val">{currency.format(p.valor)}{qtdCaixaOuKg(p) && <span className="pr-kg"> · {qtdCaixaOuKg(p)}</span>}</span>
+          </div>)}
+          <p className="drawer-note">Tudo aqui segue o ano selecionado no ranking (ou o período completo, se &quot;Todos&quot; estiver selecionado). Preço médio e variação só existem pra quem compra por peso (kg/ton) — fornecedor de caixa/unidade fica sem esses dois.</p>
         </>}
-        <p className="drawer-section-label">Principais produtos</p>
-        {produtosGaveta.length === 0 ? <p className="drawer-empty">Sem produto registrado nesse período pra esse fornecedor.</p> : produtosGaveta.map((p) => <div className="product-row" key={p.p}>
-          <span className="pr-name">{p.p}</span>
-          <span className="pr-val">{currency.format(p.valor)}{qtdCaixaOuKg(p) && <span className="pr-kg"> · {qtdCaixaOuKg(p)}</span>}</span>
-        </div>)}
-        <p className="drawer-note">Tudo aqui segue o ano selecionado no ranking (ou o período completo, se &quot;Todos&quot; estiver selecionado). Preço médio e variação só existem pra quem compra por peso (kg/ton) — fornecedor de caixa/unidade fica sem esses dois.</p>
       </div>
     </div>}
 
