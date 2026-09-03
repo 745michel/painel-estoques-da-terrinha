@@ -288,6 +288,9 @@ const PRODUTOS_DESCONTINUADOS_POR_LOJA = new Set([
   "1|MP - ACIDO CITRICO KG",
   "1|MP - SAL REFINADO KG",
   "14|MP - POLVILHO AZEDO KG",
+  // Pedido do usuario, 03/09/2026: so a loja 1 (matriz) esta parada - a loja 11 (2JM Amidos)
+  // tem escadinha/consumo/entregas reais pro mesmo SKU (21704).
+  "1|BOBINA PARA FARDO LISA 1050 X 55",
 ]);
 
 /**
