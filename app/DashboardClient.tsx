@@ -2343,23 +2343,36 @@ function FornecedoresDashboard({
 
   // Pedido do usuario, 03/09/2026: ao clicar num fornecedor vindo do filtro de produto (sem
   // fornecedor focado), a gaveta mostra so o(s) produto(s) selecionado(s) - "no card vc so vai
-  // por o item selecionado" - em vez da relacao inteira com aquele fornecedor. Pega uma
-  // entrada por produto (o primeiro ano-bucket em que ele aparece - serieAnoMes ja vem com
-  // todos os anos embutidos, ver nota de somarProdutos) e soma entre os produtos selecionados
-  // se mais de um estiver ativo.
+  // por o item selecionado" - em vez da relacao inteira com aquele fornecedor.
+  // Bug real corrigido (03/09/2026, achado pelo usuario comparando a tabela com a gaveta pro
+  // mesmo fornecedor+produto+ano: numeros diferentes): a primeira versao pegava o produto no
+  // primeiro ano-bucket em que ele aparecesse (sempre "2025" primeiro), ignorando qual ano
+  // estava selecionado no ranking (escopoGaveta) - por isso valor/kg da gaveta nao batiam com
+  // os da tabela "Fornecedores · produto" (que usa escopoGaveta corretamente). Agora busca
+  // direto no bucket de escopoGaveta - so recorre a outro ano-bucket pra pegar a serieAnoMes
+  // (usada nos graficos mensais) quando escopoGaveta e "todos", que nao carrega serieAnoMes
+  // (so os buckets de ano real tem).
   const itemFocoGaveta = useMemo(() => {
     if (!selectedFornecedor || produtosSelecionados.length === 0) return null;
     const porProduto: FornecedorProduto[] = [];
     for (const nome of produtosSelecionados) {
-      for (const ano of anos) {
-        const item = grupoAtual.produtos[ano]?.[selectedFornecedor]?.find((p) => p.p === nome);
-        if (item) { porProduto.push(item); break; }
+      const itemEscopo = grupoAtual.produtos[escopoGaveta]?.[selectedFornecedor]?.find((p) => p.p === nome);
+      if (!itemEscopo) continue;
+      if (itemEscopo.serieAnoMes) {
+        porProduto.push(itemEscopo);
+        continue;
       }
+      let serieAnoMes: Record<string, FornecedorProdutoMes[]> | undefined;
+      for (const ano of anos) {
+        const comSerie = grupoAtual.produtos[ano]?.[selectedFornecedor]?.find((p) => p.p === nome);
+        if (comSerie?.serieAnoMes) { serieAnoMes = comSerie.serieAnoMes; break; }
+      }
+      porProduto.push({ ...itemEscopo, serieAnoMes });
     }
     if (porProduto.length === 0) return null;
     const [merged] = somarProdutos([porProduto]);
     return merged ?? null;
-  }, [selectedFornecedor, produtosSelecionados, grupoAtual, anos]);
+  }, [selectedFornecedor, produtosSelecionados, grupoAtual, escopoGaveta, anos]);
 
   function mudarFocoFornecedores(valores: string[]) {
     setFocoFornecedores(valores);
