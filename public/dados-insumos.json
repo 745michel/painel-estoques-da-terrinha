@@ -436,7 +436,7 @@
       "proximaEntrada": "2026-11-07T15:28:26.228000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-04T00:00:00",
+          "data": "2026-09-14T00:00:00",
           "quantidade": 3000,
           "pedido": 459492
         },
@@ -446,7 +446,7 @@
           "pedido": 459494
         },
         {
-          "data": "2026-09-09T00:00:00",
+          "data": "2026-09-10T00:00:00",
           "quantidade": 3000,
           "pedido": 459495
         },
@@ -485,9 +485,9 @@
       "sugestaoCompra": 1500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-04",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 22.1,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 6,
+      "coberturaNaPrimeiraEntrega": 16.1,
       "temFichaTecnica": true,
       "projecaoBom": 14400.0,
       "consumoRealBom": 900.1
@@ -552,7 +552,7 @@
       "proximaEntrada": "2026-10-30T21:30:59.845000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-04T00:00:00",
+          "data": "2026-09-14T00:00:00",
           "quantidade": 4000,
           "pedido": 459492
         },
@@ -562,7 +562,7 @@
           "pedido": 459494
         },
         {
-          "data": "2026-09-09T00:00:00",
+          "data": "2026-09-10T00:00:00",
           "quantidade": 4000,
           "pedido": 459495
         },
@@ -621,9 +621,9 @@
       "sugestaoCompra": 5500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-04",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 15.8,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 6,
+      "coberturaNaPrimeiraEntrega": 9.8,
       "temFichaTecnica": true,
       "projecaoBom": 17808.0,
       "consumoRealBom": 1570.3
@@ -822,7 +822,7 @@
           "pedido": 466777
         },
         {
-          "data": "2026-09-10T00:00:00",
+          "data": "2026-09-23T00:00:00",
           "quantidade": 500,
           "pedido": 468558
         },
@@ -846,9 +846,9 @@
       "sugestaoCompra": 1500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-10",
-      "diasAtePrimeiraEntrega": 6,
-      "coberturaNaPrimeiraEntrega": -6.0,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 14,
+      "coberturaNaPrimeiraEntrega": -14.0,
       "temFichaTecnica": true,
       "projecaoBom": 1092.0,
       "consumoRealBom": 32.3
@@ -1915,7 +1915,7 @@
       "proximaEntrada": "2027-02-02T03:17:34.460000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-04T00:00:00",
+          "data": "2026-09-10T00:00:00",
           "quantidade": 500,
           "pedido": 459797
         }
@@ -1924,9 +1924,9 @@
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-04",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 24.5,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 6,
+      "coberturaNaPrimeiraEntrega": 18.5,
       "temFichaTecnica": true,
       "projecaoBom": 96.0,
       "consumoRealBom": 3.4
@@ -2203,14 +2203,9 @@
           "data": "2026-10-29T00:00:00",
           "quantidade": 15000,
           "pedido": 466224
-        },
-        {
-          "data": "2026-09-02T00:00:00",
-          "quantidade": 12000,
-          "pedido": 469987
         }
       ],
-      "totalProgramado": 132000,
+      "totalProgramado": 120000,
       "sugestaoCompra": 10000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -2354,7 +2349,7 @@
       "sku": "45362",
       "produto": "LOGISTICA - FILME STRETCH AUTOMATICO",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "GLOBEPACK INDUSTRIA E COMERCIO EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -2468,17 +2463,12 @@
       "proximaEntrada": "2026-09-29T13:33:43.149000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-03T00:00:00",
-          "quantidade": 320,
-          "pedido": 472479
-        },
-        {
           "data": "2026-09-15T00:00:00",
           "quantidade": 320,
           "pedido": 472480
         }
       ],
-      "totalProgramado": 640,
+      "totalProgramado": 320,
       "sugestaoCompra": 200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -2645,17 +2635,12 @@
       "proximaEntrada": "2026-10-21T16:44:49.523000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-03T00:00:00",
-          "quantidade": 50,
-          "pedido": 472479
-        },
-        {
           "data": "2026-09-29T00:00:00",
           "quantidade": 50,
           "pedido": 472481
         }
       ],
-      "totalProgramado": 100,
+      "totalProgramado": 50,
       "sugestaoCompra": 50,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -2849,17 +2834,12 @@
       "proximaEntrada": "2026-10-08T20:54:29.876000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-03T00:00:00",
-          "quantidade": 50,
-          "pedido": 472479
-        },
-        {
           "data": "2026-09-15T00:00:00",
           "quantidade": 50,
           "pedido": 472480
         }
       ],
-      "totalProgramado": 100,
+      "totalProgramado": 50,
       "sugestaoCompra": 50,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -3090,7 +3070,7 @@
       "proximaEntrada": "2028-02-28T15:52:18.063000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-07T00:00:00",
+          "data": "2026-09-10T00:00:00",
           "quantidade": 25000,
           "pedido": 463872
         },
@@ -3109,9 +3089,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-09-07",
-      "diasAtePrimeiraEntrega": 3,
-      "coberturaNaPrimeiraEntrega": 245.8,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 6,
+      "coberturaNaPrimeiraEntrega": 242.8,
       "temFichaTecnica": true,
       "projecaoBom": 4000.0,
       "consumoRealBom": 0.0
@@ -3595,9 +3575,19 @@
           "data": "2026-09-04T00:00:00",
           "quantidade": 800,
           "pedido": 472684
+        },
+        {
+          "data": "2026-09-29T00:00:00",
+          "quantidade": 2800,
+          "pedido": 473838
+        },
+        {
+          "data": "2026-10-29T00:00:00",
+          "quantidade": 2800,
+          "pedido": 473839
         }
       ],
-      "totalProgramado": 800,
+      "totalProgramado": 6400,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -3644,7 +3634,7 @@
       "sku": "52987",
       "produto": "CAIXA PAPELAO LISA OKKER 12 x 400 GR",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IBERIA IND CX PAPELAO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -3660,14 +3650,20 @@
       "desvioProjecao": -372.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-09-18T01:48:44.726000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-29T00:00:00",
+          "quantidade": 3800,
+          "pedido": 473840
+        }
+      ],
+      "totalProgramado": 3800,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-29",
+      "diasAtePrimeiraEntrega": 25,
+      "coberturaNaPrimeiraEntrega": 4.1,
       "temFichaTecnica": true,
       "projecaoBom": 450.0,
       "consumoRealBom": 78.0
@@ -3759,17 +3755,22 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-02T00:00:00",
-          "quantidade": 10000,
+          "quantidade": 11450,
           "pedido": 472699
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473871
         }
       ],
-      "totalProgramado": 10000,
+      "totalProgramado": 21450,
       "sugestaoCompra": 7000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 31,
+      "coberturaNaPrimeiraEntrega": -31.0,
       "temFichaTecnica": true,
       "projecaoBom": 5280.0,
       "consumoRealBom": 852.0
@@ -3842,7 +3843,7 @@
       "sku": "70735",
       "produto": "ETIQ ALHO FRITO OKKER 90G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DG ROTULOS",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -3858,14 +3859,20 @@
       "desvioProjecao": -3756.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-08-31T11:32:32.133000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473841
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 19.5,
       "temFichaTecnica": true,
       "projecaoBom": 3840.0,
       "consumoRealBom": 84.0
@@ -3957,17 +3964,22 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-02T00:00:00",
-          "quantidade": 10000,
+          "quantidade": 12000,
           "pedido": 472699
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473871
         }
       ],
-      "totalProgramado": 10000,
+      "totalProgramado": 22000,
       "sugestaoCompra": 5000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 31,
+      "coberturaNaPrimeiraEntrega": -16.0,
       "temFichaTecnica": true,
       "projecaoBom": 7440.0,
       "consumoRealBom": 1440.0
@@ -4072,7 +4084,7 @@
       "sku": "70799",
       "produto": "ETIQ ALHO PASTA OKKER  800G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DG ROTULOS",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -4088,14 +4100,20 @@
       "desvioProjecao": -7584.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-09-20T13:53:39.273000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473841
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 39.6,
       "temFichaTecnica": true,
       "projecaoBom": 9600.0,
       "consumoRealBom": 2016.0
@@ -4104,7 +4122,7 @@
       "sku": "70742",
       "produto": "ETIQ ALHO PASTA OKKER 200G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MF GRAFICA",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -4120,14 +4138,20 @@
       "desvioProjecao": -1116.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-08-08T17:48:49.833000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473871
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 2000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 31,
+      "coberturaNaPrimeiraEntrega": -27.3,
       "temFichaTecnica": true,
       "projecaoBom": 1200.0,
       "consumoRealBom": 84.0
@@ -4200,7 +4224,7 @@
       "sku": "70745",
       "produto": "ETIQ ALHO PASTA OKKER 400G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DG ROTULOS",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -4216,14 +4240,20 @@
       "desvioProjecao": -12216.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-08-12T14:03:47.763000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473841
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 12000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 0.6,
       "temFichaTecnica": true,
       "projecaoBom": 12600.0,
       "consumoRealBom": 384.0
@@ -4328,7 +4358,7 @@
       "sku": "70800",
       "produto": "ETIQ ALHO TRIT  OKKER 1KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DG ROTULOS",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -4344,14 +4374,25 @@
       "desvioProjecao": -14508.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-09-01T20:33:42.342000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 15000,
+          "pedido": 473841
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 15000,
+          "pedido": 473871
+        }
+      ],
+      "totalProgramado": 30000,
       "sugestaoCompra": 2000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 20.9,
       "temFichaTecnica": true,
       "projecaoBom": 15600.0,
       "consumoRealBom": 1092.0
@@ -4360,7 +4401,7 @@
       "sku": "70755",
       "produto": "ETIQ ALHO TRIT OKKER 200G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DG ROTULOS",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -4376,14 +4417,20 @@
       "desvioProjecao": -17544.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-08-15T22:25:40.429000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 25000,
+          "pedido": 473841
+        }
+      ],
+      "totalProgramado": 25000,
       "sugestaoCompra": 14000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 3.9,
       "temFichaTecnica": true,
       "projecaoBom": 18000.0,
       "consumoRealBom": 456.0
@@ -4443,17 +4490,22 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-02T00:00:00",
-          "quantidade": 10000,
+          "quantidade": 11360,
           "pedido": 472699
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473871
         }
       ],
-      "totalProgramado": 10000,
+      "totalProgramado": 21360,
       "sugestaoCompra": 6000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 31,
+      "coberturaNaPrimeiraEntrega": -31.0,
       "temFichaTecnica": true,
       "projecaoBom": 4680.0,
       "consumoRealBom": 528.0
@@ -4590,7 +4642,7 @@
       "sku": "70806",
       "produto": "ETIQ PIMENTA BIQUINHO  OKKER 250G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MF GRAFICA",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -4606,14 +4658,20 @@
       "desvioProjecao": -11544.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-09-02T03:17:10.630000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 15000,
+          "pedido": 473871
+        }
+      ],
+      "totalProgramado": 15000,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 31,
+      "coberturaNaPrimeiraEntrega": -2.9,
       "temFichaTecnica": true,
       "projecaoBom": 14400.0,
       "consumoRealBom": 2856.0
@@ -4734,20 +4792,14 @@
       "desvioProjecao": -289.6,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-15T06:30:28.639000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-04T00:00:00",
-          "quantidade": 300,
-          "pedido": 469053
-        }
-      ],
-      "totalProgramado": 300,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-04",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 6.2,
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
       "projecaoBom": 416.2,
       "consumoRealBom": 126.6
@@ -5255,11 +5307,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-02T00:00:00",
-          "quantidade": 2300,
+          "quantidade": 575,
           "pedido": 460612
         }
       ],
-      "totalProgramado": 2300,
+      "totalProgramado": 575,
       "sugestaoCompra": 1700,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -5472,7 +5524,7 @@
       "sku": "70671",
       "produto": "POTE LISO OKKER P1000 P1100",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "WS DA SILVA PLASTICO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -5488,14 +5540,20 @@
       "desvioProjecao": -14484.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-08-17T10:03:27.580000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 15000,
+          "pedido": 474070
+        }
+      ],
+      "totalProgramado": 15000,
       "sugestaoCompra": 11000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 1.4,
       "temFichaTecnica": true,
       "projecaoBom": 15600.0,
       "consumoRealBom": 1116.0
@@ -5504,7 +5562,7 @@
       "sku": "70672",
       "produto": "POTE LISO OKKER P220",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "NOVA CHAMFER",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -5520,14 +5578,25 @@
       "desvioProjecao": -32964.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-08-29T00:12:10.939000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 50000,
+          "pedido": 474036
+        },
+        {
+          "data": "2026-10-19T00:00:00",
+          "quantidade": 50000,
+          "pedido": 474069
+        }
+      ],
+      "totalProgramado": 100000,
       "sugestaoCompra": 10000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 17,
+      "coberturaNaPrimeiraEntrega": 7.0,
       "temFichaTecnica": true,
       "projecaoBom": 36120.0,
       "consumoRealBom": 3156.0
@@ -5574,7 +5643,7 @@
       "sku": "70673",
       "produto": "POTE LISO P500 LACRE TPA OKKER",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "WS DA SILVA PLASTICO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -5590,14 +5659,30 @@
       "desvioProjecao": -32208.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-08-12T03:36:26.238000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-03T00:00:00",
+          "quantidade": 8000,
+          "pedido": 473673
+        },
+        {
+          "data": "2026-09-08T00:00:00",
+          "quantidade": 20000,
+          "pedido": 473707
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 25000,
+          "pedido": 473937
+        }
+      ],
+      "totalProgramado": 53000,
       "sugestaoCompra": 31000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-08",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 3.2,
       "temFichaTecnica": true,
       "projecaoBom": 36360.0,
       "consumoRealBom": 4152.0
@@ -6598,7 +6683,7 @@
       "sku": "70686",
       "produto": "TAMPA VERMELHA OKKER P1000",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "WS DA SILVA PLASTICO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -6614,14 +6699,20 @@
       "desvioProjecao": -14484.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-08-23T07:16:22.560000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 15000,
+          "pedido": 474070
+        }
+      ],
+      "totalProgramado": 15000,
       "sugestaoCompra": 7000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 7.3,
       "temFichaTecnica": true,
       "projecaoBom": 15600.0,
       "consumoRealBom": 1116.0
@@ -6630,7 +6721,7 @@
       "sku": "70688",
       "produto": "TAMPA VERMELHA OKKER P500",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "WS DA SILVA PLASTICO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -6646,14 +6737,30 @@
       "desvioProjecao": -32208.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-08-12T03:11:49.202000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-03T00:00:00",
+          "quantidade": 8000,
+          "pedido": 473673
+        },
+        {
+          "data": "2026-09-08T00:00:00",
+          "quantidade": 20000,
+          "pedido": 473707
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 25000,
+          "pedido": 473937
+        }
+      ],
+      "totalProgramado": 53000,
       "sugestaoCompra": 31000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-08",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 3.1,
       "temFichaTecnica": true,
       "projecaoBom": 36360.0,
       "consumoRealBom": 4152.0
@@ -7437,7 +7544,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-14T00:00:00",
-          "quantidade": 1500,
+          "quantidade": 1597,
           "pedido": 444303
         },
         {
@@ -7446,7 +7553,7 @@
           "pedido": 459392
         }
       ],
-      "totalProgramado": 3000,
+      "totalProgramado": 3097,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -7627,7 +7734,7 @@
       "sku": "45362",
       "produto": "LOGISTICA - FILME STRETCH AUTOMATICO 500x0,30",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "GLOBEPACK INDUSTRIA E COMERCIO EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -7643,14 +7750,20 @@
       "desvioProjecao": -827.3,
       "loteMinimo": 100,
       "proximaEntrada": "2026-12-09T15:39:56.876000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 2000,
+          "pedido": 473642
+        }
+      ],
+      "totalProgramado": 2000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 26,
+      "coberturaNaPrimeiraEntrega": 85.7,
       "temFichaTecnica": true,
       "projecaoBom": 882.5,
       "consumoRealBom": 55.2
@@ -9623,12 +9736,12 @@
       "proximaEntrada": "2026-09-14T15:34:06.386000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-04T00:00:00",
+          "data": "2026-09-14T00:00:00",
           "quantidade": 500,
           "pedido": 453510
         },
         {
-          "data": "2026-09-04T00:00:00",
+          "data": "2026-09-10T00:00:00",
           "quantidade": 600,
           "pedido": 458824
         }
@@ -9637,9 +9750,9 @@
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-04",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 10.7,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 6,
+      "coberturaNaPrimeiraEntrega": 4.7,
       "temFichaTecnica": true,
       "projecaoBom": 432.0,
       "consumoRealBom": 33.4
@@ -10684,7 +10797,7 @@
       "proximaEntrada": "2027-01-10T22:19:24.981000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-04T00:00:00",
+          "data": "2026-09-14T00:00:00",
           "quantidade": 300,
           "pedido": 410017
         }
@@ -10693,9 +10806,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-09-04",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 107.7,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 10,
+      "coberturaNaPrimeiraEntrega": 97.7,
       "temFichaTecnica": true,
       "projecaoBom": 124.1,
       "consumoRealBom": 11.7
@@ -11901,11 +12014,6 @@
       "proximaEntrada": "2026-11-10T02:48:18.028000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-02T00:00:00",
-          "quantidade": 20000,
-          "pedido": 443808
-        },
-        {
           "data": "2026-09-11T00:00:00",
           "quantidade": 20000,
           "pedido": 458723
@@ -11931,7 +12039,7 @@
           "pedido": 466229
         }
       ],
-      "totalProgramado": 120000,
+      "totalProgramado": 100000,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -11964,17 +12072,12 @@
       "proximaEntrada": "2026-10-19T09:20:18.840000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-02T00:00:00",
-          "quantidade": 9900,
-          "pedido": 458712
-        },
-        {
           "data": "2026-09-22T00:00:00",
           "quantidade": 10000,
           "pedido": 466230
         }
       ],
-      "totalProgramado": 19900,
+      "totalProgramado": 10000,
       "sugestaoCompra": 5000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -12106,7 +12209,7 @@
       "sku": "45362",
       "produto": "LOGISTICA - FILME STRETCH AUTOMATICO",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "GLOBEPACK INDUSTRIA E COMERCIO EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -12419,7 +12522,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-03T00:00:00",
-          "quantidade": 13200,
+          "quantidade": 200,
           "pedido": 472484
         },
         {
@@ -12433,7 +12536,7 @@
           "pedido": 472722
         }
       ],
-      "totalProgramado": 43200,
+      "totalProgramado": 30200,
       "sugestaoCompra": 20000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -13015,7 +13118,7 @@
       "sku": "78882",
       "produto": "MP - COCO RALADO EM FLOCOS KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "LC COCOS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13031,14 +13134,25 @@
       "desvioProjecao": -2561.3,
       "loteMinimo": 3000,
       "proximaEntrada": "2026-08-20T04:18:15.388000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 6000,
+          "pedido": 474168
+        },
+        {
+          "data": "2026-11-16T00:00:00",
+          "quantidade": 6000,
+          "pedido": 474169
+        }
+      ],
+      "totalProgramado": 12000,
       "sugestaoCompra": 3000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": -6.8,
       "temFichaTecnica": true,
       "projecaoBom": 2940.5,
       "consumoRealBom": 379.2
@@ -14029,11 +14143,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-03T00:00:00",
-          "quantidade": 300,
+          "quantidade": 20,
           "pedido": 460614
         }
       ],
-      "totalProgramado": 300,
+      "totalProgramado": 20,
       "sugestaoCompra": 400,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -14187,7 +14301,7 @@
       "sku": "43524",
       "produto": "MP - MISTURA PAO DE QUEIJO KG AMP 30",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "PIONEIRA ALIMENTOS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -14203,14 +14317,20 @@
       "desvioProjecao": -2313.0,
       "loteMinimo": 2000,
       "proximaEntrada": "2026-08-23T06:06:22.752000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-08T00:00:00",
+          "quantidade": 3000,
+          "pedido": 473970
+        }
+      ],
+      "totalProgramado": 3000,
       "sugestaoCompra": 2000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-08",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": -0.7,
       "temFichaTecnica": true,
       "projecaoBom": 2400.0,
       "consumoRealBom": 87.0
