@@ -831,15 +831,65 @@
           "data": "2026-09-03T00:00:00",
           "quantidade": 135,
           "pedido": 474102
+        },
+        {
+          "data": "2026-09-04T00:00:00",
+          "quantidade": 1780,
+          "pedido": 472435
+        },
+        {
+          "data": "2026-09-09T00:00:00",
+          "quantidade": 1780,
+          "pedido": 472437
+        },
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 1780,
+          "pedido": 472614
+        },
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 1780,
+          "pedido": 472615
+        },
+        {
+          "data": "2026-09-16T00:00:00",
+          "quantidade": 1780,
+          "pedido": 472616
+        },
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 1780,
+          "pedido": 472617
+        },
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 1780,
+          "pedido": 472620
+        },
+        {
+          "data": "2026-09-24T00:00:00",
+          "quantidade": 1780,
+          "pedido": 472621
+        },
+        {
+          "data": "2026-09-28T00:00:00",
+          "quantidade": 1780,
+          "pedido": 472622
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 1780,
+          "pedido": 472623
         }
       ],
-      "totalProgramado": 175,
+      "totalProgramado": 17975,
       "sugestaoCompra": 12460,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-09-04",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 0.7
     },
     {
       "sku": "97662",
@@ -2356,9 +2406,14 @@
           "data": "2026-09-25T00:00:00",
           "quantidade": 360,
           "pedido": 458956
+        },
+        {
+          "data": "2026-09-25T00:00:00",
+          "quantidade": 840,
+          "pedido": 458956
         }
       ],
-      "totalProgramado": 360,
+      "totalProgramado": 1200,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -2450,20 +2505,14 @@
       "desvioProjecao": 436,
       "loteMinimo": 840,
       "proximaEntrada": "2026-10-10T10:08:27.705000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-25T00:00:00",
-          "quantidade": 840,
-          "pedido": 458956
-        }
-      ],
-      "totalProgramado": 840,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-09-25",
-      "diasAtePrimeiraEntrega": 21,
-      "coberturaNaPrimeiraEntrega": 35.4
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null
     },
     {
       "sku": "48123",
