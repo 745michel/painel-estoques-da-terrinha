@@ -1800,10 +1800,14 @@ function EscadinhaInsumosDashboard({
             </tr></tfoot>
           </table>
         </div>
-        <h3 className="drawer-section-label" style={{ marginTop: 20 }}>COMO CHEGUEI NESSE NÚMERO ({selected.detalhamento.length} produto{selected.detalhamento.length === 1 ? "" : "s"} da escadinha)</h3>
+        <h3 className="drawer-section-label" style={{ marginTop: 20 }}>COMO CHEGUEI NESSE NÚMERO EM {mesLabel(meses[mesAtualIndex]).toUpperCase()} ({selected.detalhamento.length} produto{selected.detalhamento.length === 1 ? "" : "s"} da escadinha)</h3>
+        {/* Pedido do usuario, 04/09/2026: "nessa aba eu quero a programação do mês vigente" -
+            detalhamento passou a mostrar so o mes atual (nao mais o total do ano), tanto pra
+            Escadinha projetada (derivada de volta: mensal[mesAtual]/consumoPorUnidade, mesmo
+            truque ja usado na tabela de 12 meses acima) quanto pra necessidade do insumo. */}
         {selected.detalhamento.length === 0 ? <p style={{ color: "var(--muted, #667)", fontSize: 13 }}>Sem detalhamento disponível pra essa linha.</p> : <div className="table-wrap">
           <table className="consumption-table escadinha-drawer-table">
-            <thead><tr><th>Produto da escadinha</th><th title="Plano anual do PRODUTO em si (não do insumo), na unidade que a escadinha usa pra ele.">Escadinha projetada</th><th>Consumo/un.</th><th>Total ano (insumo)</th></tr></thead>
+            <thead><tr><th>Produto da escadinha</th><th title="Plano do PRODUTO em si no mês vigente (não do insumo), na unidade que a escadinha usa pra ele.">Escadinha projetada ({mesLabel(meses[mesAtualIndex])})</th><th>Consumo/un.</th><th>Necessidade {mesLabel(meses[mesAtualIndex])} (insumo)</th></tr></thead>
             <tbody>
               {detalheOrdenado.map((c) => <tr key={`${c.codRaiz}-${c.produtoRaiz}`}>
                 <td>
@@ -1812,16 +1816,16 @@ function EscadinhaInsumosDashboard({
                     <small>Cód. {c.codRaiz ?? "—"}{c.caminho.length > 0 ? ` · via ${c.caminho.join(" → ")}` : ""}</small>
                   </div></div>
                 </td>
-                <td>{c.escadinhaPlanoAnual != null ? <>{number.format(c.escadinhaPlanoAnual)} <small className="unit">{c.escadinhaUnidade === "FD" ? "fardos" : "cx"}</small></> : "—"}</td>
+                <td>{c.consumoPorUnidade > 0 ? <>{number.format(c.mensal[mesAtualIndex] / c.consumoPorUnidade)} <small className="unit">{c.escadinhaUnidade === "FD" ? "fardos" : "cx"}</small></> : "—"}</td>
                 <td>{new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 4 }).format(c.consumoPorUnidade)}</td>
-                <td><strong className="numeric">{number.format(c.mensal.reduce((s, v) => s + v, 0))}</strong></td>
+                <td><strong className="numeric">{number.format(c.mensal[mesAtualIndex])}</strong></td>
               </tr>)}
             </tbody>
             <tfoot><tr className="escadinha-total-row">
               <td><strong>Total ({detalheOrdenado.length})</strong></td>
-              <td>{unidadesContribuintes.size > 0 ? <strong className="numeric">{number.format(detalheOrdenado.reduce((s, c) => s + (c.escadinhaPlanoAnual ?? 0), 0))} <small className="unit">{unidadeEscadinha}</small></strong> : "—"}</td>
+              <td>{unidadesContribuintes.size > 0 ? <strong className="numeric">{number.format(detalheOrdenado.reduce((s, c) => s + (c.consumoPorUnidade > 0 ? c.mensal[mesAtualIndex] / c.consumoPorUnidade : 0), 0))} <small className="unit">{unidadeEscadinha}</small></strong> : "—"}</td>
               <td />
-              <td><strong className="numeric">{number.format(detalheOrdenado.reduce((s, c) => s + c.mensal.reduce((a, b) => a + b, 0), 0))}</strong></td>
+              <td><strong className="numeric">{number.format(detalheOrdenado.reduce((s, c) => s + c.mensal[mesAtualIndex], 0))}</strong></td>
             </tr></tfoot>
           </table>
         </div>}
