@@ -2363,15 +2363,51 @@ function FornecedoresDashboard({
     return porAno;
   }, [rankingContexto, grupoAtual, anos]);
 
+  const produtoFocoAtivo = produtosSelecionados.length > 0 && focoFornecedores.length === 0;
+
+  // Serie mensal (por ano) do(s) produto(s) selecionado(s), somada atraves de TODOS os
+  // fornecedores que vendem esse produto - usada no lugar de serieAgregada (todos os
+  // fornecedores, sem filtro de produto) quando produtoFocoAtivo esta ligado e nenhum
+  // fornecedor especifico foi clicado (tlFornecedor null). Mesmo cuidado de "so uma entrada
+  // por fornecedor" documentado em abrirProduto/itemFocoGaveta - cada entrada de produto ja
+  // embute todos os anos em serieAnoMes, entao pegar de mais de um ano-bucket dobraria o valor.
+  const itensProdutoFoco = useMemo(() => {
+    if (produtosSelecionados.length === 0) return [] as FornecedorProduto[];
+    const itens: FornecedorProduto[] = [];
+    for (const fornecedor of grupoAtual.listaFornecedores) {
+      for (const nome of produtosSelecionados) {
+        for (const ano of anos) {
+          const item = grupoAtual.produtos[ano]?.[fornecedor]?.find((p) => p.p === nome);
+          if (item) { itens.push(item); break; }
+        }
+      }
+    }
+    return itens;
+  }, [produtosSelecionados, grupoAtual, anos]);
+
+  const serieAgregadaProduto = useMemo(() => {
+    const [merged] = somarProdutos([itensProdutoFoco.map((item) => ({ ...item, p: "__produto_foco__" }))]);
+    const porAno: Record<string, FornecedorMesSerie[]> = {};
+    for (const ano of anos) {
+      const meses = merged?.serieAnoMes?.[ano];
+      porAno[ano] = meses ? meses.map((m) => ({ ...m })) : Array.from({ length: 12 }, () => ({ kg: 0, caixas: 0, valor: 0, valorBruto: 0 }));
+    }
+    return porAno;
+  }, [itensProdutoFoco, anos]);
+
   function totalAnoFornecedor(fornecedor: string | null, ano: string, metrica: "kg" | "caixas" | "valor" | "valorBruto") {
-    const meses = fornecedor ? grupoAtual.serieAnoMes[fornecedor]?.[ano] : serieAgregada[ano];
+    const meses = fornecedor
+      ? grupoAtual.serieAnoMes[fornecedor]?.[ano]
+      : (produtoFocoAtivo ? serieAgregadaProduto[ano] : serieAgregada[ano]);
     if (!meses) return 0;
     return meses.reduce((s, m) => s + m[metrica], 0);
   }
 
   const anosLigados = anos.filter((ano) => anosAtivos[ano] !== false);
-  const tlLabel = tlFornecedor ?? `Todos os fornecedores (${rankingContexto.fornecedores})`;
-  const serieFornecedor = tlFornecedor ? grupoAtual.serieAnoMes[tlFornecedor] : serieAgregada;
+  const tlLabel = tlFornecedor ?? (produtoFocoAtivo
+    ? (produtosSelecionados.length > 1 ? `${produtosSelecionados.length} produtos` : produtosSelecionados[0])
+    : `Todos os fornecedores (${rankingContexto.fornecedores})`);
+  const serieFornecedor = tlFornecedor ? grupoAtual.serieAnoMes[tlFornecedor] : (produtoFocoAtivo ? serieAgregadaProduto : serieAgregada);
   const maxMensal = Math.max(
     1,
     ...anosLigados.flatMap((ano) => (serieFornecedor?.[ano] ?? []).map((m) => m[tlMetrica])),
@@ -2427,6 +2463,16 @@ function FornecedoresDashboard({
     setFocoFornecedores(valores);
     setProdutosSelecionados([]);
     setTlFornecedor(valores.length > 0 ? valores[0] : null);
+  }
+
+  // Achado real do usuario (09/09/2026): escolher um produto no filtro "Produto" (sem
+  // fornecedor focado) nao mudava o grafico "Comparativo anual"/KPIs do topo - eles ficavam
+  // presos em tlFornecedor (de um clique anterior num fornecedor) ou no agregado de "Todos os
+  // fornecedores", ignorando o produto escolhido. Limpa tlFornecedor ao trocar de produto pra
+  // nao ficar preso num fornecedor de uma selecao anterior.
+  function mudarProdutosSelecionados(valores: string[]) {
+    setProdutosSelecionados(valores);
+    setTlFornecedor(null);
   }
 
   const fornecedoresParaFoco = grupoAtual.listaFornecedores;
@@ -2571,6 +2617,20 @@ function FornecedoresDashboard({
     linhas.sort((a, b) => b.valor - a.valor);
     return linhas;
   }, [produtosSelecionados, grupoAtual, escopoGaveta]);
+
+  // KPIs do topo (Total pago/comprado/fornecedores/concentração) quando produtoFocoAtivo -
+  // reaproveita rankingPorProdutoSelecionado, que ja soma certo por escopoGaveta (ano ativo).
+  const kpisProduto = useMemo(() => {
+    if (!produtoFocoAtivo) return null;
+    const lista = rankingPorProdutoSelecionado ?? [];
+    const totalValor = lista.reduce((s, r) => s + r.valor, 0);
+    const totalBruto = lista.reduce((s, r) => s + r.valorBruto, 0);
+    const totalKg = lista.reduce((s, r) => s + r.kg, 0);
+    const top3 = [...lista].sort((a, b) => b.valor - a.valor).slice(0, 3).reduce((s, r) => s + r.valor, 0);
+    const concentracao = totalValor > 0 ? Math.round((top3 / totalValor) * 100) : 0;
+    return { totalBruto, totalKg, fornecedores: lista.length, concentracao };
+  }, [produtoFocoAtivo, rankingPorProdutoSelecionado]);
+
   const metricasFoco = focoFornecedores
     .map((f) => grupoAtual.metricas[escopoGaveta]?.[f])
     .filter((m): m is FornecedorMetrica => m != null);
@@ -2648,9 +2708,9 @@ function FornecedoresDashboard({
             label="Produto"
             options={(focoFornecedores.length > 0 ? opcoesProduto : opcoesProdutoGlobal).map((p) => ({ value: p, label: p }))}
             selected={produtosSelecionados}
-            onChange={setProdutosSelecionados}
+            onChange={mudarProdutosSelecionados}
           />
-          {produtosSelecionados.length > 0 && <button type="button" className="forn-foco-clear" onClick={() => setProdutosSelecionados([])}>× Limpar produto</button>}
+          {produtosSelecionados.length > 0 && <button type="button" className="forn-foco-clear" onClick={() => mudarProdutosSelecionados([])}>× Limpar produto</button>}
 
           <label className="forn-grupo-interno-toggle">
             <input type="checkbox" checked={mostrarGrupoInterno} onChange={(event) => setMostrarGrupoInterno(event.target.checked)} />
@@ -2669,6 +2729,13 @@ function FornecedoresDashboard({
             <div className="value-kpi"><span>Kg/Caixa comprado</span><strong>{metricaFocoCombinada && qtdCaixaOuKg(metricaFocoCombinada) || "não pesado (cx/un)"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi"><span>Preço médio</span><strong>{metricaFocoCombinada?.precoMedioKg != null ? `${currency.format(metricaFocoCombinada.precoMedioKg)}/kg` : "—"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi missing"><span>Variação de preço</span><strong className={metricaFocoCombinada?.variacaoPrecoPct == null ? "" : metricaFocoCombinada.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaFocoCombinada?.variacaoPrecoPct != null ? `${metricaFocoCombinada.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaFocoCombinada.variacaoPrecoPct)}%` : focoFornecedores.length > 1 ? "vários" : "—"}</strong><small>&nbsp;</small></div>
+          </section>
+        ) : produtoFocoAtivo && kpisProduto ? (
+          <section className="value-kpis" aria-label={`Indicadores de ${produtosSelecionados.join(", ")}`}>
+            <div className="value-kpi total"><span>Total pago no período</span><strong>{currency.format(kpisProduto.totalBruto)}</strong><small>Valor bruto, antes de descontar PIS/COFINS</small></div>
+            <div className="value-kpi"><span>Total comprado</span><strong>{number.format(Math.round(kpisProduto.totalKg / 1000))} t</strong><small>Só linhas com peso identificado (kg/ton)</small></div>
+            <div className="value-kpi"><span>Fornecedores no período</span><strong>{number.format(kpisProduto.fornecedores)}</strong><small>&nbsp;</small></div>
+            <div className="value-kpi missing"><span>Concentração top 3</span><strong>{kpisProduto.concentracao}%</strong><small>Do valor total pago vem de só 3 fornecedores</small></div>
           </section>
         ) : (
           <section className="value-kpis" aria-label="Indicadores de fornecedores">
@@ -2978,7 +3045,7 @@ function FornecedoresDashboard({
             {somaB && <td>{pctTotal != null ? <strong className={pctTotal >= 0 ? "up" : "down"}>{pctTotal >= 0 ? "+" : ""}{decimal.format(pctTotal)}%</strong> : "—"}</td>}
           </tr>;
         })()}</tfoot></table></div>
-        <p className="drawer-note">% comparação = variação do valor pago em {anos[1]} contra o mesmo mês de {anos[0]}.</p>
+        <p className="drawer-note">Mês = data de recebimento da nota fiscal (não a de emissão, usada no resto desta aba). % comparação = variação do valor pago em {anos[1]} contra o mesmo mês de {anos[0]}.</p>
       </div>
     </div>}
   </main>;
