@@ -2585,13 +2585,15 @@ function FornecedoresDashboard({
     return <>
       {filtradas.length === 0 ? <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro pra ver os produtos.</p></div> : <div className="table-wrap forn-produtos-tabela-wrap"><table className="values-table forn-produtos-tabela"><thead><tr>
         <th>Produto</th>
-        {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>, <th key={`${ano}-b`}>{ano} · Preço bruto</th>])}
+        {anos.flatMap((ano) => [<th key={`${ano}-v`}>{ano} · Valor bruto</th>, <th key={`${ano}-q`}>{ano} · Kg/Caixa</th>, <th key={`${ano}-b`}>{ano} · Preço bruto</th>])}
         <th>Preço última NF</th>
       </tr></thead><tbody>
         {filtradas.map((l) => <tr key={l.nome} onClick={() => abrirProduto(l)} style={{ cursor: "pointer" }}>
           <td><div className="product-cell"><div><strong>{l.nome}</strong></div></div></td>
           {anos.flatMap((ano) => [
-            <td key={`${ano}-v`}>{l.dados[ano].valor ? <strong className="money-value">{currency.format(l.dados[ano].valor)}</strong> : <span className="price-missing">—</span>}</td>,
+            // Pedido do usuario (09/09/2026): coluna de valor virou bruto (antes de PIS/COFINS),
+            // consistente com "Preço bruto"/"Valor bruto pago por ano" ja usados nesta mesma aba.
+            <td key={`${ano}-v`}>{l.dados[ano].valorBruto ? <strong className="money-value">{currency.format(l.dados[ano].valorBruto)}</strong> : <span className="price-missing">—</span>}</td>,
             <td key={`${ano}-q`}>{qtdCaixaOuKg(l.dados[ano]) || "—"}</td>,
             <td key={`${ano}-b`}>{precoBruto(l.dados[ano]) || "—"}</td>,
           ])}
