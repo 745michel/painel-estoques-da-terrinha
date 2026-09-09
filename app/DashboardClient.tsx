@@ -2422,6 +2422,16 @@ function FornecedoresDashboard({
     setTlFornecedor(fornecedor);
   }
 
+  // Usado na tabela "Fornecedores · produto" (produtoFocoAtivo): abre a gaveta lateral com
+  // aquele fornecedor, mas SEM trocar tlFornecedor - achado real do usuario (09/09/2026): "no
+  // grafico esta aparecendo so um fornecedor da caixa escolhida mas eu comprei de dois
+  // fornecedores" - clicar numa linha da tabela travava o grafico/KPIs do topo num unico
+  // fornecedor, escondendo a soma dos outros que tambem vendem aquele produto. O grafico
+  // principal deve continuar somando todo mundo que vende o produto selecionado.
+  function abrirGavetaProduto(fornecedor: string) {
+    setSelectedFornecedor(fornecedor);
+  }
+
   const escopoGaveta = anoRanking === "todos" ? "todos" : anoRanking;
   const metricaGaveta = selectedFornecedor ? grupoAtual.metricas[escopoGaveta]?.[selectedFornecedor] ?? null : null;
   const produtosGaveta = selectedFornecedor ? grupoAtual.produtos[escopoGaveta]?.[selectedFornecedor] ?? [] : [];
@@ -2891,7 +2901,7 @@ function FornecedoresDashboard({
           return <section className="inventory-panel values-panel">
             <div className="panel-heading"><div><h2>Fornecedores · {tituloProduto}</h2><p>Quem vende esse{produtosSelecionados.length > 1 ? "s" : ""} produto{produtosSelecionados.length > 1 ? "s" : ""} e quanto pagamos a cada um · {anoRanking === "todos" ? `${anos[0]}–${anoMaisRecente}` : anoRanking}</p></div></div>
             <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th style={{ width: 40 }}>#</th><th>Fornecedor</th><th>Valor pago</th><th>Kg/Caixa comprado</th><th>Preço bruto</th><th>% do total</th></tr></thead><tbody>
-              {filtradoProduto.map((r, i) => <tr key={r.f} onClick={() => abrirGaveta(r.f)} style={{ cursor: "pointer" }}>
+              {filtradoProduto.map((r, i) => <tr key={r.f} onClick={() => abrirGavetaProduto(r.f)} style={{ cursor: "pointer" }}>
                 <td><span className={`rk-badge ${i < 3 ? "top3" : ""}`}>{i + 1}</span></td>
                 <td><div className="product-cell"><div><strong>{r.f}</strong></div></div></td>
                 <td><strong className="money-value">{currency.format(r.valor)}</strong></td>
