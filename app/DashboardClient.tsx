@@ -2363,18 +2363,26 @@ function FornecedoresDashboard({
     return porAno;
   }, [rankingContexto, grupoAtual, anos]);
 
-  const produtoFocoAtivo = produtosSelecionados.length > 0 && focoFornecedores.length === 0;
+  // Achado real do usuario (09/09/2026): com um fornecedor E um produto escolhidos ao mesmo
+  // tempo, o grafico continuava mostrando o total do(s) fornecedor(es) inteiro (todos os
+  // produtos), ignorando o filtro de Produto - "quando eu escolher o fornecedor e um tipo de
+  // caixa especifico eu quero que apareça no grafico so o item selecionado". Agora
+  // produtoFocoAtivo vale sempre que ha produto selecionado, com ou sem fornecedor(es)
+  // focado(s) junto - so muda o CONJUNTO de fornecedores somado (so os focados, quando houver).
+  const produtoFocoAtivo = produtosSelecionados.length > 0;
 
-  // Serie mensal (por ano) do(s) produto(s) selecionado(s), somada atraves de TODOS os
-  // fornecedores que vendem esse produto - usada no lugar de serieAgregada (todos os
-  // fornecedores, sem filtro de produto) quando produtoFocoAtivo esta ligado e nenhum
-  // fornecedor especifico foi clicado (tlFornecedor null). Mesmo cuidado de "so uma entrada
-  // por fornecedor" documentado em abrirProduto/itemFocoGaveta - cada entrada de produto ja
-  // embute todos os anos em serieAnoMes, entao pegar de mais de um ano-bucket dobraria o valor.
+  // Serie mensal (por ano) do(s) produto(s) selecionado(s), somada atraves dos fornecedores em
+  // foco (focoFornecedores, quando houver) ou de TODOS os fornecedores que vendem esse produto
+  // (sem fornecedor focado) - usada no lugar de serieAgregada quando produtoFocoAtivo esta
+  // ligado e nenhum fornecedor UNICO foi clicado (tlFornecedor null). Mesmo cuidado de "so uma
+  // entrada por fornecedor" documentado em abrirProduto/itemFocoGaveta - cada entrada de
+  // produto ja embute todos os anos em serieAnoMes, entao pegar de mais de um ano-bucket
+  // dobraria o valor.
   const itensProdutoFoco = useMemo(() => {
     if (produtosSelecionados.length === 0) return [] as FornecedorProduto[];
+    const fornecedoresBase = focoFornecedores.length > 0 ? focoFornecedores : grupoAtual.listaFornecedores;
     const itens: FornecedorProduto[] = [];
-    for (const fornecedor of grupoAtual.listaFornecedores) {
+    for (const fornecedor of fornecedoresBase) {
       for (const nome of produtosSelecionados) {
         for (const ano of anos) {
           const item = grupoAtual.produtos[ano]?.[fornecedor]?.find((p) => p.p === nome);
@@ -2383,7 +2391,7 @@ function FornecedoresDashboard({
       }
     }
     return itens;
-  }, [produtosSelecionados, grupoAtual, anos]);
+  }, [produtosSelecionados, focoFornecedores, grupoAtual, anos]);
 
   const serieAgregadaProduto = useMemo(() => {
     const [merged] = somarProdutos([itensProdutoFoco.map((item) => ({ ...item, p: "__produto_foco__" }))]);
@@ -2616,8 +2624,9 @@ function FornecedoresDashboard({
   const rankingPorProdutoSelecionado = useMemo(() => {
     if (produtosSelecionados.length === 0) return null;
     const nomesSet = new Set(produtosSelecionados);
+    const fornecedoresBase = focoFornecedores.length > 0 ? focoFornecedores : grupoAtual.listaFornecedores;
     const linhas: { f: string; valor: number; valorBruto: number; kg: number; caixas: number }[] = [];
-    for (const fornecedor of grupoAtual.listaFornecedores) {
+    for (const fornecedor of fornecedoresBase) {
       let valor = 0, valorBruto = 0, kg = 0, caixas = 0;
       for (const p of grupoAtual.produtos[escopoGaveta]?.[fornecedor] ?? []) {
         if (nomesSet.has(p.p)) { valor += p.valor; valorBruto += p.valorBruto; kg += p.kg; caixas += p.caixas; }
@@ -2626,7 +2635,7 @@ function FornecedoresDashboard({
     }
     linhas.sort((a, b) => b.valor - a.valor);
     return linhas;
-  }, [produtosSelecionados, grupoAtual, escopoGaveta]);
+  }, [produtosSelecionados, focoFornecedores, grupoAtual, escopoGaveta]);
 
   // KPIs do topo (Total pago/comprado/fornecedores/concentração) quando produtoFocoAtivo -
   // reaproveita rankingPorProdutoSelecionado, que ja soma certo por escopoGaveta (ano ativo).
@@ -2733,19 +2742,23 @@ function FornecedoresDashboard({
           <button className={anoRanking === "todos" ? "selected" : ""} onClick={() => setAnoAtivo("todos")}>Todos ({anos[0]}–{anoMaisRecente})</button>
         </div>
 
-        {focoFornecedores.length > 0 ? (
+        {produtoFocoAtivo && kpisProduto ? (
+          // Produto selecionado (com ou sem fornecedor(es) focado(s) junto) tem prioridade -
+          // pedido do usuario, 09/09/2026: "quando eu escolher o fornecedor e um tipo de caixa
+          // especifico eu quero que apareça no grafico so o item selecionado". kpisProduto ja
+          // soma so os fornecedores em foco (ou todos, sem foco) restrito ao(s) produto(s).
+          <section className="value-kpis" aria-label={`Indicadores de ${produtosSelecionados.join(", ")}${focoFornecedores.length > 0 ? ` · ${focoFornecedores.join(", ")}` : ""}`}>
+            <div className="value-kpi total"><span>Total pago no período</span><strong>{currency.format(kpisProduto.totalBruto)}</strong><small>Valor bruto, antes de descontar PIS/COFINS</small></div>
+            <div className="value-kpi"><span>Total comprado</span><strong>{number.format(Math.round(kpisProduto.totalKg / 1000))} t</strong><small>Só linhas com peso identificado (kg/ton)</small></div>
+            <div className="value-kpi"><span>Fornecedores no período</span><strong>{number.format(kpisProduto.fornecedores)}</strong><small>&nbsp;</small></div>
+            <div className="value-kpi missing"><span>Concentração top 3</span><strong>{kpisProduto.concentracao}%</strong><small>Do valor total pago vem de só 3 fornecedores</small></div>
+          </section>
+        ) : focoFornecedores.length > 0 ? (
           <section className="value-kpis" aria-label={`Indicadores de ${focoFornecedores.join(", ")}`}>
             <div className="value-kpi total"><span>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}){focoFornecedores.length > 1 ? ` · ${focoFornecedores.length} fornecedores` : ""}</span><strong>{currency.format(metricaFocoCombinada?.valor ?? 0)}</strong><small>Líquido de estorno e devolução de compra</small></div>
             <div className="value-kpi"><span>Kg/Caixa comprado</span><strong>{metricaFocoCombinada && qtdCaixaOuKg(metricaFocoCombinada) || "não pesado (cx/un)"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi"><span>Preço médio</span><strong>{metricaFocoCombinada?.precoMedioKg != null ? `${currency.format(metricaFocoCombinada.precoMedioKg)}/kg` : "—"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi missing"><span>Variação de preço</span><strong className={metricaFocoCombinada?.variacaoPrecoPct == null ? "" : metricaFocoCombinada.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaFocoCombinada?.variacaoPrecoPct != null ? `${metricaFocoCombinada.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaFocoCombinada.variacaoPrecoPct)}%` : focoFornecedores.length > 1 ? "vários" : "—"}</strong><small>&nbsp;</small></div>
-          </section>
-        ) : produtoFocoAtivo && kpisProduto ? (
-          <section className="value-kpis" aria-label={`Indicadores de ${produtosSelecionados.join(", ")}`}>
-            <div className="value-kpi total"><span>Total pago no período</span><strong>{currency.format(kpisProduto.totalBruto)}</strong><small>Valor bruto, antes de descontar PIS/COFINS</small></div>
-            <div className="value-kpi"><span>Total comprado</span><strong>{number.format(Math.round(kpisProduto.totalKg / 1000))} t</strong><small>Só linhas com peso identificado (kg/ton)</small></div>
-            <div className="value-kpi"><span>Fornecedores no período</span><strong>{number.format(kpisProduto.fornecedores)}</strong><small>&nbsp;</small></div>
-            <div className="value-kpi missing"><span>Concentração top 3</span><strong>{kpisProduto.concentracao}%</strong><small>Do valor total pago vem de só 3 fornecedores</small></div>
           </section>
         ) : (
           <section className="value-kpis" aria-label="Indicadores de fornecedores">
