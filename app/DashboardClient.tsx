@@ -69,6 +69,7 @@ type EscadinhaInsumoLinha = {
   descricao: string;
   mensal: number[];
   mensalAnterior: number[] | null;
+  mensalReal: number[];
   totalAno: number;
   detalhamento: EscadinhaInsumoContribuicao[];
 };
@@ -1502,12 +1503,10 @@ function EscadinhaInsumosDashboard({
   onSectionChange,
   canViewValues,
   escadinhaInsumosData,
-  consumoData,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
   escadinhaInsumosData: EscadinhaInsumosData;
-  consumoData: ConsumoData;
 }) {
   const [query, setQuery] = useState("");
   const [lojas, setLojas] = useState<string[]>([]);
@@ -1529,25 +1528,17 @@ function EscadinhaInsumosDashboard({
   const indiceMesesSemestre = semestre === 1 ? [0, 1, 2, 3, 4, 5] : [6, 7, 8, 9, 10, 11];
   const mesLabel = (m: string) => m.charAt(0).toUpperCase() + m.slice(1);
 
-  // Insumo realizado (pedido do usuario, 01/09/2026: "e o insumo realizado é possível?") -
-  // consumo real ja existe em Consumo de insumos (dados-consumo-insumos.json, pipeline ODBC
-  // confiavel), so cruza por (sku, loja) + mes do ano corrente - nao precisa de calculo novo.
-  const anoAtual = new Date().getFullYear();
-  const realPorSkuLoja = useMemo(() => {
-    const mapa = new Map<string, number[]>();
-    for (const p of consumoData.produtos as { sku: string; loja: string; historico: { mes: string; consumoLiquido: number }[] }[]) {
-      const anual = Array<number | null>(12).fill(null);
-      for (const h of p.historico) {
-        const [ano, mesNum] = h.mes.split("-");
-        if (Number(ano) === anoAtual) anual[Number(mesNum) - 1] = h.consumoLiquido;
-      }
-      mapa.set(`${p.sku}-${p.loja}`, anual as number[]);
-    }
-    return mapa;
-  }, [consumoData, anoAtual]);
-  function realDoInsumo(sku: number, loja: string): (number | null)[] {
-    return realPorSkuLoja.get(`${sku}-${loja}`) ?? Array(12).fill(null);
-  }
+  // Insumo realizado (pedido do usuario, 01/09/2026: "e o insumo realizado é possível?",
+  // trocado em 10/09/2026: "vc consegue calcular oque foi vendido que vem da planilha corte
+  // com a ficha tecnica pra mostra esse numero real"). Antes cruzava direto com a baixa de
+  // estoque em Consumo de insumos (dados-consumo-insumos.json) - descoberto um caso real
+  // (SKU 49688, MP - TAPIOCA GRANULADA TIPO1) onde a baixa de estoque de um mes (42.863 kg)
+  // nao batia nem perto com o que a producao real daquele mes precisava pela ficha tecnica
+  // (26.378 kg, pra 5.441 cx reais de "TAPIOCA DA TERRINHA GRANULADA 400G") - sinal de baixa
+  // de estoque lancada fora de hora/em lote na origem, nao um numero confiavel pra comparar
+  // com a ficha tecnica. Agora usa linha.mensalReal, ja calculado por bom_explosion.py
+  // explodindo o Real (faturado/vendido, vindo do mesmo BI de cortes) pela ficha tecnica -
+  // mesmo mecanismo ja usado em "Consumo realizado" na aba Embalagens/MP.
 
   const lojaOptions = useMemo(
     () => Array.from(new Set(linhas.map((l) => l.loja)))
@@ -1735,7 +1726,7 @@ function EscadinhaInsumosDashboard({
                 const mudou = hasComparacao && anterior != null && Math.abs(atual - anterior) >= 0.1;
                 const diferenca = mudou ? atual - (anterior as number) : 0;
                 const percentual = mudou && anterior ? (diferenca / anterior) * 100 : null;
-                const real = index <= mesAtualIndex ? realDoInsumo(linha.sku, linha.loja)[index] : null;
+                const real = index <= mesAtualIndex ? linha.mensalReal[index] : null;
                 return <td key={index} className={`${index === mesAtualIndex ? "escadinha-mes-atual" : ""} ${mudou ? (diferenca > 0 ? "escadinha-delta-up" : "escadinha-delta-down") : ""}`}>
                   <strong className="numeric">{number.format(atual)}</strong>
                   {mudou && <small className="unit">{diferenca > 0 ? "+" : ""}{number.format(diferenca)}{percentual != null && ` (${percentual > 0 ? "+" : ""}${decimal.format(percentual)}%)`}</small>}
@@ -1783,7 +1774,7 @@ function EscadinhaInsumosDashboard({
             <thead><tr><th>Mês</th><th title="Soma do plano dos produtos da escadinha que usam esse insumo, na unidade deles (caixa/fardo) — não é a necessidade do insumo, é a produção planejada.">Escadinha projetada</th><th>Necessidade calculada</th><th>Realizado</th></tr></thead>
             <tbody>
               {meses.map((mes, index) => {
-                const real = index <= mesAtualIndex ? realDoInsumo(selected.sku, selected.loja)[index] : null;
+                const real = index <= mesAtualIndex ? selected.mensalReal[index] : null;
                 return <tr key={mes} className={index === mesAtualIndex ? "selected-row" : ""}>
                   <td>{mesLabel(mes)}</td>
                   <td>{unidadesContribuintes.size > 0 ? <>{number.format(escadinhaMensal[index])} <small className="unit">{unidadeEscadinha}</small></> : <span className="no-projection">—</span>}</td>
@@ -1796,7 +1787,7 @@ function EscadinhaInsumosDashboard({
               <td><strong>Total ano</strong></td>
               <td>{unidadesContribuintes.size > 0 ? <strong className="numeric">{number.format(escadinhaMensal.reduce((s, v) => s + v, 0))} <small className="unit">{unidadeEscadinha}</small></strong> : "—"}</td>
               <td><strong className="numeric">{number.format(selected.mensal.reduce((s, v) => s + v, 0))}</strong></td>
-              <td><strong className="numeric">{number.format(meses.reduce((s, _, i) => s + (i <= mesAtualIndex ? (realDoInsumo(selected.sku, selected.loja)[i] ?? 0) : 0), 0))}</strong></td>
+              <td><strong className="numeric">{number.format(meses.reduce((s, _, i) => s + (i <= mesAtualIndex ? (selected.mensalReal[i] ?? 0) : 0), 0))}</strong></td>
             </tr></tfoot>
           </table>
         </div>
@@ -3360,7 +3351,7 @@ export default function DashboardClient({
   if (isValues && valoresData) return <ValuesDashboard onSectionChange={changeSection} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} />;
   if (isConsumption) return <ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} />;
   if (isEscadinha) return <EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} pedidosVendaData={pedidosVendaData} />;
-  if (isEscadinhaInsumos) return <EscadinhaInsumosDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaInsumosData={escadinhaInsumosData} consumoData={consumoData} />;
+  if (isEscadinhaInsumos) return <EscadinhaInsumosDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaInsumosData={escadinhaInsumosData} />;
   if (isPedidosVenda) return <PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} />;
   if (isValorProdutoAcabado && valoresProdutoAcabadoData) return <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} />;
   if (isFornecedores && fornecedoresData) return <FornecedoresDashboard onSectionChange={changeSection} canViewValues={canViewValues} fornecedoresData={fornecedoresData} />;
