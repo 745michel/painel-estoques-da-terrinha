@@ -2763,7 +2763,9 @@ function FornecedoresDashboard({
                 usada no "Total pago no periodo" da visao sem foco). */}
             <div className="value-kpi total"><span>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}){focoFornecedores.length > 1 ? ` · ${focoFornecedores.length} fornecedores` : ""}</span><strong>{currency.format(rankingContexto.totalBruto)}</strong><small>Valor bruto</small></div>
             <div className="value-kpi"><span>Kg/Caixa comprado</span><strong>{metricaFocoCombinada && qtdCaixaOuKg(metricaFocoCombinada) || "não pesado (cx/un)"}</strong><small>&nbsp;</small></div>
-            <div className="value-kpi"><span>Preço médio</span><strong>{metricaFocoCombinada?.precoMedioKg != null ? `${currency.format(metricaFocoCombinada.precoMedioKg)}/kg` : "—"}</strong><small>&nbsp;</small></div>
+            {/* "Preço médio" removido por pedido do usuario, 10/09/2026 - "tirar esse card por
+                enquanto" (calculado em liquido, inconsistente com o card de Valor pago acima
+                que agora e bruto). Reavaliar se/quando o preco medio tambem virar bruto. */}
             <div className="value-kpi missing"><span>Variação de preço</span><strong className={metricaFocoCombinada?.variacaoPrecoPct == null ? "" : metricaFocoCombinada.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaFocoCombinada?.variacaoPrecoPct != null ? `${metricaFocoCombinada.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaFocoCombinada.variacaoPrecoPct)}%` : focoFornecedores.length > 1 ? "vários" : "—"}</strong><small>&nbsp;</small></div>
           </section>
         ) : (
