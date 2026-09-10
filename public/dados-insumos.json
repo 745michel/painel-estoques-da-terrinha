@@ -1,12 +1,12 @@
 {
-  "atualizadoEm": "2026-09-10T09:17:27",
+  "atualizadoEm": "2026-09-10T09:45:58",
   "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS (fornecedor e entregas programadas: compras_a_receber.json; projecaoBom: ficha_tecnica.json + dados-escadinha.json)",
   "produtos": [
     {
       "sku": "21704",
       "produto": "BOBINA PARA FARDO LISA 1050 X 55",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "PLASTIMARAU IND EMBAL FLEXIVEL",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -38,7 +38,7 @@
       "sku": "50982",
       "produto": "BOBINA PARA FARDOS 500G TAPIOCA DATERRINHA COM COD. BARRAS",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "LORDTECH POLIMEROS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -54,14 +54,25 @@
       "desvioProjecao": -1297.2,
       "loteMinimo": 500,
       "proximaEntrada": "2027-02-18T08:51:07.051000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 1500,
+          "pedido": 467456
+        },
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 2500,
+          "pedido": 471891
+        }
+      ],
+      "totalProgramado": 4000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 20,
+      "coberturaNaPrimeiraEntrega": 94.7,
       "temFichaTecnica": true,
       "projecaoBom": 1680.0,
       "consumoRealBom": 382.8
@@ -70,7 +81,7 @@
       "sku": "13384",
       "produto": "BOBINA PARA FARDOS 78,0 CM 1 KG LISO",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "LORDTECH POLIMEROS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -86,14 +97,20 @@
       "desvioProjecao": -379.2,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-30T08:35:49.826000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-20T00:00:00",
+          "quantidade": 600,
+          "pedido": 467635
+        }
+      ],
+      "totalProgramado": 600,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-20",
+      "diasAtePrimeiraEntrega": 40,
+      "coberturaNaPrimeiraEntrega": 23.2,
       "temFichaTecnica": true,
       "projecaoBom": 440.2,
       "consumoRealBom": 61.0
@@ -102,7 +119,7 @@
       "sku": "50981",
       "produto": "BOBINA PARA FARDOS 78,0 CM 1 KG TAPIOCA DA TERRINHA COM COD. BARRAS",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "LORDTECH POLIMEROS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -118,14 +135,30 @@
       "desvioProjecao": -1844.5,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-26T22:22:12.843000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-24T00:00:00",
+          "quantidade": 2000,
+          "pedido": 460131
+        },
+        {
+          "data": "2026-10-28T00:00:00",
+          "quantidade": 2000,
+          "pedido": 467454
+        },
+        {
+          "data": "2026-11-26T00:00:00",
+          "quantidade": 2000,
+          "pedido": 475358
+        }
+      ],
+      "totalProgramado": 6000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-24",
+      "diasAtePrimeiraEntrega": 14,
+      "coberturaNaPrimeiraEntrega": 51.8,
       "temFichaTecnica": true,
       "projecaoBom": 2640.0,
       "consumoRealBom": 795.5
@@ -134,7 +167,7 @@
       "sku": "91000",
       "produto": "BOBINA PARA FARDOS 85,0 CM 500G LISO",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "PLASTICO DU VALE",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -150,14 +183,20 @@
       "desvioProjecao": null,
       "loteMinimo": 500,
       "proximaEntrada": "2026-09-10T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-08T00:00:00",
+          "quantidade": 600,
+          "pedido": 475360
+        }
+      ],
+      "totalProgramado": 600,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-08",
+      "diasAtePrimeiraEntrega": 28,
+      "coberturaNaPrimeiraEntrega": -28.0,
       "temFichaTecnica": false,
       "projecaoBom": null,
       "consumoRealBom": null
@@ -262,7 +301,7 @@
       "sku": "121685",
       "produto": "BOBINA TAPIOCA BULNEZ 1 KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -278,14 +317,30 @@
       "desvioProjecao": -478.5,
       "loteMinimo": 500,
       "proximaEntrada": "2027-05-11T23:55:23.382000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 1000,
+          "pedido": 457605
+        },
+        {
+          "data": "2026-11-16T00:00:00",
+          "quantidade": 1000,
+          "pedido": 457607
+        },
+        {
+          "data": "2026-12-21T00:00:00",
+          "quantidade": 1000,
+          "pedido": 457608
+        }
+      ],
+      "totalProgramado": 3000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 105.3,
       "temFichaTecnica": true,
       "projecaoBom": 576.0,
       "consumoRealBom": 97.5
@@ -294,7 +349,7 @@
       "sku": "121686",
       "produto": "BOBINA TAPIOCA BULNEZ 500G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -310,14 +365,30 @@
       "desvioProjecao": -566.2,
       "loteMinimo": 500,
       "proximaEntrada": "2027-03-26T14:43:38.736000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 1000,
+          "pedido": 457605
+        },
+        {
+          "data": "2026-11-16T00:00:00",
+          "quantidade": 1000,
+          "pedido": 457607
+        },
+        {
+          "data": "2026-12-21T00:00:00",
+          "quantidade": 1000,
+          "pedido": 457608
+        }
+      ],
+      "totalProgramado": 3000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 64.0,
       "temFichaTecnica": true,
       "projecaoBom": 588.0,
       "consumoRealBom": 21.8
@@ -358,7 +429,7 @@
       "sku": "8067",
       "produto": "BOBINA TAPIOCA DA TERRINHA 1 KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -374,14 +445,60 @@
       "desvioProjecao": -10097.7,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-12T20:42:56.273000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 1795,
+          "pedido": 459492
+        },
+        {
+          "data": "2026-09-16T00:00:00",
+          "quantidade": 3000,
+          "pedido": 459494
+        },
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 3000,
+          "pedido": 459495
+        },
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 3000,
+          "pedido": 459496
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 3000,
+          "pedido": 459497
+        },
+        {
+          "data": "2026-10-07T00:00:00",
+          "quantidade": 4200,
+          "pedido": 472636
+        },
+        {
+          "data": "2026-10-14T00:00:00",
+          "quantidade": 4200,
+          "pedido": 472637
+        },
+        {
+          "data": "2026-10-21T00:00:00",
+          "quantidade": 4200,
+          "pedido": 472638
+        },
+        {
+          "data": "2026-10-28T00:00:00",
+          "quantidade": 4200,
+          "pedido": 472640
+        }
+      ],
+      "totalProgramado": 30595,
       "sugestaoCompra": 1500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 18.0,
       "temFichaTecnica": true,
       "projecaoBom": 14400.0,
       "consumoRealBom": 4302.3
@@ -390,7 +507,7 @@
       "sku": "96245",
       "produto": "BOBINA TAPIOCA DA TERRINHA 1 KG TRILAMINADA",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -406,14 +523,20 @@
       "desvioProjecao": null,
       "loteMinimo": 500,
       "proximaEntrada": null,
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 500,
+          "pedido": 472603
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-26",
+      "diasAtePrimeiraEntrega": 46,
+      "coberturaNaPrimeiraEntrega": -46.0,
       "temFichaTecnica": false,
       "projecaoBom": null,
       "consumoRealBom": null
@@ -422,7 +545,7 @@
       "sku": "14546",
       "produto": "BOBINA TAPIOCA DA TERRINHA 500 G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -438,14 +561,85 @@
       "desvioProjecao": -12962.7,
       "loteMinimo": 500,
       "proximaEntrada": "2026-10-31T05:20:18.360000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 1864,
+          "pedido": 444600
+        },
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 4000,
+          "pedido": 459492
+        },
+        {
+          "data": "2026-09-16T00:00:00",
+          "quantidade": 4000,
+          "pedido": 459494
+        },
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 4000,
+          "pedido": 459495
+        },
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 4000,
+          "pedido": 459496
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 4000,
+          "pedido": 459497
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 250,
+          "pedido": 468988
+        },
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 300,
+          "pedido": 472216
+        },
+        {
+          "data": "2026-11-30T00:00:00",
+          "quantidade": 300,
+          "pedido": 472218
+        },
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 250,
+          "pedido": 472307
+        },
+        {
+          "data": "2026-10-07T00:00:00",
+          "quantidade": 4500,
+          "pedido": 472636
+        },
+        {
+          "data": "2026-10-14T00:00:00",
+          "quantidade": 4500,
+          "pedido": 472637
+        },
+        {
+          "data": "2026-10-21T00:00:00",
+          "quantidade": 4500,
+          "pedido": 472638
+        },
+        {
+          "data": "2026-10-28T00:00:00",
+          "quantidade": 4500,
+          "pedido": 472640
+        }
+      ],
+      "totalProgramado": 40964,
       "sugestaoCompra": 6500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 13.6,
       "temFichaTecnica": true,
       "projecaoBom": 17808.0,
       "consumoRealBom": 4845.3
@@ -454,7 +648,7 @@
       "sku": "17905",
       "produto": "BOBINA TAPIOCA DA TERRINHA 500 G 05 IDIOMAS (SUBSTITUIU EUA TRILINGUE)",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -470,14 +664,25 @@
       "desvioProjecao": 0.0,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-16T10:46:20.030000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 600,
+          "pedido": 453147
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 500,
+          "pedido": 462519
+        }
+      ],
+      "totalProgramado": 1100,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 29.7,
       "temFichaTecnica": true,
       "projecaoBom": 0.0,
       "consumoRealBom": 0.0
@@ -486,7 +691,7 @@
       "sku": "17904",
       "produto": "BOBINA TAPIOCA DA TERRINHA 500 G PORTUGAL",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -502,14 +707,20 @@
       "desvioProjecao": -474.2,
       "loteMinimo": 500,
       "proximaEntrada": "2026-12-21T16:43:50.240000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 1000,
+          "pedido": 383553
+        }
+      ],
+      "totalProgramado": 1000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 20,
+      "coberturaNaPrimeiraEntrega": 80.8,
       "temFichaTecnica": true,
       "projecaoBom": 1185.6,
       "consumoRealBom": 711.4
@@ -518,7 +729,7 @@
       "sku": "72009",
       "produto": "BOBINA TAPIOCA DA TERRINHA 70 G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -534,14 +745,30 @@
       "desvioProjecao": -2376.8,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-21T04:31:27.424000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-28T00:00:00",
+          "quantidade": 800,
+          "pedido": 317223
+        },
+        {
+          "data": "2026-11-10T00:00:00",
+          "quantidade": 800,
+          "pedido": 317223
+        },
+        {
+          "data": "2026-09-22T00:00:00",
+          "quantidade": 800,
+          "pedido": 358339
+        }
+      ],
+      "totalProgramado": 2400,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-22",
+      "diasAtePrimeiraEntrega": 12,
+      "coberturaNaPrimeiraEntrega": 68.9,
       "temFichaTecnica": true,
       "projecaoBom": 3256.5,
       "consumoRealBom": 879.7
@@ -550,7 +777,7 @@
       "sku": "12746",
       "produto": "BOBINA TAPIOCA DA TERRINHA 90 G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -566,8 +793,14 @@
       "desvioProjecao": 0.0,
       "loteMinimo": 500,
       "proximaEntrada": "2026-09-28T05:33:13.267000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-09T00:00:00",
+          "quantidade": 800,
+          "pedido": 475389
+        }
+      ],
+      "totalProgramado": 800,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -582,7 +815,7 @@
       "sku": "25384",
       "produto": "BOBINA TAPIOCA DELIOCA 80 G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -598,14 +831,55 @@
       "desvioProjecao": -882.1,
       "loteMinimo": 500,
       "proximaEntrada": "2026-10-14T07:19:42.390000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 500,
+          "pedido": 466777
+        },
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 500,
+          "pedido": 468558
+        },
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 500,
+          "pedido": 472642
+        },
+        {
+          "data": "2026-10-07T00:00:00",
+          "quantidade": 500,
+          "pedido": 472643
+        },
+        {
+          "data": "2026-10-21T00:00:00",
+          "quantidade": 500,
+          "pedido": 472644
+        },
+        {
+          "data": "2026-10-14T00:00:00",
+          "quantidade": 800,
+          "pedido": 475390
+        },
+        {
+          "data": "2026-11-04T00:00:00",
+          "quantidade": 800,
+          "pedido": 475391
+        },
+        {
+          "data": "2026-11-18T00:00:00",
+          "quantidade": 800,
+          "pedido": 475392
+        }
+      ],
+      "totalProgramado": 4900,
       "sugestaoCompra": 1500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 8,
+      "coberturaNaPrimeiraEntrega": -8.0,
       "temFichaTecnica": true,
       "projecaoBom": 1092.0,
       "consumoRealBom": 209.9
@@ -710,7 +984,7 @@
       "sku": "113765",
       "produto": "BOBINA TAPIOCA KRILL 500G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -726,14 +1000,20 @@
       "desvioProjecao": 0.0,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-15T10:13:43.535000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 300,
+          "pedido": 472216
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-26",
+      "diasAtePrimeiraEntrega": 46,
+      "coberturaNaPrimeiraEntrega": -23.9,
       "temFichaTecnica": true,
       "projecaoBom": 0.0,
       "consumoRealBom": 0.0
@@ -774,7 +1054,7 @@
       "sku": "69127",
       "produto": "BOBINA TAPIOCA MERC 1 KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -790,14 +1070,20 @@
       "desvioProjecao": -112.9,
       "loteMinimo": 500,
       "proximaEntrada": "2026-12-09T10:03:09.572000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 500,
+          "pedido": 466479
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 17.1,
       "temFichaTecnica": true,
       "projecaoBom": 138.2,
       "consumoRealBom": 25.3
@@ -870,7 +1156,7 @@
       "sku": "20324",
       "produto": "BOBINA TAPIOCA OBA 500 G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -886,14 +1172,20 @@
       "desvioProjecao": -195.8,
       "loteMinimo": 500,
       "proximaEntrada": "2027-02-06T19:53:00.741000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-11-30T00:00:00",
+          "quantidade": 300,
+          "pedido": 472218
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-11-30",
+      "diasAtePrimeiraEntrega": 81,
+      "coberturaNaPrimeiraEntrega": 48.2,
       "temFichaTecnica": true,
       "projecaoBom": 195.8,
       "consumoRealBom": 0.0
@@ -902,7 +1194,7 @@
       "sku": "34427",
       "produto": "BOBINA TAPIOCA OBA 80 G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -918,14 +1210,20 @@
       "desvioProjecao": -346.5,
       "loteMinimo": 500,
       "proximaEntrada": "2026-12-18T00:16:50.983000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 700,
+          "pedido": 453213
+        }
+      ],
+      "totalProgramado": 700,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-12",
+      "diasAtePrimeiraEntrega": 32,
+      "coberturaNaPrimeiraEntrega": 31.9,
       "temFichaTecnica": true,
       "projecaoBom": 346.5,
       "consumoRealBom": 0.0
@@ -934,7 +1232,7 @@
       "sku": "77021",
       "produto": "BOBINA TAPIOCA OKKER 400 G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -950,14 +1248,20 @@
       "desvioProjecao": -22.9,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-05T10:59:02.463000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 1000,
+          "pedido": 475436
+        }
+      ],
+      "totalProgramado": 1000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 75.5,
       "temFichaTecnica": true,
       "projecaoBom": 33.0,
       "consumoRealBom": 10.1
@@ -966,7 +1270,7 @@
       "sku": "77020",
       "produto": "BOBINA TAPIOCA OKKER 800 G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -982,14 +1286,25 @@
       "desvioProjecao": -6.7,
       "loteMinimo": 500,
       "proximaEntrada": "2027-01-16T07:59:38.291000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 500,
+          "pedido": 455624
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 1000,
+          "pedido": 475435
+        }
+      ],
+      "totalProgramado": 1500,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 3.6,
       "temFichaTecnica": true,
       "projecaoBom": 13.8,
       "consumoRealBom": 7.1
@@ -1094,7 +1409,7 @@
       "sku": "6765",
       "produto": "BOBINA TAPIOCA PUBLIC 1 KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -1110,14 +1425,20 @@
       "desvioProjecao": -127.0,
       "loteMinimo": 500,
       "proximaEntrada": "2027-05-30T15:59:36.910000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-29T00:00:00",
+          "quantidade": 500,
+          "pedido": 400942
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-29",
+      "diasAtePrimeiraEntrega": 19,
+      "coberturaNaPrimeiraEntrega": 135.6,
       "temFichaTecnica": true,
       "projecaoBom": 141.1,
       "consumoRealBom": 14.1
@@ -1286,7 +1607,7 @@
       "sku": "50148",
       "produto": "BOBINA TAPIOCA TAEQ SOLTINHA   80 G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -1302,14 +1623,20 @@
       "desvioProjecao": -89.6,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-05T02:54:02.911000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-28T00:00:00",
+          "quantidade": 500,
+          "pedido": 463877
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-28",
+      "diasAtePrimeiraEntrega": 18,
+      "coberturaNaPrimeiraEntrega": 0.4,
       "temFichaTecnica": true,
       "projecaoBom": 89.6,
       "consumoRealBom": 0.0
@@ -1574,7 +1901,7 @@
       "sku": "94280",
       "produto": "BOBINA TAPIOCA X 1KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -1590,14 +1917,20 @@
       "desvioProjecao": -73.9,
       "loteMinimo": 500,
       "proximaEntrada": "2027-02-10T20:34:40.570000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 500,
+          "pedido": 459797
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 17.6,
       "temFichaTecnica": true,
       "projecaoBom": 96.0,
       "consumoRealBom": 22.1
@@ -1670,7 +2003,7 @@
       "sku": "79303",
       "produto": "CAIXA DE PAPELAO NA MEDIDA 12X490G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "ARTIVINCO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -1686,14 +2019,25 @@
       "desvioProjecao": -9224.0,
       "loteMinimo": 5000,
       "proximaEntrada": "2026-10-21T13:19:38.545000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 10000,
+          "pedido": 458731
+        },
+        {
+          "data": "2026-10-02T00:00:00",
+          "quantidade": 10000,
+          "pedido": 466215
+        }
+      ],
+      "totalProgramado": 20000,
       "sugestaoCompra": 5000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 10.5,
       "temFichaTecnica": true,
       "projecaoBom": 13000.0,
       "consumoRealBom": 3776.0
@@ -1734,7 +2078,7 @@
       "sku": "10724",
       "produto": "CAIXA PAPELAO TAPIOCA DA TERRINHA 12 X 1KG - UNID",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IBERIA IND CX PAPELAO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -1750,14 +2094,75 @@
       "desvioProjecao": -31759.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-11-02T13:20:56.592000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 12000,
+          "pedido": 459364
+        },
+        {
+          "data": "2026-09-25T00:00:00",
+          "quantidade": 12000,
+          "pedido": 459366
+        },
+        {
+          "data": "2026-10-06T00:00:00",
+          "quantidade": 12000,
+          "pedido": 466216
+        },
+        {
+          "data": "2026-10-13T00:00:00",
+          "quantidade": 12000,
+          "pedido": 466217
+        },
+        {
+          "data": "2026-10-20T00:00:00",
+          "quantidade": 12000,
+          "pedido": 466219
+        },
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 12000,
+          "pedido": 466220
+        },
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 12000,
+          "pedido": 472634
+        },
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 12000,
+          "pedido": 475455
+        },
+        {
+          "data": "2026-11-09T00:00:00",
+          "quantidade": 12000,
+          "pedido": 475488
+        },
+        {
+          "data": "2026-11-16T00:00:00",
+          "quantidade": 12000,
+          "pedido": 475489
+        },
+        {
+          "data": "2026-11-23T00:00:00",
+          "quantidade": 12000,
+          "pedido": 475490
+        },
+        {
+          "data": "2026-11-30T00:00:00",
+          "quantidade": 1200,
+          "pedido": 475491
+        }
+      ],
+      "totalProgramado": 133200,
       "sugestaoCompra": 10000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 13.9,
       "temFichaTecnica": true,
       "projecaoBom": 45000.0,
       "consumoRealBom": 13241.0
@@ -1766,7 +2171,7 @@
       "sku": "10725",
       "produto": "CAIXA PAPELAO TAPIOCA DA TERRINHA 24 X 500 GR - UNID",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IBERIA IND CX PAPELAO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -1782,14 +2187,70 @@
       "desvioProjecao": -33430.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-11-11T22:07:32.470000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-09T00:00:00",
+          "quantidade": 15000,
+          "pedido": 459355
+        },
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 15000,
+          "pedido": 459356
+        },
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 15000,
+          "pedido": 459358
+        },
+        {
+          "data": "2026-09-28T00:00:00",
+          "quantidade": 15000,
+          "pedido": 459360
+        },
+        {
+          "data": "2026-10-08T00:00:00",
+          "quantidade": 15000,
+          "pedido": 466221
+        },
+        {
+          "data": "2026-10-15T00:00:00",
+          "quantidade": 15000,
+          "pedido": 466222
+        },
+        {
+          "data": "2026-10-22T00:00:00",
+          "quantidade": 15000,
+          "pedido": 466223
+        },
+        {
+          "data": "2026-10-29T00:00:00",
+          "quantidade": 15000,
+          "pedido": 466224
+        },
+        {
+          "data": "2026-11-12T00:00:00",
+          "quantidade": 15000,
+          "pedido": 475492
+        },
+        {
+          "data": "2026-11-19T00:00:00",
+          "quantidade": 15000,
+          "pedido": 475493
+        },
+        {
+          "data": "2026-11-26T00:00:00",
+          "quantidade": 15000,
+          "pedido": 475495
+        }
+      ],
+      "totalProgramado": 165000,
       "sugestaoCompra": 10000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 10.1,
       "temFichaTecnica": true,
       "projecaoBom": 52500.0,
       "consumoRealBom": 19070.0
@@ -1798,7 +2259,7 @@
       "sku": "25484",
       "produto": "CAIXA PAPELAO TAPIOCA DELIOCA WRAPIOCA UN",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "ARTIVINCO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -1814,14 +2275,30 @@
       "desvioProjecao": -4299.0,
       "loteMinimo": 5000,
       "proximaEntrada": "2026-11-04T21:50:43.453000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 6000,
+          "pedido": 466225
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 6000,
+          "pedido": 472458
+        },
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 6000,
+          "pedido": 475496
+        }
+      ],
+      "totalProgramado": 18000,
       "sugestaoCompra": 5000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 10.1,
       "temFichaTecnica": true,
       "projecaoBom": 5700.0,
       "consumoRealBom": 1401.0
@@ -1830,7 +2307,7 @@
       "sku": "79161",
       "produto": "CAIXA PAPELAO TAPIOCA MARCA PROPRIA",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IBERIA IND CX PAPELAO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -1846,14 +2323,25 @@
       "desvioProjecao": -6978.0,
       "loteMinimo": 5000,
       "proximaEntrada": "2026-11-23T08:32:09.555000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 7000,
+          "pedido": 457613
+        },
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 7000,
+          "pedido": 472461
+        }
+      ],
+      "totalProgramado": 14000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 21.0,
       "temFichaTecnica": true,
       "projecaoBom": 7302.0,
       "consumoRealBom": 324.0
@@ -1862,7 +2350,7 @@
       "sku": "82260",
       "produto": "CAIXA PAPELAO WRAP TRADICIONAL",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "ARTIVINCO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -1878,14 +2366,25 @@
       "desvioProjecao": -7571.0,
       "loteMinimo": 5000,
       "proximaEntrada": "2026-12-19T16:29:47.891000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-22T00:00:00",
+          "quantidade": 12000,
+          "pedido": 443742
+        },
+        {
+          "data": "2026-09-22T00:00:00",
+          "quantidade": 12000,
+          "pedido": 458727
+        }
+      ],
+      "totalProgramado": 24000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-22",
+      "diasAtePrimeiraEntrega": 12,
+      "coberturaNaPrimeiraEntrega": 19.8,
       "temFichaTecnica": true,
       "projecaoBom": 10000.0,
       "consumoRealBom": 2429.0
@@ -1894,7 +2393,7 @@
       "sku": "45362",
       "produto": "LOGISTICA - FILME STRETCH AUTOMATICO",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "GLOBEPACK INDUSTRIA E COMERCIO EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -1910,14 +2409,20 @@
       "desvioProjecao": -2324.8,
       "loteMinimo": 300,
       "proximaEntrada": "2026-09-18T11:00:58.874000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 1600,
+          "pedido": 474500
+        }
+      ],
+      "totalProgramado": 1600,
       "sugestaoCompra": 900,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-23",
+      "diasAtePrimeiraEntrega": 13,
+      "coberturaNaPrimeiraEntrega": 10.5,
       "temFichaTecnica": true,
       "projecaoBom": 3220.3,
       "consumoRealBom": 895.5
@@ -1926,7 +2431,7 @@
       "sku": "50961",
       "produto": "LOGISTICA - FILME STRETCH MANUAL 500x0,15 / 500x0,25",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "METAFILM EMBALAGENS PLASTICAS LTDA",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -1990,7 +2495,7 @@
       "sku": "70900",
       "produto": "MP - ACIDO LATICO 85% FG OKKER KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2006,14 +2511,20 @@
       "desvioProjecao": -454.7,
       "loteMinimo": 200,
       "proximaEntrada": "2026-10-04T02:07:54.040000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 320,
+          "pedido": 472480
+        }
+      ],
+      "totalProgramado": 320,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 18.2,
       "temFichaTecnica": true,
       "projecaoBom": 600.6,
       "consumoRealBom": 145.9
@@ -2054,7 +2565,7 @@
       "sku": "45683",
       "produto": "MP - ANTI-MOFO CONSTAPI",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "HEALTHY BREAD CONSERVANTES ALIMENTICIOS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2070,14 +2581,20 @@
       "desvioProjecao": -118.9,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-05T15:05:03.909000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 250,
+          "pedido": 472477
+        }
+      ],
+      "totalProgramado": 250,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 19.9,
       "temFichaTecnica": true,
       "projecaoBom": 157.1,
       "consumoRealBom": 38.2
@@ -2150,7 +2667,7 @@
       "sku": "70909",
       "produto": "MP - GOMA XANTANA MESH (TIPO 200)  KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2166,14 +2683,20 @@
       "desvioProjecao": -53.5,
       "loteMinimo": 50,
       "proximaEntrada": "2026-10-16T14:21:29.238000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-29T00:00:00",
+          "quantidade": 50,
+          "pedido": 472481
+        }
+      ],
+      "totalProgramado": 50,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-29",
+      "diasAtePrimeiraEntrega": 19,
+      "coberturaNaPrimeiraEntrega": 11.5,
       "temFichaTecnica": true,
       "projecaoBom": 70.6,
       "consumoRealBom": 17.1
@@ -2182,7 +2705,7 @@
       "sku": "46310",
       "produto": "MP - LEITE EM PO INTEGRAL KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "LATICINIOS SANTA RITA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2198,14 +2721,25 @@
       "desvioProjecao": -2924.4,
       "loteMinimo": 500,
       "proximaEntrada": "2026-10-12T08:35:41.796000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-09T00:00:00",
+          "quantidade": 2000,
+          "pedido": 472652
+        },
+        {
+          "data": "2026-09-29T00:00:00",
+          "quantidade": 2000,
+          "pedido": 472653
+        }
+      ],
+      "totalProgramado": 4000,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-29",
+      "diasAtePrimeiraEntrega": 19,
+      "coberturaNaPrimeiraEntrega": -2.5,
       "temFichaTecnica": true,
       "projecaoBom": 3862.7,
       "consumoRealBom": 938.3
@@ -2214,7 +2748,7 @@
       "sku": "80165",
       "produto": "MP - OVO EM PO  INTEGRAL KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "P.R. NETTO INDUSTRIA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2230,14 +2764,20 @@
       "desvioProjecao": -951.1,
       "loteMinimo": 700,
       "proximaEntrada": "2026-09-25T10:11:23.336000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-10T00:00:00",
+          "quantidade": 700,
+          "pedido": 472475
+        }
+      ],
+      "totalProgramado": 700,
       "sugestaoCompra": 700,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 13.8,
       "temFichaTecnica": true,
       "projecaoBom": 1256.2,
       "consumoRealBom": 305.1
@@ -2246,7 +2786,7 @@
       "sku": "49800",
       "produto": "MP - PROPIONATO DE CALCIO",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2262,14 +2802,25 @@
       "desvioProjecao": -118.9,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-27T01:19:33.723000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 110,
+          "pedido": 472480
+        },
+        {
+          "data": "2026-09-29T00:00:00",
+          "quantidade": 110,
+          "pedido": 472481
+        }
+      ],
+      "totalProgramado": 220,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 15.4,
       "temFichaTecnica": true,
       "projecaoBom": 157.1,
       "consumoRealBom": 38.2
@@ -2310,7 +2861,7 @@
       "sku": "70897",
       "produto": "MP - SORBATO DE POTÁSSIO KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2326,14 +2877,20 @@
       "desvioProjecao": -49.3,
       "loteMinimo": 50,
       "proximaEntrada": "2026-10-19T14:16:26.350000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 50,
+          "pedido": 472480
+        }
+      ],
+      "totalProgramado": 50,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 27.4,
       "temFichaTecnica": true,
       "projecaoBom": 65.1,
       "consumoRealBom": 15.8
@@ -2374,7 +2931,7 @@
       "sku": "78860",
       "produto": "SACO POUCH TAPIOCA DA TERRINHA 490GR",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "PLASTICO DU VALE",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -2390,14 +2947,30 @@
       "desvioProjecao": -110688.0,
       "loteMinimo": 50000,
       "proximaEntrada": "2026-10-10T18:22:45.305000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 50000,
+          "pedido": 441960
+        },
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 100000,
+          "pedido": 459374
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 50000,
+          "pedido": 472656
+        }
+      ],
+      "totalProgramado": 200000,
       "sugestaoCompra": 50000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 24.7,
       "temFichaTecnica": true,
       "projecaoBom": 156000.0,
       "consumoRealBom": 45312.0
@@ -2406,7 +2979,7 @@
       "sku": "25804",
       "produto": "SACO POUCH TAPIOCA DELIOCA 560GR",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "PLASTICO DU VALE",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -2422,14 +2995,30 @@
       "desvioProjecao": -48468.0,
       "loteMinimo": 50000,
       "proximaEntrada": "2026-10-03T12:05:50.103000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 37970,
+          "pedido": 459387
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 50000,
+          "pedido": 472655
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 50000,
+          "pedido": 475501
+        }
+      ],
+      "totalProgramado": 137970,
       "sugestaoCompra": 50000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 20,
+      "coberturaNaPrimeiraEntrega": -5.7,
       "temFichaTecnica": true,
       "projecaoBom": 60000.0,
       "consumoRealBom": 11532.0
@@ -2470,7 +3059,7 @@
       "sku": "34469",
       "produto": "SACO POUCH TAPIOCA OBA 560GR",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "PLASTICO DU VALE",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -2486,14 +3075,20 @@
       "desvioProjecao": -18000.0,
       "loteMinimo": 35000,
       "proximaEntrada": "2027-01-10T20:51:30.573000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 50000,
+          "pedido": 459388
+        }
+      ],
+      "totalProgramado": 50000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 59.3,
       "temFichaTecnica": true,
       "projecaoBom": 18000.0,
       "consumoRealBom": 0.0
@@ -2502,7 +3097,7 @@
       "sku": "50153",
       "produto": "SACO POUCH TAPIOCA TAEQ 560 GR SOLTINHA",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -2518,14 +3113,30 @@
       "desvioProjecao": -4000.0,
       "loteMinimo": 50000,
       "proximaEntrada": "2027-09-17T02:04:44.840000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 25000,
+          "pedido": 463872
+        },
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 25000,
+          "pedido": 463874
+        },
+        {
+          "data": "2026-10-30T00:00:00",
+          "quantidade": 25000,
+          "pedido": 463875
+        }
+      ],
+      "totalProgramado": 75000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 170.7,
       "temFichaTecnica": true,
       "projecaoBom": 4000.0,
       "consumoRealBom": 0.0
@@ -2566,7 +3177,7 @@
       "sku": "81121",
       "produto": "SACO WRAP DE TAPIOCA ORIGINAL DA TERRINHA 150 G",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "PLASTICO DU VALE",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -2582,14 +3193,25 @@
       "desvioProjecao": -90852.0,
       "loteMinimo": 50000,
       "proximaEntrada": "2027-06-05T21:17:57.387000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 640440,
+          "pedido": 427178
+        },
+        {
+          "data": "2026-10-30T00:00:00",
+          "quantidade": 50000,
+          "pedido": 441993
+        }
+      ],
+      "totalProgramado": 690440,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 93.6,
       "temFichaTecnica": true,
       "projecaoBom": 120000.0,
       "consumoRealBom": 29148.0
@@ -2662,7 +3284,7 @@
       "sku": "70667",
       "produto": "BALDE SGF ALHO PASTA OKKER 2.2",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "WS DA SILVA PLASTICO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -2678,14 +3300,30 @@
       "desvioProjecao": -300.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2027-02-08T19:24:28.329000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 5000,
+          "pedido": 441927
+        },
+        {
+          "data": "2026-09-24T00:00:00",
+          "quantidade": 2500,
+          "pedido": 472700
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 2500,
+          "pedido": 472702
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 65.4,
       "temFichaTecnica": true,
       "projecaoBom": 2400.0,
       "consumoRealBom": 2100.0
@@ -2726,7 +3364,7 @@
       "sku": "70708",
       "produto": "BALDE SGF ALHO TRIT OKKER 3.2",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "WS DA SILVA PLASTICO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -2742,14 +3380,30 @@
       "desvioProjecao": 2208.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-12-03T17:05:37.301000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 12000,
+          "pedido": 441927
+        },
+        {
+          "data": "2026-09-24T00:00:00",
+          "quantidade": 6000,
+          "pedido": 472700
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 6000,
+          "pedido": 472702
+        }
+      ],
+      "totalProgramado": 24000,
       "sugestaoCompra": 7000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": -1.0,
       "temFichaTecnica": true,
       "projecaoBom": 5400.0,
       "consumoRealBom": 7608.0
@@ -3014,7 +3668,7 @@
       "sku": "52987",
       "produto": "CAIXA PAPELAO LISA OKKER 12 x 400 GR",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IBERIA IND CX PAPELAO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -3030,14 +3684,20 @@
       "desvioProjecao": 335.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2027-01-30T07:59:15.587000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-29T00:00:00",
+          "quantidade": 6410,
+          "pedido": 473840
+        }
+      ],
+      "totalProgramado": 6410,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-29",
+      "diasAtePrimeiraEntrega": 19,
+      "coberturaNaPrimeiraEntrega": 0.8,
       "temFichaTecnica": true,
       "projecaoBom": 450.0,
       "consumoRealBom": 785.0
@@ -3110,7 +3770,7 @@
       "sku": "70720",
       "produto": "ETIQ ALHO BAIANO OKKER 200G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MF GRAFICA",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -3126,14 +3786,20 @@
       "desvioProjecao": -2832.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-12-06T09:49:35.560000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473871
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 25,
+      "coberturaNaPrimeiraEntrega": 36.0,
       "temFichaTecnica": true,
       "projecaoBom": 5280.0,
       "consumoRealBom": 2448.0
@@ -3206,7 +3872,7 @@
       "sku": "70735",
       "produto": "ETIQ ALHO FRITO OKKER 90G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DG ROTULOS",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -3222,14 +3888,20 @@
       "desvioProjecao": -3420.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-11-06T01:00:49.816000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473841
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 31.6,
       "temFichaTecnica": true,
       "projecaoBom": 3840.0,
       "consumoRealBom": 420.0
@@ -3302,7 +3974,7 @@
       "sku": "70739",
       "produto": "ETIQ ALHO MINEIRO OKKER 200G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MF GRAFICA",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -3318,14 +3990,20 @@
       "desvioProjecao": -3108.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-11-20T17:12:48.103000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473871
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 25,
+      "coberturaNaPrimeiraEntrega": 38.2,
       "temFichaTecnica": true,
       "projecaoBom": 7440.0,
       "consumoRealBom": 4332.0
@@ -3430,7 +4108,7 @@
       "sku": "70799",
       "produto": "ETIQ ALHO PASTA OKKER  800G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DG ROTULOS",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -3446,14 +4124,20 @@
       "desvioProjecao": -1368.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-10-25T17:08:46.631000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473841
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 45.6,
       "temFichaTecnica": true,
       "projecaoBom": 9600.0,
       "consumoRealBom": 8232.0
@@ -3462,7 +4146,7 @@
       "sku": "70742",
       "produto": "ETIQ ALHO PASTA OKKER 200G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MF GRAFICA",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -3478,14 +4162,20 @@
       "desvioProjecao": 2256.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-11-24T22:22:52.007000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473871
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 3000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 25,
+      "coberturaNaPrimeiraEntrega": -22.4,
       "temFichaTecnica": true,
       "projecaoBom": 1200.0,
       "consumoRealBom": 3456.0
@@ -3558,7 +4248,7 @@
       "sku": "70745",
       "produto": "ETIQ ALHO PASTA OKKER 400G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DG ROTULOS",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -3574,14 +4264,20 @@
       "desvioProjecao": -7668.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-09-11T05:40:11.455000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473841
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 10000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 7.9,
       "temFichaTecnica": true,
       "projecaoBom": 12600.0,
       "consumoRealBom": 4932.0
@@ -3686,7 +4382,7 @@
       "sku": "70800",
       "produto": "ETIQ ALHO TRIT  OKKER 1KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DG ROTULOS",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -3702,14 +4398,25 @@
       "desvioProjecao": -11568.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-11-06T15:12:59.055000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 15000,
+          "pedido": 473841
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 15000,
+          "pedido": 473871
+        }
+      ],
+      "totalProgramado": 30000,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 29.7,
       "temFichaTecnica": true,
       "projecaoBom": 15600.0,
       "consumoRealBom": 4032.0
@@ -3718,7 +4425,7 @@
       "sku": "70755",
       "produto": "ETIQ ALHO TRIT OKKER 200G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DG ROTULOS",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -3734,14 +4441,20 @@
       "desvioProjecao": -3264.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-09-25T09:20:54.554000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 25000,
+          "pedido": 473841
+        }
+      ],
+      "totalProgramado": 25000,
       "sugestaoCompra": 14000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 9.8,
       "temFichaTecnica": true,
       "projecaoBom": 18000.0,
       "consumoRealBom": 14736.0
@@ -3782,7 +4495,7 @@
       "sku": "70758",
       "produto": "ETIQ ALHO TRIT OKKER 400G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MF GRAFICA",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -3798,14 +4511,20 @@
       "desvioProjecao": 2916.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-11-01T09:55:42.565000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 10000,
+          "pedido": 473871
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 25,
+      "coberturaNaPrimeiraEntrega": 4.4,
       "temFichaTecnica": true,
       "projecaoBom": 4680.0,
       "consumoRealBom": 7596.0
@@ -3942,7 +4661,7 @@
       "sku": "70806",
       "produto": "ETIQ PIMENTA BIQUINHO  OKKER 250G",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MF GRAFICA",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -3958,14 +4677,20 @@
       "desvioProjecao": -11064.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-10-14T02:29:16.716000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 15000,
+          "pedido": 473871
+        }
+      ],
+      "totalProgramado": 15000,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 25,
+      "coberturaNaPrimeiraEntrega": 5.3,
       "temFichaTecnica": true,
       "projecaoBom": 14400.0,
       "consumoRealBom": 3336.0
@@ -4006,7 +4731,7 @@
       "sku": "42064",
       "produto": "MP - ACAFRAO/CURCUMA MOIDA KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DA TERRINHA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4022,14 +4747,20 @@
       "desvioProjecao": -3.3,
       "loteMinimo": 100,
       "proximaEntrada": "2027-01-22T04:55:31.592000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 25,
+          "pedido": 475158
+        }
+      ],
+      "totalProgramado": 25,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 53.5,
       "temFichaTecnica": true,
       "projecaoBom": 7.9,
       "consumoRealBom": 4.6
@@ -4070,7 +4801,7 @@
       "sku": "70900",
       "produto": "MP - ACIDO LATICO 85% FG OKKER KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4134,7 +4865,7 @@
       "sku": "42164",
       "produto": "MP - ALHO DESIDRATADO GRANULADO KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DA TERRINHA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4150,14 +4881,20 @@
       "desvioProjecao": -2030.6,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-09T00:59:05.483000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 5000,
+          "pedido": 474876
+        }
+      ],
+      "totalProgramado": 5000,
       "sugestaoCompra": 5500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 2.0,
       "temFichaTecnica": true,
       "projecaoBom": 13058.5,
       "consumoRealBom": 11027.9
@@ -4454,7 +5191,7 @@
       "sku": "70909",
       "produto": "MP - GOMA XANTANA MESH (TIPO 200)  KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4518,7 +5255,7 @@
       "sku": "70878",
       "produto": "MP - MANJERONA OKKER KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "CONDMAX QUALIDADE",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4534,14 +5271,20 @@
       "desvioProjecao": -0.8,
       "loteMinimo": 100,
       "proximaEntrada": "2027-09-23T14:00:58.276000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-10T00:00:00",
+          "quantidade": 25,
+          "pedido": 475027
+        }
+      ],
+      "totalProgramado": 25,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 8.3,
       "temFichaTecnica": true,
       "projecaoBom": 1.9,
       "consumoRealBom": 1.1
@@ -4582,7 +5325,7 @@
       "sku": "70882",
       "produto": "MP - PIMENTA BIQUINHO OKKER KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DEVILI CONSERVAS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4598,14 +5341,20 @@
       "desvioProjecao": -2508.6,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-14T19:54:43.599000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-16T00:00:00",
+          "quantidade": 575,
+          "pedido": 460612
+        }
+      ],
+      "totalProgramado": 575,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-16",
+      "diasAtePrimeiraEntrega": 6,
+      "coberturaNaPrimeiraEntrega": 8.4,
       "temFichaTecnica": true,
       "projecaoBom": 3265.0,
       "consumoRealBom": 756.4
@@ -4614,7 +5363,7 @@
       "sku": "42227",
       "produto": "MP - PIMENTA CALABRESA FLOCOS KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "CONDMAX QUALIDADE",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4630,14 +5379,20 @@
       "desvioProjecao": -7.4,
       "loteMinimo": 100,
       "proximaEntrada": "2026-12-16T23:02:03.207000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-10T00:00:00",
+          "quantidade": 50,
+          "pedido": 475027
+        }
+      ],
+      "totalProgramado": 50,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 0.0,
       "temFichaTecnica": true,
       "projecaoBom": 13.8,
       "consumoRealBom": 6.4
@@ -4678,7 +5433,7 @@
       "sku": "44624",
       "produto": "MP - SALSA DESIDRATADA  FLOCOS KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "CONDMAX QUALIDADE",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4694,14 +5449,20 @@
       "desvioProjecao": -1.5,
       "loteMinimo": 100,
       "proximaEntrada": "2027-02-17T11:52:09.108000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-10T00:00:00",
+          "quantidade": 10,
+          "pedido": 475027
+        }
+      ],
+      "totalProgramado": 10,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 78.0,
       "temFichaTecnica": true,
       "projecaoBom": 3.3,
       "consumoRealBom": 1.8
@@ -4710,7 +5471,7 @@
       "sku": "70897",
       "produto": "MP - SORBATO DE POTÁSSIO KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4742,7 +5503,7 @@
       "sku": "41862",
       "produto": "MP - TEMPERO BAIANO KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DA TERRINHA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4758,14 +5519,20 @@
       "desvioProjecao": -14.8,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-31T02:08:53.078000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 50,
+          "pedido": 475158
+        }
+      ],
+      "totalProgramado": 50,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 10.0,
       "temFichaTecnica": true,
       "projecaoBom": 27.6,
       "consumoRealBom": 12.8
@@ -4806,7 +5573,7 @@
       "sku": "70671",
       "produto": "POTE LISO OKKER P1000 P1100",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "WS DA SILVA PLASTICO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -4822,14 +5589,20 @@
       "desvioProjecao": -11268.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-09-17T02:23:06.778000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 15000,
+          "pedido": 474070
+        }
+      ],
+      "totalProgramado": 15000,
       "sugestaoCompra": 12000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 4.8,
       "temFichaTecnica": true,
       "projecaoBom": 15600.0,
       "consumoRealBom": 4332.0
@@ -4838,7 +5611,7 @@
       "sku": "70672",
       "produto": "POTE LISO OKKER P220",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "NOVA CHAMFER",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -4854,14 +5627,25 @@
       "desvioProjecao": -9504.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-11-08T23:06:45.601000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 50000,
+          "pedido": 474036
+        },
+        {
+          "data": "2026-10-19T00:00:00",
+          "quantidade": 50000,
+          "pedido": 474069
+        }
+      ],
+      "totalProgramado": 100000,
       "sugestaoCompra": 8000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 14.2,
       "temFichaTecnica": true,
       "projecaoBom": 36120.0,
       "consumoRealBom": 26616.0
@@ -4870,7 +5654,7 @@
       "sku": "70674",
       "produto": "POTE LISO OKKER P900",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "NOVA CHAMFER",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -4886,14 +5670,20 @@
       "desvioProjecao": -1368.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-10-20T02:03:02.849000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-10T00:00:00",
+          "quantidade": 18000,
+          "pedido": 468261
+        }
+      ],
+      "totalProgramado": 18000,
       "sugestaoCompra": 5000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 17.6,
       "temFichaTecnica": true,
       "projecaoBom": 9600.0,
       "consumoRealBom": 8232.0
@@ -4902,7 +5692,7 @@
       "sku": "70673",
       "produto": "POTE LISO P500 LACRE TPA OKKER",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "WS DA SILVA PLASTICO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -4918,14 +5708,25 @@
       "desvioProjecao": -19464.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-09-21T23:09:43.322000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-08T00:00:00",
+          "quantidade": 20000,
+          "pedido": 473707
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 25000,
+          "pedido": 473937
+        }
+      ],
+      "totalProgramado": 45000,
       "sugestaoCompra": 30000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 25,
+      "coberturaNaPrimeiraEntrega": -18.0,
       "temFichaTecnica": true,
       "projecaoBom": 36360.0,
       "consumoRealBom": 16896.0
@@ -5830,7 +6631,7 @@
       "sku": "120068",
       "produto": "TAMPA VERMELHA BALDE OKKER 2.2",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "WS DA SILVA PLASTICO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -5846,14 +6647,30 @@
       "desvioProjecao": -300.0,
       "loteMinimo": 500,
       "proximaEntrada": "2027-03-05T03:39:19.569000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 5000,
+          "pedido": 441927
+        },
+        {
+          "data": "2026-09-24T00:00:00",
+          "quantidade": 2500,
+          "pedido": 472700
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 2500,
+          "pedido": 472702
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 89.7,
       "temFichaTecnica": true,
       "projecaoBom": 2400.0,
       "consumoRealBom": 2100.0
@@ -5862,7 +6679,7 @@
       "sku": "120069",
       "produto": "TAMPA VERMELHA BALDE OKKER 3.2",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "WS DA SILVA PLASTICO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -5878,14 +6695,30 @@
       "desvioProjecao": 2118.0,
       "loteMinimo": 500,
       "proximaEntrada": "2026-12-20T17:44:33.926000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 12000,
+          "pedido": 441927
+        },
+        {
+          "data": "2026-09-24T00:00:00",
+          "quantidade": 6000,
+          "pedido": 472700
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 6000,
+          "pedido": 472702
+        }
+      ],
+      "totalProgramado": 24000,
       "sugestaoCompra": 4000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 10.5,
       "temFichaTecnica": true,
       "projecaoBom": 5490.0,
       "consumoRealBom": 7608.0
@@ -5894,7 +6727,7 @@
       "sku": "70686",
       "produto": "TAMPA VERMELHA OKKER P1000",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "WS DA SILVA PLASTICO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -5910,14 +6743,20 @@
       "desvioProjecao": -11268.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-09-23T11:08:50.588000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 15000,
+          "pedido": 474070
+        }
+      ],
+      "totalProgramado": 15000,
       "sugestaoCompra": 8000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 11.2,
       "temFichaTecnica": true,
       "projecaoBom": 15600.0,
       "consumoRealBom": 4332.0
@@ -5926,7 +6765,7 @@
       "sku": "70688",
       "produto": "TAMPA VERMELHA OKKER P500",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "WS DA SILVA PLASTICO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -5942,14 +6781,25 @@
       "desvioProjecao": -19464.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-09-24T19:46:16.044000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-08T00:00:00",
+          "quantidade": 20000,
+          "pedido": 473707
+        },
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 25000,
+          "pedido": 473937
+        }
+      ],
+      "totalProgramado": 45000,
       "sugestaoCompra": 26000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 25,
+      "coberturaNaPrimeiraEntrega": -15.2,
       "temFichaTecnica": true,
       "projecaoBom": 36360.0,
       "consumoRealBom": 16896.0
@@ -5958,7 +6808,7 @@
       "sku": "78484",
       "produto": "BOBINA FARDOS FAROFA PRONTA TRAD.  113,0 CM COM COD. BARRAS",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "PLASTIMARAU IND EMBAL FLEXIVEL",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -5974,14 +6824,20 @@
       "desvioProjecao": -810.4,
       "loteMinimo": 500,
       "proximaEntrada": "2027-02-25T17:54:17.344000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-08T00:00:00",
+          "quantidade": 2000,
+          "pedido": 459389
+        }
+      ],
+      "totalProgramado": 2000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-08",
+      "diasAtePrimeiraEntrega": 28,
+      "coberturaNaPrimeiraEntrega": 68.7,
       "temFichaTecnica": true,
       "projecaoBom": 1155.0,
       "consumoRealBom": 344.6
@@ -6022,7 +6878,7 @@
       "sku": "57890",
       "produto": "BOBINA FARINHA DE MANDIOCA CRUA FINA DA TERRINHA 1 KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6038,14 +6894,20 @@
       "desvioProjecao": -324.5,
       "loteMinimo": 500,
       "proximaEntrada": "2027-01-13T19:40:50.540000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-15T00:00:00",
+          "quantidade": 500,
+          "pedido": 446519
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-15",
+      "diasAtePrimeiraEntrega": 35,
+      "coberturaNaPrimeiraEntrega": 84.1,
       "temFichaTecnica": true,
       "projecaoBom": 432.0,
       "consumoRealBom": 107.5
@@ -6086,7 +6948,7 @@
       "sku": "57899",
       "produto": "BOBINA FARINHA DE MANDIOCA GROSSA DA TERRINHA 1 KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6102,14 +6964,20 @@
       "desvioProjecao": -605.2,
       "loteMinimo": 500,
       "proximaEntrada": "2026-12-25T15:13:18.554000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 1000,
+          "pedido": 458826
+        }
+      ],
+      "totalProgramado": 1000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 20,
+      "coberturaNaPrimeiraEntrega": 80.5,
       "temFichaTecnica": true,
       "projecaoBom": 840.0,
       "consumoRealBom": 234.8
@@ -6150,7 +7018,7 @@
       "sku": "83540",
       "produto": "BOBINA FARINHA DE MANDIOCA GROSSA MERCADAO 1 KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6166,14 +7034,20 @@
       "desvioProjecao": -107.5,
       "loteMinimo": 500,
       "proximaEntrada": "2027-01-23T13:04:56.741000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 500,
+          "pedido": 446516
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 16.3,
       "temFichaTecnica": true,
       "projecaoBom": 115.2,
       "consumoRealBom": 7.7
@@ -6246,7 +7120,7 @@
       "sku": "31151",
       "produto": "BOBINA FAROFA ARTESANAL TRADICIONAL DA TERRINHA 300 G",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6262,14 +7136,20 @@
       "desvioProjecao": -464.8,
       "loteMinimo": 500,
       "proximaEntrada": "2026-10-24T22:28:55.846000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-30T00:00:00",
+          "quantidade": 500,
+          "pedido": 475422
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-30",
+      "diasAtePrimeiraEntrega": 50,
+      "coberturaNaPrimeiraEntrega": 24.9,
       "temFichaTecnica": true,
       "projecaoBom": 594.0,
       "consumoRealBom": 129.2
@@ -6278,7 +7158,7 @@
       "sku": "118123",
       "produto": "BOBINA FAROFA DE MANDIOCA DA TERRINHA 400 G EXP",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6294,14 +7174,20 @@
       "desvioProjecao": 0.0,
       "loteMinimo": 500,
       "proximaEntrada": "2026-10-14T17:59:29.243000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 500,
+          "pedido": 475425
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-12",
+      "diasAtePrimeiraEntrega": 32,
+      "coberturaNaPrimeiraEntrega": 32.7,
       "temFichaTecnica": true,
       "projecaoBom": 0.0,
       "consumoRealBom": 0.0
@@ -6310,7 +7196,7 @@
       "sku": "36917",
       "produto": "BOBINA FAROFA PRONTA APIMENTADA DA TERRINHA 400 G",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6326,14 +7212,20 @@
       "desvioProjecao": -268.0,
       "loteMinimo": 500,
       "proximaEntrada": "2026-12-30T09:11:07.088000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-08T00:00:00",
+          "quantidade": 500,
+          "pedido": 458825
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-08",
+      "diasAtePrimeiraEntrega": 28,
+      "coberturaNaPrimeiraEntrega": 71.7,
       "temFichaTecnica": true,
       "projecaoBom": 350.2,
       "consumoRealBom": 82.2
@@ -6438,7 +7330,7 @@
       "sku": "72227",
       "produto": "BOBINA FAROFA PRONTA TRADICIONAL DA TERRINHA 150 G",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6454,14 +7346,30 @@
       "desvioProjecao": -962.4,
       "loteMinimo": 500,
       "proximaEntrada": "2026-09-14T11:34:30.720000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 500,
+          "pedido": 466783
+        },
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 600,
+          "pedido": 472714
+        },
+        {
+          "data": "2026-10-08T00:00:00",
+          "quantidade": 600,
+          "pedido": 475427
+        }
+      ],
+      "totalProgramado": 1700,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": -2.5,
       "temFichaTecnica": true,
       "projecaoBom": 997.6,
       "consumoRealBom": 35.2
@@ -6470,7 +7378,7 @@
       "sku": "36914",
       "produto": "BOBINA FAROFA PRONTA TRADICIONAL DA TERRINHA 400 G",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6486,14 +7394,30 @@
       "desvioProjecao": -2794.6,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-04T20:40:42.144000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-29T00:00:00",
+          "quantidade": 2000,
+          "pedido": 458772
+        },
+        {
+          "data": "2026-10-15T00:00:00",
+          "quantidade": 2000,
+          "pedido": 466779
+        },
+        {
+          "data": "2026-11-10T00:00:00",
+          "quantidade": 2000,
+          "pedido": 475429
+        }
+      ],
+      "totalProgramado": 6000,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-15",
+      "diasAtePrimeiraEntrega": 35,
+      "coberturaNaPrimeiraEntrega": 24.1,
       "temFichaTecnica": true,
       "projecaoBom": 4120.0,
       "consumoRealBom": 1325.4
@@ -6662,7 +7586,7 @@
       "sku": "21704",
       "produto": "BOBINA PARA FARDO LISA 1050 X 55",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "PLASTIMARAU IND EMBAL FLEXIVEL",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6678,14 +7602,20 @@
       "desvioProjecao": -1170.5,
       "loteMinimo": 500,
       "proximaEntrada": "2026-10-15T11:11:47.902000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 1500,
+          "pedido": 459392
+        }
+      ],
+      "totalProgramado": 1500,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 20,
+      "coberturaNaPrimeiraEntrega": 12.4,
       "temFichaTecnica": true,
       "projecaoBom": 1542.3,
       "consumoRealBom": 371.8
@@ -6726,7 +7656,7 @@
       "sku": "57920",
       "produto": "BOBINA POLVILHO AZEDO DA TERRINHA 500 G",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6742,14 +7672,20 @@
       "desvioProjecao": -72.1,
       "loteMinimo": 500,
       "proximaEntrada": "2027-01-29T02:26:32.994000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-29T00:00:00",
+          "quantidade": 300,
+          "pedido": 466514
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-29",
+      "diasAtePrimeiraEntrega": 49,
+      "coberturaNaPrimeiraEntrega": 44.1,
       "temFichaTecnica": true,
       "projecaoBom": 122.4,
       "consumoRealBom": 50.3
@@ -6758,7 +7694,7 @@
       "sku": "87340",
       "produto": "BOBINA POLVILHO DOCE DA TERRINHA 1KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6774,14 +7710,20 @@
       "desvioProjecao": -235.3,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-02T20:55:47.790000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 500,
+          "pedido": 475430
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-11-02",
+      "diasAtePrimeiraEntrega": 53,
+      "coberturaNaPrimeiraEntrega": 30.9,
       "temFichaTecnica": true,
       "projecaoBom": 316.8,
       "consumoRealBom": 81.5
@@ -6854,7 +7796,7 @@
       "sku": "45362",
       "produto": "LOGISTICA - FILME STRETCH AUTOMATICO 500x0,30",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "GLOBEPACK INDUSTRIA E COMERCIO EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -6870,14 +7812,20 @@
       "desvioProjecao": -623.0,
       "loteMinimo": 100,
       "proximaEntrada": "2027-02-01T18:28:26.020000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 2000,
+          "pedido": 473642
+        }
+      ],
+      "totalProgramado": 2000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 20,
+      "coberturaNaPrimeiraEntrega": 87.1,
       "temFichaTecnica": true,
       "projecaoBom": 884.3,
       "consumoRealBom": 261.3
@@ -6918,7 +7866,7 @@
       "sku": "42164",
       "produto": "MP - ALHO DESIDRATADO GRANULADO KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DA TERRINHA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -6950,7 +7898,7 @@
       "sku": "74147",
       "produto": "MP - AROMA DE CARNE KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "BIOCARMIM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -6966,14 +7914,20 @@
       "desvioProjecao": -3260.2,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-20T07:42:29.227000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-29T00:00:00",
+          "quantidade": 2000,
+          "pedido": 472695
+        }
+      ],
+      "totalProgramado": 2000,
       "sugestaoCompra": 200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-29",
+      "diasAtePrimeiraEntrega": 19,
+      "coberturaNaPrimeiraEntrega": -4.8,
       "temFichaTecnica": true,
       "projecaoBom": 4392.0,
       "consumoRealBom": 1131.8
@@ -7302,7 +8256,7 @@
       "sku": "42227",
       "produto": "MP - PIMENTA CALABRESA FLOCOS KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "CONDMAX QUALIDADE",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7318,14 +8272,20 @@
       "desvioProjecao": -140.8,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-20T08:52:58.262000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-10T00:00:00",
+          "quantidade": 250,
+          "pedido": 474597
+        }
+      ],
+      "totalProgramado": 250,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 23.1,
       "temFichaTecnica": true,
       "projecaoBom": 189.5,
       "consumoRealBom": 48.7
@@ -7590,7 +8550,7 @@
       "sku": "79922",
       "produto": "MP – SUSPENSÃO OLEOSA URUCUM KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "ROHA BRASIL INGREDIENTES PARA ALIMENTOS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7654,7 +8614,7 @@
       "sku": "44624",
       "produto": "MP - SALSA DESIDRATADA  FLOCOS KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "CONDMAX QUALIDADE",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7686,7 +8646,7 @@
       "sku": "70897",
       "produto": "MP - SORBATO DE POTÁSSIO KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -8326,7 +9286,7 @@
       "sku": "76659",
       "produto": "BOBINA BATATA PALHA EXTRA FINA DA TERRINHA 100 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -8342,14 +9302,20 @@
       "desvioProjecao": -830.2,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-11T13:37:08.202000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 1200,
+          "pedido": 468148
+        }
+      ],
+      "totalProgramado": 1200,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-23",
+      "diasAtePrimeiraEntrega": 13,
+      "coberturaNaPrimeiraEntrega": 62.9,
       "temFichaTecnica": true,
       "projecaoBom": 1424.0,
       "consumoRealBom": 593.8
@@ -8390,7 +9356,7 @@
       "sku": "76660",
       "produto": "BOBINA BATATA PALHA TRADICIONAL DA TERRINHA 100 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -8406,14 +9372,25 @@
       "desvioProjecao": -1832.9,
       "loteMinimo": 500,
       "proximaEntrada": "2026-09-18T05:09:45.481000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 2500,
+          "pedido": 458830
+        },
+        {
+          "data": "2026-09-10T00:00:00",
+          "quantidade": 2000,
+          "pedido": 468147
+        }
+      ],
+      "totalProgramado": 4500,
       "sugestaoCompra": 4000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 0.0,
       "temFichaTecnica": true,
       "projecaoBom": 2848.0,
       "consumoRealBom": 1015.1
@@ -8454,7 +9431,7 @@
       "sku": "72300",
       "produto": "BOBINA BICARBONATO DE SODIO DA TERRINHA 20 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -8470,14 +9447,20 @@
       "desvioProjecao": -32.8,
       "loteMinimo": 500,
       "proximaEntrada": "2027-05-22T12:42:46.423000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 300,
+          "pedido": 471166
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-12",
+      "diasAtePrimeiraEntrega": 32,
+      "coberturaNaPrimeiraEntrega": 39.6,
       "temFichaTecnica": true,
       "projecaoBom": 39.6,
       "consumoRealBom": 6.8
@@ -8518,7 +9501,7 @@
       "sku": "72301",
       "produto": "BOBINA BICARBONATO DE SODIO DA TERRINHA 80 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -8534,14 +9517,20 @@
       "desvioProjecao": -112.9,
       "loteMinimo": 500,
       "proximaEntrada": "2027-01-29T08:18:02.641000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 500,
+          "pedido": 471099
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-09",
+      "diasAtePrimeiraEntrega": 29,
+      "coberturaNaPrimeiraEntrega": 71.5,
       "temFichaTecnica": true,
       "projecaoBom": 158.4,
       "consumoRealBom": 45.5
@@ -8582,7 +9571,7 @@
       "sku": "86380",
       "produto": "BOBINA CANELA EM CASCA DA TERRINHA 10GR",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -8598,14 +9587,20 @@
       "desvioProjecao": -129.2,
       "loteMinimo": 500,
       "proximaEntrada": "2026-12-15T00:54:05.512000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 300,
+          "pedido": 471166
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-12",
+      "diasAtePrimeiraEntrega": 32,
+      "coberturaNaPrimeiraEntrega": 38.9,
       "temFichaTecnica": true,
       "projecaoBom": 144.0,
       "consumoRealBom": 14.8
@@ -8646,7 +9641,7 @@
       "sku": "72294",
       "produto": "BOBINA CANELA PO DA TERRINHA 20 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -8662,14 +9657,25 @@
       "desvioProjecao": -131.4,
       "loteMinimo": 500,
       "proximaEntrada": "2026-12-27T11:18:40.292000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 300,
+          "pedido": 468593
+        },
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 300,
+          "pedido": 471198
+        }
+      ],
+      "totalProgramado": 600,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 8,
+      "coberturaNaPrimeiraEntrega": 49.5,
       "temFichaTecnica": true,
       "projecaoBom": 158.4,
       "consumoRealBom": 27.0
@@ -8710,7 +9716,7 @@
       "sku": "81281",
       "produto": "BOBINA CANJICA BRANCA PREMIUM DA TERRINHA 400 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -8726,14 +9732,25 @@
       "desvioProjecao": -323.2,
       "loteMinimo": 500,
       "proximaEntrada": "2026-10-03T03:18:18.375000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 500,
+          "pedido": 453510
+        },
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 600,
+          "pedido": 458824
+        }
+      ],
+      "totalProgramado": 1100,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 3.0,
       "temFichaTecnica": true,
       "projecaoBom": 432.0,
       "consumoRealBom": 108.8
@@ -8742,7 +9759,7 @@
       "sku": "57926",
       "produto": "BOBINA CANJIQUINHA DA TERRINHA 500 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -8758,14 +9775,20 @@
       "desvioProjecao": -50.0,
       "loteMinimo": 500,
       "proximaEntrada": "2027-05-26T02:20:47.693000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 500,
+          "pedido": 474502
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-26",
+      "diasAtePrimeiraEntrega": 46,
+      "coberturaNaPrimeiraEntrega": 18.9,
       "temFichaTecnica": true,
       "projecaoBom": 60.0,
       "consumoRealBom": 10.0
@@ -8774,7 +9797,7 @@
       "sku": "72308",
       "produto": "BOBINA CHIMICHURRI FLOCOS DA TERRINHA 20 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -8790,14 +9813,25 @@
       "desvioProjecao": -264.7,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-03T06:09:20.645000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 500,
+          "pedido": 466684
+        },
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 500,
+          "pedido": 471132
+        }
+      ],
+      "totalProgramado": 1000,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 24.5,
       "temFichaTecnica": true,
       "projecaoBom": 396.0,
       "consumoRealBom": 131.3
@@ -8806,7 +9840,7 @@
       "sku": "79364",
       "produto": "BOBINA COCO FLOCOS UMIDO ADOCADO DA TERRINHA 100 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -8822,14 +9856,20 @@
       "desvioProjecao": -199.0,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-24T02:32:08.432000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 500,
+          "pedido": 471136
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-12",
+      "diasAtePrimeiraEntrega": 32,
+      "coberturaNaPrimeiraEntrega": 25.3,
       "temFichaTecnica": true,
       "projecaoBom": 273.6,
       "consumoRealBom": 74.6
@@ -8902,7 +9942,7 @@
       "sku": "79363",
       "produto": "BOBINA COCO RALADO UMIDO ADOCADO DA TERRINHA 100 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -8918,14 +9958,20 @@
       "desvioProjecao": -194.8,
       "loteMinimo": 500,
       "proximaEntrada": "2026-12-17T22:39:47.710000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 500,
+          "pedido": 471137
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-26",
+      "diasAtePrimeiraEntrega": 46,
+      "coberturaNaPrimeiraEntrega": 21.0,
       "temFichaTecnica": true,
       "projecaoBom": 244.8,
       "consumoRealBom": 50.0
@@ -8934,7 +9980,7 @@
       "sku": "79362",
       "produto": "BOBINA COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -8950,14 +9996,20 @@
       "desvioProjecao": -225.5,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-13T01:38:25.786000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-11-23T00:00:00",
+          "quantidade": 500,
+          "pedido": 475431
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-11-23",
+      "diasAtePrimeiraEntrega": 74,
+      "coberturaNaPrimeiraEntrega": 20.1,
       "temFichaTecnica": true,
       "projecaoBom": 275.0,
       "consumoRealBom": 49.5
@@ -9062,7 +10114,7 @@
       "sku": "72302",
       "produto": "BOBINA COLORIFICO DA TERRINHA 70 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9078,14 +10130,20 @@
       "desvioProjecao": -87.8,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-27T04:01:03.960000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 500,
+          "pedido": 458827
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-12",
+      "diasAtePrimeiraEntrega": 32,
+      "coberturaNaPrimeiraEntrega": 7.7,
       "temFichaTecnica": true,
       "projecaoBom": 158.4,
       "consumoRealBom": 70.6
@@ -9126,7 +10184,7 @@
       "sku": "72296",
       "produto": "BOBINA CRAVO DA INDIA DA TERRINHA 10 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9142,14 +10200,20 @@
       "desvioProjecao": -80.2,
       "loteMinimo": 500,
       "proximaEntrada": "2027-02-17T19:55:03.029000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 300,
+          "pedido": 471198
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-12",
+      "diasAtePrimeiraEntrega": 32,
+      "coberturaNaPrimeiraEntrega": 98.4,
       "temFichaTecnica": true,
       "projecaoBom": 100.8,
       "consumoRealBom": 20.6
@@ -9414,7 +10478,7 @@
       "sku": "72297",
       "produto": "BOBINA ERVA DOCE DA TERRINHA 15 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9430,14 +10494,20 @@
       "desvioProjecao": -44.4,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-26T18:46:49.756000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 170,
+          "pedido": 471165
+        }
+      ],
+      "totalProgramado": 170,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-12",
+      "diasAtePrimeiraEntrega": 32,
+      "coberturaNaPrimeiraEntrega": 47.0,
       "temFichaTecnica": true,
       "projecaoBom": 54.0,
       "consumoRealBom": 9.6
@@ -9510,7 +10580,7 @@
       "sku": "81283",
       "produto": "BOBINA FEIJAO BRANCO PREMIUM DA TERRINHA 500 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9526,14 +10596,20 @@
       "desvioProjecao": -78.3,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-15T03:00:43.231000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-11-09T00:00:00",
+          "quantidade": 500,
+          "pedido": 475432
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-11-09",
+      "diasAtePrimeiraEntrega": 60,
+      "coberturaNaPrimeiraEntrega": 36.1,
       "temFichaTecnica": true,
       "projecaoBom": 108.0,
       "consumoRealBom": 29.7
@@ -9574,7 +10650,7 @@
       "sku": "57914",
       "produto": "BOBINA FLOCOS MILHO (CUSCUZ) DA TERRINHA 500 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -9590,14 +10666,20 @@
       "desvioProjecao": -87.0,
       "loteMinimo": 500,
       "proximaEntrada": "2026-12-06T15:45:01.571000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 600,
+          "pedido": 474333
+        }
+      ],
+      "totalProgramado": 600,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": -8.7,
       "temFichaTecnica": true,
       "projecaoBom": 180.0,
       "consumoRealBom": 93.0
@@ -9638,7 +10720,7 @@
       "sku": "81284",
       "produto": "BOBINA GRAO DE BICO PREMIUM DA TERRINHA 350 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9654,14 +10736,20 @@
       "desvioProjecao": -42.8,
       "loteMinimo": 500,
       "proximaEntrada": "2027-02-23T17:16:25.718000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-30T00:00:00",
+          "quantidade": 500,
+          "pedido": 471142
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-30",
+      "diasAtePrimeiraEntrega": 50,
+      "coberturaNaPrimeiraEntrega": 65.3,
       "temFichaTecnica": true,
       "projecaoBom": 70.2,
       "consumoRealBom": 27.4
@@ -9670,7 +10758,7 @@
       "sku": "81285",
       "produto": "BOBINA LENTILHA PREMIUM DA TERRINHA 350 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9686,14 +10774,25 @@
       "desvioProjecao": -144.1,
       "loteMinimo": 500,
       "proximaEntrada": "2026-10-31T03:11:31.474000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-30T00:00:00",
+          "quantidade": 500,
+          "pedido": 471141
+        },
+        {
+          "data": "2026-09-09T00:00:00",
+          "quantidade": 500,
+          "pedido": 475433
+        }
+      ],
+      "totalProgramado": 1000,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-30",
+      "diasAtePrimeiraEntrega": 50,
+      "coberturaNaPrimeiraEntrega": -4.5,
       "temFichaTecnica": true,
       "projecaoBom": 180.0,
       "consumoRealBom": 35.9
@@ -9702,7 +10801,7 @@
       "sku": "86381",
       "produto": "BOBINA LOURO EM FOLHA DA TERRINHA 8GR",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9718,14 +10817,20 @@
       "desvioProjecao": -68.0,
       "loteMinimo": 500,
       "proximaEntrada": "2027-02-17T09:06:02.610000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 300,
+          "pedido": 410017
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 125.0,
       "temFichaTecnica": true,
       "projecaoBom": 124.1,
       "consumoRealBom": 56.1
@@ -9766,7 +10871,7 @@
       "sku": "72528",
       "produto": "BOBINA MANJERICÃO DA TERRINHA 10 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9782,14 +10887,20 @@
       "desvioProjecao": -40.5,
       "loteMinimo": 500,
       "proximaEntrada": "2027-05-05T12:31:42.555000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 300,
+          "pedido": 471200
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-26",
+      "diasAtePrimeiraEntrega": 46,
+      "coberturaNaPrimeiraEntrega": 78.3,
       "temFichaTecnica": true,
       "projecaoBom": 54.0,
       "consumoRealBom": 13.5
@@ -9798,7 +10909,7 @@
       "sku": "103073",
       "produto": "BOBINA MILHO DE PIPOCA DA TERRINHA 1KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9814,14 +10925,20 @@
       "desvioProjecao": -203.5,
       "loteMinimo": 500,
       "proximaEntrada": "2026-12-27T20:01:23.753000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 1000,
+          "pedido": 466680
+        }
+      ],
+      "totalProgramado": 1000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 20,
+      "coberturaNaPrimeiraEntrega": 59.3,
       "temFichaTecnica": true,
       "projecaoBom": 324.0,
       "consumoRealBom": 120.5
@@ -9926,7 +11043,7 @@
       "sku": "72651",
       "produto": "BOBINA OREGANO DA TERRINHA 200 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9942,14 +11059,20 @@
       "desvioProjecao": -80.8,
       "loteMinimo": 500,
       "proximaEntrada": "2026-10-09T00:53:52.073000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-11-16T00:00:00",
+          "quantidade": 500,
+          "pedido": 475434
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-11-16",
+      "diasAtePrimeiraEntrega": 67,
+      "coberturaNaPrimeiraEntrega": -8.0,
       "temFichaTecnica": true,
       "projecaoBom": 300.0,
       "consumoRealBom": 219.2
@@ -10118,7 +11241,7 @@
       "sku": "72306",
       "produto": "BOBINA PIMENTA CALABRESA EM FLOCOS DA TERRINHA 15 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -10134,14 +11257,20 @@
       "desvioProjecao": -27.9,
       "loteMinimo": 500,
       "proximaEntrada": "2027-02-24T03:06:53.964000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 170,
+          "pedido": 471165
+        }
+      ],
+      "totalProgramado": 170,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-12",
+      "diasAtePrimeiraEntrega": 32,
+      "coberturaNaPrimeiraEntrega": 37.1,
       "temFichaTecnica": true,
       "projecaoBom": 32.4,
       "consumoRealBom": 4.5
@@ -10214,7 +11343,7 @@
       "sku": "83200",
       "produto": "BOBINA SAGU PREMIUM DA TERRINHA 400 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -10230,14 +11359,20 @@
       "desvioProjecao": -72.2,
       "loteMinimo": 500,
       "proximaEntrada": "2027-02-23T10:27:11.562000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-27T00:00:00",
+          "quantidade": 500,
+          "pedido": 471140
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-27",
+      "diasAtePrimeiraEntrega": 47,
+      "coberturaNaPrimeiraEntrega": 19.9,
       "temFichaTecnica": true,
       "projecaoBom": 108.0,
       "consumoRealBom": 35.8
@@ -10246,7 +11381,7 @@
       "sku": "72291",
       "produto": "BOBINA SALSA DESIDRATADA 8 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -10262,14 +11397,20 @@
       "desvioProjecao": -34.6,
       "loteMinimo": 500,
       "proximaEntrada": "2027-05-02T04:28:48.144000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 300,
+          "pedido": 471200
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-26",
+      "diasAtePrimeiraEntrega": 46,
+      "coberturaNaPrimeiraEntrega": 95.8,
       "temFichaTecnica": true,
       "projecaoBom": 50.4,
       "consumoRealBom": 15.8
@@ -10310,7 +11451,7 @@
       "sku": "72309",
       "produto": "BOBINA TEMPERO BAIANO E PO DA TERRINHA 50 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -10326,14 +11467,20 @@
       "desvioProjecao": -102.7,
       "loteMinimo": 500,
       "proximaEntrada": "2027-02-05T02:59:48.720000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 170,
+          "pedido": 471165
+        }
+      ],
+      "totalProgramado": 170,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-12",
+      "diasAtePrimeiraEntrega": 32,
+      "coberturaNaPrimeiraEntrega": 122.2,
       "temFichaTecnica": true,
       "projecaoBom": 180.0,
       "consumoRealBom": 77.3
@@ -10374,7 +11521,7 @@
       "sku": "75536",
       "produto": "BOBINA TEMPERO PARA CARNE DA TERRINHA 50 G",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -10390,14 +11537,20 @@
       "desvioProjecao": -27.4,
       "loteMinimo": 500,
       "proximaEntrada": "2027-06-06T20:15:19.426000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 300,
+          "pedido": 471200
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-26",
+      "diasAtePrimeiraEntrega": 46,
+      "coberturaNaPrimeiraEntrega": 85.6,
       "temFichaTecnica": true,
       "projecaoBom": 36.0,
       "consumoRealBom": 8.6
@@ -10662,7 +11815,7 @@
       "sku": "79940",
       "produto": "CAIXA COCO RALADO",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "ARTIVINCO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -10678,14 +11831,20 @@
       "desvioProjecao": -4806.0,
       "loteMinimo": 5000,
       "proximaEntrada": "2026-11-02T04:22:32.182000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 7700,
+          "pedido": 458726
+        }
+      ],
+      "totalProgramado": 7700,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 18.8,
       "temFichaTecnica": true,
       "projecaoBom": 6250.0,
       "consumoRealBom": 1444.0
@@ -10726,7 +11885,7 @@
       "sku": "78981",
       "produto": "CAIXA PAPELAO BATATA PALHA DA TERRINHA 100G - UNID",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IBERIA IND CX PAPELAO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -10742,14 +11901,25 @@
       "desvioProjecao": -14961.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-10-01T10:39:11.160000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-16T00:00:00",
+          "quantidade": 18000,
+          "pedido": 465951
+        },
+        {
+          "data": "2026-09-28T00:00:00",
+          "quantidade": 16000,
+          "pedido": 472657
+        }
+      ],
+      "totalProgramado": 34000,
       "sugestaoCompra": 20000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-16",
+      "diasAtePrimeiraEntrega": 6,
+      "coberturaNaPrimeiraEntrega": -6.0,
       "temFichaTecnica": true,
       "projecaoBom": 24000.0,
       "consumoRealBom": 9039.0
@@ -10790,7 +11960,7 @@
       "sku": "92796",
       "produto": "CAIXA PAPELAO CREME DE AVELA DAVELA 140G UND",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IBERIA IND CX PAPELAO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -10806,14 +11976,20 @@
       "desvioProjecao": -2218.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-10-30T02:56:26.421000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 10210,
+          "pedido": 474863
+        }
+      ],
+      "totalProgramado": 10210,
       "sugestaoCompra": 10000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-01",
+      "diasAtePrimeiraEntrega": 21,
+      "coberturaNaPrimeiraEntrega": -10.1,
       "temFichaTecnica": true,
       "projecaoBom": 5000.0,
       "consumoRealBom": 2782.0
@@ -10822,7 +11998,7 @@
       "sku": "92797",
       "produto": "CAIXA PAPELAO CREME DE AVELA DAVELA 290G UND",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IBERIA IND CX PAPELAO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -10838,14 +12014,20 @@
       "desvioProjecao": -2233.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-12-16T11:49:00.036000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 9000,
+          "pedido": 474864
+        }
+      ],
+      "totalProgramado": 9000,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-11-02",
+      "diasAtePrimeiraEntrega": 53,
+      "coberturaNaPrimeiraEntrega": -14.1,
       "temFichaTecnica": true,
       "projecaoBom": 3000.0,
       "consumoRealBom": 767.0
@@ -10854,7 +12036,7 @@
       "sku": "73127",
       "produto": "CAIXA PAPELAO ESPECIARIAS DA TERRINHA - UNID",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IBERIA IND CX PAPELAO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -10870,14 +12052,50 @@
       "desvioProjecao": -35711.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-11-21T18:35:29.434000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 20000,
+          "pedido": 458723
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 20000,
+          "pedido": 458725
+        },
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 20000,
+          "pedido": 466227
+        },
+        {
+          "data": "2026-10-19T00:00:00",
+          "quantidade": 20000,
+          "pedido": 466228
+        },
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 20000,
+          "pedido": 466229
+        },
+        {
+          "data": "2026-11-09T00:00:00",
+          "quantidade": 20000,
+          "pedido": 475498
+        },
+        {
+          "data": "2026-11-23T00:00:00",
+          "quantidade": 20000,
+          "pedido": 475499
+        }
+      ],
+      "totalProgramado": 140000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 30.2,
       "temFichaTecnica": true,
       "projecaoBom": 50860.0,
       "consumoRealBom": 15149.0
@@ -10886,7 +12104,7 @@
       "sku": "99080",
       "produto": "CAIXA PAPELAO GRAOS E FARINACEOS PREMIUM MAIOR",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IBERIA IND CX PAPELAO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -10902,14 +12120,25 @@
       "desvioProjecao": -5705.0,
       "loteMinimo": 5000,
       "proximaEntrada": "2026-11-05T10:48:47.828000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-22T00:00:00",
+          "quantidade": 10000,
+          "pedido": 466230
+        },
+        {
+          "data": "2026-10-15T00:00:00",
+          "quantidade": 10000,
+          "pedido": 475500
+        }
+      ],
+      "totalProgramado": 20000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-22",
+      "diasAtePrimeiraEntrega": 12,
+      "coberturaNaPrimeiraEntrega": 40.9,
       "temFichaTecnica": true,
       "projecaoBom": 8000.0,
       "consumoRealBom": 2295.0
@@ -10918,7 +12147,7 @@
       "sku": "98321",
       "produto": "CAIXA PAPELAO GRAOS E FARINACEOS PREMIUM MENOR",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IBERIA IND CX PAPELAO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -10934,14 +12163,35 @@
       "desvioProjecao": -26360.0,
       "loteMinimo": 5000,
       "proximaEntrada": "2026-11-16T11:13:33.370000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 15000,
+          "pedido": 458718
+        },
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 15000,
+          "pedido": 466231
+        },
+        {
+          "data": "2026-10-12T00:00:00",
+          "quantidade": 15000,
+          "pedido": 466233
+        },
+        {
+          "data": "2026-10-22T00:00:00",
+          "quantidade": 15000,
+          "pedido": 466234
+        }
+      ],
+      "totalProgramado": 60000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 35.1,
       "temFichaTecnica": true,
       "projecaoBom": 32300.0,
       "consumoRealBom": 5940.0
@@ -11014,7 +12264,7 @@
       "sku": "45362",
       "produto": "LOGISTICA - FILME STRETCH AUTOMATICO",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "GLOBEPACK INDUSTRIA E COMERCIO EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -11046,7 +12296,7 @@
       "sku": "50961",
       "produto": "LOGISTICA - FILME STRETCH MANUAL 500x0,15 / 500x0,25",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "METAFILM EMBALAGENS PLASTICAS LTDA",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -11062,14 +12312,20 @@
       "desvioProjecao": 0.0,
       "loteMinimo": 300,
       "proximaEntrada": null,
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 1600,
+          "pedido": 474501
+        }
+      ],
+      "totalProgramado": 1600,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-23",
+      "diasAtePrimeiraEntrega": 13,
+      "coberturaNaPrimeiraEntrega": -13.0,
       "temFichaTecnica": true,
       "projecaoBom": 0.0,
       "consumoRealBom": 0.0
@@ -11078,7 +12334,7 @@
       "sku": "42064",
       "produto": "MP - ACAFRAO/CURCUMA MOIDA KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DA TERRINHA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -11238,7 +12494,7 @@
       "sku": "42164",
       "produto": "MP - ALHO DESIDRATADO GRANULADO KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DA TERRINHA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -11302,7 +12558,7 @@
       "sku": "41903",
       "produto": "MP - BICARBONATO DE SODIO KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TQA INDUSTRIA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -11318,14 +12574,20 @@
       "desvioProjecao": -25910.1,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-09-26T20:32:51.439000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 13000,
+          "pedido": 472722
+        }
+      ],
+      "totalProgramado": 13000,
       "sugestaoCompra": 20000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 20,
+      "coberturaNaPrimeiraEntrega": -14.9,
       "temFichaTecnica": true,
       "projecaoBom": 35667.9,
       "consumoRealBom": 9757.8
@@ -11334,7 +12596,7 @@
       "sku": "93012",
       "produto": "MP - CACAU EM PO ALCALINO KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "INDUSTRIA BRASILEIRA DE CACAU",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -11350,14 +12612,25 @@
       "desvioProjecao": -653.9,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-14T16:39:06.091000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 1000,
+          "pedido": 475785
+        },
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 1000,
+          "pedido": 475786
+        }
+      ],
+      "totalProgramado": 2000,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-01",
+      "diasAtePrimeiraEntrega": 21,
+      "coberturaNaPrimeiraEntrega": 1.5,
       "temFichaTecnica": true,
       "projecaoBom": 1071.5,
       "consumoRealBom": 417.6
@@ -11622,7 +12895,7 @@
       "sku": "41962",
       "produto": "MP - CHA CAMOMILA FLOR RAZURADO PARA SACHE KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "HERBOFLORA PRODUTOS NATURAIS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -11638,14 +12911,20 @@
       "desvioProjecao": -27.6,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-05T02:12:56.446000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 120,
+          "pedido": 472428
+        }
+      ],
+      "totalProgramado": 120,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 8.1,
       "temFichaTecnica": true,
       "projecaoBom": 42.8,
       "consumoRealBom": 15.2
@@ -11782,7 +13061,7 @@
       "sku": "41969",
       "produto": "MP - CHA QUENTAO RAZURADO PARA SACHE KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "HERBOFLORA PRODUTOS NATURAIS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -11798,14 +13077,20 @@
       "desvioProjecao": -29.7,
       "loteMinimo": 100,
       "proximaEntrada": "2026-12-18T17:30:26.866000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 100,
+          "pedido": 472428
+        }
+      ],
+      "totalProgramado": 100,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 77.1,
       "temFichaTecnica": true,
       "projecaoBom": 40.0,
       "consumoRealBom": 10.3
@@ -11846,7 +13131,7 @@
       "sku": "46783",
       "produto": "MP - CHIMICHURRI KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MON CHEF",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -11862,14 +13147,20 @@
       "desvioProjecao": -1853.2,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-10-09T09:39:50.906000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 3000,
+          "pedido": 475059
+        }
+      ],
+      "totalProgramado": 3000,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 9.6,
       "temFichaTecnica": true,
       "projecaoBom": 2772.0,
       "consumoRealBom": 918.8
@@ -11878,7 +13169,7 @@
       "sku": "78882",
       "produto": "MP - COCO RALADO EM FLOCOS KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "LC COCOS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -11894,14 +13185,25 @@
       "desvioProjecao": -2138.8,
       "loteMinimo": 3000,
       "proximaEntrada": "2026-08-26T04:16:38.039000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 6000,
+          "pedido": 474168
+        },
+        {
+          "data": "2026-11-16T00:00:00",
+          "quantidade": 6000,
+          "pedido": 474169
+        }
+      ],
+      "totalProgramado": 12000,
       "sugestaoCompra": 3000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": -0.8,
       "temFichaTecnica": true,
       "projecaoBom": 2940.5,
       "consumoRealBom": 801.7
@@ -12070,7 +13372,7 @@
       "sku": "42912",
       "produto": "MP - CURRY KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "REINO ALIMENTOS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12086,14 +13388,20 @@
       "desvioProjecao": -261.4,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-09T22:46:33.803000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 600,
+          "pedido": 459549
+        }
+      ],
+      "totalProgramado": 600,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 13.9,
       "temFichaTecnica": true,
       "projecaoBom": 356.4,
       "consumoRealBom": 95.0
@@ -12166,7 +13474,7 @@
       "sku": "42027",
       "produto": "MP - ERVILHA PARTIDA KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TIGRE ALIMENTOS DO BRASIL",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12182,14 +13490,20 @@
       "desvioProjecao": -5661.6,
       "loteMinimo": 4000,
       "proximaEntrada": "2026-10-30T05:34:19.382000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 14000,
+          "pedido": 459288
+        }
+      ],
+      "totalProgramado": 14000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 8,
+      "coberturaNaPrimeiraEntrega": 18.6,
       "temFichaTecnica": true,
       "projecaoBom": 7560.0,
       "consumoRealBom": 1898.4
@@ -12198,7 +13512,7 @@
       "sku": "93014",
       "produto": "MP - ESTER DE POLIGLICEROS (PGPR90)",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MASTERSENSE INGREDIE",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12214,14 +13528,25 @@
       "desvioProjecao": -14.7,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-31T16:26:25.637000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 25,
+          "pedido": 473410
+        },
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 25,
+          "pedido": 473411
+        }
+      ],
+      "totalProgramado": 50,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-01",
+      "diasAtePrimeiraEntrega": 21,
+      "coberturaNaPrimeiraEntrega": -19.0,
       "temFichaTecnica": true,
       "projecaoBom": 24.1,
       "consumoRealBom": 9.4
@@ -12422,7 +13747,7 @@
       "sku": "41825",
       "produto": "MP - FEIJAO BRANCO KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIMACEDO COMERCIO",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12438,14 +13763,20 @@
       "desvioProjecao": -6630.7,
       "loteMinimo": 100,
       "proximaEntrada": "2026-08-26T08:23:52.190000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 125,
+          "pedido": 474564
+        }
+      ],
+      "totalProgramado": 125,
       "sugestaoCompra": 4000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": -0.7,
       "temFichaTecnica": true,
       "projecaoBom": 9150.0,
       "consumoRealBom": 2519.3
@@ -12550,7 +13881,7 @@
       "sku": "79782",
       "produto": "MP – FUBA MEDIO KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "BONNO MILHO AGROINDUSTRIAL",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12566,14 +13897,20 @@
       "desvioProjecao": -13056.4,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-09-28T18:59:57.376000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 28000,
+          "pedido": 474516
+        }
+      ],
+      "totalProgramado": 28000,
       "sugestaoCompra": 10000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 5.9,
       "temFichaTecnica": true,
       "projecaoBom": 36141.8,
       "consumoRealBom": 23085.4
@@ -12646,7 +13983,7 @@
       "sku": "92972",
       "produto": "MP - GORDURA AGP 600 BD KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MASTERSENSE INGREDIE",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12662,14 +13999,25 @@
       "desvioProjecao": -2782.2,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-07T05:45:18.531000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 5002,
+          "pedido": 473314
+        },
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 3002,
+          "pedido": 473315
+        }
+      ],
+      "totalProgramado": 8004,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-01",
+      "diasAtePrimeiraEntrega": 21,
+      "coberturaNaPrimeiraEntrega": 21.2,
       "temFichaTecnica": true,
       "projecaoBom": 4559.1,
       "consumoRealBom": 1776.9
@@ -12742,7 +14090,7 @@
       "sku": "93009",
       "produto": "MP - LEITE EM PO DESNATADO KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "LATICINIOS SANTA RITA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12758,14 +14106,30 @@
       "desvioProjecao": -653.9,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-23T05:38:27.076000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-10T00:00:00",
+          "quantidade": 1000,
+          "pedido": 472709
+        },
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 1000,
+          "pedido": 472710
+        },
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 1000,
+          "pedido": 472711
+        }
+      ],
+      "totalProgramado": 3000,
       "sugestaoCompra": 800,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-10",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 0.0,
       "temFichaTecnica": true,
       "projecaoBom": 1071.5,
       "consumoRealBom": 417.6
@@ -12774,7 +14138,7 @@
       "sku": "43342",
       "produto": "MP - LENTILHA KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TIGRE ALIMENTOS DO BRASIL",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12790,14 +14154,20 @@
       "desvioProjecao": -8404.2,
       "loteMinimo": 5000,
       "proximaEntrada": "2026-09-12T07:03:18.073000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 14000,
+          "pedido": 459290
+        }
+      ],
+      "totalProgramado": 14000,
       "sugestaoCompra": 15000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": -4.8,
       "temFichaTecnica": true,
       "projecaoBom": 10500.0,
       "consumoRealBom": 2095.8
@@ -12902,7 +14272,7 @@
       "sku": "42109",
       "produto": "MP - MILHO DE PIPOCA KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "AGRICOLA FERRARI",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12918,14 +14288,40 @@
       "desvioProjecao": -113372.2,
       "loteMinimo": 30000,
       "proximaEntrada": "2026-10-06T04:56:53.067000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 40000,
+          "pedido": 472150
+        },
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 40000,
+          "pedido": 474509
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 40000,
+          "pedido": 474511
+        },
+        {
+          "data": "2026-10-07T00:00:00",
+          "quantidade": 40000,
+          "pedido": 474512
+        },
+        {
+          "data": "2026-10-21T00:00:00",
+          "quantidade": 40000,
+          "pedido": 474513
+        }
+      ],
+      "totalProgramado": 200000,
       "sugestaoCompra": 90000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": -4.0,
       "temFichaTecnica": true,
       "projecaoBom": 143960.0,
       "consumoRealBom": 30587.8
@@ -12998,7 +14394,7 @@
       "sku": "93013",
       "produto": "MP - MP LECETINA DE SOJA PARA CHOCOLATE KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MASTERSENSE INGREDIE",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13014,14 +14410,30 @@
       "desvioProjecao": -22.9,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-03T07:50:55.071000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-09T00:00:00",
+          "quantidade": 25,
+          "pedido": 473409
+        },
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 50,
+          "pedido": 473410
+        },
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 50,
+          "pedido": 473411
+        }
+      ],
+      "totalProgramado": 125,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-01",
+      "diasAtePrimeiraEntrega": 21,
+      "coberturaNaPrimeiraEntrega": -21.0,
       "temFichaTecnica": true,
       "projecaoBom": 37.5,
       "consumoRealBom": 14.6
@@ -13094,7 +14506,7 @@
       "sku": "45306",
       "produto": "MP - PAPRICA DOCE EM PO/ MOIDO  KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "JNBM - CONDIMENTOS E ESPECIARIAS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13110,14 +14522,20 @@
       "desvioProjecao": -491.7,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-10T20:14:42.351000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 800,
+          "pedido": 467972
+        }
+      ],
+      "totalProgramado": 800,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 17.4,
       "temFichaTecnica": true,
       "projecaoBom": 825.9,
       "consumoRealBom": 334.2
@@ -13126,7 +14544,7 @@
       "sku": "45305",
       "produto": "MP - PAPRICA PICANTE EM PO/ MOIDO KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "JNBM - CONDIMENTOS E ESPECIARIAS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13142,14 +14560,20 @@
       "desvioProjecao": -450.4,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-24T09:35:29.796000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 800,
+          "pedido": 467972
+        }
+      ],
+      "totalProgramado": 800,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 27.6,
       "temFichaTecnica": true,
       "projecaoBom": 712.3,
       "consumoRealBom": 261.9
@@ -13158,7 +14582,7 @@
       "sku": "92974",
       "produto": "MP - PASTA DE AVELA",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "CARINO INGREDIENTES",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13174,14 +14598,25 @@
       "desvioProjecao": -326.9,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-12T11:54:23.143000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 500,
+          "pedido": 473312
+        },
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 500,
+          "pedido": 473313
+        }
+      ],
+      "totalProgramado": 1000,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-01",
+      "diasAtePrimeiraEntrega": 21,
+      "coberturaNaPrimeiraEntrega": 10.9,
       "temFichaTecnica": true,
       "projecaoBom": 535.7,
       "consumoRealBom": 208.8
@@ -13190,7 +14625,7 @@
       "sku": "42227",
       "produto": "MP - PIMENTA CALABRESA FLOCOS KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "CONDMAX QUALIDADE",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13414,7 +14849,7 @@
       "sku": "44624",
       "produto": "MP - SALSA DESIDRATADA  FLOCOS KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "CONDMAX QUALIDADE",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13478,7 +14913,7 @@
       "sku": "79922",
       "produto": "MP – SUSPENSÃO OLEOSA URUCUM KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "ROHA BRASIL INGREDIENTES PARA ALIMENTOS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13494,14 +14929,20 @@
       "desvioProjecao": -473.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-24T17:58:02.280000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 200,
+          "pedido": 472718
+        }
+      ],
+      "totalProgramado": 200,
       "sugestaoCompra": 600,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 0.4,
       "temFichaTecnica": true,
       "projecaoBom": 1309.5,
       "consumoRealBom": 836.5
@@ -13542,7 +14983,7 @@
       "sku": "41862",
       "produto": "MP - TEMPERO BAIANO KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DA TERRINHA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13766,7 +15207,7 @@
       "sku": "92706",
       "produto": "POTE PET 125 ML - DAVELA",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IND. BANDEIRANTE EMBALAGENS PLASTICAS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -13782,14 +15223,25 @@
       "desvioProjecao": -22180.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-09-19T03:27:25.929000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 50000,
+          "pedido": 474869
+        },
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 50000,
+          "pedido": 474871
+        }
+      ],
+      "totalProgramado": 100000,
       "sugestaoCompra": 80000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-01",
+      "diasAtePrimeiraEntrega": 21,
+      "coberturaNaPrimeiraEntrega": -21.0,
       "temFichaTecnica": true,
       "projecaoBom": 50000.0,
       "consumoRealBom": 27820.0
@@ -13862,7 +15314,7 @@
       "sku": "92792",
       "produto": "ROTULO CREME DE AVELA DAVELA 140G FRENTE",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MF GRAFICA",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -13878,14 +15330,25 @@
       "desvioProjecao": -22180.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-11-14T06:08:27.307000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 50000,
+          "pedido": 473354
+        },
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 50000,
+          "pedido": 473355
+        }
+      ],
+      "totalProgramado": 100000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-01",
+      "diasAtePrimeiraEntrega": 21,
+      "coberturaNaPrimeiraEntrega": 35.1,
       "temFichaTecnica": true,
       "projecaoBom": 50000.0,
       "consumoRealBom": 27820.0
@@ -13894,7 +15357,7 @@
       "sku": "92793",
       "produto": "ROTULO CREME DE AVELA DAVELA 140G VERSO",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MF GRAFICA",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -13910,14 +15373,25 @@
       "desvioProjecao": -22180.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-11-17T04:55:44.468000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 50000,
+          "pedido": 473354
+        },
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 50000,
+          "pedido": 473355
+        }
+      ],
+      "totalProgramado": 100000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-01",
+      "diasAtePrimeiraEntrega": 21,
+      "coberturaNaPrimeiraEntrega": 38.1,
       "temFichaTecnica": true,
       "projecaoBom": 50000.0,
       "consumoRealBom": 27820.0
@@ -13926,7 +15400,7 @@
       "sku": "92794",
       "produto": "ROTULO CREME DE AVELA DAVELA 290G FRENTE",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MF GRAFICA",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -13942,14 +15416,20 @@
       "desvioProjecao": -22330.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2027-01-14T13:28:47.843000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 60000,
+          "pedido": 473355
+        }
+      ],
+      "totalProgramado": 60000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-11-02",
+      "diasAtePrimeiraEntrega": 53,
+      "coberturaNaPrimeiraEntrega": 52.8,
       "temFichaTecnica": true,
       "projecaoBom": 30000.0,
       "consumoRealBom": 7670.0
@@ -13958,7 +15438,7 @@
       "sku": "92795",
       "produto": "ROTULO CREME DE AVELA DAVELA 290G VERSO",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MF GRAFICA",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -13974,14 +15454,20 @@
       "desvioProjecao": -22330.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2027-01-14T13:30:00.905000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 60000,
+          "pedido": 473355
+        }
+      ],
+      "totalProgramado": 60000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-11-02",
+      "diasAtePrimeiraEntrega": 53,
+      "coberturaNaPrimeiraEntrega": 52.8,
       "temFichaTecnica": true,
       "projecaoBom": 30000.0,
       "consumoRealBom": 7670.0
@@ -14022,7 +15508,7 @@
       "sku": "77769",
       "produto": "SACO FARDO PAPEL KRAFT CUSCUZ 100X70X1X120",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "ORION PAPEIS E EMBALAGENS LTDA",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -14038,14 +15524,20 @@
       "desvioProjecao": -580.0,
       "loteMinimo": 35000,
       "proximaEntrada": "2026-11-19T14:09:44.143000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 6000000,
+          "pedido": 474435
+        }
+      ],
+      "totalProgramado": 6000000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": 89.6,
       "temFichaTecnica": true,
       "projecaoBom": 1200.0,
       "consumoRealBom": 620.0
@@ -14726,7 +16218,7 @@
       "sku": "86060",
       "produto": "SACO PLASTICO FARDO LISO 34 X 92 X 0,14 (70 MM SF)",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "RENNOVAPLAST",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -14742,14 +16234,20 @@
       "desvioProjecao": -11993.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-11-19T02:14:34.766000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-14T00:00:00",
+          "quantidade": 15000,
+          "pedido": 472448
+        }
+      ],
+      "totalProgramado": 15000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 54.0,
       "temFichaTecnica": true,
       "projecaoBom": 16000.0,
       "consumoRealBom": 4007.0
@@ -14950,7 +16448,7 @@
       "sku": "92790",
       "produto": "TAMPA 58 MM BRANCO - DAVELA",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "PANO CAP DO BRASIL INDUSTRIA E COMERCIO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -14966,14 +16464,25 @@
       "desvioProjecao": -22180.0,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-09-17T16:41:50.230000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 46300,
+          "pedido": 474873
+        },
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 50000,
+          "pedido": 474874
+        }
+      ],
+      "totalProgramado": 96300,
       "sugestaoCompra": 80000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-01",
+      "diasAtePrimeiraEntrega": 21,
+      "coberturaNaPrimeiraEntrega": -21.0,
       "temFichaTecnica": true,
       "projecaoBom": 50000.0,
       "consumoRealBom": 27820.0
