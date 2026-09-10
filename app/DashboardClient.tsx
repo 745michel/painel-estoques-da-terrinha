@@ -2648,9 +2648,10 @@ function FornecedoresDashboard({
     const totalValor = lista.reduce((s, r) => s + r.valor, 0);
     const totalBruto = lista.reduce((s, r) => s + r.valorBruto, 0);
     const totalKg = lista.reduce((s, r) => s + r.kg, 0);
+    const totalCaixas = lista.reduce((s, r) => s + r.caixas, 0);
     const top3 = [...lista].sort((a, b) => b.valor - a.valor).slice(0, 3).reduce((s, r) => s + r.valor, 0);
     const concentracao = totalValor > 0 ? Math.round((top3 / totalValor) * 100) : 0;
-    return { totalBruto, totalKg, fornecedores: lista.length, concentracao };
+    return { totalBruto, totalKg, totalCaixas, fornecedores: lista.length, concentracao };
   }, [produtoFocoAtivo, rankingPorProdutoSelecionado]);
 
   const metricasFoco = focoFornecedores
@@ -2753,6 +2754,10 @@ function FornecedoresDashboard({
           <section className="value-kpis" aria-label={`Indicadores de ${produtosSelecionados.join(", ")}${focoFornecedores.length > 0 ? ` · ${focoFornecedores.join(", ")}` : ""}`}>
             <div className="value-kpi total"><span>Total pago no período</span><strong>{currency.format(kpisProduto.totalBruto)}</strong><small>Valor bruto, antes de descontar PIS/COFINS</small></div>
             <div className="value-kpi"><span>Total comprado</span><strong>{number.format(Math.round(kpisProduto.totalKg / 1000))} t</strong><small>Só linhas com peso identificado (kg/ton)</small></div>
+            {/* TESTE, 10/09/2026, pedido do usuario: mesmo "Preço médio" (bruto, cx quando o
+                produto e vendido por caixa, kg quando e por peso) tambem na visao por produto -
+                mesma logica ja aplicada na visao de fornecedor(es) focado(s). */}
+            <div className="value-kpi"><span>Preço médio</span><strong>{precoBruto({ valorBruto: kpisProduto.totalBruto, kg: kpisProduto.totalKg, caixas: kpisProduto.totalCaixas }) || "—"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi"><span>Fornecedores no período</span><strong>{number.format(kpisProduto.fornecedores)}</strong><small>&nbsp;</small></div>
             <div className="value-kpi missing"><span>Concentração top 3</span><strong>{kpisProduto.concentracao}%</strong><small>Do valor total pago vem de só 3 fornecedores</small></div>
           </section>
