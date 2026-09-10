@@ -2757,7 +2757,11 @@ function FornecedoresDashboard({
           </section>
         ) : focoFornecedores.length > 0 ? (
           <section className="value-kpis" aria-label={`Indicadores de ${focoFornecedores.join(", ")}`}>
-            <div className="value-kpi total"><span>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}){focoFornecedores.length > 1 ? ` · ${focoFornecedores.length} fornecedores` : ""}</span><strong>{currency.format(metricaFocoCombinada?.valor ?? 0)}</strong><small>Líquido de estorno e devolução de compra</small></div>
+            {/* Pedido do usuario, 10/09/2026: "o valor da aba fornecedores eu quero o valor
+                bruto" - troca de metricaFocoCombinada.valor (liquido) pra
+                rankingContexto.totalBruto, que ja soma so os fornecedores focados (mesma fonte
+                usada no "Total pago no periodo" da visao sem foco). */}
+            <div className="value-kpi total"><span>Valor pago ({escopoGaveta === "todos" ? `${anos[0]}–${anoMaisRecente}` : escopoGaveta}){focoFornecedores.length > 1 ? ` · ${focoFornecedores.length} fornecedores` : ""}</span><strong>{currency.format(rankingContexto.totalBruto)}</strong><small>Valor bruto, antes de descontar PIS/COFINS</small></div>
             <div className="value-kpi"><span>Kg/Caixa comprado</span><strong>{metricaFocoCombinada && qtdCaixaOuKg(metricaFocoCombinada) || "não pesado (cx/un)"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi"><span>Preço médio</span><strong>{metricaFocoCombinada?.precoMedioKg != null ? `${currency.format(metricaFocoCombinada.precoMedioKg)}/kg` : "—"}</strong><small>&nbsp;</small></div>
             <div className="value-kpi missing"><span>Variação de preço</span><strong className={metricaFocoCombinada?.variacaoPrecoPct == null ? "" : metricaFocoCombinada.variacaoPrecoPct > 0 ? "up" : "down"}>{metricaFocoCombinada?.variacaoPrecoPct != null ? `${metricaFocoCombinada.variacaoPrecoPct >= 0 ? "+" : ""}${decimal.format(metricaFocoCombinada.variacaoPrecoPct)}%` : focoFornecedores.length > 1 ? "vários" : "—"}</strong><small>&nbsp;</small></div>
