@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-09-11T08:18:58",
+  "atualizadoEm": "2026-09-11T09:31:47",
   "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS (fornecedor e entregas programadas: compras_a_receber.json; projecaoBom: ficha_tecnica.json + dados-escadinha.json)",
   "produtos": [
     {
@@ -448,7 +448,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-14T00:00:00",
-          "quantidade": 1795,
+          "quantidade": 22,
           "pedido": 459492
         },
         {
@@ -492,7 +492,7 @@
           "pedido": 472640
         }
       ],
-      "totalProgramado": 30595,
+      "totalProgramado": 28822,
       "sugestaoCompra": 1500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -563,11 +563,6 @@
       "proximaEntrada": "2026-11-01T04:09:14.644000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-11T00:00:00",
-          "quantidade": 1864,
-          "pedido": 444600
-        },
-        {
           "data": "2026-09-14T00:00:00",
           "quantidade": 4000,
           "pedido": 459492
@@ -633,13 +628,13 @@
           "pedido": 472640
         }
       ],
-      "totalProgramado": 40964,
+      "totalProgramado": 39100,
       "sugestaoCompra": 6500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-11",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 14.6,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": 11.6,
       "temFichaTecnica": true,
       "projecaoBom": 17808.0,
       "consumoRealBom": 4845.3
@@ -666,23 +661,18 @@
       "proximaEntrada": "2026-11-17T10:46:20.030000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-14T00:00:00",
-          "quantidade": 600,
-          "pedido": 453147
-        },
-        {
-          "data": "2026-09-30T00:00:00",
+          "data": "2026-10-20T00:00:00",
           "quantidade": 500,
           "pedido": 462519
         }
       ],
-      "totalProgramado": 1100,
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
-      "primeiraEntrega": "2026-09-14",
-      "diasAtePrimeiraEntrega": 3,
-      "coberturaNaPrimeiraEntrega": 30.7,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-20",
+      "diasAtePrimeiraEntrega": 39,
+      "coberturaNaPrimeiraEntrega": -5.3,
       "temFichaTecnica": true,
       "projecaoBom": 0.0,
       "consumoRealBom": 0.0
@@ -795,7 +785,7 @@
       "proximaEntrada": "2026-09-29T05:33:13.267000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-09T00:00:00",
+          "data": "2026-09-14T00:00:00",
           "quantidade": 800,
           "pedido": 475389
         }
@@ -804,9 +794,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-14",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": 45.2,
       "temFichaTecnica": true,
       "projecaoBom": 0.0,
       "consumoRealBom": 0.0
@@ -1901,7 +1891,7 @@
       "sku": "94280",
       "produto": "BOBINA TAPIOCA X 1KG",
       "loja": "1",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -1917,20 +1907,14 @@
       "desvioProjecao": -73.9,
       "loteMinimo": 500,
       "proximaEntrada": "2027-02-11T20:34:40.570000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-14T00:00:00",
-          "quantidade": 500,
-          "pedido": 459797
-        }
-      ],
-      "totalProgramado": 500,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-14",
-      "diasAtePrimeiraEntrega": 3,
-      "coberturaNaPrimeiraEntrega": 18.6,
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
       "projecaoBom": 96.0,
       "consumoRealBom": 22.1
@@ -2152,11 +2136,11 @@
         },
         {
           "data": "2026-11-30T00:00:00",
-          "quantidade": 1200,
+          "quantidade": 12000,
           "pedido": 475491
         }
       ],
-      "totalProgramado": 133200,
+      "totalProgramado": 144000,
       "sugestaoCompra": 10000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -2188,11 +2172,6 @@
       "loteMinimo": 10000,
       "proximaEntrada": "2026-11-12T18:20:41.803000",
       "entregasProgramadas": [
-        {
-          "data": "2026-09-09T00:00:00",
-          "quantidade": 15000,
-          "pedido": 459355
-        },
         {
           "data": "2026-09-14T00:00:00",
           "quantidade": 15000,
@@ -2244,7 +2223,7 @@
           "pedido": 475495
         }
       ],
-      "totalProgramado": 165000,
+      "totalProgramado": 150000,
       "sugestaoCompra": 10000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -2463,7 +2442,7 @@
       "sku": "70901",
       "produto": "MP - ACIDO CITRICO KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DAXIA DOCE AROMA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2667,7 +2646,7 @@
       "sku": "70909",
       "produto": "MP - GOMA XANTANA MESH (TIPO 200)  KG",
       "loja": "1",
-      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
+      "fornecedor": "DAXIA DOCE AROMA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2748,7 +2727,7 @@
       "sku": "80165",
       "produto": "MP - OVO EM PO  INTEGRAL KG",
       "loja": "1",
-      "fornecedor": "P.R. NETTO INDUSTRIA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2764,14 +2743,8 @@
       "desvioProjecao": -951.1,
       "loteMinimo": 700,
       "proximaEntrada": "2026-09-26T10:11:23.336000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-10T00:00:00",
-          "quantidade": 700,
-          "pedido": 472475
-        }
-      ],
-      "totalProgramado": 700,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 700,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -3116,7 +3089,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-14T00:00:00",
-          "quantidade": 25000,
+          "quantidade": 17941,
           "pedido": 463872
         },
         {
@@ -3130,7 +3103,7 @@
           "pedido": 463875
         }
       ],
-      "totalProgramado": 75000,
+      "totalProgramado": 67941,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -3383,7 +3356,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-11T00:00:00",
-          "quantidade": 12000,
+          "quantidade": 4080,
           "pedido": 441927
         },
         {
@@ -3397,7 +3370,7 @@
           "pedido": 472702
         }
       ],
-      "totalProgramado": 24000,
+      "totalProgramado": 16080,
       "sugestaoCompra": 7000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -4769,7 +4742,7 @@
       "sku": "70901",
       "produto": "MP - ACIDO CITRICO KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DAXIA DOCE AROMA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4785,14 +4758,20 @@
       "desvioProjecao": -79.2,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-06T06:46:38.213000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 700,
+          "pedido": 476320
+        }
+      ],
+      "totalProgramado": 700,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 10,
+      "coberturaNaPrimeiraEntrega": 30.3,
       "temFichaTecnica": true,
       "projecaoBom": 463.2,
       "consumoRealBom": 384.0
@@ -4817,14 +4796,20 @@
       "desvioProjecao": -64.2,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-22T16:00:33.059000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-17T00:00:00",
+          "quantidade": 400,
+          "pedido": 476318
+        }
+      ],
+      "totalProgramado": 400,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-17",
+      "diasAtePrimeiraEntrega": 6,
+      "coberturaNaPrimeiraEntrega": 20.7,
       "temFichaTecnica": true,
       "projecaoBom": 416.2,
       "consumoRealBom": 352.0
@@ -4865,7 +4850,7 @@
       "sku": "42164",
       "produto": "MP - ALHO DESIDRATADO GRANULADO KG",
       "loja": "10",
-      "fornecedor": "DA TERRINHA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4881,20 +4866,14 @@
       "desvioProjecao": -2030.6,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-10T00:59:05.483000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-11T00:00:00",
-          "quantidade": 5000,
-          "pedido": 474876
-        }
-      ],
-      "totalProgramado": 5000,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 5500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-11",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 3.0,
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
       "projecaoBom": 13058.5,
       "consumoRealBom": 11027.9
@@ -4903,7 +4882,7 @@
       "sku": "72659",
       "produto": "MP - ALHO FRITO GRANULADO 8-16 MESH F GRANDE",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4919,14 +4898,20 @@
       "desvioProjecao": -1608.8,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-05T16:16:17.217000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-29T00:00:00",
+          "quantidade": 1000,
+          "pedido": 476150
+        }
+      ],
+      "totalProgramado": 1000,
       "sugestaoCompra": 400,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-29",
+      "diasAtePrimeiraEntrega": 18,
+      "coberturaNaPrimeiraEntrega": -8.3,
       "temFichaTecnica": true,
       "projecaoBom": 1668.3,
       "consumoRealBom": 59.5
@@ -4967,7 +4952,7 @@
       "sku": "70908",
       "produto": "MP - AROMA DE ALHO ID AO NAT OKKER KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "LAPIENDRIUS INDUSTRIA E COMERCIO LTDA.",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4983,14 +4968,20 @@
       "desvioProjecao": -10.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-09T16:08:15.873000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 100,
+          "pedido": 476148
+        }
+      ],
+      "totalProgramado": 100,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-30",
+      "diasAtePrimeiraEntrega": 19,
+      "coberturaNaPrimeiraEntrega": 24.7,
       "temFichaTecnica": true,
       "projecaoBom": 67.9,
       "consumoRealBom": 57.9
@@ -4999,7 +4990,7 @@
       "sku": "70899",
       "produto": "MP - BENZOATO DE SODIO SC C/ 25 OKKER KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DAXIA DOCE AROMA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5015,14 +5006,20 @@
       "desvioProjecao": -9.4,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-18T03:10:15.927000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 75,
+          "pedido": 476319
+        }
+      ],
+      "totalProgramado": 75,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 22.1,
       "temFichaTecnica": true,
       "projecaoBom": 55.6,
       "consumoRealBom": 46.2
@@ -5095,7 +5092,7 @@
       "sku": "44465",
       "produto": "MP - CEBOLA DESID GRANULADA KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5111,8 +5108,14 @@
       "desvioProjecao": 0.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-05T10:51:39.255000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-10T00:00:00",
+          "quantidade": 500,
+          "pedido": 476016
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -5191,7 +5194,7 @@
       "sku": "70909",
       "produto": "MP - GOMA XANTANA MESH (TIPO 200)  KG",
       "loja": "10",
-      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
+      "fornecedor": "DAXIA DOCE AROMA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5207,14 +5210,20 @@
       "desvioProjecao": -10.7,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-07T23:47:34.690000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 100,
+          "pedido": 476320
+        }
+      ],
+      "totalProgramado": 100,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 10,
+      "coberturaNaPrimeiraEntrega": 32.0,
       "temFichaTecnica": true,
       "projecaoBom": 69.3,
       "consumoRealBom": 58.6
@@ -5293,7 +5302,7 @@
       "sku": "70894",
       "produto": "MP - METABISSULFITO CX C/ 25 OKKER KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DAXIA DOCE AROMA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5309,14 +5318,20 @@
       "desvioProjecao": -25.2,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-26T00:15:16.661000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 250,
+          "pedido": 476320
+        }
+      ],
+      "totalProgramado": 250,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 10,
+      "coberturaNaPrimeiraEntrega": 20.0,
       "temFichaTecnica": true,
       "projecaoBom": 165.6,
       "consumoRealBom": 140.4
@@ -5401,7 +5416,7 @@
       "sku": "71687",
       "produto": "MP - SAL REFINADO SEM IODO KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "SO SAL ANFAMAR COM. DE ALIMENTOS LTDA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5417,14 +5432,20 @@
       "desvioProjecao": -128.1,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-28T05:55:06.476000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 1000,
+          "pedido": 476115
+        }
+      ],
+      "totalProgramado": 1000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 25.2,
       "temFichaTecnica": true,
       "projecaoBom": 439.1,
       "consumoRealBom": 311.0
@@ -5487,14 +5508,20 @@
       "desvioProjecao": -8.4,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-16T20:12:41.489000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-11T00:00:00",
+          "quantidade": 50,
+          "pedido": 476319
+        }
+      ],
+      "totalProgramado": 50,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 50.8,
       "temFichaTecnica": true,
       "projecaoBom": 54.3,
       "consumoRealBom": 45.9
@@ -5541,7 +5568,7 @@
       "sku": "70889",
       "produto": "MP - VINAGRE DE ALCOOL SIMPLES OKKER LT",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "EMBAVI",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5557,14 +5584,20 @@
       "desvioProjecao": -2010.8,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-09-11T20:35:21.298000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-16T00:00:00",
+          "quantidade": 2000,
+          "pedido": 476322
+        }
+      ],
+      "totalProgramado": 2000,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-16",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 10.9,
       "temFichaTecnica": true,
       "projecaoBom": 2617.1,
       "consumoRealBom": 606.3
@@ -5654,7 +5687,7 @@
       "sku": "70674",
       "produto": "POTE LISO OKKER P900",
       "loja": "10",
-      "fornecedor": "NOVA CHAMFER",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -5670,14 +5703,8 @@
       "desvioProjecao": -1368.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-10-21T02:03:02.849000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-10T00:00:00",
-          "quantidade": 18000,
-          "pedido": 468261
-        }
-      ],
-      "totalProgramado": 18000,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 5000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -5710,7 +5737,7 @@
       "proximaEntrada": "2026-09-22T23:09:43.322000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-08T00:00:00",
+          "data": "2026-09-11T00:00:00",
           "quantidade": 20000,
           "pedido": 473707
         },
@@ -5724,9 +5751,9 @@
       "sugestaoCompra": 30000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-05",
-      "diasAtePrimeiraEntrega": 24,
-      "coberturaNaPrimeiraEntrega": -17.0,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 7.0,
       "temFichaTecnica": true,
       "projecaoBom": 36360.0,
       "consumoRealBom": 16896.0
@@ -6698,7 +6725,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-11T00:00:00",
-          "quantidade": 12000,
+          "quantidade": 4080,
           "pedido": 441927
         },
         {
@@ -6712,7 +6739,7 @@
           "pedido": 472702
         }
       ],
-      "totalProgramado": 24000,
+      "totalProgramado": 16080,
       "sugestaoCompra": 4000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -6783,7 +6810,7 @@
       "proximaEntrada": "2026-09-25T19:46:16.044000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-08T00:00:00",
+          "data": "2026-09-11T00:00:00",
           "quantidade": 20000,
           "pedido": 473707
         },
@@ -6797,9 +6824,9 @@
       "sugestaoCompra": 26000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-05",
-      "diasAtePrimeiraEntrega": 24,
-      "coberturaNaPrimeiraEntrega": -14.2,
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 9.8,
       "temFichaTecnica": true,
       "projecaoBom": 36360.0,
       "consumoRealBom": 16896.0
@@ -7037,11 +7064,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-21T00:00:00",
-          "quantidade": 500,
+          "quantidade": 487,
           "pedido": 446516
         }
       ],
-      "totalProgramado": 500,
+      "totalProgramado": 487,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -7834,7 +7861,7 @@
       "sku": "70901",
       "produto": "MP - ACIDO CITRICO KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DAXIA DOCE AROMA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7866,7 +7893,7 @@
       "sku": "42164",
       "produto": "MP - ALHO DESIDRATADO GRANULADO KG",
       "loja": "11",
-      "fornecedor": "DA TERRINHA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -8224,7 +8251,7 @@
       "sku": "34734",
       "produto": "MP - OLEO DE SOJA REFINADO A GRANEL - L",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DEKEL AGRO",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -8240,14 +8267,20 @@
       "desvioProjecao": -3198.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-18T01:00:07.045000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 1840,
+          "pedido": 476330
+        }
+      ],
+      "totalProgramado": 1840,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 10,
+      "coberturaNaPrimeiraEntrega": 12.0,
       "temFichaTecnica": true,
       "projecaoBom": 3987.7,
       "consumoRealBom": 789.7
@@ -8486,7 +8519,7 @@
       "sku": "36910",
       "produto": "MP - PREPARO PARA FAROFA ARTESANAL E PRONTA KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MON CHEF",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -8502,14 +8535,20 @@
       "desvioProjecao": -1066.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-12T12:21:34.836000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 1512,
+          "pedido": 476331
+        }
+      ],
+      "totalProgramado": 1512,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 12.5,
       "temFichaTecnica": true,
       "projecaoBom": 1329.2,
       "consumoRealBom": 263.2
@@ -9716,7 +9755,7 @@
       "sku": "81281",
       "produto": "BOBINA CANJICA BRANCA PREMIUM DA TERRINHA 400 G",
       "loja": "14",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9732,25 +9771,14 @@
       "desvioProjecao": -323.2,
       "loteMinimo": 500,
       "proximaEntrada": "2026-10-04T03:18:18.375000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-14T00:00:00",
-          "quantidade": 500,
-          "pedido": 453510
-        },
-        {
-          "data": "2026-09-14T00:00:00",
-          "quantidade": 600,
-          "pedido": 458824
-        }
-      ],
-      "totalProgramado": 1100,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-14",
-      "diasAtePrimeiraEntrega": 3,
-      "coberturaNaPrimeiraEntrega": 4.0,
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
       "projecaoBom": 432.0,
       "consumoRealBom": 108.8
@@ -10781,18 +10809,18 @@
           "pedido": 471141
         },
         {
-          "data": "2026-09-09T00:00:00",
+          "data": "2026-09-11T00:00:00",
           "quantidade": 500,
           "pedido": 475433
         }
       ],
       "totalProgramado": 1000,
       "sugestaoCompra": 0,
-      "status": "Risco de falta",
-      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
-      "primeiraEntrega": "2026-10-30",
-      "diasAtePrimeiraEntrega": 49,
-      "coberturaNaPrimeiraEntrega": -3.5,
+      "status": "Excesso",
+      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
+      "primeiraEntrega": "2026-09-11",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 45.5,
       "temFichaTecnica": true,
       "projecaoBom": 180.0,
       "consumoRealBom": 35.9
@@ -12494,7 +12522,7 @@
       "sku": "42164",
       "produto": "MP - ALHO DESIDRATADO GRANULADO KG",
       "loja": "14",
-      "fornecedor": "DA TERRINHA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12576,18 +12604,43 @@
       "proximaEntrada": "2026-09-27T16:16:44.398000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
+          "data": "2026-09-15T00:00:00",
           "quantidade": 13000,
           "pedido": 472722
+        },
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 13000,
+          "pedido": 476313
+        },
+        {
+          "data": "2026-10-15T00:00:00",
+          "quantidade": 13000,
+          "pedido": 476314
+        },
+        {
+          "data": "2026-10-30T00:00:00",
+          "quantidade": 13000,
+          "pedido": 476315
+        },
+        {
+          "data": "2026-11-16T00:00:00",
+          "quantidade": 13000,
+          "pedido": 476316
+        },
+        {
+          "data": "2026-11-30T00:00:00",
+          "quantidade": 13000,
+          "pedido": 476317
         }
       ],
-      "totalProgramado": 13000,
+      "totalProgramado": 78000,
       "sugestaoCompra": 20000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-30",
-      "diasAtePrimeiraEntrega": 19,
-      "coberturaNaPrimeiraEntrega": -13.9,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 1.1,
       "temFichaTecnica": true,
       "projecaoBom": 35667.9,
       "consumoRealBom": 9757.8
@@ -12767,7 +12820,7 @@
       "sku": "42079",
       "produto": "MP - CANJICA BRANCA KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MILHOPAR INDUSTRIA  - MATRIZ",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12783,14 +12836,30 @@
       "desvioProjecao": -21906.3,
       "loteMinimo": 4000,
       "proximaEntrada": "2026-09-11T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-15T00:00:00",
+          "quantidade": 18000,
+          "pedido": 476280
+        },
+        {
+          "data": "2026-09-30T00:00:00",
+          "quantidade": 18000,
+          "pedido": 476281
+        },
+        {
+          "data": "2026-10-30T00:00:00",
+          "quantidade": 18000,
+          "pedido": 476282
+        }
+      ],
+      "totalProgramado": 54000,
       "sugestaoCompra": 28000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": -4.0,
       "temFichaTecnica": true,
       "projecaoBom": 29280.0,
       "consumoRealBom": 7373.7
@@ -13187,7 +13256,7 @@
       "proximaEntrada": "2026-08-27T04:16:38.039000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-11T00:00:00",
+          "data": "2026-09-15T00:00:00",
           "quantidade": 6000,
           "pedido": 474168
         },
@@ -13201,9 +13270,9 @@
       "sugestaoCompra": 3000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-11",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 0.2,
+      "primeiraEntrega": "2026-09-15",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": -3.8,
       "temFichaTecnica": true,
       "projecaoBom": 2940.5,
       "consumoRealBom": 801.7
@@ -13683,7 +13752,7 @@
       "sku": "44902",
       "produto": "MP - FARINHA DE MILHO AMARELA  KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "BONAMIL P S Z DE OLIVEIRA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13699,14 +13768,20 @@
       "desvioProjecao": -10666.7,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-08T02:07:49.023000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-17T00:00:00",
+          "quantidade": 5000,
+          "pedido": 476153
+        }
+      ],
+      "totalProgramado": 5000,
       "sugestaoCompra": 1200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-17",
+      "diasAtePrimeiraEntrega": 6,
+      "coberturaNaPrimeiraEntrega": 6.1,
       "temFichaTecnica": true,
       "projecaoBom": 12820.5,
       "consumoRealBom": 2153.8
@@ -14108,11 +14183,6 @@
       "proximaEntrada": "2026-10-24T05:38:27.076000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-10T00:00:00",
-          "quantidade": 1000,
-          "pedido": 472709
-        },
-        {
           "data": "2026-10-01T00:00:00",
           "quantidade": 1000,
           "pedido": 472710
@@ -14123,7 +14193,7 @@
           "pedido": 472711
         }
       ],
-      "totalProgramado": 3000,
+      "totalProgramado": 2000,
       "sugestaoCompra": 800,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -14240,7 +14310,7 @@
       "sku": "70894",
       "produto": "MP - METABISSULFITO CX C/ 25 OKKER KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DAXIA DOCE AROMA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -14413,7 +14483,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-09T00:00:00",
-          "quantidade": 25,
+          "quantidade": 5,
           "pedido": 473409
         },
         {
@@ -14427,7 +14497,7 @@
           "pedido": 473411
         }
       ],
-      "totalProgramado": 125,
+      "totalProgramado": 105,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -14474,7 +14544,7 @@
       "sku": "42062",
       "produto": "MP - OREGANO FLOCOS KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "COLLINA GRAOS E FARINACEOS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -14490,14 +14560,20 @@
       "desvioProjecao": -2511.7,
       "loteMinimo": 100,
       "proximaEntrada": "2026-08-27T05:03:46.269000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-29T00:00:00",
+          "quantidade": 5000,
+          "pedido": 476154
+        }
+      ],
+      "totalProgramado": 5000,
       "sugestaoCompra": 4200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-29",
+      "diasAtePrimeiraEntrega": 18,
+      "coberturaNaPrimeiraEntrega": -17.8,
       "temFichaTecnica": true,
       "projecaoBom": 7388.4,
       "consumoRealBom": 4876.7
