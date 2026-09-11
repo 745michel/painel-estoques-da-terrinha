@@ -1461,7 +1461,7 @@ function EscadinhaDashboard({
         <button className="drawer-close" onClick={() => setSelected(null)}>×</button>
         <h2>{selected.produto}</h2>
         <p className="drawer-sku">Cód. {selected.cod ?? "—"} · {selected.marca ?? "Sem marca"} · {selected.categoria ?? "Sem categoria"}</p>
-        {hasComparacao && <div className="value-source-note"><small>REVISÃO ANTERIOR</small><strong>{fullDate.format(localDate(escadinhaData.dataPublicacaoAnterior as string))}</strong><p>Total de desvio no ano: {number.format(totalDesvioAbsoluto(selected))} {unitLabelEscadinha(selected)} (soma das diferenças em módulo, mês a mês).</p></div>}
+        {hasComparacao && <div className="value-source-note"><span style={{ marginRight: 16 }}><small>REVISÃO ATUAL </small><strong>{fullDate.format(localDate(escadinhaData.dataPublicacao as string))}</strong></span><span><small>REVISÃO ANTERIOR </small><strong>{fullDate.format(localDate(escadinhaData.dataPublicacaoAnterior as string))}</strong></span><p>Total de desvio no ano: {number.format(totalDesvioAbsoluto(selected))} {unitLabelEscadinha(selected)} (soma das diferenças em módulo, mês a mês).</p></div>}
         <div className="table-wrap">
           <table className="consumption-table escadinha-drawer-table">
             <thead><tr><th>Mês</th><th>Plano{hasComparacao ? " (antes → agora)" : ""}</th><th>Real</th><th>% de atingimento</th></tr></thead>
