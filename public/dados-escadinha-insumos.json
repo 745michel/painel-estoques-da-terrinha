@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-09-16T08:19:13.784887",
+  "atualizadoEm": "2026-09-16T10:29:38.035402",
   "origem": "ficha_tecnica.json + dados-escadinha.json (explosão BOM × plano de produção)",
   "dataPublicacao": "2026-09-11",
   "dataPublicacaoAnterior": "2026-08-13",
@@ -381,13 +381,6 @@
       "loja": "1",
       "tipo": "Embalagem",
       "fornecedor": "MAJICPLAST EMBALAGEN"
-    },
-    {
-      "sku": "70840",
-      "produto": "CAIXA OKKER 6X3KG OKKER",
-      "loja": "10",
-      "tipo": "Embalagem",
-      "fornecedor": "Fornecedor não informado"
     },
     {
       "sku": "77041",
@@ -21382,365 +21375,6 @@
     {
       "loja": "10",
       "lojaLabel": "10 (Okker – Matriz)",
-      "sku": 77440,
-      "descricao": "ETIQ AMARELO ESVERDEADO (PMS 585) COLUNAS OKKER 120X49",
-      "mensal": [
-        1402.0,
-        2030.0,
-        2080.0,
-        1450.0,
-        1450.0,
-        3925.0,
-        1875.0,
-        3295.0,
-        2040.0,
-        1855.0,
-        1855.0,
-        1855.0
-      ],
-      "mensalAnterior": [
-        1402.0,
-        2030.0,
-        2080.0,
-        1450.0,
-        1450.0,
-        3925.0,
-        1875.0,
-        3295.0,
-        1875.0,
-        1875.0,
-        1875.0,
-        1875.0
-      ],
-      "mensalReal": [
-        1402.0,
-        1251.0,
-        894.0,
-        1227.0,
-        1907.0,
-        1784.0,
-        2198.0,
-        3304.0,
-        4950.0,
-        0.0,
-        0.0,
-        0.0
-      ],
-      "totalAno": 25112.0,
-      "detalhamento": [
-        {
-          "codRaiz": 70245,
-          "produtoRaiz": "ALHO TRITURADO OKKER 3 KG - CX 6",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            855.0,
-            1200.0,
-            1200.0,
-            900.0,
-            900.0,
-            900.0,
-            900.0,
-            1000.0,
-            1000.0,
-            900.0,
-            900.0,
-            900.0
-          ],
-          "escadinhaPlanoAnual": 11555,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76184,
-          "produtoRaiz": "ALHO TRITURADO OKKER 200 GR - CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            60.0,
-            80.0,
-            80.0,
-            80.0,
-            80.0,
-            2500.0,
-            300.0,
-            600.0,
-            300.0,
-            300.0,
-            300.0,
-            300.0
-          ],
-          "escadinhaPlanoAnual": 4980,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76185,
-          "produtoRaiz": "ALHO TRITURADO OKKER 400 GR - CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            192.0,
-            300.0,
-            300.0,
-            150.0,
-            150.0,
-            150.0,
-            300.0,
-            1000.0,
-            300.0,
-            300.0,
-            300.0,
-            300.0
-          ],
-          "escadinhaPlanoAnual": 3742,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76183,
-          "produtoRaiz": "ALHO PASTA OKKER 400 GR - CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            175.0,
-            250.0,
-            300.0,
-            150.0,
-            150.0,
-            150.0,
-            150.0,
-            150.0,
-            150.0,
-            150.0,
-            150.0,
-            150.0
-          ],
-          "escadinhaPlanoAnual": 2075,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76182,
-          "produtoRaiz": "ALHO PASTA OKKER 200 GR - CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            32.0,
-            60.0,
-            60.0,
-            45.0,
-            45.0,
-            100.0,
-            100.0,
-            280.0,
-            100.0,
-            100.0,
-            100.0,
-            100.0
-          ],
-          "escadinhaPlanoAnual": 1122,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76401,
-          "produtoRaiz": "ALHO FRITO GRANULADO OKKER 90 GR - CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            11.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            130.0,
-            35.0,
-            20.0,
-            20.0,
-            20.0
-          ],
-          "escadinhaPlanoAnual": 356,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76189,
-          "produtoRaiz": "ALHO TEMPERADO MINEIRO OKKER 200 GR - CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            7.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            40.0,
-            60.0,
-            20.0,
-            20.0,
-            20.0
-          ],
-          "escadinhaPlanoAnual": 287,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76187,
-          "produtoRaiz": "ALHO TEMPERADO BAIANO OKKER 200 GR  - CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            21.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            30.0,
-            50.0,
-            20.0,
-            20.0,
-            20.0
-          ],
-          "escadinhaPlanoAnual": 281,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76188,
-          "produtoRaiz": "ALHO TEMPERADO CASEIRO OKKER 200 GR - CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            19.0,
-            30.0,
-            30.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0
-          ],
-          "escadinhaPlanoAnual": 214,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 71748,
-          "produtoRaiz": "ALHO PASTA OKKER 3 KG - CX 6",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            10.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0
-          ],
-          "escadinhaPlanoAnual": 175,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76190,
-          "produtoRaiz": "ALHO TEMPERADO REFOGA OKKER 200 GR - CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            8.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0
-          ],
-          "escadinhaPlanoAnual": 173,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 72592,
-          "produtoRaiz": "ALHO FRITO GRANULADO SACHE OKKER 500 GR - CX 24",
-          "caminho": [],
-          "consumoPorUnidade": 2.0,
-          "mensal": [
-            12.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            20.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "escadinhaPlanoAnual": 76,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 94172,
-          "produtoRaiz": "ALHO FRITO GRANULADO (POTE) OKKER 250 GR - CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 2.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "escadinhaPlanoAnual": 0,
-          "escadinhaUnidade": null
-        },
-        {
-          "codRaiz": 76499,
-          "produtoRaiz": "CEBOLA PICADA OKKER 200 GR - CX 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "escadinhaPlanoAnual": 0,
-          "escadinhaUnidade": null
-        }
-      ]
-    },
-    {
-      "loja": "10",
-      "lojaLabel": "10 (Okker – Matriz)",
       "sku": 77044,
       "descricao": "CAIXA PAPELAO LISA OKKER 12 x 200 GR",
       "mensal": [
@@ -22935,6 +22569,343 @@
     {
       "loja": "10",
       "lojaLabel": "10 (Okker – Matriz)",
+      "sku": 77440,
+      "descricao": "ETIQ AMARELO ESVERDEADO (PMS 585) COLUNAS OKKER 120X49",
+      "mensal": [
+        547.0,
+        830.0,
+        880.0,
+        550.0,
+        550.0,
+        3025.0,
+        975.0,
+        2295.0,
+        1040.0,
+        955.0,
+        955.0,
+        955.0
+      ],
+      "mensalAnterior": [
+        547.0,
+        830.0,
+        880.0,
+        550.0,
+        550.0,
+        3025.0,
+        975.0,
+        2295.0,
+        975.0,
+        975.0,
+        975.0,
+        975.0
+      ],
+      "mensalReal": [
+        547.0,
+        456.0,
+        178.0,
+        400.0,
+        552.0,
+        1306.0,
+        1197.0,
+        2333.0,
+        3506.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "totalAno": 13557.0,
+      "detalhamento": [
+        {
+          "codRaiz": 76184,
+          "produtoRaiz": "ALHO TRITURADO OKKER 200 GR - CX 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            60.0,
+            80.0,
+            80.0,
+            80.0,
+            80.0,
+            2500.0,
+            300.0,
+            600.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0
+          ],
+          "escadinhaPlanoAnual": 4980,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 76185,
+          "produtoRaiz": "ALHO TRITURADO OKKER 400 GR - CX 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            192.0,
+            300.0,
+            300.0,
+            150.0,
+            150.0,
+            150.0,
+            300.0,
+            1000.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0
+          ],
+          "escadinhaPlanoAnual": 3742,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 76183,
+          "produtoRaiz": "ALHO PASTA OKKER 400 GR - CX 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            175.0,
+            250.0,
+            300.0,
+            150.0,
+            150.0,
+            150.0,
+            150.0,
+            150.0,
+            150.0,
+            150.0,
+            150.0,
+            150.0
+          ],
+          "escadinhaPlanoAnual": 2075,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 76182,
+          "produtoRaiz": "ALHO PASTA OKKER 200 GR - CX 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            32.0,
+            60.0,
+            60.0,
+            45.0,
+            45.0,
+            100.0,
+            100.0,
+            280.0,
+            100.0,
+            100.0,
+            100.0,
+            100.0
+          ],
+          "escadinhaPlanoAnual": 1122,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 76401,
+          "produtoRaiz": "ALHO FRITO GRANULADO OKKER 90 GR - CX 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            11.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            130.0,
+            35.0,
+            20.0,
+            20.0,
+            20.0
+          ],
+          "escadinhaPlanoAnual": 356,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 76189,
+          "produtoRaiz": "ALHO TEMPERADO MINEIRO OKKER 200 GR - CX 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            7.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            40.0,
+            60.0,
+            20.0,
+            20.0,
+            20.0
+          ],
+          "escadinhaPlanoAnual": 287,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 76187,
+          "produtoRaiz": "ALHO TEMPERADO BAIANO OKKER 200 GR  - CX 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            21.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            30.0,
+            50.0,
+            20.0,
+            20.0,
+            20.0
+          ],
+          "escadinhaPlanoAnual": 281,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 76188,
+          "produtoRaiz": "ALHO TEMPERADO CASEIRO OKKER 200 GR - CX 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            19.0,
+            30.0,
+            30.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0
+          ],
+          "escadinhaPlanoAnual": 214,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 71748,
+          "produtoRaiz": "ALHO PASTA OKKER 3 KG - CX 6",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            10.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0
+          ],
+          "escadinhaPlanoAnual": 175,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 76190,
+          "produtoRaiz": "ALHO TEMPERADO REFOGA OKKER 200 GR - CX 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            8.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0
+          ],
+          "escadinhaPlanoAnual": 173,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 72592,
+          "produtoRaiz": "ALHO FRITO GRANULADO SACHE OKKER 500 GR - CX 24",
+          "caminho": [],
+          "consumoPorUnidade": 2.0,
+          "mensal": [
+            12.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            20.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "escadinhaPlanoAnual": 76,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 94172,
+          "produtoRaiz": "ALHO FRITO GRANULADO (POTE) OKKER 250 GR - CX 12",
+          "caminho": [],
+          "consumoPorUnidade": 2.0,
+          "mensal": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "escadinhaPlanoAnual": 0,
+          "escadinhaUnidade": null
+        },
+        {
+          "codRaiz": 76499,
+          "produtoRaiz": "CEBOLA PICADA OKKER 200 GR - CX 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "escadinhaPlanoAnual": 0,
+          "escadinhaUnidade": null
+        }
+      ]
+    },
+    {
+      "loja": "10",
+      "lojaLabel": "10 (Okker – Matriz)",
       "sku": 70742,
       "descricao": "ETIQ ALHO PASTA OKKER 200G",
       "mensal": [
@@ -23513,51 +23484,51 @@
     {
       "loja": "10",
       "lojaLabel": "10 (Okker – Matriz)",
-      "sku": 77040,
-      "descricao": "CAIXA PAPELAO LISA OKKER 6 X 3 KG",
+      "sku": 70840,
+      "descricao": "CAIXA OKKER 6X3KG OKKER",
       "mensal": [
-        865.0,
-        1215.0,
-        1215.0,
-        915.0,
-        915.0,
-        915.0,
-        915.0,
-        1015.0,
-        1015.0,
-        915.0,
-        915.0,
-        915.0
+        855.0,
+        1200.0,
+        1200.0,
+        900.0,
+        900.0,
+        900.0,
+        900.0,
+        1000.0,
+        1000.0,
+        900.0,
+        900.0,
+        900.0
       ],
       "mensalAnterior": [
-        865.0,
-        1215.0,
-        1215.0,
-        915.0,
-        915.0,
-        915.0,
-        915.0,
-        1015.0,
-        915.0,
-        915.0,
-        915.0,
-        915.0
+        855.0,
+        1200.0,
+        1200.0,
+        900.0,
+        900.0,
+        900.0,
+        900.0,
+        1000.0,
+        900.0,
+        900.0,
+        900.0,
+        900.0
       ],
       "mensalReal": [
-        865.0,
-        805.0,
-        721.0,
+        855.0,
+        795.0,
+        716.0,
         827.0,
-        1363.0,
-        488.0,
+        1355.0,
+        478.0,
         1001.0,
         971.0,
-        1464.0,
+        1444.0,
         0.0,
         0.0,
         0.0
       ],
-      "totalAno": 11730.0,
+      "totalAno": 11555.0,
       "detalhamento": [
         {
           "codRaiz": 70245,
@@ -23579,28 +23550,6 @@
             900.0
           ],
           "escadinhaPlanoAnual": 11555,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 71748,
-          "produtoRaiz": "ALHO PASTA OKKER 3 KG - CX 6",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            10.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0,
-            15.0
-          ],
-          "escadinhaPlanoAnual": 175,
           "escadinhaUnidade": "CX"
         }
       ]
@@ -30624,6 +30573,79 @@
             0.627
           ],
           "escadinhaPlanoAnual": 281,
+          "escadinhaUnidade": "CX"
+        }
+      ]
+    },
+    {
+      "loja": "10",
+      "lojaLabel": "10 (Okker – Matriz)",
+      "sku": 77040,
+      "descricao": "CAIXA PAPELAO LISA OKKER 6 X 3 KG",
+      "mensal": [
+        10.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0
+      ],
+      "mensalAnterior": [
+        10.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0
+      ],
+      "mensalReal": [
+        10.0,
+        10.0,
+        5.0,
+        0.0,
+        8.0,
+        10.0,
+        0.0,
+        0.0,
+        20.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "totalAno": 175.0,
+      "detalhamento": [
+        {
+          "codRaiz": 71748,
+          "produtoRaiz": "ALHO PASTA OKKER 3 KG - CX 6",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            10.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0
+          ],
+          "escadinhaPlanoAnual": 175,
           "escadinhaUnidade": "CX"
         }
       ]
@@ -63478,17 +63500,6 @@
       "desvioPercentual": 11.5
     },
     {
-      "loja": "10",
-      "lojaLabel": "10 (Okker – Matriz)",
-      "sku": 77440,
-      "descricao": "ETIQ AMARELO ESVERDEADO (PMS 585) COLUNAS OKKER 120X49",
-      "mes": "set",
-      "planoAnterior": 1875.0,
-      "planoAtual": 2040.0,
-      "desvio": 165.0,
-      "desvioPercentual": 8.8
-    },
-    {
       "loja": "11",
       "lojaLabel": "11 (2JM Amidos)",
       "sku": 31152,
@@ -63689,13 +63700,13 @@
     {
       "loja": "10",
       "lojaLabel": "10 (Okker – Matriz)",
-      "sku": 77040,
-      "descricao": "CAIXA PAPELAO LISA OKKER 6 X 3 KG",
+      "sku": 70840,
+      "descricao": "CAIXA OKKER 6X3KG OKKER",
       "mes": "set",
-      "planoAnterior": 915.0,
-      "planoAtual": 1015.0,
+      "planoAnterior": 900.0,
+      "planoAtual": 1000.0,
       "desvio": 100.0,
-      "desvioPercentual": 10.9
+      "desvioPercentual": 11.1
     },
     {
       "loja": "11",
@@ -63872,6 +63883,17 @@
       "planoAtual": 163.2,
       "desvio": -65.3,
       "desvioPercentual": -28.6
+    },
+    {
+      "loja": "10",
+      "lojaLabel": "10 (Okker – Matriz)",
+      "sku": 77440,
+      "descricao": "ETIQ AMARELO ESVERDEADO (PMS 585) COLUNAS OKKER 120X49",
+      "mes": "set",
+      "planoAnterior": 975.0,
+      "planoAtual": 1040.0,
+      "desvio": 65.0,
+      "desvioPercentual": 6.7
     },
     {
       "loja": "1",

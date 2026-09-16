@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-09-16T08:17:48",
+  "atualizadoEm": "2026-09-16T10:28:53",
   "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS (fornecedor e entregas programadas: compras_a_receber.json; projecaoBom: ficha_tecnica.json + dados-escadinha.json)",
   "produtos": [
     {
@@ -447,7 +447,7 @@
       "proximaEntrada": "2026-11-14T14:10:22.221000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-16T00:00:00",
+          "data": "2026-09-18T00:00:00",
           "quantidade": 3000,
           "pedido": 459494
         },
@@ -489,11 +489,11 @@
       ],
       "totalProgramado": 26744,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
-      "primeiraEntrega": "2026-09-16",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 25.5,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 23.5,
       "temFichaTecnica": true,
       "projecaoBom": 15552.0,
       "consumoRealBom": 7793.4
@@ -770,7 +770,7 @@
       "proximaEntrada": "2026-12-19T00:42:46.221000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-14T00:00:00",
+          "data": "2026-09-18T00:00:00",
           "quantidade": 800,
           "pedido": 475389
         }
@@ -778,10 +778,10 @@
       "totalProgramado": 800,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 30.8,
       "temFichaTecnica": true,
       "projecaoBom": 0.0,
       "consumoRealBom": 162.3
@@ -1222,9 +1222,14 @@
           "data": "2026-09-21T00:00:00",
           "quantidade": 1000,
           "pedido": 475436
+        },
+        {
+          "data": "2026-10-20T00:00:00",
+          "quantidade": 500,
+          "pedido": 477700
         }
       ],
-      "totalProgramado": 1000,
+      "totalProgramado": 1500,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -2443,14 +2448,8 @@
       "desvioProjecao": -201.0,
       "loteMinimo": 200,
       "proximaEntrada": "2026-10-07T08:19:53.683000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-15T00:00:00",
-          "quantidade": 320,
-          "pedido": 472480
-        }
-      ],
-      "totalProgramado": 320,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Saudável",
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
@@ -2497,7 +2496,7 @@
       "sku": "45683",
       "produto": "MP - ANTI-MOFO CONSTAPI",
       "loja": "1",
-      "fornecedor": "HEALTHY BREAD CONSERVANTES ALIMENTICIOS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2513,14 +2512,8 @@
       "desvioProjecao": -52.5,
       "loteMinimo": 100,
       "proximaEntrada": "2026-12-26T14:43:36.765000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-14T00:00:00",
-          "quantidade": 250,
-          "pedido": 472477
-        }
-      ],
-      "totalProgramado": 250,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -2731,7 +2724,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-15T00:00:00",
-          "quantidade": 110,
+          "quantidade": 10,
           "pedido": 472480
         },
         {
@@ -2740,7 +2733,7 @@
           "pedido": 472481
         }
       ],
-      "totalProgramado": 220,
+      "totalProgramado": 120,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -2787,7 +2780,7 @@
       "sku": "70897",
       "produto": "MP - SORBATO DE POTÁSSIO KG",
       "loja": "1",
-      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2803,14 +2796,8 @@
       "desvioProjecao": -21.8,
       "loteMinimo": 50,
       "proximaEntrada": "2026-10-22T22:30:56.477000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-15T00:00:00",
-          "quantidade": 50,
-          "pedido": 472480
-        }
-      ],
-      "totalProgramado": 50,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -3013,7 +3000,7 @@
       "proximaEntrada": "2027-01-16T20:51:30.573000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-14T00:00:00",
+          "data": "2026-09-18T00:00:00",
           "quantidade": 50000,
           "pedido": 459388
         }
@@ -3022,9 +3009,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 61.3,
       "temFichaTecnica": true,
       "projecaoBom": 15000.0,
       "consumoRealBom": 7200.0
@@ -3666,8 +3653,8 @@
       "consumoMensal": 862,
       "escadinha": 858.0,
       "faturado": 867.0,
-      "atingimento": null,
-      "desvioProjecao": null,
+      "atingimento": 144.4,
+      "desvioProjecao": 444.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-12-31T17:44:20.870000",
       "entregasProgramadas": [],
@@ -3678,9 +3665,9 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "temFichaTecnica": false,
-      "projecaoBom": null,
-      "consumoRealBom": null
+      "temFichaTecnica": true,
+      "projecaoBom": 1000.0,
+      "consumoRealBom": 1444.0
     },
     {
       "sku": "70720",
@@ -4464,8 +4451,8 @@
       "consumoMensal": 2544,
       "escadinha": 1627.7,
       "faturado": 3460.8,
-      "atingimento": 242.6,
-      "desvioProjecao": 2910.0,
+      "atingimento": 337.1,
+      "desvioProjecao": 2466.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-11-17T04:09:53.875000",
       "entregasProgramadas": [],
@@ -4477,8 +4464,8 @@
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
-      "projecaoBom": 2040.0,
-      "consumoRealBom": 4950.0
+      "projecaoBom": 1040.0,
+      "consumoRealBom": 3506.0
     },
     {
       "sku": "70805",
@@ -4618,7 +4605,7 @@
       "sku": "42064",
       "produto": "MP - ACAFRAO/CURCUMA MOIDA KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DA TERRINHA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4634,14 +4621,20 @@
       "desvioProjecao": -4.9,
       "loteMinimo": 100,
       "proximaEntrada": "2027-01-28T04:55:31.592000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 25,
+          "pedido": 477963
+        }
+      ],
+      "totalProgramado": 25,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 147.2,
       "temFichaTecnica": true,
       "projecaoBom": 10.3,
       "consumoRealBom": 5.4
@@ -4980,7 +4973,7 @@
       "sku": "70899",
       "produto": "MP - BENZOATO DE SODIO SC C/ 25 OKKER KG",
       "loja": "10",
-      "fornecedor": "DAXIA DOCE AROMA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4996,14 +4989,8 @@
       "desvioProjecao": -3.1,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-25T00:04:31.796000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-11T00:00:00",
-          "quantidade": 75,
-          "pedido": 476319
-        }
-      ],
-      "totalProgramado": 75,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Saudável",
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
@@ -5266,7 +5253,7 @@
       "proximaEntrada": "2027-09-29T14:00:58.276000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-10T00:00:00",
+          "data": "2026-09-18T00:00:00",
           "quantidade": 25,
           "pedido": 475027
         }
@@ -5275,9 +5262,9 @@
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 6.3,
       "temFichaTecnica": true,
       "projecaoBom": 2.4,
       "consumoRealBom": 1.3
@@ -5343,11 +5330,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-16T00:00:00",
-          "quantidade": 575,
+          "quantidade": 1380,
           "pedido": 460612
         }
       ],
-      "totalProgramado": 575,
+      "totalProgramado": 1380,
       "sugestaoCompra": 1600,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -5464,7 +5451,7 @@
       "sku": "70897",
       "produto": "MP - SORBATO DE POTÁSSIO KG",
       "loja": "10",
-      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5480,14 +5467,8 @@
       "desvioProjecao": -2.6,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-10T05:17:34.486000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-11T00:00:00",
-          "quantidade": 50,
-          "pedido": 476319
-        }
-      ],
-      "totalProgramado": 50,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -5518,14 +5499,20 @@
       "desvioProjecao": 10.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-07T20:08:23.081000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 50,
+          "pedido": 477963
+        }
+      ],
+      "totalProgramado": 50,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 65.8,
       "temFichaTecnica": true,
       "projecaoBom": 29.5,
       "consumoRealBom": 39.5
@@ -5704,7 +5691,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-16T00:00:00",
-          "quantidade": 20000,
+          "quantidade": 20400,
           "pedido": 473707
         },
         {
@@ -5713,7 +5700,7 @@
           "pedido": 473937
         }
       ],
-      "totalProgramado": 45000,
+      "totalProgramado": 45400,
       "sugestaoCompra": 34000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -6767,7 +6754,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-16T00:00:00",
-          "quantidade": 20000,
+          "quantidade": 20400,
           "pedido": 473707
         },
         {
@@ -6776,7 +6763,7 @@
           "pedido": 473937
         }
       ],
-      "totalProgramado": 45000,
+      "totalProgramado": 45400,
       "sugestaoCompra": 35000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -6791,7 +6778,7 @@
       "sku": "78484",
       "produto": "BOBINA FARDOS FAROFA PRONTA TRAD.  113,0 CM COM COD. BARRAS",
       "loja": "11",
-      "fornecedor": "PLASTIMARAU IND EMBAL FLEXIVEL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6807,14 +6794,8 @@
       "desvioProjecao": -692.7,
       "loteMinimo": 500,
       "proximaEntrada": "2027-02-18T03:39:24.735000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-14T00:00:00",
-          "quantidade": 1962,
-          "pedido": 459389
-        }
-      ],
-      "totalProgramado": 1962,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -7384,23 +7365,18 @@
           "pedido": 458772
         },
         {
-          "data": "2026-10-15T00:00:00",
-          "quantidade": 1926,
-          "pedido": 466779
-        },
-        {
           "data": "2026-11-10T00:00:00",
           "quantidade": 2000,
           "pedido": 475429
         }
       ],
-      "totalProgramado": 5926,
+      "totalProgramado": 4000,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
-      "primeiraEntrega": "2026-10-15",
-      "diasAtePrimeiraEntrega": 29,
-      "coberturaNaPrimeiraEntrega": 21.3,
+      "primeiraEntrega": "2026-10-29",
+      "diasAtePrimeiraEntrega": 43,
+      "coberturaNaPrimeiraEntrega": 7.3,
       "temFichaTecnica": true,
       "projecaoBom": 4532.0,
       "consumoRealBom": 2154.6
@@ -7590,15 +7566,20 @@
           "data": "2026-09-30T00:00:00",
           "quantidade": 1500,
           "pedido": 459392
+        },
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 1500,
+          "pedido": 478002
         }
       ],
-      "totalProgramado": 1500,
+      "totalProgramado": 3000,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-30",
-      "diasAtePrimeiraEntrega": 14,
-      "coberturaNaPrimeiraEntrega": 12.2,
+      "primeiraEntrega": "2026-09-23",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 19.2,
       "temFichaTecnica": true,
       "projecaoBom": 1349.6,
       "consumoRealBom": 556.5
@@ -8487,7 +8468,7 @@
       "proximaEntrada": "2026-10-13T20:19:03.945000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-15T00:00:00",
+          "data": "2026-09-16T00:00:00",
           "quantidade": 1512,
           "pedido": 476331
         }
@@ -8496,9 +8477,9 @@
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-16",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 13.7,
       "temFichaTecnica": true,
       "projecaoBom": 664.6,
       "consumoRealBom": 309.7
@@ -8641,7 +8622,7 @@
       "sku": "70897",
       "produto": "MP - SORBATO DE POTÁSSIO KG",
       "loja": "11",
-      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -9654,7 +9635,7 @@
       "proximaEntrada": "2027-01-02T11:18:40.292000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-18T00:00:00",
+          "data": "2026-09-23T00:00:00",
           "quantidade": 300,
           "pedido": 468593
         },
@@ -9668,9 +9649,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-09-18",
-      "diasAtePrimeiraEntrega": 2,
-      "coberturaNaPrimeiraEntrega": 55.5,
+      "primeiraEntrega": "2026-09-23",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 50.5,
       "temFichaTecnica": true,
       "projecaoBom": 129.6,
       "consumoRealBom": 40.2
@@ -11580,7 +11561,7 @@
       "sku": "91641",
       "produto": "CAIXA CARTUCHO CHA BOLDO DA TERRINHA C/7 SACHES",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IMPRESSO BRASIL",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -11596,14 +11577,20 @@
       "desvioProjecao": -2514.2,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-09-20T00:31:49.824000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 6000,
+          "pedido": 477703
+        }
+      ],
+      "totalProgramado": 6000,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 19,
+      "coberturaNaPrimeiraEntrega": 0.0,
       "temFichaTecnica": true,
       "projecaoBom": 3505.9,
       "consumoRealBom": 991.7
@@ -11612,7 +11599,7 @@
       "sku": "91642",
       "produto": "CAIXA CARTUCHO CHA CAMOMILA DA TERRINHA C/7 SACHES",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IMPRESSO BRASIL",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -11628,14 +11615,20 @@
       "desvioProjecao": -3134.1,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-10-08T02:05:43.945000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 10000,
+          "pedido": 477703
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 19,
+      "coberturaNaPrimeiraEntrega": 18.1,
       "temFichaTecnica": true,
       "projecaoBom": 6085.7,
       "consumoRealBom": 2951.6
@@ -11644,7 +11637,7 @@
       "sku": "91643",
       "produto": "CAIXA CARTUCHO CHA CAPIM CIDREIRA DA TERRINHA C/7 SA",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IMPRESSO BRASIL",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -11660,14 +11653,20 @@
       "desvioProjecao": -3673.7,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-11-10T04:07:08.061000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 10000,
+          "pedido": 477703
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 19,
+      "coberturaNaPrimeiraEntrega": 51.2,
       "temFichaTecnica": true,
       "projecaoBom": 6072.3,
       "consumoRealBom": 2398.6
@@ -11708,7 +11707,7 @@
       "sku": "91644",
       "produto": "CAIXA CARTUCHO CHA HORTELA DA TERRINHA C/7 SACHES",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IMPRESSO BRASIL",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -11724,14 +11723,20 @@
       "desvioProjecao": -10.2,
       "loteMinimo": 10000,
       "proximaEntrada": "2027-01-10T00:18:17.635000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 10000,
+          "pedido": 477703
+        }
+      ],
+      "totalProgramado": 10000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 19,
+      "coberturaNaPrimeiraEntrega": 112.0,
       "temFichaTecnica": true,
       "projecaoBom": 21.2,
       "consumoRealBom": 11.0
@@ -11772,7 +11777,7 @@
       "sku": "91646",
       "produto": "CAIXA CARTUCHO CHA VERDE DA TERRINHA C/7 SACHES",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IMPRESSO BRASIL",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -11788,14 +11793,20 @@
       "desvioProjecao": -826.2,
       "loteMinimo": 10000,
       "proximaEntrada": "2026-10-25T16:54:52.061000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-05T00:00:00",
+          "quantidade": 6000,
+          "pedido": 477703
+        }
+      ],
+      "totalProgramado": 6000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-05",
+      "diasAtePrimeiraEntrega": 19,
+      "coberturaNaPrimeiraEntrega": 35.7,
       "temFichaTecnica": true,
       "projecaoBom": 1224.0,
       "consumoRealBom": 397.8
@@ -12313,7 +12324,7 @@
       "sku": "42064",
       "produto": "MP - ACAFRAO/CURCUMA MOIDA KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "DA TERRINHA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12745,7 +12756,7 @@
       "sku": "41598",
       "produto": "MP - CANJICA AMARELA  KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MASTERGOLD INDUSTRIA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12761,14 +12772,20 @@
       "desvioProjecao": -3824.7,
       "loteMinimo": 4000,
       "proximaEntrada": "2026-09-01T18:06:18.777000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 5000,
+          "pedido": 476874
+        }
+      ],
+      "totalProgramado": 5000,
       "sugestaoCompra": 8000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-23",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": -6.2,
       "temFichaTecnica": true,
       "projecaoBom": 5490.0,
       "consumoRealBom": 1665.3
@@ -12795,7 +12812,7 @@
       "proximaEntrada": "2026-10-04T10:10:15.701000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-15T00:00:00",
+          "data": "2026-09-18T00:00:00",
           "quantidade": 18000,
           "pedido": 476280
         },
@@ -12814,9 +12831,9 @@
       "sugestaoCompra": 28000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-30",
-      "diasAtePrimeiraEntrega": 14,
-      "coberturaNaPrimeiraEntrega": -14.0,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": -2.0,
       "temFichaTecnica": true,
       "projecaoBom": 30195.0,
       "consumoRealBom": 11795.0
@@ -12825,7 +12842,7 @@
       "sku": "41600",
       "produto": "MP - CANJIQUINHA DE MILHO / MASTER G1 KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MASTERGOLD INDUSTRIA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12841,14 +12858,20 @@
       "desvioProjecao": -2898.0,
       "loteMinimo": 4000,
       "proximaEntrada": "2026-09-01T08:17:13.885000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-23T00:00:00",
+          "quantidade": 5000,
+          "pedido": 476874
+        }
+      ],
+      "totalProgramado": 5000,
       "sugestaoCompra": 4000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-23",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": -6.7,
       "temFichaTecnica": true,
       "projecaoBom": 4200.0,
       "consumoRealBom": 1302.0
@@ -12921,7 +12944,7 @@
       "sku": "41962",
       "produto": "MP - CHA CAMOMILA FLOR RAZURADO PARA SACHE KG",
       "loja": "14",
-      "fornecedor": "HERBOFLORA PRODUTOS NATURAIS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12937,14 +12960,8 @@
       "desvioProjecao": -22.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-15T15:38:16.763000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-15T00:00:00",
-          "quantidade": 120,
-          "pedido": 472428
-        }
-      ],
-      "totalProgramado": 120,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -13087,7 +13104,7 @@
       "sku": "41969",
       "produto": "MP - CHA QUENTAO RAZURADO PARA SACHE KG",
       "loja": "14",
-      "fornecedor": "HERBOFLORA PRODUTOS NATURAIS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13103,14 +13120,8 @@
       "desvioProjecao": -27.2,
       "loteMinimo": 100,
       "proximaEntrada": "2027-03-05T16:42:42.319000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-15T00:00:00",
-          "quantidade": 100,
-          "pedido": 472428
-        }
-      ],
-      "totalProgramado": 100,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -13175,7 +13186,7 @@
       "proximaEntrada": "2026-10-13T01:27:56.072000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-15T00:00:00",
+          "data": "2026-09-16T00:00:00",
           "quantidade": 3000,
           "pedido": 475059
         }
@@ -13184,9 +13195,9 @@
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-16",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 12.3,
       "temFichaTecnica": true,
       "projecaoBom": 3024.0,
       "consumoRealBom": 1381.0
@@ -13213,7 +13224,7 @@
       "proximaEntrada": "2026-09-16T00:00:00",
       "entregasProgramadas": [
         {
-          "data": "2026-09-15T00:00:00",
+          "data": "2026-09-16T00:00:00",
           "quantidade": 6000,
           "pedido": 474168
         },
@@ -13227,9 +13238,9 @@
       "sugestaoCompra": 3000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-11-16",
-      "diasAtePrimeiraEntrega": 61,
-      "coberturaNaPrimeiraEntrega": -61.0,
+      "primeiraEntrega": "2026-09-16",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 0.0,
       "temFichaTecnica": true,
       "projecaoBom": 2940.5,
       "consumoRealBom": 1375.8
@@ -13404,7 +13415,7 @@
       "sku": "42912",
       "produto": "MP - CURRY KG",
       "loja": "14",
-      "fornecedor": "REINO ALIMENTOS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13420,14 +13431,8 @@
       "desvioProjecao": -205.5,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-15T22:46:33.803000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-15T00:00:00",
-          "quantidade": 600,
-          "pedido": 459549
-        }
-      ],
-      "totalProgramado": 600,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -13779,7 +13784,7 @@
       "sku": "41825",
       "produto": "MP - FEIJAO BRANCO KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "BR COMERCIO",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13795,14 +13800,20 @@
       "desvioProjecao": -5185.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-01T10:07:11.658000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 14500,
+          "pedido": 477668
+        }
+      ],
+      "totalProgramado": 14500,
       "sugestaoCompra": 4000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": -4.6,
       "temFichaTecnica": true,
       "projecaoBom": 9150.0,
       "consumoRealBom": 3965.0
@@ -14427,11 +14438,6 @@
       "proximaEntrada": "2026-11-01T17:43:49.495000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-09T00:00:00",
-          "quantidade": 5,
-          "pedido": 473409
-        },
-        {
           "data": "2026-10-01T00:00:00",
           "quantidade": 50,
           "pedido": 473410
@@ -14442,7 +14448,7 @@
           "pedido": 473411
         }
       ],
-      "totalProgramado": 105,
+      "totalProgramado": 100,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -14507,7 +14513,7 @@
       "proximaEntrada": "2026-09-05T23:19:33.888000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-29T00:00:00",
+          "data": "2026-09-17T00:00:00",
           "quantidade": 5000,
           "pedido": 476154
         }
@@ -14516,9 +14522,9 @@
       "sugestaoCompra": 2900,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-29",
-      "diasAtePrimeiraEntrega": 13,
-      "coberturaNaPrimeiraEntrega": -8.0,
+      "primeiraEntrega": "2026-09-17",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 4.0,
       "temFichaTecnica": true,
       "projecaoBom": 10916.9,
       "consumoRealBom": 6412.5
@@ -14527,7 +14533,7 @@
       "sku": "45306",
       "produto": "MP - PAPRICA DOCE EM PO/ MOIDO  KG",
       "loja": "14",
-      "fornecedor": "JNBM - CONDIMENTOS E ESPECIARIAS",
+      "fornecedor": "CONDBRAS",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -14543,14 +14549,8 @@
       "desvioProjecao": -410.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-18T14:27:48.566000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-15T00:00:00",
-          "quantidade": 800,
-          "pedido": 467972
-        }
-      ],
-      "totalProgramado": 800,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Saudável",
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
@@ -14565,7 +14565,7 @@
       "sku": "45305",
       "produto": "MP - PAPRICA PICANTE EM PO/ MOIDO KG",
       "loja": "14",
-      "fornecedor": "JNBM - CONDIMENTOS E ESPECIARIAS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -14581,14 +14581,8 @@
       "desvioProjecao": -453.5,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-30T09:35:29.796000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-15T00:00:00",
-          "quantidade": 800,
-          "pedido": 467972
-        }
-      ],
-      "totalProgramado": 800,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -15044,7 +15038,7 @@
       "proximaEntrada": "2026-09-22T01:38:02.139000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-15T00:00:00",
+          "data": "2026-09-16T00:00:00",
           "quantidade": 2500,
           "pedido": 476545
         }
@@ -15053,9 +15047,9 @@
       "sugestaoCompra": 1800,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-16",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 0.0,
       "temFichaTecnica": true,
       "projecaoBom": 3744.0,
       "consumoRealBom": 1832.1
