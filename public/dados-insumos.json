@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-09-17T08:16:49",
+  "atualizadoEm": "2026-09-17T10:04:35",
   "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS (fornecedor e entregas programadas: compras_a_receber.json; projecaoBom: ficha_tecnica.json + dados-escadinha.json)",
   "produtos": [
     {
@@ -61,7 +61,7 @@
           "pedido": 467456
         },
         {
-          "data": "2026-10-26T00:00:00",
+          "data": "2026-11-26T00:00:00",
           "quantidade": 2500,
           "pedido": 471891
         }
@@ -997,7 +997,7 @@
       "sku": "51727",
       "produto": "BOBINA TAPIOCA LESTE",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -1013,14 +1013,20 @@
       "desvioProjecao": -86.4,
       "loteMinimo": 500,
       "proximaEntrada": "2026-10-10T18:59:07.826000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-19T00:00:00",
+          "quantidade": 500,
+          "pedido": 478679
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
-      "status": "Excesso",
-      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-19",
+      "diasAtePrimeiraEntrega": 32,
+      "coberturaNaPrimeiraEntrega": 21.8,
       "temFichaTecnica": true,
       "projecaoBom": 86.4,
       "consumoRealBom": 0.0
@@ -2748,7 +2754,7 @@
       "sku": "42060",
       "produto": "MP - SAL REFINADO KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2905,11 +2911,6 @@
       "proximaEntrada": "2027-02-01T03:09:23.790000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 37970,
-          "pedido": 459387
-        },
-        {
           "data": "2026-10-05T00:00:00",
           "quantidade": 50000,
           "pedido": 472655
@@ -2935,7 +2936,7 @@
           "pedido": 477516
         }
       ],
-      "totalProgramado": 287970,
+      "totalProgramado": 250000,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -2982,7 +2983,7 @@
       "sku": "34469",
       "produto": "SACO POUCH TAPIOCA OBA 560GR",
       "loja": "1",
-      "fornecedor": "PLASTICO DU VALE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -2998,20 +2999,14 @@
       "desvioProjecao": -7800.0,
       "loteMinimo": 35000,
       "proximaEntrada": "2027-01-17T20:51:30.573000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-18T00:00:00",
-          "quantidade": 50000,
-          "pedido": 459388
-        }
-      ],
-      "totalProgramado": 50000,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-09-18",
-      "diasAtePrimeiraEntrega": 1,
-      "coberturaNaPrimeiraEntrega": 62.3,
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
       "projecaoBom": 15000.0,
       "consumoRealBom": 7200.0
@@ -3379,7 +3374,7 @@
       "sku": "70832",
       "produto": "CAIXA OKKER 24X430G (390G) OKKER",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "PRIMUSCART",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -3395,14 +3390,20 @@
       "desvioProjecao": -251.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-09-27T08:54:13.249000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-25T00:00:00",
+          "quantidade": 1200,
+          "pedido": 478669
+        }
+      ],
+      "totalProgramado": 1200,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-25",
+      "diasAtePrimeiraEntrega": 8,
+      "coberturaNaPrimeiraEntrega": 17.4,
       "temFichaTecnica": true,
       "projecaoBom": 600.0,
       "consumoRealBom": 349.0
@@ -4605,7 +4606,7 @@
       "sku": "42064",
       "produto": "MP - ACAFRAO/CURCUMA MOIDA KG",
       "loja": "10",
-      "fornecedor": "DA TERRINHA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4621,20 +4622,14 @@
       "desvioProjecao": -4.3,
       "loteMinimo": 100,
       "proximaEntrada": "2027-05-13T19:54:53.567000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-18T00:00:00",
-          "quantidade": 25,
-          "pedido": 477963
-        }
-      ],
-      "totalProgramado": 25,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-09-18",
-      "diasAtePrimeiraEntrega": 1,
-      "coberturaNaPrimeiraEntrega": 154.2,
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
       "projecaoBom": 10.3,
       "consumoRealBom": 6.0
@@ -4700,11 +4695,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-15T00:00:00",
-          "quantidade": 25,
+          "quantidade": 30,
           "pedido": 477520
         }
       ],
-      "totalProgramado": 25,
+      "totalProgramado": 30,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -4738,11 +4733,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-15T00:00:00",
-          "quantidade": 100,
+          "quantidade": 105,
           "pedido": 477520
         }
       ],
-      "totalProgramado": 100,
+      "totalProgramado": 105,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -4827,7 +4822,7 @@
       "sku": "42164",
       "produto": "MP - ALHO DESIDRATADO GRANULADO KG",
       "loja": "10",
-      "fornecedor": "DA TERRINHA",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4848,9 +4843,24 @@
           "data": "2026-09-18T00:00:00",
           "quantidade": 5100,
           "pedido": 477093
+        },
+        {
+          "data": "2026-10-30T00:00:00",
+          "quantidade": 15000,
+          "pedido": 478664
+        },
+        {
+          "data": "2026-11-30T00:00:00",
+          "quantidade": 15000,
+          "pedido": 478671
+        },
+        {
+          "data": "2026-12-31T00:00:00",
+          "quantidade": 15000,
+          "pedido": 478673
         }
       ],
-      "totalProgramado": 5100,
+      "totalProgramado": 50100,
       "sugestaoCompra": 6000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -5069,7 +5079,7 @@
       "sku": "44465",
       "produto": "MP - CEBOLA DESID GRANULADA KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5085,14 +5095,20 @@
       "desvioProjecao": 31.3,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-24T18:42:00.783000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-17T00:00:00",
+          "quantidade": 700,
+          "pedido": 478658
+        }
+      ],
+      "totalProgramado": 700,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-17",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 83.8,
       "temFichaTecnica": true,
       "projecaoBom": 0.0,
       "consumoRealBom": 31.3
@@ -5329,18 +5345,18 @@
       "proximaEntrada": "2026-09-15T14:36:49.401000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-16T00:00:00",
-          "quantidade": 1380,
-          "pedido": 460612
+          "data": "2026-09-28T00:00:00",
+          "quantidade": 2300,
+          "pedido": 478293
         }
       ],
-      "totalProgramado": 1380,
+      "totalProgramado": 2300,
       "sugestaoCompra": 1600,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-28",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": -10.4,
       "temFichaTecnica": true,
       "projecaoBom": 3265.0,
       "consumoRealBom": 1899.1
@@ -5381,7 +5397,7 @@
       "sku": "71687",
       "produto": "MP - SAL REFINADO SEM IODO KG",
       "loja": "10",
-      "fornecedor": "SO SAL ANFAMAR COM. DE ALIMENTOS LTDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5397,20 +5413,14 @@
       "desvioProjecao": -29.8,
       "loteMinimo": 100,
       "proximaEntrada": "2027-01-23T02:02:26.675000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-18T00:00:00",
-          "quantidade": 2000,
-          "pedido": 476115
-        }
-      ],
-      "totalProgramado": 2000,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-09-18",
-      "diasAtePrimeiraEntrega": 1,
-      "coberturaNaPrimeiraEntrega": 24.2,
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
       "projecaoBom": 483.7,
       "consumoRealBom": 453.9
@@ -5483,7 +5493,7 @@
       "sku": "41862",
       "produto": "MP - TEMPERO BAIANO KG",
       "loja": "10",
-      "fornecedor": "MON CHEF",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5499,20 +5509,14 @@
       "desvioProjecao": 10.8,
       "loteMinimo": 100,
       "proximaEntrada": "2026-12-26T12:18:20.450000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-18T00:00:00",
-          "quantidade": 50,
-          "pedido": 477963
-        }
-      ],
-      "totalProgramado": 50,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-09-18",
-      "diasAtePrimeiraEntrega": 1,
-      "coberturaNaPrimeiraEntrega": 62.0,
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
       "projecaoBom": 29.5,
       "consumoRealBom": 40.3
@@ -5539,18 +5543,18 @@
       "proximaEntrada": "2026-10-05T22:36:11.908000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-16T00:00:00",
+          "data": "2026-09-28T00:00:00",
           "quantidade": 2000,
-          "pedido": 476322
+          "pedido": 478722
         }
       ],
       "totalProgramado": 2000,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-28",
+      "diasAtePrimeiraEntrega": 11,
+      "coberturaNaPrimeiraEntrega": -3.6,
       "temFichaTecnica": true,
       "projecaoBom": 2617.1,
       "consumoRealBom": 1522.3
@@ -5690,17 +5694,12 @@
       "proximaEntrada": "2026-09-25T11:17:27.573000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-16T00:00:00",
-          "quantidade": 20400,
-          "pedido": 473707
-        },
-        {
           "data": "2026-10-05T00:00:00",
           "quantidade": 25000,
           "pedido": 473937
         }
       ],
-      "totalProgramado": 45400,
+      "totalProgramado": 25000,
       "sugestaoCompra": 35000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -6753,17 +6752,12 @@
       "proximaEntrada": "2026-09-25T05:10:52.527000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-16T00:00:00",
-          "quantidade": 20400,
-          "pedido": 473707
-        },
-        {
           "data": "2026-10-05T00:00:00",
           "quantidade": 25000,
           "pedido": 473937
         }
       ],
-      "totalProgramado": 45400,
+      "totalProgramado": 25000,
       "sugestaoCompra": 36000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -7312,13 +7306,13 @@
       "proximaEntrada": "2026-10-09T11:34:30.720000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-14T00:00:00",
-          "quantidade": 500,
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 458,
           "pedido": 466783
         },
         {
-          "data": "2026-09-18T00:00:00",
-          "quantidade": 600,
+          "data": "2026-09-25T00:00:00",
+          "quantidade": 615,
           "pedido": 472714
         },
         {
@@ -7327,7 +7321,7 @@
           "pedido": 475427
         }
       ],
-      "totalProgramado": 1700,
+      "totalProgramado": 1673,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -7824,7 +7818,7 @@
       "sku": "42164",
       "produto": "MP - ALHO DESIDRATADO GRANULADO KG",
       "loja": "11",
-      "fornecedor": "DA TERRINHA",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7840,14 +7834,20 @@
       "desvioProjecao": -1271.6,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-16T12:04:09.143000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 2500,
+          "pedido": 478392
+        }
+      ],
+      "totalProgramado": 2500,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 13.5,
       "temFichaTecnica": true,
       "projecaoBom": 2436.7,
       "consumoRealBom": 1165.1
@@ -7894,7 +7894,7 @@
       "sku": "76361",
       "produto": "MP - AROMA DE FUMACA EM LIQUIDO",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "SBR FOODS LTDA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7910,14 +7910,30 @@
       "desvioProjecao": -38.5,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-23T10:43:02.770000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 80,
+          "pedido": 478425
+        },
+        {
+          "data": "2026-11-02T00:00:00",
+          "quantidade": 100,
+          "pedido": 478426
+        },
+        {
+          "data": "2026-12-02T00:00:00",
+          "quantidade": 80,
+          "pedido": 478427
+        }
+      ],
+      "totalProgramado": 260,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-01",
+      "diasAtePrimeiraEntrega": 14,
+      "coberturaNaPrimeiraEntrega": 7.4,
       "temFichaTecnica": true,
       "projecaoBom": 73.8,
       "consumoRealBom": 35.3
@@ -7926,7 +7942,7 @@
       "sku": "83400",
       "produto": "MP - BHT ONU3077, 9, III",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "LAPIENDRIUS INDUSTRIA E COMERCIO LTDA.",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7942,14 +7958,20 @@
       "desvioProjecao": -8.4,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-11T07:53:49.916000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-29T00:00:00",
+          "quantidade": 50,
+          "pedido": 478428
+        }
+      ],
+      "totalProgramado": 50,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-29",
+      "diasAtePrimeiraEntrega": 12,
+      "coberturaNaPrimeiraEntrega": 27.3,
       "temFichaTecnica": true,
       "projecaoBom": 16.2,
       "consumoRealBom": 7.8
@@ -7958,7 +7980,7 @@
       "sku": "49946",
       "produto": "MP - CEBOLA DESID FLOCOS/TIRAS KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7974,14 +7996,20 @@
       "desvioProjecao": -788.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-24T13:38:19.626000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 2000,
+          "pedido": 478392
+        }
+      ],
+      "totalProgramado": 2000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 21.6,
       "temFichaTecnica": true,
       "projecaoBom": 1523.0,
       "consumoRealBom": 735.0
@@ -8258,7 +8286,7 @@
       "sku": "44467",
       "produto": "MP - PIMENTA REINO PRETA PO/ MOIDA KG",
       "loja": "11",
-      "fornecedor": "CONDBRAS",
+      "fornecedor": "DA TERRINHA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -8274,14 +8302,20 @@
       "desvioProjecao": -65.7,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-04T11:19:33.195000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 175,
+          "pedido": 478364
+        }
+      ],
+      "totalProgramado": 175,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 1.5,
       "temFichaTecnica": true,
       "projecaoBom": 135.5,
       "consumoRealBom": 69.8
@@ -8558,7 +8592,7 @@
       "sku": "42060",
       "produto": "MP - SAL REFINADO KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -8574,14 +8608,20 @@
       "desvioProjecao": -698.8,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-14T18:15:55.703000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 1500,
+          "pedido": 478392
+        }
+      ],
+      "totalProgramado": 1500,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 11.8,
       "temFichaTecnica": true,
       "projecaoBom": 1258.6,
       "consumoRealBom": 559.8
@@ -12160,7 +12200,7 @@
       "proximaEntrada": "2026-11-21T14:43:37.836000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-21T00:00:00",
+          "data": "2026-11-10T00:00:00",
           "quantidade": 15000,
           "pedido": 466231
         },
@@ -12179,9 +12219,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-09-21",
-      "diasAtePrimeiraEntrega": 4,
-      "coberturaNaPrimeiraEntrega": 43.6,
+      "primeiraEntrega": "2026-10-12",
+      "diasAtePrimeiraEntrega": 25,
+      "coberturaNaPrimeiraEntrega": 22.6,
       "temFichaTecnica": true,
       "projecaoBom": 31300.0,
       "consumoRealBom": 11894.0
@@ -12324,7 +12364,7 @@
       "sku": "42064",
       "produto": "MP - ACAFRAO/CURCUMA MOIDA KG",
       "loja": "14",
-      "fornecedor": "DA TERRINHA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12388,7 +12428,7 @@
       "sku": "80060",
       "produto": "MP - ACUCAR DE CONFEITEIRO",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "ACUCAREIRA BOA VISTA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12404,14 +12444,20 @@
       "desvioProjecao": -2047.5,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-11T23:49:40.146000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-09-21T00:00:00",
+          "quantidade": 4000,
+          "pedido": 478689
+        }
+      ],
+      "totalProgramado": 4000,
       "sugestaoCompra": 700,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-21",
+      "diasAtePrimeiraEntrega": 4,
+      "coberturaNaPrimeiraEntrega": 6.0,
       "temFichaTecnica": true,
       "projecaoBom": 3454.4,
       "consumoRealBom": 1406.9
@@ -12484,7 +12530,7 @@
       "sku": "42164",
       "produto": "MP - ALHO DESIDRATADO GRANULADO KG",
       "loja": "14",
-      "fornecedor": "DA TERRINHA",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12566,11 +12612,6 @@
       "proximaEntrada": "2026-11-12T21:01:27.180000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-16T00:00:00",
-          "quantidade": 13000,
-          "pedido": 472722
-        },
-        {
           "data": "2026-10-01T00:00:00",
           "quantidade": 13000,
           "pedido": 476313
@@ -12596,7 +12637,7 @@
           "pedido": 476317
         }
       ],
-      "totalProgramado": 78000,
+      "totalProgramado": 65000,
       "sugestaoCompra": 20000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -13168,7 +13209,7 @@
       "sku": "46783",
       "produto": "MP - CHIMICHURRI KG",
       "loja": "14",
-      "fornecedor": "MON CHEF",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -13184,14 +13225,8 @@
       "desvioProjecao": -1423.8,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-10-14T01:27:56.072000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-16T00:00:00",
-          "quantidade": 3000,
-          "pedido": 475059
-        }
-      ],
-      "totalProgramado": 3000,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -13224,17 +13259,12 @@
       "proximaEntrada": "2026-09-17T00:00:00",
       "entregasProgramadas": [
         {
-          "data": "2026-09-16T00:00:00",
-          "quantidade": 6000,
-          "pedido": 474168
-        },
-        {
           "data": "2026-11-16T00:00:00",
           "quantidade": 6000,
           "pedido": 474169
         }
       ],
-      "totalProgramado": 12000,
+      "totalProgramado": 6000,
       "sugestaoCompra": 3000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -13732,7 +13762,7 @@
       "proximaEntrada": "2026-09-14T01:41:48.913000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-17T00:00:00",
+          "data": "2026-09-18T00:00:00",
           "quantidade": 5000,
           "pedido": 476153
         }
@@ -13741,9 +13771,9 @@
       "sugestaoCompra": 1200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-17",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 12.1,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 11.1,
       "temFichaTecnica": true,
       "projecaoBom": 7692.3,
       "consumoRealBom": 3369.2
@@ -14182,18 +14212,18 @@
       "proximaEntrada": "2026-09-19T03:46:37.174000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-15T00:00:00",
-          "quantidade": 9000,
+          "data": "2026-09-18T00:00:00",
+          "quantidade": 14000,
           "pedido": 459290
         }
       ],
-      "totalProgramado": 9000,
+      "totalProgramado": 14000,
       "sugestaoCompra": 10000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-09-18",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 5.1,
       "temFichaTecnica": true,
       "projecaoBom": 6300.0,
       "consumoRealBom": 4195.8
@@ -14316,7 +14346,7 @@
       "proximaEntrada": "2026-10-06T07:57:53.772000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-14T00:00:00",
+          "data": "2026-09-17T00:00:00",
           "quantidade": 40000,
           "pedido": 472150
         },
@@ -14345,9 +14375,9 @@
       "sugestaoCompra": 90000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-09-23",
-      "diasAtePrimeiraEntrega": 6,
-      "coberturaNaPrimeiraEntrega": -6.0,
+      "primeiraEntrega": "2026-09-17",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 0.0,
       "temFichaTecnica": true,
       "projecaoBom": 192760.0,
       "consumoRealBom": 63510.8
@@ -14704,7 +14734,7 @@
       "sku": "44467",
       "produto": "MP - PIMENTA REINO PRETA PO/ MOIDA KG",
       "loja": "14",
-      "fornecedor": "CONDBRAS",
+      "fornecedor": "DA TERRINHA",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -15020,7 +15050,7 @@
       "sku": "41862",
       "produto": "MP - TEMPERO BAIANO KG",
       "loja": "14",
-      "fornecedor": "MON CHEF",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -15036,14 +15066,8 @@
       "desvioProjecao": -1651.1,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-23T03:12:35.621000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-16T00:00:00",
-          "quantidade": 2500,
-          "pedido": 476545
-        }
-      ],
-      "totalProgramado": 2500,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 1800,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
