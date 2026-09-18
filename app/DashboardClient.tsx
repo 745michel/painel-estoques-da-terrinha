@@ -3284,14 +3284,28 @@ export default function DashboardClient({
 
   function changeSection(nextSection: Section) {
     if (nextSection === "valores" && !canViewValues) return;
+    // Filtros de Terceiros/Insumos (query, status, lojas, fornecedores, seguranca,
+    // performance, tipos) moram aqui em DashboardClient (nunca desmonta), nao dentro de
+    // Terceiros/Embalagens em si - por isso so fazia sentido zera-los ao trocar ENTRE os dois
+    // (nomes de fornecedor/loja tem significado diferente de um lado pro outro). Bug real
+    // reportado pelo usuario (18/09/2026): esse reset disparava em QUALQUER navegacao,
+    // inclusive saindo pra outra aba (ex.: Escadinha de insumos) e voltando pra Terceiros -
+    // perdendo o filtro de fornecedor so por ter ido dar uma olhada em outro lugar. Agora so
+    // reseta quando a troca e de verdade entre "terceiros" e "insumos".
+    const trocandoEntreTerceirosEInsumos =
+      (section === "terceiros" || section === "insumos") &&
+      (nextSection === "terceiros" || nextSection === "insumos") &&
+      nextSection !== section;
     setSection(nextSection);
-    setQuery("");
-    setStatus("Todos");
-    setSelectedStores([]);
-    setSelectedSuppliers([]);
-    setSafety("Todos");
-    setPerformance("Todos");
-    setSelectedTypes([]);
+    if (trocandoEntreTerceirosEInsumos) {
+      setQuery("");
+      setStatus("Todos");
+      setSelectedStores([]);
+      setSelectedSuppliers([]);
+      setSafety("Todos");
+      setPerformance("Todos");
+      setSelectedTypes([]);
+    }
     setSelected(null);
     // Terceiros e Insumos reaproveitam a mesma arvore de DOM (so troca os dados) - trocar de
     // aba nao reseta a rolagem sozinho, entao voltar de uma tabela longa (ex.: Embalagens)
