@@ -3362,13 +3362,32 @@ export default function DashboardClient({
     minute: "2-digit",
   });
 
-  if (isValues && valoresData) return <ValuesDashboard onSectionChange={changeSection} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} />;
-  if (isConsumption) return <ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} />;
-  if (isEscadinha) return <EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} pedidosVendaData={pedidosVendaData} />;
-  if (isEscadinhaInsumos) return <EscadinhaInsumosDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaInsumosData={escadinhaInsumosData} />;
-  if (isPedidosVenda) return <PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} />;
-  if (isValorProdutoAcabado && valoresProdutoAcabadoData) return <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} />;
-  if (isFornecedores && fornecedoresData) return <FornecedoresDashboard onSectionChange={changeSection} canViewValues={canViewValues} fornecedoresData={fornecedoresData} />;
+  // Pedido do usuario (18/09/2026): filtros/selecoes de cada aba nao podem resetar so por ter
+  // ido olhar outra aba e voltado. Antes, cada aba secundaria (tudo aqui fora de
+  // Terceiros/Embalagens) so existia via "if (isX) return <X/>" - um "early return" que troca
+  // o componente inteiro a cada navegacao, o que faz o React desmontar o antigo e montar um
+  // novo do zero (perde todo useState interno dele: loja/insumo selecionado, busca, semestre
+  // etc.). Agora TODAS as abas ficam sempre montadas ao mesmo tempo, dentro do mesmo fragmento
+  // - so a aba ativa fica visivel (hidden esconde via CSS, sem desmontar), as outras continuam
+  // vivas em segundo plano guardando o estado de quem visitou.
+  // mostrarOperacional replica exatamente a mesma condicao de fallback que existia antes (a
+  // aba de dados financeiros, se o dado ainda nao carregou, cai pra visao operacional de
+  // Terceiros/Embalagens em vez de tela vazia).
+  const mostrarOperacional =
+    section === "terceiros" ||
+    section === "insumos" ||
+    (isValues && !valoresData) ||
+    (isValorProdutoAcabado && !valoresProdutoAcabadoData) ||
+    (isFornecedores && !fornecedoresData);
+  const abasSecundarias = <>
+    <div hidden={!(isValues && valoresData)}>{valoresData && <ValuesDashboard onSectionChange={changeSection} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} />}</div>
+    <div hidden={!isConsumption}><ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} /></div>
+    <div hidden={!isEscadinha}><EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} pedidosVendaData={pedidosVendaData} /></div>
+    <div hidden={!isEscadinhaInsumos}><EscadinhaInsumosDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaInsumosData={escadinhaInsumosData} /></div>
+    <div hidden={!isPedidosVenda}><PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} /></div>
+    <div hidden={!(isValorProdutoAcabado && valoresProdutoAcabadoData)}>{valoresProdutoAcabadoData && <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} />}</div>
+    <div hidden={!(isFornecedores && fornecedoresData)}>{fornecedoresData && <FornecedoresDashboard onSectionChange={changeSection} canViewValues={canViewValues} fornecedoresData={fornecedoresData} />}</div>
+  </>;
 
   function renderProductRow(product: Product, descontinuado: boolean) {
     const cls = statusClass[product.status as Status];
@@ -3445,6 +3464,9 @@ export default function DashboardClient({
   const selectedMonthlyAvg = historicoRealValores.length > 0 ? historicoRealValores.reduce((a, b) => a + b, 0) / historicoRealValores.length : selected?.consumoMensal ?? 0;
 
   return (
+    <>
+      {abasSecundarias}
+      <div hidden={!mostrarOperacional}>
     <main className="app-shell">
       <aside className="sidebar">
         <div className="brand">
@@ -3569,5 +3591,7 @@ export default function DashboardClient({
       {selected && <div className="drawer-backdrop" onClick={() => setSelected(null)}><aside className="drawer" onClick={(e) => e.stopPropagation()}><button className="drawer-close" onClick={() => setSelected(null)}>×</button><p className="eyebrow">DETALHE DO PRODUTO</p><h2>{selected.produto}</h2><p className="drawer-sku">SKU {selected.sku} · {isInputs ? storeLabel(selected.loja) : selected.fornecedor}</p><span className={`status-pill ${statusClass[selected.status as Status]}`}><i />{statusLabel(selected.status)}</span><div className="drawer-performance"><div><small>ATINGIMENTO DA ESCADINHA</small><strong className={performanceClass(atingimentoSelecionado ?? 0, projetadoSelecionado ?? 0)}>{projetadoSelecionado != null && projetadoSelecionado > 0 && atingimentoSelecionado != null ? `${decimal.format(atingimentoSelecionado)}%` : "Sem projeção"}</strong></div><div className="drawer-performance-bar"><span className={performanceClass(atingimentoSelecionado ?? 0, projetadoSelecionado ?? 0)} style={{ width: `${Math.min(100, atingimentoSelecionado ?? 0)}%` }} /><i /></div><p>{realizadoSelecionado == null ? "—" : decimal.format(realizadoSelecionado)} {unitLabel(selected.unidade, realizadoSelecionado ?? 0)} {isInputs ? "consumido" : "faturado"} de {projetadoSelecionado == null ? "—" : decimal.format(projetadoSelecionado)} {unitLabel(selected.unidade, projetadoSelecionado ?? 0)} projetado · desvio de {desvioSelecionado == null ? "—" : `${desvioSelecionado >= 0 ? "+" : ""}${decimal.format(desvioSelecionado)}`} {desvioSelecionado != null && unitLabel(selected.unidade, desvioSelecionado)}</p></div><div className="drawer-metrics"><div><small>Projetado (Escadinha)</small><strong>{projetadoSelecionado == null ? "—" : `${decimal.format(projetadoSelecionado)} ${unitLabel(selected.unidade, projetadoSelecionado)}`}</strong></div><div><small>{isInputs ? "Consumo realizado" : "Realizado do mês"}</small><strong>{realizadoSelecionado == null ? "—" : `${decimal.format(realizadoSelecionado)} ${unitLabel(selected.unidade, realizadoSelecionado)}`}</strong></div><div><small>Estoque atual</small><strong>{number.format(selected.estoque)} {unitLabel(selected.unidade, selected.estoque)}</strong></div><div><small>Cobertura</small><strong>{number.format(Math.round(selected.cobertura))} dias</strong></div><div><small>Estoque de segurança</small><strong>{selected.seguranca} dias</strong></div><div><small>Ponto de pedido</small><strong>{number.format(selected.pontoPedido)} {unitLabel(selected.unidade, selected.pontoPedido)}</strong></div><div><small>Estoque projetado na entrega</small><strong>{selected.estoqueProjetadoEntrega == null ? "Sem entrega futura" : `${number.format(selected.estoqueProjetadoEntrega)} ${unitLabel(selected.unidade, selected.estoqueProjetadoEntrega)}`}</strong></div><div><small>Limite de excesso</small><strong>{number.format(selected.limiteExcesso)} {unitLabel(selected.unidade, selected.limiteExcesso)}</strong></div><div><small>{historicoRealValores.length > 0 ? "Consumo mensal (média 3 meses)" : "Consumo mensal"}</small><strong>{number.format(Math.round(selectedMonthlyAvg))} {unitLabel(selected.unidade, selectedMonthlyAvg)}</strong></div></div>{historicoMeses.length > 0 && <section className="drawer-mrp-history"><p className="eyebrow">HISTÓRICO (ESCADINHA)</p><h3>Realizado e corte dos últimos 3 meses</h3><div className="drawer-mrp-months">{historicoMeses.map(({ n, real, corte }) => <div className="drawer-mrp-month" key={n}><small>{monthsAgoLabel(n)}</small><div><span>Real</span><strong>{real == null ? "—" : number.format(Math.round(real))}</strong></div><div><span>Corte</span><strong className={corte != null && corte > 0 ? "trend-up" : ""}>{corte == null ? "—" : number.format(Math.round(corte))}</strong></div></div>)}</div></section>}<section className="delivery-schedule"><div className="schedule-heading"><div><small>AGENDA DE RECEBIMENTO</small><h3>Entregas programadas</h3></div><strong>{number.format(selected.totalProgramado)} {unitLabel(selected.unidade, selected.totalProgramado)}</strong></div>{selected.entregasProgramadas.length > 0 ? <div className="delivery-timeline">{selected.entregasProgramadas.map((item, index) => <div className="delivery-item" key={`${item.data}-${index}`}><span><i /></span><div><strong>{deliveryDateLong.format(new Date(item.data))}</strong><small>{index === 0 ? "Próxima entrega" : `Entrega ${index + 1}`}</small>{item.pedido != null && <b className="delivery-pedido">Pedido {item.pedido}</b>}</div><b>{number.format(item.quantidade)} {unitLabel(selected.unidade, item.quantidade)}</b></div>)}</div> : <div className="empty-schedule">Nenhuma entrega programada para este produto.</div>}</section><div className="recommendation"><small>RECOMENDAÇÃO</small><strong>{selected.status === "Falta crítica" ? "Antecipar a primeira entrega do fornecedor" : selected.status === "Estoque baixo" ? "Cobrir o ponto de pedido e acompanhar o recebimento" : selected.status === "Excesso" ? "Suspender ou reagendar entregas futuras" : "Manter operação normal"}</strong><p>{selected.motivoStatus}</p></div><button className="primary-button full" onClick={() => { setNotice(`Ação registrada para o SKU ${selected.sku}.`); setSelected(null); }}>Marcar como analisado</button></aside></div>}
       {notice && <div className="toast"><span>✓</span>{notice}</div>}
     </main>
+      </div>
+    </>
   );
 }
