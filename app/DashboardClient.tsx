@@ -124,6 +124,7 @@ type PedidosVendaProduto = {
   venda: number[];
   saldo: number | null;
   coberturaDias: number | null;
+  coberturaEstimada?: boolean;
   estoqueIncompleto?: boolean;
   estoqueDesatualizado?: boolean;
   estoqueCapturadoEm?: string | null;
@@ -1905,7 +1906,7 @@ function PedidosVendaDashboard({
     // o agregado por produto herda esse aviso (com a data mais antiga entre as lojas que usaram
     // cache) em vez de tratar "nao sei" como zero (o que ja gerou saldo fortemente negativo
     // publicado como se fosse real - achado com o usuario em 23/09/2026).
-    const porCodigo = new Map<number, { produto: PedidosVendaProduto; lojas: Set<string>; maiorEstoque: number; coberturaDominante: number | null; estoqueIncompleto: boolean; estoqueDesatualizado: boolean; estoqueDataMaisAntiga: string | null }>();
+    const porCodigo = new Map<number, { produto: PedidosVendaProduto; lojas: Set<string>; maiorEstoque: number; coberturaDominante: number | null; coberturaDominanteEstimada: boolean; estoqueIncompleto: boolean; estoqueDesatualizado: boolean; estoqueDataMaisAntiga: string | null }>();
     for (const p of filtered) {
       const atual = porCodigo.get(p.cod);
       if (!atual) {
@@ -1914,6 +1915,7 @@ function PedidosVendaDashboard({
           lojas: new Set([p.loja]),
           maiorEstoque: p.estoque ?? -Infinity,
           coberturaDominante: p.coberturaDias,
+          coberturaDominanteEstimada: Boolean(p.coberturaEstimada),
           estoqueIncompleto: p.estoque == null,
           estoqueDesatualizado: Boolean(p.estoqueDesatualizado),
           estoqueDataMaisAntiga: p.estoqueDesatualizado ? (p.estoqueCapturadoEm ?? null) : null,
@@ -1931,6 +1933,7 @@ function PedidosVendaDashboard({
       if (p.estoque != null && p.estoque > atual.maiorEstoque) {
         atual.maiorEstoque = p.estoque;
         atual.coberturaDominante = p.coberturaDias;
+        atual.coberturaDominanteEstimada = Boolean(p.coberturaEstimada);
       }
       atual.produto.estoque = (atual.produto.estoque ?? 0) + (p.estoque ?? 0);
       atual.produto.pedido += p.pedido;
@@ -1938,10 +1941,11 @@ function PedidosVendaDashboard({
       atual.produto.corte = atual.produto.corte.map((valor, index) => valor + p.corte[index]);
       atual.produto.venda = atual.produto.venda.map((valor, index) => valor + p.venda[index]);
     }
-    const lista = Array.from(porCodigo.values()).map(({ produto, lojas, coberturaDominante, estoqueIncompleto, estoqueDesatualizado, estoqueDataMaisAntiga }) => ({
+    const lista = Array.from(porCodigo.values()).map(({ produto, lojas, coberturaDominante, coberturaDominanteEstimada, estoqueIncompleto, estoqueDesatualizado, estoqueDataMaisAntiga }) => ({
       ...produto,
       loja: lojas.size === 1 ? Array.from(lojas)[0] : `${lojas.size} empresas`,
       coberturaDias: coberturaDominante != null ? Math.round(coberturaDominante) : null,
+      coberturaEstimada: coberturaDominanteEstimada,
       estoqueIncompleto,
       estoqueDesatualizado,
       estoqueCapturadoEm: estoqueDataMaisAntiga,
@@ -2039,7 +2043,7 @@ function PedidosVendaDashboard({
               <td><strong className="numeric">{p.estoque != null ? number.format(Math.round(p.estoque)) : "—"}</strong></td>
               <td><strong className="numeric">{number.format(Math.round(p.pedido))}</strong></td>
               <td><strong className={`numeric ${p.saldo != null && p.saldo < 0 ? "escadinha-delta-down" : ""}`}>{p.saldo != null ? number.format(Math.round(p.saldo)) : "—"}</strong></td>
-              <td>{p.coberturaDias != null ? <div className="coverage"><strong className={p.coberturaDias < 0 ? "escadinha-delta-down" : ""}>{number.format(p.coberturaDias)} dias</strong></div> : "—"}</td>
+              <td>{p.coberturaDias != null ? <div className="coverage"><strong className={p.coberturaDias < 0 ? "escadinha-delta-down" : ""}>{number.format(p.coberturaDias)} dias{p.coberturaEstimada && <small title="Estimada pela venda média dos últimos 3 meses (BI sem cobertura pra essa loja agora)"> (estim.)</small>}</strong></div> : "—"}</td>
               {p.corte.map((valor, index) => index).reverse().map((index, posicao) => <td key={mesesCorte[index]} style={posicao === 0 ? { borderLeft: "2px solid #c7d6cc" } : undefined}>{p.corte[index] > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(p.corte[index]))}</strong> : <span className="no-projection">—</span>}</td>)}
             </tr>)}
           </tbody></table>{agrupados.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
@@ -2057,7 +2061,7 @@ function PedidosVendaDashboard({
           <div><small>ESTOQUE</small><strong>{selected.estoque != null ? number.format(Math.round(selected.estoque)) : "—"}</strong></div>
           <div><small>PEDIDO</small><strong>{number.format(Math.round(selected.pedido))}</strong></div>
           <div><small>SALDO</small><strong className={selected.saldo != null && selected.saldo < 0 ? "escadinha-delta-down" : ""}>{selected.saldo != null ? number.format(Math.round(selected.saldo)) : "—"}</strong></div>
-          <div><small>COBERTURA</small><strong>{selected.coberturaDias != null ? `${number.format(selected.coberturaDias)} dias` : "—"}</strong></div>
+          <div><small>COBERTURA</small><strong>{selected.coberturaDias != null ? `${number.format(selected.coberturaDias)} dias${selected.coberturaEstimada ? " (estim.)" : ""}` : "—"}</strong></div>
         </div>
         {selected.estoqueIncompleto && <p className="unit" style={{ marginTop: -8, marginBottom: 12 }}>BI nunca teve dado de estoque pra pelo menos uma loja desse produto - Estoque/Saldo somam só as lojas com dado conhecido.</p>}
         {!selected.estoqueIncompleto && selected.estoqueDesatualizado && <p className="unit" style={{ marginTop: -8, marginBottom: 12 }}>BI sem atualização de estoque agora pra pelo menos uma loja - mostrando a última leitura conhecida{selected.estoqueCapturadoEm ? ` (${new Date(selected.estoqueCapturadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })})` : ""} em vez de zero.</p>}
