@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-09-23T15:13:45",
+  "atualizadoEm": "2026-09-23T15:24:10",
   "mesesCorte": [
     "2026-07",
     "2026-08",
@@ -11,7 +11,7 @@
       "produto": "00001 TAPIOCA DA TERRINHA 1 KG - CX 12",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 24382,
       "pedido": 7528.0,
       "corte": [
         0.0,
@@ -23,15 +23,17 @@
         34502.0,
         28839.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 16854.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 304,
       "produto": "00001 TAPIOCA DA TERRINHA 1 KG - CX 12",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 1988,
       "pedido": 1300.0,
       "corte": [
         0.0,
@@ -43,15 +45,17 @@
         1700.0,
         840.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 688.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 304,
       "produto": "00001 TAPIOCA DA TERRINHA 1 KG - CX 12",
       "categoria": "TAPIOCA",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 591.0,
       "corte": [
         0.0,
@@ -63,8 +67,10 @@
         5.0,
         2187.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -591.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 27745,
@@ -84,14 +90,16 @@
         0.0
       ],
       "saldo": 2.08,
-      "coberturaDias": 0.0005
+      "coberturaDias": 0.0005,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 27745,
       "produto": "00001 TAPIOCA DA TERRINHA 1 KG - FD 12",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 26264,
       "pedido": 20337.0,
       "corte": [
         2.0,
@@ -103,15 +111,17 @@
         83510.0,
         92867.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 5927.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 305,
       "produto": "00002 TAPIOCA DA TERRINHA 500 G - CX 24",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 23767,
       "pedido": 7536.0,
       "corte": [
         50.0,
@@ -123,15 +133,17 @@
         34949.0,
         31787.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 16231.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 305,
       "produto": "00002 TAPIOCA DA TERRINHA 500 G - CX 24",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 100,
       "pedido": 2200.0,
       "corte": [
         0.0,
@@ -143,8 +155,10 @@
         1750.0,
         450.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -2100.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 37190,
@@ -164,14 +178,16 @@
         0.0
       ],
       "saldo": 25.42,
-      "coberturaDias": 0.0102
+      "coberturaDias": 0.0102,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 37190,
       "produto": "00002 TAPIOCA DA TERRINHA 500 G - FD 24",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 9977,
       "pedido": 16697.0,
       "corte": [
         0.0,
@@ -183,8 +199,10 @@
         57424.0,
         47413.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -6720.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 37190,
@@ -204,14 +222,16 @@
         0.0
       ],
       "saldo": 3.88,
-      "coberturaDias": 0.0016
+      "coberturaDias": 0.0016,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 13324,
       "produto": "00004 TAPIOCA DA TERRINHA NA MEDIDA 90 G - CX 100",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1912,
       "pedido": 1120.0,
       "corte": [
         0.0,
@@ -223,8 +243,10 @@
         1100.0,
         601.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 792.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 25445,
@@ -244,14 +266,16 @@
         0.0
       ],
       "saldo": 9.08,
-      "coberturaDias": 0.0503
+      "coberturaDias": 0.0503,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 25445,
       "produto": "00006 TAPIOCA DELIOCA PREMIUM 560 G - CX 12",
       "categoria": "TAPIOCA POUCH",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 4224,
       "pedido": 788.0,
       "corte": [
         0.0,
@@ -263,15 +287,17 @@
         5137.0,
         2837.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 3436.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 89620,
       "produto": "00014 TAPIOCA DA TERRINHA GRANULADA 5 KG - FD 5",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 12.0,
       "corte": [
         0.0,
@@ -283,15 +309,17 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -12.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72011,
       "produto": "00015 TAPIOCA DA TERRINHA NA MEDIDA 70 G - CX 100",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 599,
       "pedido": 55.0,
       "corte": [
         0.0,
@@ -303,15 +331,17 @@
         524.0,
         394.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 544.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72011,
       "produto": "00015 TAPIOCA DA TERRINHA NA MEDIDA 70 G - CX 100",
       "categoria": "TAPIOCA",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 180.0,
       "corte": [
         0.0,
@@ -323,15 +353,17 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -180.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96704,
       "produto": "000159 COCADA COM ABACAXI ZERO DA TERRINHA 22G - DISPLAY C/12 UND",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 28,
       "pedido": 19.0,
       "corte": [
         0.0,
@@ -343,8 +375,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 9.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 77903,
@@ -364,14 +398,16 @@
         0.0
       ],
       "saldo": 20.08,
-      "coberturaDias": 0.0391
+      "coberturaDias": 0.0391,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 77903,
       "produto": "00018 TAPIOCA DA TERRINHA NA MEDIDA 490 G - CX 12",
       "categoria": "TAPIOCA POUCH",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 10144,
       "pedido": 3232.0,
       "corte": [
         0.0,
@@ -383,15 +419,17 @@
         10455.0,
         9925.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 6912.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 77903,
       "produto": "00018 TAPIOCA DA TERRINHA NA MEDIDA 490 G - CX 12",
       "categoria": "TAPIOCA POUCH",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 250,
       "pedido": 500.0,
       "corte": [
         0.0,
@@ -403,15 +441,17 @@
         150.0,
         300.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -250.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 77903,
       "produto": "00018 TAPIOCA DA TERRINHA NA MEDIDA 490 G - CX 12",
       "categoria": "TAPIOCA POUCH",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 10.0,
       "corte": [
         0.0,
@@ -423,8 +463,10 @@
         0.0,
         15.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -10.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80647,
@@ -444,14 +486,16 @@
         0.0
       ],
       "saldo": 3.83,
-      "coberturaDias": 0.0229
+      "coberturaDias": 0.0229,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 80647,
       "produto": "00019 TAPIOCA DA TERRINHA GRANULADA 400 G - CX 12",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1772,
       "pedido": 760.0,
       "corte": [
         0.0,
@@ -463,15 +507,17 @@
         3429.0,
         2791.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1012.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80647,
       "produto": "00019 TAPIOCA DA TERRINHA GRANULADA 400 G - CX 12",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -483,15 +529,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80647,
       "produto": "00019 TAPIOCA DA TERRINHA GRANULADA 400 G - CX 12",
       "categoria": "TAPIOCA",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 5.0,
       "corte": [
         0.0,
@@ -503,15 +551,17 @@
         33.0,
         10.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -5.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 79700,
       "produto": "00040 TAPIOCA DA TERRINHA EXP (5 IDIOMAS) 500 G - CX 24",
       "categoria": "TAPIOCA",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 3650.0,
       "corte": [
         0.0,
@@ -523,15 +573,17 @@
         1175.0,
         2962.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -3650.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 79780,
       "produto": "00041 EXP TAPIOCA DA TERRINHA (VM) 500 G - CX 24",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 2810.0,
       "corte": [
         0.0,
@@ -543,15 +595,17 @@
         2865.0,
         4393.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -2810.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 79780,
       "produto": "00041 EXP TAPIOCA DA TERRINHA (VM) 500 G - CX 24",
       "categoria": "TAPIOCA",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 4750.0,
       "corte": [
         0.0,
@@ -563,15 +617,17 @@
         2865.0,
         4393.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -4750.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 92325,
       "produto": "00061 TAPIOCA CHAMA 1 KG - FD 12",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1,
       "pedido": 850.0,
       "corte": [
         0.0,
@@ -583,8 +639,10 @@
         800.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -849.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 75339,
@@ -604,14 +662,16 @@
         0.0
       ],
       "saldo": 9.83,
-      "coberturaDias": 0.554
+      "coberturaDias": 0.554,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 75339,
       "produto": "00072 TAPIOCA WRAPIOCA 630 G - CX 12",
       "categoria": "TAPIOCA POUCH",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 154,
       "pedido": 181.0,
       "corte": [
         9.0,
@@ -623,8 +683,10 @@
         398.0,
         349.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -27.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 75339,
@@ -644,7 +706,9 @@
         0.0
       ],
       "saldo": 475.0,
-      "coberturaDias": 26.7606
+      "coberturaDias": 26.7606,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 75338,
@@ -664,14 +728,16 @@
         0.0
       ],
       "saldo": 1.8,
-      "coberturaDias": 0.5574
+      "coberturaDias": 0.5574,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 76201,
       "produto": "00112 TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1402,
       "pedido": 69.0,
       "corte": [
         0.0,
@@ -683,15 +749,17 @@
         133.0,
         642.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1333.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 76201,
       "produto": "00112 TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 2030.0,
       "corte": [
         0.0,
@@ -703,15 +771,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -2030.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 76203,
       "produto": "00113 TAPIOCA TRADICIONAL OKKER 800 G - CX 15",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2184,
       "pedido": 126.0,
       "corte": [
         0.0,
@@ -723,15 +793,17 @@
         311.0,
         170.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2058.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 76203,
       "produto": "00113 TAPIOCA TRADICIONAL OKKER 800 G - CX 15",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 2111.0,
       "corte": [
         0.0,
@@ -743,8 +815,10 @@
         0.0,
         62.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -2111.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 76203,
@@ -764,14 +838,16 @@
         0.0
       ],
       "saldo": 46.6,
-      "coberturaDias": 4.2124
+      "coberturaDias": 4.2124,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 76822,
       "produto": "00114 TAPIOCA PRECIATO 500 G - FD 24",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 147,
       "pedido": 10.0,
       "corte": [
         0.0,
@@ -783,15 +859,17 @@
         300.0,
         300.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 137.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 76824,
       "produto": "00115 TAPIOCA PRECIATO 1 KG - FD 12",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 71,
       "pedido": 10.0,
       "corte": [
         0.0,
@@ -803,15 +881,17 @@
         650.0,
         599.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 61.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 98388,
       "produto": "00117 TAPIOCA X 1 KG - FD 12",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 363,
       "pedido": 155.0,
       "corte": [
         0.0,
@@ -823,15 +903,17 @@
         1400.0,
         420.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 208.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 116076,
       "produto": "00121 TAPIOCA BULNEZ 500 G - FD 24",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 55,
       "pedido": 20.0,
       "corte": [
         231.0,
@@ -843,15 +925,17 @@
         80.0,
         860.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 35.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 116109,
       "produto": "00122 TAPIOCA BULNEZ 1 KG - FD 12",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 83,
       "pedido": 102.0,
       "corte": [
         0.0,
@@ -863,8 +947,10 @@
         462.0,
         2736.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -19.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96176,
@@ -884,14 +970,16 @@
         0.0
       ],
       "saldo": 3.15,
-      "coberturaDias": 0.4399
+      "coberturaDias": 0.4399,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 96176,
       "produto": "00154 BANANINHA CREMOSA TRADICIONAL DA TERRINHA 30G  - 6DP x 12UN",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 249,
       "pedido": 24.0,
       "corte": [
         0.0,
@@ -903,15 +991,17 @@
         191.0,
         157.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 225.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96209,
       "produto": "00154 BANANINHA CREMOSA TRADICIONAL DA TERRINHA 30G - DISPLAY C/12 UND",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 19,
       "pedido": 66.0,
       "corte": [
         0.0,
@@ -923,8 +1013,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -47.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96275,
@@ -944,14 +1036,16 @@
         0.0
       ],
       "saldo": 1.88,
-      "coberturaDias": 0.2941
+      "coberturaDias": 0.2941,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 96275,
       "produto": "00155 BANANINHA ZERO DA TERRINHA 22G - 6DP x 12UN",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 417,
       "pedido": 27.0,
       "corte": [
         14.0,
@@ -963,15 +1057,17 @@
         154.0,
         115.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 390.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96308,
       "produto": "00155 BANANINHA ZERO DA TERRINHA 22G - DISPLAY C/12",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 9,
       "pedido": 68.0,
       "corte": [
         0.0,
@@ -983,8 +1079,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -59.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96374,
@@ -1004,14 +1102,16 @@
         0.0
       ],
       "saldo": 0.74,
-      "coberturaDias": 0.3841
+      "coberturaDias": 0.3841,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 96374,
       "produto": "00156 BANANINHA COM AMENDOIM DA TERRINHA 25G   - 6DP x 12UN",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 102,
       "pedido": 1.0,
       "corte": [
         0.0,
@@ -1023,15 +1123,17 @@
         80.0,
         39.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 101.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96407,
       "produto": "00156 BANANINHA COM AMENDOIM DA TERRINHA 25G - DISPLAY C/12 UND",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 25,
       "pedido": 27.0,
       "corte": [
         0.0,
@@ -1043,15 +1145,17 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -2.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96539,
       "produto": "00157 GOIABINHA TRADICIONAL DA TERRINHA 30G  - DISPLAY C/12 UND",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 50,
       "pedido": 32.0,
       "corte": [
         0.0,
@@ -1063,8 +1167,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 18.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96507,
@@ -1084,14 +1190,16 @@
         0.0
       ],
       "saldo": 2.46,
-      "coberturaDias": 0.6556
+      "coberturaDias": 0.6556,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 96507,
       "produto": "00157 GOIABINHA TRADICIONAL DA TERRINHA 30G - 6DP x 12UN",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 185,
       "pedido": 30.0,
       "corte": [
         0.0,
@@ -1103,8 +1211,10 @@
         130.0,
         71.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 155.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96576,
@@ -1124,14 +1234,16 @@
         0.0
       ],
       "saldo": 1.0,
-      "coberturaDias": 0.1875
+      "coberturaDias": 0.1875,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 96576,
       "produto": "00158 GOIABINHA ZERO DA TERRINHA 22G - 6DP x 12UN",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 354,
       "pedido": 20.0,
       "corte": [
         0.0,
@@ -1143,15 +1255,17 @@
         136.0,
         94.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 334.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96605,
       "produto": "00158 GOIABINHA ZERO DA TERRINHA 22G - DISPLAY C/12 UND",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 49,
       "pedido": 24.0,
       "corte": [
         0.0,
@@ -1163,8 +1277,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 25.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96671,
@@ -1184,14 +1300,16 @@
         0.0
       ],
       "saldo": 0.56,
-      "coberturaDias": 0.2721
+      "coberturaDias": 0.2721,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 96671,
       "produto": "00159 COCADA COM ABACAXI ZERO DA TERRINHA 22G - 6DP x 12UN",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 195,
       "pedido": 12.0,
       "corte": [
         0.0,
@@ -1203,15 +1321,17 @@
         60.0,
         51.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 183.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96770,
       "produto": "00160 COCADA COM CHOCOLATE ZERO DA TERRINHA 25G - 6DP x 12UN",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 65,
       "pedido": 14.0,
       "corte": [
         0.0,
@@ -1223,8 +1343,10 @@
         99.0,
         47.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 51.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96771,
@@ -1244,14 +1366,16 @@
         0.0
       ],
       "saldo": 6.17,
-      "coberturaDias": 0.137
+      "coberturaDias": 0.137,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 96771,
       "produto": "00160 COCADA COM CHOCOLATE ZERO DA TERRINHA 25G - DISPLAY 12",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 205,
       "pedido": 20.0,
       "corte": [
         0.0,
@@ -1263,8 +1387,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 185.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96969,
@@ -1284,14 +1410,16 @@
         0.0
       ],
       "saldo": 1.28,
-      "coberturaDias": 1.2267
+      "coberturaDias": 1.2267,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 96969,
       "produto": "00161 COCO E PROTEINA DA TERRINHA 40G - 6DP x 12UN",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 56,
       "pedido": 1.0,
       "corte": [
         0.0,
@@ -1303,15 +1431,17 @@
         36.0,
         30.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 55.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96970,
       "produto": "00161 COCO E PROTEINA DA TERRINHA 40G - DISPLAY C/12",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 9,
       "pedido": 3.0,
       "corte": [
         0.0,
@@ -1323,8 +1453,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 6.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 97002,
@@ -1344,14 +1476,16 @@
         0.0
       ],
       "saldo": 0.44,
-      "coberturaDias": 0.4354
+      "coberturaDias": 0.4354,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 97034,
       "produto": "00162 NUTS E FRUITS CRANBERRY ZERO DA TERRINHA 25G - DISPLAY C/12 UND",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 9,
       "pedido": 3.0,
       "corte": [
         0.0,
@@ -1363,8 +1497,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 6.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96972,
@@ -1384,14 +1520,16 @@
         0.0
       ],
       "saldo": 1.06,
-      "coberturaDias": 0.9048
+      "coberturaDias": 0.9048,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 96972,
       "produto": "00163 NUTS COM PROTEINA DA TERRINHA 40G - 6DP x 12UN",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 56,
       "pedido": 5.0,
       "corte": [
         0.0,
@@ -1403,15 +1541,17 @@
         60.0,
         30.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 51.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96973,
       "produto": "00163 NUTS COM PROTEINA DA TERRINHA 40G - DISPLAY C/12",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 14,
       "pedido": 4.0,
       "corte": [
         0.0,
@@ -1423,8 +1563,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 10.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96804,
@@ -1444,14 +1586,16 @@
         0.0
       ],
       "saldo": 0.32,
-      "coberturaDias": 0.374
+      "coberturaDias": 0.374,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 96804,
       "produto": "00164 WAFER COOKIES CREAM E WHEY PROTEIN ZERO DA TERRINHA 25G - 6DP x 12UN",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 35,
       "pedido": 3.0,
       "corte": [
         0.0,
@@ -1463,15 +1607,17 @@
         42.0,
         25.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 32.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96836,
       "produto": "00164 WAFER COOKIES E CREAM E WHEY PROTEIN ZERO DA TERRINHA 25G DISPLA C/12",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 21,
       "pedido": 4.0,
       "corte": [
         0.0,
@@ -1483,15 +1629,17 @@
         66.0,
         12.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 17.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96935,
       "produto": "00165 WAFER DE DOCE DE LEITE C/ COCO WHEY PROTEIN ZERO DA TERR. DISPLA C/12",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 14,
       "pedido": 3.0,
       "corte": [
         0.0,
@@ -1503,8 +1651,10 @@
         77.0,
         11.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 11.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 96902,
@@ -1524,14 +1674,16 @@
         0.0
       ],
       "saldo": 1.06,
-      "coberturaDias": 1.3694
+      "coberturaDias": 1.3694,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 96902,
       "produto": "00165 WAFER DE DOCE LEITE COCO E WHEY PROTEIN ZERO DA TERR.  25G - 6DP x 12",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 39,
       "pedido": 3.0,
       "corte": [
         0.0,
@@ -1543,8 +1695,10 @@
         38.0,
         27.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 36.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 75879,
@@ -1564,14 +1718,16 @@
         0.0
       ],
       "saldo": 3.2,
-      "coberturaDias": 0.0073
+      "coberturaDias": 0.0073,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 75879,
       "produto": "00203 BATATA PALHA DA TERRINHA EX FINA 100G CX 20",
       "categoria": "BATATA PALHA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1465,
       "pedido": 2621.0,
       "corte": [
         0.0,
@@ -1583,15 +1739,17 @@
         10552.0,
         8603.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -1156.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 75879,
       "produto": "00203 BATATA PALHA DA TERRINHA EX FINA 100G CX 20",
       "categoria": "BATATA PALHA",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 5.0,
       "corte": [
         0.0,
@@ -1603,8 +1761,10 @@
         0.0,
         135.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -5.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 75877,
@@ -1624,14 +1784,16 @@
         0.0
       ],
       "saldo": 4.8,
-      "coberturaDias": 0.0066
+      "coberturaDias": 0.0066,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 75877,
       "produto": "00204 BATATA PALHA DA TERRINHA TRADIC 100G - CX20",
       "categoria": "BATATA PALHA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 3872,
       "pedido": 4184.0,
       "corte": [
         201.0,
@@ -1643,15 +1805,17 @@
         18848.0,
         13406.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -312.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 75877,
       "produto": "00204 BATATA PALHA DA TERRINHA TRADIC 100G - CX20",
       "categoria": "BATATA PALHA",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 5.0,
       "corte": [
         0.0,
@@ -1663,8 +1827,10 @@
         0.0,
         335.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -5.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 52750,
@@ -1684,7 +1850,9 @@
         0.0
       ],
       "saldo": 7480.0,
-      "coberturaDias": 0.108
+      "coberturaDias": 0.108,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 52750,
@@ -1704,14 +1872,16 @@
         0.0
       ],
       "saldo": 0.58,
-      "coberturaDias": 0.0
+      "coberturaDias": 0.0,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 52750,
       "produto": "002439 FECULA MANDIOCA DA TERRINHA 1 KG - FD 12",
       "categoria": "FECULA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1173,
       "pedido": 6933.0,
       "corte": [
         0.0,
@@ -1723,8 +1893,10 @@
         11819.0,
         414.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -5760.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 28963,
@@ -1744,7 +1916,9 @@
         0.0
       ],
       "saldo": 910.0,
-      "coberturaDias": 12.8019
+      "coberturaDias": 12.8019,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 28963,
@@ -1764,14 +1938,16 @@
         0.0
       ],
       "saldo": 2.3,
-      "coberturaDias": 0.0324
+      "coberturaDias": 0.0324,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 28963,
       "produto": "00301 FAROFA ARTESANAL DA TERRINHA TRADICIONAL 300 G - CX 20",
       "categoria": "FAROFA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1640,
       "pedido": 563.0,
       "corte": [
         0.0,
@@ -1783,15 +1959,17 @@
         2013.0,
         1153.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1077.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 28963,
       "produto": "00301 FAROFA ARTESANAL DA TERRINHA TRADICIONAL 300 G - CX 20",
       "categoria": "FAROFA",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -1803,8 +1981,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 28965,
@@ -1824,7 +2004,9 @@
         0.0
       ],
       "saldo": 349.7,
-      "coberturaDias": 8.0008
+      "coberturaDias": 8.0008,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 28965,
@@ -1844,14 +2026,16 @@
         0.0
       ],
       "saldo": 2.2,
-      "coberturaDias": 0.0503
+      "coberturaDias": 0.0503,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 28965,
       "produto": "00302 FAROFA ARTESANAL DA TERRINHA APIMENTADA 300 G - CX 20",
       "categoria": "FAROFA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1166,
       "pedido": 252.0,
       "corte": [
         0.0,
@@ -1863,15 +2047,17 @@
         1434.0,
         485.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 914.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 28965,
       "produto": "00302 FAROFA ARTESANAL DA TERRINHA APIMENTADA 300 G - CX 20",
       "categoria": "FAROFA",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 1,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -1883,15 +2069,17 @@
         0.0,
         62.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -39.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72088,
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - FD 24",
       "categoria": "FAROFA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 144,
       "pedido": 67.0,
       "corte": [
         17.0,
@@ -1903,8 +2091,10 @@
         211.0,
         119.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 77.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72228,
@@ -1924,7 +2114,9 @@
         0.0
       ],
       "saldo": 151.2,
-      "coberturaDias": 4.6051
+      "coberturaDias": 4.6051,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 72228,
@@ -1944,14 +2136,16 @@
         0.0
       ],
       "saldo": 47.81,
-      "coberturaDias": 1.4562
+      "coberturaDias": 1.4562,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 72228,
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - FD 80",
       "categoria": "FAROFA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 27,
       "pedido": 546.0,
       "corte": [
         0.0,
@@ -1963,15 +2157,17 @@
         1519.0,
         6.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -519.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72228,
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - FD 80",
       "categoria": "FAROFA",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 79.0,
       "corte": [
         0.0,
@@ -1983,8 +2179,10 @@
         0.0,
         59.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -79.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 36609,
@@ -2004,7 +2202,9 @@
         0.0
       ],
       "saldo": 2786.0,
-      "coberturaDias": 3.7845
+      "coberturaDias": 3.7845,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 36609,
@@ -2024,14 +2224,16 @@
         0.0
       ],
       "saldo": 1.83,
-      "coberturaDias": 0.0025
+      "coberturaDias": 0.0025,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 36609,
       "produto": "00311 FAROFA PRONTA DA TERRINHA TRADICIONAL 400 G - FD 24",
       "categoria": "FAROFA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 8381,
       "pedido": 7382.0,
       "corte": [
         32.0,
@@ -2043,15 +2245,17 @@
         16121.0,
         18344.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 999.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 36609,
       "produto": "00311 FAROFA PRONTA DA TERRINHA TRADICIONAL 400 G - FD 24",
       "categoria": "FAROFA",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 4,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -2063,15 +2267,17 @@
         0.0,
         458.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -36.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 36609,
       "produto": "00311 FAROFA PRONTA DA TERRINHA TRADICIONAL 400 G - FD 24",
       "categoria": "FAROFA",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 30.0,
       "corte": [
         0.0,
@@ -2083,8 +2289,10 @@
         0.0,
         572.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -30.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 36612,
@@ -2104,14 +2312,16 @@
         0.0
       ],
       "saldo": 0.71,
-      "coberturaDias": 0.0096
+      "coberturaDias": 0.0096,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 36612,
       "produto": "00312 FAROFA PRONTA DA TERRINHA APIMENTADA 400 G - FD 24",
       "categoria": "FAROFA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 419,
       "pedido": 212.0,
       "corte": [
         0.0,
@@ -2123,15 +2333,17 @@
         1748.0,
         1557.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 207.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 36612,
       "produto": "00312 FAROFA PRONTA DA TERRINHA APIMENTADA 400 G - FD 24",
       "categoria": "FAROFA",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 55.0,
       "corte": [
         0.0,
@@ -2143,8 +2355,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -55.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 38152,
@@ -2164,14 +2378,16 @@
         0.0
       ],
       "saldo": 1.9,
-      "coberturaDias": 0.0066
+      "coberturaDias": 0.0066,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 38152,
       "produto": "00504 BOLACHA DA TERRINHA COQUINHO 250 g - FD 20",
       "categoria": "BOLACHA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 3928,
       "pedido": 2150.0,
       "corte": [
         0.0,
@@ -2183,15 +2399,17 @@
         6822.0,
         5617.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1778.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 38152,
       "produto": "00504 BOLACHA DA TERRINHA COQUINHO 250 g - FD 20",
       "categoria": "BOLACHA",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 105.0,
       "corte": [
         0.0,
@@ -2203,15 +2421,17 @@
         10.0,
         100.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -105.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70274,
       "produto": "00600 MOLHO DE PIMENTA CREMOSO DA TERRINHA 150 ML - CX 12",
       "categoria": "MOLHOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 222,
       "pedido": 19.0,
       "corte": [
         0.0,
@@ -2223,15 +2443,17 @@
         140.17,
         112.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 203.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 40578,
       "produto": "00601 MOLHO ALHO DA TERRINHA 150 ML CX 12",
       "categoria": "MOLHOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 326,
       "pedido": 19.0,
       "corte": [
         2.0,
@@ -2243,15 +2465,17 @@
         269.0,
         127.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 307.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 40578,
       "produto": "00601 MOLHO ALHO DA TERRINHA 150 ML CX 12",
       "categoria": "MOLHOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -2263,15 +2487,17 @@
         8.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 40577,
       "produto": "00602 MOLHO CHURRASCO DA TERRINHA 150 ML CX12",
       "categoria": "MOLHOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 285,
       "pedido": 26.0,
       "corte": [
         0.0,
@@ -2283,8 +2509,10 @@
         240.0,
         179.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 259.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 40582,
@@ -2304,14 +2532,16 @@
         0.0
       ],
       "saldo": 0.92,
-      "coberturaDias": 0.0898
+      "coberturaDias": 0.0898,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 40582,
       "produto": "00604 MOLHO PIMENTA CALABRESA DA TERRINHA 150 CX12",
       "categoria": "MOLHOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 260,
       "pedido": 20.0,
       "corte": [
         0.0,
@@ -2323,15 +2553,17 @@
         284.0,
         186.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 240.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 40584,
       "produto": "00605 MOLHO PIMENTA SCORPION DA TERRINHA 150 CX12",
       "categoria": "MOLHOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 268,
       "pedido": 32.0,
       "corte": [
         0.0,
@@ -2343,15 +2575,17 @@
         335.0,
         187.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 236.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 40586,
       "produto": "00606 MOLHO PIMENTA VERMELHA DA TERRINHA 150  - CX 12",
       "categoria": "MOLHOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 341,
       "pedido": 18.0,
       "corte": [
         0.0,
@@ -2363,15 +2597,17 @@
         294.0,
         227.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 323.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 40594,
       "produto": "00607 MOLHO PIMENTA PREMIUM DA TERRINHA 60 ML CX12",
       "categoria": "MOLHOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 183,
       "pedido": 11.0,
       "corte": [
         1.0,
@@ -2383,15 +2619,17 @@
         85.0,
         38.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 172.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70276,
       "produto": "00608 MOLHO DE ALHO COM PIMENTA DA TERRINHA 150 ML - CX 12",
       "categoria": "MOLHOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 200,
       "pedido": 13.0,
       "corte": [
         2.0,
@@ -2403,15 +2641,17 @@
         196.0,
         93.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 187.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70278,
       "produto": "00609 MOLHO DE PIMENTA CAROLINA REAPER DA TERRINHA 150 ML - CX 12",
       "categoria": "MOLHOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 444,
       "pedido": 68.0,
       "corte": [
         0.0,
@@ -2423,15 +2663,17 @@
         395.0,
         224.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 376.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70268,
       "produto": "00620 MOLHO ARABE COM ALHO DA TERRINHA 150 ML - CX 12",
       "categoria": "MOLHOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1019,
       "pedido": 111.0,
       "corte": [
         0.0,
@@ -2443,15 +2685,17 @@
         1131.0,
         985.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 908.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70270,
       "produto": "00621 MOLHO ARABE COM PIMENTA DA TERRINHA 150 ML - CX 12",
       "categoria": "MOLHOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1554,
       "pedido": 418.0,
       "corte": [
         0.0,
@@ -2463,8 +2707,10 @@
         1837.0,
         1504.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1136.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70272,
@@ -2484,14 +2730,16 @@
         0.0
       ],
       "saldo": 0.92,
-      "coberturaDias": 0.0286
+      "coberturaDias": 0.0286,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 70272,
       "produto": "00622 MOLHO ARABE COM TOMATE DA TERRINHA 150 ML - CX 12",
       "categoria": "MOLHOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 624,
       "pedido": 123.0,
       "corte": [
         0.0,
@@ -2503,15 +2751,17 @@
         615.0,
         846.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 501.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 75896,
       "produto": "00700 MOLHO PIMENTA BICO DOCE DEFUMADA  DA TERRINHA 270 G - CX 12",
       "categoria": "PIMENTAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 191,
       "pedido": 11.0,
       "corte": [
         0.0,
@@ -2523,15 +2773,17 @@
         85.0,
         41.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 180.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 40588,
       "produto": "00701 PIMENTA BIQUINHO DA TERRINHA 140 G CX 12",
       "categoria": "PIMENTAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 458,
       "pedido": 109.0,
       "corte": [
         0.0,
@@ -2543,15 +2795,17 @@
         521.0,
         877.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 349.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 40590,
       "produto": "00702 PIMENTA MALAGUETA VERM DA TERRINHA 70G CX 12",
       "categoria": "PIMENTAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 130,
       "pedido": 29.0,
       "corte": [
         0.0,
@@ -2563,15 +2817,17 @@
         192.0,
         110.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 101.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70375,
       "produto": "00703 PIMENTA BIQUINHO OKKER 250 GR - CX 24",
       "categoria": "PIMENTAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 24,
       "pedido": 2.0,
       "corte": [
         1.0,
@@ -2583,15 +2839,17 @@
         364.0,
         3.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 22.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70375,
       "produto": "00703 PIMENTA BIQUINHO OKKER 250 GR - CX 24",
       "categoria": "PIMENTAS",
       "loja": "OKKER - FILIAL",
-      "estoque": null,
+      "estoque": 10,
       "pedido": 10.0,
       "corte": [
         32.0,
@@ -2603,8 +2861,10 @@
         300.0,
         391.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 0.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70375,
@@ -2624,14 +2884,16 @@
         49.0
       ],
       "saldo": 250.5,
-      "coberturaDias": 8.1796
+      "coberturaDias": 8.1796,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 41544,
       "produto": "00923 OLEO DE COCO DA TERRINHA SEM SABOR 200ml - UND FD 12.0",
       "categoria": "DERIVADOS DO COCO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 357,
       "pedido": 10.0,
       "corte": [
         0.0,
@@ -2643,8 +2905,10 @@
         89.0,
         102.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 347.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 77781,
@@ -2664,7 +2928,9 @@
         0.0
       ],
       "saldo": 1.0,
-      "coberturaDias": 1.2632
+      "coberturaDias": 1.2632,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 94691,
@@ -2684,14 +2950,16 @@
         0.0
       ],
       "saldo": 0.97,
-      "coberturaDias": 0.0433
+      "coberturaDias": 0.0433,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 94691,
       "produto": "00931 COCO RALADO DESIDRATADO DA TERRINHA 50 G -  CX 40",
       "categoria": "DERIVADOS DO COCO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 790,
       "pedido": 28.0,
       "corte": [
         0.0,
@@ -2703,8 +2971,10 @@
         484.0,
         557.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 762.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 79003,
@@ -2724,14 +2994,16 @@
         0.0
       ],
       "saldo": 0.96,
-      "coberturaDias": 0.0226
+      "coberturaDias": 0.0226,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 79003,
       "produto": "00932 COCO RALADO DESIDRATADO DATERRINHA 100 G - CX 24",
       "categoria": "DERIVADOS DO COCO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1060,
       "pedido": 149.0,
       "corte": [
         0.0,
@@ -2743,15 +3015,17 @@
         1218.0,
         570.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 911.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 79003,
       "produto": "00932 COCO RALADO DESIDRATADO DATERRINHA 100 G - CX 24",
       "categoria": "DERIVADOS DO COCO",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 60.0,
       "corte": [
         0.0,
@@ -2763,8 +3037,10 @@
         0.0,
         4.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -60.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 79005,
@@ -2784,14 +3060,16 @@
         0.0
       ],
       "saldo": 0.5,
-      "coberturaDias": 0.0129
+      "coberturaDias": 0.0129,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 79005,
       "produto": "00933 COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G - CX 50",
       "categoria": "DERIVADOS DO COCO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1312,
       "pedido": 74.0,
       "corte": [
         0.0,
@@ -2803,15 +3081,17 @@
         949.0,
         773.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1238.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 79005,
       "produto": "00933 COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G - CX 50",
       "categoria": "DERIVADOS DO COCO",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 60.0,
       "corte": [
         0.0,
@@ -2823,8 +3103,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -60.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 79006,
@@ -2844,14 +3126,16 @@
         0.0
       ],
       "saldo": 0.92,
-      "coberturaDias": 0.0154
+      "coberturaDias": 0.0154,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 79006,
       "produto": "00934 COCO RALADO UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
       "categoria": "DERIVADOS DO COCO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1000,
       "pedido": 123.0,
       "corte": [
         142.0,
@@ -2863,15 +3147,17 @@
         1684.0,
         951.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 877.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 79006,
       "produto": "00934 COCO RALADO UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
       "categoria": "DERIVADOS DO COCO",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 60.0,
       "corte": [
         0.0,
@@ -2883,8 +3169,10 @@
         0.0,
         6.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -60.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 79007,
@@ -2904,14 +3192,16 @@
         0.0
       ],
       "saldo": 1.79,
-      "coberturaDias": 0.0213
+      "coberturaDias": 0.0213,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 79007,
       "produto": "00935 COCO FLOCOS UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
       "categoria": "DERIVADOS DO COCO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 810,
       "pedido": 219.0,
       "corte": [
         177.0,
@@ -2923,15 +3213,17 @@
         2130.0,
         1608.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 591.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 79007,
       "produto": "00935 COCO FLOCOS UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
       "categoria": "DERIVADOS DO COCO",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 60.0,
       "corte": [
         0.0,
@@ -2943,8 +3235,10 @@
         8.0,
         3.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -60.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80401,
@@ -2964,14 +3258,16 @@
         0.0
       ],
       "saldo": 0.29,
-      "coberturaDias": 0.0016
+      "coberturaDias": 0.0016,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 80401,
       "produto": "00941 LEITE DE COCO DA TERRINHA 200 ML - FD 24",
       "categoria": "DERIVADOS DO COCO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2946,
       "pedido": 693.0,
       "corte": [
         0.0,
@@ -2983,8 +3279,10 @@
         4573.0,
         3270.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2253.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80522,
@@ -3004,14 +3302,16 @@
         0.0
       ],
       "saldo": 0.58,
-      "coberturaDias": 0.008
+      "coberturaDias": 0.008,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 80522,
       "produto": "00942 LEITE DE COCO DA TERRINHA 500 ML - FD 12",
       "categoria": "DERIVADOS DO COCO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1349,
       "pedido": 278.0,
       "corte": [
         0.0,
@@ -3023,8 +3323,10 @@
         1772.0,
         1471.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1071.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80981,
@@ -3044,14 +3346,16 @@
         0.0
       ],
       "saldo": 4.08,
-      "coberturaDias": 0.0153
+      "coberturaDias": 0.0153,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 80981,
       "produto": "01101 WRAP DE TAPIOCA ORIGINAL DA TERRINHA 150 G - CX 12",
       "categoria": "WRAP",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1566,
       "pedido": 1533.0,
       "corte": [
         0.0,
@@ -3063,8 +3367,10 @@
         6661.0,
         5474.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 33.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 114261,
@@ -3084,14 +3390,16 @@
         0.0
       ],
       "saldo": 0.9,
-      "coberturaDias": 0.1005
+      "coberturaDias": 0.1005,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 114261,
       "produto": "01151 BATATA LISA SABOR NATURAL MIDA DA TERRINHA  40G - CX 20",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 614,
       "pedido": 59.0,
       "corte": [
         0.0,
@@ -3103,15 +3411,17 @@
         142.0,
         253.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 555.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 114300,
       "produto": "01152 BATATA LISA SABOR NATURAL MIDA DA TERRINHA 70G - CX 10",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 397,
       "pedido": 53.0,
       "corte": [
         0.0,
@@ -3123,8 +3433,10 @@
         125.0,
         212.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 344.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 114294,
@@ -3144,14 +3456,16 @@
         0.0
       ],
       "saldo": 0.9,
-      "coberturaDias": 0.1143
+      "coberturaDias": 0.1143,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 114294,
       "produto": "01153 BATATA ONDULADA COM CEBOLA E SALSA MIDA DA TERRINHA 40G - CX 20",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 401,
       "pedido": 59.0,
       "corte": [
         0.0,
@@ -3163,8 +3477,10 @@
         176.0,
         209.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 342.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 114302,
@@ -3184,14 +3500,16 @@
         0.0
       ],
       "saldo": 1.0,
-      "coberturaDias": 0.1171
+      "coberturaDias": 0.1171,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 114302,
       "produto": "01154 BATATA ONDULADA COM CEBOLA E SALSA MIDA DA TERRINHA 70G - CX 10",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 398,
       "pedido": 53.0,
       "corte": [
         0.0,
@@ -3203,8 +3521,10 @@
         159.0,
         211.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 345.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 114296,
@@ -3224,14 +3544,16 @@
         0.0
       ],
       "saldo": 1.0,
-      "coberturaDias": 0.1424
+      "coberturaDias": 0.1424,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 114296,
       "produto": "01155 BATATA ONDULADA SABOR CHURRASCO MIDA DA TERRINHA 40G - CX 20",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 166,
       "pedido": 54.0,
       "corte": [
         0.0,
@@ -3243,15 +3565,17 @@
         121.0,
         210.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 112.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 114304,
       "produto": "01156 BATATA ONDULADA SABOR CHURRASCO MIDA DA TERRINHA 70G - CX 10",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 370,
       "pedido": 45.0,
       "corte": [
         0.0,
@@ -3263,15 +3587,17 @@
         121.0,
         159.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 325.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 114298,
       "produto": "01157 BATATA ONDULADA SABOR NATURAL MIDA DA TERRINHA 40G - CX 20",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 439,
       "pedido": 183.0,
       "corte": [
         0.0,
@@ -3283,15 +3609,17 @@
         183.0,
         251.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 256.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 114306,
       "produto": "01158 BATATA ONDULADA SABOR NATURAL MIDA DA TERRINHA 70G - CX 10",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 214,
       "pedido": 106.0,
       "corte": [
         0.0,
@@ -3303,8 +3631,10 @@
         139.0,
         188.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 108.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 121091,
@@ -3324,14 +3654,16 @@
         0.0
       ],
       "saldo": 2.0,
-      "coberturaDias": 0.1882
+      "coberturaDias": 0.1882,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 121091,
       "produto": "01161 AMENDOIM JAPONES MIDA DA TERRINHA 80G - CX 24",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 437,
       "pedido": 294.0,
       "corte": [
         0.0,
@@ -3343,15 +3675,17 @@
         235.0,
         346.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 143.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 121124,
       "produto": "01162 AMENDOIM JAPONES MIDA DA TERRINHA 350G - CX 12",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 121,
       "pedido": 166.0,
       "corte": [
         0.0,
@@ -3363,15 +3697,17 @@
         55.0,
         117.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -45.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 121157,
       "produto": "01163 AMENDOIM JAPONES MIDA DA TERRINHA 700G - CX 12",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 103,
       "pedido": 32.0,
       "corte": [
         0.0,
@@ -3383,8 +3719,10 @@
         12.0,
         37.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 71.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 121190,
@@ -3404,14 +3742,16 @@
         0.0
       ],
       "saldo": 1.0,
-      "coberturaDias": 0.1086
+      "coberturaDias": 0.1086,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 121190,
       "produto": "01171 AMENDOIM SEM PELE TORRADO E SALGADO MIDA DA TERRINHA 80G - CX 24",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 104,
       "pedido": 73.0,
       "corte": [
         0.0,
@@ -3423,15 +3763,17 @@
         248.0,
         248.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 31.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 121223,
       "produto": "01172 AMENDOIM SEM PELE TORRADO E SALGADO MIDA DA TERRINHA 350G - CX 12",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 84,
       "pedido": 27.0,
       "corte": [
         0.0,
@@ -3443,8 +3785,10 @@
         67.0,
         63.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 57.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 121256,
@@ -3464,14 +3808,16 @@
         0.0
       ],
       "saldo": 1.0,
-      "coberturaDias": 0.0851
+      "coberturaDias": 0.0851,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 121256,
       "produto": "01181 OVINHOS DE AMENDOIM MIDA DA TERRINHA  80G - CX 12",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 117,
       "pedido": 36.0,
       "corte": [
         0.0,
@@ -3483,15 +3829,17 @@
         344.0,
         273.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 81.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 121289,
       "produto": "01182 OVINHOS DE AMENDOIM MIDA DA TERRINHA  350G - CX 12",
       "categoria": "SNACKS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 93,
       "pedido": 33.0,
       "corte": [
         11.0,
@@ -3503,8 +3851,10 @@
         43.0,
         83.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 60.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 90701,
@@ -3524,14 +3874,16 @@
         0.0
       ],
       "saldo": 1.6,
-      "coberturaDias": 0.0397
+      "coberturaDias": 0.0397,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 90701,
       "produto": "01311 CHA DE CAMOMILA DA TERRINHA 07 G - FD 10",
       "categoria": "CHA - SACHES",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 490,
       "pedido": 167.0,
       "corte": [
         0.0,
@@ -3543,15 +3895,17 @@
         1173.0,
         457.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 323.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 90781,
       "produto": "01312 CHA DE CIDREIRA DA TERRINHA 07 G - FD 10",
       "categoria": "CHA - SACHES",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 841,
       "pedido": 166.0,
       "corte": [
         102.0,
@@ -3563,15 +3917,17 @@
         898.0,
         404.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 675.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 90801,
       "produto": "01313 CHA DE HORTELA DA TERRINHA 07 G - FD 10",
       "categoria": "CHA - SACHES",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 709,
       "pedido": 115.0,
       "corte": [
         0.0,
@@ -3583,15 +3939,17 @@
         461.0,
         207.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 594.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 90821,
       "produto": "01314 CHA DE BOLDO DA TERRINHA 07 G - FD 10",
       "categoria": "CHA - SACHES",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 426,
       "pedido": 82.0,
       "corte": [
         0.0,
@@ -3603,15 +3961,17 @@
         183.0,
         76.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 344.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 90941,
       "produto": "01315 CHA DE ERVA DOCE DA TERRINHA 11,2 G - FD 10",
       "categoria": "CHA - SACHES",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 415,
       "pedido": 96.0,
       "corte": [
         14.0,
@@ -3623,15 +3983,17 @@
         406.0,
         202.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 319.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 90961,
       "produto": "01316 CHA VERDE DA TERRINHA 11,2 G - FD 10",
       "categoria": "CHA - SACHES",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 177,
       "pedido": 71.0,
       "corte": [
         0.0,
@@ -3643,8 +4005,10 @@
         161.0,
         62.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 106.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 90981,
@@ -3664,14 +4028,16 @@
         0.0
       ],
       "saldo": 0.8,
-      "coberturaDias": 0.0556
+      "coberturaDias": 0.0556,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 90981,
       "produto": "01317 CHA QUENTAO DA TERRINHA 11,2 G -  FD 10",
       "categoria": "CHA - SACHES",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 480,
       "pedido": 141.0,
       "corte": [
         0.0,
@@ -3683,15 +4049,17 @@
         360.0,
         215.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 339.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48056,
       "produto": "01501 FARINHA MANDIOCA FINA CRUA DA TERRINHA 1 KG  FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2934,
       "pedido": 404.0,
       "corte": [
         0.0,
@@ -3703,15 +4071,17 @@
         3747.0,
         3280.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2530.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48056,
       "produto": "01501 FARINHA MANDIOCA FINA CRUA DA TERRINHA 1 KG  FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -3723,15 +4093,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48050,
       "produto": "01502 FARINHA MANDIOCA FINA CRUA DA TERRINHA 500 - FD 12.0",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 103,
       "pedido": 174.0,
       "corte": [
         0.0,
@@ -3743,15 +4115,17 @@
         2511.0,
         2265.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -71.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48050,
       "produto": "01502 FARINHA MANDIOCA FINA CRUA DA TERRINHA 500 - FD 12.0",
       "categoria": "FARINACEOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 365.0,
       "corte": [
         0.0,
@@ -3763,8 +4137,10 @@
         36.0,
         348.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -365.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48058,
@@ -3784,7 +4160,9 @@
         0.0
       ],
       "saldo": 50.0,
-      "coberturaDias": 1.4861
+      "coberturaDias": 1.4861,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48058,
@@ -3804,14 +4182,16 @@
         0.0
       ],
       "saldo": 1.42,
-      "coberturaDias": 0.0421
+      "coberturaDias": 0.0421,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48058,
       "produto": "01503 FARINHA MANDIOCA TORRADA DA TERRINHA 500G FD12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1074,
       "pedido": 96.0,
       "corte": [
         0.0,
@@ -3823,15 +4203,17 @@
         855.0,
         683.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 978.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48058,
       "produto": "01503 FARINHA MANDIOCA TORRADA DA TERRINHA 500G FD12",
       "categoria": "FARINACEOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 285.0,
       "corte": [
         0.0,
@@ -3843,8 +4225,10 @@
         36.0,
         108.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -285.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48054,
@@ -3864,7 +4248,9 @@
         0.0
       ],
       "saldo": 1080.0,
-      "coberturaDias": 3.5923
+      "coberturaDias": 3.5923,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48054,
@@ -3884,14 +4270,16 @@
         0.0
       ],
       "saldo": 3.33,
-      "coberturaDias": 0.0111
+      "coberturaDias": 0.0111,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48054,
       "produto": "01504 FARINHA MANDIOCA GROSSA CRUA DA TERRINHA 1 KG - FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2471,
       "pedido": 756.0,
       "corte": [
         8.0,
@@ -3903,15 +4291,17 @@
         7085.0,
         6108.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1715.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48054,
       "produto": "01504 FARINHA MANDIOCA GROSSA CRUA DA TERRINHA 1 KG - FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -3923,8 +4313,10 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48052,
@@ -3944,14 +4336,16 @@
         0.0
       ],
       "saldo": 300.0,
-      "coberturaDias": 3.6281
+      "coberturaDias": 3.6281,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48052,
       "produto": "01505 FARINHA MANDIOCA GROSSA CRUA DA TERRINHA 500 GR - FD 12.0",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2396,
       "pedido": 249.0,
       "corte": [
         0.0,
@@ -3963,8 +4357,10 @@
         1930.0,
         1661.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2147.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48023,
@@ -3984,14 +4380,16 @@
         0.0
       ],
       "saldo": 1.9,
-      "coberturaDias": 0.027
+      "coberturaDias": 0.027,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48023,
       "produto": "01506 FARINHA MILHO AMARELA DA TERRINHA 500 G FD10",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 384,
       "pedido": 315.0,
       "corte": [
         408.0,
@@ -4003,15 +4401,17 @@
         1709.0,
         1369.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 69.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48023,
       "produto": "01506 FARINHA MILHO AMARELA DA TERRINHA 500 G FD10",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         68.0,
@@ -4023,15 +4423,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48023,
       "produto": "01506 FARINHA MILHO AMARELA DA TERRINHA 500 G FD10",
       "categoria": "FARINACEOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 150.0,
       "corte": [
         0.0,
@@ -4043,15 +4445,17 @@
         0.0,
         110.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -150.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 87682,
       "produto": "01507 FARINHA FLOCADA PANKO DA TERRINHA 200 GR - CX 12.0",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 3321,
       "pedido": 484.0,
       "corte": [
         18.0,
@@ -4063,15 +4467,17 @@
         4683.0,
         2481.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2837.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 87682,
       "produto": "01507 FARINHA FLOCADA PANKO DA TERRINHA 200 GR - CX 12.0",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -4083,15 +4489,17 @@
         0.0,
         80.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48043,
       "produto": "01508 FARINHA ROSCA DA TERRINHA 500 G - FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 3219,
       "pedido": 582.0,
       "corte": [
         0.0,
@@ -4103,15 +4511,17 @@
         2440.0,
         1510.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2637.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48043,
       "produto": "01508 FARINHA ROSCA DA TERRINHA 500 G - FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -4123,15 +4533,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48043,
       "produto": "01508 FARINHA ROSCA DA TERRINHA 500 G - FD 12",
       "categoria": "FARINACEOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 220.0,
       "corte": [
         0.0,
@@ -4143,15 +4555,17 @@
         14.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -220.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 63307,
       "produto": "01513 FLOCOS DE MILHO ( CUSCUZ ) DA TERRINHA 500 G - FD 30",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1683,
       "pedido": 202.0,
       "corte": [
         31.0,
@@ -4163,8 +4577,10 @@
         1226.0,
         1008.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1481.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48003,
@@ -4184,14 +4600,16 @@
         0.0
       ],
       "saldo": 1.8,
-      "coberturaDias": 0.0331
+      "coberturaDias": 0.0331,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48003,
       "produto": "01514 FUBA MIMOSO DA TERRINHA 1 KG FD 10",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1457,
       "pedido": 128.0,
       "corte": [
         0.0,
@@ -4203,15 +4621,17 @@
         1502.0,
         881.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1329.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 47982,
       "produto": "01515 FUBA MIMOSO DA TERRINHA 500 G FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 3343,
       "pedido": 647.0,
       "corte": [
         0.0,
@@ -4223,15 +4643,17 @@
         3914.0,
         2404.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2696.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 47982,
       "produto": "01515 FUBA MIMOSO DA TERRINHA 500 G FD 12",
       "categoria": "FARINACEOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 410.0,
       "corte": [
         0.0,
@@ -4243,8 +4665,10 @@
         0.0,
         20.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -410.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48163,
@@ -4264,7 +4688,9 @@
         0.0
       ],
       "saldo": 1149.0,
-      "coberturaDias": 23.2121
+      "coberturaDias": 23.2121,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48163,
@@ -4284,14 +4710,16 @@
         0.0
       ],
       "saldo": 1.67,
-      "coberturaDias": 0.0337
+      "coberturaDias": 0.0337,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48163,
       "produto": "01517 POLVILHO AZEDO DA TERRINHA 500 G FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 845,
       "pedido": 195.0,
       "corte": [
         0.0,
@@ -4303,15 +4731,17 @@
         1222.0,
         1042.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 650.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48163,
       "produto": "01517 POLVILHO AZEDO DA TERRINHA 500 G FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 35.0,
       "corte": [
         0.0,
@@ -4323,15 +4753,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -35.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48163,
       "produto": "01517 POLVILHO AZEDO DA TERRINHA 500 G FD 12",
       "categoria": "FARINACEOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 160.0,
       "corte": [
         0.0,
@@ -4343,8 +4775,10 @@
         0.0,
         721.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -160.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48145,
@@ -4364,14 +4798,16 @@
         0.0
       ],
       "saldo": 1080.0,
-      "coberturaDias": 21.582
+      "coberturaDias": 21.582,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48145,
       "produto": "01518 POLVILHO DOCE DA TERRINHA 500 G - FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1255,
       "pedido": 152.0,
       "corte": [
         0.0,
@@ -4383,15 +4819,17 @@
         1122.0,
         1142.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1103.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48145,
       "produto": "01518 POLVILHO DOCE DA TERRINHA 500 G - FD 12",
       "categoria": "FARINACEOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 155.0,
       "corte": [
         0.0,
@@ -4403,8 +4841,10 @@
         0.0,
         761.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -155.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 78461,
@@ -4424,14 +4864,16 @@
         0.0
       ],
       "saldo": 1.67,
-      "coberturaDias": 0.0046
+      "coberturaDias": 0.0046,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 78461,
       "produto": "01519 FLOCAO DE MILHO DA TERRINHA 400G - FD 24",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 9534,
       "pedido": 1784.0,
       "corte": [
         0.0,
@@ -4443,15 +4885,17 @@
         8583.0,
         5592.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 7750.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 78461,
       "produto": "01519 FLOCAO DE MILHO DA TERRINHA 400G - FD 24",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 42.0,
       "corte": [
         0.0,
@@ -4463,15 +4907,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -42.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 78461,
       "produto": "01519 FLOCAO DE MILHO DA TERRINHA 400G - FD 24",
       "categoria": "FARINACEOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 290.0,
       "corte": [
         0.0,
@@ -4483,8 +4929,10 @@
         33.0,
         879.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -290.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 78441,
@@ -4504,14 +4952,16 @@
         0.0
       ],
       "saldo": 2.42,
-      "coberturaDias": 0.0635
+      "coberturaDias": 0.0635,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 78441,
       "produto": "01520  FLOCAO DE MILHO DA TERRINHA 800G  - FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1308,
       "pedido": 54.0,
       "corte": [
         0.0,
@@ -4523,15 +4973,17 @@
         1009.0,
         933.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1254.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 78441,
       "produto": "01520  FLOCAO DE MILHO DA TERRINHA 800G  - FD 12",
       "categoria": "FARINACEOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 10.0,
       "corte": [
         0.0,
@@ -4543,8 +4995,10 @@
         0.0,
         300.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -10.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48123,
@@ -4564,14 +5018,16 @@
         0.0
       ],
       "saldo": 1.83,
-      "coberturaDias": 0.0297
+      "coberturaDias": 0.0297,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48123,
       "produto": "01521 TRIGO PARA KIBE DA TERRINHA 500 G FD 12",
       "categoria": "TRIGO PARA KIBE",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2073,
       "pedido": 275.0,
       "corte": [
         0.0,
@@ -4583,15 +5039,17 @@
         1591.0,
         1116.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1798.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48123,
       "produto": "01521 TRIGO PARA KIBE DA TERRINHA 500 G FD 12",
       "categoria": "TRIGO PARA KIBE",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 555.0,
       "corte": [
         0.0,
@@ -4603,8 +5061,10 @@
         38.0,
         283.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -555.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 86880,
@@ -4624,7 +5084,9 @@
         0.0
       ],
       "saldo": 300.0,
-      "coberturaDias": 4.1546
+      "coberturaDias": 4.1546,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 86880,
@@ -4644,14 +5106,16 @@
         0.0
       ],
       "saldo": 1.0,
-      "coberturaDias": 0.0138
+      "coberturaDias": 0.0138,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 86880,
       "produto": "01522 POLVILHO DOCE DA TERRINHA 1 KG - FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1632,
       "pedido": 261.0,
       "corte": [
         7.0,
@@ -4663,15 +5127,17 @@
         1429.0,
         1974.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1371.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 61368,
       "produto": "01601 AMENDOIM CRU DA TERRINHA 500 G FD 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 13.0,
       "corte": [
         0.0,
@@ -4683,15 +5149,17 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -13.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 61828,
       "produto": "01602 CANJICA AMARELA DA TERRINHA 500 G - FD 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 765,
       "pedido": 65.0,
       "corte": [
         0.0,
@@ -4703,15 +5171,17 @@
         517.0,
         309.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 700.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 61828,
       "produto": "01602 CANJICA AMARELA DA TERRINHA 500 G - FD 12",
       "categoria": "GRAOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 5.0,
       "corte": [
         0.0,
@@ -4723,15 +5193,17 @@
         0.0,
         105.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -5.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 52688,
       "produto": "01604 CANJIQUINHA XEREM DA TERRINHA 500 G FD 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 600,
       "pedido": 81.0,
       "corte": [
         206.0,
@@ -4743,8 +5215,10 @@
         610.0,
         435.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 519.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80605,
@@ -4764,14 +5238,16 @@
         0.0
       ],
       "saldo": 1.67,
-      "coberturaDias": 0.0078
+      "coberturaDias": 0.0078,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 80605,
       "produto": "01614 CANJICA BRANCA DA TERRINHA 400 G - CX 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2531,
       "pedido": 715.0,
       "corte": [
         3110.0,
@@ -4783,15 +5259,17 @@
         4496.0,
         4354.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1816.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80605,
       "produto": "01614 CANJICA BRANCA DA TERRINHA 400 G - CX 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -4803,15 +5281,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80605,
       "produto": "01614 CANJICA BRANCA DA TERRINHA 400 G - CX 12",
       "categoria": "GRAOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 510.0,
       "corte": [
         0.0,
@@ -4823,8 +5303,10 @@
         51.0,
         235.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -510.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80607,
@@ -4844,14 +5326,16 @@
         0.0
       ],
       "saldo": 2.75,
-      "coberturaDias": 0.0382
+      "coberturaDias": 0.0382,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 80607,
       "produto": "01615 ERVILHA PARTIDA DA TERRINHA 350 G - CX 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2324,
       "pedido": 348.0,
       "corte": [
         0.0,
@@ -4863,15 +5347,17 @@
         1817.0,
         1211.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1976.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80607,
       "produto": "01615 ERVILHA PARTIDA DA TERRINHA 350 G - CX 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -4883,8 +5369,10 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80649,
@@ -4904,14 +5392,16 @@
         0.0
       ],
       "saldo": 1.33,
-      "coberturaDias": 0.0226
+      "coberturaDias": 0.0226,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 80649,
       "produto": "01616 GRAO DE BICO DA TERRINHA 350 G - CX 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2150,
       "pedido": 186.0,
       "corte": [
         0.0,
@@ -4923,15 +5413,17 @@
         1280.0,
         1432.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1964.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80649,
       "produto": "01616 GRAO DE BICO DA TERRINHA 350 G - CX 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -4943,8 +5435,10 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80641,
@@ -4964,14 +5458,16 @@
         0.0
       ],
       "saldo": 1.33,
-      "coberturaDias": 0.0157
+      "coberturaDias": 0.0157,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 80641,
       "produto": "01617 LENTILHA DA TERRINHA 350 G - CX 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2712,
       "pedido": 539.0,
       "corte": [
         0.0,
@@ -4983,15 +5479,17 @@
         2292.0,
         1581.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2173.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80641,
       "produto": "01617 LENTILHA DA TERRINHA 350 G - CX 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 35.0,
       "corte": [
         0.0,
@@ -5003,8 +5501,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -35.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80643,
@@ -5024,14 +5524,16 @@
         0.0
       ],
       "saldo": 3.0,
-      "coberturaDias": 0.0045
+      "coberturaDias": 0.0045,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 80643,
       "produto": "01618 MILHO PIPOCA DA TERRINHA 400 G - CX 12",
       "categoria": "MILHO DE PIPOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 4030,
       "pedido": 8563.0,
       "corte": [
         0.0,
@@ -5043,15 +5545,17 @@
         15234.0,
         13426.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -4533.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 80643,
       "produto": "01618 MILHO PIPOCA DA TERRINHA 400 G - CX 12",
       "categoria": "MILHO DE PIPOCA",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 42.0,
       "corte": [
         0.0,
@@ -5063,8 +5567,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -42.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 83381,
@@ -5084,14 +5590,16 @@
         0.0
       ],
       "saldo": 1.0,
-      "coberturaDias": 0.0189
+      "coberturaDias": 0.0189,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 83381,
       "produto": "01619 SAGU MANDIOCA DA TERRINHA 400 G - CX 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2291,
       "pedido": 168.0,
       "corte": [
         0.0,
@@ -5103,15 +5611,17 @@
         1334.0,
         1146.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2123.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 83381,
       "produto": "01619 SAGU MANDIOCA DA TERRINHA 400 G - CX 12",
       "categoria": "GRAOS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 105.0,
       "corte": [
         0.0,
@@ -5123,8 +5633,10 @@
         250.0,
         3.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -105.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 100863,
@@ -5144,14 +5656,16 @@
         0.0
       ],
       "saldo": 2.92,
-      "coberturaDias": 0.0176
+      "coberturaDias": 0.0176,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 100863,
       "produto": "01620 MILHO PIPOCA DA TERRINHA 1KG - FD 12",
       "categoria": "MILHO DE PIPOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 4143,
       "pedido": 4755.0,
       "corte": [
         735.0,
@@ -5163,8 +5677,10 @@
         3110.0,
         4081.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -612.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 118286,
@@ -5184,14 +5700,16 @@
         0.0
       ],
       "saldo": 4.67,
-      "coberturaDias": 1.0718
+      "coberturaDias": 1.0718,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 118286,
       "produto": "01621 MILHO PIPOCA PREMIUM POTE DA TERRINHA 500G CX 12",
       "categoria": "MILHO DE PIPOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 151,
       "pedido": 85.0,
       "corte": [
         0.0,
@@ -5203,8 +5721,10 @@
         163.0,
         38.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 66.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48723,
@@ -5224,14 +5744,16 @@
         0.0
       ],
       "saldo": 0.88,
-      "coberturaDias": 0.0131
+      "coberturaDias": 0.0131,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48723,
       "produto": "01701 ACAFRAO DA TERRINHA 30 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1217,
       "pedido": 259.0,
       "corte": [
         0.0,
@@ -5243,8 +5765,10 @@
         1442.0,
         1712.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 958.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48723,
@@ -5264,7 +5788,9 @@
         0.0
       ],
       "saldo": 0.04,
-      "coberturaDias": 0.0006
+      "coberturaDias": 0.0006,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48783,
@@ -5284,14 +5810,16 @@
         0.0
       ],
       "saldo": 0.92,
-      "coberturaDias": 0.0462
+      "coberturaDias": 0.0462,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48783,
       "produto": "01702 ALECRIM DA TERRINHA 06 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1243,
       "pedido": 48.0,
       "corte": [
         0.0,
@@ -5303,15 +5831,17 @@
         583.0,
         371.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1195.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48392,
       "produto": "01703 ALHO DESID FLOCOS DA TERRINHA 25 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 157,
       "pedido": 8.0,
       "corte": [
         3.0,
@@ -5323,15 +5853,17 @@
         50.0,
         36.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 149.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48064,
       "produto": "01704 ALHO DESIDRATADO GRANULADO DA TERRINHA 20 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 142,
       "pedido": 34.0,
       "corte": [
         3.0,
@@ -5343,15 +5875,17 @@
         193.0,
         90.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 108.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48064,
       "produto": "01704 ALHO DESIDRATADO GRANULADO DA TERRINHA 20 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 100.0,
       "corte": [
         0.0,
@@ -5363,8 +5897,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -100.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72091,
@@ -5384,14 +5920,16 @@
         0.0
       ],
       "saldo": 2.96,
-      "coberturaDias": 0.194
+      "coberturaDias": 0.194,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 72091,
       "produto": "01708 BICARBONATO DE SODIO DA TERRINHA 20 G -  CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 698,
       "pedido": 37.0,
       "corte": [
         0.0,
@@ -5403,15 +5941,17 @@
         502.0,
         336.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 661.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72092,
       "produto": "01710 BICARBONATO DE SODIO DA TERRINHA 80 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2842,
       "pedido": 262.0,
       "corte": [
         0.0,
@@ -5423,15 +5963,17 @@
         1870.0,
         2046.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2580.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72092,
       "produto": "01710 BICARBONATO DE SODIO DA TERRINHA 80 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -5443,15 +5985,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72092,
       "produto": "01710 BICARBONATO DE SODIO DA TERRINHA 80 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 100.0,
       "corte": [
         0.0,
@@ -5463,8 +6007,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -100.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72170,
@@ -5484,14 +6030,16 @@
         0.0
       ],
       "saldo": 0.83,
-      "coberturaDias": 0.002
+      "coberturaDias": 0.002,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 72170,
       "produto": "01712 BICARBONATO DE SODIO DA TERRINHA 500 g - CX 6.0",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 4972,
       "pedido": 4337.0,
       "corte": [
         0.0,
@@ -5503,15 +6051,17 @@
         10784.0,
         8606.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 635.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48787,
       "produto": "01715 CAMOMILA DA TERRINHA 06 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1007,
       "pedido": 52.0,
       "corte": [
         7.0,
@@ -5523,8 +6073,10 @@
         264.0,
         358.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 955.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48667,
@@ -5544,14 +6096,16 @@
         0.0
       ],
       "saldo": 0.42,
-      "coberturaDias": 0.0106
+      "coberturaDias": 0.0106,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48667,
       "produto": "01717 CANELA CASCA QUEBRADA DA TERRINHA 10 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2329,
       "pedido": 103.0,
       "corte": [
         36.0,
@@ -5563,15 +6117,17 @@
         1111.0,
         442.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2226.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48667,
       "produto": "01717 CANELA CASCA QUEBRADA DA TERRINHA 10 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -5583,8 +6139,10 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48685,
@@ -5604,14 +6162,16 @@
         0.0
       ],
       "saldo": 0.29,
-      "coberturaDias": 0.0047
+      "coberturaDias": 0.0047,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48685,
       "produto": "01723 CANELA PO DA TERRINHA 20 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2132,
       "pedido": 261.0,
       "corte": [
         1.0,
@@ -5623,15 +6183,17 @@
         1428.0,
         1131.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1871.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48685,
       "produto": "01723 CANELA PO DA TERRINHA 20 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 2,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -5643,8 +6205,10 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -38.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72093,
@@ -5664,14 +6228,16 @@
         0.0
       ],
       "saldo": 3.17,
-      "coberturaDias": 0.0149
+      "coberturaDias": 0.0149,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 72093,
       "produto": "01732 CHIMICHURRI DA TERRINHA 20G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 4355,
       "pedido": 629.0,
       "corte": [
         0.0,
@@ -5683,15 +6249,17 @@
         4654.0,
         4967.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 3726.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72093,
       "produto": "01732 CHIMICHURRI DA TERRINHA 20G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -5703,15 +6271,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 74109,
       "produto": "01734 COENTRO EM PO DA TERRINHA 18 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 660,
       "pedido": 43.0,
       "corte": [
         0.0,
@@ -5723,8 +6293,10 @@
         269.0,
         133.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 617.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72094,
@@ -5744,14 +6316,16 @@
         0.0
       ],
       "saldo": 1.88,
-      "coberturaDias": 0.0159
+      "coberturaDias": 0.0159,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 72094,
       "produto": "01736 COLORIFICO DA TERRINHA 70 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 817,
       "pedido": 409.0,
       "corte": [
         0.0,
@@ -5763,15 +6337,17 @@
         2114.0,
         3243.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 408.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72094,
       "produto": "01736 COLORIFICO DA TERRINHA 70 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -5783,15 +6359,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 50722,
       "produto": "01739 COLORIFICO DA TERRINHA 500 G - FD 12",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1334,
       "pedido": 154.0,
       "corte": [
         0.0,
@@ -5803,15 +6381,17 @@
         544.0,
         435.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1180.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 50722,
       "produto": "01739 COLORIFICO DA TERRINHA 500 G - FD 12",
       "categoria": "ESPECIARIAS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 100.0,
       "corte": [
         0.0,
@@ -5823,15 +6403,17 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -100.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 75956,
       "produto": "01743 COLORIFICO DA TERRINHA 1,01 KG - FD 12",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1790,
       "pedido": 319.0,
       "corte": [
         0.0,
@@ -5843,8 +6425,10 @@
         2242.0,
         3361.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1471.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48705,
@@ -5864,14 +6448,16 @@
         0.0
       ],
       "saldo": 0.54,
-      "coberturaDias": 0.0233
+      "coberturaDias": 0.0233,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48705,
       "produto": "01745 COMINHO EM PO DA TERRINHA 50 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1534,
       "pedido": 60.0,
       "corte": [
         0.0,
@@ -5883,15 +6469,17 @@
         466.0,
         635.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1474.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48705,
       "produto": "01745 COMINHO EM PO DA TERRINHA 50 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -5903,15 +6491,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48705,
       "produto": "01745 COMINHO EM PO DA TERRINHA 50 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 80.0,
       "corte": [
         0.0,
@@ -5923,8 +6513,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -80.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72106,
@@ -5944,14 +6536,16 @@
         0.0
       ],
       "saldo": 1.5,
-      "coberturaDias": 0.0357
+      "coberturaDias": 0.0357,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 72106,
       "produto": "01750 CRAVO DA INDIA DA TERRINHA 10 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1405,
       "pedido": 157.0,
       "corte": [
         0.0,
@@ -5963,15 +6557,17 @@
         980.0,
         739.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1248.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72106,
       "produto": "01750 CRAVO DA INDIA DA TERRINHA 10 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -5983,15 +6579,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72096,
       "produto": "01754 CURRY EM PO DA TERRINHA 15 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1147,
       "pedido": 107.0,
       "corte": [
         0.0,
@@ -6003,15 +6601,17 @@
         666.0,
         770.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1040.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72097,
       "produto": "01759 ERVA DOCE DA TERRINHA 15 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1049,
       "pedido": 70.0,
       "corte": [
         0.0,
@@ -6023,15 +6623,17 @@
         498.0,
         326.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 979.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72097,
       "produto": "01759 ERVA DOCE DA TERRINHA 15 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -6043,8 +6645,10 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48751,
@@ -6064,14 +6668,16 @@
         0.0
       ],
       "saldo": 0.96,
-      "coberturaDias": 0.0093
+      "coberturaDias": 0.0093,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48751,
       "produto": "01769 LOURO EM FOLHA DA TERRINHA 08 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2765,
       "pedido": 350.0,
       "corte": [
         0.0,
@@ -6083,15 +6689,17 @@
         2289.0,
         2528.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2415.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48751,
       "produto": "01769 LOURO EM FOLHA DA TERRINHA 08 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -6103,8 +6711,10 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72108,
@@ -6124,14 +6734,16 @@
         0.0
       ],
       "saldo": 1.92,
-      "coberturaDias": 0.073
+      "coberturaDias": 0.073,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 72108,
       "produto": "01774 MANJERICAO DA TERRINHA 10 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1065,
       "pedido": 99.0,
       "corte": [
         0.0,
@@ -6143,15 +6755,17 @@
         674.0,
         482.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 966.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48696,
       "produto": "01777 NOZ MOSCADA BOLA DA TERRINHA 08 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 143,
       "pedido": 37.0,
       "corte": [
         9.0,
@@ -6163,8 +6777,10 @@
         207.0,
         189.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 106.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48766,
@@ -6184,14 +6800,16 @@
         0.0
       ],
       "saldo": 3.79,
-      "coberturaDias": 0.0243
+      "coberturaDias": 0.0243,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48766,
       "produto": "01782 OREGANO DA TERRINHA 08 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 3052,
       "pedido": 580.0,
       "corte": [
         0.0,
@@ -6203,15 +6821,17 @@
         3408.0,
         3615.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2472.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48766,
       "produto": "01782 OREGANO DA TERRINHA 08 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 4,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -6223,15 +6843,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -36.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 51328,
       "produto": "01784 OREGANO DA TERRINHA 100 G - FD 12",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 768,
       "pedido": 114.0,
       "corte": [
         0.0,
@@ -6243,8 +6865,10 @@
         346.0,
         247.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 654.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 71928,
@@ -6264,14 +6888,16 @@
         0.0
       ],
       "saldo": 1.67,
-      "coberturaDias": 0.0127
+      "coberturaDias": 0.0127,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 71928,
       "produto": "01786 OREGANO DA TERRINHA 200 G - FD 12",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1030,
       "pedido": 437.0,
       "corte": [
         0.0,
@@ -6283,8 +6909,10 @@
         2527.0,
         3781.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 593.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48642,
@@ -6304,14 +6932,16 @@
         0.0
       ],
       "saldo": 1.96,
-      "coberturaDias": 0.0207
+      "coberturaDias": 0.0207,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 48642,
       "produto": "01787 PAPRICA DOCE EM PO DA TERRINHA 15 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 546,
       "pedido": 374.0,
       "corte": [
         127.0,
@@ -6323,15 +6953,17 @@
         2017.0,
         2263.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 172.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48642,
       "produto": "01787 PAPRICA DOCE EM PO DA TERRINHA 15 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 100.0,
       "corte": [
         0.0,
@@ -6343,15 +6975,17 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -100.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48624,
       "produto": "01788 PAPRICA PICANTE EM PO DA TERRINHA 15 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 414,
       "pedido": 347.0,
       "corte": [
         27.0,
@@ -6363,15 +6997,17 @@
         1948.0,
         1946.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 67.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 48398,
       "produto": "01800 PIMENTA CALABRESA FLOC DA TERRINHA 15 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 354,
       "pedido": 69.0,
       "corte": [
         0.0,
@@ -6383,15 +7019,17 @@
         482.0,
         382.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 285.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72098,
       "produto": "01804 PIMENTA COM  COMINHO PO DA TERRINHA 50G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 450,
       "pedido": 32.0,
       "corte": [
         0.0,
@@ -6403,8 +7041,10 @@
         251.0,
         175.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 418.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72099,
@@ -6424,14 +7064,16 @@
         0.0
       ],
       "saldo": 1.04,
-      "coberturaDias": 0.0167
+      "coberturaDias": 0.0167,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 72099,
       "produto": "01806 PIMENTA DO REINO EM PO DA TERRINHA 20G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1505,
       "pedido": 281.0,
       "corte": [
         0.0,
@@ -6443,15 +7085,17 @@
         1422.0,
         1433.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1224.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72099,
       "produto": "01806 PIMENTA DO REINO EM PO DA TERRINHA 20G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -6463,8 +7107,10 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72100,
@@ -6484,14 +7130,16 @@
         0.0
       ],
       "saldo": 2.0,
-      "coberturaDias": 0.0671
+      "coberturaDias": 0.0671,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 72100,
       "produto": "01813 SALSA DESIDRATADA DA TERRINHA 08 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 897,
       "pedido": 112.0,
       "corte": [
         5.0,
@@ -6503,15 +7151,17 @@
         720.0,
         687.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 785.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72101,
       "produto": "01818 TEMPERO BAIANO PO DA TERRINHA 50 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2790,
       "pedido": 385.0,
       "corte": [
         0.0,
@@ -6523,15 +7173,17 @@
         2553.0,
         2654.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2405.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72101,
       "produto": "01818 TEMPERO BAIANO PO DA TERRINHA 50 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 40.0,
       "corte": [
         0.0,
@@ -6543,15 +7195,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -40.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72101,
       "produto": "01818 TEMPERO BAIANO PO DA TERRINHA 50 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 60.0,
       "corte": [
         0.0,
@@ -6563,15 +7217,17 @@
         13.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -60.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 74110,
       "produto": "01821 TEMPERO PARA CARNE DA TERRINHA 50 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 902,
       "pedido": 114.0,
       "corte": [
         0.0,
@@ -6583,15 +7239,17 @@
         481.0,
         330.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 788.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 74110,
       "produto": "01821 TEMPERO PARA CARNE DA TERRINHA 50 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 60.0,
       "corte": [
         0.0,
@@ -6603,15 +7261,17 @@
         8.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -60.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72102,
       "produto": "01822 TEMPERO PARA CHURRASCO DA TERRINHA 40G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 524,
       "pedido": 48.0,
       "corte": [
         0.0,
@@ -6623,15 +7283,17 @@
         347.0,
         247.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 476.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72102,
       "produto": "01822 TEMPERO PARA CHURRASCO DA TERRINHA 40G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 60.0,
       "corte": [
         0.0,
@@ -6643,15 +7305,17 @@
         8.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -60.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 50145,
       "produto": "01825 TEMPERO PARA FRANGO DA TERRINHA 50 G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 669,
       "pedido": 182.0,
       "corte": [
         0.0,
@@ -6663,8 +7327,10 @@
         905.0,
         619.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 487.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 54290,
@@ -6684,7 +7350,9 @@
         0.0
       ],
       "saldo": 2.0,
-      "coberturaDias": 0.1218
+      "coberturaDias": 0.1218,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 54148,
@@ -6704,14 +7372,16 @@
         0.0
       ],
       "saldo": 0.92,
-      "coberturaDias": 0.0213
+      "coberturaDias": 0.0213,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 54148,
       "produto": "02606 FEIJAO BRANCO DA TERRINHA PREMIUM 500 G - CX 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 165,
       "pedido": 88.0,
       "corte": [
         95.0,
@@ -6723,15 +7393,17 @@
         644.0,
         1352.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 77.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 54148,
       "produto": "02606 FEIJAO BRANCO DA TERRINHA PREMIUM 500 G - CX 12",
       "categoria": "GRAOS",
       "loja": "DA TERRINHA - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 35.0,
       "corte": [
         0.0,
@@ -6743,15 +7415,17 @@
         0.0,
         44.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -35.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 68867,
       "produto": "09518 MISTURA PAO DE QUEIJO DA TERRINHA 250G - FD 12",
       "categoria": "PAO DE QUEIJO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 500,
       "pedido": 29.0,
       "corte": [
         8.0,
@@ -6763,15 +7437,17 @@
         191.0,
         424.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 471.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 68867,
       "produto": "09518 MISTURA PAO DE QUEIJO DA TERRINHA 250G - FD 12",
       "categoria": "PAO DE QUEIJO",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 1455.0,
       "corte": [
         0.0,
@@ -6783,15 +7459,17 @@
         32.0,
         565.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -1455.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 140660,
       "produto": "09600 FLOCAO OISHII 400G N TRANSGENICO - FD 20",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 173,
       "pedido": 2.0,
       "corte": [
         0.0,
@@ -6803,15 +7481,17 @@
         19.0,
         9.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 171.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 76401,
       "produto": "11102 ALHO FRITO GRANULADO OKKER 90 GR - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 17,
       "pedido": 9.0,
       "corte": [
         34.0,
@@ -6823,15 +7503,17 @@
         117.0,
         105.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 8.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70231,
       "produto": "11102 ALHO FRITO GRANULADO OKKER 90 GR - CX 36",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 73,
       "pedido": 2.0,
       "corte": [
         0.0,
@@ -6843,15 +7525,17 @@
         0.0,
         2.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 71.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 76183,
       "produto": "11105 ALHO PASTA OKKER 400 GR - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 145,
       "pedido": 12.0,
       "corte": [
         10.0,
@@ -6863,15 +7547,17 @@
         271.0,
         65.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 133.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70233,
       "produto": "11105 ALHO PASTA OKKER 400 GR - CX 36",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 96,
       "pedido": 22.0,
       "corte": [
         0.0,
@@ -6883,8 +7569,10 @@
         0.0,
         7.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 74.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70233,
@@ -6904,7 +7592,9 @@
         161.0
       ],
       "saldo": 122.22,
-      "coberturaDias": 4.8726
+      "coberturaDias": 4.8726,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 70235,
@@ -6924,14 +7614,16 @@
         205.0
       ],
       "saldo": 77.12,
-      "coberturaDias": 2.5184
+      "coberturaDias": 2.5184,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 70245,
       "produto": "11112 ALHO TRITURADO OKKER 3 KG - CX 6",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 222,
       "pedido": 8.0,
       "corte": [
         0.0,
@@ -6943,8 +7635,10 @@
         441.0,
         515.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 214.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70245,
@@ -6964,14 +7658,16 @@
         635.0
       ],
       "saldo": 30.67,
-      "coberturaDias": 0.3493
+      "coberturaDias": 0.3493,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 76187,
       "produto": "11113 ALHO TEMPERADO BAIANO OKKER 200 GR  - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 127,
       "pedido": 7.0,
       "corte": [
         12.0,
@@ -6983,15 +7679,17 @@
         49.0,
         92.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 120.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70288,
       "produto": "11113 ALHO TEMPERADO BAIANO OKKER 200 GR - CX 36",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 54,
       "pedido": 1.0,
       "corte": [
         0.0,
@@ -7003,8 +7701,10 @@
         0.0,
         4.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 53.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70288,
@@ -7024,14 +7724,16 @@
         25.0
       ],
       "saldo": 93.06,
-      "coberturaDias": 7.0341
+      "coberturaDias": 7.0341,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 70237,
       "produto": "11122 ALHO PASTA OKKER 2 KG  - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 32,
       "pedido": 2.0,
       "corte": [
         0.0,
@@ -7043,8 +7745,10 @@
         5.0,
         4.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 30.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70237,
@@ -7064,14 +7768,16 @@
         193.0
       ],
       "saldo": 37.92,
-      "coberturaDias": 2.4595
+      "coberturaDias": 2.4595,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 76499,
       "produto": "11123 CEBOLA PICADA OKKER 200 GR - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 47,
       "pedido": 3.0,
       "corte": [
         1.0,
@@ -7083,15 +7789,17 @@
         19.0,
         27.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 44.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70373,
       "produto": "11123 CEBOLA PICADA OKKER 200 GR - CX 36",
       "categoria": "ALHO",
       "loja": "OKKER - MATRIZ",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 50.0,
       "corte": [
         0.0,
@@ -7103,15 +7811,17 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -50.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 76182,
       "produto": "11128 ALHO PASTA OKKER 200 GR - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 390,
       "pedido": 20.0,
       "corte": [
         87.0,
@@ -7123,8 +7833,10 @@
         240.0,
         122.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 370.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 71748,
@@ -7144,14 +7856,16 @@
         0.0
       ],
       "saldo": 10.0,
-      "coberturaDias": 24.0
+      "coberturaDias": 24.0,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 112380,
       "produto": "11133 ALHO E CEBOLA PICADOS OKKER 1 KG - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 10,
       "pedido": 2.0,
       "corte": [
         0.0,
@@ -7163,15 +7877,17 @@
         0.0,
         15.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 8.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 83481,
       "produto": "14006 TAPIOCA NAGUMO 500 G - FD 24",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 615,
       "pedido": 600.0,
       "corte": [
         0.0,
@@ -7183,15 +7899,17 @@
         301.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 15.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 98421,
       "produto": "14007 TAPIOCA NAGUMO 1KG - FD 12",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 808,
       "pedido": 800.0,
       "corte": [
         0.0,
@@ -7203,15 +7921,17 @@
         400.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 8.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 139934,
       "produto": "14009 MILHOCA OISHII 500 G - CX 20",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 2839,
       "pedido": 139.0,
       "corte": [
         0.0,
@@ -7223,15 +7943,17 @@
         500.0,
         1849.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2700.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 140727,
       "produto": "14010 TAPIOCA OISHII 1KG - FD 10",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 386,
       "pedido": 8.0,
       "corte": [
         0.0,
@@ -7243,15 +7965,17 @@
         97.0,
         23.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 378.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 140792,
       "produto": "14011 TAPIOCA OISHII 500G - FD 20",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 413,
       "pedido": 48.0,
       "corte": [
         0.0,
@@ -7263,15 +7987,17 @@
         54.0,
         34.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 365.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 140794,
       "produto": "14012 TAPIOCA SACHE OISHII 400G - CX 12",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 6.0,
       "corte": [
         0.0,
@@ -7283,15 +8009,17 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -6.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 140800,
       "produto": "14013 MILHOCA CHICO BENTO OISHII 400G - CX 12",
       "categoria": "TAPIOCA POUCH",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 661,
       "pedido": 31.0,
       "corte": [
         0.0,
@@ -7303,15 +8031,17 @@
         30.0,
         261.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 630.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 140797,
       "produto": "14014 TAPIOCA GRANULADA OISHII 500G - FD 20",
       "categoria": "TAPIOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 2.0,
       "corte": [
         0.0,
@@ -7323,15 +8053,17 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -2.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 78643,
       "produto": "14311 FAROFA PRONTA TRADICIONAL MERCADAO 400G - FD 24",
       "categoria": "FAROFA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 50,
       "pedido": 510.0,
       "corte": [
         0.0,
@@ -7343,8 +8075,10 @@
         295.0,
         190.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -460.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 116111,
@@ -7364,14 +8098,16 @@
         0.0
       ],
       "saldo": 504.0,
-      "coberturaDias": 13.637
+      "coberturaDias": 13.637,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 116111,
       "produto": "14313 FAROFA PRONTA BULNEZ TRADICIONAL 400 G - FD 24",
       "categoria": "FAROFA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 665,
       "pedido": 105.0,
       "corte": [
         0.0,
@@ -7383,15 +8119,17 @@
         175.0,
         1655.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 560.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 118050,
       "produto": "14314 FAROFA DE MANDIOCA DA TERRINHA 400 G EXP FD 24",
       "categoria": "FAROFA",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 800.0,
       "corte": [
         0.0,
@@ -7403,15 +8141,17 @@
         1500.0,
         12.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -800.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 75363,
       "produto": "14736 COLORIFICO MERCADAO 70 G  - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 80.0,
       "corte": [
         0.0,
@@ -7423,15 +8163,17 @@
         79.0,
         18.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -80.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 75364,
       "produto": "14750 CRAVO DA INDIA MERCADAO 10G - CX 24",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 97,
       "pedido": 16.0,
       "corte": [
         0.0,
@@ -7443,15 +8185,17 @@
         5.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 81.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 75365,
       "produto": "14774 MANJERICAO MERCADAO 10G - CX 24.0",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 15,
       "pedido": 6.0,
       "corte": [
         0.0,
@@ -7463,8 +8207,10 @@
         5.0,
         6.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 9.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 83801,
@@ -7484,14 +8230,16 @@
         0.0
       ],
       "saldo": 36.0,
-      "coberturaDias": 1.0354
+      "coberturaDias": 1.0354,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 83801,
       "produto": "14906 FARINHA DE MANDIOCA GROSSA MERCADAO 1 KG - FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 48,
       "pedido": 770.0,
       "corte": [
         0.0,
@@ -7503,8 +8251,10 @@
         634.0,
         510.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -722.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 142360,
@@ -7524,14 +8274,16 @@
         0.0
       ],
       "saldo": null,
-      "coberturaDias": null
+      "coberturaDias": null,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 142007,
       "produto": "15105 SAL PARRILLA COM CHIMICHURRI OISHII 250G - UND CX 12.0",
       "categoria": "ESPECIARIAS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 1.0,
       "corte": [
         0.0,
@@ -7543,8 +8295,10 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -1.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 89103,
@@ -7564,14 +8318,16 @@
         0.0
       ],
       "saldo": 3.5,
-      "coberturaDias": 0.0162
+      "coberturaDias": 0.0162,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 89103,
       "produto": "19001 CREME DE AVELA DAVELA 140 G CX 10",
       "categoria": "CREME DE AVELA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 992,
       "pedido": 911.0,
       "corte": [
         2013.0,
@@ -7583,8 +8339,10 @@
         6949.0,
         3829.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 81.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 89120,
@@ -7604,14 +8362,16 @@
         0.0
       ],
       "saldo": 1.4,
-      "coberturaDias": 0.0126
+      "coberturaDias": 0.0126,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 89120,
       "produto": "19002 CREME DE AVELA DAVELA 290 G CX 10",
       "categoria": "CREME DE AVELA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1247,
       "pedido": 1477.0,
       "corte": [
         93.0,
@@ -7623,8 +8383,10 @@
         2636.0,
         2653.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -230.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 87621,
@@ -7644,14 +8406,16 @@
         0.0
       ],
       "saldo": 1.79,
-      "coberturaDias": 0.0601
+      "coberturaDias": 0.0601,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 87621,
       "produto": "20001 PIPOCA DE MICROONDAS NATURAL DA TERRINHA 85G CX 24",
       "categoria": "MILHO DE PIPOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1971,
       "pedido": 168.0,
       "corte": [
         0.0,
@@ -7663,8 +8427,10 @@
         713.0,
         646.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1803.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 87624,
@@ -7684,14 +8450,16 @@
         0.0
       ],
       "saldo": 1.29,
-      "coberturaDias": 0.0233
+      "coberturaDias": 0.0233,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 87624,
       "produto": "20002 PIPOCA DE MICROONDAS NATURAL C SAL DA TERRINHA 85G CX 24",
       "categoria": "MILHO DE PIPOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1569,
       "pedido": 400.0,
       "corte": [
         0.0,
@@ -7703,8 +8471,10 @@
         1396.0,
         1056.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1169.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 87626,
@@ -7724,14 +8494,16 @@
         0.0
       ],
       "saldo": 1.79,
-      "coberturaDias": 0.0878
+      "coberturaDias": 0.0878,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 87626,
       "produto": "20003 PIPOCA DE MICROONDAS BACON DA TERRINHA 85G CX 24",
       "categoria": "MILHO DE PIPOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 622,
       "pedido": 122.0,
       "corte": [
         0.0,
@@ -7743,8 +8515,10 @@
         391.0,
         549.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 500.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 87628,
@@ -7764,14 +8538,16 @@
         0.0
       ],
       "saldo": 1.29,
-      "coberturaDias": 0.0162
+      "coberturaDias": 0.0162,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 87628,
       "produto": "20004 PIPOCA DE MICROONDAS MANTEIGA CINEMA DA TERRINHA 85G CX 24",
       "categoria": "MILHO DE PIPOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 3102,
       "pedido": 533.0,
       "corte": [
         0.0,
@@ -7783,8 +8559,10 @@
         1701.0,
         1853.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 2569.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 87630,
@@ -7804,14 +8582,16 @@
         0.0
       ],
       "saldo": 1.75,
-      "coberturaDias": 0.0781
+      "coberturaDias": 0.0781,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 87630,
       "produto": "20005 PIPOCA DE MICROONDAS CARAMELO  DA TERRINHA 85G CX 24",
       "categoria": "MILHO DE PIPOCA",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 172,
       "pedido": 78.0,
       "corte": [
         0.0,
@@ -7823,15 +8603,17 @@
         340.0,
         712.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 94.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 112412,
       "produto": "21804 FARINHA FLOCADA PANKO DA TERRINHA 1 KG - CX 10",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1259,
       "pedido": 84.0,
       "corte": [
         0.0,
@@ -7843,15 +8625,17 @@
         593.0,
         915.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1175.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 112445,
       "produto": "21805 FARINHA MANDIOCA CRUA FINA DA TERRINHA 3KG - FD 05",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1650,
       "pedido": 9.0,
       "corte": [
         0.0,
@@ -7863,15 +8647,17 @@
         88.0,
         373.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1641.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 112478,
       "produto": "21806 FARINHA ROSCA DA TERRINHA 3 Kg - FD 05",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1073,
       "pedido": 66.0,
       "corte": [
         0.0,
@@ -7883,15 +8669,17 @@
         461.0,
         1160.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1007.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 112479,
       "produto": "21807 TRIGO PARA KIBE DA TERRINHA 3 KG - FD 05",
       "categoria": "TRIGO PARA KIBE",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1764,
       "pedido": 34.0,
       "corte": [
         0.0,
@@ -7903,15 +8691,17 @@
         211.0,
         480.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1730.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 112480,
       "produto": "21808 FUBA MIMOSO DA TERRINHA 3 KG - FD 05",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 1238,
       "pedido": 48.0,
       "corte": [
         101.0,
@@ -7923,15 +8713,17 @@
         386.0,
         1055.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 1190.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 76188,
       "produto": "30201 ALHO TEMPERADO CASEIRO OKKER 200 GR - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 4,
       "pedido": 1.0,
       "corte": [
         0.0,
@@ -7943,15 +8735,17 @@
         0.0,
         8.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 3.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 76189,
       "produto": "30202 ALHO TEMPERADO MINEIRO OKKER 200 GR - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 135,
       "pedido": 3.0,
       "corte": [
         0.0,
@@ -7963,15 +8757,17 @@
         74.0,
         82.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 132.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70292,
       "produto": "30202 ALHO TEMPERADO MINEIRO OKKER 200 GR - CX 36",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 117,
       "pedido": 2.0,
       "corte": [
         0.0,
@@ -7983,8 +8779,10 @@
         0.0,
         5.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 115.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70292,
@@ -8004,14 +8802,16 @@
         0.0
       ],
       "saldo": 70.61,
-      "coberturaDias": 6.4682
+      "coberturaDias": 6.4682,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 70243,
       "produto": "30301 ALHO TRITURADO OKKER 1 KG - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 491,
       "pedido": 17.0,
       "corte": [
         0.0,
@@ -8023,8 +8823,10 @@
         264.0,
         68.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 474.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70243,
@@ -8044,14 +8846,16 @@
         202.0
       ],
       "saldo": -195.92,
-      "coberturaDias": -2.6739
+      "coberturaDias": -2.6739,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 76184,
       "produto": "30302 ALHO TRITURADO OKKER 200 GR - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 569,
       "pedido": 46.0,
       "corte": [
         145.0,
@@ -8063,15 +8867,17 @@
         793.0,
         353.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 523.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70239,
       "produto": "30302 ALHO TRITURADO OKKER 200 GR - CX 36",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 55,
       "pedido": 4.0,
       "corte": [
         0.0,
@@ -8083,8 +8889,10 @@
         0.0,
         11.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 51.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70239,
@@ -8104,14 +8912,16 @@
         418.0
       ],
       "saldo": 0.25,
-      "coberturaDias": 0.0076
+      "coberturaDias": 0.0076,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 76185,
       "produto": "30303 ALHO TRITURADO OKKER 400 GR - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 674,
       "pedido": 40.0,
       "corte": [
         72.0,
@@ -8123,8 +8933,10 @@
         764.0,
         437.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 634.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 76185,
@@ -8144,14 +8956,16 @@
         868.0
       ],
       "saldo": 248.0,
-      "coberturaDias": 7.9413
+      "coberturaDias": 7.9413,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 70241,
       "produto": "30303 ALHO TRITURADO OKKER 400 GR - CX 36",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 2.0,
       "corte": [
         0.0,
@@ -8163,15 +8977,17 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -2.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72230,
       "produto": "31001 ALHO FRITO GRANULADO DA TERRINHA POTE 90 G - UND CX 12.0",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 215,
       "pedido": 85.0,
       "corte": [
         0.0,
@@ -8183,8 +8999,10 @@
         298.0,
         62.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 130.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72232,
@@ -8204,14 +9022,16 @@
         0.0
       ],
       "saldo": 0.92,
-      "coberturaDias": 0.0692
+      "coberturaDias": 0.0692,
+      "estoqueDesatualizado": false,
+      "estoqueCapturadoEm": null
     },
     {
       "cod": 72232,
       "produto": "31101 ALHO PASTA DA TERRINHA 400 G - UND CX 12.0",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 28,
       "pedido": 95.0,
       "corte": [
         0.0,
@@ -8223,15 +9043,17 @@
         421.0,
         204.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -67.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72232,
       "produto": "31101 ALHO PASTA DA TERRINHA 400 G - UND CX 12.0",
       "categoria": "ALHO",
       "loja": "J E COMERCIO",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 60.0,
       "corte": [
         0.0,
@@ -8243,15 +9065,17 @@
         0.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -60.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 76400,
       "produto": "31104 ALHO PASTA DA TERRINHA 200 GR - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 395,
       "pedido": 93.0,
       "corte": [
         0.0,
@@ -8263,15 +9087,17 @@
         489.0,
         198.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 302.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 72238,
       "produto": "31301 ALHO TRITURADO DA TERRINHA 200 G - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 2.0,
       "corte": [
         0.0,
@@ -8283,15 +9109,17 @@
         109.0,
         2.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -2.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 77521,
       "produto": "31302 ALHO TRITURADO DA TERRINHA 400 GR - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 13,
       "pedido": 4.0,
       "corte": [
         0.0,
@@ -8303,15 +9131,17 @@
         299.0,
         32.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 9.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 77865,
       "produto": "31304 ALHO TRITURADO DA TERRINHA 1,01 KG - CX 12",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 250,
       "pedido": 5.0,
       "corte": [
         0.0,
@@ -8323,15 +9153,17 @@
         222.0,
         101.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 245.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 141587,
       "produto": "40215 CEBOLA PALHA CRISPY OISHII 70G - FD 20",
       "categoria": "ALHO",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 94,
       "pedido": 4.0,
       "corte": [
         0.0,
@@ -8343,15 +9175,17 @@
         0.0,
         8.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": 90.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     },
     {
       "cod": 70448,
       "produto": "SEMOLA DE MILHO DA TERRINHA 1 KG - FD 12",
       "categoria": "FARINACEOS",
       "loja": "DA TERRINHA - FILIAL SP",
-      "estoque": null,
+      "estoque": 0,
       "pedido": 60.0,
       "corte": [
         0.0,
@@ -8363,8 +9197,10 @@
         65.0,
         0.0
       ],
-      "saldo": null,
-      "coberturaDias": null
+      "saldo": -60.0,
+      "coberturaDias": null,
+      "estoqueDesatualizado": true,
+      "estoqueCapturadoEm": "2026-09-23T08:22:53"
     }
   ]
 }
