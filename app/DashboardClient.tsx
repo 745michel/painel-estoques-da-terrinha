@@ -118,12 +118,13 @@ type PedidosVendaProduto = {
   produto: string;
   categoria: string | null;
   loja: string;
-  estoque: number;
+  estoque: number | null;
   pedido: number;
   corte: number[];
   venda: number[];
-  saldo: number;
+  saldo: number | null;
   coberturaDias: number | null;
+  estoqueIncompleto?: boolean;
 };
 type PedidosVendaData = {
   atualizadoEm: string;
@@ -1895,28 +1896,34 @@ function PedidosVendaDashboard({
   // com mais estoque, que e a que realmente pesa na decisao de compra - mesma regra do BI
   // Estoque x Pedidos, confirmada pelo usuario em 20/08/2026.
   const agrupados = useMemo(() => {
-    const porCodigo = new Map<number, { produto: PedidosVendaProduto; lojas: Set<string>; maiorEstoque: number; coberturaDominante: number | null }>();
+    // estoque/saldo podem vir null por loja quando o BI nao tem quantidade_estoque confiavel
+    // pra ela naquele momento (ver build_pedidos_venda.py, 23/09/2026) - soma so as lojas com
+    // dado real e marca estoqueIncompleto quando alguma ficou de fora, em vez de tratar "nao
+    // sei" como zero (o que ja gerou saldo fortemente negativo publicado como se fosse real).
+    const porCodigo = new Map<number, { produto: PedidosVendaProduto; lojas: Set<string>; maiorEstoque: number; coberturaDominante: number | null; estoqueIncompleto: boolean }>();
     for (const p of filtered) {
       const atual = porCodigo.get(p.cod);
       if (!atual) {
-        porCodigo.set(p.cod, { produto: { ...p }, lojas: new Set([p.loja]), maiorEstoque: p.estoque, coberturaDominante: p.coberturaDias });
+        porCodigo.set(p.cod, { produto: { ...p }, lojas: new Set([p.loja]), maiorEstoque: p.estoque ?? -Infinity, coberturaDominante: p.coberturaDias, estoqueIncompleto: p.estoque == null });
         continue;
       }
       atual.lojas.add(p.loja);
-      if (p.estoque > atual.maiorEstoque) {
+      if (p.estoque == null) atual.estoqueIncompleto = true;
+      if (p.estoque != null && p.estoque > atual.maiorEstoque) {
         atual.maiorEstoque = p.estoque;
         atual.coberturaDominante = p.coberturaDias;
       }
-      atual.produto.estoque += p.estoque;
+      atual.produto.estoque = (atual.produto.estoque ?? 0) + (p.estoque ?? 0);
       atual.produto.pedido += p.pedido;
-      atual.produto.saldo += p.saldo;
+      atual.produto.saldo = (atual.produto.saldo ?? 0) + (p.saldo ?? 0);
       atual.produto.corte = atual.produto.corte.map((valor, index) => valor + p.corte[index]);
       atual.produto.venda = atual.produto.venda.map((valor, index) => valor + p.venda[index]);
     }
-    const lista = Array.from(porCodigo.values()).map(({ produto, lojas, coberturaDominante }) => ({
+    const lista = Array.from(porCodigo.values()).map(({ produto, lojas, coberturaDominante, estoqueIncompleto }) => ({
       ...produto,
       loja: lojas.size === 1 ? Array.from(lojas)[0] : `${lojas.size} empresas`,
       coberturaDias: coberturaDominante != null ? Math.round(coberturaDominante) : null,
+      estoqueIncompleto,
     }));
     const sinal = sortDir === "desc" ? -1 : 1;
     return lista.sort((a, b) => {
@@ -1930,8 +1937,9 @@ function PedidosVendaDashboard({
     });
   }, [filtered, sortField, sortDir]);
 
-  const totalEstoque = agrupados.reduce((sum, p) => sum + p.estoque, 0);
+  const totalEstoque = agrupados.reduce((sum, p) => sum + (p.estoque ?? 0), 0);
   const totalPedido = agrupados.reduce((sum, p) => sum + p.pedido, 0);
+  const produtosComEstoqueIncompleto = agrupados.filter((p) => p.estoqueIncompleto).length;
   const totalCorteMesAtual = agrupados.reduce((sum, p) => sum + p.corte[p.corte.length - 1], 0);
   const updated = new Date(pedidosVendaData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
@@ -1969,7 +1977,7 @@ function PedidosVendaDashboard({
           <div className="kpi-card healthy-card">
             <div className="kpi-top"><span className="kpi-icon">▦</span><span className="trend good">Estoque</span></div>
             <strong>{number.format(Math.round(totalEstoque))}</strong><p>Estoque total</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
-            <small>Soma das unidades filtradas</small>
+            <small>{produtosComEstoqueIncompleto > 0 ? `Soma parcial - ${produtosComEstoqueIncompleto} produto(s) sem dado de estoque no BI agora` : "Soma das unidades filtradas"}</small>
           </div>
           <div className="kpi-card excess-card">
             <div className="kpi-top"><span className="kpi-icon">↑</span><span className="trend warn">Pendente</span></div>
@@ -2001,10 +2009,10 @@ function PedidosVendaDashboard({
             {mesesCorte.map((mes, index) => index).reverse().map((index, posicao) => <th key={mesesCorte[index]} style={{ width: 100, borderLeft: posicao === 0 ? "2px solid #c7d6cc" : undefined }}>Corte {mesCorteLabel(mesesCorte[index])}</th>)}
           </tr></thead><tbody>
             {agrupados.map((p) => <tr key={p.cod} onClick={() => setSelected(p)} style={{ cursor: "pointer" }}>
-              <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod} · {p.loja}</small><small>{p.categoria ?? "—"}</small></div></div></td>
-              <td><strong className="numeric">{number.format(Math.round(p.estoque))}</strong></td>
+              <td><div className="product-cell"><div><strong title={p.produto}>{p.produto}</strong><small>Cód. {p.cod} · {p.loja}</small><small>{p.categoria ?? "—"}{p.estoqueIncompleto && <span title="BI sem dado de estoque pra pelo menos uma loja desse produto agora"> · estoque parcial</span>}</small></div></div></td>
+              <td><strong className="numeric">{p.estoque != null ? number.format(Math.round(p.estoque)) : "—"}</strong></td>
               <td><strong className="numeric">{number.format(Math.round(p.pedido))}</strong></td>
-              <td><strong className={`numeric ${p.saldo < 0 ? "escadinha-delta-down" : ""}`}>{number.format(Math.round(p.saldo))}</strong></td>
+              <td><strong className={`numeric ${p.saldo != null && p.saldo < 0 ? "escadinha-delta-down" : ""}`}>{p.saldo != null ? number.format(Math.round(p.saldo)) : "—"}</strong></td>
               <td>{p.coberturaDias != null ? <div className="coverage"><strong className={p.coberturaDias < 0 ? "escadinha-delta-down" : ""}>{number.format(p.coberturaDias)} dias</strong></div> : "—"}</td>
               {p.corte.map((valor, index) => index).reverse().map((index, posicao) => <td key={mesesCorte[index]} style={posicao === 0 ? { borderLeft: "2px solid #c7d6cc" } : undefined}>{p.corte[index] > 0 ? <strong className="numeric escadinha-delta-down">{number.format(Math.round(p.corte[index]))}</strong> : <span className="no-projection">—</span>}</td>)}
             </tr>)}
@@ -2020,11 +2028,12 @@ function PedidosVendaDashboard({
         <h2>{selected.produto}</h2>
         <p className="drawer-sku">Cód. {selected.cod} · {selected.loja} · {selected.categoria ?? "Sem categoria"}</p>
         <div className="drawer-metrics">
-          <div><small>ESTOQUE</small><strong>{number.format(Math.round(selected.estoque))}</strong></div>
+          <div><small>ESTOQUE</small><strong>{selected.estoque != null ? number.format(Math.round(selected.estoque)) : "—"}</strong></div>
           <div><small>PEDIDO</small><strong>{number.format(Math.round(selected.pedido))}</strong></div>
-          <div><small>SALDO</small><strong className={selected.saldo < 0 ? "escadinha-delta-down" : ""}>{number.format(Math.round(selected.saldo))}</strong></div>
+          <div><small>SALDO</small><strong className={selected.saldo != null && selected.saldo < 0 ? "escadinha-delta-down" : ""}>{selected.saldo != null ? number.format(Math.round(selected.saldo)) : "—"}</strong></div>
           <div><small>COBERTURA</small><strong>{selected.coberturaDias != null ? `${number.format(selected.coberturaDias)} dias` : "—"}</strong></div>
         </div>
+        {selected.estoqueIncompleto && <p className="unit" style={{ marginTop: -8, marginBottom: 12 }}>BI sem dado de estoque pra pelo menos uma loja desse produto agora - Estoque/Saldo somam só as lojas com dado confiável.</p>}
         <h3 className="drawer-section-label">RESUMO DOS ÚLTIMOS 3 MESES</h3>
         <div className="table-wrap">
           {/* Mesmo formato/estilo do drawer da aba Escadinha (Mes / Plano antes->agora /
