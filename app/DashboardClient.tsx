@@ -314,6 +314,11 @@ const PRODUTOS_EM_ANALISE_MANUALMENTE = new Set([
   "14|SACO PLASTICO FARDO LISO 25 X 30  UNID",
   "14|SACO PLASTICO FARDO LISO 25 X 35 UNID",
   "14|SACO PLASTICO FARDO LISO 27 X 40 UNID",
+  // Insumos novos (loja 10, sem ficha tecnica cadastrada ainda) - zerados em tudo por serem
+  // recem-criados, nao por terem saido de linha. Usuario reportou que sumiram da aba
+  // Embalagens/MP em 24/09/2026.
+  "10|MP - ALECRIM EM PO KG",
+  "10|MP - SALSA DESIDRATADA FLOCOS PARA TEMPERO KG",
 ]);
 
 /**
