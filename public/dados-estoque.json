@@ -2617,9 +2617,9 @@
       "loja": "MALTA & REZENDE",
       "fornecedor": "MALTA & REZENDE",
       "unidade": "cx",
-      "estoque": 128,
-      "saldo": 116,
-      "cobertura": 11.6,
+      "estoque": 0,
+      "saldo": -6,
+      "cobertura": -1.0,
       "seguranca": 20,
       "estoqueSeguranca": 200,
       "consumoMensal": 300,
@@ -2636,7 +2636,8 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "carteiraBi": 6.0
     },
     {
       "sku": "121091",
