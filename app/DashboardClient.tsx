@@ -111,6 +111,10 @@ type Product = SourceProduct & {
   estoqueMaximo: number;
   limiteExcesso: number;
   percentualAbaixoSeguranca: number | null;
+  // So existe em dados-estoque.json (Terceiros) - Pedido do BI, confiavel mesmo quando o
+  // Estoque do BI veio sem dado (ver apply_bi_terceiros.py, 24-28/09/2026). Undefined em
+  // Embalagens/MP (dados-insumos.json nao tem esse campo).
+  carteiraBi?: number;
 };
 type Section = "terceiros" | "insumos" | "consumo" | "valores" | "escadinha" | "escadinhaInsumos" | "pedidosVenda" | "valorProdutoAcabado" | "fornecedores";
 type PedidosVendaProduto = {
@@ -3203,7 +3207,10 @@ export default function DashboardClient({
     });
   }, [activeData, isTerceirosData]);
   // Estoque, Carteira, Saldo e Cobertura usam os campos nativos de dados-estoque.json (mesma
-  // fonte do Status/Cobertura de sempre). Carteira = Estoque - Saldo. Ver conversa 17/08/2026.
+  // fonte do Status/Cobertura de sempre). Carteira = carteiraBi (Pedido do BI) quando presente,
+  // com fallback pra Estoque-Saldo em dado antigo sem esse campo - ver conversa 17/08/2026 (
+  // formula original) e 24-28/09/2026 (carteiraBi, corrige Carteira sumindo junto com Estoque
+  // quando o BI nao tinha quantidade_estoque confiavel pro SKU).
   //
   // Escadinha atual/Real M/%Plano/Corte M deixaram de vir da planilha "Projeto MRP compras
   // remodelado" em 02/09/2026 - o "Plano M" dessa pivot podia divergir do "Escadinha"/
@@ -3463,7 +3470,7 @@ export default function DashboardClient({
       ) : (
         <>
           <td data-label="Estoque"><strong className="numeric">{number.format(product.estoque)}</strong><small className="unit"> {unitLabel(product.unidade, product.estoque, true)}</small></td>
-          <td data-label="Carteira">{mrpQty(product.estoque - product.saldo)}</td>
+          <td data-label="Carteira">{mrpQty(product.carteiraBi ?? (product.estoque - product.saldo))}</td>
           <td data-label="Saldo">{mrpQty(product.saldo)}</td>
           <td data-label="Cobertura">{descontinuado ? <span className="no-projection">—</span> : <div className="coverage"><strong>{number.format(Math.round(product.cobertura))} dias</strong><small className="unit">Segurança: {product.seguranca} dias</small><div><span className={cls} style={{ width: `${bar}%` }} /></div></div>}</td>
           <td data-label="Escadinha atual">{mrpQty(escadinhaPlano)}</td>
