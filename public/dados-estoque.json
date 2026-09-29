@@ -3341,9 +3341,9 @@
       "loja": "OISHII",
       "fornecedor": "OISHII",
       "unidade": "cx",
-      "estoque": 0,
-      "saldo": 0,
-      "cobertura": 0.0,
+      "estoque": 60,
+      "saldo": 58,
+      "cobertura": 30.0,
       "seguranca": 30,
       "estoqueSeguranca": 60,
       "consumoMensal": 60,
@@ -3360,7 +3360,8 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "carteiraBi": 2.0
     },
     {
       "sku": "142010",
@@ -3526,7 +3527,8 @@
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "coberturaNaPrimeiraEntrega": null,
+      "carteiraBi": 1.0
     }
   ]
 }
