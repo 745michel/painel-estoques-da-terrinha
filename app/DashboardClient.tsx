@@ -115,6 +115,10 @@ type Product = SourceProduct & {
   // Estoque do BI veio sem dado (ver apply_bi_terceiros.py, 24-28/09/2026). Undefined em
   // Embalagens/MP (dados-insumos.json nao tem esse campo).
   carteiraBi?: number;
+  // So existe em dados-estoque.json (Terceiros) quando o sku de Terceiros e o cod da
+  // Escadinha divergem pro mesmo produto (ver extract_products.py, 29/09/2026) - usar no
+  // lugar de Number(sku) pra cruzar com escadinhaData.
+  escadinhaCod?: number;
 };
 type Section = "terceiros" | "insumos" | "consumo" | "valores" | "escadinha" | "escadinhaInsumos" | "pedidosVenda" | "valorProdutoAcabado" | "fornecedores";
 type PedidosVendaProduto = {
@@ -3452,7 +3456,7 @@ export default function DashboardClient({
     const bar = Math.min(100, Math.max(4, (product.cobertura / Math.max(product.seguranca * 1.7, product.cobertura)) * 100));
     const rowKey = `${product.loja}-${product.sku}-${product.produto}`;
     const mrpQty = (value: number | null | undefined) => (value == null ? <span className="no-projection">—</span> : <strong className="numeric">{number.format(Math.round(value))}</strong>);
-    const escadinhaBase = !isInputs && /^\d+$/.test(product.sku) ? escadinhaPorCod.get(Number(product.sku)) : undefined;
+    const escadinhaBase = !isInputs && /^\d+$/.test(product.sku) ? escadinhaPorCod.get(product.escadinhaCod ?? Number(product.sku)) : undefined;
     const escadinhaPlano = escadinhaBase?.plano?.[mesAtualIndexTerceiros] ?? null;
     const escadinhaReal = escadinhaBase?.real?.[mesAtualIndexTerceiros] ?? null;
     const escadinhaCorte = escadinhaBase?.corte?.[mesAtualIndexTerceiros] ?? null;
@@ -3495,7 +3499,7 @@ export default function DashboardClient({
   // da nossa base escadinha, quero que vc pega da fonte onde temos o realizado do mes, sem ser
   // das planilhas". Em Embalagens/MP (isInputs) continua tudo igual, mantendo os campos
   // nativos de dados-insumos.json.
-  const selectedEscadinhaBase = selected && !isInputs && /^\d+$/.test(selected.sku) ? escadinhaPorCod.get(Number(selected.sku)) : undefined;
+  const selectedEscadinhaBase = selected && !isInputs && /^\d+$/.test(selected.sku) ? escadinhaPorCod.get(selected.escadinhaCod ?? Number(selected.sku)) : undefined;
   const projetadoSelecionado = !isInputs ? (selectedEscadinhaBase?.plano?.[mesAtualIndexTerceiros] ?? null) : (selected ? selected.escadinha : null);
   const realizadoSelecionado = !isInputs ? (selectedEscadinhaBase?.real?.[mesAtualIndexTerceiros] ?? null) : (selected ? selected.faturado : null);
   const atingimentoSelecionado = projetadoSelecionado != null && projetadoSelecionado > 0 && realizadoSelecionado != null ? (realizadoSelecionado / projetadoSelecionado) * 100 : null;
