@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-01T08:29:59.458568",
+  "atualizadoEm": "2026-10-01T14:07:55.422996",
   "origem": "ficha_tecnica.json + dados-escadinha.json (explosão BOM × plano de produção)",
   "dataPublicacao": "2026-09-11",
   "dataPublicacaoAnterior": "2026-08-13",
@@ -406,13 +406,6 @@
       "fornecedor": "Fornecedor não informado"
     },
     {
-      "sku": "143564",
-      "produto": "MP - ALECRIM EM PO KG",
-      "loja": "10",
-      "tipo": "Matéria-prima",
-      "fornecedor": "Fornecedor não informado"
-    },
-    {
       "sku": "70887",
       "produto": "MP - CALDO DE CARNE OKKER KG",
       "loja": "10",
@@ -465,13 +458,6 @@
       "sku": "44353",
       "produto": "MP - PREPARACAO FAROFA TRADICIONAL KG",
       "loja": "11",
-      "tipo": "Matéria-prima",
-      "fornecedor": "Fornecedor não informado"
-    },
-    {
-      "sku": "143630",
-      "produto": "MP - SALSA DESIDRATADA FLOCOS PARA TEMPERO KG",
-      "loja": "10",
       "tipo": "Matéria-prima",
       "fornecedor": "Fornecedor não informado"
     },
@@ -31072,8 +31058,8 @@
     {
       "loja": "10",
       "lojaLabel": "10 (Okker – Matriz)",
-      "sku": 44624,
-      "descricao": "MP - SALSA DESIDRATADA  FLOCOS KG",
+      "sku": 143630,
+      "descricao": "MP - SALSA DESIDRATADA FLOCOS PARA TEMPERO KG",
       "mensal": [
         3.5,
         3.4,
@@ -65052,17 +65038,6 @@
     {
       "loja": "10",
       "lojaLabel": "10 (Okker – Matriz)",
-      "sku": 44624,
-      "descricao": "MP - SALSA DESIDRATADA  FLOCOS KG",
-      "mes": "set",
-      "planoAnterior": 3.3,
-      "planoAtual": 4.2,
-      "desvio": 0.9,
-      "desvioPercentual": 27.3
-    },
-    {
-      "loja": "10",
-      "lojaLabel": "10 (Okker – Matriz)",
       "sku": 42227,
       "descricao": "MP - PIMENTA CALABRESA FLOCOS KG",
       "mes": "set",
@@ -65070,6 +65045,17 @@
       "planoAtual": 14.7,
       "desvio": 0.9,
       "desvioPercentual": 6.5
+    },
+    {
+      "loja": "10",
+      "lojaLabel": "10 (Okker – Matriz)",
+      "sku": 143630,
+      "descricao": "MP - SALSA DESIDRATADA FLOCOS PARA TEMPERO KG",
+      "mes": "set",
+      "planoAnterior": 3.3,
+      "planoAtual": 4.2,
+      "desvio": 0.9,
+      "desvioPercentual": 27.3
     },
     {
       "loja": "1",

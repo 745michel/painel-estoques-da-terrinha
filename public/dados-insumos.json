@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-01T08:28:45",
+  "atualizadoEm": "2026-10-01T14:06:34",
   "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS (fornecedor e entregas programadas: compras_a_receber.json; projecaoBom: ficha_tecnica.json + dados-escadinha.json)",
   "produtos": [
     {
@@ -314,8 +314,8 @@
       "proximaEntrada": "2027-05-31T01:19:25.682000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 1000,
+          "data": "2026-10-02T00:00:00",
+          "quantidade": 982,
           "pedido": 457605
         },
         {
@@ -329,13 +329,13 @@
           "pedido": 457608
         }
       ],
-      "totalProgramado": 3000,
+      "totalProgramado": 2982,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-11-16",
-      "diasAtePrimeiraEntrega": 46,
-      "coberturaNaPrimeiraEntrega": 62.4,
+      "primeiraEntrega": "2026-10-02",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 107.4,
       "temFichaTecnica": true,
       "projecaoBom": 576.0,
       "consumoRealBom": 0.0
@@ -362,8 +362,8 @@
       "proximaEntrada": "2027-04-13T09:29:44.671000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 1000,
+          "data": "2026-10-02T00:00:00",
+          "quantidade": 980,
           "pedido": 457605
         },
         {
@@ -377,13 +377,13 @@
           "pedido": 457608
         }
       ],
-      "totalProgramado": 3000,
+      "totalProgramado": 2980,
       "sugestaoCompra": 0,
-      "status": "Risco de falta",
-      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
-      "primeiraEntrega": "2026-11-16",
-      "diasAtePrimeiraEntrega": 46,
-      "coberturaNaPrimeiraEntrega": 19.8,
+      "status": "Excesso",
+      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
+      "primeiraEntrega": "2026-10-02",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 64.8,
       "temFichaTecnica": true,
       "projecaoBom": 588.0,
       "consumoRealBom": 0.0
@@ -448,6 +448,11 @@
       "proximaEntrada": "2026-12-19T01:52:55.469000",
       "entregasProgramadas": [
         {
+          "data": "2026-10-02T00:00:00",
+          "quantidade": 546,
+          "pedido": 459496
+        },
+        {
           "data": "2026-10-07T00:00:00",
           "quantidade": 4200,
           "pedido": 472636
@@ -503,13 +508,13 @@
           "pedido": 480681
         }
       ],
-      "totalProgramado": 43500,
+      "totalProgramado": 44046,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-07",
-      "diasAtePrimeiraEntrega": 6,
-      "coberturaNaPrimeiraEntrega": 18.9,
+      "primeiraEntrega": "2026-10-02",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 23.9,
       "temFichaTecnica": true,
       "projecaoBom": 15552.0,
       "consumoRealBom": 0.0
@@ -574,9 +579,19 @@
       "proximaEntrada": "2026-11-29T11:43:51.523000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
+          "data": "2026-10-02T00:00:00",
+          "quantidade": 2984,
+          "pedido": 459492
+        },
+        {
+          "data": "2026-10-02T00:00:00",
           "quantidade": 1420,
           "pedido": 459495
+        },
+        {
+          "data": "2026-10-02T00:00:00",
+          "quantidade": 2384,
+          "pedido": 459496
         },
         {
           "data": "2026-10-26T00:00:00",
@@ -647,15 +662,25 @@
           "data": "2026-10-30T00:00:00",
           "quantidade": 250,
           "pedido": 480913
+        },
+        {
+          "data": "2026-10-02T00:00:00",
+          "quantidade": 203,
+          "pedido": 484497
+        },
+        {
+          "data": "2026-10-02T00:00:00",
+          "quantidade": 274,
+          "pedido": 484498
         }
       ],
-      "totalProgramado": 50520,
+      "totalProgramado": 56365,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-07",
-      "diasAtePrimeiraEntrega": 6,
-      "coberturaNaPrimeiraEntrega": 18.1,
+      "primeiraEntrega": "2026-10-02",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 23.1,
       "temFichaTecnica": true,
       "projecaoBom": 18480.0,
       "consumoRealBom": 0.0
@@ -720,18 +745,18 @@
       "proximaEntrada": "2026-11-30T19:57:51.863000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 1000,
+          "data": "2026-10-02T00:00:00",
+          "quantidade": 953,
           "pedido": 383553
         }
       ],
-      "totalProgramado": 1000,
+      "totalProgramado": 953,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-02",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 62.1,
       "temFichaTecnica": true,
       "projecaoBom": 1185.6,
       "consumoRealBom": 0.0
@@ -759,7 +784,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-10-28T00:00:00",
-          "quantidade": 800,
+          "quantidade": 825,
           "pedido": 317223
         },
         {
@@ -788,7 +813,7 @@
           "pedido": 483764
         }
       ],
-      "totalProgramado": 6900,
+      "totalProgramado": 6925,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -2629,7 +2654,7 @@
       "sku": "70909",
       "produto": "MP - GOMA XANTANA MESH (TIPO 200)  KG",
       "loja": "1",
-      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2645,14 +2670,8 @@
       "desvioProjecao": -70.6,
       "loteMinimo": 50,
       "proximaEntrada": "2026-11-06T21:21:53.458000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-29T00:00:00",
-          "quantidade": 50,
-          "pedido": 472481
-        }
-      ],
-      "totalProgramado": 50,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -2737,7 +2756,7 @@
       "sku": "49800",
       "produto": "MP - PROPIONATO DE CALCIO",
       "loja": "1",
-      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -2753,14 +2772,8 @@
       "desvioProjecao": -157.1,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-18T13:30:35.125000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-29T00:00:00",
-          "quantidade": 110,
-          "pedido": 472481
-        }
-      ],
-      "totalProgramado": 110,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -2937,11 +2950,6 @@
           "pedido": 472655
         },
         {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 50000,
-          "pedido": 475501
-        },
-        {
           "data": "2026-10-12T00:00:00",
           "quantidade": 50000,
           "pedido": 477512
@@ -2957,7 +2965,7 @@
           "pedido": 477516
         }
       ],
-      "totalProgramado": 250000,
+      "totalProgramado": 200000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -3054,7 +3062,7 @@
       "proximaEntrada": "2027-02-19T22:14:41.901000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-01T00:00:00",
+          "data": "2026-10-20T00:00:00",
           "quantidade": 25000,
           "pedido": 463874
         },
@@ -3068,9 +3076,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-10-01",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 103.4,
+      "primeiraEntrega": "2026-10-20",
+      "diasAtePrimeiraEntrega": 19,
+      "coberturaNaPrimeiraEntrega": 84.4,
       "temFichaTecnica": true,
       "projecaoBom": 4000.0,
       "consumoRealBom": 0.0
@@ -3225,17 +3233,12 @@
       "proximaEntrada": "2027-03-23T07:25:28.058000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 2500,
-          "pedido": 472700
-        },
-        {
           "data": "2026-10-05T00:00:00",
           "quantidade": 2500,
           "pedido": 472702
         }
       ],
-      "totalProgramado": 5000,
+      "totalProgramado": 2500,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -3300,17 +3303,12 @@
       "proximaEntrada": "2026-12-01T10:00:04.232000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 6120,
-          "pedido": 472700
-        },
-        {
           "data": "2026-10-05T00:00:00",
           "quantidade": 6000,
           "pedido": 472702
         }
       ],
-      "totalProgramado": 12120,
+      "totalProgramado": 6000,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -3389,7 +3387,7 @@
       "sku": "70832",
       "produto": "CAIXA OKKER 24X430G (390G) OKKER",
       "loja": "10",
-      "fornecedor": "PRIMUSCART",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -3405,14 +3403,8 @@
       "desvioProjecao": -600.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-12-07T17:08:54.389000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 1200,
-          "pedido": 478669
-        }
-      ],
-      "totalProgramado": 1200,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -4697,8 +4689,8 @@
       "consumoMensal": 0,
       "escadinha": 0.0,
       "faturado": 0.0,
-      "atingimento": null,
-      "desvioProjecao": null,
+      "atingimento": 0.0,
+      "desvioProjecao": 0.0,
       "loteMinimo": 101,
       "proximaEntrada": null,
       "entregasProgramadas": [],
@@ -4709,9 +4701,9 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "temFichaTecnica": false,
-      "projecaoBom": null,
-      "consumoRealBom": null
+      "temFichaTecnica": true,
+      "projecaoBom": 0.0,
+      "consumoRealBom": 0.0
     },
     {
       "sku": "143630",
@@ -4729,8 +4721,8 @@
       "consumoMensal": 0,
       "escadinha": 0.0,
       "faturado": 0.0,
-      "atingimento": null,
-      "desvioProjecao": null,
+      "atingimento": 0.0,
+      "desvioProjecao": -3.3,
       "loteMinimo": 102,
       "proximaEntrada": null,
       "entregasProgramadas": [],
@@ -4741,9 +4733,9 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "temFichaTecnica": false,
-      "projecaoBom": null,
-      "consumoRealBom": null
+      "temFichaTecnica": true,
+      "projecaoBom": 3.3,
+      "consumoRealBom": 0.0
     },
     {
       "sku": "70900",
@@ -4937,7 +4929,7 @@
       "sku": "70908",
       "produto": "MP - AROMA DE ALHO ID AO NAT OKKER KG",
       "loja": "10",
-      "fornecedor": "LAPIENDRIUS INDUSTRIA E COMERCIO LTDA.",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -4953,14 +4945,8 @@
       "desvioProjecao": -67.9,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-22T04:37:08.309000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 100,
-          "pedido": 476148
-        }
-      ],
-      "totalProgramado": 100,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -5167,7 +5153,7 @@
       "sku": "70909",
       "produto": "MP - GOMA XANTANA MESH (TIPO 200)  KG",
       "loja": "10",
-      "fornecedor": "MONFIZA COMERCIO E IMPORTADORA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5263,7 +5249,7 @@
       "sku": "70894",
       "produto": "MP - METABISSULFITO CX C/ 25 OKKER KG",
       "loja": "10",
-      "fornecedor": "OKKER",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5295,7 +5281,7 @@
       "sku": "70882",
       "produto": "MP - PIMENTA BIQUINHO OKKER KG",
       "loja": "10",
-      "fornecedor": "DEVILI CONSERVAS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5311,14 +5297,8 @@
       "desvioProjecao": -3265.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-10T06:38:38.759000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-28T00:00:00",
-          "quantidade": 2300,
-          "pedido": 478293
-        }
-      ],
-      "totalProgramado": 2300,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 1400,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -5410,7 +5390,7 @@
       "escadinha": 2.3,
       "faturado": 12.2,
       "atingimento": 0.0,
-      "desvioProjecao": -3.3,
+      "desvioProjecao": 0.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-01T00:00:00",
       "entregasProgramadas": [],
@@ -5422,7 +5402,7 @@
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
-      "projecaoBom": 3.3,
+      "projecaoBom": 0.0,
       "consumoRealBom": 0.0
     },
     {
@@ -6579,17 +6559,12 @@
       "proximaEntrada": "2027-04-23T01:36:57.786000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 2500,
-          "pedido": 472700
-        },
-        {
           "data": "2026-10-05T00:00:00",
           "quantidade": 2500,
           "pedido": 472702
         }
       ],
-      "totalProgramado": 5000,
+      "totalProgramado": 2500,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -6622,17 +6597,12 @@
       "proximaEntrada": "2026-12-14T01:14:57.573000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 6120,
-          "pedido": 472700
-        },
-        {
           "data": "2026-10-05T00:00:00",
           "quantidade": 6000,
           "pedido": 472702
         }
       ],
-      "totalProgramado": 12120,
+      "totalProgramado": 6000,
       "sugestaoCompra": 0,
       "status": "Saudável",
       "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
@@ -8163,7 +8133,7 @@
       "sku": "34734",
       "produto": "MP - OLEO DE SOJA REFINADO A GRANEL - L",
       "loja": "11",
-      "fornecedor": "DEKEL AGRO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -8179,20 +8149,14 @@
       "desvioProjecao": -2389.2,
       "loteMinimo": 100,
       "proximaEntrada": "2026-09-25T08:39:27.123000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-10-08T00:00:00",
-          "quantidade": 1840,
-          "pedido": 476330
-        }
-      ],
-      "totalProgramado": 1840,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 900,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-08",
-      "diasAtePrimeiraEntrega": 7,
-      "coberturaNaPrimeiraEntrega": 2.4,
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
       "projecaoBom": 2389.2,
       "consumoRealBom": 0.0
@@ -9708,7 +9672,7 @@
       "sku": "76659",
       "produto": "BOBINA BATATA PALHA EXTRA FINA DA TERRINHA 100 G",
       "loja": "14",
-      "fornecedor": "PLASTICO DU VALE",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -9729,9 +9693,29 @@
           "data": "2026-10-02T00:00:00",
           "quantidade": 1100,
           "pedido": 480801
+        },
+        {
+          "data": "2026-10-13T00:00:00",
+          "quantidade": 2200,
+          "pedido": 483978
+        },
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 2200,
+          "pedido": 483981
+        },
+        {
+          "data": "2026-11-23T00:00:00",
+          "quantidade": 2200,
+          "pedido": 484003
+        },
+        {
+          "data": "2026-12-14T00:00:00",
+          "quantidade": 2200,
+          "pedido": 484035
         }
       ],
-      "totalProgramado": 1100,
+      "totalProgramado": 9900,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -9784,7 +9768,7 @@
       "sku": "76660",
       "produto": "BOBINA BATATA PALHA TRADICIONAL DA TERRINHA 100 G",
       "loja": "14",
-      "fornecedor": "PLASTICO DU VALE",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -9805,9 +9789,29 @@
           "data": "2026-10-02T00:00:00",
           "quantidade": 1100,
           "pedido": 480801
+        },
+        {
+          "data": "2026-10-13T00:00:00",
+          "quantidade": 3200,
+          "pedido": 483978
+        },
+        {
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 3200,
+          "pedido": 483981
+        },
+        {
+          "data": "2026-11-23T00:00:00",
+          "quantidade": 3200,
+          "pedido": 484003
+        },
+        {
+          "data": "2026-12-14T00:00:00",
+          "quantidade": 3200,
+          "pedido": 484035
         }
       ],
-      "totalProgramado": 1100,
+      "totalProgramado": 13900,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -10810,7 +10814,7 @@
       "sku": "57914",
       "produto": "BOBINA FLOCOS MILHO (CUSCUZ) DA TERRINHA 500 G",
       "loja": "14",
-      "fornecedor": "MAJICPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -10826,14 +10830,8 @@
       "desvioProjecao": -180.0,
       "loteMinimo": 500,
       "proximaEntrada": "2026-11-13T05:41:35.019000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 626,
-          "pedido": 474333
-        }
-      ],
-      "totalProgramado": 626,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -11030,7 +11028,7 @@
       "sku": "103073",
       "produto": "BOBINA MILHO DE PIPOCA DA TERRINHA 1KG",
       "loja": "14",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -11046,14 +11044,8 @@
       "desvioProjecao": -378.0,
       "loteMinimo": 500,
       "proximaEntrada": "2026-12-14T08:34:35.145000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 1000,
-          "pedido": 466680
-        }
-      ],
-      "totalProgramado": 1000,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Saudável",
       "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
@@ -11870,11 +11862,6 @@
       "proximaEntrada": "2027-03-02T19:23:13.781000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 17250,
-          "pedido": 472657
-        },
-        {
           "data": "2026-10-13T00:00:00",
           "quantidade": 12100,
           "pedido": 483616
@@ -11900,7 +11887,7 @@
           "pedido": 483751
         }
       ],
-      "totalProgramado": 101350,
+      "totalProgramado": 84100,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -12352,7 +12339,7 @@
       "sku": "92971",
       "produto": "MP - ACUCAR CRISTAL TIPO 2",
       "loja": "14",
-      "fornecedor": "SAKAS INGREDIENTES ALIMENTARES LTDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12368,14 +12355,8 @@
       "desvioProjecao": -8169.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-01T18:35:30.829000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-28T00:00:00",
-          "quantidade": 4000,
-          "pedido": 482484
-        }
-      ],
-      "totalProgramado": 4000,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 3900,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -12621,23 +12602,18 @@
       "proximaEntrada": "2026-10-24T19:45:11.296000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-01T00:00:00",
-          "quantidade": 1000,
-          "pedido": 475785
-        },
-        {
           "data": "2026-11-02T00:00:00",
           "quantidade": 1000,
           "pedido": 475786
         }
       ],
-      "totalProgramado": 2000,
+      "totalProgramado": 1000,
       "sugestaoCompra": 800,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-01",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 0.0,
+      "primeiraEntrega": "2026-11-02",
+      "diasAtePrimeiraEntrega": 32,
+      "coberturaNaPrimeiraEntrega": -32.0,
       "temFichaTecnica": true,
       "projecaoBom": 1167.0,
       "consumoRealBom": 0.0
@@ -12710,7 +12686,7 @@
       "sku": "42043",
       "produto": "MP - CANELA PO MOIDA KG",
       "loja": "14",
-      "fornecedor": "JNBM - CONDIMENTOS E ESPECIARIAS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12726,14 +12702,8 @@
       "desvioProjecao": -1032.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-18T12:31:46.161000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-09-25T00:00:00",
-          "quantidade": 500,
-          "pedido": 477633
-        }
-      ],
-      "totalProgramado": 500,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -13492,18 +13462,18 @@
       "proximaEntrada": "2026-11-09T03:55:45.685000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
+          "data": "2026-11-13T00:00:00",
           "quantidade": 14000,
-          "pedido": 482055
+          "pedido": 484431
         }
       ],
       "totalProgramado": 14000,
       "sugestaoCompra": 4000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-11-13",
+      "diasAtePrimeiraEntrega": 43,
+      "coberturaNaPrimeiraEntrega": -31.6,
       "temFichaTecnica": true,
       "projecaoBom": 7560.0,
       "consumoRealBom": 0.0
@@ -14027,17 +13997,12 @@
           "pedido": 482056
         },
         {
-          "data": "2026-11-02T00:00:00",
-          "quantidade": 14000,
-          "pedido": 482057
-        },
-        {
           "data": "2026-11-20T00:00:00",
           "quantidade": 14000,
           "pedido": 482058
         }
       ],
-      "totalProgramado": 42000,
+      "totalProgramado": 28000,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -14213,11 +14178,6 @@
       "proximaEntrada": "2026-10-01T00:00:00",
       "entregasProgramadas": [
         {
-          "data": "2026-09-30T00:00:00",
-          "quantidade": 10,
-          "pedido": 482948
-        },
-        {
           "data": "2026-10-01T00:00:00",
           "quantidade": 500,
           "pedido": 483773
@@ -14231,9 +14191,14 @@
           "data": "2026-12-18T00:00:00",
           "quantidade": 500,
           "pedido": 483775
+        },
+        {
+          "data": "2026-10-01T00:00:00",
+          "quantidade": 500,
+          "pedido": 484398
         }
       ],
-      "totalProgramado": 1510,
+      "totalProgramado": 2000,
       "sugestaoCompra": 300,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -14280,7 +14245,7 @@
       "sku": "70894",
       "produto": "MP - METABISSULFITO CX C/ 25 OKKER KG",
       "loja": "14",
-      "fornecedor": "OKKER",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -14296,20 +14261,14 @@
       "desvioProjecao": -12.9,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-26T15:58:58.454000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-10-09T00:00:00",
-          "quantidade": 25,
-          "pedido": 483969
-        }
-      ],
-      "totalProgramado": 25,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-09",
-      "diasAtePrimeiraEntrega": 8,
-      "coberturaNaPrimeiraEntrega": 5.7,
+      "primeiraEntrega": null,
+      "diasAtePrimeiraEntrega": null,
+      "coberturaNaPrimeiraEntrega": null,
       "temFichaTecnica": true,
       "projecaoBom": 12.9,
       "consumoRealBom": 0.0
@@ -14337,7 +14296,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-10-07T00:00:00",
-          "quantidade": 40000,
+          "quantidade": 500,
           "pedido": 474512
         },
         {
@@ -14366,7 +14325,7 @@
           "pedido": 482797
         }
       ],
-      "totalProgramado": 240000,
+      "totalProgramado": 200500,
       "sugestaoCompra": 60000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -14464,7 +14423,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-28T00:00:00",
-          "quantidade": 50,
+          "quantidade": 10,
           "pedido": 473410
         },
         {
@@ -14473,7 +14432,7 @@
           "pedido": 473411
         }
       ],
-      "totalProgramado": 100,
+      "totalProgramado": 60,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -14538,7 +14497,7 @@
       "proximaEntrada": "2026-10-04T10:01:58.437000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-24T00:00:00",
+          "data": "2026-10-15T00:00:00",
           "quantidade": 5000,
           "pedido": 481924
         },
@@ -14557,9 +14516,9 @@
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
-      "primeiraEntrega": "2026-11-16",
-      "diasAtePrimeiraEntrega": 46,
-      "coberturaNaPrimeiraEntrega": -27.6,
+      "primeiraEntrega": "2026-10-15",
+      "diasAtePrimeiraEntrega": 14,
+      "coberturaNaPrimeiraEntrega": 4.4,
       "temFichaTecnica": true,
       "projecaoBom": 7310.4,
       "consumoRealBom": 0.0
@@ -14650,17 +14609,12 @@
       "proximaEntrada": "2026-11-01T14:06:24.257000",
       "entregasProgramadas": [
         {
-          "data": "2026-09-25T00:00:00",
-          "quantidade": 700,
-          "pedido": 473312
-        },
-        {
           "data": "2026-11-02T00:00:00",
           "quantidade": 500,
           "pedido": 473313
         }
       ],
-      "totalProgramado": 1200,
+      "totalProgramado": 500,
       "sugestaoCompra": 400,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -14950,7 +14904,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-09-28T00:00:00",
-          "quantidade": 1200,
+          "quantidade": 2400,
           "pedido": 476842
         },
         {
@@ -14959,7 +14913,7 @@
           "pedido": 476843
         }
       ],
-      "totalProgramado": 2400,
+      "totalProgramado": 3600,
       "sugestaoCompra": 1000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
