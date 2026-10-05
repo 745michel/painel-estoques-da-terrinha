@@ -165,6 +165,22 @@ type CortesData = {
   totalLinhas: number;
   semMotivo: number;
 };
+// Valor de corte/faturamento (R$) - financeiro, so chega depois da senha (ver
+// scripts/github-pages-entry.tsx). Chave (data, lojaKey, produtoKey) igual a CortesLinha pra
+// cruzar as duas listas no frontend.
+type CortesValorLinha = {
+  data: string;
+  lojaKey: number | null;
+  produtoKey: number;
+  valorPedidoTotal: number;
+  faturamentoRs: number;
+  valorCorte: number;
+};
+type CortesValoresData = {
+  atualizadoEm: string;
+  origem: string;
+  valores: CortesValorLinha[];
+};
 type ValuesData = typeof valoresDataType;
 type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
 // Tipo declarado a mao (nao inferido do JSON via "typeof ... import") pelo mesmo motivo de
@@ -2188,16 +2204,20 @@ function CortesDashboard({
   onSectionChange,
   canViewValues,
   cortesData,
+  cortesValoresData,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
   cortesData: CortesData;
+  cortesValoresData: CortesValoresData | null;
 }) {
   const [query, setQuery] = useState("");
   const [lojas, setLojas] = useState<string[]>([]);
   const [motivos, setMotivos] = useState<string[]>([]);
   const [somenteSemMotivo, setSomenteSemMotivo] = useState(false);
-  const [meses, setMeses] = useState<string[]>([]);
+  // Pedido do usuario em 05/10/2026: "sempre no filtro quero o mes vigente, nao todos
+  // juntos" - comeca so com o mes atual selecionado, em vez de vazio (= todos os meses).
+  const [meses, setMeses] = useState<string[]>([new Date().toISOString().slice(0, 7)]);
   const [sortField, setSortField] = useState<"data" | "corteCx">("corteCx");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   function toggleSort(field: typeof sortField) {
@@ -2240,6 +2260,23 @@ function CortesDashboard({
       return a.corteCx - b.corteCx;
     });
   }, [filtrados, sortField, sortDir]);
+
+  // Valor (R$) de corte/faturamento - financeiro, so vem depois da senha (cortesValoresData
+  // null ate la). Mesma chave de CortesLinha (data, lojaKey, produtoKey) pra cruzar.
+  const valorPorChave = useMemo(() => {
+    const mapa = new Map<string, CortesValorLinha>();
+    for (const v of cortesValoresData?.valores ?? []) mapa.set(`${v.data}|${v.lojaKey}|${v.produtoKey}`, v);
+    return mapa;
+  }, [cortesValoresData]);
+  function valorDoCorte(c: CortesLinha) {
+    return valorPorChave.get(`${c.data}|${c.lojaKey}|${c.produtoKey}`) ?? null;
+  }
+  const totalValorCorteFiltrado = canViewValues
+    ? filtrados.reduce((sum, c) => sum + (valorDoCorte(c)?.valorCorte ?? 0), 0)
+    : null;
+  const totalValorFaturadoFiltrado = canViewValues
+    ? filtrados.reduce((sum, c) => sum + (valorDoCorte(c)?.faturamentoRs ?? 0), 0)
+    : null;
 
   const totalCorteFiltrado = filtrados.reduce((sum, c) => sum + c.corteCx, 0);
   const semMotivoFiltrado = filtrados.filter((c) => !c.motivo).length;
@@ -2301,6 +2338,11 @@ function CortesDashboard({
             <strong>{rankingMotivos[0] ? number.format(Math.round(rankingMotivos[0][1])) : "—"}</strong><p>{rankingMotivos[0] ? rankingMotivos[0][0] : "Sem dados"}</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
             <small>cx cortados, maior categoria do período</small>
           </div>
+          {canViewValues && <div className="kpi-card critical-card">
+            <div className="kpi-top"><span className="kpi-icon">R$</span><span className="trend critical">Financeiro</span></div>
+            <strong>{totalValorCorteFiltrado != null ? currency.format(totalValorCorteFiltrado) : "—"}</strong><p>Valor cortado</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+            <small>{totalValorFaturadoFiltrado != null ? `Faturado no filtro: ${currency.format(totalValorFaturadoFiltrado)}` : "—"}</small>
+          </div>}
         </section>
 
         <section className="inventory-panel consumption-panel">
@@ -2318,18 +2360,25 @@ function CortesDashboard({
             <th style={{ width: 90 }}>Pedido</th>
             <th style={{ width: 90 }}>Faturado</th>
             <th style={{ width: 90 }}><button className="sortable-column" onClick={() => toggleSort("corteCx")}>Corte {sortField === "corteCx" ? (sortDir === "desc" ? "▾" : "▴") : ""}</button></th>
+            {canViewValues && <th style={{ width: 110 }}>Valor cortado</th>}
+            {canViewValues && <th style={{ width: 110 }}>Valor faturado</th>}
             <th style={{ width: 170 }}>Motivo</th>
             <th style={{ width: "auto" }}>Observações</th>
           </tr></thead><tbody>
-            {ordenados.slice(0, 500).map((c, index) => <tr key={`${c.data}-${c.lojaKey}-${c.produtoKey}-${index}`}>
+            {ordenados.slice(0, 500).map((c, index) => {
+              const valor = canViewValues ? valorDoCorte(c) : null;
+              return <tr key={`${c.data}-${c.lojaKey}-${c.produtoKey}-${index}`}>
               <td><div className="product-cell"><div><strong title={c.produto ?? ""}>{c.produto ?? "—"}</strong><small>SKU {c.produtoKey} · {c.loja}</small></div></div></td>
               <td>{new Date(c.data).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</td>
               <td><strong className="numeric">{number.format(Math.round(c.quantidadePedidaCx))}</strong></td>
               <td><strong className="numeric">{number.format(Math.round(c.quantidadeFaturadaCx))}</strong></td>
               <td><strong className="numeric escadinha-delta-down">{number.format(Math.round(c.corteCx))}</strong></td>
+              {canViewValues && <td><strong className="numeric escadinha-delta-down">{valor ? currency.format(valor.valorCorte) : "—"}</strong></td>}
+              {canViewValues && <td><strong className="numeric">{valor ? currency.format(valor.faturamentoRs) : "—"}</strong></td>}
               <td>{c.motivo ? <span className="status-pill">{c.motivo}</span> : <span className="no-projection" title="Preencha em motivos_cortes.xlsx">Sem motivo</span>}</td>
               <td><small>{c.observacoes ?? "—"}</small></td>
-            </tr>)}
+            </tr>;
+            })}
           </tbody></table>{ordenados.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
           {ordenados.length > 500 && <p className="consumption-return">Mostrando os 500 maiores cortes do filtro atual ({number.format(ordenados.length)} no total) — refine o filtro ou o mês pra ver outros.</p>}
           </div>
@@ -3362,6 +3411,7 @@ export default function DashboardClient({
   escadinhaInsumosData,
   pedidosVendaData,
   cortesData,
+  cortesValoresData,
 }: {
   canViewValues: boolean;
   valoresData: ValuesData | null;
@@ -3375,6 +3425,7 @@ export default function DashboardClient({
   escadinhaInsumosData: EscadinhaInsumosData;
   pedidosVendaData: PedidosVendaData;
   cortesData: CortesData;
+  cortesValoresData: CortesValoresData | null;
 }) {
   const [section, setSection] = useState<Section>("terceiros");
   const [query, setQuery] = useState("");
@@ -3658,7 +3709,7 @@ export default function DashboardClient({
     <div hidden={!isEscadinha}><EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} pedidosVendaData={pedidosVendaData} /></div>
     <div hidden={!isEscadinhaInsumos}><EscadinhaInsumosDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaInsumosData={escadinhaInsumosData} /></div>
     <div hidden={!isPedidosVenda}><PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} /></div>
-    <div hidden={!isCortes}><CortesDashboard onSectionChange={changeSection} canViewValues={canViewValues} cortesData={cortesData} /></div>
+    <div hidden={!isCortes}><CortesDashboard onSectionChange={changeSection} canViewValues={canViewValues} cortesData={cortesData} cortesValoresData={cortesValoresData} /></div>
     <div hidden={!(isValorProdutoAcabado && valoresProdutoAcabadoData)}>{valoresProdutoAcabadoData && <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} />}</div>
     <div hidden={!(isFornecedores && fornecedoresData)}>{fornecedoresData && <FornecedoresDashboard onSectionChange={changeSection} canViewValues={canViewValues} fornecedoresData={fornecedoresData} />}</div>
   </>;

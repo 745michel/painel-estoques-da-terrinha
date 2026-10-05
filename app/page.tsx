@@ -12,6 +12,7 @@ import pedidosVendaDataStatic from "../public/dados-pedidos-venda.json";
 import cortesDataStatic from "../public/dados-cortes.json";
 import valoresProdutoAcabadoDataStatic from "../data/dados-valores-produto-acabado.json";
 import fornecedoresDataStatic from "../data/dados-fornecedores.json";
+import cortesValoresDataStatic from "../data/dados-cortes-valores.json";
 import { fetchSharePointJson, fetchAccessList, isConfigured, type AccessEntry } from "./lib/sharepoint";
 import { buildValorInsumos, type ValorInsumosRow } from "./lib/valor-insumos";
 import { buildValorProdutoAcabado } from "./lib/valor-produto-acabado";
@@ -51,6 +52,21 @@ type CortesData = {
 };
 type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataStatic;
 type FornecedoresData = typeof fornecedoresDataStatic;
+// Valor de corte/faturamento (R$) - financeiro, mesma senha das outras 3 abas. Tipo a mao
+// pelo mesmo motivo de CortesData acima.
+type CortesValorLinha = {
+  data: string;
+  lojaKey: number | null;
+  produtoKey: number;
+  valorPedidoTotal: number;
+  faturamentoRs: number;
+  valorCorte: number;
+};
+type CortesValoresData = {
+  atualizadoEm: string;
+  origem: string;
+  valores: CortesValorLinha[];
+};
 
 /**
  * Cada loadX tenta o SharePoint (dados atualizados 2x/dia pela automacao local +
@@ -203,6 +219,19 @@ async function loadFornecedoresData(): Promise<FornecedoresData> {
   }
 }
 
+async function loadCortesValoresData(): Promise<CortesValoresData> {
+  // cortes_valores_agregado.json - mesmo esquema de fornecedores_agregado.json, gerado por
+  // work/sheet-inspect/build_cortes.py. Financeiro (R$), senha, pedido do usuario em
+  // 05/10/2026.
+  if (!isConfigured()) return cortesValoresDataStatic;
+  try {
+    return await fetchSharePointJson<CortesValoresData>("cortes_valores_agregado.json");
+  } catch (error) {
+    console.error("Falha ao buscar cortes_valores_agregado.json do SharePoint, usando snapshot do build:", error);
+    return cortesValoresDataStatic;
+  }
+}
+
 /**
  * Quem pode logar (qualquer conta Microsoft da empresa) e quem pode ver o que (lista
  * "AcessoPainelEstoques" no SharePoint) sao verificacoes separadas de proposito - login
@@ -282,6 +311,7 @@ export default async function Home() {
   const valoresData = canViewValues ? await loadValoresData(insumosData) : null;
   const valoresProdutoAcabadoData = canViewValues ? await loadValoresProdutoAcabadoData(pedidosVendaData, estoqueData) : null;
   const fornecedoresData = canViewValues ? await loadFornecedoresData() : null;
+  const cortesValoresData = canViewValues ? await loadCortesValoresData() : null;
 
   return (
     <DashboardClient
@@ -297,6 +327,7 @@ export default async function Home() {
       escadinhaInsumosData={escadinhaInsumosData}
       pedidosVendaData={pedidosVendaData}
       cortesData={cortesData}
+      cortesValoresData={cortesValoresData}
     />
   );
 }

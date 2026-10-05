@@ -16,6 +16,22 @@ import type fornecedoresDataType from "../data/dados-fornecedores.json";
 type ValoresData = typeof valoresDataType;
 type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
 type FornecedoresData = typeof fornecedoresDataType;
+// Tipo declarado a mao (nao "typeof" do placeholder) - mesmo motivo de CortesData em
+// DashboardClient.tsx: o placeholder tem lojaKey sempre number, mas o dado real as vezes vem
+// null ("Loja nao identificada") - inferir do placeholder travaria esse campo errado.
+type CortesValorLinha = {
+  data: string;
+  lojaKey: number | null;
+  produtoKey: number;
+  valorPedidoTotal: number;
+  faturamentoRs: number;
+  valorCorte: number;
+};
+type CortesValoresData = {
+  atualizadoEm: string;
+  origem: string;
+  valores: CortesValorLinha[];
+};
 
 /**
  * Barreira so no navegador (sem servidor no GitHub Pages para proteger de verdade - ver
@@ -41,6 +57,7 @@ function App() {
   const [valoresData, setValoresData] = useState<ValoresData | null>(null);
   const [valoresProdutoAcabadoData, setValoresProdutoAcabadoData] = useState<ValoresProdutoAcabadoData | null>(null);
   const [fornecedoresData, setFornecedoresData] = useState<FornecedoresData | null>(null);
+  const [cortesValoresData, setCortesValoresData] = useState<CortesValoresData | null>(null);
   const [desbloqueado, setDesbloqueado] = useState(false);
 
   async function tentarDesbloquear(event: React.FormEvent) {
@@ -56,18 +73,21 @@ function App() {
       // cache: "no-store" - o GitHub Pages manda Cache-Control: max-age=600 nesses arquivos, e a
       // automacao atualiza os dados varias vezes por dia. Sem isso, o navegador podia mostrar
       // valor financeiro com ate 10 minutos de atraso mesmo depois de reabrir a pagina.
-      const [response, responseProdutoAcabado, responseFornecedores] = await Promise.all([
+      const [response, responseProdutoAcabado, responseFornecedores, responseCortes] = await Promise.all([
         fetch("./valor-financeiro.json", { cache: "no-store" }),
         fetch("./valor-financeiro-produto-acabado.json", { cache: "no-store" }),
         fetch("./valor-financeiro-fornecedores.json", { cache: "no-store" }),
+        fetch("./valor-financeiro-cortes.json", { cache: "no-store" }),
       ]);
-      if (!response.ok || !responseProdutoAcabado.ok || !responseFornecedores.ok) throw new Error("arquivo indisponivel");
+      if (!response.ok || !responseProdutoAcabado.ok || !responseFornecedores.ok || !responseCortes.ok) throw new Error("arquivo indisponivel");
       const data = (await response.json()) as ValoresData;
       const dataProdutoAcabado = (await responseProdutoAcabado.json()) as ValoresProdutoAcabadoData;
       const dataFornecedores = (await responseFornecedores.json()) as FornecedoresData;
+      const dataCortes = (await responseCortes.json()) as CortesValoresData;
       setValoresData(data);
       setValoresProdutoAcabadoData(dataProdutoAcabado);
       setFornecedoresData(dataFornecedores);
+      setCortesValoresData(dataCortes);
       setDesbloqueado(true);
     } catch {
       setErro(true);
@@ -91,6 +111,7 @@ function App() {
         escadinhaInsumosData={escadinhaInsumosData}
         pedidosVendaData={pedidosVendaData}
         cortesData={cortesData}
+        cortesValoresData={desbloqueado ? cortesValoresData : null}
       />
       {!desbloqueado && (
         <div

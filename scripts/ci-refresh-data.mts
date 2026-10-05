@@ -122,6 +122,19 @@ try {
   console.warn(`fornecedores_agregado.json indisponivel no SharePoint (${(error as Error).message}) - build cai pro placeholder.`);
 }
 
+// cortes_valores_agregado.json: mesmo esquema de fornecedores_agregado.json - valor de
+// corte/faturamento (R$) de work/sheet-inspect/build_cortes.py, financeiro (senha), nunca no
+// bundle sem protecao. Pedido do usuario em 05/10/2026, confirmado manter o mesmo padrao de
+// senha das outras 3 abas financeiras.
+let cortesValoresItens = 0;
+try {
+  const cortesValoresData = await fetchSharePointJson<{ valores: unknown[] }>("cortes_valores_agregado.json");
+  await fs.writeFile(path.join(root, "work", "valor-financeiro-cortes-ci.json"), JSON.stringify(cortesValoresData), "utf8");
+  cortesValoresItens = cortesValoresData.valores.length;
+} catch (error) {
+  console.warn(`cortes_valores_agregado.json indisponivel no SharePoint (${(error as Error).message}) - build cai pro placeholder.`);
+}
+
 console.log(JSON.stringify({
   estoqueProdutos: (estoqueData as { produtos: unknown[] }).produtos.length,
   insumosProdutos: insumosData.produtos.length,
@@ -131,4 +144,5 @@ console.log(JSON.stringify({
   valoresItens: valoresData.resumo.itens,
   valoresProdutoAcabadoItens: valoresProdutoAcabadoData.resumo.itens,
   fornecedoresItens,
+  cortesValoresItens,
 }));

@@ -86,4 +86,16 @@ try {
   await copyFile(financeiroFornecedoresPlaceholder, financeiroFornecedoresDestino);
 }
 
+// Mesmo esquema pros valores (R$) de Cortes (ver work/sheet-inspect/build_cortes.py, pedido
+// do usuario em 05/10/2026, confirmado manter o mesmo padrao de senha das outras 3 abas).
+const financeiroCortesCi = path.join(root, "work", "valor-financeiro-cortes-ci.json");
+const financeiroCortesPlaceholder = path.join(root, "data", "dados-cortes-valores.json");
+const financeiroCortesDestino = path.join(outputDir, "valor-financeiro-cortes.json");
+try {
+  await copyFile(financeiroCortesCi, financeiroCortesDestino);
+} catch {
+  console.warn("valor-financeiro-cortes-ci.json nao encontrado, usando placeholder");
+  await copyFile(financeiroCortesPlaceholder, financeiroCortesDestino);
+}
+
 console.log(JSON.stringify({ pasta: outputDir, tamanho_html_bytes: Buffer.byteLength(html) }));
