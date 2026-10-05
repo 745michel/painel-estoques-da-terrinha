@@ -1293,6 +1293,19 @@ function EscadinhaDashboard({
   }), [desviosFiltrados, nivelFiltro]);
   const mesOptions = MESES_ESCADINHA.map((mes) => ({ value: mes, label: MESES_ESCADINHA_LABEL[mes] }));
 
+  // 2 cards com o total do ano (plano x realizado), pedido do usuario em 05/10/2026 ("quero
+  // ver os desvios"). Soma sobre "filtered" (respeita os filtros de categoria/produto/busca
+  // ja aplicados na grade) - nao um numero fixo do ano inteiro sem filtro. Produtos com
+  // unidade diferente (cx/fardo) nao podem ser somados direto (regra do painel) - mostra
+  // "(misto)" quando o conjunto filtrado tiver as duas, mesmo padrao ja usado no card de topo
+  // da Escadinha de insumos.
+  const totalPlanoFiltrado = filtered.reduce((sum, p) => sum + planoAnual(p), 0);
+  const totalRealFiltrado = filtered.reduce((sum, p) => sum + realAnual(p), 0);
+  const desvioTotalFiltrado = totalRealFiltrado - totalPlanoFiltrado;
+  const atingimentoTotalFiltrado = totalPlanoFiltrado > 0 ? (totalRealFiltrado / totalPlanoFiltrado) * 100 : null;
+  const unidadesFiltradas = new Set(filtered.map((p) => unitLabelEscadinha(p)));
+  const unidadeResumoFiltrado = unidadesFiltradas.size === 1 ? Array.from(unidadesFiltradas)[0] : "cx/fardo (misto)";
+
   // Produtos sem escadinha nenhuma no ano (plano zerado o ano inteiro) - pedido do usuario em
   // 24/08/2026. Ordenado pelo Real do ano, maior primeiro: quem ja vende mas nao tem plano
   // cadastrado e o caso mais urgente de checar.
@@ -1375,6 +1388,8 @@ function EscadinhaDashboard({
             <div><span>Maior desvio absoluto</span><strong>{desvios[0] ? number.format(Math.abs(desvios[0].desvio)) : "—"}</strong><small>{desvios[0] ? `${desvios[0].produto} · ${MESES_ESCADINHA_LABEL[desvios[0].mes]}` : "Sem desvios"}</small></div>
           </> : <div><span>Comparação com revisão anterior</span><strong>—</strong><small>Disponível a partir da próxima revisão mensal</small></div>}
           <div className="partial"><span>Categorias no plano</span><strong>{categoryOptions.length}</strong><small>Filtre por categoria abaixo</small></div>
+          <div><span>Escadinha geral (plano do ano)</span><strong>{number.format(Math.round(totalPlanoFiltrado))}</strong><small>{unidadeResumoFiltrado} · {number.format(filtered.length)} produto(s) no filtro atual</small></div>
+          <div><span>Realizado (ano)</span><strong>{number.format(Math.round(totalRealFiltrado))}</strong><small>{atingimentoTotalFiltrado != null ? `${decimal.format(atingimentoTotalFiltrado)}% do plano · desvio ${desvioTotalFiltrado >= 0 ? "+" : ""}${number.format(Math.round(desvioTotalFiltrado))}` : "Sem plano pra comparar"}</small></div>
         </section>
 
         <section className="inventory-panel consumption-panel">
