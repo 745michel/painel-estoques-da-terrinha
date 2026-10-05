@@ -1387,7 +1387,6 @@ function EscadinhaDashboard({
             <div><span>Produtos com desvio</span><strong>{number.format(desvios.length)}</strong><small>Comparado à revisão de {fullDate.format(localDate(escadinhaData.dataPublicacaoAnterior as string))}</small></div>
             <div><span>Maior desvio absoluto</span><strong>{desvios[0] ? number.format(Math.abs(desvios[0].desvio)) : "—"}</strong><small>{desvios[0] ? `${desvios[0].produto} · ${MESES_ESCADINHA_LABEL[desvios[0].mes]}` : "Sem desvios"}</small></div>
           </> : <div><span>Comparação com revisão anterior</span><strong>—</strong><small>Disponível a partir da próxima revisão mensal</small></div>}
-          <div className="partial"><span>Categorias no plano</span><strong>{categoryOptions.length}</strong><small>Filtre por categoria abaixo</small></div>
           <div><span>Escadinha geral (plano do ano)</span><strong>{number.format(Math.round(totalPlanoFiltrado))}</strong><small>{unidadeResumoFiltrado} · {number.format(filtered.length)} produto(s) no filtro atual</small></div>
           <div><span>Realizado (ano)</span><strong>{number.format(Math.round(totalRealFiltrado))}</strong><small>{atingimentoTotalFiltrado != null ? `${decimal.format(atingimentoTotalFiltrado)}% do plano · desvio ${desvioTotalFiltrado >= 0 ? "+" : ""}${number.format(Math.round(desvioTotalFiltrado))}` : "Sem plano pra comparar"}</small></div>
         </section>
