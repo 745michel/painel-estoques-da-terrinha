@@ -1,8 +1,8 @@
 {
-  "atualizadoEm": "2026-10-02T08:29:38",
+  "atualizadoEm": "2026-10-05T08:05:53.023293",
   "origem": "Base movimento_estoque que alimenta o Power BI de consumo de insumos",
   "periodoInicio": "2025-01-01",
-  "periodoFim": "2026-10-01",
+  "periodoFim": "2026-10-03",
   "meses": [
     "2025-01",
     "2025-02",
@@ -27,7 +27,7 @@
     "2026-09",
     "2026-10"
   ],
-  "linhasProcessadas": 586979,
+  "linhasProcessadas": 587304,
   "produtos": [
     {
       "sku": "70705",
@@ -326,7 +326,7 @@
       "produto": "BALDE SGF ALHO PASTA OKKER 2.2",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "WS DA SILVA PLASTICO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -618,7 +618,7 @@
       "produto": "BALDE SGF ALHO TRIT OKKER 3.2",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "WS DA SILVA PLASTICO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -3246,7 +3246,7 @@
       "produto": "BOBINA BATATA PALHA EXTRA FINA DA TERRINHA 100 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -3392,7 +3392,7 @@
       "produto": "BOBINA BATATA PALHA EXTRA FINA PUBLIC 100 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -3538,7 +3538,7 @@
       "produto": "BOBINA BATATA PALHA TRADICIONAL DA TERRINHA 100 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -3684,7 +3684,7 @@
       "produto": "BOBINA BATATA PALHA TRADICIONAL PUBLIC 100G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "kg",
@@ -3830,7 +3830,7 @@
       "produto": "BOBINA BICARBONATO DE SODIO DA TERRINHA 20 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -3976,7 +3976,7 @@
       "produto": "BOBINA BICARBONATO DE SODIO DA TERRINHA 500 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -4122,7 +4122,7 @@
       "produto": "BOBINA BICARBONATO DE SODIO DA TERRINHA 80 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -4414,7 +4414,7 @@
       "produto": "BOBINA CANELA EM CASCA DA TERRINHA 10GR",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -4706,7 +4706,7 @@
       "produto": "BOBINA CANELA PO DA TERRINHA 20 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -4852,7 +4852,7 @@
       "produto": "BOBINA CANJICA AMARELA DA TERRINHA 500 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -5144,7 +5144,7 @@
       "produto": "BOBINA CANJIQUINHA DA TERRINHA 500 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MAJICPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -5290,7 +5290,7 @@
       "produto": "BOBINA CHIMICHURRI FLOCOS DA TERRINHA 20 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -5436,7 +5436,7 @@
       "produto": "BOBINA COCO FLOCOS UMIDO ADOCADO DA TERRINHA 100 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -5582,7 +5582,7 @@
       "produto": "BOBINA COCO RALADO DA TERRINHA DESIDRATADO 50 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -5874,7 +5874,7 @@
       "produto": "BOBINA COCO RALADO UMIDO ADOCADO DA TERRINHA 100 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6020,7 +6020,7 @@
       "produto": "BOBINA COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6604,7 +6604,7 @@
       "produto": "BOBINA COLORIFICO DA TERRINHA 70 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -6896,7 +6896,7 @@
       "produto": "BOBINA CRAVO DA INDIA DA TERRINHA 10 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -8210,7 +8210,7 @@
       "produto": "BOBINA ERVA DOCE DA TERRINHA 15 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -8635,13 +8635,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 186.9,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 186.9
         }
       ],
-      "mediaMensal": 867.968,
-      "totalPeriodo": 19095.3
+      "mediaMensal": 876.464,
+      "totalPeriodo": 19282.2
     },
     {
       "sku": "57853",
@@ -8794,7 +8794,7 @@
       "produto": "BOBINA FARINHA DE MANDIOCA CRUA FINA DA TERRINHA 1 KG",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9086,7 +9086,7 @@
       "produto": "BOBINA FARINHA DE MANDIOCA GROSSA DA TERRINHA 1 KG",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9219,13 +9219,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 112.32,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 112.32
         }
       ],
-      "mediaMensal": 744.764,
-      "totalPeriodo": 16384.8
+      "mediaMensal": 749.869,
+      "totalPeriodo": 16497.12
     },
     {
       "sku": "57894",
@@ -9962,7 +9962,7 @@
       "produto": "BOBINA FAROFA ARTESANAL TRADICIONAL DA TERRINHA 300 G",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "MAJICPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -10108,7 +10108,7 @@
       "produto": "BOBINA FAROFA DE MANDIOCA DA TERRINHA 400 G EXP",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -10254,7 +10254,7 @@
       "produto": "BOBINA FAROFA PRONTA APIMENTADA DA TERRINHA 400 G",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -10692,7 +10692,7 @@
       "produto": "BOBINA FAROFA PRONTA TRADICIONAL DA TERRINHA 150 G",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "MAJICPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -10825,20 +10825,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 175.392,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 175.392
         }
       ],
-      "mediaMensal": 254.962,
-      "totalPeriodo": 5609.158
+      "mediaMensal": 262.934,
+      "totalPeriodo": 5784.55
     },
     {
       "sku": "36914",
       "produto": "BOBINA FAROFA PRONTA TRADICIONAL DA TERRINHA 400 G",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -10971,13 +10971,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 770.028,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 770.028
         }
       ],
-      "mediaMensal": 3496.541,
-      "totalPeriodo": 76923.902
+      "mediaMensal": 3531.542,
+      "totalPeriodo": 77693.93
     },
     {
       "sku": "65088",
@@ -11714,7 +11714,7 @@
       "produto": "BOBINA FEIJAO BRANCO PREMIUM DA TERRINHA 500 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MAJICPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -11854,152 +11854,6 @@
       ],
       "mediaMensal": 72.336,
       "totalPeriodo": 1591.398
-    },
-    {
-      "sku": "79180",
-      "produto": "BOBINA FLOCAO MILHO DA TERRINHA 800 G",
-      "loja": "14",
-      "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "Fornecedor não informado",
-      "tipo": "Embalagem",
-      "categoria": "EMBALAGEM",
-      "unidade": "kg",
-      "historico": [
-        {
-          "mes": "2025-01",
-          "saida": 109.248,
-          "estorno": 0.0,
-          "consumoLiquido": 109.248
-        },
-        {
-          "mes": "2025-02",
-          "saida": 104.3,
-          "estorno": 0.0,
-          "consumoLiquido": 104.3
-        },
-        {
-          "mes": "2025-03",
-          "saida": 0.724,
-          "estorno": 0.0,
-          "consumoLiquido": 0.724
-        },
-        {
-          "mes": "2025-04",
-          "saida": 272.22,
-          "estorno": 11.589,
-          "consumoLiquido": 260.631
-        },
-        {
-          "mes": "2025-05",
-          "saida": 162.001,
-          "estorno": 0.0,
-          "consumoLiquido": 162.001
-        },
-        {
-          "mes": "2025-06",
-          "saida": 26.92,
-          "estorno": 0.0,
-          "consumoLiquido": 26.92
-        },
-        {
-          "mes": "2025-07",
-          "saida": 246.745,
-          "estorno": 14.486,
-          "consumoLiquido": 232.259
-        },
-        {
-          "mes": "2025-08",
-          "saida": 30374.477,
-          "estorno": 30266.677,
-          "consumoLiquido": 107.8
-        },
-        {
-          "mes": "2025-09",
-          "saida": 172.383,
-          "estorno": 7.243,
-          "consumoLiquido": 165.14
-        },
-        {
-          "mes": "2025-10",
-          "saida": 54.926,
-          "estorno": 0.0,
-          "consumoLiquido": 54.926
-        },
-        {
-          "mes": "2025-11",
-          "saida": 7.243,
-          "estorno": 0.0,
-          "consumoLiquido": 7.243
-        },
-        {
-          "mes": "2025-12",
-          "saida": 148.24,
-          "estorno": 4.346,
-          "consumoLiquido": 143.894
-        },
-        {
-          "mes": "2026-01",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-02",
-          "saida": 173.953,
-          "estorno": 0.0,
-          "consumoLiquido": 173.953
-        },
-        {
-          "mes": "2026-03",
-          "saida": 249.279,
-          "estorno": 0.0,
-          "consumoLiquido": 249.279
-        },
-        {
-          "mes": "2026-04",
-          "saida": 213.48,
-          "estorno": 0.0,
-          "consumoLiquido": 213.48
-        },
-        {
-          "mes": "2026-05",
-          "saida": 198.84,
-          "estorno": 32.4,
-          "consumoLiquido": 166.44
-        },
-        {
-          "mes": "2026-06",
-          "saida": 194.4,
-          "estorno": 0.0,
-          "consumoLiquido": 194.4
-        },
-        {
-          "mes": "2026-07",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-08",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-09",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-10",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        }
-      ],
-      "mediaMensal": 107.847,
-      "totalPeriodo": 2372.638
     },
     {
       "sku": "57914",
@@ -12148,157 +12002,11 @@
       "totalPeriodo": 2526.0
     },
     {
-      "sku": "57929",
-      "produto": "BOBINA FUBA MIMOSO DA TERRINHA 1 KG",
-      "loja": "14",
-      "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "Fornecedor não informado",
-      "tipo": "Embalagem",
-      "categoria": "EMBALAGEM",
-      "unidade": "kg",
-      "historico": [
-        {
-          "mes": "2025-01",
-          "saida": 54.63,
-          "estorno": 4.113,
-          "consumoLiquido": 50.517
-        },
-        {
-          "mes": "2025-02",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-03",
-          "saida": 86.6,
-          "estorno": 0.0,
-          "consumoLiquido": 86.6
-        },
-        {
-          "mes": "2025-04",
-          "saida": 93.817,
-          "estorno": 0.0,
-          "consumoLiquido": 93.817
-        },
-        {
-          "mes": "2025-05",
-          "saida": 391.07,
-          "estorno": 1.948,
-          "consumoLiquido": 389.122
-        },
-        {
-          "mes": "2025-06",
-          "saida": 124.405,
-          "estorno": 0.0,
-          "consumoLiquido": 124.405
-        },
-        {
-          "mes": "2025-07",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-08",
-          "saida": 72.094,
-          "estorno": 0.0,
-          "consumoLiquido": 72.094
-        },
-        {
-          "mes": "2025-09",
-          "saida": 264.991,
-          "estorno": 0.0,
-          "consumoLiquido": 264.991
-        },
-        {
-          "mes": "2025-10",
-          "saida": 86.6,
-          "estorno": 0.0,
-          "consumoLiquido": 86.6
-        },
-        {
-          "mes": "2025-11",
-          "saida": 158.753,
-          "estorno": 0.0,
-          "consumoLiquido": 158.753
-        },
-        {
-          "mes": "2025-12",
-          "saida": 158.185,
-          "estorno": 0.0,
-          "consumoLiquido": 158.185
-        },
-        {
-          "mes": "2026-01",
-          "saida": 94.025,
-          "estorno": 0.0,
-          "consumoLiquido": 94.025
-        },
-        {
-          "mes": "2026-02",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-03",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-04",
-          "saida": 187.618,
-          "estorno": 0.0,
-          "consumoLiquido": 187.618
-        },
-        {
-          "mes": "2026-05",
-          "saida": 298.317,
-          "estorno": 0.0,
-          "consumoLiquido": 298.317
-        },
-        {
-          "mes": "2026-06",
-          "saida": 456.488,
-          "estorno": 5.845,
-          "consumoLiquido": 450.643
-        },
-        {
-          "mes": "2026-07",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-08",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-09",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-10",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        }
-      ],
-      "mediaMensal": 114.349,
-      "totalPeriodo": 2515.687
-    },
-    {
       "sku": "81284",
       "produto": "BOBINA GRAO DE BICO PREMIUM DA TERRINHA 350 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -12444,7 +12152,7 @@
       "produto": "BOBINA LENTILHA PREMIUM DA TERRINHA 350 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -12882,7 +12590,7 @@
       "produto": "BOBINA MANJERICÃO DA TERRINHA 10 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -13028,7 +12736,7 @@
       "produto": "BOBINA MILHO DE PIPOCA DA TERRINHA 1KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -13612,7 +13320,7 @@
       "produto": "BOBINA OREGANO DA TERRINHA 200 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -14488,7 +14196,7 @@
       "produto": "BOBINA PARA FARDO LISA 1050 X 55",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "PLASTIMARAU IND EMBAL FLEXIVEL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -14634,7 +14342,7 @@
       "produto": "BOBINA PARA FARDO LISA 1050 X 55",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "PLASTIMARAU IND EMBAL FLEXIVEL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -14767,20 +14475,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 64.81,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 64.81
         }
       ],
-      "mediaMensal": 1150.693,
-      "totalPeriodo": 25315.243
+      "mediaMensal": 1153.639,
+      "totalPeriodo": 25380.053
     },
     {
       "sku": "50982",
       "produto": "BOBINA PARA FARDOS 500G TAPIOCA DATERRINHA COM COD. BARRAS",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "LORDTECH POLIMEROS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -14913,20 +14621,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 27.244,
+          "saida": 77.084,
           "estorno": 0.0,
-          "consumoLiquido": 27.244
+          "consumoLiquido": 77.084
         }
       ],
-      "mediaMensal": 1371.6,
-      "totalPeriodo": 30175.204
+      "mediaMensal": 1373.866,
+      "totalPeriodo": 30225.044
     },
     {
       "sku": "13384",
       "produto": "BOBINA PARA FARDOS 78,0 CM 1 KG LISO",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "LORDTECH POLIMEROS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -15072,7 +14780,7 @@
       "produto": "BOBINA PARA FARDOS 78,0 CM 1 KG TAPIOCA DA TERRINHA COM COD. BARRAS",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "LORDTECH POLIMEROS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -15205,13 +14913,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 85.734,
+          "saida": 306.966,
           "estorno": 0.0,
-          "consumoLiquido": 85.734
+          "consumoLiquido": 306.966
         }
       ],
-      "mediaMensal": 2102.362,
-      "totalPeriodo": 46251.965
+      "mediaMensal": 2112.418,
+      "totalPeriodo": 46473.197
     },
     {
       "sku": "11144",
@@ -15510,7 +15218,7 @@
       "produto": "BOBINA PIMENTA CALABRESA EM FLOCOS DA TERRINHA 15 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -15948,7 +15656,7 @@
       "produto": "BOBINA POLVILHO AZEDO DA TERRINHA 500 G",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -16094,7 +15802,7 @@
       "produto": "BOBINA POLVILHO DOCE DA TERRINHA 1KG",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -16386,7 +16094,7 @@
       "produto": "BOBINA SAGU PREMIUM DA TERRINHA 400 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -16532,7 +16240,7 @@
       "produto": "BOBINA SALSA DESIDRATADA 8 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -16674,303 +16382,11 @@
       "totalPeriodo": 1063.697
     },
     {
-      "sku": "87278",
-      "produto": "BOBINA TAPIOCA ABC 500 G",
-      "loja": "1",
-      "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "Fornecedor não informado",
-      "tipo": "Embalagem",
-      "categoria": "EMBALAGEM",
-      "unidade": "kg",
-      "historico": [
-        {
-          "mes": "2025-01",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-02",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-03",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-04",
-          "saida": 81.648,
-          "estorno": 0.0,
-          "consumoLiquido": 81.648
-        },
-        {
-          "mes": "2025-05",
-          "saida": 85.68,
-          "estorno": 0.0,
-          "consumoLiquido": 85.68
-        },
-        {
-          "mes": "2025-06",
-          "saida": 55.44,
-          "estorno": 0.0,
-          "consumoLiquido": 55.44
-        },
-        {
-          "mes": "2025-07",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-08",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-09",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-10",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-11",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-12",
-          "saida": 67.536,
-          "estorno": 0.0,
-          "consumoLiquido": 67.536
-        },
-        {
-          "mes": "2026-01",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-02",
-          "saida": 84.0,
-          "estorno": 0.0,
-          "consumoLiquido": 84.0
-        },
-        {
-          "mes": "2026-03",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-04",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-05",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-06",
-          "saida": 162.624,
-          "estorno": 0.0,
-          "consumoLiquido": 162.624
-        },
-        {
-          "mes": "2026-07",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-08",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-09",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-10",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        }
-      ],
-      "mediaMensal": 24.406,
-      "totalPeriodo": 536.928
-    },
-    {
-      "sku": "30049",
-      "produto": "BOBINA TAPIOCA BENASSI 500 G",
-      "loja": "1",
-      "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "Fornecedor não informado",
-      "tipo": "Embalagem",
-      "categoria": "EMBALAGEM PRIMARIA",
-      "unidade": "kg",
-      "historico": [
-        {
-          "mes": "2025-01",
-          "saida": 33.12,
-          "estorno": 0.0,
-          "consumoLiquido": 33.12
-        },
-        {
-          "mes": "2025-02",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-03",
-          "saida": 70.416,
-          "estorno": 12.672,
-          "consumoLiquido": 57.744
-        },
-        {
-          "mes": "2025-04",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-05",
-          "saida": 48.672,
-          "estorno": 0.0,
-          "consumoLiquido": 48.672
-        },
-        {
-          "mes": "2025-06",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-07",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-08",
-          "saida": 40.464,
-          "estorno": 7.2,
-          "consumoLiquido": 33.264
-        },
-        {
-          "mes": "2025-09",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-10",
-          "saida": 32.832,
-          "estorno": 0.0,
-          "consumoLiquido": 32.832
-        },
-        {
-          "mes": "2025-11",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2025-12",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-01",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-02",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-03",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-04",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-05",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-06",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-07",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-08",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-09",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        },
-        {
-          "mes": "2026-10",
-          "saida": 0.0,
-          "estorno": 0.0,
-          "consumoLiquido": 0.0
-        }
-      ],
-      "mediaMensal": 9.347,
-      "totalPeriodo": 205.632
-    },
-    {
       "sku": "121685",
       "produto": "BOBINA TAPIOCA BULNEZ 1 KG",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "MAJICPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -17116,7 +16532,7 @@
       "produto": "BOBINA TAPIOCA BULNEZ 500G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "MAJICPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -17262,7 +16678,7 @@
       "produto": "BOBINA TAPIOCA CHAMA 1 KG",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -17408,7 +16824,7 @@
       "produto": "BOBINA TAPIOCA DA TERRINHA 1 KG",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -17541,20 +16957,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 433.037,
+          "saida": 1206.49,
           "estorno": 0.0,
-          "consumoLiquido": 433.037
+          "consumoLiquido": 1206.49
         }
       ],
-      "mediaMensal": 12597.883,
-      "totalPeriodo": 277153.423
+      "mediaMensal": 12633.04,
+      "totalPeriodo": 277926.876
     },
     {
       "sku": "14546",
       "produto": "BOBINA TAPIOCA DA TERRINHA 500 G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -17687,20 +17103,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 591.192,
+          "saida": 1540.56,
           "estorno": 0.0,
-          "consumoLiquido": 591.192
+          "consumoLiquido": 1540.56
         }
       ],
-      "mediaMensal": 15808.235,
-      "totalPeriodo": 347781.168
+      "mediaMensal": 15851.388,
+      "totalPeriodo": 348730.536
     },
     {
       "sku": "17905",
       "produto": "BOBINA TAPIOCA DA TERRINHA 500 G 05 IDIOMAS (SUBSTITUIU EUA TRILINGUE)",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -17833,20 +17249,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 47.789,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 47.789
         }
       ],
-      "mediaMensal": 398.243,
-      "totalPeriodo": 8761.354
+      "mediaMensal": 400.416,
+      "totalPeriodo": 8809.143
     },
     {
       "sku": "17904",
       "produto": "BOBINA TAPIOCA DA TERRINHA 500 G PORTUGAL",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -17992,7 +17408,7 @@
       "produto": "BOBINA TAPIOCA DA TERRINHA 70 G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -18125,20 +17541,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 126.309,
+          "saida": 195.105,
           "estorno": 0.0,
-          "consumoLiquido": 126.309
+          "consumoLiquido": 195.105
         }
       ],
-      "mediaMensal": 2568.512,
-      "totalPeriodo": 56507.253
+      "mediaMensal": 2571.639,
+      "totalPeriodo": 56576.049
     },
     {
       "sku": "12746",
       "produto": "BOBINA TAPIOCA DA TERRINHA 90 G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -18284,7 +17700,7 @@
       "produto": "BOBINA TAPIOCA DELIOCA 80 G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "MAJICPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -18417,13 +17833,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 119.028,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 119.028
         }
       ],
-      "mediaMensal": 1175.002,
-      "totalPeriodo": 25850.035
+      "mediaMensal": 1180.412,
+      "totalPeriodo": 25969.063
     },
     {
       "sku": "91704",
@@ -19014,7 +18430,7 @@
       "produto": "BOBINA TAPIOCA KRILL 500G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -19160,7 +18576,7 @@
       "produto": "BOBINA TAPIOCA LESTE",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "MAJICPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -19306,7 +18722,7 @@
       "produto": "BOBINA TAPIOCA MERC 1 KG",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -19744,7 +19160,7 @@
       "produto": "BOBINA TAPIOCA OBA 500 G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -19890,7 +19306,7 @@
       "produto": "BOBINA TAPIOCA OBA 80 G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -20036,7 +19452,7 @@
       "produto": "BOBINA TAPIOCA OKKER 400 G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "MAJICPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -20766,7 +20182,7 @@
       "produto": "BOBINA TAPIOCA PUBLIC 1 KG",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -21350,7 +20766,7 @@
       "produto": "BOBINA TAPIOCA SELECT 1 KG",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "MAJICPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -22797,13 +22213,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 65.94,
+          "saida": 112.98,
           "estorno": 0.0,
-          "consumoLiquido": 65.94
+          "consumoLiquido": 112.98
         }
       ],
-      "mediaMensal": 201.27,
-      "totalPeriodo": 4427.93
+      "mediaMensal": 203.408,
+      "totalPeriodo": 4474.97
     },
     {
       "sku": "12744",
@@ -23248,7 +22664,7 @@
       "produto": "BOBINA TEMPERO BAIANO E PO DA TERRINHA 50 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -23540,7 +22956,7 @@
       "produto": "BOBINA TEMPERO PARA CARNE DA TERRINHA 50 G",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -23832,7 +23248,7 @@
       "produto": "CAIXA CARTUCHO CHA BOLDO DA TERRINHA C/7 SACHES",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IMPRESSO BRASIL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -23978,7 +23394,7 @@
       "produto": "CAIXA CARTUCHO CHA CAMOMILA DA TERRINHA C/7 SACHES",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IMPRESSO BRASIL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -24124,7 +23540,7 @@
       "produto": "CAIXA CARTUCHO CHA CAPIM CIDREIRA DA TERRINHA C/7 SA",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IMPRESSO BRASIL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -24416,7 +23832,7 @@
       "produto": "CAIXA CARTUCHO CHA HORTELA DA TERRINHA C/7 SACHES",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IMPRESSO BRASIL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -24708,7 +24124,7 @@
       "produto": "CAIXA CARTUCHO CHA VERDE DA TERRINHA C/7 SACHES",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IMPRESSO BRASIL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -25000,7 +24416,7 @@
       "produto": "CAIXA COCO RALADO",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "ARTIVINCO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -25146,7 +24562,7 @@
       "produto": "CAIXA DE PAPELAO NA MEDIDA 12X490G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "ARTIVINCO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -25279,13 +24695,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 337.0,
+          "saida": 649.0,
           "estorno": 0.0,
-          "consumoLiquido": 337.0
+          "consumoLiquido": 649.0
         }
       ],
-      "mediaMensal": 10896.636,
-      "totalPeriodo": 239726.0
+      "mediaMensal": 10910.818,
+      "totalPeriodo": 240038.0
     },
     {
       "sku": "41584",
@@ -25584,7 +25000,7 @@
       "produto": "CAIXA OKKER 24X430G (390G) OKKER",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "PRIMUSCART",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -26314,7 +25730,7 @@
       "produto": "CAIXA PAPELAO BATATA CHIPS",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "ARTIVINCO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -26460,7 +25876,7 @@
       "produto": "CAIXA PAPELAO BATATA PALHA DA TERRINHA 100G - UNID",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IBERIA IND CX PAPELAO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -26752,7 +26168,7 @@
       "produto": "CAIXA PAPELAO CREME DE AVELA DAVELA 140G UND",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IBERIA IND CX PAPELAO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -26898,7 +26314,7 @@
       "produto": "CAIXA PAPELAO CREME DE AVELA DAVELA 290G UND",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IBERIA IND CX PAPELAO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -27044,7 +26460,7 @@
       "produto": "CAIXA PAPELAO ESPECIARIAS DA TERRINHA - UNID",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IBERIA IND CX PAPELAO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -27336,7 +26752,7 @@
       "produto": "CAIXA PAPELAO GRAOS E FARINACEOS PREMIUM MAIOR",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IBERIA IND CX PAPELAO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -27482,7 +26898,7 @@
       "produto": "CAIXA PAPELAO GRAOS E FARINACEOS PREMIUM MENOR",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IBERIA IND CX PAPELAO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -28066,7 +27482,7 @@
       "produto": "CAIXA PAPELAO LISA OKKER 12 x 400 GR",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "IBERIA IND CX PAPELAO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -28504,7 +27920,7 @@
       "produto": "CAIXA PAPELAO TAPIOCA DA TERRINHA 12 X 1KG - UNID",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "IBERIA IND CX PAPELAO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -28637,20 +28053,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1161.0,
+          "saida": 1171.0,
           "estorno": 0.0,
-          "consumoLiquido": 1161.0
+          "consumoLiquido": 1171.0
         }
       ],
-      "mediaMensal": 41893.409,
-      "totalPeriodo": 921655.0
+      "mediaMensal": 41893.864,
+      "totalPeriodo": 921665.0
     },
     {
       "sku": "10725",
       "produto": "CAIXA PAPELAO TAPIOCA DA TERRINHA 24 X 500 GR - UNID",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "IBERIA IND CX PAPELAO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -28783,20 +28199,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 2985.0,
+          "saida": 7118.0,
           "estorno": 0.0,
-          "consumoLiquido": 2985.0
+          "consumoLiquido": 7118.0
         }
       ],
-      "mediaMensal": 54746.5,
-      "totalPeriodo": 1204423.0
+      "mediaMensal": 54934.364,
+      "totalPeriodo": 1208556.0
     },
     {
       "sku": "25484",
       "produto": "CAIXA PAPELAO TAPIOCA DELIOCA WRAPIOCA UN",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "ARTIVINCO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -28929,20 +28345,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 314.0,
+          "saida": 1083.0,
           "estorno": 0.0,
-          "consumoLiquido": 314.0
+          "consumoLiquido": 1083.0
         }
       ],
-      "mediaMensal": 6376.818,
-      "totalPeriodo": 140290.0
+      "mediaMensal": 6411.773,
+      "totalPeriodo": 141059.0
     },
     {
       "sku": "79161",
       "produto": "CAIXA PAPELAO TAPIOCA MARCA PROPRIA",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "IBERIA IND CX PAPELAO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -29088,7 +28504,7 @@
       "produto": "CAIXA PAPELAO WRAP TRADICIONAL",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "ARTIVINCO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -29221,20 +28637,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 405.0,
+          "saida": 809.0,
           "estorno": 0.0,
-          "consumoLiquido": 405.0
+          "consumoLiquido": 809.0
         }
       ],
-      "mediaMensal": 5720.0,
-      "totalPeriodo": 125840.0
+      "mediaMensal": 5738.364,
+      "totalPeriodo": 126244.0
     },
     {
       "sku": "70720",
       "produto": "ETIQ ALHO BAIANO OKKER 200G",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -30110,7 +29526,7 @@
       "produto": "ETIQ ALHO MINEIRO OKKER 200G",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -30840,7 +30256,7 @@
       "produto": "ETIQ ALHO PASTA OKKER 200G",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -31862,7 +31278,7 @@
       "produto": "ETIQ ALHO TRIT  OKKER 1KG",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -32300,7 +31716,7 @@
       "produto": "ETIQ ALHO TRIT OKKER 400G",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -33030,7 +32446,7 @@
       "produto": "ETIQ PIMENTA BIQUINHO  OKKER 250G",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -33322,7 +32738,7 @@
       "produto": "LOGISTICA - FILME STRETCH AUTOMATICO",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "METAFILM EMBALAGENS PLASTICAS LTDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -33455,20 +32871,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 109.631,
+          "saida": 280.035,
           "estorno": 0.0,
-          "consumoLiquido": 109.631
+          "consumoLiquido": 280.035
         }
       ],
-      "mediaMensal": 2867.442,
-      "totalPeriodo": 63083.721
+      "mediaMensal": 2875.188,
+      "totalPeriodo": 63254.125
     },
     {
       "sku": "45362",
       "produto": "LOGISTICA - FILME STRETCH AUTOMATICO",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "METAFILM EMBALAGENS PLASTICAS LTDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -33602,19 +33018,19 @@
         {
           "mes": "2026-10",
           "saida": 93.589,
-          "estorno": 0.0,
-          "consumoLiquido": 93.589
+          "estorno": 36.549,
+          "consumoLiquido": 57.04
         }
       ],
-      "mediaMensal": 766.025,
-      "totalPeriodo": 16852.544
+      "mediaMensal": 764.363,
+      "totalPeriodo": 16815.995
     },
     {
       "sku": "45362",
       "produto": "LOGISTICA - FILME STRETCH AUTOMATICO 500x0,30",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "METAFILM EMBALAGENS PLASTICAS LTDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -33747,20 +33163,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 87.028,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 87.028
         }
       ],
-      "mediaMensal": 1069.674,
-      "totalPeriodo": 23532.824
+      "mediaMensal": 1073.63,
+      "totalPeriodo": 23619.852
     },
     {
       "sku": "50961",
       "produto": "LOGISTICA - FILME STRETCH MANUAL 500x0,15 / 500x0,25",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "POLO FORTE INDUSTRIA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM QUARTENARIA",
       "unidade": "unidade",
@@ -33906,7 +33322,7 @@
       "produto": "LOGISTICA - FILME STRETCH MANUAL 500x0,15 / 500x0,25",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "POLO FORTE INDUSTRIA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -34052,7 +33468,7 @@
       "produto": "MP - ACAFRAO/CURCUMA MOIDA KG",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "JNBM - CONDIMENTOS E ESPECIARIAS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -34185,20 +33601,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 2.318,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 2.318
         }
       ],
-      "mediaMensal": 11.028,
-      "totalPeriodo": 242.619
+      "mediaMensal": 11.133,
+      "totalPeriodo": 244.937
     },
     {
       "sku": "42064",
       "produto": "MP - ACAFRAO/CURCUMA MOIDA KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "JNBM - CONDIMENTOS E ESPECIARIAS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -34477,13 +33893,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 16.56,
-          "estorno": 0.0,
-          "consumoLiquido": 16.56
+          "saida": 41.408,
+          "estorno": 16.576,
+          "consumoLiquido": 24.832
         }
       ],
-      "mediaMensal": 513.639,
-      "totalPeriodo": 11300.067
+      "mediaMensal": 514.015,
+      "totalPeriodo": 11308.339
     },
     {
       "sku": "70901",
@@ -34769,13 +34185,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 24.325,
+          "saida": 48.59,
           "estorno": 0.0,
-          "consumoLiquido": 24.325
+          "consumoLiquido": 48.59
         }
       ],
-      "mediaMensal": 307.161,
-      "totalPeriodo": 6757.537
+      "mediaMensal": 308.264,
+      "totalPeriodo": 6781.802
     },
     {
       "sku": "70900",
@@ -34915,13 +34331,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 5.796,
-          "estorno": 0.0,
-          "consumoLiquido": 5.796
+          "saida": 14.48,
+          "estorno": 5.776,
+          "consumoLiquido": 8.704
         }
       ],
-      "mediaMensal": 510.707,
-      "totalPeriodo": 11235.547
+      "mediaMensal": 510.839,
+      "totalPeriodo": 11238.455
     },
     {
       "sku": "92971",
@@ -35353,13 +34769,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 9.936,
-          "estorno": 0.0,
-          "consumoLiquido": 9.936
+          "saida": 23.178,
+          "estorno": 3.3,
+          "consumoLiquido": 19.878
         }
       ],
-      "mediaMensal": 1.39,
-      "totalPeriodo": 30.585
+      "mediaMensal": 1.842,
+      "totalPeriodo": 40.527
     },
     {
       "sku": "138548",
@@ -35506,6 +34922,152 @@
       ],
       "mediaMensal": 0.132,
       "totalPeriodo": 2.898
+    },
+    {
+      "sku": "143564",
+      "produto": "MP - ALECRIM EM PO KG",
+      "loja": "10",
+      "lojaNome": "Okker - Matriz",
+      "fornecedor": "Fornecedor não informado",
+      "tipo": "Matéria-prima",
+      "categoria": "MATERIA PRIMA",
+      "unidade": "kg",
+      "historico": [
+        {
+          "mes": "2025-01",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-02",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-03",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-04",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-05",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-06",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-07",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-08",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-09",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-10",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-11",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-12",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-01",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-02",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-03",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-04",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-05",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-06",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-07",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-08",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-09",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-10",
+          "saida": 13.248,
+          "estorno": 0.0,
+          "consumoLiquido": 13.248
+        }
+      ],
+      "mediaMensal": 0.602,
+      "totalPeriodo": 13.248
     },
     {
       "sku": "42072",
@@ -35804,7 +35366,7 @@
       "produto": "MP - ALHO DESIDRATADO GRANULADO KG",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "V.C. THOMAZ AGRO COM",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -35937,20 +35499,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 155.664,
-          "estorno": 0.0,
-          "consumoLiquido": 155.664
+          "saida": 362.664,
+          "estorno": 165.6,
+          "consumoLiquido": 197.064
         }
       ],
-      "mediaMensal": 15687.916,
-      "totalPeriodo": 345134.149
+      "mediaMensal": 15689.798,
+      "totalPeriodo": 345175.549
     },
     {
       "sku": "42164",
       "produto": "MP - ALHO DESIDRATADO GRANULADO KG",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "V.C. THOMAZ AGRO COM",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -36096,7 +35658,7 @@
       "produto": "MP - ALHO DESIDRATADO GRANULADO KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "V.C. THOMAZ AGRO COM",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -36242,7 +35804,7 @@
       "produto": "MP - ALHO FRITO GRANULADO 8-16 MESH F GRANDE",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "V.C. THOMAZ AGRO COM",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -36388,7 +35950,7 @@
       "produto": "MP - AMIDO MOD PRE-GELATINIZADO OKKER KG",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "AMIFEC FECULA MANDIOCA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -36667,13 +36229,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 6.362,
+          "saida": 12.708,
           "estorno": 0.0,
-          "consumoLiquido": 6.362
+          "consumoLiquido": 12.708
         }
       ],
-      "mediaMensal": 82.222,
-      "totalPeriodo": 1808.889
+      "mediaMensal": 82.511,
+      "totalPeriodo": 1815.235
     },
     {
       "sku": "70908",
@@ -36813,13 +36375,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 2.484,
-          "estorno": 0.0,
-          "consumoLiquido": 2.484
+          "saida": 4.633,
+          "estorno": 1.65,
+          "consumoLiquido": 2.983
         }
       ],
-      "mediaMensal": 78.838,
-      "totalPeriodo": 1734.428
+      "mediaMensal": 78.86,
+      "totalPeriodo": 1734.927
     },
     {
       "sku": "93000",
@@ -37105,8 +36667,8 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
-          "estorno": 0.0,
+          "saida": 7.05,
+          "estorno": 14.1,
           "consumoLiquido": 0.0
         }
       ],
@@ -37118,7 +36680,7 @@
       "produto": "MP - AROMA DE CARNE KG",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "BIOCARMIM",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -37264,7 +36826,7 @@
       "produto": "MP - AROMA DE FUMACA EM LIQUIDO",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "SBR FOODS LTDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -37543,20 +37105,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1.656,
-          "estorno": 0.0,
-          "consumoLiquido": 1.656
+          "saida": 4.137,
+          "estorno": 1.65,
+          "consumoLiquido": 2.487
         }
       ],
-      "mediaMensal": 68.021,
-      "totalPeriodo": 1496.457
+      "mediaMensal": 68.059,
+      "totalPeriodo": 1497.288
     },
     {
       "sku": "83400",
       "produto": "MP - BHT ONU3077, 9, III",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "LAPIENDRIUS INDUSTRIA E COMERCIO LTDA.",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -37702,7 +37264,7 @@
       "produto": "MP - BICARBONATO DE SODIO KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TQA INDUSTRIA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -37848,7 +37410,7 @@
       "produto": "MP - CACAU EM PO ALCALINO KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "INDUSTRIA BRASILEIRA DE CACAU",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -38870,7 +38432,7 @@
       "produto": "MP - CANJICA BRANCA KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "AGRICOLA FERRARI",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -39441,13 +39003,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 132.48,
-          "estorno": 0.0,
-          "consumoLiquido": 132.48
+          "saida": 345.12,
+          "estorno": 127.2,
+          "consumoLiquido": 217.92
         }
       ],
-      "mediaMensal": 307.513,
-      "totalPeriodo": 6765.296
+      "mediaMensal": 311.397,
+      "totalPeriodo": 6850.736
     },
     {
       "sku": "43563",
@@ -39746,7 +39308,7 @@
       "produto": "MP - CHA CAMOMILA FLOR RAZURADO PARA SACHE KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "HERBOFLORA PRODUTOS NATURAIS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -39892,7 +39454,7 @@
       "produto": "MP - CHA CAPIM CIDREIRA  RAZURADO PARA SACHE KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "HERBOFLORA PRODUTOS NATURAIS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -40038,7 +39600,7 @@
       "produto": "MP - CHA ERVA DOCE / FUNCHO RAZURADO PARA SACHE KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "HERBOFLORA PRODUTOS NATURAIS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -40768,7 +40330,7 @@
       "produto": "MP - COCO RALADO EM FLOCOS KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "LC COCOS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -42215,13 +41777,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 614.861,
+          "saida": 1510.037,
           "estorno": 0.0,
-          "consumoLiquido": 614.861
+          "consumoLiquido": 1510.037
         }
       ],
-      "mediaMensal": 10105.927,
-      "totalPeriodo": 222330.403
+      "mediaMensal": 10146.617,
+      "totalPeriodo": 223225.579
     },
     {
       "sku": "9228",
@@ -42362,12 +41924,12 @@
         {
           "mes": "2026-10",
           "saida": 243.66,
-          "estorno": 0.0,
-          "consumoLiquido": 243.66
+          "estorno": 168.667,
+          "consumoLiquido": 74.993
         }
       ],
-      "mediaMensal": 890.55,
-      "totalPeriodo": 19592.106
+      "mediaMensal": 882.884,
+      "totalPeriodo": 19423.439
     },
     {
       "sku": "41983",
@@ -42520,7 +42082,7 @@
       "produto": "MP - ERVILHA PARTIDA KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TIGRE ALIMENTOS DO BRASIL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -42666,7 +42228,7 @@
       "produto": "MP - ESTER DE POLIGLICEROS (PGPR90)",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MASTERSENSE INGREDIE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -44856,7 +44418,7 @@
       "produto": "MP - GLUTAMATO MONOSSODICO GRANEL KILO",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "CONDMAX QUALIDADE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -44989,20 +44551,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 24.344,
-          "estorno": 0.0,
-          "consumoLiquido": 24.344
+          "saida": 60.876,
+          "estorno": 24.376,
+          "consumoLiquido": 36.5
         }
       ],
-      "mediaMensal": 3.995,
-      "totalPeriodo": 87.885
+      "mediaMensal": 4.547,
+      "totalPeriodo": 100.041
     },
     {
       "sku": "66767",
       "produto": "MP - GLUTAMATO MONOSSODICO GRANEL KILO",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "CONDMAX QUALIDADE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -45281,13 +44843,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 2.858,
+          "saida": 5.708,
           "estorno": 0.0,
-          "consumoLiquido": 2.858
+          "consumoLiquido": 5.708
         }
       ],
-      "mediaMensal": 40.624,
-      "totalPeriodo": 893.729
+      "mediaMensal": 40.754,
+      "totalPeriodo": 896.579
     },
     {
       "sku": "70909",
@@ -45427,20 +44989,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1.988,
-          "estorno": 0.0,
-          "consumoLiquido": 1.988
+          "saida": 4.951,
+          "estorno": 1.95,
+          "consumoLiquido": 3.001
         }
       ],
-      "mediaMensal": 78.563,
-      "totalPeriodo": 1728.379
+      "mediaMensal": 78.609,
+      "totalPeriodo": 1729.392
     },
     {
       "sku": "92972",
       "produto": "MP - GORDURA AGP 600 BD KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MASTERSENSE INGREDIE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -45586,7 +45148,7 @@
       "produto": "MP - GRAO DE BICO 9MM KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TIGRE ALIMENTOS DO BRASIL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -46011,20 +45573,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.496,
-          "estorno": 0.0,
-          "consumoLiquido": 0.496
+          "saida": 1.255,
+          "estorno": 0.526,
+          "consumoLiquido": 0.729
         }
       ],
-      "mediaMensal": 0.095,
-      "totalPeriodo": 2.097
+      "mediaMensal": 0.106,
+      "totalPeriodo": 2.33
     },
     {
       "sku": "93009",
       "produto": "MP - LEITE EM PO DESNATADO KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "LATICINIOS SANTA RITA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -46170,7 +45732,7 @@
       "produto": "MP - LEITE EM PO INTEGRAL KG",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "LATICINIOS SANTA RITA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -46303,20 +45865,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 156.44,
+          "saida": 312.494,
           "estorno": 0.0,
-          "consumoLiquido": 156.44
+          "consumoLiquido": 312.494
         }
       ],
-      "mediaMensal": 2102.45,
-      "totalPeriodo": 46253.909
+      "mediaMensal": 2109.544,
+      "totalPeriodo": 46409.963
     },
     {
       "sku": "43342",
       "produto": "MP - LENTILHA KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "TIGRE ALIMENTOS DO BRASIL",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -46462,7 +46024,7 @@
       "produto": "MP - LOURO EM FOLHAS INTEIRAS KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "COLLINA GRAOS E FARINACEOS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -46741,13 +46303,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 4.968,
-          "estorno": 0.0,
-          "consumoLiquido": 4.968
+          "saida": 13.256,
+          "estorno": 16.576,
+          "consumoLiquido": 0.0
         }
       ],
-      "mediaMensal": 1.092,
-      "totalPeriodo": 24.028
+      "mediaMensal": 0.866,
+      "totalPeriodo": 19.06
     },
     {
       "sku": "70872",
@@ -47484,7 +47046,7 @@
       "produto": "MP - MILHO DE PIPOCA KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "AGRICOLA FERRARI",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -47922,7 +47484,7 @@
       "produto": "MP - MP LECETINA DE SOJA PARA CHOCOLATE KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MASTERSENSE INGREDIE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -48506,7 +48068,7 @@
       "produto": "MP - OREGANO FLOCOS KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "COLLINA GRAOS E FARINACEOS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -48785,13 +48347,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 50.878,
+          "saida": 101.63,
           "estorno": 0.0,
-          "consumoLiquido": 50.878
+          "consumoLiquido": 101.63
         }
       ],
-      "mediaMensal": 559.603,
-      "totalPeriodo": 12311.27
+      "mediaMensal": 561.91,
+      "totalPeriodo": 12362.022
     },
     {
       "sku": "45306",
@@ -49090,7 +48652,7 @@
       "produto": "MP - PASTA DE AVELA",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "CARINO INGREDIENTES",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -49966,7 +49528,7 @@
       "produto": "MP - PIMENTA REINO PRETA PO/ MOIDA KG",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "JNBM - CONDIMENTOS E ESPECIARIAS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -50112,7 +49674,7 @@
       "produto": "MP - PIMENTA REINO PRETA PO/ MOIDA KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "JNBM - CONDIMENTOS E ESPECIARIAS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -51121,13 +50683,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 41431.32,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 41431.32
         }
       ],
-      "mediaMensal": 187250.748,
-      "totalPeriodo": 4119516.454
+      "mediaMensal": 189133.99,
+      "totalPeriodo": 4160947.774
     },
     {
       "sku": "36910",
@@ -51559,20 +51121,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 6.362,
+          "saida": 12.708,
           "estorno": 0.0,
-          "consumoLiquido": 6.362
+          "consumoLiquido": 12.708
         }
       ],
-      "mediaMensal": 82.222,
-      "totalPeriodo": 1808.889
+      "mediaMensal": 82.511,
+      "totalPeriodo": 1815.235
     },
     {
       "sku": "46042",
       "produto": "MP - PROTEINA TEXT DE SOJA GRAN CARAMELO KG",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "GOEMIL INDUSTRIA DE PRODUTOS ALIMENTICIO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -52289,13 +51851,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 175.536,
-          "estorno": 0.0,
-          "consumoLiquido": 175.536
+          "saida": 438.822,
+          "estorno": 175.5,
+          "consumoLiquido": 263.322
         }
       ],
-      "mediaMensal": 722.161,
-      "totalPeriodo": 15887.538
+      "mediaMensal": 726.151,
+      "totalPeriodo": 15975.324
     },
     {
       "sku": "44624",
@@ -53019,13 +52581,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 2.635,
+          "saida": 5.264,
           "estorno": 0.0,
-          "consumoLiquido": 2.635
+          "consumoLiquido": 5.264
         }
       ],
-      "mediaMensal": 36.279,
-      "totalPeriodo": 798.137
+      "mediaMensal": 36.398,
+      "totalPeriodo": 800.766
     },
     {
       "sku": "70897",
@@ -53165,13 +52727,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1.656,
-          "estorno": 0.0,
-          "consumoLiquido": 1.656
+          "saida": 4.137,
+          "estorno": 1.65,
+          "consumoLiquido": 2.487
         }
       ],
-      "mediaMensal": 65.425,
-      "totalPeriodo": 1439.352
+      "mediaMensal": 65.463,
+      "totalPeriodo": 1440.183
     },
     {
       "sku": "70897",
@@ -53324,7 +52886,7 @@
       "produto": "MP - SORO DE LEITE PARA CHOCOLATE",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "Q-ALIMENTARE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -53470,7 +53032,7 @@
       "produto": "MP - TAPIOCA GRANULADA TIPO1",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "FECULARIA LOANDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -53616,7 +53178,7 @@
       "produto": "MP - TEMPERO BAIANO KG",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MON CHEF",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -53762,7 +53324,7 @@
       "produto": "MP - TEMPERO BAIANO KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MON CHEF",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -53908,7 +53470,7 @@
       "produto": "MP - TEMPERO PARA CARNE COM AMACIANTE KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MON CHEF",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -54054,7 +53616,7 @@
       "produto": "MP - TEMPERO PARA CHURRASCO KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MON CHEF",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -54200,7 +53762,7 @@
       "produto": "MP - TEMPERO PARA FRANGO E ARROZ KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MON CHEF",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -54638,7 +54200,7 @@
       "produto": "MP - VANILINA KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "PLURY QUIMICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -55063,13 +54625,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1.651,
+          "saida": 3.298,
           "estorno": 0.0,
-          "consumoLiquido": 1.651
+          "consumoLiquido": 3.298
         }
       ],
-      "mediaMensal": 26.758,
-      "totalPeriodo": 588.684
+      "mediaMensal": 26.833,
+      "totalPeriodo": 590.331
     },
     {
       "sku": "79782",
@@ -55222,7 +54784,7 @@
       "produto": "MP – SUSPENSÃO OLEOSA URUCUM KG",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "DAXIA DOCE AROMA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -55368,7 +54930,7 @@
       "produto": "MP – SUSPENSÃO OLEOSA URUCUM KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "DAXIA DOCE AROMA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -55660,7 +55222,7 @@
       "produto": "POTE LISO OKKER P220",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "NOVA CHAMFER",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -55952,7 +55514,7 @@
       "produto": "POTE LISO P500 LACRE TPA OKKER",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "WS DA SILVA PLASTICO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -56098,7 +55660,7 @@
       "produto": "POTE PET 125 ML - DAVELA",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IND. BANDEIRANTE EMBALAGENS PLASTICAS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -56390,7 +55952,7 @@
       "produto": "POTE PET 250 ML - DAVELA",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "IND. BANDEIRANTE EMBALAGENS PLASTICAS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -58288,7 +57850,7 @@
       "produto": "ROTULO CREME DE AVELA DAVELA 140G FRENTE",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -58434,7 +57996,7 @@
       "produto": "ROTULO CREME DE AVELA DAVELA 140G VERSO",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -58580,7 +58142,7 @@
       "produto": "ROTULO CREME DE AVELA DAVELA 290G FRENTE",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -58726,7 +58288,7 @@
       "produto": "ROTULO CREME DE AVELA DAVELA 290G VERSO",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -63252,7 +62814,7 @@
       "produto": "SACO POUCH TAPIOCA DA TERRINHA 490GR",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "PLASTICO DU VALE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -63385,20 +62947,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 4044.0,
+          "saida": 7788.0,
           "estorno": 0.0,
-          "consumoLiquido": 4044.0
+          "consumoLiquido": 7788.0
         }
       ],
-      "mediaMensal": 130759.636,
-      "totalPeriodo": 2876712.0
+      "mediaMensal": 130929.818,
+      "totalPeriodo": 2880456.0
     },
     {
       "sku": "25804",
       "produto": "SACO POUCH TAPIOCA DELIOCA 560GR",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "PLASTICO DU VALE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -63531,13 +63093,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 6540.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 6540.0
         }
       ],
-      "mediaMensal": 64560.545,
-      "totalPeriodo": 1420332.0
+      "mediaMensal": 64857.818,
+      "totalPeriodo": 1426872.0
     },
     {
       "sku": "91705",
@@ -63836,7 +63398,7 @@
       "produto": "SACO POUCH TAPIOCA TAEQ 560 GR SOLTINHA",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -64115,13 +63677,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 3768.0,
+          "saida": 6456.0,
           "estorno": 0.0,
-          "consumoLiquido": 3768.0
+          "consumoLiquido": 6456.0
         }
       ],
-      "mediaMensal": 10599.818,
-      "totalPeriodo": 233196.0
+      "mediaMensal": 10722.0,
+      "totalPeriodo": 235884.0
     },
     {
       "sku": "81121",
@@ -64261,13 +63823,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 4860.0,
+          "saida": 9708.0,
           "estorno": 0.0,
-          "consumoLiquido": 4860.0
+          "consumoLiquido": 9708.0
         }
       ],
-      "mediaMensal": 68622.545,
-      "totalPeriodo": 1509696.0
+      "mediaMensal": 68842.909,
+      "totalPeriodo": 1514544.0
     },
     {
       "sku": "77640",
@@ -64420,7 +63982,7 @@
       "produto": "TAMPA 58 MM BRANCO - DAVELA",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "PANO CAP DO BRASIL INDUSTRIA E COMERCIO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -64566,7 +64128,7 @@
       "produto": "TAMPA 63 MM BRANCO - DAVELA",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "PANO CAP DO BRASIL INDUSTRIA E COMERCIO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM",
       "unidade": "unidade",
@@ -66318,7 +65880,7 @@
       "produto": "TAMPA VERMELHA BALDE OKKER 2.2",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "WS DA SILVA PLASTICO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -66464,7 +66026,7 @@
       "produto": "TAMPA VERMELHA BALDE OKKER 3.2",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "WS DA SILVA PLASTICO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",
@@ -66756,7 +66318,7 @@
       "produto": "TAMPA VERMELHA OKKER P500",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "WS DA SILVA PLASTICO",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "unidade",

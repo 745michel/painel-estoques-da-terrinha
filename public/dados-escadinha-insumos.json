@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-02T08:31:07.118300",
+  "atualizadoEm": "2026-10-05T08:07:25.732772",
   "origem": "ficha_tecnica.json + dados-escadinha.json (explosão BOM × plano de produção)",
   "dataPublicacao": "2026-09-11",
   "dataPublicacaoAnterior": "2026-08-13",
@@ -368,14 +368,14 @@
       "produto": "BOBINA PARA FARDOS 85,0 CM 500G LISO",
       "loja": "1",
       "tipo": "Embalagem",
-      "fornecedor": "PLASTICO DU VALE"
+      "fornecedor": "Fornecedor não informado"
     },
     {
       "sku": "96245",
       "produto": "BOBINA TAPIOCA DA TERRINHA 1 KG TRILAMINADA",
       "loja": "1",
       "tipo": "Embalagem",
-      "fornecedor": "MAJICPLAST EMBALAGEN"
+      "fornecedor": "Fornecedor não informado"
     },
     {
       "sku": "77041",
@@ -12234,6 +12234,79 @@
     {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
+      "sku": 57929,
+      "descricao": "BOBINA FUBA MIMOSO DA TERRINHA 1 KG",
+      "mensal": [
+        67.7,
+        151.5,
+        158.8,
+        144.3,
+        180.4,
+        180.4,
+        180.4,
+        144.3,
+        108.2,
+        158.8,
+        158.8,
+        158.8
+      ],
+      "mensalAnterior": [
+        67.7,
+        151.5,
+        158.8,
+        144.3,
+        180.4,
+        180.4,
+        180.4,
+        144.3,
+        158.8,
+        158.8,
+        158.8,
+        158.8
+      ],
+      "mensalReal": [
+        67.7,
+        133.9,
+        86.9,
+        156.3,
+        167.4,
+        203.5,
+        142.5,
+        101.0,
+        111.1,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "totalAno": 1792.4,
+      "detalhamento": [
+        {
+          "codRaiz": 48003,
+          "produtoRaiz": "FUBA MIMOSO DA TERRINHA 1 KG FD 10",
+          "caminho": [],
+          "consumoPorUnidade": 0.072164,
+          "mensal": [
+            67.69,
+            151.544,
+            158.761,
+            144.328,
+            180.41,
+            180.41,
+            180.41,
+            144.328,
+            108.246,
+            158.761,
+            158.761,
+            158.761
+          ],
+          "escadinhaPlanoAnual": 24838,
+          "escadinhaUnidade": "FD"
+        }
+      ]
+    },
+    {
+      "loja": "1",
+      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 6765,
       "descricao": "BOBINA TAPIOCA PUBLIC 1 KG",
       "mensal": [
@@ -12520,6 +12593,79 @@
           ],
           "escadinhaPlanoAnual": 104459,
           "escadinhaUnidade": "CX"
+        }
+      ]
+    },
+    {
+      "loja": "1",
+      "lojaLabel": "1 (Da Terrinha – Matriz)",
+      "sku": 79180,
+      "descricao": "BOBINA FLOCAO MILHO DA TERRINHA 800 G",
+      "mensal": [
+        58.0,
+        180.0,
+        180.0,
+        180.0,
+        180.0,
+        180.0,
+        180.0,
+        120.0,
+        96.0,
+        96.0,
+        96.0,
+        84.0
+      ],
+      "mensalAnterior": [
+        58.0,
+        180.0,
+        180.0,
+        180.0,
+        180.0,
+        180.0,
+        180.0,
+        120.0,
+        120.0,
+        120.0,
+        120.0,
+        120.0
+      ],
+      "mensalReal": [
+        58.0,
+        172.2,
+        165.6,
+        161.3,
+        184.3,
+        201.0,
+        117.1,
+        85.1,
+        192.8,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "totalAno": 1630.0,
+      "detalhamento": [
+        {
+          "codRaiz": 78441,
+          "produtoRaiz": "FLOCAO DE MILHO DA TERRINHA 800G  - FD 12",
+          "caminho": [],
+          "consumoPorUnidade": 0.12,
+          "mensal": [
+            57.96,
+            180.0,
+            180.0,
+            180.0,
+            180.0,
+            180.0,
+            180.0,
+            120.0,
+            96.0,
+            96.0,
+            96.0,
+            84.0
+          ],
+          "escadinhaPlanoAnual": 13583,
+          "escadinhaUnidade": "FD"
         }
       ]
     },
@@ -56145,79 +56291,6 @@
     {
       "loja": "14",
       "lojaLabel": "14 (Da Terrinha – Filial SP)",
-      "sku": 57929,
-      "descricao": "BOBINA FUBA MIMOSO DA TERRINHA 1 KG",
-      "mensal": [
-        67.7,
-        151.5,
-        158.8,
-        144.3,
-        180.4,
-        180.4,
-        180.4,
-        144.3,
-        108.2,
-        158.8,
-        158.8,
-        158.8
-      ],
-      "mensalAnterior": [
-        67.7,
-        151.5,
-        158.8,
-        144.3,
-        180.4,
-        180.4,
-        180.4,
-        144.3,
-        158.8,
-        158.8,
-        158.8,
-        158.8
-      ],
-      "mensalReal": [
-        67.7,
-        133.9,
-        86.9,
-        156.3,
-        167.4,
-        203.5,
-        142.5,
-        101.0,
-        111.1,
-        0.0,
-        0.0,
-        0.0
-      ],
-      "totalAno": 1792.4,
-      "detalhamento": [
-        {
-          "codRaiz": 48003,
-          "produtoRaiz": "FUBA MIMOSO DA TERRINHA 1 KG FD 10",
-          "caminho": [],
-          "consumoPorUnidade": 0.072164,
-          "mensal": [
-            67.69,
-            151.544,
-            158.761,
-            144.328,
-            180.41,
-            180.41,
-            180.41,
-            144.328,
-            108.246,
-            158.761,
-            158.761,
-            158.761
-          ],
-          "escadinhaPlanoAnual": 24838,
-          "escadinhaUnidade": "FD"
-        }
-      ]
-    },
-    {
-      "loja": "14",
-      "lojaLabel": "14 (Da Terrinha – Filial SP)",
       "sku": 86381,
       "descricao": "BOBINA LOURO EM FOLHA DA TERRINHA 8GR",
       "mensal": [
@@ -56358,79 +56431,6 @@
           ],
           "escadinhaPlanoAnual": 11916,
           "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "14",
-      "lojaLabel": "14 (Da Terrinha – Filial SP)",
-      "sku": 79180,
-      "descricao": "BOBINA FLOCAO MILHO DA TERRINHA 800 G",
-      "mensal": [
-        58.0,
-        180.0,
-        180.0,
-        180.0,
-        180.0,
-        180.0,
-        180.0,
-        120.0,
-        96.0,
-        96.0,
-        96.0,
-        84.0
-      ],
-      "mensalAnterior": [
-        58.0,
-        180.0,
-        180.0,
-        180.0,
-        180.0,
-        180.0,
-        180.0,
-        120.0,
-        120.0,
-        120.0,
-        120.0,
-        120.0
-      ],
-      "mensalReal": [
-        58.0,
-        172.2,
-        165.6,
-        161.3,
-        184.3,
-        201.0,
-        117.1,
-        85.1,
-        192.8,
-        0.0,
-        0.0,
-        0.0
-      ],
-      "totalAno": 1630.0,
-      "detalhamento": [
-        {
-          "codRaiz": 78441,
-          "produtoRaiz": "FLOCAO DE MILHO DA TERRINHA 800G  - FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 0.12,
-          "mensal": [
-            57.96,
-            180.0,
-            180.0,
-            180.0,
-            180.0,
-            180.0,
-            180.0,
-            120.0,
-            96.0,
-            96.0,
-            96.0,
-            84.0
-          ],
-          "escadinhaPlanoAnual": 13583,
-          "escadinhaUnidade": "FD"
         }
       ]
     },
@@ -64086,8 +64086,8 @@
       "desvioPercentual": -7.2
     },
     {
-      "loja": "14",
-      "lojaLabel": "14 (Da Terrinha – Filial SP)",
+      "loja": "1",
+      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 57929,
       "descricao": "BOBINA FUBA MIMOSO DA TERRINHA 1 KG",
       "mes": "set",
@@ -64185,8 +64185,8 @@
       "desvioPercentual": 20.0
     },
     {
-      "loja": "14",
-      "lojaLabel": "14 (Da Terrinha – Filial SP)",
+      "loja": "1",
+      "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 79180,
       "descricao": "BOBINA FLOCAO MILHO DA TERRINHA 800 G",
       "mes": "dez",
