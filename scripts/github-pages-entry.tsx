@@ -8,6 +8,7 @@ import mrpTerceirosData from "../public/dados-mrp-terceiros.json";
 import escadinhaData from "../public/dados-escadinha.json";
 import escadinhaInsumosData from "../public/dados-escadinha-insumos.json";
 import pedidosVendaData from "../public/dados-pedidos-venda.json";
+import cortesData from "../public/dados-cortes.json";
 import type valoresDataType from "../data/dados-valores-insumos.json";
 import type valoresProdutoAcabadoDataType from "../data/dados-valores-produto-acabado.json";
 import type fornecedoresDataType from "../data/dados-fornecedores.json";
@@ -89,6 +90,7 @@ function App() {
         escadinhaData={escadinhaData}
         escadinhaInsumosData={escadinhaInsumosData}
         pedidosVendaData={pedidosVendaData}
+        cortesData={cortesData}
       />
       {!desbloqueado && (
         <div

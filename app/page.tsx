@@ -9,6 +9,7 @@ import mrpTerceirosDataStatic from "../public/dados-mrp-terceiros.json";
 import escadinhaDataStatic from "../public/dados-escadinha.json";
 import escadinhaInsumosDataStatic from "../public/dados-escadinha-insumos.json";
 import pedidosVendaDataStatic from "../public/dados-pedidos-venda.json";
+import cortesDataStatic from "../public/dados-cortes.json";
 import valoresProdutoAcabadoDataStatic from "../data/dados-valores-produto-acabado.json";
 import fornecedoresDataStatic from "../data/dados-fornecedores.json";
 import { fetchSharePointJson, fetchAccessList, isConfigured, type AccessEntry } from "./lib/sharepoint";
@@ -25,6 +26,29 @@ type MrpTerceirosData = typeof mrpTerceirosDataStatic;
 type EscadinhaData = typeof escadinhaDataStatic;
 type EscadinhaInsumosData = typeof escadinhaInsumosDataStatic;
 type PedidosVendaData = typeof pedidosVendaDataStatic;
+// Tipo declarado a mao (nao "typeof cortesDataStatic") de proposito: logo apos criado,
+// dados-cortes.json tem motivo/observacoes sempre null (ninguem preencheu a planilha ainda) -
+// inferir do arquivo real travaria os dois campos no tipo literal "null". Mesmo motivo da
+// mesma decisao em DashboardClient.tsx.
+type CortesLinha = {
+  data: string;
+  lojaKey: number | null;
+  loja: string;
+  produtoKey: number;
+  produto: string | null;
+  quantidadePedidaCx: number;
+  quantidadeFaturadaCx: number;
+  corteCx: number;
+  motivo: string | null;
+  observacoes: string | null;
+};
+type CortesData = {
+  atualizadoEm: string;
+  origem: string;
+  cortes: CortesLinha[];
+  totalLinhas: number;
+  semMotivo: number;
+};
 type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataStatic;
 type FornecedoresData = typeof fornecedoresDataStatic;
 
@@ -123,6 +147,20 @@ async function loadPedidosVendaData(): Promise<PedidosVendaData> {
   } catch (error) {
     console.error("Falha ao buscar dados-pedidos-venda.json do SharePoint, usando snapshot do build:", error);
     return pedidosVendaDataStatic;
+  }
+}
+
+async function loadCortesData(): Promise<CortesData> {
+  // Corte do roteiro por produto/loja/dia (dados_cortes.json, Power Automate) cruzado com o
+  // motivo preenchido manualmente em motivos_cortes.xlsx - ja agregado localmente
+  // (work/sheet-inspect/build_cortes.py), mesmo padrao do Fornecedores: so o resultado
+  // pequeno e copiado pro SharePoint, nunca os arquivos brutos. Ver CLAUDE.md, 05/10/2026.
+  if (!isConfigured()) return cortesDataStatic as CortesData;
+  try {
+    return await fetchSharePointJson<CortesData>("dados-cortes.json");
+  } catch (error) {
+    console.error("Falha ao buscar dados-cortes.json do SharePoint, usando snapshot do build:", error);
+    return cortesDataStatic as CortesData;
   }
 }
 
@@ -231,7 +269,7 @@ export default async function Home() {
     return <AcessoNaoAutorizado email={email!} />;
   }
 
-  const [estoqueData, insumosData, consumoData, mrpTerceirosData, escadinhaData, escadinhaInsumosData, pedidosVendaData] = await Promise.all([
+  const [estoqueData, insumosData, consumoData, mrpTerceirosData, escadinhaData, escadinhaInsumosData, pedidosVendaData, cortesData] = await Promise.all([
     loadEstoqueData(),
     loadInsumosData(),
     loadConsumoData(),
@@ -239,6 +277,7 @@ export default async function Home() {
     loadEscadinhaData(),
     loadEscadinhaInsumosData(),
     loadPedidosVendaData(),
+    loadCortesData(),
   ]);
   const valoresData = canViewValues ? await loadValoresData(insumosData) : null;
   const valoresProdutoAcabadoData = canViewValues ? await loadValoresProdutoAcabadoData(pedidosVendaData, estoqueData) : null;
@@ -257,6 +296,7 @@ export default async function Home() {
       escadinhaData={escadinhaData}
       escadinhaInsumosData={escadinhaInsumosData}
       pedidosVendaData={pedidosVendaData}
+      cortesData={cortesData}
     />
   );
 }

@@ -120,7 +120,7 @@ type Product = SourceProduct & {
   // lugar de Number(sku) pra cruzar com escadinhaData.
   escadinhaCod?: number;
 };
-type Section = "terceiros" | "insumos" | "consumo" | "valores" | "escadinha" | "escadinhaInsumos" | "pedidosVenda" | "valorProdutoAcabado" | "fornecedores";
+type Section = "terceiros" | "insumos" | "consumo" | "valores" | "escadinha" | "escadinhaInsumos" | "pedidosVenda" | "cortes" | "valorProdutoAcabado" | "fornecedores";
 type PedidosVendaProduto = {
   cod: number;
   produto: string;
@@ -141,6 +141,29 @@ type PedidosVendaData = {
   atualizadoEm: string;
   mesesCorte: string[];
   produtos: PedidosVendaProduto[];
+};
+// Tipo declarado a mao (nao inferido do JSON via "typeof ... import") de proposito: logo
+// depois de criado, dados-cortes.json tem motivo/observacoes sempre null (ninguem preencheu
+// a planilha ainda) - inferir do arquivo real travaria esses dois campos no tipo literal
+// "null", quebrando assim que o primeiro motivo de verdade for preenchido.
+type CortesLinha = {
+  data: string;
+  lojaKey: number | null;
+  loja: string;
+  produtoKey: number;
+  produto: string | null;
+  quantidadePedidaCx: number;
+  quantidadeFaturadaCx: number;
+  corteCx: number;
+  motivo: string | null;
+  observacoes: string | null;
+};
+type CortesData = {
+  atualizadoEm: string;
+  origem: string;
+  cortes: CortesLinha[];
+  totalLinhas: number;
+  semMotivo: number;
 };
 type ValuesData = typeof valoresDataType;
 type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
@@ -838,6 +861,7 @@ function ValuesDashboard({
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
+        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
         <button className="nav-item active" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>
         <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>
@@ -1107,6 +1131,7 @@ function ConsumptionDashboard({
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
+        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
@@ -1361,6 +1386,7 @@ function EscadinhaDashboard({
         <button className="nav-item active" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
+        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
@@ -1649,6 +1675,7 @@ function EscadinhaInsumosDashboard({
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         <button className="nav-item active" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
+        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
@@ -2006,6 +2033,7 @@ function PedidosVendaDashboard({
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item active" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
+        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
@@ -2142,6 +2170,178 @@ function PedidosVendaDashboard({
   </main>;
 }
 
+// Pedido do usuario em 05/10/2026 ("preciso dar os motivos dos cortes"): dados_cortes.json (BI)
+// tem O QUE foi cortado mas nao tem NENHUM campo de motivo - so existe em motivos_cortes.xlsx,
+// planilha nova mantida manualmente (mesmo padrao de "voce mesmo gerencia" ja usado pra
+// AcessoPainelEstoques, so que em Excel). build_cortes.py cruza os dois por (data, loja, sku).
+const MOTIVOS_CORTE_OPCOES = [
+  "Falta de matéria-prima",
+  "Falta de embalagem",
+  "Problema de produção",
+  "Problema logístico/transporte",
+  "Erro de pedido/cadastro",
+  "Cliente cancelou/alterou",
+  "Problema de qualidade",
+  "Outro",
+];
+function CortesDashboard({
+  onSectionChange,
+  canViewValues,
+  cortesData,
+}: {
+  onSectionChange: (section: Section) => void;
+  canViewValues: boolean;
+  cortesData: CortesData;
+}) {
+  const [query, setQuery] = useState("");
+  const [lojas, setLojas] = useState<string[]>([]);
+  const [motivos, setMotivos] = useState<string[]>([]);
+  const [somenteSemMotivo, setSomenteSemMotivo] = useState(false);
+  const [periodo, setPeriodo] = useState<"30" | "90" | "tudo">("90");
+  const [sortField, setSortField] = useState<"data" | "corteCx">("corteCx");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+  function toggleSort(field: typeof sortField) {
+    if (field === sortField) setSortDir((dir) => (dir === "desc" ? "asc" : "desc"));
+    else { setSortField(field); setSortDir("desc"); }
+  }
+
+  const cortes = cortesData.cortes;
+  const SEM_MOTIVO = "Sem motivo preenchido";
+  const lojaOptions = useMemo(
+    () => Array.from(new Set(cortes.map((c) => c.loja))).sort((a, b) => a.localeCompare(b, "pt-BR")).map((l) => ({ value: l, label: l })),
+    [cortes],
+  );
+  const motivoOptions = useMemo(
+    () => [...MOTIVOS_CORTE_OPCOES.filter((m) => cortes.some((c) => c.motivo === m)), SEM_MOTIVO].map((m) => ({ value: m, label: m })),
+    [cortes],
+  );
+  const hoje = new Date();
+  const limiteData = periodo === "tudo" ? null : new Date(hoje.getTime() - Number(periodo) * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
+  const filtrados = useMemo(() => {
+    const search = query.trim().toLocaleLowerCase("pt-BR");
+    return cortes.filter((c) => (
+      (!limiteData || c.data >= limiteData)
+      && (!search || (c.produto ?? "").toLocaleLowerCase("pt-BR").includes(search) || String(c.produtoKey).includes(search) || c.loja.toLocaleLowerCase("pt-BR").includes(search))
+      && (lojas.length === 0 || lojas.includes(c.loja))
+      && (motivos.length === 0 || motivos.includes(c.motivo ?? SEM_MOTIVO))
+      && (!somenteSemMotivo || !c.motivo)
+    ));
+  }, [cortes, query, lojas, motivos, somenteSemMotivo, limiteData]);
+
+  const ordenados = useMemo(() => {
+    const sinal = sortDir === "desc" ? -1 : 1;
+    return [...filtrados].sort((a, b) => {
+      const valorA = sortField === "data" ? a.data : a.corteCx;
+      const valorB = sortField === "data" ? b.data : b.corteCx;
+      if (valorA !== valorB) return valorA < valorB ? -sinal : sinal;
+      return a.corteCx - b.corteCx;
+    });
+  }, [filtrados, sortField, sortDir]);
+
+  const totalCorteFiltrado = filtrados.reduce((sum, c) => sum + c.corteCx, 0);
+  const semMotivoFiltrado = filtrados.filter((c) => !c.motivo).length;
+  const percentualComMotivo = filtrados.length > 0 ? ((filtrados.length - semMotivoFiltrado) / filtrados.length) * 100 : null;
+  const rankingMotivos = useMemo(() => {
+    const porMotivo = new Map<string, number>();
+    for (const c of filtrados) {
+      const chave = c.motivo ?? SEM_MOTIVO;
+      porMotivo.set(chave, (porMotivo.get(chave) ?? 0) + c.corteCx);
+    }
+    return Array.from(porMotivo.entries()).sort((a, b) => b[1] - a[1]);
+  }, [filtrados]);
+  const updated = new Date(cortesData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+
+  return <main className="app-shell">
+    <aside className="sidebar">
+      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
+      <nav aria-label="Navegação principal">
+        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
+        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
+        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
+        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
+        <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
+        <button className="nav-item active" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
+        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
+      </nav>
+      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
+      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
+    </aside>
+    <section className="workspace">
+      <header className="topbar">
+        <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Cortes</strong></div>
+        <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar produto, SKU ou loja..." /><kbd>Ctrl K</kbd></label>
+      </header>
+      <div className="content consumption-content">
+        <div className="page-heading"><div><p className="eyebrow">PEDIDOS NÃO ATENDIDOS</p><h1>Cortes de pedido</h1><p>O que foi pedido e não entregue (corte do roteiro), com o motivo preenchido manualmente.</p></div></div>
+
+        <section className="kpi-grid" aria-label="Indicadores principais" style={{ gridTemplateColumns: "repeat(4, minmax(0,1fr))" }}>
+          <div className="kpi-card performance-card">
+            <div className="kpi-top"><span className="kpi-icon">✂</span><span className="trend neutral">Filtrado</span></div>
+            <strong>{number.format(filtrados.length)}</strong><p>Cortes no período</p><div className="mini-rule performance-rule"><span style={{ width: "100%" }} /></div>
+            <small>{periodo === "tudo" ? "Todo o histórico" : `Últimos ${periodo} dias`}</small>
+          </div>
+          <div className="kpi-card critical-card">
+            <div className="kpi-top"><span className="kpi-icon">▤</span><span className="trend critical">Volume</span></div>
+            <strong>{number.format(Math.round(totalCorteFiltrado))}</strong><p>Total cortado (cx)</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+            <small>Soma das unidades filtradas</small>
+          </div>
+          <div className="kpi-card excess-card">
+            <div className="kpi-top"><span className="kpi-icon">!</span><span className="trend warn">Pendente</span></div>
+            <strong>{number.format(semMotivoFiltrado)}</strong><p>Cortes sem motivo</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+            <small>{percentualComMotivo != null ? `${decimal.format(percentualComMotivo)}% já preenchido` : "—"}</small>
+          </div>
+          <div className="kpi-card healthy-card">
+            <div className="kpi-top"><span className="kpi-icon">✓</span><span className="trend good">Maior motivo</span></div>
+            <strong>{rankingMotivos[0] ? number.format(Math.round(rankingMotivos[0][1])) : "—"}</strong><p>{rankingMotivos[0] ? rankingMotivos[0][0] : "Sem dados"}</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+            <small>cx cortados, maior categoria do período</small>
+          </div>
+        </section>
+
+        <section className="inventory-panel consumption-panel">
+          <div className="panel-heading"><div><p className="eyebrow">DETALHE</p><h2>Cortes por produto</h2><p>Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização.</p></div></div>
+          <div className="filters value-filters"><div className="selects">
+            <MultiFilter label="Loja" options={lojaOptions} selected={lojas} onChange={setLojas} />
+            <MultiFilter label="Motivo" options={motivoOptions} selected={motivos} onChange={setMotivos} />
+            <label className="toggle-inativos"><input type="checkbox" checked={somenteSemMotivo} onChange={(event) => setSomenteSemMotivo(event.target.checked)} /> Só sem motivo</label>
+            <label>Período<select value={periodo} onChange={(event) => setPeriodo(event.target.value as typeof periodo)}>
+              <option value="30">Últimos 30 dias</option>
+              <option value="90">Últimos 90 dias</option>
+              <option value="tudo">Todo o histórico</option>
+            </select></label>
+            {(lojas.length > 0 || motivos.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
+          </div></div>
+          <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
+            <th style={{ width: "auto" }}>Produto / loja</th>
+            <th style={{ width: 90 }}><button className="sortable-column" onClick={() => toggleSort("data")}>Data {sortField === "data" ? (sortDir === "desc" ? "▾" : "▴") : ""}</button></th>
+            <th style={{ width: 90 }}>Pedido</th>
+            <th style={{ width: 90 }}>Faturado</th>
+            <th style={{ width: 90 }}><button className="sortable-column" onClick={() => toggleSort("corteCx")}>Corte {sortField === "corteCx" ? (sortDir === "desc" ? "▾" : "▴") : ""}</button></th>
+            <th style={{ width: 170 }}>Motivo</th>
+            <th style={{ width: "auto" }}>Observações</th>
+          </tr></thead><tbody>
+            {ordenados.slice(0, 500).map((c, index) => <tr key={`${c.data}-${c.lojaKey}-${c.produtoKey}-${index}`}>
+              <td><div className="product-cell"><div><strong title={c.produto ?? ""}>{c.produto ?? "—"}</strong><small>SKU {c.produtoKey} · {c.loja}</small></div></div></td>
+              <td>{new Date(c.data).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</td>
+              <td><strong className="numeric">{number.format(Math.round(c.quantidadePedidaCx))}</strong></td>
+              <td><strong className="numeric">{number.format(Math.round(c.quantidadeFaturadaCx))}</strong></td>
+              <td><strong className="numeric escadinha-delta-down">{number.format(Math.round(c.corteCx))}</strong></td>
+              <td>{c.motivo ? <span className="status-pill">{c.motivo}</span> : <span className="no-projection" title="Preencha em motivos_cortes.xlsx">Sem motivo</span>}</td>
+              <td><small>{c.observacoes ?? "—"}</small></td>
+            </tr>)}
+          </tbody></table>{ordenados.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o período.</p></div>}
+          {ordenados.length > 500 && <p className="consumption-return">Mostrando os 500 maiores cortes do filtro atual ({number.format(ordenados.length)} no total) — refine o filtro ou o período pra ver outros.</p>}
+          </div>
+        </section>
+        <footer>Fonte: {cortesData.origem}.</footer>
+      </div>
+    </section>
+  </main>;
+}
+
 function ValorProdutoAcabadoDashboard({
   onSectionChange,
   canViewValues,
@@ -2235,6 +2435,7 @@ function ValorProdutoAcabadoDashboard({
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
+        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item active" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
@@ -2753,6 +2954,7 @@ function FornecedoresDashboard({
         <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
         <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
         <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
+        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
         {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
         {canViewValues && <button className="nav-item active" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
@@ -3161,6 +3363,7 @@ export default function DashboardClient({
   escadinhaData,
   escadinhaInsumosData,
   pedidosVendaData,
+  cortesData,
 }: {
   canViewValues: boolean;
   valoresData: ValuesData | null;
@@ -3173,6 +3376,7 @@ export default function DashboardClient({
   escadinhaData: EscadinhaData;
   escadinhaInsumosData: EscadinhaInsumosData;
   pedidosVendaData: PedidosVendaData;
+  cortesData: CortesData;
 }) {
   const [section, setSection] = useState<Section>("terceiros");
   const [query, setQuery] = useState("");
@@ -3197,6 +3401,7 @@ export default function DashboardClient({
   const isEscadinha = section === "escadinha";
   const isEscadinhaInsumos = section === "escadinhaInsumos";
   const isPedidosVenda = section === "pedidosVenda";
+  const isCortes = section === "cortes";
   const isValorProdutoAcabado = section === "valorProdutoAcabado";
   const isFornecedores = section === "fornecedores";
   const operationalSection = isInputs ? "insumos" : "terceiros";
@@ -3455,6 +3660,7 @@ export default function DashboardClient({
     <div hidden={!isEscadinha}><EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} pedidosVendaData={pedidosVendaData} /></div>
     <div hidden={!isEscadinhaInsumos}><EscadinhaInsumosDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaInsumosData={escadinhaInsumosData} /></div>
     <div hidden={!isPedidosVenda}><PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} /></div>
+    <div hidden={!isCortes}><CortesDashboard onSectionChange={changeSection} canViewValues={canViewValues} cortesData={cortesData} /></div>
     <div hidden={!(isValorProdutoAcabado && valoresProdutoAcabadoData)}>{valoresProdutoAcabadoData && <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} />}</div>
     <div hidden={!(isFornecedores && fornecedoresData)}>{fornecedoresData && <FornecedoresDashboard onSectionChange={changeSection} canViewValues={canViewValues} fornecedoresData={fornecedoresData} />}</div>
   </>;
@@ -3550,6 +3756,7 @@ export default function DashboardClient({
           <button className={`nav-item ${section === "escadinha" ? "active" : ""}`} onClick={() => changeSection("escadinha")}><span>▧</span> Escadinha geral</button>
           <button className={`nav-item ${section === "escadinhaInsumos" ? "active" : ""}`} onClick={() => changeSection("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
           <button className={`nav-item ${section === "pedidosVenda" ? "active" : ""}`} onClick={() => changeSection("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
+          <button className={`nav-item ${section === "cortes" ? "active" : ""}`} onClick={() => changeSection("cortes")}><span>✂</span> Cortes</button>
           {canViewValues && <button className={`nav-item ${section === "valores" ? "active" : ""}`} onClick={() => changeSection("valores")}><span>R$</span> Valor dos insumos</button>}
           {canViewValues && <button className={`nav-item ${section === "valorProdutoAcabado" ? "active" : ""}`} onClick={() => changeSection("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
           {canViewValues && <button className={`nav-item ${section === "fornecedores" ? "active" : ""}`} onClick={() => changeSection("fornecedores")}><span>🚚</span> Fornecedores</button>}
