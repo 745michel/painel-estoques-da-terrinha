@@ -2197,7 +2197,7 @@ function CortesDashboard({
   const [lojas, setLojas] = useState<string[]>([]);
   const [motivos, setMotivos] = useState<string[]>([]);
   const [somenteSemMotivo, setSomenteSemMotivo] = useState(false);
-  const [periodo, setPeriodo] = useState<"30" | "90" | "tudo">("90");
+  const [meses, setMeses] = useState<string[]>([]);
   const [sortField, setSortField] = useState<"data" | "corteCx">("corteCx");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   function toggleSort(field: typeof sortField) {
@@ -2215,19 +2215,21 @@ function CortesDashboard({
     () => [...MOTIVOS_CORTE_OPCOES.filter((m) => cortes.some((c) => c.motivo === m)), SEM_MOTIVO].map((m) => ({ value: m, label: m })),
     [cortes],
   );
-  const hoje = new Date();
-  const limiteData = periodo === "tudo" ? null : new Date(hoje.getTime() - Number(periodo) * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  const mesOptions = useMemo(
+    () => Array.from(new Set(cortes.map((c) => c.data.slice(0, 7)))).sort((a, b) => b.localeCompare(a)).map((m) => ({ value: m, label: mesCorteLabel(m) })),
+    [cortes],
+  );
 
   const filtrados = useMemo(() => {
     const search = query.trim().toLocaleLowerCase("pt-BR");
     return cortes.filter((c) => (
-      (!limiteData || c.data >= limiteData)
+      (meses.length === 0 || meses.includes(c.data.slice(0, 7)))
       && (!search || (c.produto ?? "").toLocaleLowerCase("pt-BR").includes(search) || String(c.produtoKey).includes(search) || c.loja.toLocaleLowerCase("pt-BR").includes(search))
       && (lojas.length === 0 || lojas.includes(c.loja))
       && (motivos.length === 0 || motivos.includes(c.motivo ?? SEM_MOTIVO))
       && (!somenteSemMotivo || !c.motivo)
     ));
-  }, [cortes, query, lojas, motivos, somenteSemMotivo, limiteData]);
+  }, [cortes, query, lojas, motivos, somenteSemMotivo, meses]);
 
   const ordenados = useMemo(() => {
     const sinal = sortDir === "desc" ? -1 : 1;
@@ -2282,7 +2284,7 @@ function CortesDashboard({
           <div className="kpi-card performance-card">
             <div className="kpi-top"><span className="kpi-icon">✂</span><span className="trend neutral">Filtrado</span></div>
             <strong>{number.format(filtrados.length)}</strong><p>Cortes no período</p><div className="mini-rule performance-rule"><span style={{ width: "100%" }} /></div>
-            <small>{periodo === "tudo" ? "Todo o histórico" : `Últimos ${periodo} dias`}</small>
+            <small>{meses.length === 0 ? "Todo o histórico" : meses.map((m) => mesCorteLabel(m)).sort().join(", ")}</small>
           </div>
           <div className="kpi-card critical-card">
             <div className="kpi-top"><span className="kpi-icon">▤</span><span className="trend critical">Volume</span></div>
@@ -2304,15 +2306,11 @@ function CortesDashboard({
         <section className="inventory-panel consumption-panel">
           <div className="panel-heading"><div><p className="eyebrow">DETALHE</p><h2>Cortes por produto</h2><p>Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização.</p></div></div>
           <div className="filters value-filters"><div className="selects">
+            <MultiFilter label="Mês" options={mesOptions} selected={meses} onChange={setMeses} />
             <MultiFilter label="Loja" options={lojaOptions} selected={lojas} onChange={setLojas} />
             <MultiFilter label="Motivo" options={motivoOptions} selected={motivos} onChange={setMotivos} />
             <label className="toggle-inativos"><input type="checkbox" checked={somenteSemMotivo} onChange={(event) => setSomenteSemMotivo(event.target.checked)} /> Só sem motivo</label>
-            <label>Período<select value={periodo} onChange={(event) => setPeriodo(event.target.value as typeof periodo)}>
-              <option value="30">Últimos 30 dias</option>
-              <option value="90">Últimos 90 dias</option>
-              <option value="tudo">Todo o histórico</option>
-            </select></label>
-            {(lojas.length > 0 || motivos.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
+            {(lojas.length > 0 || motivos.length > 0 || meses.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setMeses([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
           </div></div>
           <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
             <th style={{ width: "auto" }}>Produto / loja</th>
@@ -2332,8 +2330,8 @@ function CortesDashboard({
               <td>{c.motivo ? <span className="status-pill">{c.motivo}</span> : <span className="no-projection" title="Preencha em motivos_cortes.xlsx">Sem motivo</span>}</td>
               <td><small>{c.observacoes ?? "—"}</small></td>
             </tr>)}
-          </tbody></table>{ordenados.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o período.</p></div>}
-          {ordenados.length > 500 && <p className="consumption-return">Mostrando os 500 maiores cortes do filtro atual ({number.format(ordenados.length)} no total) — refine o filtro ou o período pra ver outros.</p>}
+          </tbody></table>{ordenados.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
+          {ordenados.length > 500 && <p className="consumption-return">Mostrando os 500 maiores cortes do filtro atual ({number.format(ordenados.length)} no total) — refine o filtro ou o mês pra ver outros.</p>}
           </div>
         </section>
         <footer>Fonte: {cortesData.origem}.</footer>
