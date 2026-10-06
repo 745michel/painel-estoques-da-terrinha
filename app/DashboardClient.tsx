@@ -2359,9 +2359,9 @@ function CortesDashboard({
             <th style={{ width: 90 }}><button className="sortable-column" onClick={() => toggleSort("data")}>Data {sortField === "data" ? (sortDir === "desc" ? "▾" : "▴") : ""}</button></th>
             <th style={{ width: 90 }}>Pedido</th>
             <th style={{ width: 90 }}>Faturado</th>
+            {canViewValues && <th style={{ width: 110 }}>Valor faturado</th>}
             <th style={{ width: 90 }}><button className="sortable-column" onClick={() => toggleSort("corteCx")}>Corte {sortField === "corteCx" ? (sortDir === "desc" ? "▾" : "▴") : ""}</button></th>
             {canViewValues && <th style={{ width: 110 }}>Valor cortado</th>}
-            {canViewValues && <th style={{ width: 110 }}>Valor faturado</th>}
             <th style={{ width: 170 }}>Motivo</th>
             <th style={{ width: "auto" }}>Observações</th>
           </tr></thead><tbody>
@@ -2372,9 +2372,9 @@ function CortesDashboard({
               <td>{new Date(c.data).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</td>
               <td><strong className="numeric">{number.format(Math.round(c.quantidadePedidaCx))}</strong></td>
               <td><strong className="numeric">{number.format(Math.round(c.quantidadeFaturadaCx))}</strong></td>
+              {canViewValues && <td><strong className="numeric">{valor ? currency.format(valor.faturamentoRs) : "—"}</strong></td>}
               <td><strong className="numeric escadinha-delta-down">{number.format(Math.round(c.corteCx))}</strong></td>
               {canViewValues && <td><strong className="numeric escadinha-delta-down">{valor ? currency.format(valor.valorCorte) : "—"}</strong></td>}
-              {canViewValues && <td><strong className="numeric">{valor ? currency.format(valor.faturamentoRs) : "—"}</strong></td>}
               <td>{c.motivo ? <span className="status-pill">{c.motivo}</span> : <span className="no-projection" title="Preencha em motivos_cortes.xlsx">Sem motivo</span>}</td>
               <td><small>{c.observacoes ?? "—"}</small></td>
             </tr>;
