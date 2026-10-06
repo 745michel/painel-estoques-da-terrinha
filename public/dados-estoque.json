@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-06T08:12:13",
+  "atualizadoEm": "2026-10-06T14:05:16",
   "origem": "Terceiro Estoque X Pedido.xlsm / PROD. ACAB (entregas programadas: compras_a_receber.json)",
   "produtos": [
     {
@@ -8,9 +8,9 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 230,
-      "saldo": 218,
-      "cobertura": 24.4,
+      "estoque": 202,
+      "saldo": 182,
+      "cobertura": 21.0,
       "seguranca": 20,
       "estoqueSeguranca": 173,
       "consumoMensal": 260,
@@ -22,19 +22,24 @@
       "proximaEntrada": "2026-10-15T14:17:20.462000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-01T00:00:00",
+          "data": "2026-10-07T00:00:00",
           "quantidade": 70,
           "pedido": 481265
+        },
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 70,
+          "pedido": 486280
         }
       ],
-      "totalProgramado": 70,
+      "totalProgramado": 140,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 12.0
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-10-07",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 28.6,
+      "carteiraBi": 20.0
     },
     {
       "sku": "70268",
@@ -42,8 +47,8 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 1083,
-      "saldo": 1050,
+      "estoque": 1073,
+      "saldo": 1041,
       "cobertura": 26.8,
       "seguranca": 20,
       "estoqueSeguranca": 551,
@@ -54,15 +59,21 @@
       "desvioProjecao": -47,
       "loteMinimo": 300,
       "proximaEntrada": "2026-10-15T03:31:41.270000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 300,
+          "pedido": 486280
+        }
+      ],
+      "totalProgramado": 300,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 33.0
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-10-09",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": 26.1,
+      "carteiraBi": 32.0
     },
     {
       "sku": "70270",
@@ -70,8 +81,8 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 1578,
-      "saldo": 1466,
+      "estoque": 1570,
+      "saldo": 1447,
       "cobertura": 22.0,
       "seguranca": 20,
       "estoqueSeguranca": 854,
@@ -82,15 +93,21 @@
       "desvioProjecao": -40,
       "loteMinimo": 500,
       "proximaEntrada": "2026-10-08T19:46:04.851000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 500,
+          "pedido": 486280
+        }
+      ],
+      "totalProgramado": 500,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 112.0
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-09",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": 19.8,
+      "carteiraBi": 123.0
     },
     {
       "sku": "70272",
@@ -98,9 +115,9 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 854,
-      "saldo": 820,
-      "cobertura": 26.4,
+      "estoque": 838,
+      "saldo": 808,
+      "cobertura": 26.2,
       "seguranca": 20,
       "estoqueSeguranca": 412,
       "consumoMensal": 618,
@@ -110,15 +127,21 @@
       "desvioProjecao": 36,
       "loteMinimo": 350,
       "proximaEntrada": "2026-10-07T03:00:04.371000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 350,
+          "pedido": 486280
+        }
+      ],
+      "totalProgramado": 350,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 34.0
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-09",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": 18.1,
+      "carteiraBi": 30.0
     },
     {
       "sku": "40577",
@@ -126,9 +149,9 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 260,
-      "saldo": 258,
-      "cobertura": 27.7,
+      "estoque": 258,
+      "saldo": 254,
+      "cobertura": 28.4,
       "seguranca": 20,
       "estoqueSeguranca": 176,
       "consumoMensal": 264,
@@ -138,15 +161,21 @@
       "desvioProjecao": 28,
       "loteMinimo": 60,
       "proximaEntrada": "2026-10-10T04:21:34.229000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 60,
+          "pedido": 486280
+        }
+      ],
+      "totalProgramado": 60,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 2.0
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-10-09",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": 21.2,
+      "carteiraBi": 4.0
     },
     {
       "sku": "70276",
@@ -154,9 +183,9 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 183,
-      "saldo": 170,
-      "cobertura": 25.6,
+      "estoque": 179,
+      "saldo": 153,
+      "cobertura": 23.6,
       "seguranca": 20,
       "estoqueSeguranca": 106,
       "consumoMensal": 159,
@@ -166,15 +195,21 @@
       "desvioProjecao": 18,
       "loteMinimo": 60,
       "proximaEntrada": "2026-10-08T16:15:07.087000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 60,
+          "pedido": 486280
+        }
+      ],
+      "totalProgramado": 60,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 13.0
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-09",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": 19.7,
+      "carteiraBi": 26.0
     },
     {
       "sku": "70278",
@@ -182,9 +217,9 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 364,
-      "saldo": 353,
-      "cobertura": 23.7,
+      "estoque": 360,
+      "saldo": 336,
+      "cobertura": 22.9,
       "seguranca": 20,
       "estoqueSeguranca": 249,
       "consumoMensal": 373,
@@ -194,15 +229,21 @@
       "desvioProjecao": 46,
       "loteMinimo": 140,
       "proximaEntrada": "2026-10-09T13:34:35.067000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 140,
+          "pedido": 486280
+        }
+      ],
+      "totalProgramado": 140,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 11.0
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-10-09",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": 20.6,
+      "carteiraBi": 24.0
     },
     {
       "sku": "70274",
@@ -211,8 +252,8 @@
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
       "estoque": 200,
-      "saldo": 195,
-      "cobertura": 31.1,
+      "saldo": 194,
+      "cobertura": 32.0,
       "seguranca": 20,
       "estoqueSeguranca": 125,
       "consumoMensal": 188,
@@ -222,15 +263,21 @@
       "desvioProjecao": 16,
       "loteMinimo": 60,
       "proximaEntrada": "2026-10-10T22:14:32.437000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 60,
+          "pedido": 486280
+        }
+      ],
+      "totalProgramado": 60,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 5.0
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-10-09",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": 21.9,
+      "carteiraBi": 6.0
     },
     {
       "sku": "40582",
@@ -238,9 +285,9 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 260,
-      "saldo": 256,
-      "cobertura": 25.9,
+      "estoque": 258,
+      "saldo": 231,
+      "cobertura": 24.6,
       "seguranca": 20,
       "estoqueSeguranca": 168,
       "consumoMensal": 252,
@@ -250,15 +297,21 @@
       "desvioProjecao": 4,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-07T09:46:33.657000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 100,
+          "pedido": 486280
+        }
+      ],
+      "totalProgramado": 100,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 4.0
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-09",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": 18.4,
+      "carteiraBi": 27.0
     },
     {
       "sku": "40594",
@@ -266,7 +319,7 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 141,
+      "estoque": 133,
       "saldo": 125,
       "cobertura": 42.3,
       "seguranca": 20,
@@ -280,19 +333,24 @@
       "proximaEntrada": "2026-10-20T06:51:25.714000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-01T00:00:00",
+          "data": "2026-10-07T00:00:00",
           "quantidade": 30,
           "pedido": 481265
+        },
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 30,
+          "pedido": 486280
         }
       ],
-      "totalProgramado": 30,
+      "totalProgramado": 60,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 16.0
+      "primeiraEntrega": "2026-10-07",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 33.3,
+      "carteiraBi": 8.0
     },
     {
       "sku": "40584",
@@ -300,9 +358,9 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 249,
-      "saldo": 243,
-      "cobertura": 21.6,
+      "estoque": 245,
+      "saldo": 241,
+      "cobertura": 21.7,
       "seguranca": 20,
       "estoqueSeguranca": 169,
       "consumoMensal": 254,
@@ -312,15 +370,21 @@
       "desvioProjecao": 28,
       "loteMinimo": 130,
       "proximaEntrada": "2026-10-07T06:44:20.099000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 130,
+          "pedido": 486280
+        }
+      ],
+      "totalProgramado": 130,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 6.0
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-09",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": 18.3,
+      "carteiraBi": 4.0
     },
     {
       "sku": "40586",
@@ -328,9 +392,9 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 238,
-      "saldo": 226,
-      "cobertura": 19.7,
+      "estoque": 212,
+      "saldo": 197,
+      "cobertura": 17.8,
       "seguranca": 20,
       "estoqueSeguranca": 214,
       "consumoMensal": 320,
@@ -342,19 +406,24 @@
       "proximaEntrada": "2026-10-12T01:00:42.155000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-01T00:00:00",
+          "data": "2026-10-07T00:00:00",
           "quantidade": 120,
           "pedido": 481265
+        },
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 120,
+          "pedido": 486280
         }
       ],
-      "totalProgramado": 120,
+      "totalProgramado": 240,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 12.0
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-10-07",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 25.0,
+      "carteiraBi": 15.0
     },
     {
       "sku": "75896",
@@ -364,7 +433,7 @@
       "unidade": "cx",
       "estoque": 180,
       "saldo": 179,
-      "cobertura": 58.1,
+      "cobertura": 58.8,
       "seguranca": 20,
       "estoqueSeguranca": 67,
       "consumoMensal": 100,
@@ -390,9 +459,9 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 547,
-      "saldo": 512,
-      "cobertura": 16.6,
+      "estoque": 546,
+      "saldo": 496,
+      "cobertura": 16.4,
       "seguranca": 20,
       "estoqueSeguranca": 349,
       "consumoMensal": 523,
@@ -404,19 +473,24 @@
       "proximaEntrada": "2026-10-06T00:00:00",
       "entregasProgramadas": [
         {
-          "data": "2026-10-01T00:00:00",
+          "data": "2026-10-07T00:00:00",
           "quantidade": 50,
           "pedido": 481265
+        },
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 350,
+          "pedido": 486280
         }
       ],
-      "totalProgramado": 50,
+      "totalProgramado": 400,
       "sugestaoCompra": 350,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 35.0
+      "primeiraEntrega": "2026-10-07",
+      "diasAtePrimeiraEntrega": 1,
+      "coberturaNaPrimeiraEntrega": 13.7,
+      "carteiraBi": 50.0
     },
     {
       "sku": "40590",
@@ -424,9 +498,9 @@
       "loja": "ALGO MAIS",
       "fornecedor": "ALGO MAIS",
       "unidade": "cx",
-      "estoque": 108,
-      "saldo": 89,
-      "cobertura": 11.4,
+      "estoque": 107,
+      "saldo": 77,
+      "cobertura": 10.6,
       "seguranca": 20,
       "estoqueSeguranca": 96,
       "consumoMensal": 144,
@@ -436,15 +510,21 @@
       "desvioProjecao": -13,
       "loteMinimo": 85,
       "proximaEntrada": "2026-10-06T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-09T00:00:00",
+          "quantidade": 85,
+          "pedido": 486280
+        }
+      ],
+      "totalProgramado": 85,
       "sugestaoCompra": 85,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 19.0
+      "primeiraEntrega": "2026-10-09",
+      "diasAtePrimeiraEntrega": 3,
+      "coberturaNaPrimeiraEntrega": 4.3,
+      "carteiraBi": 30.0
     },
     {
       "sku": "90821",
@@ -452,9 +532,9 @@
       "loja": "APLAF",
       "fornecedor": "APLAF",
       "unidade": "cx",
-      "estoque": 284,
-      "saldo": 271,
-      "cobertura": 34.1,
+      "estoque": 279,
+      "saldo": 267,
+      "cobertura": 35.8,
       "seguranca": 20,
       "estoqueSeguranca": 233,
       "consumoMensal": 350,
@@ -472,7 +552,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 13.0
+      "carteiraBi": 12.0
     },
     {
       "sku": "90701",
@@ -480,9 +560,9 @@
       "loja": "APLAF",
       "fornecedor": "APLAF",
       "unidade": "cx",
-      "estoque": 257,
-      "saldo": 218,
-      "cobertura": 5.3,
+      "estoque": 230,
+      "saldo": 180,
+      "cobertura": 4.5,
       "seguranca": 20,
       "estoqueSeguranca": 599,
       "consumoMensal": 898,
@@ -500,7 +580,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 39.0
+      "carteiraBi": 50.0
     },
     {
       "sku": "90781",
@@ -508,9 +588,9 @@
       "loja": "APLAF",
       "fornecedor": "APLAF",
       "unidade": "cx",
-      "estoque": 566,
-      "saldo": 538,
-      "cobertura": 15.4,
+      "estoque": 551,
+      "saldo": 513,
+      "cobertura": 15.1,
       "seguranca": 20,
       "estoqueSeguranca": 584,
       "consumoMensal": 876,
@@ -528,7 +608,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 28.0
+      "carteiraBi": 38.0
     },
     {
       "sku": "90941",
@@ -536,9 +616,9 @@
       "loja": "APLAF",
       "fornecedor": "APLAF",
       "unidade": "cx",
-      "estoque": 385,
-      "saldo": 359,
-      "cobertura": 21.0,
+      "estoque": 364,
+      "saldo": 333,
+      "cobertura": 20.3,
       "seguranca": 20,
       "estoqueSeguranca": 352,
       "consumoMensal": 529,
@@ -556,7 +636,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 26.0
+      "carteiraBi": 31.0
     },
     {
       "sku": "90801",
@@ -564,9 +644,9 @@
       "loja": "APLAF",
       "fornecedor": "APLAF",
       "unidade": "cx",
-      "estoque": 348,
-      "saldo": 330,
-      "cobertura": 17.4,
+      "estoque": 336,
+      "saldo": 312,
+      "cobertura": 17.1,
       "seguranca": 20,
       "estoqueSeguranca": 399,
       "consumoMensal": 598,
@@ -584,7 +664,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 18.0
+      "carteiraBi": 24.0
     },
     {
       "sku": "90981",
@@ -592,9 +672,9 @@
       "loja": "APLAF",
       "fornecedor": "APLAF",
       "unidade": "cx",
-      "estoque": 448,
-      "saldo": 433,
-      "cobertura": 27.2,
+      "estoque": 440,
+      "saldo": 416,
+      "cobertura": 26.9,
       "seguranca": 20,
       "estoqueSeguranca": 417,
       "consumoMensal": 626,
@@ -612,7 +692,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 15.0
+      "carteiraBi": 24.0
     },
     {
       "sku": "90961",
@@ -621,8 +701,8 @@
       "fornecedor": "APLAF",
       "unidade": "cx",
       "estoque": 269,
-      "saldo": 268,
-      "cobertura": 41.6,
+      "saldo": 266,
+      "cobertura": 42.7,
       "seguranca": 20,
       "estoqueSeguranca": 101,
       "consumoMensal": 151,
@@ -640,7 +720,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 1.0
+      "carteiraBi": 3.0
     },
     {
       "sku": "75879",
@@ -648,9 +728,9 @@
       "loja": "ART FRITAS",
       "fornecedor": "ART FRITAS",
       "unidade": "cx",
-      "estoque": 530,
-      "saldo": -424,
-      "cobertura": -0.9,
+      "estoque": 1326,
+      "saldo": 421,
+      "cobertura": 0.9,
       "seguranca": 20,
       "estoqueSeguranca": 7349,
       "consumoMensal": 11024,
@@ -662,16 +742,6 @@
       "proximaEntrada": "2026-10-06T00:00:00",
       "entregasProgramadas": [
         {
-          "data": "2026-09-29T00:00:00",
-          "quantidade": 1100,
-          "pedido": 472623
-        },
-        {
-          "data": "2026-10-05T00:00:00",
-          "quantidade": 1100,
-          "pedido": 476709
-        },
-        {
           "data": "2026-10-08T00:00:00",
           "quantidade": 1100,
           "pedido": 476742
@@ -742,14 +812,14 @@
           "pedido": 485784
         }
       ],
-      "totalProgramado": 17100,
+      "totalProgramado": 14900,
       "sugestaoCompra": 8800,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-10-07",
       "diasAtePrimeiraEntrega": 1,
       "coberturaNaPrimeiraEntrega": -3.0,
-      "carteiraBi": 954.0
+      "carteiraBi": 905.0
     },
     {
       "sku": "75877",
@@ -757,9 +827,9 @@
       "loja": "ART FRITAS",
       "fornecedor": "ART FRITAS",
       "unidade": "cx",
-      "estoque": 3774,
-      "saldo": 2096,
-      "cobertura": 2.7,
+      "estoque": 5021,
+      "saldo": 3324,
+      "cobertura": 4.4,
       "seguranca": 20,
       "estoqueSeguranca": 12468,
       "consumoMensal": 18702,
@@ -771,16 +841,6 @@
       "proximaEntrada": "2026-10-06T00:00:00",
       "entregasProgramadas": [
         {
-          "data": "2026-09-29T00:00:00",
-          "quantidade": 1780,
-          "pedido": 472623
-        },
-        {
-          "data": "2026-10-05T00:00:00",
-          "quantidade": 1780,
-          "pedido": 476709
-        },
-        {
           "data": "2026-10-08T00:00:00",
           "quantidade": 1780,
           "pedido": 476742
@@ -851,14 +911,14 @@
           "pedido": 485784
         }
       ],
-      "totalProgramado": 27300,
+      "totalProgramado": 23740,
       "sugestaoCompra": 12460,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
       "primeiraEntrega": "2026-10-07",
       "diasAtePrimeiraEntrega": 1,
       "coberturaNaPrimeiraEntrega": -0.5,
-      "carteiraBi": 1678.0
+      "carteiraBi": 1697.0
     },
     {
       "sku": "97662",
@@ -922,9 +982,9 @@
       "loja": "ART FRITAS",
       "fornecedor": "ART FRITAS",
       "unidade": "cx",
-      "estoque": 209,
-      "saldo": 66,
-      "cobertura": 9.0,
+      "estoque": 179,
+      "saldo": 51,
+      "cobertura": 6.8,
       "seguranca": 20,
       "estoqueSeguranca": 300,
       "consumoMensal": 450,
@@ -948,7 +1008,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": 15.3,
-      "carteiraBi": 143.0
+      "carteiraBi": 128.0
     },
     {
       "sku": "114302",
@@ -956,9 +1016,9 @@
       "loja": "ART FRITAS",
       "fornecedor": "ART FRITAS",
       "unidade": "cx",
-      "estoque": 241,
-      "saldo": 90,
-      "cobertura": 9.0,
+      "estoque": 206,
+      "saldo": 69,
+      "cobertura": 6.8,
       "seguranca": 20,
       "estoqueSeguranca": 300,
       "consumoMensal": 450,
@@ -982,7 +1042,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": 14.3,
-      "carteiraBi": 151.0
+      "carteiraBi": 137.0
     },
     {
       "sku": "114300",
@@ -990,9 +1050,9 @@
       "loja": "ART FRITAS",
       "fornecedor": "ART FRITAS",
       "unidade": "cx",
-      "estoque": 272,
-      "saldo": 128,
-      "cobertura": 14.3,
+      "estoque": 243,
+      "saldo": 112,
+      "cobertura": 12.2,
       "seguranca": 20,
       "estoqueSeguranca": 300,
       "consumoMensal": 450,
@@ -1016,7 +1076,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": 15.7,
-      "carteiraBi": 144.0
+      "carteiraBi": 131.0
     },
     {
       "sku": "114298",
@@ -1024,9 +1084,9 @@
       "loja": "ART FRITAS",
       "fornecedor": "ART FRITAS",
       "unidade": "cx",
-      "estoque": 567,
-      "saldo": 544,
-      "cobertura": 40.4,
+      "estoque": 553,
+      "saldo": 522,
+      "cobertura": 38.7,
       "seguranca": 20,
       "estoqueSeguranca": 300,
       "consumoMensal": 450,
@@ -1044,7 +1104,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 23.0
+      "carteiraBi": 31.0
     },
     {
       "sku": "114296",
@@ -1052,9 +1112,9 @@
       "loja": "ART FRITAS",
       "fornecedor": "ART FRITAS",
       "unidade": "cx",
-      "estoque": 512,
-      "saldo": 489,
-      "cobertura": 53.5,
+      "estoque": 485,
+      "saldo": 467,
+      "cobertura": 50.7,
       "seguranca": 20,
       "estoqueSeguranca": 300,
       "consumoMensal": 450,
@@ -1072,7 +1132,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 23.0
+      "carteiraBi": 18.0
     },
     {
       "sku": "114294",
@@ -1080,9 +1140,9 @@
       "loja": "ART FRITAS",
       "fornecedor": "ART FRITAS",
       "unidade": "cx",
-      "estoque": 221,
-      "saldo": 190,
-      "cobertura": 18.7,
+      "estoque": 189,
+      "saldo": 166,
+      "cobertura": 16.1,
       "seguranca": 20,
       "estoqueSeguranca": 300,
       "consumoMensal": 450,
@@ -1106,7 +1166,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": 13.3,
-      "carteiraBi": 31.0
+      "carteiraBi": 23.0
     },
     {
       "sku": "114261",
@@ -1114,9 +1174,9 @@
       "loja": "ART FRITAS",
       "fornecedor": "ART FRITAS",
       "unidade": "cx",
-      "estoque": 471,
-      "saldo": 444,
-      "cobertura": 43.3,
+      "estoque": 456,
+      "saldo": 435,
+      "cobertura": 42.1,
       "seguranca": 20,
       "estoqueSeguranca": 300,
       "consumoMensal": 450,
@@ -1134,7 +1194,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 27.0
+      "carteiraBi": 21.0
     },
     {
       "sku": "114306",
@@ -1142,9 +1202,9 @@
       "loja": "ART FRITAS",
       "fornecedor": "ART FRITAS",
       "unidade": "cx",
-      "estoque": 603,
-      "saldo": 462,
-      "cobertura": 46.6,
+      "estoque": 575,
+      "saldo": 449,
+      "cobertura": 44.7,
       "seguranca": 20,
       "estoqueSeguranca": 300,
       "consumoMensal": 450,
@@ -1162,7 +1222,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 141.0
+      "carteiraBi": 126.0
     },
     {
       "sku": "41542",
@@ -1224,9 +1284,9 @@
       "loja": "COPRA",
       "fornecedor": "COPRA",
       "unidade": "cx",
-      "estoque": 328,
-      "saldo": 317,
-      "cobertura": 91.7,
+      "estoque": 325,
+      "saldo": 314,
+      "cobertura": 91.3,
       "seguranca": 20,
       "estoqueSeguranca": 56,
       "consumoMensal": 84,
@@ -1253,8 +1313,8 @@
       "fornecedor": "COPRA",
       "unidade": "cx",
       "estoque": 234,
-      "saldo": 234,
-      "cobertura": 330.4,
+      "saldo": 233,
+      "cobertura": 328.9,
       "seguranca": 20,
       "estoqueSeguranca": 20,
       "consumoMensal": 30,
@@ -1272,7 +1332,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 0.0
+      "carteiraBi": 1.0
     },
     {
       "sku": "80401",
@@ -1280,9 +1340,9 @@
       "loja": "DICOCO",
       "fornecedor": "DICOCO",
       "unidade": "cx",
-      "estoque": 3925,
-      "saldo": 3756,
-      "cobertura": 17.6,
+      "estoque": 3878,
+      "saldo": 3666,
+      "cobertura": 17.4,
       "seguranca": 20,
       "estoqueSeguranca": 4667,
       "consumoMensal": 7000,
@@ -1356,7 +1416,7 @@
       "primeiraEntrega": "2026-10-07",
       "diasAtePrimeiraEntrega": 1,
       "coberturaNaPrimeiraEntrega": 8.9,
-      "carteiraBi": 169.0
+      "carteiraBi": 212.0
     },
     {
       "sku": "80522",
@@ -1364,9 +1424,9 @@
       "loja": "DICOCO",
       "fornecedor": "DICOCO",
       "unidade": "cx",
-      "estoque": 1971,
-      "saldo": 1918,
-      "cobertura": 24.8,
+      "estoque": 1950,
+      "saldo": 1892,
+      "cobertura": 25.1,
       "seguranca": 20,
       "estoqueSeguranca": 2000,
       "consumoMensal": 3000,
@@ -1440,7 +1500,7 @@
       "primeiraEntrega": "2026-10-07",
       "diasAtePrimeiraEntrega": 1,
       "coberturaNaPrimeiraEntrega": 13.4,
-      "carteiraBi": 53.0
+      "carteiraBi": 58.0
     },
     {
       "sku": "97002",
@@ -1448,9 +1508,9 @@
       "loja": "DUPRATA",
       "fornecedor": "DUPRATA",
       "unidade": "cx",
-      "estoque": 43,
-      "saldo": 42,
-      "cobertura": 44.8,
+      "estoque": 41,
+      "saldo": 40,
+      "cobertura": 43.6,
       "seguranca": 20,
       "estoqueSeguranca": 27,
       "consumoMensal": 40,
@@ -1542,8 +1602,8 @@
       "fornecedor": "DUPRATA",
       "unidade": "cx",
       "estoque": 48,
-      "saldo": 48,
-      "cobertura": 59.1,
+      "saldo": 47,
+      "cobertura": 59.4,
       "seguranca": 20,
       "estoqueSeguranca": 23,
       "consumoMensal": 35,
@@ -1577,7 +1637,7 @@
       "primeiraEntrega": "2026-10-14",
       "diasAtePrimeiraEntrega": 8,
       "coberturaNaPrimeiraEntrega": 32.3,
-      "carteiraBi": 0.0
+      "carteiraBi": 1.0
     },
     {
       "sku": "96902",
@@ -1585,9 +1645,9 @@
       "loja": "DUPRATA",
       "fornecedor": "DUPRATA",
       "unidade": "cx",
-      "estoque": 22,
-      "saldo": 22,
-      "cobertura": 23.0,
+      "estoque": 21,
+      "saldo": 21,
+      "cobertura": 21.9,
       "seguranca": 20,
       "estoqueSeguranca": 20,
       "consumoMensal": 30,
@@ -1630,8 +1690,8 @@
       "fornecedor": "DUPRATA",
       "unidade": "cx",
       "estoque": 23,
-      "saldo": 23,
-      "cobertura": 22.1,
+      "saldo": 22,
+      "cobertura": 21.1,
       "seguranca": 20,
       "estoqueSeguranca": 27,
       "consumoMensal": 40,
@@ -1665,7 +1725,7 @@
       "primeiraEntrega": "2026-10-14",
       "diasAtePrimeiraEntrega": 8,
       "coberturaNaPrimeiraEntrega": -4.2,
-      "carteiraBi": 0.0
+      "carteiraBi": 1.0
     },
     {
       "sku": "96770",
@@ -1673,9 +1733,9 @@
       "loja": "DUPRATA",
       "fornecedor": "DUPRATA",
       "unidade": "cx",
-      "estoque": 48,
-      "saldo": 46,
-      "cobertura": 15.7,
+      "estoque": 44,
+      "saldo": 43,
+      "cobertura": 14.6,
       "seguranca": 20,
       "estoqueSeguranca": 78,
       "consumoMensal": 118,
@@ -1709,7 +1769,7 @@
       "primeiraEntrega": "2026-10-14",
       "diasAtePrimeiraEntrega": 8,
       "coberturaNaPrimeiraEntrega": 4.0,
-      "carteiraBi": 2.0
+      "carteiraBi": 1.0
     },
     {
       "sku": "96671",
@@ -1717,9 +1777,9 @@
       "loja": "DUPRATA",
       "fornecedor": "DUPRATA",
       "unidade": "cx",
-      "estoque": 80,
-      "saldo": 77,
-      "cobertura": 20.4,
+      "estoque": 74,
+      "saldo": 73,
+      "cobertura": 19.4,
       "seguranca": 20,
       "estoqueSeguranca": 53,
       "consumoMensal": 80,
@@ -1753,7 +1813,7 @@
       "primeiraEntrega": "2026-10-14",
       "diasAtePrimeiraEntrega": 8,
       "coberturaNaPrimeiraEntrega": 23.1,
-      "carteiraBi": 3.0
+      "carteiraBi": 1.0
     },
     {
       "sku": "96576",
@@ -1761,9 +1821,9 @@
       "loja": "DUPRATA",
       "fornecedor": "DUPRATA",
       "unidade": "cx",
-      "estoque": 237,
-      "saldo": 234,
-      "cobertura": 39.1,
+      "estoque": 234,
+      "saldo": 233,
+      "cobertura": 39.4,
       "seguranca": 20,
       "estoqueSeguranca": 141,
       "consumoMensal": 212,
@@ -1797,7 +1857,7 @@
       "primeiraEntrega": "2026-10-14",
       "diasAtePrimeiraEntrega": 8,
       "coberturaNaPrimeiraEntrega": 31.1,
-      "carteiraBi": 3.0
+      "carteiraBi": 1.0
     },
     {
       "sku": "96507",
@@ -1805,9 +1865,9 @@
       "loja": "DUPRATA",
       "fornecedor": "DUPRATA",
       "unidade": "cx",
-      "estoque": 128,
-      "saldo": 122,
-      "cobertura": 27.2,
+      "estoque": 121,
+      "saldo": 118,
+      "cobertura": 26.6,
       "seguranca": 20,
       "estoqueSeguranca": 75,
       "consumoMensal": 113,
@@ -1841,7 +1901,7 @@
       "primeiraEntrega": "2026-10-14",
       "diasAtePrimeiraEntrega": 8,
       "coberturaNaPrimeiraEntrega": 24.7,
-      "carteiraBi": 6.0
+      "carteiraBi": 3.0
     },
     {
       "sku": "96374",
@@ -1849,7 +1909,7 @@
       "loja": "DUPRATA",
       "fornecedor": "DUPRATA",
       "unidade": "cx",
-      "estoque": 85,
+      "estoque": 83,
       "saldo": 83,
       "cobertura": 48.0,
       "seguranca": 20,
@@ -1885,7 +1945,7 @@
       "primeiraEntrega": "2026-10-14",
       "diasAtePrimeiraEntrega": 8,
       "coberturaNaPrimeiraEntrega": 45.7,
-      "carteiraBi": 2.0
+      "carteiraBi": 0.0
     },
     {
       "sku": "96275",
@@ -1893,9 +1953,9 @@
       "loja": "DUPRATA",
       "fornecedor": "DUPRATA",
       "unidade": "cx",
-      "estoque": 276,
-      "saldo": 271,
-      "cobertura": 42.1,
+      "estoque": 272,
+      "saldo": 266,
+      "cobertura": 41.9,
       "seguranca": 20,
       "estoqueSeguranca": 170,
       "consumoMensal": 254,
@@ -1929,7 +1989,7 @@
       "primeiraEntrega": "2026-10-14",
       "diasAtePrimeiraEntrega": 8,
       "coberturaNaPrimeiraEntrega": 31.1,
-      "carteiraBi": 5.0
+      "carteiraBi": 6.0
     },
     {
       "sku": "96176",
@@ -1937,9 +1997,9 @@
       "loja": "DUPRATA",
       "fornecedor": "DUPRATA",
       "unidade": "cx",
-      "estoque": 127,
-      "saldo": 120,
-      "cobertura": 15.5,
+      "estoque": 120,
+      "saldo": 116,
+      "cobertura": 15.0,
       "seguranca": 20,
       "estoqueSeguranca": 124,
       "consumoMensal": 187,
@@ -1978,7 +2038,7 @@
       "primeiraEntrega": "2026-10-14",
       "diasAtePrimeiraEntrega": 8,
       "coberturaNaPrimeiraEntrega": 14.3,
-      "carteiraBi": 7.0
+      "carteiraBi": 4.0
     },
     {
       "sku": "38152",
@@ -1986,9 +2046,9 @@
       "loja": "GAMELEIRA",
       "fornecedor": "GAMELEIRA",
       "unidade": "cx",
-      "estoque": 3610,
-      "saldo": 1095,
-      "cobertura": 3.8,
+      "estoque": 2393,
+      "saldo": 535,
+      "cobertura": 1.8,
       "seguranca": 20,
       "estoqueSeguranca": 4850,
       "consumoMensal": 7274,
@@ -2027,7 +2087,7 @@
       "primeiraEntrega": "2026-10-06",
       "diasAtePrimeiraEntrega": 0,
       "coberturaNaPrimeiraEntrega": -5.9,
-      "carteiraBi": 2515.0
+      "carteiraBi": 1858.0
     },
     {
       "sku": "47982",
@@ -2035,9 +2095,9 @@
       "loja": "GUARANI",
       "fornecedor": "GUARANI",
       "unidade": "cx",
-      "estoque": 3795,
-      "saldo": 3407,
-      "cobertura": 22.7,
+      "estoque": 3619,
+      "saldo": 2430,
+      "cobertura": 16.1,
       "seguranca": 20,
       "estoqueSeguranca": 2381,
       "consumoMensal": 3572,
@@ -2071,7 +2131,7 @@
       "primeiraEntrega": "2026-10-22",
       "diasAtePrimeiraEntrega": 16,
       "coberturaNaPrimeiraEntrega": 0.3,
-      "carteiraBi": 388.0
+      "carteiraBi": 1189.0
     },
     {
       "sku": "112480",
@@ -2079,9 +2139,9 @@
       "loja": "GUARANI",
       "fornecedor": "GUARANI",
       "unidade": "cx",
-      "estoque": 1184,
-      "saldo": 584,
-      "cobertura": 19.3,
+      "estoque": 933,
+      "saldo": 533,
+      "cobertura": 16.2,
       "seguranca": 20,
       "estoqueSeguranca": 667,
       "consumoMensal": 1000,
@@ -2099,7 +2159,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 600.0
+      "carteiraBi": 400.0
     },
     {
       "sku": "78441",
@@ -2107,9 +2167,9 @@
       "loja": "GUARANI",
       "fornecedor": "GUARANI",
       "unidade": "cx",
-      "estoque": 968,
-      "saldo": 795,
-      "cobertura": 20.1,
+      "estoque": 961,
+      "saldo": 780,
+      "cobertura": 19.8,
       "seguranca": 20,
       "estoqueSeguranca": 548,
       "consumoMensal": 821,
@@ -2121,7 +2181,7 @@
       "proximaEntrada": "2026-10-21T13:02:27.945000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-05T00:00:00",
+          "data": "2026-10-06T00:00:00",
           "quantidade": 700,
           "pedido": 477773
         },
@@ -2138,12 +2198,12 @@
       ],
       "totalProgramado": 2100,
       "sugestaoCompra": 0,
-      "status": "Risco de falta",
-      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
-      "primeiraEntrega": "2026-11-05",
-      "diasAtePrimeiraEntrega": 30,
-      "coberturaNaPrimeiraEntrega": 5.5,
-      "carteiraBi": 173.0
+      "status": "Excesso",
+      "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
+      "primeiraEntrega": "2026-10-06",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 35.5,
+      "carteiraBi": 181.0
     },
     {
       "sku": "78461",
@@ -2151,9 +2211,9 @@
       "loja": "GUARANI",
       "fornecedor": "GUARANI",
       "unidade": "cx",
-      "estoque": 6951,
-      "saldo": 4339,
-      "cobertura": 10.8,
+      "estoque": 6449,
+      "saldo": 3920,
+      "cobertura": 9.8,
       "seguranca": 20,
       "estoqueSeguranca": 5958,
       "consumoMensal": 8937,
@@ -2165,12 +2225,7 @@
       "proximaEntrada": "2026-10-06T00:00:00",
       "entregasProgramadas": [
         {
-          "data": "2026-10-01T00:00:00",
-          "quantidade": 1,
-          "pedido": 477769
-        },
-        {
-          "data": "2026-10-05T00:00:00",
+          "data": "2026-10-06T00:00:00",
           "quantidade": 2300,
           "pedido": 477773
         },
@@ -2220,14 +2275,14 @@
           "pedido": 478001
         }
       ],
-      "totalProgramado": 24877,
+      "totalProgramado": 24876,
       "sugestaoCompra": 3744,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-15",
-      "diasAtePrimeiraEntrega": 9,
-      "coberturaNaPrimeiraEntrega": 3.7,
-      "carteiraBi": 2612.0
+      "primeiraEntrega": "2026-10-06",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 12.7,
+      "carteiraBi": 2529.0
     },
     {
       "sku": "48003",
@@ -2235,9 +2290,9 @@
       "loja": "GUARANI",
       "fornecedor": "GUARANI",
       "unidade": "cx",
-      "estoque": 3626,
-      "saldo": 3452,
-      "cobertura": 61.6,
+      "estoque": 3595,
+      "saldo": 3444,
+      "cobertura": 63.5,
       "seguranca": 20,
       "estoqueSeguranca": 1062,
       "consumoMensal": 1593,
@@ -2271,7 +2326,7 @@
       "primeiraEntrega": "2026-10-22",
       "diasAtePrimeiraEntrega": 16,
       "coberturaNaPrimeiraEntrega": 0.5,
-      "carteiraBi": 174.0
+      "carteiraBi": 151.0
     },
     {
       "sku": "89103",
@@ -2279,9 +2334,9 @@
       "loja": "INDC",
       "fornecedor": "INDC",
       "unidade": "cx",
-      "estoque": 1787,
-      "saldo": -1614,
-      "cobertura": -6.8,
+      "estoque": 153,
+      "saldo": -2259,
+      "cobertura": -8.8,
       "seguranca": 30,
       "estoqueSeguranca": 5000,
       "consumoMensal": 5000,
@@ -2315,7 +2370,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": -18.7,
-      "carteiraBi": 3401.0
+      "carteiraBi": 2412.0
     },
     {
       "sku": "89120",
@@ -2323,9 +2378,9 @@
       "loja": "INDC",
       "fornecedor": "INDC",
       "unidade": "cx",
-      "estoque": 1028,
-      "saldo": 284,
-      "cobertura": 1.9,
+      "estoque": 894,
+      "saldo": 243,
+      "cobertura": 1.6,
       "seguranca": 30,
       "estoqueSeguranca": 3015,
       "consumoMensal": 3015,
@@ -2359,7 +2414,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": -8.5,
-      "carteiraBi": 744.0
+      "carteiraBi": 651.0
     },
     {
       "sku": "121289",
@@ -2367,9 +2422,9 @@
       "loja": "MALTA & REZENDE",
       "fornecedor": "MALTA & REZENDE",
       "unidade": "cx",
-      "estoque": 41,
-      "saldo": 37,
-      "cobertura": 10.4,
+      "estoque": 40,
+      "saldo": 34,
+      "cobertura": 10.3,
       "seguranca": 20,
       "estoqueSeguranca": 38,
       "consumoMensal": 57,
@@ -2393,7 +2448,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": 18.6,
-      "carteiraBi": 4.0
+      "carteiraBi": 6.0
     },
     {
       "sku": "121256",
@@ -2439,9 +2494,9 @@
       "loja": "MALTA & REZENDE",
       "fornecedor": "MALTA & REZENDE",
       "unidade": "cx",
-      "estoque": 29,
-      "saldo": 26,
-      "cobertura": 7.5,
+      "estoque": 26,
+      "saldo": 14,
+      "cobertura": 4.2,
       "seguranca": 20,
       "estoqueSeguranca": 36,
       "consumoMensal": 54,
@@ -2465,7 +2520,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": 22.8,
-      "carteiraBi": 3.0
+      "carteiraBi": 12.0
     },
     {
       "sku": "121190",
@@ -2474,8 +2529,8 @@
       "fornecedor": "MALTA & REZENDE",
       "unidade": "cx",
       "estoque": 2,
-      "saldo": -10,
-      "cobertura": -1.1,
+      "saldo": -21,
+      "cobertura": -2.3,
       "seguranca": 20,
       "estoqueSeguranca": 193,
       "consumoMensal": 290,
@@ -2504,7 +2559,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": -5.0,
-      "carteiraBi": 12.0
+      "carteiraBi": 23.0
     },
     {
       "sku": "121157",
@@ -2513,8 +2568,8 @@
       "fornecedor": "MALTA & REZENDE",
       "unidade": "cx",
       "estoque": 68,
-      "saldo": 68,
-      "cobertura": 39.3,
+      "saldo": 64,
+      "cobertura": 39.9,
       "seguranca": 20,
       "estoqueSeguranca": 17,
       "consumoMensal": 26,
@@ -2538,7 +2593,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": 77.4,
-      "carteiraBi": 0.0
+      "carteiraBi": 4.0
     },
     {
       "sku": "121124",
@@ -2547,8 +2602,8 @@
       "fornecedor": "MALTA & REZENDE",
       "unidade": "cx",
       "estoque": 0,
-      "saldo": -13,
-      "cobertura": -2.3,
+      "saldo": -33,
+      "cobertura": -6.1,
       "seguranca": 20,
       "estoqueSeguranca": 82,
       "consumoMensal": 122,
@@ -2577,7 +2632,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": -5.9,
-      "carteiraBi": 13.0
+      "carteiraBi": 33.0
     },
     {
       "sku": "121091",
@@ -2585,9 +2640,9 @@
       "loja": "MALTA & REZENDE",
       "fornecedor": "MALTA & REZENDE",
       "unidade": "cx",
-      "estoque": 51,
-      "saldo": 11,
-      "cobertura": 0.6,
+      "estoque": 42,
+      "saldo": -10,
+      "cobertura": -0.6,
       "seguranca": 20,
       "estoqueSeguranca": 241,
       "consumoMensal": 362,
@@ -2621,7 +2676,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": 2.5,
-      "carteiraBi": 40.0
+      "carteiraBi": 52.0
     },
     {
       "sku": "87682",
@@ -2629,9 +2684,9 @@
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
-      "estoque": 3248,
-      "saldo": 2913,
-      "cobertura": 16.6,
+      "estoque": 3042,
+      "saldo": 2608,
+      "cobertura": 15.1,
       "seguranca": 20,
       "estoqueSeguranca": 2438,
       "consumoMensal": 3657,
@@ -2665,7 +2720,7 @@
       "primeiraEntrega": "2026-10-07",
       "diasAtePrimeiraEntrega": 1,
       "coberturaNaPrimeiraEntrega": 26.7,
-      "carteiraBi": 335.0
+      "carteiraBi": 434.0
     },
     {
       "sku": "42845",
@@ -2700,9 +2755,9 @@
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
-      "estoque": 1575,
-      "saldo": 1378,
-      "cobertura": 12.8,
+      "estoque": 1455,
+      "saldo": 1287,
+      "cobertura": 11.9,
       "seguranca": 20,
       "estoqueSeguranca": 1466,
       "consumoMensal": 2198,
@@ -2726,7 +2781,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": 23.1,
-      "carteiraBi": 197.0
+      "carteiraBi": 168.0
     },
     {
       "sku": "52658",
@@ -2762,9 +2817,9 @@
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
-      "estoque": 435,
-      "saldo": 399,
-      "cobertura": 18.2,
+      "estoque": 431,
+      "saldo": 393,
+      "cobertura": 18.8,
       "seguranca": 20,
       "estoqueSeguranca": 312,
       "consumoMensal": 468,
@@ -2788,7 +2843,7 @@
       "primeiraEntrega": "2026-10-15",
       "diasAtePrimeiraEntrega": 9,
       "coberturaNaPrimeiraEntrega": 20.2,
-      "carteiraBi": 36.0
+      "carteiraBi": 38.0
     },
     {
       "sku": "87630",
@@ -2796,9 +2851,9 @@
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
-      "estoque": 658,
-      "saldo": 638,
-      "cobertura": 28.0,
+      "estoque": 655,
+      "saldo": 635,
+      "cobertura": 29.2,
       "seguranca": 20,
       "estoqueSeguranca": 433,
       "consumoMensal": 650,
@@ -2830,9 +2885,9 @@
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
-      "estoque": 2323,
-      "saldo": 1638,
-      "cobertura": 19.8,
+      "estoque": 2164,
+      "saldo": 1591,
+      "cobertura": 19.5,
       "seguranca": 20,
       "estoqueSeguranca": 1454,
       "consumoMensal": 2181,
@@ -2844,24 +2899,19 @@
       "proximaEntrada": "2026-10-11T06:46:03.136000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-05T00:00:00",
-          "quantidade": 1,
-          "pedido": 458956
-        },
-        {
           "data": "2026-10-15T00:00:00",
           "quantidade": 1320,
           "pedido": 483741
         }
       ],
-      "totalProgramado": 1321,
+      "totalProgramado": 1320,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
       "primeiraEntrega": "2026-10-15",
       "diasAtePrimeiraEntrega": 9,
       "coberturaNaPrimeiraEntrega": 16.3,
-      "carteiraBi": 685.0
+      "carteiraBi": 573.0
     },
     {
       "sku": "87624",
@@ -2869,9 +2919,9 @@
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
-      "estoque": 1536,
-      "saldo": 893,
-      "cobertura": 15.8,
+      "estoque": 1446,
+      "saldo": 837,
+      "cobertura": 15.2,
       "seguranca": 20,
       "estoqueSeguranca": 1075,
       "consumoMensal": 1612,
@@ -2895,7 +2945,7 @@
       "primeiraEntrega": "2026-10-15",
       "diasAtePrimeiraEntrega": 9,
       "coberturaNaPrimeiraEntrega": 12.6,
-      "carteiraBi": 643.0
+      "carteiraBi": 609.0
     },
     {
       "sku": "87621",
@@ -2903,9 +2953,9 @@
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
-      "estoque": 1665,
-      "saldo": 1535,
-      "cobertura": 48.9,
+      "estoque": 1647,
+      "saldo": 1530,
+      "cobertura": 50.3,
       "seguranca": 20,
       "estoqueSeguranca": 514,
       "consumoMensal": 770,
@@ -2923,7 +2973,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 130.0
+      "carteiraBi": 117.0
     },
     {
       "sku": "48123",
@@ -2931,8 +2981,8 @@
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
-      "estoque": 1277,
-      "saldo": 1122,
+      "estoque": 1225,
+      "saldo": 1084,
       "cobertura": 16.7,
       "seguranca": 20,
       "estoqueSeguranca": 1076,
@@ -2957,7 +3007,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": 20.8,
-      "carteiraBi": 155.0
+      "carteiraBi": 141.0
     },
     {
       "sku": "112479",
@@ -2965,9 +3015,9 @@
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
-      "estoque": 1743,
-      "saldo": 1624,
-      "cobertura": 117.9,
+      "estoque": 1703,
+      "saldo": 1614,
+      "cobertura": 128.7,
       "seguranca": 20,
       "estoqueSeguranca": 400,
       "consumoMensal": 600,
@@ -2985,7 +3035,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 119.0
+      "carteiraBi": 89.0
     },
     {
       "sku": "112478",
@@ -2993,9 +3043,9 @@
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
-      "estoque": 1599,
-      "saldo": 1495,
-      "cobertura": 44.2,
+      "estoque": 1559,
+      "saldo": 1480,
+      "cobertura": 45.0,
       "seguranca": 20,
       "estoqueSeguranca": 800,
       "consumoMensal": 1200,
@@ -3013,7 +3063,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 104.0
+      "carteiraBi": 79.0
     },
     {
       "sku": "112412",
@@ -3021,9 +3071,9 @@
       "loja": "ROMARIZ",
       "fornecedor": "ROMARIZ",
       "unidade": "cx",
-      "estoque": 1116,
-      "saldo": 893,
-      "cobertura": 29.3,
+      "estoque": 1027,
+      "saldo": 863,
+      "cobertura": 28.5,
       "seguranca": 20,
       "estoqueSeguranca": 667,
       "consumoMensal": 1000,
@@ -3047,7 +3097,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": 31.0,
-      "carteiraBi": 223.0
+      "carteiraBi": 164.0
     },
     {
       "sku": "63307",
@@ -3055,9 +3105,9 @@
       "loja": "SEARA",
       "fornecedor": "SEARA",
       "unidade": "cx",
-      "estoque": 1172,
-      "saldo": 1077,
-      "cobertura": 24.2,
+      "estoque": 1142,
+      "saldo": 1041,
+      "cobertura": 24.3,
       "seguranca": 20,
       "estoqueSeguranca": 667,
       "consumoMensal": 1000,
@@ -3081,7 +3131,7 @@
       "primeiraEntrega": "2026-10-09",
       "diasAtePrimeiraEntrega": 3,
       "coberturaNaPrimeiraEntrega": 33.7,
-      "carteiraBi": 95.0
+      "carteiraBi": 101.0
     },
     {
       "sku": "139934",
@@ -3089,9 +3139,9 @@
       "loja": "OISHII",
       "fornecedor": "OISHII",
       "unidade": "cx",
-      "estoque": 2162,
-      "saldo": 1858,
-      "cobertura": 30.0,
+      "estoque": 2139,
+      "saldo": 1846,
+      "cobertura": 29.6,
       "seguranca": 30,
       "estoqueSeguranca": 6550,
       "consumoMensal": 6550,
@@ -3109,7 +3159,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 304.0
+      "carteiraBi": 293.0
     },
     {
       "sku": "140660",
@@ -3173,9 +3223,9 @@
       "loja": "OISHII",
       "fornecedor": "OISHII",
       "unidade": "cx",
-      "estoque": 348,
+      "estoque": 343,
       "saldo": 336,
-      "cobertura": 109.0,
+      "cobertura": 105.4,
       "seguranca": 30,
       "estoqueSeguranca": 500,
       "consumoMensal": 500,
@@ -3193,7 +3243,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 12.0
+      "carteiraBi": 7.0
     },
     {
       "sku": "140800",
@@ -3201,9 +3251,9 @@
       "loja": "OISHII",
       "fornecedor": "OISHII",
       "unidade": "cx",
-      "estoque": 504,
+      "estoque": 484,
       "saldo": 482,
-      "cobertura": 54.1,
+      "cobertura": 51.6,
       "seguranca": 30,
       "estoqueSeguranca": 350,
       "consumoMensal": 350,
@@ -3221,7 +3271,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 22.0
+      "carteiraBi": 2.0
     },
     {
       "sku": "141587",
@@ -3229,9 +3279,9 @@
       "loja": "OISHII",
       "fornecedor": "OISHII",
       "unidade": "cx",
-      "estoque": 58,
-      "saldo": 7,
-      "cobertura": 9.3,
+      "estoque": 55,
+      "saldo": 5,
+      "cobertura": 6.3,
       "seguranca": 30,
       "estoqueSeguranca": 100,
       "consumoMensal": 100,
@@ -3243,7 +3293,7 @@
       "proximaEntrada": "2026-10-06T00:00:00",
       "entregasProgramadas": [
         {
-          "data": "2026-10-02T00:00:00",
+          "data": "2026-10-08T00:00:00",
           "quantidade": 100,
           "pedido": 483769
         }
@@ -3252,10 +3302,10 @@
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 51.0
+      "primeiraEntrega": "2026-10-08",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": -2.0,
+      "carteiraBi": 50.0
     },
     {
       "sku": "141993",
@@ -3291,9 +3341,9 @@
       "loja": "OISHII",
       "fornecedor": "OISHII",
       "unidade": "cx",
-      "estoque": 54,
-      "saldo": 49,
-      "cobertura": 588.0,
+      "estoque": 53,
+      "saldo": 47,
+      "cobertura": 564.0,
       "seguranca": 30,
       "estoqueSeguranca": 60,
       "consumoMensal": 60,
@@ -3305,7 +3355,7 @@
       "proximaEntrada": "2026-10-06T00:00:00",
       "entregasProgramadas": [
         {
-          "data": "2026-10-02T00:00:00",
+          "data": "2026-10-08T00:00:00",
           "quantidade": 60,
           "pedido": 483770
         }
@@ -3314,10 +3364,10 @@
       "sugestaoCompra": 60,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 5.0
+      "primeiraEntrega": "2026-10-08",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": -2.0,
+      "carteiraBi": 6.0
     },
     {
       "sku": "142010",
@@ -3339,7 +3389,7 @@
       "proximaEntrada": "2026-10-06T00:00:00",
       "entregasProgramadas": [
         {
-          "data": "2026-10-02T00:00:00",
+          "data": "2026-10-08T00:00:00",
           "quantidade": 50,
           "pedido": 483770
         }
@@ -3348,9 +3398,9 @@
       "sugestaoCompra": 50,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null
+      "primeiraEntrega": "2026-10-08",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": -2.0
     },
     {
       "sku": "142015",
@@ -3386,9 +3436,9 @@
       "loja": "OISHII",
       "fornecedor": "OISHII",
       "unidade": "cx",
-      "estoque": 13,
-      "saldo": 12,
-      "cobertura": 115.2,
+      "estoque": 12,
+      "saldo": 10,
+      "cobertura": 96.0,
       "seguranca": 30,
       "estoqueSeguranca": 50,
       "consumoMensal": 50,
@@ -3406,7 +3456,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 1.0
+      "carteiraBi": 2.0
     },
     {
       "sku": "142346",
@@ -3415,8 +3465,8 @@
       "fornecedor": "OISHII",
       "unidade": "cx",
       "estoque": 49,
-      "saldo": 47,
-      "cobertura": 250.7,
+      "saldo": 46,
+      "cobertura": 245.3,
       "seguranca": 30,
       "estoqueSeguranca": 60,
       "consumoMensal": 60,
@@ -3435,7 +3485,7 @@
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
       "escadinhaCod": 142345,
-      "carteiraBi": 2.0
+      "carteiraBi": 3.0
     },
     {
       "sku": "142362",
@@ -3444,8 +3494,8 @@
       "fornecedor": "OISHII",
       "unidade": "cx",
       "estoque": 54,
-      "saldo": 49,
-      "cobertura": 588.0,
+      "saldo": 47,
+      "cobertura": 564.0,
       "seguranca": 30,
       "estoqueSeguranca": 50,
       "consumoMensal": 50,
@@ -3463,7 +3513,7 @@
       "primeiraEntrega": null,
       "diasAtePrimeiraEntrega": null,
       "coberturaNaPrimeiraEntrega": null,
-      "carteiraBi": 5.0
+      "carteiraBi": 7.0
     },
     {
       "sku": "140793",
@@ -3485,7 +3535,7 @@
       "proximaEntrada": "2026-10-06T00:00:00",
       "entregasProgramadas": [
         {
-          "data": "2026-10-02T00:00:00",
+          "data": "2026-10-08T00:00:00",
           "quantidade": 50,
           "pedido": 483769
         }
@@ -3494,11 +3544,10 @@
       "sugestaoCompra": 52,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
-      "escadinhaCod": 140794,
-      "carteiraBi": 8.0
+      "primeiraEntrega": "2026-10-08",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": -2.0,
+      "escadinhaCod": 140794
     }
   ]
 }
