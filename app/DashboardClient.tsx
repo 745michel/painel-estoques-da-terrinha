@@ -1232,6 +1232,7 @@ function EscadinhaDashboard({
   const [mesesFiltro, setMesesFiltro] = useState<string[]>([]);
   const [semEscadinha, setSemEscadinha] = useState(false);
   const [nivelFiltro, setNivelFiltro] = useState<"todos" | "cima" | "baixo" | "atencao" | "critico">("todos");
+  const [mesHistoricoAberto, setMesHistoricoAberto] = useState<string | null>(null);
 
   const produtos = escadinhaData.produtos as EscadinhaProduto[];
   const desvios = escadinhaData.desvios as EscadinhaDesvio[];
@@ -1373,6 +1374,26 @@ function EscadinhaDashboard({
     return { mes, plano, real, desvio, atingimento };
   }), [filtered, mesAtualIndex]);
 
+  // Detalhamento por produto ao clicar num mes do Historico (pedido do usuario em 06/10/2026:
+  // "quando eu clicar no mes eu ver quais itens teve desvio"). So entra produto com plano ou
+  // real != 0 nesse mes (evita poluir a lista com os que nem tem previsao); ordenado pelo maior
+  // desvio absoluto, igual ao criterio ja usado na grade principal.
+  const itensDesvioMesHistorico = useMemo(() => {
+    if (!mesHistoricoAberto) return [];
+    const index = MESES_ESCADINHA.indexOf(mesHistoricoAberto);
+    const temReal = index <= mesAtualIndex;
+    return filtered
+      .map((p) => {
+        const plano = p.plano?.[index] ?? 0;
+        const real = temReal ? (p.real?.[index] ?? 0) : null;
+        const desvio = real != null ? real - plano : null;
+        const desvioPercentual = desvio != null && plano > 0 ? (desvio / plano) * 100 : null;
+        return { produto: p, plano, real, desvio, desvioPercentual };
+      })
+      .filter((item) => item.plano !== 0 || (item.real ?? 0) !== 0)
+      .sort((a, b) => Math.abs(b.desvio ?? 0) - Math.abs(a.desvio ?? 0));
+  }, [filtered, mesHistoricoAberto, mesAtualIndex]);
+
   // Produtos sem escadinha nenhuma no ano (plano zerado o ano inteiro) - pedido do usuario em
   // 24/08/2026. Ordenado pelo Real do ano, maior primeiro: quem ja vende mas nao tem plano
   // cadastrado e o caso mais urgente de checar.
@@ -1469,7 +1490,7 @@ function EscadinhaDashboard({
         </section>
 
         <section className="inventory-panel consumption-panel">
-          <div className="panel-heading"><div><p className="eyebrow">{visao === "resumo" ? "RESUMO DE DESVIOS" : visao === "historico" ? "HISTÓRICO" : "PLANO MÊS A MÊS"}</p><h2>{visao === "resumo" ? "Produtos com desvio pra passar ao comercial" : visao === "historico" ? "Projetado x realizado, mês a mês" : `Escadinha de ${new Date(escadinhaData.dataPublicacao).getUTCFullYear()}`}</h2><p>{visao === "resumo" ? `Quanto o plano de cada mês mudou de uma revisão pra outra (não é venda real) — maior desvio primeiro. Destacado em laranja ≥ ${ESCADINHA_LIMIAR_ATENCAO}%, em vermelho ≥ ${ESCADINHA_LIMIAR_CRITICO}%.` : visao === "historico" ? "Soma de todos os produtos do filtro atual, mês a mês. Meses futuros ainda não têm realizado." : hasComparacao ? "Ordenado do maior para o menor desvio total no ano; células destacadas mudaram desde a revisão anterior." : "Ordenado por produto — os meses que mudarem aparecem destacados a partir da próxima revisão."}</p></div><div className="unit-switch"><button className={semestre === 1 && visao === "grade" ? "active" : ""} onClick={() => { setSemestre(1); setVisao("grade"); }}>1º semestre</button><button className={semestre === 2 && visao === "grade" ? "active" : ""} onClick={() => { setSemestre(2); setVisao("grade"); }}>2º semestre</button><button className={visao === "resumo" ? "active" : ""} onClick={() => setVisao("resumo")}>Resumo</button><button className={visao === "historico" ? "active" : ""} onClick={() => setVisao("historico")}>Histórico</button></div></div>
+          <div className="panel-heading"><div><p className="eyebrow">{visao === "resumo" ? "RESUMO DE DESVIOS" : visao === "historico" ? "HISTÓRICO" : "PLANO MÊS A MÊS"}</p><h2>{visao === "resumo" ? "Produtos com desvio pra passar ao comercial" : visao === "historico" ? "Projetado x realizado, mês a mês" : `Escadinha de ${new Date(escadinhaData.dataPublicacao).getUTCFullYear()}`}</h2><p>{visao === "resumo" ? `Quanto o plano de cada mês mudou de uma revisão pra outra (não é venda real) — maior desvio primeiro. Destacado em laranja ≥ ${ESCADINHA_LIMIAR_ATENCAO}%, em vermelho ≥ ${ESCADINHA_LIMIAR_CRITICO}%.` : visao === "historico" ? "Soma de todos os produtos do filtro atual, mês a mês. Meses futuros ainda não têm realizado. Clique num mês para ver quais produtos tiveram desvio." : hasComparacao ? "Ordenado do maior para o menor desvio total no ano; células destacadas mudaram desde a revisão anterior." : "Ordenado por produto — os meses que mudarem aparecem destacados a partir da próxima revisão."}</p></div><div className="unit-switch"><button className={semestre === 1 && visao === "grade" ? "active" : ""} onClick={() => { setSemestre(1); setVisao("grade"); }}>1º semestre</button><button className={semestre === 2 && visao === "grade" ? "active" : ""} onClick={() => { setSemestre(2); setVisao("grade"); }}>2º semestre</button><button className={visao === "resumo" ? "active" : ""} onClick={() => setVisao("resumo")}>Resumo</button><button className={visao === "historico" ? "active" : ""} onClick={() => setVisao("historico")}>Histórico</button></div></div>
           <div className="filters value-filters"><div className="selects">
             <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={(values) => { setCategories(values); setSelectedProdutos([]); }} />
             <MultiFilter label="Produto" options={productOptions} selected={selectedProdutos} onChange={setSelectedProdutos} />
@@ -1535,7 +1556,7 @@ function EscadinhaDashboard({
           </> : visao === "historico" ? <div className="table-wrap consumption-table-wrap"><table className="consumption-table buyer-action-table"><thead><tr>
             <th>Mês</th><th>Projetado</th><th>Realizado</th><th>% atingimento</th><th>Desvio</th>
           </tr></thead><tbody>
-            {historicoMensal.map((h) => <tr key={h.mes} className={h.mes === mesAtual ? "selected-row" : ""}>
+            {historicoMensal.map((h) => <tr key={h.mes} className={h.mes === mesAtual ? "selected-row" : ""} onClick={() => setMesHistoricoAberto(h.mes)}>
               <td>{MESES_ESCADINHA_LABEL[h.mes]}</td>
               <td><strong className="numeric">{number.format(Math.round(h.plano))}</strong></td>
               <td>{h.real != null ? <strong className="numeric">{number.format(Math.round(h.real))}</strong> : <span className="no-projection">—</span>}</td>
@@ -1611,6 +1632,29 @@ function EscadinhaDashboard({
               })}
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>}
+
+    {mesHistoricoAberto && <div className="drawer-backdrop" onClick={() => setMesHistoricoAberto(null)}>
+      <div className="drawer escadinha-historico-drawer" onClick={(event) => event.stopPropagation()}>
+        <button className="drawer-close" onClick={() => setMesHistoricoAberto(null)}>×</button>
+        <h2>Desvios em {MESES_ESCADINHA_LABEL[mesHistoricoAberto]}</h2>
+        <p className="drawer-sku">{itensDesvioMesHistorico.length} produto(s) com plano ou realizado nesse mês, maior desvio primeiro.</p>
+        <div className="table-wrap">
+          <table className="consumption-table escadinha-drawer-table">
+            <thead><tr><th>Produto / marca</th><th>Plano</th><th>Real</th><th>Desvio</th><th>Desvio %</th></tr></thead>
+            <tbody>
+              {itensDesvioMesHistorico.map((item) => <tr key={item.produto.produto}>
+                <td><div className="product-cell"><div><strong title={item.produto.produto}>{item.produto.produto}</strong><small>Cód. {item.produto.cod ?? "—"} · {item.produto.marca ?? "Sem marca"}</small></div></div></td>
+                <td><strong className="numeric">{number.format(item.plano)}</strong></td>
+                <td>{item.real != null ? <strong className="numeric">{number.format(item.real)}</strong> : <span className="no-projection">—</span>}</td>
+                <td>{item.desvio != null ? <strong className={`numeric ${item.desvio >= 0 ? "escadinha-delta-up" : "escadinha-delta-down"}`}>{item.desvio >= 0 ? "+" : ""}{number.format(item.desvio)}</strong> : "—"}</td>
+                <td>{item.desvioPercentual != null ? `${item.desvioPercentual > 0 ? "+" : ""}${decimal.format(item.desvioPercentual)}%` : "—"}</td>
+              </tr>)}
+            </tbody>
+          </table>
+          {itensDesvioMesHistorico.length === 0 && <div className="empty-state"><strong>Nenhum produto encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}
         </div>
       </div>
     </div>}
