@@ -1228,7 +1228,7 @@ function EscadinhaDashboard({
   const [selectedProdutos, setSelectedProdutos] = useState<string[]>([]);
   const [selected, setSelected] = useState<EscadinhaProduto | null>(null);
   const [semestre, setSemestre] = useState<1 | 2>(new Date().getMonth() < 6 ? 1 : 2);
-  const [visao, setVisao] = useState<"grade" | "resumo">("grade");
+  const [visao, setVisao] = useState<"grade" | "resumo" | "historico">("grade");
   const [mesesFiltro, setMesesFiltro] = useState<string[]>([]);
   const [semEscadinha, setSemEscadinha] = useState(false);
   const [nivelFiltro, setNivelFiltro] = useState<"todos" | "cima" | "baixo" | "atencao" | "critico">("todos");
@@ -1361,6 +1361,18 @@ function EscadinhaDashboard({
     return "critical-card";
   }
 
+  // Aba "Histórico" (pedido do usuario em 06/10/2026: "ver o historico da escadinha mes a mes
+  // o projetado e o realizado") - mesma soma por mes dos cards do topo, so que para os 12 meses
+  // do ano de uma vez, nao so o mes vigente. Meses futuros (apos mesAtualIndex) nao tem real
+  // ainda - mostra "-" em vez de 0, pra nao parecer que a venda zerou.
+  const historicoMensal = useMemo(() => MESES_ESCADINHA.map((mes, index) => {
+    const plano = filtered.reduce((sum, p) => sum + (p.plano?.[index] ?? 0), 0);
+    const real = index <= mesAtualIndex ? filtered.reduce((sum, p) => sum + (p.real?.[index] ?? 0), 0) : null;
+    const desvio = real != null ? real - plano : null;
+    const atingimento = real != null && plano > 0 ? (real / plano) * 100 : null;
+    return { mes, plano, real, desvio, atingimento };
+  }), [filtered, mesAtualIndex]);
+
   // Produtos sem escadinha nenhuma no ano (plano zerado o ano inteiro) - pedido do usuario em
   // 24/08/2026. Ordenado pelo Real do ano, maior primeiro: quem ja vende mas nao tem plano
   // cadastrado e o caso mais urgente de checar.
@@ -1457,7 +1469,7 @@ function EscadinhaDashboard({
         </section>
 
         <section className="inventory-panel consumption-panel">
-          <div className="panel-heading"><div><p className="eyebrow">{visao === "resumo" ? "RESUMO DE DESVIOS" : "PLANO MÊS A MÊS"}</p><h2>{visao === "resumo" ? "Produtos com desvio pra passar ao comercial" : `Escadinha de ${new Date(escadinhaData.dataPublicacao).getUTCFullYear()}`}</h2><p>{visao === "resumo" ? `Quanto o plano de cada mês mudou de uma revisão pra outra (não é venda real) — maior desvio primeiro. Destacado em laranja ≥ ${ESCADINHA_LIMIAR_ATENCAO}%, em vermelho ≥ ${ESCADINHA_LIMIAR_CRITICO}%.` : hasComparacao ? "Ordenado do maior para o menor desvio total no ano; células destacadas mudaram desde a revisão anterior." : "Ordenado por produto — os meses que mudarem aparecem destacados a partir da próxima revisão."}</p></div><div className="unit-switch"><button className={semestre === 1 && visao === "grade" ? "active" : ""} onClick={() => { setSemestre(1); setVisao("grade"); }}>1º semestre</button><button className={semestre === 2 && visao === "grade" ? "active" : ""} onClick={() => { setSemestre(2); setVisao("grade"); }}>2º semestre</button><button className={visao === "resumo" ? "active" : ""} onClick={() => setVisao("resumo")}>Resumo</button></div></div>
+          <div className="panel-heading"><div><p className="eyebrow">{visao === "resumo" ? "RESUMO DE DESVIOS" : visao === "historico" ? "HISTÓRICO" : "PLANO MÊS A MÊS"}</p><h2>{visao === "resumo" ? "Produtos com desvio pra passar ao comercial" : visao === "historico" ? "Projetado x realizado, mês a mês" : `Escadinha de ${new Date(escadinhaData.dataPublicacao).getUTCFullYear()}`}</h2><p>{visao === "resumo" ? `Quanto o plano de cada mês mudou de uma revisão pra outra (não é venda real) — maior desvio primeiro. Destacado em laranja ≥ ${ESCADINHA_LIMIAR_ATENCAO}%, em vermelho ≥ ${ESCADINHA_LIMIAR_CRITICO}%.` : visao === "historico" ? "Soma de todos os produtos do filtro atual, mês a mês. Meses futuros ainda não têm realizado." : hasComparacao ? "Ordenado do maior para o menor desvio total no ano; células destacadas mudaram desde a revisão anterior." : "Ordenado por produto — os meses que mudarem aparecem destacados a partir da próxima revisão."}</p></div><div className="unit-switch"><button className={semestre === 1 && visao === "grade" ? "active" : ""} onClick={() => { setSemestre(1); setVisao("grade"); }}>1º semestre</button><button className={semestre === 2 && visao === "grade" ? "active" : ""} onClick={() => { setSemestre(2); setVisao("grade"); }}>2º semestre</button><button className={visao === "resumo" ? "active" : ""} onClick={() => setVisao("resumo")}>Resumo</button><button className={visao === "historico" ? "active" : ""} onClick={() => setVisao("historico")}>Histórico</button></div></div>
           <div className="filters value-filters"><div className="selects">
             <MultiFilter label="Categoria" options={categoryOptions} selected={categories} onChange={(values) => { setCategories(values); setSelectedProdutos([]); }} />
             <MultiFilter label="Produto" options={productOptions} selected={selectedProdutos} onChange={setSelectedProdutos} />
@@ -1520,7 +1532,23 @@ function EscadinhaDashboard({
                 })}
               </tbody></table>{desviosExibidos.length === 0 && <div className="empty-state"><strong>Nenhum desvio encontrado</strong><p>Remova um filtro ou pesquise outro item.</p></div>}</div>
             </>}
-          </> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table escadinha-grid"><thead><tr>
+          </> : visao === "historico" ? <div className="table-wrap consumption-table-wrap"><table className="consumption-table buyer-action-table"><thead><tr>
+            <th>Mês</th><th>Projetado</th><th>Realizado</th><th>% atingimento</th><th>Desvio</th>
+          </tr></thead><tbody>
+            {historicoMensal.map((h) => <tr key={h.mes} className={h.mes === mesAtual ? "selected-row" : ""}>
+              <td>{MESES_ESCADINHA_LABEL[h.mes]}</td>
+              <td><strong className="numeric">{number.format(Math.round(h.plano))}</strong></td>
+              <td>{h.real != null ? <strong className="numeric">{number.format(Math.round(h.real))}</strong> : <span className="no-projection">—</span>}</td>
+              <td>{h.atingimento != null ? `${decimal.format(h.atingimento)}%` : "—"}</td>
+              <td>{h.desvio != null ? <strong className={`numeric ${h.desvio >= 0 ? "escadinha-delta-up" : "escadinha-delta-down"}`}>{h.desvio >= 0 ? "+" : ""}{number.format(Math.round(h.desvio))}</strong> : "—"}</td>
+            </tr>)}
+          </tbody><tfoot><tr className="escadinha-total-row">
+            <td><strong>Total anual</strong></td>
+            <td><strong className="numeric">{number.format(Math.round(totalPlanoFiltrado))}</strong></td>
+            <td><strong className="numeric">{number.format(Math.round(totalRealFiltrado))}</strong></td>
+            <td>{atingimentoTotalFiltrado != null ? `${decimal.format(atingimentoTotalFiltrado)}%` : "—"}</td>
+            <td><strong className={`numeric ${desvioTotalFiltrado >= 0 ? "escadinha-delta-up" : "escadinha-delta-down"}`}>{desvioTotalFiltrado >= 0 ? "+" : ""}{number.format(Math.round(desvioTotalFiltrado))}</strong></td>
+          </tr></tfoot></table></div> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table escadinha-grid"><thead><tr>
             <th>Produto / marca</th><th>Categoria</th>
             {mesesSemestre.map((mes) => <th key={mes} className={mes === mesAtual ? "escadinha-mes-atual" : ""}>{MESES_ESCADINHA_LABEL[mes]}</th>)}
             <th>Total anual</th>
