@@ -2279,16 +2279,6 @@ function CortesDashboard({
     : null;
 
   const totalCorteFiltrado = filtrados.reduce((sum, c) => sum + c.corteCx, 0);
-  const semMotivoFiltrado = filtrados.filter((c) => !c.motivo).length;
-  const percentualComMotivo = filtrados.length > 0 ? ((filtrados.length - semMotivoFiltrado) / filtrados.length) * 100 : null;
-  const rankingMotivos = useMemo(() => {
-    const porMotivo = new Map<string, number>();
-    for (const c of filtrados) {
-      const chave = c.motivo ?? SEM_MOTIVO;
-      porMotivo.set(chave, (porMotivo.get(chave) ?? 0) + c.corteCx);
-    }
-    return Array.from(porMotivo.entries()).sort((a, b) => b[1] - a[1]);
-  }, [filtrados]);
   const updated = new Date(cortesData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
   return <main className="app-shell">
@@ -2328,16 +2318,11 @@ function CortesDashboard({
             <strong>{number.format(Math.round(totalCorteFiltrado))}</strong><p>Total cortado (cx)</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
             <small>Soma das unidades filtradas</small>
           </div>
-          <div className="kpi-card excess-card">
-            <div className="kpi-top"><span className="kpi-icon">!</span><span className="trend warn">Pendente</span></div>
-            <strong>{number.format(semMotivoFiltrado)}</strong><p>Cortes sem motivo</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
-            <small>{percentualComMotivo != null ? `${decimal.format(percentualComMotivo)}% já preenchido` : "—"}</small>
-          </div>
-          <div className="kpi-card healthy-card">
-            <div className="kpi-top"><span className="kpi-icon">✓</span><span className="trend good">Maior motivo</span></div>
-            <strong>{rankingMotivos[0] ? number.format(Math.round(rankingMotivos[0][1])) : "—"}</strong><p>{rankingMotivos[0] ? rankingMotivos[0][0] : "Sem dados"}</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
-            <small>cx cortados, maior categoria do período</small>
-          </div>
+          {canViewValues && <div className="kpi-card healthy-card">
+            <div className="kpi-top"><span className="kpi-icon">R$</span><span className="trend good">Financeiro</span></div>
+            <strong>{totalValorFaturadoFiltrado != null ? currency.format(totalValorFaturadoFiltrado) : "—"}</strong><p>Valor faturado</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+            <small>Soma do faturamento no filtro</small>
+          </div>}
           {canViewValues && <div className="kpi-card critical-card">
             <div className="kpi-top"><span className="kpi-icon">R$</span><span className="trend critical">Financeiro</span></div>
             <strong>{totalValorCorteFiltrado != null ? currency.format(totalValorCorteFiltrado) : "—"}</strong><p>Valor cortado</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
