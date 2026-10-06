@@ -1347,6 +1347,20 @@ function EscadinhaDashboard({
   const unidadesFiltradas = new Set(filtered.map((p) => unitLabelEscadinha(p)));
   const unidadeResumoFiltrado = unidadesFiltradas.size === 1 ? Array.from(unidadesFiltradas)[0] : "cx/fardo (misto)";
 
+  // Par de cards do mes vigente (pedido do usuario em 06/10/2026 - "quero ver a escadinha do
+  // mes atual e o realizado mes atual"), ao lado do par anual ja existente. Mesmo filtro
+  // "filtered" dos outros cards.
+  const totalPlanoMesAtual = filtered.reduce((sum, p) => sum + (p.plano?.[mesAtualIndex] ?? 0), 0);
+  const totalRealMesAtual = filtered.reduce((sum, p) => sum + (p.real?.[mesAtualIndex] ?? 0), 0);
+  const desvioMesAtual = totalRealMesAtual - totalPlanoMesAtual;
+  const atingimentoMesAtual = totalPlanoMesAtual > 0 ? (totalRealMesAtual / totalPlanoMesAtual) * 100 : null;
+  function corAtingimento(pct: number | null) {
+    if (pct == null) return "";
+    if (pct >= 90) return "healthy-card";
+    if (pct >= 70) return "excess-card";
+    return "critical-card";
+  }
+
   // Produtos sem escadinha nenhuma no ano (plano zerado o ano inteiro) - pedido do usuario em
   // 24/08/2026. Ordenado pelo Real do ano, maior primeiro: quem ja vende mas nao tem plano
   // cadastrado e o caso mais urgente de checar.
@@ -1428,8 +1442,18 @@ function EscadinhaDashboard({
           {hasComparacao ? <>
             <div><span>Produtos com desvio</span><strong>{number.format(desvios.length)}</strong><small>Comparado à revisão de {fullDate.format(localDate(escadinhaData.dataPublicacaoAnterior as string))}</small></div>
           </> : <div><span>Comparação com revisão anterior</span><strong>—</strong><small>Disponível a partir da próxima revisão mensal</small></div>}
+          <div className={corAtingimento(atingimentoMesAtual)}><span>Escadinha ({MESES_ESCADINHA_LABEL[mesAtual]})</span><strong>{number.format(Math.round(totalPlanoMesAtual))}</strong><small>{unidadeResumoFiltrado} · plano do mês vigente</small></div>
+          <div className={corAtingimento(atingimentoMesAtual)}>
+            <span>Realizado ({MESES_ESCADINHA_LABEL[mesAtual]})</span><strong>{number.format(Math.round(totalRealMesAtual))}</strong>
+            <div className="mini-rule" style={{ margin: "7px 0" }}><span style={{ width: `${Math.min(100, Math.max(0, atingimentoMesAtual ?? 0))}%` }} /></div>
+            <small>{atingimentoMesAtual != null ? `${decimal.format(atingimentoMesAtual)}% do plano do mês · desvio ${desvioMesAtual >= 0 ? "+" : ""}${number.format(Math.round(desvioMesAtual))}` : "Sem plano pra comparar"}</small>
+          </div>
           <div><span>Escadinha geral (plano do ano)</span><strong>{number.format(Math.round(totalPlanoFiltrado))}</strong><small>{unidadeResumoFiltrado} · {number.format(filtered.length)} produto(s) no filtro atual</small></div>
-          <div><span>Realizado (ano)</span><strong>{number.format(Math.round(totalRealFiltrado))}</strong><small>{atingimentoTotalFiltrado != null ? `${decimal.format(atingimentoTotalFiltrado)}% do plano · desvio ${desvioTotalFiltrado >= 0 ? "+" : ""}${number.format(Math.round(desvioTotalFiltrado))}` : "Sem plano pra comparar"}</small></div>
+          <div className={corAtingimento(atingimentoTotalFiltrado)}>
+            <span>Realizado (ano)</span><strong>{number.format(Math.round(totalRealFiltrado))}</strong>
+            <div className="mini-rule" style={{ margin: "7px 0" }}><span style={{ width: `${Math.min(100, Math.max(0, atingimentoTotalFiltrado ?? 0))}%` }} /></div>
+            <small>{atingimentoTotalFiltrado != null ? `${decimal.format(atingimentoTotalFiltrado)}% do plano · desvio ${desvioTotalFiltrado >= 0 ? "+" : ""}${number.format(Math.round(desvioTotalFiltrado))}` : "Sem plano pra comparar"}</small>
+          </div>
         </section>
 
         <section className="inventory-panel consumption-panel">
