@@ -2334,6 +2334,7 @@ function CortesDashboard({
   const [lojas, setLojas] = useState<string[]>([]);
   const [motivos, setMotivos] = useState<string[]>([]);
   const [categorias, setCategorias] = useState<string[]>([]);
+  const [produtosFiltro, setProdutosFiltro] = useState<string[]>([]);
   const [somenteSemMotivo, setSomenteSemMotivo] = useState(false);
   // Pedido do usuario em 05/10/2026: "sempre no filtro quero o mes vigente, nao todos
   // juntos" - comeca so com o mes atual selecionado, em vez de vazio (= todos os meses).
@@ -2374,6 +2375,10 @@ function CortesDashboard({
     () => [...Array.from(new Set(cortes.map((c) => c.categoria).filter((cat): cat is string => Boolean(cat)))).sort((a, b) => a.localeCompare(b, "pt-BR")), SEM_CATEGORIA].map((cat) => ({ value: cat, label: cat })),
     [cortes],
   );
+  const produtoOptions = useMemo(
+    () => Array.from(new Set(cortes.map((c) => c.produto).filter((p): p is string => Boolean(p)))).sort((a, b) => a.localeCompare(b, "pt-BR")).map((p) => ({ value: p, label: p })),
+    [cortes],
+  );
 
   const filtrados = useMemo(() => {
     const search = query.trim().toLocaleLowerCase("pt-BR");
@@ -2384,9 +2389,10 @@ function CortesDashboard({
       && (lojas.length === 0 || lojas.includes(c.loja))
       && (motivos.length === 0 || motivos.includes(c.motivo ?? SEM_MOTIVO))
       && (categorias.length === 0 || categorias.includes(c.categoria ?? SEM_CATEGORIA))
+      && (produtosFiltro.length === 0 || produtosFiltro.includes(c.produto ?? ""))
       && (!somenteSemMotivo || !c.motivo)
     ));
-  }, [cortes, query, lojas, motivos, categorias, somenteSemMotivo, meses, semanas]);
+  }, [cortes, query, lojas, motivos, categorias, produtosFiltro, somenteSemMotivo, meses, semanas]);
 
   const ordenados = useMemo(() => {
     const sinal = sortDir === "desc" ? -1 : 1;
@@ -2419,19 +2425,20 @@ function CortesDashboard({
   const updated = new Date(cortesData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
   const porMotivo = useMemo(() => {
-    const mapa = new Map<string, { corteCx: number; itens: number }>();
+    const mapa = new Map<string, { corteCx: number; itens: number; valorCorte: number }>();
     for (const c of filtrados) {
       const chave = c.motivo ?? SEM_MOTIVO;
-      const atual = mapa.get(chave) ?? { corteCx: 0, itens: 0 };
+      const atual = mapa.get(chave) ?? { corteCx: 0, itens: 0, valorCorte: 0 };
       atual.corteCx += c.corteCx;
       atual.itens += 1;
+      if (canViewValues) atual.valorCorte += valorDoCorte(c)?.valorCorte ?? 0;
       mapa.set(chave, atual);
     }
     const total = Array.from(mapa.values()).reduce((sum, v) => sum + v.corteCx, 0);
     return Array.from(mapa.entries())
-      .map(([motivo, v]) => ({ motivo, corteCx: v.corteCx, itens: v.itens, percentual: total > 0 ? (v.corteCx / total) * 100 : 0 }))
+      .map(([motivo, v]) => ({ motivo, corteCx: v.corteCx, itens: v.itens, valorCorte: v.valorCorte, percentual: total > 0 ? (v.corteCx / total) * 100 : 0 }))
       .sort((a, b) => b.corteCx - a.corteCx);
-  }, [filtrados]);
+  }, [filtrados, canViewValues, valorPorChave]);
   const maiorCorteMotivo = Math.max(1, ...porMotivo.map((m) => m.corteCx));
 
   // Grafico "Produtos que mais cortaram" (pedido do usuario em 10/10/2026), abaixo do de
@@ -2439,17 +2446,18 @@ function CortesDashboard({
   // rolagem" - lista completa (sem corte em 15), dentro de um container com scroll proprio pra
   // nao esticar a pagina toda quando o filtro tiver 200+ produtos distintos.
   const porProduto = useMemo(() => {
-    const mapa = new Map<number, { produto: string; corteCx: number }>();
+    const mapa = new Map<number, { produto: string; corteCx: number; valorCorte: number }>();
     for (const c of filtrados) {
-      const atual = mapa.get(c.produtoKey) ?? { produto: c.produto ?? `SKU ${c.produtoKey}`, corteCx: 0 };
+      const atual = mapa.get(c.produtoKey) ?? { produto: c.produto ?? `SKU ${c.produtoKey}`, corteCx: 0, valorCorte: 0 };
       atual.corteCx += c.corteCx;
+      if (canViewValues) atual.valorCorte += valorDoCorte(c)?.valorCorte ?? 0;
       mapa.set(c.produtoKey, atual);
     }
     const total = Array.from(mapa.values()).reduce((sum, v) => sum + v.corteCx, 0);
     return Array.from(mapa.entries())
-      .map(([produtoKey, v]) => ({ produtoKey, produto: v.produto, corteCx: v.corteCx, percentual: total > 0 ? (v.corteCx / total) * 100 : 0 }))
+      .map(([produtoKey, v]) => ({ produtoKey, produto: v.produto, corteCx: v.corteCx, valorCorte: v.valorCorte, percentual: total > 0 ? (v.corteCx / total) * 100 : 0 }))
       .sort((a, b) => b.corteCx - a.corteCx);
-  }, [filtrados]);
+  }, [filtrados, canViewValues, valorPorChave]);
   const maiorCorteProduto = Math.max(1, ...porProduto.map((p) => p.corteCx));
 
   // Clicar numa barra mostra os itens daquele motivo (pedido do usuario em 09/10/2026: "quero
@@ -2520,21 +2528,22 @@ function CortesDashboard({
             <MultiFilter label="Loja" options={lojaOptions} selected={lojas} onChange={setLojas} />
             <MultiFilter label="Motivo" options={motivoOptions} selected={motivos} onChange={setMotivos} />
             <MultiFilter label="Categoria" options={categoriaOptions} selected={categorias} onChange={setCategorias} />
+            <MultiFilter label="Produto" options={produtoOptions} selected={produtosFiltro} onChange={setProdutosFiltro} />
             <label className="toggle-inativos"><input type="checkbox" checked={somenteSemMotivo} onChange={(event) => setSomenteSemMotivo(event.target.checked)} /> Só sem motivo</label>
-            {(lojas.length > 0 || motivos.length > 0 || categorias.length > 0 || meses.length > 0 || semanas.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setCategorias([]); setMeses([]); setSemanas([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
+            {(lojas.length > 0 || motivos.length > 0 || categorias.length > 0 || produtosFiltro.length > 0 || meses.length > 0 || semanas.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setCategorias([]); setProdutosFiltro([]); setMeses([]); setSemanas([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
           </div></div>
           {visao === "motivos" ? <>
             <div className="motivo-bars">
               {porMotivo.map((m) => <button type="button" className="motivo-bar-row" key={m.motivo} onClick={() => setMotivoAberto(m.motivo)}>
                 <span className="motivo-bar-label" title={m.motivo}>{m.motivo}</span>
                 <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(m.corteCx ? 2 : 0, (m.corteCx / maiorCorteMotivo) * 100)}%` }} /></span>
-                <span className="motivo-bar-value">{number.format(Math.round(m.corteCx))} cx <small className="motivo-bar-pct">{decimal.format(m.percentual)}%</small></span>
+                <span className="motivo-bar-value">{number.format(Math.round(m.corteCx))} cx <small className="motivo-bar-pct">{decimal.format(m.percentual)}%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(m.valorCorte)}</small>}</span>
               </button>)}
               {porMotivo.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
               {porMotivo.length > 0 && <div className="motivo-bar-row motivo-bar-total">
                 <span className="motivo-bar-label">Total</span>
                 <span className="motivo-bar-track" />
-                <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small></span>
+                <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(totalValorCorteFiltrado ?? 0)}</small>}</span>
               </div>}
             </div>
             <h3 className="drawer-section-label" style={{ margin: "24px 20px 10px" }}>PRODUTOS QUE MAIS CORTARAM</h3>
@@ -2542,7 +2551,7 @@ function CortesDashboard({
               {porProduto.map((p) => <div className="motivo-bar-row no-click" key={p.produtoKey}>
                 <span className="motivo-bar-label" title={p.produto}>{p.produto}</span>
                 <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(p.corteCx ? 2 : 0, (p.corteCx / maiorCorteProduto) * 100)}%` }} /></span>
-                <span className="motivo-bar-value">{number.format(Math.round(p.corteCx))} cx <small className="motivo-bar-pct">{decimal.format(p.percentual)}%</small></span>
+                <span className="motivo-bar-value">{number.format(Math.round(p.corteCx))} cx <small className="motivo-bar-pct">{decimal.format(p.percentual)}%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(p.valorCorte)}</small>}</span>
               </div>)}
               {porProduto.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
             </div>
@@ -2550,7 +2559,7 @@ function CortesDashboard({
               <div className="motivo-bar-row motivo-bar-total">
                 <span className="motivo-bar-label">Total ({number.format(porProduto.length)} produto{porProduto.length === 1 ? "" : "s"})</span>
                 <span className="motivo-bar-track" />
-                <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small></span>
+                <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(totalValorCorteFiltrado ?? 0)}</small>}</span>
               </div>
             </div>}
           </> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
