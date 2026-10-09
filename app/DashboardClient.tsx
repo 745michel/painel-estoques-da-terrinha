@@ -2293,6 +2293,8 @@ const MOTIVOS_CORTE_OPCOES = [
   "Erro de pedido/cadastro",
   "Cliente cancelou/alterou",
   "Problema de qualidade",
+  "Comercial",
+  "Recebimento",
   "Outro",
 ];
 function CortesDashboard({
