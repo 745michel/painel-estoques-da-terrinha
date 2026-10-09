@@ -609,6 +609,26 @@ function mesCorteLabel(mes: string) {
   return `${MESES_ESCADINHA_LABEL[MESES_ESCADINHA[Number(mesNum) - 1]]}/${ano.slice(2)}`;
 }
 
+// Filtro de Semana nos Cortes (pedido do usuario em 10/10/2026: "falo com meu chefe por
+// semana, quero poder olhar so a semana") - semana fechada de segunda a domingo. A "chave" e
+// a data (ISO) da segunda-feira daquela semana, usada so pra agrupar/ordenar; o rotulo mostra
+// o intervalo completo.
+function semanaCorteChave(dataIso: string) {
+  const data = new Date(`${dataIso}T00:00:00Z`);
+  const diaSemana = data.getUTCDay();
+  const deslocamento = diaSemana === 0 ? 6 : diaSemana - 1;
+  const segunda = new Date(data);
+  segunda.setUTCDate(data.getUTCDate() - deslocamento);
+  return segunda.toISOString().slice(0, 10);
+}
+function semanaCorteLabel(chaveSegunda: string) {
+  const segunda = new Date(`${chaveSegunda}T00:00:00Z`);
+  const domingo = new Date(segunda);
+  domingo.setUTCDate(segunda.getUTCDate() + 6);
+  const fmt = (d: Date) => `${String(d.getUTCDate()).padStart(2, "0")}/${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+  return `${fmt(segunda)} a ${fmt(domingo)}`;
+}
+
 function monthsAgoLabel(monthsAgo: number) {
   const date = new Date();
   date.setDate(1);
@@ -2318,6 +2338,7 @@ function CortesDashboard({
   // Pedido do usuario em 05/10/2026: "sempre no filtro quero o mes vigente, nao todos
   // juntos" - comeca so com o mes atual selecionado, em vez de vazio (= todos os meses).
   const [meses, setMeses] = useState<string[]>([new Date().toISOString().slice(0, 7)]);
+  const [semanas, setSemanas] = useState<string[]>([]);
   const [sortField, setSortField] = useState<"data" | "corteCx">("corteCx");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   function toggleSort(field: typeof sortField) {
@@ -2344,6 +2365,10 @@ function CortesDashboard({
     () => Array.from(new Set(cortes.map((c) => c.data.slice(0, 7)))).sort((a, b) => b.localeCompare(a)).map((m) => ({ value: m, label: mesCorteLabel(m) })),
     [cortes],
   );
+  const semanaOptions = useMemo(
+    () => Array.from(new Set(cortes.map((c) => semanaCorteChave(c.data)))).sort((a, b) => b.localeCompare(a)).map((s) => ({ value: s, label: semanaCorteLabel(s) })),
+    [cortes],
+  );
   const SEM_CATEGORIA = "Sem categoria";
   const categoriaOptions = useMemo(
     () => [...Array.from(new Set(cortes.map((c) => c.categoria).filter((cat): cat is string => Boolean(cat)))).sort((a, b) => a.localeCompare(b, "pt-BR")), SEM_CATEGORIA].map((cat) => ({ value: cat, label: cat })),
@@ -2354,13 +2379,14 @@ function CortesDashboard({
     const search = query.trim().toLocaleLowerCase("pt-BR");
     return cortes.filter((c) => (
       (meses.length === 0 || meses.includes(c.data.slice(0, 7)))
+      && (semanas.length === 0 || semanas.includes(semanaCorteChave(c.data)))
       && (!search || (c.produto ?? "").toLocaleLowerCase("pt-BR").includes(search) || String(c.produtoKey).includes(search) || c.loja.toLocaleLowerCase("pt-BR").includes(search))
       && (lojas.length === 0 || lojas.includes(c.loja))
       && (motivos.length === 0 || motivos.includes(c.motivo ?? SEM_MOTIVO))
       && (categorias.length === 0 || categorias.includes(c.categoria ?? SEM_CATEGORIA))
       && (!somenteSemMotivo || !c.motivo)
     ));
-  }, [cortes, query, lojas, motivos, categorias, somenteSemMotivo, meses]);
+  }, [cortes, query, lojas, motivos, categorias, somenteSemMotivo, meses, semanas]);
 
   const ordenados = useMemo(() => {
     const sinal = sortDir === "desc" ? -1 : 1;
@@ -2449,7 +2475,7 @@ function CortesDashboard({
           <div className="kpi-card performance-card">
             <div className="kpi-top"><span className="kpi-icon">✂</span><span className="trend neutral">Filtrado</span></div>
             <strong>{number.format(filtrados.length)}</strong><p>Cortes no período</p><div className="mini-rule performance-rule"><span style={{ width: "100%" }} /></div>
-            <small>{meses.length === 0 ? "Todo o histórico" : meses.map((m) => mesCorteLabel(m)).sort().join(", ")}</small>
+            <small>{meses.length === 0 ? "Todo o histórico" : meses.map((m) => mesCorteLabel(m)).sort().join(", ")}{semanas.length > 0 ? ` · Semana ${semanas.map((s) => semanaCorteLabel(s)).join(", ")}` : ""}</small>
           </div>
           <div className="kpi-card critical-card">
             <div className="kpi-top"><span className="kpi-icon">▤</span><span className="trend critical">Volume</span></div>
@@ -2472,11 +2498,12 @@ function CortesDashboard({
           <div className="panel-heading"><div><p className="eyebrow">{visao === "motivos" ? "POR MOTIVO" : "DETALHE"}</p><h2>{visao === "motivos" ? "Cortes por motivo" : "Cortes por produto"}</h2><p>{visao === "motivos" ? "Soma do corte (cx) de cada motivo, no filtro atual — maior primeiro." : "Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização."}</p></div><div className="unit-switch"><button className={visao === "detalhe" ? "active" : ""} onClick={() => setVisao("detalhe")}>Detalhe</button><button className={visao === "motivos" ? "active" : ""} onClick={() => setVisao("motivos")}>Gráfico</button></div></div>
           <div className="filters value-filters"><div className="selects">
             <MultiFilter label="Mês" options={mesOptions} selected={meses} onChange={setMeses} />
+            <MultiFilter label="Semana" options={semanaOptions} selected={semanas} onChange={setSemanas} />
             <MultiFilter label="Loja" options={lojaOptions} selected={lojas} onChange={setLojas} />
             <MultiFilter label="Motivo" options={motivoOptions} selected={motivos} onChange={setMotivos} />
             <MultiFilter label="Categoria" options={categoriaOptions} selected={categorias} onChange={setCategorias} />
             <label className="toggle-inativos"><input type="checkbox" checked={somenteSemMotivo} onChange={(event) => setSomenteSemMotivo(event.target.checked)} /> Só sem motivo</label>
-            {(lojas.length > 0 || motivos.length > 0 || categorias.length > 0 || meses.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setCategorias([]); setMeses([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
+            {(lojas.length > 0 || motivos.length > 0 || categorias.length > 0 || meses.length > 0 || semanas.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setCategorias([]); setMeses([]); setSemanas([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
           </div></div>
           {visao === "motivos" ? <div className="motivo-bars">
             {porMotivo.map((m) => <button type="button" className="motivo-bar-row" key={m.motivo} onClick={() => setMotivoAberto(m.motivo)}>
