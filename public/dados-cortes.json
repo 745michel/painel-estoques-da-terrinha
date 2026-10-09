@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-09T09:29:43",
+  "atualizadoEm": "2026-10-09T10:05:29",
   "origem": "dados_cortes.json (Power Automate) + motivos_cortes.xlsx (preenchimento manual)",
   "cortes": [
     {
@@ -11,7 +11,7 @@
       "quantidadePedidaCx": 596.0,
       "quantidadeFaturadaCx": 500.0,
       "corteCx": 96.0,
-      "motivo": null,
+      "motivo": "Outro",
       "observacoes": null
     },
     {
@@ -24,7 +24,7 @@
       "quantidadeFaturadaCx": 10.0,
       "corteCx": 1.0,
       "motivo": "Falta de embalagem",
-      "observacoes": "ietem vendeu acima da escadinha"
+      "observacoes": "item vendeu acima da escadinha"
     },
     {
       "data": "2026-10-07",
@@ -47,8 +47,8 @@
       "quantidadePedidaCx": 126.0,
       "quantidadeFaturadaCx": 105.0,
       "corteCx": 21.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Problema de qualidade",
+      "observacoes": "ajustando quaildade do produto , produção reduzida"
     },
     {
       "data": "2026-10-07",
@@ -71,8 +71,8 @@
       "quantidadePedidaCx": 13.0,
       "quantidadeFaturadaCx": 12.0,
       "corteCx": 1.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Problema logístico/transporte",
+      "observacoes": "produto em estoque"
     },
     {
       "data": "2026-10-07",
@@ -95,7 +95,7 @@
       "quantidadePedidaCx": 680.0,
       "quantidadeFaturadaCx": 676.0,
       "corteCx": 4.0,
-      "motivo": null,
+      "motivo": "Falta de matéria-prima",
       "observacoes": null
     },
     {
@@ -119,8 +119,8 @@
       "quantidadePedidaCx": 602.0,
       "quantidadeFaturadaCx": 601.0,
       "corteCx": 1.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Problema de qualidade",
+      "observacoes": "ajustando quaildade do produto , produção reduzida"
     },
     {
       "data": "2026-10-06",
@@ -131,8 +131,8 @@
       "quantidadePedidaCx": 222.0,
       "quantidadeFaturadaCx": 221.0,
       "corteCx": 1.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Problema de qualidade",
+      "observacoes": "ajustando quaildade do produto , produção reduzida"
     },
     {
       "data": "2026-10-06",
@@ -143,7 +143,7 @@
       "quantidadePedidaCx": 3.0,
       "quantidadeFaturadaCx": 2.0,
       "corteCx": 1.0,
-      "motivo": null,
+      "motivo": "Atraso na entrega",
       "observacoes": null
     },
     {
@@ -155,8 +155,8 @@
       "quantidadePedidaCx": 260.0,
       "quantidadeFaturadaCx": 70.0,
       "corteCx": 190.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Problema de produção",
+      "observacoes": "outros pedido na linha"
     },
     {
       "data": "2026-10-06",
@@ -179,7 +179,7 @@
       "quantidadePedidaCx": 269.0,
       "quantidadeFaturadaCx": 127.0,
       "corteCx": 142.0,
-      "motivo": null,
+      "motivo": "Problema de produção",
       "observacoes": null
     },
     {
@@ -191,7 +191,7 @@
       "quantidadePedidaCx": 48.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 47.0,
-      "motivo": null,
+      "motivo": "Atraso na entrega",
       "observacoes": null
     },
     {
@@ -215,8 +215,8 @@
       "quantidadePedidaCx": 2117.0,
       "quantidadeFaturadaCx": 2111.0,
       "corteCx": 6.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Problema de qualidade",
+      "observacoes": "ajustando quaildade do produto , produção reduzida"
     },
     {
       "data": "2026-10-05",
@@ -227,8 +227,8 @@
       "quantidadePedidaCx": 114.0,
       "quantidadeFaturadaCx": 96.0,
       "corteCx": 18.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Problema de qualidade",
+      "observacoes": "ajustando quaildade do produto , produção reduzida"
     },
     {
       "data": "2026-10-02",
@@ -251,8 +251,8 @@
       "quantidadePedidaCx": 10.0,
       "quantidadeFaturadaCx": 3.0,
       "corteCx": 7.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Atraso na entrega",
+      "observacoes": "2jm com falta de MP"
     },
     {
       "data": "2026-10-02",
@@ -287,8 +287,8 @@
       "quantidadePedidaCx": 15.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 14.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Atraso na entrega",
+      "observacoes": "produto em estoque"
     },
     {
       "data": "2026-10-02",
@@ -299,8 +299,8 @@
       "quantidadePedidaCx": 168.0,
       "quantidadeFaturadaCx": 165.0,
       "corteCx": 3.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Problema logístico/transporte",
+      "observacoes": "produto em estoque"
     },
     {
       "data": "2026-10-02",
@@ -311,7 +311,7 @@
       "quantidadePedidaCx": 3172.0,
       "quantidadeFaturadaCx": 3032.0,
       "corteCx": 140.0,
-      "motivo": null,
+      "motivo": "Falta de matéria-prima",
       "observacoes": null
     },
     {
@@ -335,8 +335,8 @@
       "quantidadePedidaCx": 201.0,
       "quantidadeFaturadaCx": 6.0,
       "corteCx": 195.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Problema de qualidade",
+      "observacoes": "ajustando quaildade do produto , produção reduzida"
     },
     {
       "data": "2026-10-02",
@@ -347,8 +347,8 @@
       "quantidadePedidaCx": 58.0,
       "quantidadeFaturadaCx": 4.0,
       "corteCx": 54.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Problema de qualidade",
+      "observacoes": "ajustando quaildade do produto , produção reduzida"
     },
     {
       "data": "2026-10-02",
@@ -359,8 +359,8 @@
       "quantidadePedidaCx": 18.0,
       "quantidadeFaturadaCx": 7.0,
       "corteCx": 11.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Comercial",
+      "observacoes": "acima da previsão"
     },
     {
       "data": "2026-10-02",
@@ -395,8 +395,8 @@
       "quantidadePedidaCx": 61.0,
       "quantidadeFaturadaCx": 3.0,
       "corteCx": 58.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Atraso na entrega",
+      "observacoes": "2jm com falta de MP"
     },
     {
       "data": "2026-10-01",
@@ -431,8 +431,8 @@
       "quantidadePedidaCx": 41.0,
       "quantidadeFaturadaCx": 9.0,
       "corteCx": 32.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Atraso na entrega",
+      "observacoes": "produto em estoque"
     },
     {
       "data": "2026-10-01",
@@ -443,7 +443,7 @@
       "quantidadePedidaCx": 1335.0,
       "quantidadeFaturadaCx": 1027.0,
       "corteCx": 308.0,
-      "motivo": null,
+      "motivo": "Falta de matéria-prima",
       "observacoes": null
     },
     {
@@ -467,8 +467,8 @@
       "quantidadePedidaCx": 153.0,
       "quantidadeFaturadaCx": 11.0,
       "corteCx": 142.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Problema de qualidade",
+      "observacoes": "ajustando quaildade do produto , produção reduzida"
     },
     {
       "data": "2026-10-01",
@@ -479,8 +479,8 @@
       "quantidadePedidaCx": 63.0,
       "quantidadeFaturadaCx": 13.0,
       "corteCx": 50.0,
-      "motivo": null,
-      "observacoes": null
+      "motivo": "Comercial",
+      "observacoes": "acima da previsão"
     },
     {
       "data": "2026-10-01",
@@ -27832,5 +27832,5 @@
     }
   ],
   "totalLinhas": 2319,
-  "semMotivo": 2302
+  "semMotivo": 2278
 }
