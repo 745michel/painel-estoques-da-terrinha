@@ -157,6 +157,7 @@ type CortesLinha = {
   corteCx: number;
   motivo: string | null;
   observacoes: string | null;
+  categoria: string | null;
 };
 type CortesData = {
   atualizadoEm: string;
@@ -2312,6 +2313,7 @@ function CortesDashboard({
   const [query, setQuery] = useState("");
   const [lojas, setLojas] = useState<string[]>([]);
   const [motivos, setMotivos] = useState<string[]>([]);
+  const [categorias, setCategorias] = useState<string[]>([]);
   const [somenteSemMotivo, setSomenteSemMotivo] = useState(false);
   // Pedido do usuario em 05/10/2026: "sempre no filtro quero o mes vigente, nao todos
   // juntos" - comeca so com o mes atual selecionado, em vez de vazio (= todos os meses).
@@ -2342,6 +2344,11 @@ function CortesDashboard({
     () => Array.from(new Set(cortes.map((c) => c.data.slice(0, 7)))).sort((a, b) => b.localeCompare(a)).map((m) => ({ value: m, label: mesCorteLabel(m) })),
     [cortes],
   );
+  const SEM_CATEGORIA = "Sem categoria";
+  const categoriaOptions = useMemo(
+    () => [...Array.from(new Set(cortes.map((c) => c.categoria).filter((cat): cat is string => Boolean(cat)))).sort((a, b) => a.localeCompare(b, "pt-BR")), SEM_CATEGORIA].map((cat) => ({ value: cat, label: cat })),
+    [cortes],
+  );
 
   const filtrados = useMemo(() => {
     const search = query.trim().toLocaleLowerCase("pt-BR");
@@ -2350,9 +2357,10 @@ function CortesDashboard({
       && (!search || (c.produto ?? "").toLocaleLowerCase("pt-BR").includes(search) || String(c.produtoKey).includes(search) || c.loja.toLocaleLowerCase("pt-BR").includes(search))
       && (lojas.length === 0 || lojas.includes(c.loja))
       && (motivos.length === 0 || motivos.includes(c.motivo ?? SEM_MOTIVO))
+      && (categorias.length === 0 || categorias.includes(c.categoria ?? SEM_CATEGORIA))
       && (!somenteSemMotivo || !c.motivo)
     ));
-  }, [cortes, query, lojas, motivos, somenteSemMotivo, meses]);
+  }, [cortes, query, lojas, motivos, categorias, somenteSemMotivo, meses]);
 
   const ordenados = useMemo(() => {
     const sinal = sortDir === "desc" ? -1 : 1;
@@ -2466,8 +2474,9 @@ function CortesDashboard({
             <MultiFilter label="Mês" options={mesOptions} selected={meses} onChange={setMeses} />
             <MultiFilter label="Loja" options={lojaOptions} selected={lojas} onChange={setLojas} />
             <MultiFilter label="Motivo" options={motivoOptions} selected={motivos} onChange={setMotivos} />
+            <MultiFilter label="Categoria" options={categoriaOptions} selected={categorias} onChange={setCategorias} />
             <label className="toggle-inativos"><input type="checkbox" checked={somenteSemMotivo} onChange={(event) => setSomenteSemMotivo(event.target.checked)} /> Só sem motivo</label>
-            {(lojas.length > 0 || motivos.length > 0 || meses.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setMeses([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
+            {(lojas.length > 0 || motivos.length > 0 || categorias.length > 0 || meses.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setCategorias([]); setMeses([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
           </div></div>
           {visao === "motivos" ? <div className="motivo-bars">
             {porMotivo.map((m) => <button type="button" className="motivo-bar-row" key={m.motivo} onClick={() => setMotivoAberto(m.motivo)}>
@@ -2490,7 +2499,7 @@ function CortesDashboard({
             {ordenados.slice(0, 500).map((c, index) => {
               const valor = canViewValues ? valorDoCorte(c) : null;
               return <tr key={`${c.data}-${c.lojaKey}-${c.produtoKey}-${index}`}>
-              <td><div className="product-cell"><div><strong title={c.produto ?? ""}>{c.produto ?? "—"}</strong><small>SKU {c.produtoKey} · {c.loja}</small></div></div></td>
+              <td><div className="product-cell"><div><strong title={c.produto ?? ""}>{c.produto ?? "—"}</strong><small>SKU {c.produtoKey} · {c.loja}{c.categoria ? ` · ${c.categoria}` : ""}</small></div></div></td>
               <td>{new Date(c.data).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</td>
               <td><strong className="numeric">{number.format(Math.round(c.quantidadePedidaCx))}</strong></td>
               <td><strong className="numeric">{number.format(Math.round(c.quantidadeFaturadaCx))}</strong></td>
@@ -2522,7 +2531,7 @@ function CortesDashboard({
                 const valor = canViewValues ? valorDoCorte(c) : null;
                 const percentual = totalCorteMotivoAberto > 0 ? (c.corteCx / totalCorteMotivoAberto) * 100 : 0;
                 return <tr key={`${c.data}-${c.lojaKey}-${c.produtoKey}-${index}`}>
-                  <td><div className="product-cell"><div><strong title={c.produto ?? ""}>{c.produto ?? "—"}</strong><small>SKU {c.produtoKey} · {c.loja}</small></div></div></td>
+                  <td><div className="product-cell"><div><strong title={c.produto ?? ""}>{c.produto ?? "—"}</strong><small>SKU {c.produtoKey} · {c.loja}{c.categoria ? ` · ${c.categoria}` : ""}</small></div></div></td>
                   <td>{new Date(c.data).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</td>
                   <td><strong className="numeric">{number.format(Math.round(c.corteCx))}</strong></td>
                   <td>{decimal.format(percentual)}%</td>

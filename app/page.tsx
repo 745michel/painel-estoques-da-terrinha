@@ -42,6 +42,7 @@ type CortesLinha = {
   corteCx: number;
   motivo: string | null;
   observacoes: string | null;
+  categoria: string | null;
 };
 type CortesData = {
   atualizadoEm: string;
