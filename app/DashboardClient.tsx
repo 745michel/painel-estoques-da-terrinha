@@ -2400,6 +2400,17 @@ function CortesDashboard({
   }, [filtrados]);
   const maiorCorteMotivo = Math.max(1, ...porMotivo.map((m) => m.corteCx));
 
+  // Clicar numa barra mostra os itens daquele motivo (pedido do usuario em 09/10/2026: "quero
+  // ver os itens que cortou", com quantidade cx, % e valor do corte).
+  const [motivoAberto, setMotivoAberto] = useState<string | null>(null);
+  const totalCorteMotivoAberto = porMotivo.find((m) => m.motivo === motivoAberto)?.corteCx ?? 0;
+  const itensMotivoAberto = useMemo(() => {
+    if (!motivoAberto) return [];
+    return filtrados
+      .filter((c) => (c.motivo ?? SEM_MOTIVO) === motivoAberto)
+      .sort((a, b) => b.corteCx - a.corteCx);
+  }, [filtrados, motivoAberto]);
+
   return <main className="app-shell">
     <aside className="sidebar">
       <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
@@ -2450,7 +2461,7 @@ function CortesDashboard({
         </section>
 
         <section className="inventory-panel consumption-panel">
-          <div className="panel-heading"><div><p className="eyebrow">{visao === "motivos" ? "POR MOTIVO" : "DETALHE"}</p><h2>{visao === "motivos" ? "Cortes por motivo" : "Cortes por produto"}</h2><p>{visao === "motivos" ? "Soma do corte (cx) de cada motivo, no filtro atual — maior primeiro." : "Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização."}</p></div><div className="unit-switch"><button className={visao === "detalhe" ? "active" : ""} onClick={() => setVisao("detalhe")}>Detalhe</button><button className={visao === "motivos" ? "active" : ""} onClick={() => setVisao("motivos")}>Por motivo</button></div></div>
+          <div className="panel-heading"><div><p className="eyebrow">{visao === "motivos" ? "POR MOTIVO" : "DETALHE"}</p><h2>{visao === "motivos" ? "Cortes por motivo" : "Cortes por produto"}</h2><p>{visao === "motivos" ? "Soma do corte (cx) de cada motivo, no filtro atual — maior primeiro." : "Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização."}</p></div><div className="unit-switch"><button className={visao === "detalhe" ? "active" : ""} onClick={() => setVisao("detalhe")}>Detalhe</button><button className={visao === "motivos" ? "active" : ""} onClick={() => setVisao("motivos")}>Gráfico</button></div></div>
           <div className="filters value-filters"><div className="selects">
             <MultiFilter label="Mês" options={mesOptions} selected={meses} onChange={setMeses} />
             <MultiFilter label="Loja" options={lojaOptions} selected={lojas} onChange={setLojas} />
@@ -2459,11 +2470,11 @@ function CortesDashboard({
             {(lojas.length > 0 || motivos.length > 0 || meses.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setMeses([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
           </div></div>
           {visao === "motivos" ? <div className="motivo-bars">
-            {porMotivo.map((m) => <div className="motivo-bar-row" key={m.motivo}>
+            {porMotivo.map((m) => <button type="button" className="motivo-bar-row" key={m.motivo} onClick={() => setMotivoAberto(m.motivo)}>
               <span className="motivo-bar-label" title={m.motivo}>{m.motivo}</span>
               <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(m.corteCx ? 2 : 0, (m.corteCx / maiorCorteMotivo) * 100)}%` }} /></span>
               <span className="motivo-bar-value">{number.format(Math.round(m.corteCx))} cx <small className="motivo-bar-pct">{decimal.format(m.percentual)}%</small></span>
-            </div>)}
+            </button>)}
             {porMotivo.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
           </div> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
             <th style={{ width: "auto" }}>Produto / loja</th>
@@ -2497,6 +2508,39 @@ function CortesDashboard({
         <footer>Fonte: {cortesData.origem}.</footer>
       </div>
     </section>
+
+    {motivoAberto && <div className="drawer-backdrop" onClick={() => setMotivoAberto(null)}>
+      <div className="drawer escadinha-historico-drawer" onClick={(event) => event.stopPropagation()}>
+        <button className="drawer-close" onClick={() => setMotivoAberto(null)}>×</button>
+        <h2>{motivoAberto}</h2>
+        <p className="drawer-sku">{itensMotivoAberto.length} item(ns) cortado(s) com esse motivo, no filtro atual — maior corte primeiro.</p>
+        <div className="table-wrap">
+          <table className="consumption-table escadinha-drawer-table">
+            <thead><tr><th>Produto / loja</th><th>Data</th><th>Corte (cx)</th><th>%</th>{canViewValues && <th>Valor cortado</th>}</tr></thead>
+            <tbody>
+              {itensMotivoAberto.map((c, index) => {
+                const valor = canViewValues ? valorDoCorte(c) : null;
+                const percentual = totalCorteMotivoAberto > 0 ? (c.corteCx / totalCorteMotivoAberto) * 100 : 0;
+                return <tr key={`${c.data}-${c.lojaKey}-${c.produtoKey}-${index}`}>
+                  <td><div className="product-cell"><div><strong title={c.produto ?? ""}>{c.produto ?? "—"}</strong><small>SKU {c.produtoKey} · {c.loja}</small></div></div></td>
+                  <td>{new Date(c.data).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</td>
+                  <td><strong className="numeric">{number.format(Math.round(c.corteCx))}</strong></td>
+                  <td>{decimal.format(percentual)}%</td>
+                  {canViewValues && <td><strong className="numeric">{valor ? currency.format(valor.valorCorte) : "—"}</strong></td>}
+                </tr>;
+              })}
+            </tbody>
+            <tfoot><tr className="escadinha-total-row">
+              <td><strong>Total</strong></td>
+              <td />
+              <td><strong className="numeric">{number.format(Math.round(totalCorteMotivoAberto))}</strong></td>
+              <td>100%</td>
+              {canViewValues && <td><strong className="numeric">{currency.format(itensMotivoAberto.reduce((sum, c) => sum + (valorDoCorte(c)?.valorCorte ?? 0), 0))}</strong></td>}
+            </tr></tfoot>
+          </table>
+        </div>
+      </div>
+    </div>}
   </main>;
 }
 

@@ -111,7 +111,8 @@ th{color:#46594e;font-size:8px;font-weight:800}th .th-hint{display:block;color:#
 
 /* ---------- aba Cortes, visao "Por motivo" (grafico de barra horizontal) ---------- */
 .motivo-bars{display:flex;flex-direction:column;gap:10px;padding:20px}
-.motivo-bar-row{display:flex;align-items:center;gap:12px}
+.motivo-bar-row{display:flex;align-items:center;gap:12px;width:100%;border:0;background:transparent;padding:4px;border-radius:8px;cursor:pointer;font:inherit;text-align:left;transition:.15s}
+.motivo-bar-row:hover{background:#f2f8f4}
 .motivo-bar-label{flex:0 0 220px;font-size:11px;color:#2b3a31;font-weight:650;line-height:1.3}
 .motivo-bar-track{flex:1;height:26px;background:#f1f5f2;border-radius:8px;overflow:hidden}
 .motivo-bar-fill{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,#76bb92,#1f7a4e);min-width:2px}
