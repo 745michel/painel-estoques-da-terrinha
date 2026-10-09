@@ -2435,10 +2435,9 @@ function CortesDashboard({
   const maiorCorteMotivo = Math.max(1, ...porMotivo.map((m) => m.corteCx));
 
   // Grafico "Produtos que mais cortaram" (pedido do usuario em 10/10/2026), abaixo do de
-  // motivos na mesma visao "Gráfico". Top 15 pra nao virar uma lista enorme (as vezes 200+
-  // produtos distintos no filtro) - quem quiser o detalhe completo usa a aba Detalhe/ordena
-  // por Corte.
-  const TOP_PRODUTOS_CORTE = 15;
+  // motivos na mesma visao "Gráfico". Pedido em seguida: "coloca todos os itens com barra de
+  // rolagem" - lista completa (sem corte em 15), dentro de um container com scroll proprio pra
+  // nao esticar a pagina toda quando o filtro tiver 200+ produtos distintos.
   const porProduto = useMemo(() => {
     const mapa = new Map<number, { produto: string; corteCx: number }>();
     for (const c of filtrados) {
@@ -2449,8 +2448,7 @@ function CortesDashboard({
     const total = Array.from(mapa.values()).reduce((sum, v) => sum + v.corteCx, 0);
     return Array.from(mapa.entries())
       .map(([produtoKey, v]) => ({ produtoKey, produto: v.produto, corteCx: v.corteCx, percentual: total > 0 ? (v.corteCx / total) * 100 : 0 }))
-      .sort((a, b) => b.corteCx - a.corteCx)
-      .slice(0, TOP_PRODUTOS_CORTE);
+      .sort((a, b) => b.corteCx - a.corteCx);
   }, [filtrados]);
   const maiorCorteProduto = Math.max(1, ...porProduto.map((p) => p.corteCx));
 
@@ -2533,9 +2531,14 @@ function CortesDashboard({
                 <span className="motivo-bar-value">{number.format(Math.round(m.corteCx))} cx <small className="motivo-bar-pct">{decimal.format(m.percentual)}%</small></span>
               </button>)}
               {porMotivo.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
+              {porMotivo.length > 0 && <div className="motivo-bar-row motivo-bar-total">
+                <span className="motivo-bar-label">Total</span>
+                <span className="motivo-bar-track" />
+                <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small></span>
+              </div>}
             </div>
-            <h3 className="drawer-section-label" style={{ margin: "24px 20px 10px" }}>PRODUTOS QUE MAIS CORTARAM (TOP {TOP_PRODUTOS_CORTE})</h3>
-            <div className="motivo-bars">
+            <h3 className="drawer-section-label" style={{ margin: "24px 20px 10px" }}>PRODUTOS QUE MAIS CORTARAM</h3>
+            <div className="motivo-bars motivo-bars-scroll">
               {porProduto.map((p) => <div className="motivo-bar-row no-click" key={p.produtoKey}>
                 <span className="motivo-bar-label" title={p.produto}>{p.produto}</span>
                 <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(p.corteCx ? 2 : 0, (p.corteCx / maiorCorteProduto) * 100)}%` }} /></span>
@@ -2543,6 +2546,13 @@ function CortesDashboard({
               </div>)}
               {porProduto.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
             </div>
+            {porProduto.length > 0 && <div className="motivo-bars">
+              <div className="motivo-bar-row motivo-bar-total">
+                <span className="motivo-bar-label">Total ({number.format(porProduto.length)} produto{porProduto.length === 1 ? "" : "s"})</span>
+                <span className="motivo-bar-track" />
+                <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small></span>
+              </div>
+            </div>}
           </> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
             <th style={{ width: "auto" }}>Produto / loja</th>
             <th style={{ width: 90 }}><button className="sortable-column" onClick={() => toggleSort("data")}>Data {sortField === "data" ? (sortDir === "desc" ? "▾" : "▴") : ""}</button></th>
