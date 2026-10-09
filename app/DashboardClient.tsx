@@ -2322,6 +2322,11 @@ function CortesDashboard({
     if (field === sortField) setSortDir((dir) => (dir === "desc" ? "asc" : "desc"));
     else { setSortField(field); setSortDir("desc"); }
   }
+  // Aba "Por motivo" (pedido do usuario em 09/10/2026: "aba do lado dos motivos com um
+  // grafico de barra apontando os cortes com os motivos e se possivel com %") - visao
+  // alternativa a tabela de detalhe, mesmo padrao de toggle "visao" ja usado na Escadinha
+  // geral (grade/resumo).
+  const [visao, setVisao] = useState<"detalhe" | "motivos">("detalhe");
 
   const cortes = cortesData.cortes;
   const SEM_MOTIVO = "Sem motivo preenchido";
@@ -2379,6 +2384,22 @@ function CortesDashboard({
   const totalCorteFiltrado = filtrados.reduce((sum, c) => sum + c.corteCx, 0);
   const updated = new Date(cortesData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
+  const porMotivo = useMemo(() => {
+    const mapa = new Map<string, { corteCx: number; itens: number }>();
+    for (const c of filtrados) {
+      const chave = c.motivo ?? SEM_MOTIVO;
+      const atual = mapa.get(chave) ?? { corteCx: 0, itens: 0 };
+      atual.corteCx += c.corteCx;
+      atual.itens += 1;
+      mapa.set(chave, atual);
+    }
+    const total = Array.from(mapa.values()).reduce((sum, v) => sum + v.corteCx, 0);
+    return Array.from(mapa.entries())
+      .map(([motivo, v]) => ({ motivo, corteCx: v.corteCx, itens: v.itens, percentual: total > 0 ? (v.corteCx / total) * 100 : 0 }))
+      .sort((a, b) => b.corteCx - a.corteCx);
+  }, [filtrados]);
+  const maiorCorteMotivo = Math.max(1, ...porMotivo.map((m) => m.corteCx));
+
   return <main className="app-shell">
     <aside className="sidebar">
       <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
@@ -2429,7 +2450,7 @@ function CortesDashboard({
         </section>
 
         <section className="inventory-panel consumption-panel">
-          <div className="panel-heading"><div><p className="eyebrow">DETALHE</p><h2>Cortes por produto</h2><p>Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização.</p></div></div>
+          <div className="panel-heading"><div><p className="eyebrow">{visao === "motivos" ? "POR MOTIVO" : "DETALHE"}</p><h2>{visao === "motivos" ? "Cortes por motivo" : "Cortes por produto"}</h2><p>{visao === "motivos" ? "Soma do corte (cx) de cada motivo, no filtro atual — maior primeiro." : "Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização."}</p></div><div className="unit-switch"><button className={visao === "detalhe" ? "active" : ""} onClick={() => setVisao("detalhe")}>Detalhe</button><button className={visao === "motivos" ? "active" : ""} onClick={() => setVisao("motivos")}>Por motivo</button></div></div>
           <div className="filters value-filters"><div className="selects">
             <MultiFilter label="Mês" options={mesOptions} selected={meses} onChange={setMeses} />
             <MultiFilter label="Loja" options={lojaOptions} selected={lojas} onChange={setLojas} />
@@ -2437,7 +2458,14 @@ function CortesDashboard({
             <label className="toggle-inativos"><input type="checkbox" checked={somenteSemMotivo} onChange={(event) => setSomenteSemMotivo(event.target.checked)} /> Só sem motivo</label>
             {(lojas.length > 0 || motivos.length > 0 || meses.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setMeses([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
           </div></div>
-          <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
+          {visao === "motivos" ? <div className="motivo-bars">
+            {porMotivo.map((m) => <div className="motivo-bar-row" key={m.motivo}>
+              <span className="motivo-bar-label" title={m.motivo}>{m.motivo}</span>
+              <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(m.corteCx ? 2 : 0, (m.corteCx / maiorCorteMotivo) * 100)}%` }} /></span>
+              <span className="motivo-bar-value">{number.format(Math.round(m.corteCx))} cx <small className="motivo-bar-pct">{decimal.format(m.percentual)}%</small></span>
+            </div>)}
+            {porMotivo.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
+          </div> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
             <th style={{ width: "auto" }}>Produto / loja</th>
             <th style={{ width: 90 }}><button className="sortable-column" onClick={() => toggleSort("data")}>Data {sortField === "data" ? (sortDir === "desc" ? "▾" : "▴") : ""}</button></th>
             <th style={{ width: 90 }}>Pedido</th>
@@ -2464,7 +2492,7 @@ function CortesDashboard({
             })}
           </tbody></table>{ordenados.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
           {ordenados.length > 500 && <p className="consumption-return">Mostrando os 500 maiores cortes do filtro atual ({number.format(ordenados.length)} no total) — refine o filtro ou o mês pra ver outros.</p>}
-          </div>
+          </div>}
         </section>
         <footer>Fonte: {cortesData.origem}.</footer>
       </div>
