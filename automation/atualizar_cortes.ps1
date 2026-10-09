@@ -3,6 +3,14 @@ Cortes: gera dados-cortes.json cruzando dados_cortes.json (Power Automate, ja si
 SharePoint - nao busca nada novo) com o motivo preenchido manualmente em motivos_cortes.xlsx
 (mesma pasta sincronizada). Publicacao (commit+push) continua manual, igual
 atualizar_pedidos_venda.ps1. Criada a pedido do usuario em 05/10/2026.
+
+Desde 09/10/2026, antes de gerar o JSON, atualiza a propria motivos_cortes.xlsx com o que foi
+cortado (data/loja/SKU/produto/quantidade) - pedido do usuario ("coloca os cortes quantidades
+nesse excel todos os dias pq eu preciso saber os itens ai sim eu coloco os motivos"), pra quem
+preenche o motivo nao precisar abrir o painel so pra descobrir os itens. So reescreve as
+colunas automaticas; Motivo/Observacoes ja preenchidos sao preservados por
+(data, loja, sku) - ver atualizar_motivos_cortes.py. Se a planilha estiver aberta/bloqueada,
+so avisa e segue (nao pode travar a geracao do dados-cortes.json por causa disso).
 #>
 
 $ErrorActionPreference = "Stop"
@@ -44,6 +52,16 @@ if (-not (Test-Path -LiteralPath $pythonExe)) {
 }
 
 Write-Log "=== Atualizacao de Cortes iniciada ==="
+
+Invoke-Step "Atualizar motivos_cortes.xlsx (data/loja/SKU/produto/quantidade)" {
+    Push-Location $sheetInspect
+    try {
+        $result = & $pythonExe "atualizar_motivos_cortes.py" 2>&1
+        if ($LASTEXITCODE -ne 0) { throw "atualizar_motivos_cortes.py saiu com codigo $LASTEXITCODE`: $result" }
+        Write-Log ($result -join " ")
+    }
+    finally { Pop-Location }
+}
 
 Invoke-Step "Gerar dados-cortes.json" {
     Push-Location $sheetInspect

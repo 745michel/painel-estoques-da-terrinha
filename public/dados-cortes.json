@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-09T08:24:31",
+  "atualizadoEm": "2026-10-09T08:58:56",
   "origem": "dados_cortes.json (Power Automate) + motivos_cortes.xlsx (preenchimento manual)",
   "cortes": [
     {
@@ -2242,7 +2242,7 @@
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - UND",
       "quantidadePedidaCx": 0.9125000000000003,
       "quantidadeFaturadaCx": 0.5375000000000001,
-      "corteCx": 0.37499999999999994,
+      "corteCx": 0.375,
       "motivo": null,
       "observacoes": null
     },
@@ -27829,80 +27829,8 @@
       "corteCx": 186.0,
       "motivo": null,
       "observacoes": null
-    },
-    {
-      "data": "2025-10-09",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 28963,
-      "produto": "00301 FAROFA ARTESANAL DA TERRINHA TRADICIONAL 300 G - CX 20",
-      "quantidadePedidaCx": 173.0,
-      "quantidadeFaturadaCx": 20.0,
-      "corteCx": 153.0,
-      "motivo": null,
-      "observacoes": null
-    },
-    {
-      "data": "2025-10-09",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 36609,
-      "produto": "00311 FAROFA PRONTA DA TERRINHA TRADICIONAL 400 G - FD 24",
-      "quantidadePedidaCx": 3582.0,
-      "quantidadeFaturadaCx": 3490.0,
-      "corteCx": 92.0,
-      "motivo": null,
-      "observacoes": null
-    },
-    {
-      "data": "2025-10-09",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 36612,
-      "produto": "00312 FAROFA PRONTA DA TERRINHA APIMENTADA 400 G - FD 24",
-      "quantidadePedidaCx": 105.0,
-      "quantidadeFaturadaCx": 2.0,
-      "corteCx": 103.0,
-      "motivo": null,
-      "observacoes": null
-    },
-    {
-      "data": "2025-10-09",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 72108,
-      "produto": "01774 MANJERICAO DA TERRINHA 10 G - CX 24",
-      "quantidadePedidaCx": 82.0,
-      "quantidadeFaturadaCx": 50.0,
-      "corteCx": 32.0,
-      "motivo": null,
-      "observacoes": null
-    },
-    {
-      "data": "2025-10-09",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 77865,
-      "produto": "31304 ALHO TRITURADO DA TERRINHA 1,01 KG - CX 12",
-      "quantidadePedidaCx": 8.0,
-      "quantidadeFaturadaCx": 6.0,
-      "corteCx": 2.0,
-      "motivo": null,
-      "observacoes": null
-    },
-    {
-      "data": "2025-10-09",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 79007,
-      "produto": "00935 COCO FLOCOS UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-      "quantidadePedidaCx": 58.0,
-      "quantidadeFaturadaCx": 57.0,
-      "corteCx": 1.0,
-      "motivo": null,
-      "observacoes": null
     }
   ],
-  "totalLinhas": 2325,
-  "semMotivo": 2325
+  "totalLinhas": 2319,
+  "semMotivo": 2319
 }
