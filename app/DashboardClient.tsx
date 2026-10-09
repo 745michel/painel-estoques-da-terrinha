@@ -2434,6 +2434,26 @@ function CortesDashboard({
   }, [filtrados]);
   const maiorCorteMotivo = Math.max(1, ...porMotivo.map((m) => m.corteCx));
 
+  // Grafico "Produtos que mais cortaram" (pedido do usuario em 10/10/2026), abaixo do de
+  // motivos na mesma visao "Gráfico". Top 15 pra nao virar uma lista enorme (as vezes 200+
+  // produtos distintos no filtro) - quem quiser o detalhe completo usa a aba Detalhe/ordena
+  // por Corte.
+  const TOP_PRODUTOS_CORTE = 15;
+  const porProduto = useMemo(() => {
+    const mapa = new Map<number, { produto: string; corteCx: number }>();
+    for (const c of filtrados) {
+      const atual = mapa.get(c.produtoKey) ?? { produto: c.produto ?? `SKU ${c.produtoKey}`, corteCx: 0 };
+      atual.corteCx += c.corteCx;
+      mapa.set(c.produtoKey, atual);
+    }
+    const total = Array.from(mapa.values()).reduce((sum, v) => sum + v.corteCx, 0);
+    return Array.from(mapa.entries())
+      .map(([produtoKey, v]) => ({ produtoKey, produto: v.produto, corteCx: v.corteCx, percentual: total > 0 ? (v.corteCx / total) * 100 : 0 }))
+      .sort((a, b) => b.corteCx - a.corteCx)
+      .slice(0, TOP_PRODUTOS_CORTE);
+  }, [filtrados]);
+  const maiorCorteProduto = Math.max(1, ...porProduto.map((p) => p.corteCx));
+
   // Clicar numa barra mostra os itens daquele motivo (pedido do usuario em 09/10/2026: "quero
   // ver os itens que cortou", com quantidade cx, % e valor do corte).
   const [motivoAberto, setMotivoAberto] = useState<string | null>(null);
@@ -2505,14 +2525,25 @@ function CortesDashboard({
             <label className="toggle-inativos"><input type="checkbox" checked={somenteSemMotivo} onChange={(event) => setSomenteSemMotivo(event.target.checked)} /> Só sem motivo</label>
             {(lojas.length > 0 || motivos.length > 0 || categorias.length > 0 || meses.length > 0 || semanas.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setCategorias([]); setMeses([]); setSemanas([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
           </div></div>
-          {visao === "motivos" ? <div className="motivo-bars">
-            {porMotivo.map((m) => <button type="button" className="motivo-bar-row" key={m.motivo} onClick={() => setMotivoAberto(m.motivo)}>
-              <span className="motivo-bar-label" title={m.motivo}>{m.motivo}</span>
-              <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(m.corteCx ? 2 : 0, (m.corteCx / maiorCorteMotivo) * 100)}%` }} /></span>
-              <span className="motivo-bar-value">{number.format(Math.round(m.corteCx))} cx <small className="motivo-bar-pct">{decimal.format(m.percentual)}%</small></span>
-            </button>)}
-            {porMotivo.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
-          </div> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
+          {visao === "motivos" ? <>
+            <div className="motivo-bars">
+              {porMotivo.map((m) => <button type="button" className="motivo-bar-row" key={m.motivo} onClick={() => setMotivoAberto(m.motivo)}>
+                <span className="motivo-bar-label" title={m.motivo}>{m.motivo}</span>
+                <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(m.corteCx ? 2 : 0, (m.corteCx / maiorCorteMotivo) * 100)}%` }} /></span>
+                <span className="motivo-bar-value">{number.format(Math.round(m.corteCx))} cx <small className="motivo-bar-pct">{decimal.format(m.percentual)}%</small></span>
+              </button>)}
+              {porMotivo.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
+            </div>
+            <h3 className="drawer-section-label" style={{ margin: "24px 20px 10px" }}>PRODUTOS QUE MAIS CORTARAM (TOP {TOP_PRODUTOS_CORTE})</h3>
+            <div className="motivo-bars">
+              {porProduto.map((p) => <div className="motivo-bar-row no-click" key={p.produtoKey}>
+                <span className="motivo-bar-label" title={p.produto}>{p.produto}</span>
+                <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(p.corteCx ? 2 : 0, (p.corteCx / maiorCorteProduto) * 100)}%` }} /></span>
+                <span className="motivo-bar-value">{number.format(Math.round(p.corteCx))} cx <small className="motivo-bar-pct">{decimal.format(p.percentual)}%</small></span>
+              </div>)}
+              {porProduto.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
+            </div>
+          </> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
             <th style={{ width: "auto" }}>Produto / loja</th>
             <th style={{ width: 90 }}><button className="sortable-column" onClick={() => toggleSort("data")}>Data {sortField === "data" ? (sortDir === "desc" ? "▾" : "▴") : ""}</button></th>
             <th style={{ width: 90 }}>Pedido</th>
