@@ -2295,6 +2295,7 @@ const MOTIVOS_CORTE_OPCOES = [
   "Problema de qualidade",
   "Comercial",
   "Recebimento",
+  "Atraso na entrega",
   "Outro",
 ];
 function CortesDashboard({
