@@ -1,7 +1,124 @@
 {
-  "atualizadoEm": "2026-10-15T14:11:45",
+  "atualizadoEm": "2026-10-15T15:42:51",
   "origem": "dados_cortes.json (Power Automate) + motivos_cortes.xlsx (preenchimento manual)",
   "cortes": [
+    {
+      "data": "2026-10-13",
+      "lojaKey": 14,
+      "loja": "DA TERRINHA - FILIAL SP",
+      "produtoKey": 48696,
+      "produto": "01777 NOZ MOSCADA BOLA DA TERRINHA 08 G  - CX 24",
+      "quantidadePedidaCx": 8.0,
+      "quantidadeFaturadaCx": 2.0,
+      "corteCx": 6.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "ESPECIARIAS"
+    },
+    {
+      "data": "2026-10-13",
+      "lojaKey": 14,
+      "loja": "DA TERRINHA - FILIAL SP",
+      "produtoKey": 76182,
+      "produto": "11128 ALHO PASTA OKKER 200 GR - CX 12",
+      "quantidadePedidaCx": 21.0,
+      "quantidadeFaturadaCx": 20.0,
+      "corteCx": 1.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "ALHO"
+    },
+    {
+      "data": "2026-10-13",
+      "lojaKey": 14,
+      "loja": "DA TERRINHA - FILIAL SP",
+      "produtoKey": 76184,
+      "produto": "30302 ALHO TRITURADO OKKER 200 GR - CX 12",
+      "quantidadePedidaCx": 23.0,
+      "quantidadeFaturadaCx": 20.0,
+      "corteCx": 3.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "ALHO"
+    },
+    {
+      "data": "2026-10-13",
+      "lojaKey": 14,
+      "loja": "DA TERRINHA - FILIAL SP",
+      "produtoKey": 80605,
+      "produto": "01614 CANJICA BRANCA DA TERRINHA 400 G - CX 12",
+      "quantidadePedidaCx": 104.0,
+      "quantidadeFaturadaCx": 15.0,
+      "corteCx": 89.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "GRAOS"
+    },
+    {
+      "data": "2026-10-13",
+      "lojaKey": 14,
+      "loja": "DA TERRINHA - FILIAL SP",
+      "produtoKey": 80647,
+      "produto": "00019 TAPIOCA DA TERRINHA GRANULADA 400 G - CX 12",
+      "quantidadePedidaCx": 188.0,
+      "quantidadeFaturadaCx": 170.0,
+      "corteCx": 18.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "GRAOS"
+    },
+    {
+      "data": "2026-10-13",
+      "lojaKey": 14,
+      "loja": "DA TERRINHA - FILIAL SP",
+      "produtoKey": 89103,
+      "produto": "19001 CREME DE AVELA DAVELA 140 G CX 10",
+      "quantidadePedidaCx": 181.0,
+      "quantidadeFaturadaCx": 140.0,
+      "corteCx": 41.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "CREME DE AVELA"
+    },
+    {
+      "data": "2026-10-13",
+      "lojaKey": 14,
+      "loja": "DA TERRINHA - FILIAL SP",
+      "produtoKey": 118286,
+      "produto": "01621 MILHO PIPOCA PREMIUM POTE DA TERRINHA 500G CX 12",
+      "quantidadePedidaCx": 4.0,
+      "quantidadeFaturadaCx": 1.0,
+      "corteCx": 3.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "GRAOS"
+    },
+    {
+      "data": "2026-10-13",
+      "lojaKey": 14,
+      "loja": "DA TERRINHA - FILIAL SP",
+      "produtoKey": 121256,
+      "produto": "01181 OVINHOS DE AMENDOIM MIDA DA TERRINHA  80G - CX 12",
+      "quantidadePedidaCx": 3.0,
+      "quantidadeFaturadaCx": 1.0,
+      "corteCx": 2.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "AMENDOIM"
+    },
+    {
+      "data": "2026-10-13",
+      "lojaKey": 17,
+      "loja": "OKKER - FILIAL",
+      "produtoKey": 70375,
+      "produto": "00703 PIMENTA BIQUINHO OKKER 250 GR - CX 24",
+      "quantidadePedidaCx": 35.0,
+      "quantidadeFaturadaCx": 25.0,
+      "corteCx": 10.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "PIMENTAS"
+    },
     {
       "data": "2026-10-12",
       "lojaKey": 1,
@@ -2647,9 +2764,9 @@
       "loja": "Loja não identificada",
       "produtoKey": 72087,
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - UND",
-      "quantidadePedidaCx": 0.9125000000000003,
+      "quantidadePedidaCx": 0.9125000000000001,
       "quantidadeFaturadaCx": 0.5375000000000001,
-      "corteCx": 0.37499999999999994,
+      "corteCx": 0.375,
       "motivo": null,
       "observacoes": null,
       "categoria": "FAROFA"
@@ -29721,6 +29838,6 @@
       "categoria": "GRAOS"
     }
   ],
-  "totalLinhas": 2286,
-  "semMotivo": 2234
+  "totalLinhas": 2295,
+  "semMotivo": 2243
 }
