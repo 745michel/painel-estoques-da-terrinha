@@ -158,6 +158,7 @@ type CortesLinha = {
   motivo: string | null;
   observacoes: string | null;
   categoria: string | null;
+  setor: string | null;
 };
 type CortesData = {
   atualizadoEm: string;
@@ -2311,12 +2312,12 @@ const MOTIVOS_CORTE_OPCOES = [
   "Falta de embalagem",
   "Problema de produção",
   "Problema logístico/transporte",
-  "Erro de pedido/cadastro",
-  "Cliente cancelou/alterou",
+  "Erro de pedido",
   "Problema de qualidade",
-  "Comercial",
+  "Venda acima da previsão",
   "Recebimento",
   "Atraso na entrega",
+  "Falta de Programação",
   "Outro",
 ];
 function CortesDashboard({

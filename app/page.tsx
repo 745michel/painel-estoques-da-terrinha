@@ -43,6 +43,7 @@ type CortesLinha = {
   motivo: string | null;
   observacoes: string | null;
   categoria: string | null;
+  setor: string | null;
 };
 type CortesData = {
   atualizadoEm: string;
