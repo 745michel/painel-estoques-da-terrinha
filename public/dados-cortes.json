@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-16T08:18:15",
+  "atualizadoEm": "2026-10-16T14:02:16",
   "origem": "dados_cortes.json (Power Automate) + motivos_cortes.xlsx (preenchimento manual)",
   "cortes": [
     {
@@ -29706,138 +29706,8 @@
       "motivo": null,
       "observacoes": null,
       "categoria": "GRAOS"
-    },
-    {
-      "data": "2025-10-16",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 36612,
-      "produto": "00312 FAROFA PRONTA DA TERRINHA APIMENTADA 400 G - FD 24",
-      "quantidadePedidaCx": 139.0,
-      "quantidadeFaturadaCx": 12.0,
-      "corteCx": 127.0,
-      "motivo": null,
-      "observacoes": null,
-      "categoria": "FAROFA"
-    },
-    {
-      "data": "2025-10-16",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 38150,
-      "produto": "00502 BOLACHA DA TERRINHA BRASIL 250 G - FD 20",
-      "quantidadePedidaCx": 304.0,
-      "quantidadeFaturadaCx": 265.0,
-      "corteCx": 39.0,
-      "motivo": null,
-      "observacoes": null,
-      "categoria": "BOLACHA"
-    },
-    {
-      "data": "2025-10-16",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 38160,
-      "produto": "00501 BOLACHA DA TERRINHA AMANTEIGADA 250 G - FD 20",
-      "quantidadePedidaCx": 251.0,
-      "quantidadeFaturadaCx": 41.0,
-      "corteCx": 210.0,
-      "motivo": null,
-      "observacoes": null,
-      "categoria": "BOLACHA"
-    },
-    {
-      "data": "2025-10-16",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 48050,
-      "produto": "01502 FARINHA MANDIOCA FINA CRUA DA TERRINHA 500 - FD 12.0",
-      "quantidadePedidaCx": 78.0,
-      "quantidadeFaturadaCx": 50.0,
-      "corteCx": 28.0,
-      "motivo": null,
-      "observacoes": null,
-      "categoria": "FARINACEOS"
-    },
-    {
-      "data": "2025-10-16",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 48624,
-      "produto": "01788 PAPRICA PICANTE EM PO DA TERRINHA 15 G  - CX 24",
-      "quantidadePedidaCx": 78.0,
-      "quantidadeFaturadaCx": 61.0,
-      "corteCx": 5.0,
-      "motivo": null,
-      "observacoes": null,
-      "categoria": "ESPECIARIAS"
-    },
-    {
-      "data": "2025-10-16",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 54148,
-      "produto": "02606 FEIJAO BRANCO DA TERRINHA PREMIUM 500 G - CX 12",
-      "quantidadePedidaCx": 146.0,
-      "quantidadeFaturadaCx": 5.0,
-      "corteCx": 141.0,
-      "motivo": null,
-      "observacoes": null,
-      "categoria": "GRAOS"
-    },
-    {
-      "data": "2025-10-16",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 72099,
-      "produto": "01806 PIMENTA DO REINO EM PO DA TERRINHA 20G - CX 24",
-      "quantidadePedidaCx": 103.0,
-      "quantidadeFaturadaCx": 32.0,
-      "corteCx": 71.0,
-      "motivo": null,
-      "observacoes": null,
-      "categoria": "ESPECIARIAS"
-    },
-    {
-      "data": "2025-10-16",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 72101,
-      "produto": "01818 TEMPERO BAIANO PO DA TERRINHA 50 G - CX 24",
-      "quantidadePedidaCx": 151.0,
-      "quantidadeFaturadaCx": 36.0,
-      "corteCx": 115.0,
-      "motivo": null,
-      "observacoes": null,
-      "categoria": "ESPECIARIAS"
-    },
-    {
-      "data": "2025-10-16",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 77903,
-      "produto": "00018 TAPIOCA DA TERRINHA NA MEDIDA 490 G - CX 12",
-      "quantidadePedidaCx": 319.0,
-      "quantidadeFaturadaCx": 315.0,
-      "corteCx": 4.0,
-      "motivo": null,
-      "observacoes": null,
-      "categoria": "TAPIOCA POUCH"
-    },
-    {
-      "data": "2025-10-16",
-      "lojaKey": 14,
-      "loja": "DA TERRINHA - FILIAL SP",
-      "produtoKey": 80605,
-      "produto": "01614 CANJICA BRANCA DA TERRINHA 400 G - CX 12",
-      "quantidadePedidaCx": 120.0,
-      "quantidadeFaturadaCx": 28.0,
-      "corteCx": 92.0,
-      "motivo": null,
-      "observacoes": null,
-      "categoria": "GRAOS"
     }
   ],
-  "totalLinhas": 2295,
-  "semMotivo": 2228
+  "totalLinhas": 2285,
+  "semMotivo": 2218
 }
