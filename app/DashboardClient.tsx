@@ -191,10 +191,20 @@ type CortesValorLinha = {
   faturamentoRs: number;
   valorCorte: number;
 };
+// Valor faturado dos itens 100% atendidos (sem corte) - chave por (mes, lojaKey, produtoKey),
+// nao (data, lojaKey, produtoKey), porque AtendidoLinha so tem mes (ver nota em carregar_atendidos
+// no build_cortes.py).
+type AtendidoValorLinha = {
+  mes: string;
+  lojaKey: number | null;
+  produtoKey: number;
+  faturamentoRs: number;
+};
 type CortesValoresData = {
   atualizadoEm: string;
   origem: string;
   valores: CortesValorLinha[];
+  valoresAtendidos: AtendidoValorLinha[];
 };
 type ValuesData = typeof valoresDataType;
 type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
@@ -2428,11 +2438,47 @@ function CortesDashboard({
   function valorDoCorte(c: CortesLinha) {
     return valorPorChave.get(`${c.data}|${c.lojaKey}|${c.produtoKey}`) ?? null;
   }
+
+  // Botao "Corte" x "Faturado" na aba Detalhe (pedido do usuario em 16/10/2026 - primeiro
+  // pediu um grafico dos itens faturados sem corte, depois achou que ficava poluido e pediu
+  // so um card com o total, depois pediu pra mover isso tudo pra aba Detalhe com lista de
+  // itens de verdade, e por fim pediu o valor (R$) de cada item faturado tambem). "Faturado" =
+  // itens faturados SEM nenhum corte (100% atendidos, ver AtendidoLinha) - so por mes (nao tem
+  // data exata), por isso nao cruza com o filtro de Semana nem de Motivo.
+  const [modoDetalhe, setModoDetalhe] = useState<"corte" | "faturado">("corte");
+  const atendidosFiltrados = useMemo(() => {
+    const search = query.trim().toLocaleLowerCase("pt-BR");
+    return (cortesData.atendidos ?? []).filter((a) => (
+      (meses.length === 0 || meses.includes(a.mes))
+      && (!search || (a.produto ?? "").toLocaleLowerCase("pt-BR").includes(search) || String(a.produtoKey).includes(search) || a.loja.toLocaleLowerCase("pt-BR").includes(search))
+      && (lojas.length === 0 || lojas.includes(a.loja))
+      && (categorias.length === 0 || categorias.includes(a.categoria ?? SEM_CATEGORIA))
+      && (produtosFiltro.length === 0 || produtosFiltro.includes(a.produto ?? ""))
+    ));
+  }, [cortesData.atendidos, query, meses, lojas, categorias, produtosFiltro]);
+  const totalFaturadoAtendidos = atendidosFiltrados.reduce((sum, a) => sum + a.quantidadeFaturadaCx, 0);
+  // Valor (R$) faturado dos itens 100% atendidos - chave por (mes, lojaKey, produtoKey), ja que
+  // esses itens so tem mes (nao data exata).
+  const valorAtendidoPorChave = useMemo(() => {
+    const mapa = new Map<string, AtendidoValorLinha>();
+    for (const v of cortesValoresData?.valoresAtendidos ?? []) mapa.set(`${v.mes}|${v.lojaKey}|${v.produtoKey}`, v);
+    return mapa;
+  }, [cortesValoresData]);
+  function valorDoAtendido(a: AtendidoLinha) {
+    return valorAtendidoPorChave.get(`${a.mes}|${a.lojaKey}|${a.produtoKey}`) ?? null;
+  }
+  const totalValorFaturadoAtendidos = canViewValues
+    ? atendidosFiltrados.reduce((sum, a) => sum + (valorDoAtendido(a)?.faturamentoRs ?? 0), 0)
+    : null;
+
   const totalValorCorteFiltrado = canViewValues
     ? filtrados.reduce((sum, c) => sum + (valorDoCorte(c)?.valorCorte ?? 0), 0)
     : null;
+  // "Valor faturado" = tudo que foi faturado, cortado ou nao (pedido do usuario em 16/10/2026:
+  // "o card mostra o valor total de tudo que foi faturado") - soma a parte dos proprios cortes
+  // (que faturaram o que nao foi cortado) com a parte dos itens 100% atendidos.
   const totalValorFaturadoFiltrado = canViewValues
-    ? filtrados.reduce((sum, c) => sum + (valorDoCorte(c)?.faturamentoRs ?? 0), 0)
+    ? filtrados.reduce((sum, c) => sum + (valorDoCorte(c)?.faturamentoRs ?? 0), 0) + (totalValorFaturadoAtendidos ?? 0)
     : null;
 
   const totalCorteFiltrado = filtrados.reduce((sum, c) => sum + c.corteCx, 0);
@@ -2473,25 +2519,6 @@ function CortesDashboard({
       .sort((a, b) => b.corteCx - a.corteCx);
   }, [filtrados, canViewValues, valorPorChave]);
   const maiorCorteProduto = Math.max(1, ...porProduto.map((p) => p.corteCx));
-
-  // Botao "Corte" x "Faturado" na aba Detalhe (pedido do usuario em 16/10/2026 - primeiro
-  // pediu um grafico dos itens faturados sem corte, depois achou que ficava poluido e pediu
-  // so um card com o total, e por fim pediu pra mover isso tudo pra aba Detalhe, com lista de
-  // itens de verdade em vez de so um numero, e tirar da aba Grafico). "Faturado" = itens
-  // faturados SEM nenhum corte (100% atendidos, ver AtendidoLinha) - so por mes (nao tem data
-  // exata), por isso nao cruza com o filtro de Semana nem de Motivo.
-  const [modoDetalhe, setModoDetalhe] = useState<"corte" | "faturado">("corte");
-  const atendidosFiltrados = useMemo(() => {
-    const search = query.trim().toLocaleLowerCase("pt-BR");
-    return (cortesData.atendidos ?? []).filter((a) => (
-      (meses.length === 0 || meses.includes(a.mes))
-      && (!search || (a.produto ?? "").toLocaleLowerCase("pt-BR").includes(search) || String(a.produtoKey).includes(search) || a.loja.toLocaleLowerCase("pt-BR").includes(search))
-      && (lojas.length === 0 || lojas.includes(a.loja))
-      && (categorias.length === 0 || categorias.includes(a.categoria ?? SEM_CATEGORIA))
-      && (produtosFiltro.length === 0 || produtosFiltro.includes(a.produto ?? ""))
-    ));
-  }, [cortesData.atendidos, query, meses, lojas, categorias, produtosFiltro]);
-  const totalFaturadoAtendidos = atendidosFiltrados.reduce((sum, a) => sum + a.quantidadeFaturadaCx, 0);
 
   // Grafico "Corte por setor" (pedido do usuario em 16/10/2026: "% de corte de cada
   // departamento") - mesmo padrao de porMotivo, agrupando pelo "setor" que acabou de ganhar
@@ -2650,18 +2677,24 @@ function CortesDashboard({
             <th style={{ width: 90 }}>Mês</th>
             <th style={{ width: 130 }}>Categoria</th>
             <th style={{ width: 110 }}>Faturado (cx)</th>
+            {canViewValues && <th style={{ width: 130 }}>Valor faturado</th>}
           </tr></thead><tbody>
-            {[...atendidosFiltrados].sort((a, b) => b.quantidadeFaturadaCx - a.quantidadeFaturadaCx).slice(0, 500).map((a, index) => <tr key={`${a.mes}-${a.lojaKey}-${a.produtoKey}-${index}`}>
+            {[...atendidosFiltrados].sort((a, b) => b.quantidadeFaturadaCx - a.quantidadeFaturadaCx).slice(0, 500).map((a, index) => {
+              const valor = canViewValues ? valorDoAtendido(a) : null;
+              return <tr key={`${a.mes}-${a.lojaKey}-${a.produtoKey}-${index}`}>
               <td><div className="product-cell"><div><strong title={a.produto ?? ""}>{a.produto ?? "—"}</strong><small>SKU {a.produtoKey} · {a.loja}</small></div></div></td>
               <td>{mesCorteLabel(a.mes)}</td>
               <td>{a.categoria ?? "—"}</td>
               <td><strong className="numeric">{number.format(Math.round(a.quantidadeFaturadaCx))}</strong></td>
-            </tr>)}
+              {canViewValues && <td><strong className="numeric">{valor ? currency.format(valor.faturamentoRs) : "—"}</strong></td>}
+            </tr>;
+            })}
           </tbody>
           {atendidosFiltrados.length > 0 && <tfoot><tr className="escadinha-total-row">
             <td><strong>Total ({number.format(atendidosFiltrados.length)} item{atendidosFiltrados.length === 1 ? "" : "s"})</strong></td>
             <td /><td />
             <td><strong className="numeric">{number.format(Math.round(totalFaturadoAtendidos))}</strong></td>
+            {canViewValues && <td><strong className="numeric">{currency.format(totalValorFaturadoAtendidos ?? 0)}</strong></td>}
           </tr></tfoot>}
           {atendidosFiltrados.length === 0 && <div className="empty-state"><strong>Nenhum item encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
           {atendidosFiltrados.length > 500 && <p className="consumption-return">Mostrando os 500 maiores itens do filtro atual ({number.format(atendidosFiltrados.length)} no total) — refine o filtro ou o mês pra ver outros.</p>}

@@ -27,10 +27,17 @@ type CortesValorLinha = {
   faturamentoRs: number;
   valorCorte: number;
 };
+type AtendidoValorLinha = {
+  mes: string;
+  lojaKey: number | null;
+  produtoKey: number;
+  faturamentoRs: number;
+};
 type CortesValoresData = {
   atualizadoEm: string;
   origem: string;
   valores: CortesValorLinha[];
+  valoresAtendidos: AtendidoValorLinha[];
 };
 
 /**
