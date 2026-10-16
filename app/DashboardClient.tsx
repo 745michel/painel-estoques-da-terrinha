@@ -2474,10 +2474,13 @@ function CortesDashboard({
   }, [filtrados, canViewValues, valorPorChave]);
   const maiorCorteProduto = Math.max(1, ...porProduto.map((p) => p.corteCx));
 
-  // Itens faturados SEM corte (pedido do usuario em 16/10/2026: "gostaria que tivesse nessa
-  // visao os itens que foi faturado sem corte, de um modo que nao ficasse poluido") - so por
-  // mes (nao tem data exata, ver AtendidoLinha), por isso nao respeita o filtro de Semana nem
-  // de Motivo (esses itens nao tem motivo, nunca foram cortados).
+  // Botao "Faturado" x "Corte" na visao Grafico (pedido do usuario em 16/10/2026 - primeiro
+  // pediu um grafico dos itens faturados sem corte, depois achou que ficava poluido e pediu
+  // so um card com o total faturado, atras de um botao separado, com "Corte" sempre a opcao
+  // ativa por padrao). "Faturado" = tudo que foi entregue, cortado ou nao: soma o faturado dos
+  // proprios cortes (ja tem corte, mas faturou o resto) + o faturado dos itens sem nenhum corte
+  // (atendidos, ver AtendidoLinha) - so por mes nesse segundo grupo, nao cruza com Semana.
+  const [subVisaoGrafico, setSubVisaoGrafico] = useState<"corte" | "faturado">("corte");
   const atendidosFiltrados = useMemo(() => {
     const search = query.trim().toLocaleLowerCase("pt-BR");
     return (cortesData.atendidos ?? []).filter((a) => (
@@ -2488,20 +2491,9 @@ function CortesDashboard({
       && (produtosFiltro.length === 0 || produtosFiltro.includes(a.produto ?? ""))
     ));
   }, [cortesData.atendidos, query, meses, lojas, categorias, produtosFiltro]);
-  const totalAtendidoCx = atendidosFiltrados.reduce((sum, a) => sum + a.quantidadeFaturadaCx, 0);
-  const porProdutoAtendido = useMemo(() => {
-    const mapa = new Map<number, { produto: string; quantidade: number }>();
-    for (const a of atendidosFiltrados) {
-      const atual = mapa.get(a.produtoKey) ?? { produto: a.produto ?? `SKU ${a.produtoKey}`, quantidade: 0 };
-      atual.quantidade += a.quantidadeFaturadaCx;
-      mapa.set(a.produtoKey, atual);
-    }
-    const total = Array.from(mapa.values()).reduce((sum, v) => sum + v.quantidade, 0);
-    return Array.from(mapa.entries())
-      .map(([produtoKey, v]) => ({ produtoKey, produto: v.produto, quantidade: v.quantidade, percentual: total > 0 ? (v.quantidade / total) * 100 : 0 }))
-      .sort((a, b) => b.quantidade - a.quantidade);
-  }, [atendidosFiltrados]);
-  const maiorAtendido = Math.max(1, ...porProdutoAtendido.map((p) => p.quantidade));
+  const totalFaturadoCortes = filtrados.reduce((sum, c) => sum + c.quantidadeFaturadaCx, 0);
+  const totalFaturadoAtendidos = atendidosFiltrados.reduce((sum, a) => sum + a.quantidadeFaturadaCx, 0);
+  const totalFaturadoGeral = totalFaturadoCortes + totalFaturadoAtendidos;
 
   // Grafico "Corte por setor" (pedido do usuario em 16/10/2026: "% de corte de cada
   // departamento") - mesmo padrao de porMotivo, agrupando pelo "setor" que acabou de ganhar
@@ -2595,7 +2587,7 @@ function CortesDashboard({
         </section>
 
         <section className="inventory-panel consumption-panel">
-          <div className="panel-heading"><div><p className="eyebrow">{visao === "motivos" ? "GRÁFICOS" : "DETALHE"}</p><h2>{visao === "motivos" ? "Atendimento, motivos, produtos e setores" : "Cortes por produto"}</h2><p>{visao === "motivos" ? "Atendimento (faturado sem corte) e corte (cx) por motivo/produto/setor, no filtro atual — maior primeiro." : "Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização."}</p></div><div className="unit-switch"><button className={visao === "detalhe" ? "active" : ""} onClick={() => setVisao("detalhe")}>Detalhe</button><button className={visao === "motivos" ? "active" : ""} onClick={() => setVisao("motivos")}>Gráfico</button></div></div>
+          <div className="panel-heading"><div><p className="eyebrow">{visao === "motivos" ? "GRÁFICOS" : "DETALHE"}</p><h2>{visao === "motivos" ? "Corte por motivo, produto e setor" : "Cortes por produto"}</h2><p>{visao === "motivos" ? "Corte (cx) por motivo/produto/setor, no filtro atual — maior primeiro. Botão \"Faturado\" mostra o total faturado (cortado + atendido)." : "Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização."}</p></div><div className="unit-switch"><button className={visao === "detalhe" ? "active" : ""} onClick={() => setVisao("detalhe")}>Detalhe</button><button className={visao === "motivos" ? "active" : ""} onClick={() => setVisao("motivos")}>Gráfico</button></div></div>
           <div className="filters value-filters"><div className="selects">
             <MultiFilter label="Mês" options={mesOptions} selected={meses} onChange={setMeses} />
             <MultiFilter label="Semana" options={semanaOptions} selected={semanas} onChange={setSemanas} />
@@ -2607,23 +2599,19 @@ function CortesDashboard({
             {(lojas.length > 0 || motivos.length > 0 || categorias.length > 0 || produtosFiltro.length > 0 || meses.length > 0 || semanas.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setCategorias([]); setProdutosFiltro([]); setMeses([]); setSemanas([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
           </div></div>
           {visao === "motivos" ? <>
-            <div className="kpi-grid" aria-label="Atendimento" style={{ gridTemplateColumns: "repeat(4, minmax(0,1fr))", padding: "0 20px 16px" }}>
+            <div className="unit-switch" style={{ margin: "0 20px 16px" }}>
+              <button className={subVisaoGrafico === "corte" ? "active" : ""} onClick={() => setSubVisaoGrafico("corte")}>Corte</button>
+              <button className={subVisaoGrafico === "faturado" ? "active" : ""} onClick={() => setSubVisaoGrafico("faturado")}>Faturado</button>
+            </div>
+            {subVisaoGrafico === "faturado" && <div className="kpi-grid" aria-label="Faturado" style={{ gridTemplateColumns: "repeat(4, minmax(0,1fr))", padding: "0 20px 16px" }}>
               <div className="kpi-card healthy-card">
-                <div className="kpi-top"><span className="kpi-icon">✓</span><span className="trend good">Atendimento</span></div>
-                <strong>{number.format(Math.round(totalAtendidoCx))} cx</strong><p>Faturado sem corte (100% atendido)</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
-                <small>Por mês (não cruza com Semana) · {number.format(porProdutoAtendido.length)} produto(s) no filtro</small>
+                <div className="kpi-top"><span className="kpi-icon">✓</span><span className="trend good">Faturado</span></div>
+                <strong>{number.format(Math.round(totalFaturadoGeral))} cx</strong><p>Total faturado no filtro (cortado + atendido)</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+                <small>Atendido 100% é por mês (não cruza com Semana)</small>
               </div>
-            </div>
-            <h3 className="drawer-section-label" style={{ margin: "0 20px 10px" }}>PRODUTOS MAIS FATURADOS SEM CORTE</h3>
-            <div className="motivo-bars motivo-bars-scroll">
-              {porProdutoAtendido.map((p) => <div className="motivo-bar-row no-click" key={p.produtoKey}>
-                <span className="motivo-bar-label" title={p.produto}>{p.produto}</span>
-                <span className="motivo-bar-track"><span className="motivo-bar-fill motivo-bar-fill-atendido" style={{ width: `${Math.max(p.quantidade ? 2 : 0, (p.quantidade / maiorAtendido) * 100)}%` }} /></span>
-                <span className="motivo-bar-value">{number.format(Math.round(p.quantidade))} cx <small className="motivo-bar-pct">{decimal.format(p.percentual)}%</small></span>
-              </div>)}
-              {porProdutoAtendido.length === 0 && <div className="empty-state"><strong>Nenhum item encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
-            </div>
-            <h3 className="drawer-section-label" style={{ margin: "24px 20px 10px" }}>CORTES POR MOTIVO</h3>
+            </div>}
+            {subVisaoGrafico === "corte" && <>
+            <h3 className="drawer-section-label" style={{ margin: "0 20px 10px" }}>CORTES POR MOTIVO</h3>
             <div className="motivo-bars">
               {porMotivo.map((m) => <button type="button" className="motivo-bar-row" key={m.motivo} onClick={() => setMotivoAberto(m.motivo)}>
                 <span className="motivo-bar-label" title={m.motivo}>{m.motivo}</span>
@@ -2667,6 +2655,7 @@ function CortesDashboard({
                 <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(totalValorCorteFiltrado ?? 0)}</small>}</span>
               </div>}
             </div>
+            </>}
           </> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
             <th style={{ width: "auto" }}>Produto / loja</th>
             <th style={{ width: 90 }}><button className="sortable-column" onClick={() => toggleSort("data")}>Data {sortField === "data" ? (sortDir === "desc" ? "▾" : "▴") : ""}</button></th>
