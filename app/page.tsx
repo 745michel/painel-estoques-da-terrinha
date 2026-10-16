@@ -45,12 +45,22 @@ type CortesLinha = {
   categoria: string | null;
   setor: string | null;
 };
+type AtendidoLinha = {
+  mes: string;
+  lojaKey: number | null;
+  loja: string;
+  produtoKey: number;
+  produto: string | null;
+  quantidadeFaturadaCx: number;
+  categoria: string | null;
+};
 type CortesData = {
   atualizadoEm: string;
   origem: string;
   cortes: CortesLinha[];
   totalLinhas: number;
   semMotivo: number;
+  atendidos: AtendidoLinha[];
 };
 type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataStatic;
 type FornecedoresData = typeof fornecedoresDataStatic;
