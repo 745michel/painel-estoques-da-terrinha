@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-15T15:42:51",
+  "atualizadoEm": "2026-10-16T08:18:15",
   "origem": "dados_cortes.json (Power Automate) + motivos_cortes.xlsx (preenchimento manual)",
   "cortes": [
     {
@@ -11,8 +11,8 @@
       "quantidadePedidaCx": 8.0,
       "quantidadeFaturadaCx": 2.0,
       "corteCx": 6.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema de produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS"
     },
     {
@@ -24,8 +24,8 @@
       "quantidadePedidaCx": 21.0,
       "quantidadeFaturadaCx": 20.0,
       "corteCx": 1.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema de produção",
+      "observacoes": "outros pedido na linha",
       "categoria": "ALHO"
     },
     {
@@ -37,8 +37,8 @@
       "quantidadePedidaCx": 23.0,
       "quantidadeFaturadaCx": 20.0,
       "corteCx": 3.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema de produção",
+      "observacoes": "outros pedido na linha",
       "categoria": "ALHO"
     },
     {
@@ -50,8 +50,8 @@
       "quantidadePedidaCx": 104.0,
       "quantidadeFaturadaCx": 15.0,
       "corteCx": 89.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Falta de matéria-prima",
+      "observacoes": "Fornecedor  sem materia prima",
       "categoria": "GRAOS"
     },
     {
@@ -63,8 +63,8 @@
       "quantidadePedidaCx": 188.0,
       "quantidadeFaturadaCx": 170.0,
       "corteCx": 18.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Falta de matéria-prima",
+      "observacoes": "Fornecedor  sem materia prima",
       "categoria": "GRAOS"
     },
     {
@@ -76,7 +76,7 @@
       "quantidadePedidaCx": 181.0,
       "quantidadeFaturadaCx": 140.0,
       "corteCx": 41.0,
-      "motivo": null,
+      "motivo": "Atraso na entrega",
       "observacoes": null,
       "categoria": "CREME DE AVELA"
     },
@@ -89,8 +89,8 @@
       "quantidadePedidaCx": 4.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 3.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema de produção",
+      "observacoes": "capacidade de produção",
       "categoria": "GRAOS"
     },
     {
@@ -102,7 +102,7 @@
       "quantidadePedidaCx": 3.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 2.0,
-      "motivo": null,
+      "motivo": "Atraso na entrega",
       "observacoes": null,
       "categoria": "AMENDOIM"
     },
@@ -115,8 +115,8 @@
       "quantidadePedidaCx": 35.0,
       "quantidadeFaturadaCx": 25.0,
       "corteCx": 10.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Falta de matéria-prima",
+      "observacoes": "Fornecedor  sem materia prima",
       "categoria": "PIMENTAS"
     },
     {
@@ -128,7 +128,7 @@
       "quantidadePedidaCx": 30.0,
       "quantidadeFaturadaCx": 18.97,
       "corteCx": 11.030000000000001,
-      "motivo": null,
+      "motivo": "Outro",
       "observacoes": null,
       "categoria": "FECULA"
     },
@@ -141,8 +141,8 @@
       "quantidadePedidaCx": 3.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 2.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema de produção",
+      "observacoes": "outros pedido na linha",
       "categoria": "ALHO"
     },
     {
@@ -154,8 +154,8 @@
       "quantidadePedidaCx": 20.0,
       "quantidadeFaturadaCx": 2.0,
       "corteCx": 18.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema logístico/transporte",
+      "observacoes": "produto em estoque",
       "categoria": "FAROFA"
     },
     {
@@ -167,7 +167,7 @@
       "quantidadePedidaCx": 117.0,
       "quantidadeFaturadaCx": 81.0,
       "corteCx": 36.0,
-      "motivo": null,
+      "motivo": "Atraso na entrega",
       "observacoes": null,
       "categoria": "CREME DE AVELA"
     },
@@ -180,7 +180,7 @@
       "quantidadePedidaCx": 10.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 9.0,
-      "motivo": null,
+      "motivo": "Problema logístico/transporte",
       "observacoes": null,
       "categoria": "FAROFA"
     },
@@ -193,7 +193,7 @@
       "quantidadePedidaCx": 2.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 1.0,
-      "motivo": null,
+      "motivo": "Atraso na entrega",
       "observacoes": null,
       "categoria": "ESPECIARIAS"
     },
@@ -29839,5 +29839,5 @@
     }
   ],
   "totalLinhas": 2295,
-  "semMotivo": 2243
+  "semMotivo": 2228
 }
