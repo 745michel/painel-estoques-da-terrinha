@@ -2474,13 +2474,13 @@ function CortesDashboard({
   }, [filtrados, canViewValues, valorPorChave]);
   const maiorCorteProduto = Math.max(1, ...porProduto.map((p) => p.corteCx));
 
-  // Botao "Faturado" x "Corte" na visao Grafico (pedido do usuario em 16/10/2026 - primeiro
+  // Botao "Corte" x "Faturado" na aba Detalhe (pedido do usuario em 16/10/2026 - primeiro
   // pediu um grafico dos itens faturados sem corte, depois achou que ficava poluido e pediu
-  // so um card com o total faturado, atras de um botao separado, com "Corte" sempre a opcao
-  // ativa por padrao). "Faturado" = tudo que foi entregue, cortado ou nao: soma o faturado dos
-  // proprios cortes (ja tem corte, mas faturou o resto) + o faturado dos itens sem nenhum corte
-  // (atendidos, ver AtendidoLinha) - so por mes nesse segundo grupo, nao cruza com Semana.
-  const [subVisaoGrafico, setSubVisaoGrafico] = useState<"corte" | "faturado">("corte");
+  // so um card com o total, e por fim pediu pra mover isso tudo pra aba Detalhe, com lista de
+  // itens de verdade em vez de so um numero, e tirar da aba Grafico). "Faturado" = itens
+  // faturados SEM nenhum corte (100% atendidos, ver AtendidoLinha) - so por mes (nao tem data
+  // exata), por isso nao cruza com o filtro de Semana nem de Motivo.
+  const [modoDetalhe, setModoDetalhe] = useState<"corte" | "faturado">("corte");
   const atendidosFiltrados = useMemo(() => {
     const search = query.trim().toLocaleLowerCase("pt-BR");
     return (cortesData.atendidos ?? []).filter((a) => (
@@ -2491,9 +2491,7 @@ function CortesDashboard({
       && (produtosFiltro.length === 0 || produtosFiltro.includes(a.produto ?? ""))
     ));
   }, [cortesData.atendidos, query, meses, lojas, categorias, produtosFiltro]);
-  const totalFaturadoCortes = filtrados.reduce((sum, c) => sum + c.quantidadeFaturadaCx, 0);
   const totalFaturadoAtendidos = atendidosFiltrados.reduce((sum, a) => sum + a.quantidadeFaturadaCx, 0);
-  const totalFaturadoGeral = totalFaturadoCortes + totalFaturadoAtendidos;
 
   // Grafico "Corte por setor" (pedido do usuario em 16/10/2026: "% de corte de cada
   // departamento") - mesmo padrao de porMotivo, agrupando pelo "setor" que acabou de ganhar
@@ -2587,30 +2585,22 @@ function CortesDashboard({
         </section>
 
         <section className="inventory-panel consumption-panel">
-          <div className="panel-heading"><div><p className="eyebrow">{visao === "motivos" ? "GRÁFICOS" : "DETALHE"}</p><h2>{visao === "motivos" ? "Corte por motivo, produto e setor" : "Cortes por produto"}</h2><p>{visao === "motivos" ? "Corte (cx) por motivo/produto/setor, no filtro atual — maior primeiro. Botão \"Faturado\" mostra o total faturado (cortado + atendido)." : "Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização."}</p></div><div className="unit-switch"><button className={visao === "detalhe" ? "active" : ""} onClick={() => setVisao("detalhe")}>Detalhe</button><button className={visao === "motivos" ? "active" : ""} onClick={() => setVisao("motivos")}>Gráfico</button></div></div>
+          <div className="panel-heading"><div><p className="eyebrow">{visao === "motivos" ? "GRÁFICOS" : modoDetalhe === "faturado" ? "FATURADO SEM CORTE" : "DETALHE"}</p><h2>{visao === "motivos" ? "Corte por motivo, produto e setor" : modoDetalhe === "faturado" ? "Itens 100% atendidos" : "Cortes por produto"}</h2><p>{visao === "motivos" ? "Corte (cx) por motivo/produto/setor, no filtro atual — maior primeiro." : modoDetalhe === "faturado" ? "Itens faturados sem nenhum corte, por mês (não cruza com Semana nem Motivo)." : "Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização."}</p></div><div className="unit-switch"><button className={visao === "detalhe" ? "active" : ""} onClick={() => setVisao("detalhe")}>Detalhe</button><button className={visao === "motivos" ? "active" : ""} onClick={() => setVisao("motivos")}>Gráfico</button></div></div>
+          {visao === "detalhe" && <div className="unit-switch" style={{ margin: "0 20px 16px" }}>
+            <button className={modoDetalhe === "corte" ? "active" : ""} onClick={() => setModoDetalhe("corte")}>Corte</button>
+            <button className={modoDetalhe === "faturado" ? "active" : ""} onClick={() => setModoDetalhe("faturado")}>Faturado</button>
+          </div>}
           <div className="filters value-filters"><div className="selects">
             <MultiFilter label="Mês" options={mesOptions} selected={meses} onChange={setMeses} />
-            <MultiFilter label="Semana" options={semanaOptions} selected={semanas} onChange={setSemanas} />
+            {!(visao === "detalhe" && modoDetalhe === "faturado") && <MultiFilter label="Semana" options={semanaOptions} selected={semanas} onChange={setSemanas} />}
             <MultiFilter label="Loja" options={lojaOptions} selected={lojas} onChange={setLojas} />
-            <MultiFilter label="Motivo" options={motivoOptions} selected={motivos} onChange={setMotivos} />
+            {!(visao === "detalhe" && modoDetalhe === "faturado") && <MultiFilter label="Motivo" options={motivoOptions} selected={motivos} onChange={setMotivos} />}
             <MultiFilter label="Categoria" options={categoriaOptions} selected={categorias} onChange={setCategorias} />
             <MultiFilter label="Produto" options={produtoOptions} selected={produtosFiltro} onChange={setProdutosFiltro} />
-            <label className="toggle-inativos"><input type="checkbox" checked={somenteSemMotivo} onChange={(event) => setSomenteSemMotivo(event.target.checked)} /> Só sem motivo</label>
+            {!(visao === "detalhe" && modoDetalhe === "faturado") && <label className="toggle-inativos"><input type="checkbox" checked={somenteSemMotivo} onChange={(event) => setSomenteSemMotivo(event.target.checked)} /> Só sem motivo</label>}
             {(lojas.length > 0 || motivos.length > 0 || categorias.length > 0 || produtosFiltro.length > 0 || meses.length > 0 || semanas.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setCategorias([]); setProdutosFiltro([]); setMeses([]); setSemanas([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
           </div></div>
           {visao === "motivos" ? <>
-            <div className="unit-switch" style={{ margin: "0 20px 16px" }}>
-              <button className={subVisaoGrafico === "corte" ? "active" : ""} onClick={() => setSubVisaoGrafico("corte")}>Corte</button>
-              <button className={subVisaoGrafico === "faturado" ? "active" : ""} onClick={() => setSubVisaoGrafico("faturado")}>Faturado</button>
-            </div>
-            {subVisaoGrafico === "faturado" && <div className="kpi-grid" aria-label="Faturado" style={{ gridTemplateColumns: "repeat(4, minmax(0,1fr))", padding: "0 20px 16px" }}>
-              <div className="kpi-card healthy-card">
-                <div className="kpi-top"><span className="kpi-icon">✓</span><span className="trend good">Faturado</span></div>
-                <strong>{number.format(Math.round(totalFaturadoGeral))} cx</strong><p>Total faturado no filtro (cortado + atendido)</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
-                <small>Atendido 100% é por mês (não cruza com Semana)</small>
-              </div>
-            </div>}
-            {subVisaoGrafico === "corte" && <>
             <h3 className="drawer-section-label" style={{ margin: "0 20px 10px" }}>CORTES POR MOTIVO</h3>
             <div className="motivo-bars">
               {porMotivo.map((m) => <button type="button" className="motivo-bar-row" key={m.motivo} onClick={() => setMotivoAberto(m.motivo)}>
@@ -2655,8 +2645,27 @@ function CortesDashboard({
                 <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(totalValorCorteFiltrado ?? 0)}</small>}</span>
               </div>}
             </div>
-            </>}
-          </> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
+          </> : modoDetalhe === "faturado" ? <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
+            <th style={{ width: "auto" }}>Produto / loja</th>
+            <th style={{ width: 90 }}>Mês</th>
+            <th style={{ width: 130 }}>Categoria</th>
+            <th style={{ width: 110 }}>Faturado (cx)</th>
+          </tr></thead><tbody>
+            {[...atendidosFiltrados].sort((a, b) => b.quantidadeFaturadaCx - a.quantidadeFaturadaCx).slice(0, 500).map((a, index) => <tr key={`${a.mes}-${a.lojaKey}-${a.produtoKey}-${index}`}>
+              <td><div className="product-cell"><div><strong title={a.produto ?? ""}>{a.produto ?? "—"}</strong><small>SKU {a.produtoKey} · {a.loja}</small></div></div></td>
+              <td>{mesCorteLabel(a.mes)}</td>
+              <td>{a.categoria ?? "—"}</td>
+              <td><strong className="numeric">{number.format(Math.round(a.quantidadeFaturadaCx))}</strong></td>
+            </tr>)}
+          </tbody>
+          {atendidosFiltrados.length > 0 && <tfoot><tr className="escadinha-total-row">
+            <td><strong>Total ({number.format(atendidosFiltrados.length)} item{atendidosFiltrados.length === 1 ? "" : "s"})</strong></td>
+            <td /><td />
+            <td><strong className="numeric">{number.format(Math.round(totalFaturadoAtendidos))}</strong></td>
+          </tr></tfoot>}
+          {atendidosFiltrados.length === 0 && <div className="empty-state"><strong>Nenhum item encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
+          {atendidosFiltrados.length > 500 && <p className="consumption-return">Mostrando os 500 maiores itens do filtro atual ({number.format(atendidosFiltrados.length)} no total) — refine o filtro ou o mês pra ver outros.</p>}
+          </table></div> : <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
             <th style={{ width: "auto" }}>Produto / loja</th>
             <th style={{ width: 90 }}><button className="sortable-column" onClick={() => toggleSort("data")}>Data {sortField === "data" ? (sortDir === "desc" ? "▾" : "▴") : ""}</button></th>
             <th style={{ width: 90 }}>Pedido</th>
