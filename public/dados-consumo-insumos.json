@@ -1,8 +1,8 @@
 {
-  "atualizadoEm": "2026-10-16T14:14:51",
+  "atualizadoEm": "2026-10-19T08:33:29",
   "origem": "Base movimento_estoque que alimenta o Power BI de consumo de insumos",
   "periodoInicio": "2025-01-01",
-  "periodoFim": "2026-10-13",
+  "periodoFim": "2026-10-17",
   "meses": [
     "2025-01",
     "2025-02",
@@ -27,7 +27,7 @@
     "2026-09",
     "2026-10"
   ],
-  "linhasProcessadas": 596331,
+  "linhasProcessadas": 601165,
   "produtos": [
     {
       "sku": "70705",
@@ -751,13 +751,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 2878.0,
+          "saida": 3544.0,
           "estorno": 0.0,
-          "consumoLiquido": 2878.0
+          "consumoLiquido": 3544.0
         }
       ],
-      "mediaMensal": 5107.5,
-      "totalPeriodo": 112365.0
+      "mediaMensal": 5137.773,
+      "totalPeriodo": 113031.0
     },
     {
       "sku": "71853",
@@ -1043,13 +1043,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 72.36,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 72.36
         }
       ],
-      "mediaMensal": 112.473,
-      "totalPeriodo": 2474.403
+      "mediaMensal": 115.762,
+      "totalPeriodo": 2546.763
     },
     {
       "sku": "72287",
@@ -1189,13 +1189,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 29.736,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 29.736
         }
       ],
-      "mediaMensal": 33.094,
-      "totalPeriodo": 728.071
+      "mediaMensal": 34.446,
+      "totalPeriodo": 757.807
     },
     {
       "sku": "72299",
@@ -1774,12 +1774,12 @@
         {
           "mes": "2026-10",
           "saida": 14.868,
-          "estorno": 0.0,
-          "consumoLiquido": 14.868
+          "estorno": 2.988,
+          "consumoLiquido": 11.88
         }
       ],
-      "mediaMensal": 1.756,
-      "totalPeriodo": 38.628
+      "mediaMensal": 1.62,
+      "totalPeriodo": 35.64
     },
     {
       "sku": "120532",
@@ -3379,13 +3379,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 877.54,
+          "saida": 1518.34,
           "estorno": 0.0,
-          "consumoLiquido": 877.54
+          "consumoLiquido": 1518.34
         }
       ],
-      "mediaMensal": 1729.747,
-      "totalPeriodo": 38054.442
+      "mediaMensal": 1758.875,
+      "totalPeriodo": 38695.242
     },
     {
       "sku": "94032",
@@ -3671,13 +3671,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1658.07,
+          "saida": 2567.65,
           "estorno": 12.46,
-          "consumoLiquido": 1645.61
+          "consumoLiquido": 2555.19
         }
       ],
-      "mediaMensal": 2732.866,
-      "totalPeriodo": 60123.06
+      "mediaMensal": 2774.211,
+      "totalPeriodo": 61032.64
     },
     {
       "sku": "94033",
@@ -4109,13 +4109,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 67.77,
+          "saida": 175.8,
           "estorno": 0.0,
-          "consumoLiquido": 67.77
+          "consumoLiquido": 175.8
         }
       ],
-      "mediaMensal": 247.729,
-      "totalPeriodo": 5450.032
+      "mediaMensal": 252.639,
+      "totalPeriodo": 5558.062
     },
     {
       "sku": "72301",
@@ -4839,13 +4839,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 37.44,
+          "saida": 93.384,
           "estorno": 0.0,
-          "consumoLiquido": 37.44
+          "consumoLiquido": 93.384
         }
       ],
-      "mediaMensal": 148.18,
-      "totalPeriodo": 3259.971
+      "mediaMensal": 150.723,
+      "totalPeriodo": 3315.915
     },
     {
       "sku": "62368",
@@ -4985,13 +4985,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 51.6,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 51.6
         }
       ],
-      "mediaMensal": 52.245,
-      "totalPeriodo": 1149.384
+      "mediaMensal": 54.59,
+      "totalPeriodo": 1200.984
     },
     {
       "sku": "81281",
@@ -5131,13 +5131,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 385.272,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 385.272
         }
       ],
-      "mediaMensal": 393.644,
-      "totalPeriodo": 8660.178
+      "mediaMensal": 411.157,
+      "totalPeriodo": 9045.45
     },
     {
       "sku": "57926",
@@ -5277,13 +5277,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 29.7,
+          "saida": 55.44,
           "estorno": 0.0,
-          "consumoLiquido": 29.7
+          "consumoLiquido": 55.44
         }
       ],
-      "mediaMensal": 42.437,
-      "totalPeriodo": 933.624
+      "mediaMensal": 43.607,
+      "totalPeriodo": 959.364
     },
     {
       "sku": "72308",
@@ -5715,13 +5715,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 48.0,
+          "saida": 92.0,
           "estorno": 0.0,
-          "consumoLiquido": 48.0
+          "consumoLiquido": 92.0
         }
       ],
-      "mediaMensal": 65.429,
-      "totalPeriodo": 1439.429
+      "mediaMensal": 67.429,
+      "totalPeriodo": 1483.429
     },
     {
       "sku": "79361",
@@ -6007,13 +6007,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 66.24,
+          "saida": 245.376,
           "estorno": 0.0,
-          "consumoLiquido": 66.24
+          "consumoLiquido": 245.376
         }
       ],
-      "mediaMensal": 156.385,
-      "totalPeriodo": 3440.463
+      "mediaMensal": 164.527,
+      "totalPeriodo": 3619.599
     },
     {
       "sku": "79362",
@@ -8343,13 +8343,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 74.088,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 74.088
         }
       ],
-      "mediaMensal": 45.461,
-      "totalPeriodo": 1000.144
+      "mediaMensal": 48.829,
+      "totalPeriodo": 1074.232
     },
     {
       "sku": "81282",
@@ -8489,13 +8489,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 90.936,
+          "saida": 213.696,
           "estorno": 0.0,
-          "consumoLiquido": 90.936
+          "consumoLiquido": 213.696
         }
       ],
-      "mediaMensal": 106.84,
-      "totalPeriodo": 2350.476
+      "mediaMensal": 112.42,
+      "totalPeriodo": 2473.236
     },
     {
       "sku": "78484",
@@ -8635,13 +8635,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 544.8,
+          "saida": 811.4,
           "estorno": 0.0,
-          "consumoLiquido": 544.8
+          "consumoLiquido": 811.4
         }
       ],
-      "mediaMensal": 892.732,
-      "totalPeriodo": 19640.1
+      "mediaMensal": 904.85,
+      "totalPeriodo": 19906.7
     },
     {
       "sku": "57853",
@@ -9086,7 +9086,7 @@
       "produto": "BOBINA FARINHA DE MANDIOCA GROSSA DA TERRINHA 1 KG",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -9219,13 +9219,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 155.52,
+          "saida": 299.04,
           "estorno": 0.0,
-          "consumoLiquido": 155.52
+          "consumoLiquido": 299.04
         }
       ],
-      "mediaMensal": 751.833,
-      "totalPeriodo": 16540.32
+      "mediaMensal": 758.356,
+      "totalPeriodo": 16683.84
     },
     {
       "sku": "57894",
@@ -10095,13 +10095,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 129.24,
-          "estorno": 0.18,
-          "consumoLiquido": 129.06
+          "saida": 268.2,
+          "estorno": 0.72,
+          "consumoLiquido": 267.48
         }
       ],
-      "mediaMensal": 417.158,
-      "totalPeriodo": 9177.48
+      "mediaMensal": 423.45,
+      "totalPeriodo": 9315.9
     },
     {
       "sku": "118123",
@@ -10546,7 +10546,7 @@
       "produto": "BOBINA FAROFA PRONTA TRADICIONAL BULNEZ 400 G",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "TODER VERPACKUNG EMBALAGENS",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -10679,13 +10679,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 1038.24,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 1038.24
         }
       ],
-      "mediaMensal": 64.89,
-      "totalPeriodo": 1427.58
+      "mediaMensal": 112.083,
+      "totalPeriodo": 2465.82
     },
     {
       "sku": "72227",
@@ -10825,13 +10825,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 175.392,
+          "saida": 272.832,
           "estorno": 0.0,
-          "consumoLiquido": 175.392
+          "consumoLiquido": 272.832
         }
       ],
-      "mediaMensal": 262.934,
-      "totalPeriodo": 5784.55
+      "mediaMensal": 267.363,
+      "totalPeriodo": 5881.99
     },
     {
       "sku": "36914",
@@ -11555,13 +11555,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 60.152,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 60.152
         }
       ],
-      "mediaMensal": 19.935,
-      "totalPeriodo": 438.574
+      "mediaMensal": 22.669,
+      "totalPeriodo": 498.726
     },
     {
       "sku": "57915",
@@ -11993,13 +11993,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 105.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 105.0
         }
       ],
-      "mediaMensal": 114.818,
-      "totalPeriodo": 2526.0
+      "mediaMensal": 119.591,
+      "totalPeriodo": 2631.0
     },
     {
       "sku": "81284",
@@ -12285,13 +12285,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 66.672,
+          "saida": 87.12,
           "estorno": 0.0,
-          "consumoLiquido": 66.672
+          "consumoLiquido": 87.12
         }
       ],
-      "mediaMensal": 160.264,
-      "totalPeriodo": 3525.804
+      "mediaMensal": 161.193,
+      "totalPeriodo": 3546.252
     },
     {
       "sku": "86381",
@@ -12869,13 +12869,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 391.716,
+          "saida": 462.132,
           "estorno": 0.0,
-          "consumoLiquido": 391.716
+          "consumoLiquido": 462.132
         }
       ],
-      "mediaMensal": 187.817,
-      "totalPeriodo": 4131.972
+      "mediaMensal": 191.018,
+      "totalPeriodo": 4202.388
     },
     {
       "sku": "81286",
@@ -13015,13 +13015,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 740.592,
+          "saida": 845.928,
           "estorno": 0.0,
-          "consumoLiquido": 740.592
+          "consumoLiquido": 845.928
         }
       ],
-      "mediaMensal": 977.914,
-      "totalPeriodo": 21514.104
+      "mediaMensal": 982.702,
+      "totalPeriodo": 21619.44
     },
     {
       "sku": "91649",
@@ -13453,13 +13453,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 238.8,
+          "saida": 296.76,
           "estorno": 0.0,
-          "consumoLiquido": 238.8
+          "consumoLiquido": 296.76
         }
       ],
-      "mediaMensal": 228.214,
-      "totalPeriodo": 5020.708
+      "mediaMensal": 230.849,
+      "totalPeriodo": 5078.668
     },
     {
       "sku": "72290",
@@ -13599,13 +13599,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 168.048,
+          "saida": 255.96,
           "estorno": 0.0,
-          "consumoLiquido": 168.048
+          "consumoLiquido": 255.96
         }
       ],
-      "mediaMensal": 223.536,
-      "totalPeriodo": 4917.803
+      "mediaMensal": 227.532,
+      "totalPeriodo": 5005.715
     },
     {
       "sku": "120563",
@@ -14475,13 +14475,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 260.177,
+          "saida": 427.632,
           "estorno": 0.0,
-          "consumoLiquido": 260.177
+          "consumoLiquido": 427.632
         }
       ],
-      "mediaMensal": 1162.519,
-      "totalPeriodo": 25575.42
+      "mediaMensal": 1170.131,
+      "totalPeriodo": 25742.875
     },
     {
       "sku": "50982",
@@ -14621,13 +14621,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 227.78,
+          "saida": 309.036,
           "estorno": 0.0,
-          "consumoLiquido": 227.78
+          "consumoLiquido": 309.036
         }
       ],
-      "mediaMensal": 1380.715,
-      "totalPeriodo": 30375.74
+      "mediaMensal": 1384.409,
+      "totalPeriodo": 30456.996
     },
     {
       "sku": "13384",
@@ -14767,13 +14767,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 321.766,
+          "saida": 432.62,
           "estorno": 0.0,
-          "consumoLiquido": 321.766
+          "consumoLiquido": 432.62
         }
       ],
-      "mediaMensal": 300.375,
-      "totalPeriodo": 6608.252
+      "mediaMensal": 305.414,
+      "totalPeriodo": 6719.106
     },
     {
       "sku": "50981",
@@ -14913,13 +14913,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 847.473,
+          "saida": 1169.322,
           "estorno": 0.0,
-          "consumoLiquido": 847.473
+          "consumoLiquido": 1169.322
         }
       ],
-      "mediaMensal": 2136.987,
-      "totalPeriodo": 47013.704
+      "mediaMensal": 2151.616,
+      "totalPeriodo": 47335.553
     },
     {
       "sku": "11144",
@@ -15059,13 +15059,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 72.296,
+          "saida": 123.548,
           "estorno": 0.0,
-          "consumoLiquido": 72.296
+          "consumoLiquido": 123.548
         }
       ],
-      "mediaMensal": 394.115,
-      "totalPeriodo": 8670.532
+      "mediaMensal": 396.445,
+      "totalPeriodo": 8721.784
     },
     {
       "sku": "79120",
@@ -15643,13 +15643,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 69.768,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 69.768
         }
       ],
-      "mediaMensal": 91.367,
-      "totalPeriodo": 2010.068
+      "mediaMensal": 94.538,
+      "totalPeriodo": 2079.836
     },
     {
       "sku": "57920",
@@ -15935,13 +15935,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 15.072,
+          "saida": 256.992,
           "estorno": 0.0,
-          "consumoLiquido": 15.072
+          "consumoLiquido": 256.992
         }
       ],
-      "mediaMensal": 139.143,
-      "totalPeriodo": 3061.152
+      "mediaMensal": 150.14,
+      "totalPeriodo": 3303.072
     },
     {
       "sku": "57921",
@@ -16081,13 +16081,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 15.552,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 15.552
         }
       ],
-      "mediaMensal": 97.996,
-      "totalPeriodo": 2155.916
+      "mediaMensal": 98.703,
+      "totalPeriodo": 2171.468
     },
     {
       "sku": "83200",
@@ -16519,13 +16519,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 385.92,
+          "saida": 712.857,
           "estorno": 0.0,
-          "consumoLiquido": 385.92
+          "consumoLiquido": 712.857
         }
       ],
-      "mediaMensal": 65.502,
-      "totalPeriodo": 1441.037
+      "mediaMensal": 80.362,
+      "totalPeriodo": 1767.974
     },
     {
       "sku": "121686",
@@ -16665,13 +16665,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 270.48,
+          "saida": 462.504,
           "estorno": 0.0,
-          "consumoLiquido": 270.48
+          "consumoLiquido": 462.504
         }
       ],
-      "mediaMensal": 62.061,
-      "totalPeriodo": 1365.336
+      "mediaMensal": 70.789,
+      "totalPeriodo": 1557.36
     },
     {
       "sku": "92323",
@@ -16957,13 +16957,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 3465.562,
+          "saida": 5536.741,
           "estorno": 0.0,
-          "consumoLiquido": 3465.562
+          "consumoLiquido": 5536.741
         }
       ],
-      "mediaMensal": 12735.725,
-      "totalPeriodo": 280185.948
+      "mediaMensal": 12829.869,
+      "totalPeriodo": 282257.127
     },
     {
       "sku": "14546",
@@ -17103,13 +17103,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 4810.848,
+          "saida": 5368.776,
           "estorno": 0.0,
-          "consumoLiquido": 4810.848
+          "consumoLiquido": 5368.776
         }
       ],
-      "mediaMensal": 16000.037,
-      "totalPeriodo": 352000.824
+      "mediaMensal": 16025.398,
+      "totalPeriodo": 352558.752
     },
     {
       "sku": "17905",
@@ -17249,20 +17249,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 306.614,
+          "saida": 361.699,
           "estorno": 0.0,
-          "consumoLiquido": 306.614
+          "consumoLiquido": 361.699
         }
       ],
-      "mediaMensal": 412.18,
-      "totalPeriodo": 9067.968
+      "mediaMensal": 414.684,
+      "totalPeriodo": 9123.053
     },
     {
       "sku": "17904",
       "produto": "BOBINA TAPIOCA DA TERRINHA 500 G PORTUGAL",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -17395,13 +17395,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 353.857,
+          "saida": 586.051,
           "estorno": 0.0,
-          "consumoLiquido": 353.857
+          "consumoLiquido": 586.051
         }
       ],
-      "mediaMensal": 1069.809,
-      "totalPeriodo": 23535.797
+      "mediaMensal": 1080.363,
+      "totalPeriodo": 23767.991
     },
     {
       "sku": "72009",
@@ -17541,20 +17541,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 686.906,
+          "saida": 1246.332,
           "estorno": 0.0,
-          "consumoLiquido": 686.906
+          "consumoLiquido": 1246.332
         }
       ],
-      "mediaMensal": 2593.993,
-      "totalPeriodo": 57067.85
+      "mediaMensal": 2619.422,
+      "totalPeriodo": 57627.276
     },
     {
       "sku": "12746",
       "produto": "BOBINA TAPIOCA DA TERRINHA 90 G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "VIBELPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -17687,13 +17687,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 118.53,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 118.53
         }
       ],
-      "mediaMensal": 250.364,
-      "totalPeriodo": 5508.0
+      "mediaMensal": 255.751,
+      "totalPeriodo": 5626.53
     },
     {
       "sku": "25384",
@@ -18125,13 +18125,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 36.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 36.0
         }
       ],
-      "mediaMensal": 17.975,
-      "totalPeriodo": 395.46
+      "mediaMensal": 19.612,
+      "totalPeriodo": 431.46
     },
     {
       "sku": "70228",
@@ -18271,13 +18271,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 43.462,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 43.462
         }
       ],
-      "mediaMensal": 14.871,
-      "totalPeriodo": 327.163
+      "mediaMensal": 16.847,
+      "totalPeriodo": 370.625
     },
     {
       "sku": "83201",
@@ -18417,13 +18417,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 151.704,
+          "saida": 249.336,
           "estorno": 0.0,
-          "consumoLiquido": 151.704
+          "consumoLiquido": 249.336
         }
       ],
-      "mediaMensal": 171.0,
-      "totalPeriodo": 3762.0
+      "mediaMensal": 175.438,
+      "totalPeriodo": 3859.632
     },
     {
       "sku": "113765",
@@ -18722,7 +18722,7 @@
       "produto": "BOBINA TAPIOCA MERC 1 KG",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -19306,7 +19306,7 @@
       "produto": "BOBINA TAPIOCA OBA 80 G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -20182,7 +20182,7 @@
       "produto": "BOBINA TAPIOCA PUBLIC 1 KG",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "VIBELPLAST EMBALAGEN",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -21629,13 +21629,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 44.16,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 44.16
         }
       ],
-      "mediaMensal": 74.891,
-      "totalPeriodo": 1647.61
+      "mediaMensal": 76.899,
+      "totalPeriodo": 1691.77
     },
     {
       "sku": "50187",
@@ -21775,13 +21775,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 61.594,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 61.594
         }
       ],
-      "mediaMensal": 74.713,
-      "totalPeriodo": 1643.678
+      "mediaMensal": 77.512,
+      "totalPeriodo": 1705.272
     },
     {
       "sku": "46910",
@@ -22359,13 +22359,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 9.075,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 9.075
         }
       ],
-      "mediaMensal": 14.153,
-      "totalPeriodo": 311.355
+      "mediaMensal": 14.565,
+      "totalPeriodo": 320.43
     },
     {
       "sku": "94280",
@@ -22797,13 +22797,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 207.36,
+          "saida": 230.904,
           "estorno": 0.0,
-          "consumoLiquido": 207.36
+          "consumoLiquido": 230.904
         }
       ],
-      "mediaMensal": 172.936,
-      "totalPeriodo": 3804.588
+      "mediaMensal": 174.006,
+      "totalPeriodo": 3828.132
     },
     {
       "sku": "72310",
@@ -22943,13 +22943,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 43.848,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 43.848
         }
       ],
-      "mediaMensal": 19.742,
-      "totalPeriodo": 434.334
+      "mediaMensal": 21.736,
+      "totalPeriodo": 478.182
     },
     {
       "sku": "75536",
@@ -23089,13 +23089,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 46.8,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 46.8
         }
       ],
-      "mediaMensal": 30.794,
-      "totalPeriodo": 677.474
+      "mediaMensal": 32.922,
+      "totalPeriodo": 724.274
     },
     {
       "sku": "75537",
@@ -23235,13 +23235,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 52.272,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 52.272
         }
       ],
-      "mediaMensal": 50.928,
-      "totalPeriodo": 1120.41
+      "mediaMensal": 53.304,
+      "totalPeriodo": 1172.682
     },
     {
       "sku": "91641",
@@ -24549,13 +24549,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 2513.0,
+          "saida": 3977.0,
           "estorno": 0.0,
-          "consumoLiquido": 2513.0
+          "consumoLiquido": 3977.0
         }
       ],
-      "mediaMensal": 5237.455,
-      "totalPeriodo": 115224.0
+      "mediaMensal": 5304.0,
+      "totalPeriodo": 116688.0
     },
     {
       "sku": "79303",
@@ -24695,13 +24695,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1850.0,
+          "saida": 3340.0,
           "estorno": 0.0,
-          "consumoLiquido": 1850.0
+          "consumoLiquido": 3340.0
         }
       ],
-      "mediaMensal": 10965.409,
-      "totalPeriodo": 241239.0
+      "mediaMensal": 11033.136,
+      "totalPeriodo": 242729.0
     },
     {
       "sku": "41584",
@@ -25133,13 +25133,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 235.0,
+          "saida": 510.0,
           "estorno": 0.0,
-          "consumoLiquido": 235.0
+          "consumoLiquido": 510.0
         }
       ],
-      "mediaMensal": 455.636,
-      "totalPeriodo": 10024.0
+      "mediaMensal": 468.136,
+      "totalPeriodo": 10299.0
     },
     {
       "sku": "70836",
@@ -25279,13 +25279,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 152.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 152.0
         }
       ],
-      "mediaMensal": 378.727,
-      "totalPeriodo": 8332.0
+      "mediaMensal": 385.636,
+      "totalPeriodo": 8484.0
     },
     {
       "sku": "70838",
@@ -25571,13 +25571,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 173.0,
+          "saida": 265.0,
           "estorno": 0.0,
-          "consumoLiquido": 173.0
+          "consumoLiquido": 265.0
         }
       ],
-      "mediaMensal": 423.773,
-      "totalPeriodo": 9323.0
+      "mediaMensal": 427.955,
+      "totalPeriodo": 9415.0
     },
     {
       "sku": "70840",
@@ -25717,13 +25717,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 463.0,
+          "saida": 574.0,
           "estorno": 0.0,
-          "consumoLiquido": 463.0
+          "consumoLiquido": 574.0
         }
       ],
-      "mediaMensal": 61.682,
-      "totalPeriodo": 1357.0
+      "mediaMensal": 66.727,
+      "totalPeriodo": 1468.0
     },
     {
       "sku": "117098",
@@ -26009,13 +26009,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 14245.0,
+          "saida": 22955.0,
           "estorno": 70.0,
-          "consumoLiquido": 14175.0
+          "consumoLiquido": 22885.0
         }
       ],
-      "mediaMensal": 25070.864,
-      "totalPeriodo": 551559.0
+      "mediaMensal": 25466.773,
+      "totalPeriodo": 560269.0
     },
     {
       "sku": "94034",
@@ -26301,13 +26301,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 4685.0,
+          "saida": 7545.0,
           "estorno": 0.0,
-          "consumoLiquido": 4685.0
+          "consumoLiquido": 7545.0
         }
       ],
-      "mediaMensal": 3568.636,
-      "totalPeriodo": 78510.0
+      "mediaMensal": 3698.636,
+      "totalPeriodo": 81370.0
     },
     {
       "sku": "92797",
@@ -26447,13 +26447,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 2100.0,
+          "saida": 3150.0,
           "estorno": 0.0,
-          "consumoLiquido": 2100.0
+          "consumoLiquido": 3150.0
         }
       ],
-      "mediaMensal": 1798.636,
-      "totalPeriodo": 39570.0
+      "mediaMensal": 1846.364,
+      "totalPeriodo": 40620.0
     },
     {
       "sku": "73127",
@@ -26593,13 +26593,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 16022.0,
+          "saida": 27585.0,
           "estorno": 310.0,
-          "consumoLiquido": 15712.0
+          "consumoLiquido": 27275.0
         }
       ],
-      "mediaMensal": 49094.0,
-      "totalPeriodo": 1080068.0
+      "mediaMensal": 49619.591,
+      "totalPeriodo": 1091631.0
     },
     {
       "sku": "37450",
@@ -26739,13 +26739,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1502.0,
-          "estorno": 1.0,
-          "consumoLiquido": 1501.0
+          "saida": 2274.0,
+          "estorno": 4.0,
+          "consumoLiquido": 2270.0
         }
       ],
-      "mediaMensal": 3584.136,
-      "totalPeriodo": 78851.0
+      "mediaMensal": 3619.091,
+      "totalPeriodo": 79620.0
     },
     {
       "sku": "99080",
@@ -26885,13 +26885,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 2107.0,
+          "saida": 3463.0,
           "estorno": 0.0,
-          "consumoLiquido": 2107.0
+          "consumoLiquido": 3463.0
         }
       ],
-      "mediaMensal": 4502.682,
-      "totalPeriodo": 99059.0
+      "mediaMensal": 4564.318,
+      "totalPeriodo": 100415.0
     },
     {
       "sku": "98321",
@@ -27031,13 +27031,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 12475.0,
+          "saida": 22063.0,
           "estorno": 0.0,
-          "consumoLiquido": 12475.0
+          "consumoLiquido": 22063.0
         }
       ],
-      "mediaMensal": 19595.818,
-      "totalPeriodo": 431108.0
+      "mediaMensal": 20031.636,
+      "totalPeriodo": 440696.0
     },
     {
       "sku": "72187",
@@ -27469,13 +27469,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 117.0,
+          "saida": 130.0,
           "estorno": 0.0,
-          "consumoLiquido": 117.0
+          "consumoLiquido": 130.0
         }
       ],
-      "mediaMensal": 2589.136,
-      "totalPeriodo": 56961.0
+      "mediaMensal": 2589.727,
+      "totalPeriodo": 56974.0
     },
     {
       "sku": "52987",
@@ -28053,13 +28053,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 4402.0,
+          "saida": 12628.0,
           "estorno": 0.0,
-          "consumoLiquido": 4402.0
+          "consumoLiquido": 12628.0
         }
       ],
-      "mediaMensal": 42040.727,
-      "totalPeriodo": 924896.0
+      "mediaMensal": 42414.636,
+      "totalPeriodo": 933122.0
     },
     {
       "sku": "10725",
@@ -28199,13 +28199,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 24122.0,
+          "saida": 26116.0,
           "estorno": 0.0,
-          "consumoLiquido": 24122.0
+          "consumoLiquido": 26116.0
         }
       ],
-      "mediaMensal": 55707.273,
-      "totalPeriodo": 1225560.0
+      "mediaMensal": 55797.909,
+      "totalPeriodo": 1227554.0
     },
     {
       "sku": "25484",
@@ -28345,13 +28345,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 3199.0,
+          "saida": 3254.0,
           "estorno": 0.0,
-          "consumoLiquido": 3199.0
+          "consumoLiquido": 3254.0
         }
       ],
-      "mediaMensal": 6507.955,
-      "totalPeriodo": 143175.0
+      "mediaMensal": 6510.455,
+      "totalPeriodo": 143230.0
     },
     {
       "sku": "79161",
@@ -28491,13 +28491,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 3437.0,
+          "saida": 5163.0,
           "estorno": 0.0,
-          "consumoLiquido": 3437.0
+          "consumoLiquido": 5163.0
         }
       ],
-      "mediaMensal": 7670.955,
-      "totalPeriodo": 168761.0
+      "mediaMensal": 7749.409,
+      "totalPeriodo": 170487.0
     },
     {
       "sku": "82260",
@@ -28637,20 +28637,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 3322.0,
+          "saida": 4469.0,
           "estorno": 0.0,
-          "consumoLiquido": 3322.0
+          "consumoLiquido": 4469.0
         }
       ],
-      "mediaMensal": 5852.591,
-      "totalPeriodo": 128757.0
+      "mediaMensal": 5904.727,
+      "totalPeriodo": 129904.0
     },
     {
       "sku": "70720",
       "produto": "ETIQ ALHO BAIANO OKKER 200G",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -28783,13 +28783,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 120.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 120.0
         }
       ],
-      "mediaMensal": 6528.545,
-      "totalPeriodo": 143628.0
+      "mediaMensal": 6534.0,
+      "totalPeriodo": 143748.0
     },
     {
       "sku": "70723",
@@ -29513,20 +29513,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 72.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 72.0
         }
       ],
-      "mediaMensal": 84.0,
-      "totalPeriodo": 1848.0
+      "mediaMensal": 87.273,
+      "totalPeriodo": 1920.0
     },
     {
       "sku": "70739",
       "produto": "ETIQ ALHO MINEIRO OKKER 200G",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -30243,20 +30243,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 3648.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 3648.0
         }
       ],
-      "mediaMensal": 9089.455,
-      "totalPeriodo": 199968.0
+      "mediaMensal": 9255.273,
+      "totalPeriodo": 203616.0
     },
     {
       "sku": "70742",
       "produto": "ETIQ ALHO PASTA OKKER 200G",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -30827,13 +30827,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 6228.0,
+          "saida": 9252.0,
           "estorno": 0.0,
-          "consumoLiquido": 6228.0
+          "consumoLiquido": 9252.0
         }
       ],
-      "mediaMensal": 13087.636,
-      "totalPeriodo": 287928.0
+      "mediaMensal": 13225.091,
+      "totalPeriodo": 290952.0
     },
     {
       "sku": "70749",
@@ -31278,7 +31278,7 @@
       "produto": "ETIQ ALHO TRIT  OKKER 1KG",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -31557,13 +31557,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 36.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 36.0
         }
       ],
-      "mediaMensal": 23964.0,
-      "totalPeriodo": 527208.0
+      "mediaMensal": 23965.636,
+      "totalPeriodo": 527244.0
     },
     {
       "sku": "70756",
@@ -31716,7 +31716,7 @@
       "produto": "ETIQ ALHO TRIT OKKER 400G",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -31849,13 +31849,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 216.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 216.0
         }
       ],
-      "mediaMensal": 3045.273,
-      "totalPeriodo": 66996.0
+      "mediaMensal": 3055.091,
+      "totalPeriodo": 67212.0
     },
     {
       "sku": "70760",
@@ -32141,13 +32141,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 117.0,
+          "saida": 130.0,
           "estorno": 0.0,
-          "consumoLiquido": 117.0
+          "consumoLiquido": 130.0
         }
       ],
-      "mediaMensal": 3232.182,
-      "totalPeriodo": 71108.0
+      "mediaMensal": 3232.773,
+      "totalPeriodo": 71121.0
     },
     {
       "sku": "70805",
@@ -32446,7 +32446,7 @@
       "produto": "ETIQ PIMENTA BIQUINHO  OKKER 250G",
       "loja": "10",
       "lojaNome": "Okker - Matriz",
-      "fornecedor": "MF GRAFICA",
+      "fornecedor": "DG ROTULOS",
       "tipo": "Embalagem",
       "categoria": "ETIQUETAS E ROTULOS",
       "unidade": "unidade",
@@ -32579,13 +32579,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 5640.0,
+          "saida": 12240.0,
           "estorno": 0.0,
-          "consumoLiquido": 5640.0
+          "consumoLiquido": 12240.0
         }
       ],
-      "mediaMensal": 10935.273,
-      "totalPeriodo": 240576.0
+      "mediaMensal": 11235.273,
+      "totalPeriodo": 247176.0
     },
     {
       "sku": "77441",
@@ -32871,13 +32871,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 977.575,
+          "saida": 1344.226,
           "estorno": 0.0,
-          "consumoLiquido": 977.575
+          "consumoLiquido": 1344.226
         }
       ],
-      "mediaMensal": 2906.894,
-      "totalPeriodo": 63951.665
+      "mediaMensal": 2923.56,
+      "totalPeriodo": 64318.316
     },
     {
       "sku": "45362",
@@ -33017,13 +33017,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 936.603,
+          "saida": 1272.202,
           "estorno": 42.408,
-          "consumoLiquido": 894.195
+          "consumoLiquido": 1229.794
         }
       ],
-      "mediaMensal": 802.416,
-      "totalPeriodo": 17653.15
+      "mediaMensal": 817.67,
+      "totalPeriodo": 17988.749
     },
     {
       "sku": "45362",
@@ -33163,13 +33163,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 587.838,
-          "estorno": 120.006,
-          "consumoLiquido": 467.832
+          "saida": 721.092,
+          "estorno": 120.024,
+          "consumoLiquido": 601.068
         }
       ],
-      "mediaMensal": 1090.939,
-      "totalPeriodo": 24000.656
+      "mediaMensal": 1096.995,
+      "totalPeriodo": 24133.892
     },
     {
       "sku": "50961",
@@ -33309,13 +33309,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 9.443,
+          "saida": 17.258,
           "estorno": 0.0,
-          "consumoLiquido": 9.443
+          "consumoLiquido": 17.258
         }
       ],
-      "mediaMensal": 6.081,
-      "totalPeriodo": 133.787
+      "mediaMensal": 6.436,
+      "totalPeriodo": 141.602
     },
     {
       "sku": "50961",
@@ -33747,13 +33747,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 769.83,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 769.83
         }
       ],
-      "mediaMensal": 1256.189,
-      "totalPeriodo": 27636.165
+      "mediaMensal": 1291.182,
+      "totalPeriodo": 28405.995
     },
     {
       "sku": "70901",
@@ -33893,13 +33893,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 263.32,
+          "saida": 311.183,
           "estorno": 33.152,
-          "consumoLiquido": 230.168
+          "consumoLiquido": 278.031
         }
       ],
-      "mediaMensal": 523.349,
-      "totalPeriodo": 11513.675
+      "mediaMensal": 525.524,
+      "totalPeriodo": 11561.538
     },
     {
       "sku": "70901",
@@ -34185,13 +34185,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 199.802,
+          "saida": 268.694,
           "estorno": 0.0,
-          "consumoLiquido": 199.802
+          "consumoLiquido": 268.694
         }
       ],
-      "mediaMensal": 315.137,
-      "totalPeriodo": 6933.014
+      "mediaMensal": 318.268,
+      "totalPeriodo": 7001.906
     },
     {
       "sku": "70900",
@@ -34331,13 +34331,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 187.828,
+          "saida": 223.891,
           "estorno": 11.552,
-          "consumoLiquido": 176.276
+          "consumoLiquido": 212.339
         }
       ],
-      "mediaMensal": 518.456,
-      "totalPeriodo": 11406.027
+      "mediaMensal": 520.095,
+      "totalPeriodo": 11442.09
     },
     {
       "sku": "92971",
@@ -34477,13 +34477,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 6042.684,
+          "saida": 9410.136,
           "estorno": 0.0,
-          "consumoLiquido": 6042.684
+          "consumoLiquido": 9410.136
         }
       ],
-      "mediaMensal": 4878.545,
-      "totalPeriodo": 107327.993
+      "mediaMensal": 5031.611,
+      "totalPeriodo": 110695.445
     },
     {
       "sku": "80060",
@@ -34623,13 +34623,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1109.0,
+          "saida": 2013.0,
           "estorno": 0.0,
-          "consumoLiquido": 1109.0
+          "consumoLiquido": 2013.0
         }
       ],
-      "mediaMensal": 2947.044,
-      "totalPeriodo": 64834.963
+      "mediaMensal": 2988.135,
+      "totalPeriodo": 65738.963
     },
     {
       "sku": "42048",
@@ -35207,13 +35207,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 64.413,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 64.413
         }
       ],
-      "mediaMensal": 82.81,
-      "totalPeriodo": 1821.81
+      "mediaMensal": 85.737,
+      "totalPeriodo": 1886.223
     },
     {
       "sku": "44143",
@@ -35499,13 +35499,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 5701.342,
+          "saida": 6826.342,
           "estorno": 331.199,
-          "consumoLiquido": 5370.143
+          "consumoLiquido": 6495.143
         }
       ],
-      "mediaMensal": 15924.938,
-      "totalPeriodo": 350348.628
+      "mediaMensal": 15976.074,
+      "totalPeriodo": 351473.628
     },
     {
       "sku": "42164",
@@ -35645,13 +35645,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 435.6,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 435.6
         }
       ],
-      "mediaMensal": 1734.937,
-      "totalPeriodo": 38168.609
+      "mediaMensal": 1754.737,
+      "totalPeriodo": 38604.209
     },
     {
       "sku": "42164",
@@ -35937,13 +35937,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 128.887,
+          "saida": 147.247,
           "estorno": 0.0,
-          "consumoLiquido": 128.887
+          "consumoLiquido": 147.247
         }
       ],
-      "mediaMensal": 1869.929,
-      "totalPeriodo": 41138.441
+      "mediaMensal": 1870.764,
+      "totalPeriodo": 41156.801
     },
     {
       "sku": "70875",
@@ -36083,13 +36083,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 325.0,
+          "saida": 400.0,
           "estorno": 0.0,
-          "consumoLiquido": 325.0
+          "consumoLiquido": 400.0
         }
       ],
-      "mediaMensal": 1065.679,
-      "totalPeriodo": 23444.946
+      "mediaMensal": 1069.088,
+      "totalPeriodo": 23519.946
     },
     {
       "sku": "45683",
@@ -36229,13 +36229,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 52.261,
+          "saida": 70.278,
           "estorno": 0.0,
-          "consumoLiquido": 52.261
+          "consumoLiquido": 70.278
         }
       ],
-      "mediaMensal": 84.309,
-      "totalPeriodo": 1854.788
+      "mediaMensal": 85.127,
+      "totalPeriodo": 1872.805
     },
     {
       "sku": "70908",
@@ -36375,13 +36375,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 37.411,
+          "saida": 43.411,
           "estorno": 3.3,
-          "consumoLiquido": 34.111
+          "consumoLiquido": 40.111
         }
       ],
-      "mediaMensal": 80.275,
-      "totalPeriodo": 1766.055
+      "mediaMensal": 80.548,
+      "totalPeriodo": 1772.055
     },
     {
       "sku": "93000",
@@ -36521,13 +36521,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 6.472,
+          "saida": 10.079,
           "estorno": 0.0,
-          "consumoLiquido": 6.472
+          "consumoLiquido": 10.079
         }
       ],
-      "mediaMensal": 5.225,
-      "totalPeriodo": 114.954
+      "mediaMensal": 5.389,
+      "totalPeriodo": 118.561
     },
     {
       "sku": "73949",
@@ -36813,13 +36813,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 792.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 792.0
         }
       ],
-      "mediaMensal": 3154.43,
-      "totalPeriodo": 69397.47
+      "mediaMensal": 3190.43,
+      "totalPeriodo": 70189.47
     },
     {
       "sku": "76361",
@@ -36959,13 +36959,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 13.2,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 13.2
         }
       ],
-      "mediaMensal": 52.574,
-      "totalPeriodo": 1156.625
+      "mediaMensal": 53.174,
+      "totalPeriodo": 1169.825
     },
     {
       "sku": "70899",
@@ -37105,13 +37105,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 29.693,
+          "saida": 35.265,
           "estorno": 3.3,
-          "consumoLiquido": 26.393
+          "consumoLiquido": 31.965
         }
       ],
-      "mediaMensal": 69.145,
-      "totalPeriodo": 1521.194
+      "mediaMensal": 69.398,
+      "totalPeriodo": 1526.766
     },
     {
       "sku": "83400",
@@ -37251,13 +37251,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 4.872,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 4.872
         }
       ],
-      "mediaMensal": 19.992,
-      "totalPeriodo": 439.82
+      "mediaMensal": 20.213,
+      "totalPeriodo": 444.692
     },
     {
       "sku": "41903",
@@ -37397,13 +37397,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 10476.084,
+          "saida": 21639.184,
           "estorno": 0.0,
-          "consumoLiquido": 10476.084
+          "consumoLiquido": 21639.184
         }
       ],
-      "mediaMensal": 31049.48,
-      "totalPeriodo": 683088.565
+      "mediaMensal": 31556.894,
+      "totalPeriodo": 694251.665
     },
     {
       "sku": "93012",
@@ -37543,13 +37543,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 863.236,
+          "saida": 1344.299,
           "estorno": 0.0,
-          "consumoLiquido": 863.236
+          "consumoLiquido": 1344.299
         }
       ],
-      "mediaMensal": 696.932,
-      "totalPeriodo": 15332.498
+      "mediaMensal": 718.798,
+      "totalPeriodo": 15813.561
     },
     {
       "sku": "70887",
@@ -38273,13 +38273,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 268.32,
+          "saida": 669.252,
           "estorno": 0.0,
-          "consumoLiquido": 268.32
+          "consumoLiquido": 669.252
         }
       ],
-      "mediaMensal": 1198.26,
-      "totalPeriodo": 26361.71
+      "mediaMensal": 1216.484,
+      "totalPeriodo": 26762.642
     },
     {
       "sku": "41598",
@@ -38419,13 +38419,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 5246.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 5246.0
         }
       ],
-      "mediaMensal": 3945.036,
-      "totalPeriodo": 86790.8
+      "mediaMensal": 4183.491,
+      "totalPeriodo": 92036.8
     },
     {
       "sku": "42079",
@@ -38565,13 +38565,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 26503.28,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 26503.28
         }
       ],
-      "mediaMensal": 31435.593,
-      "totalPeriodo": 691583.04
+      "mediaMensal": 32640.287,
+      "totalPeriodo": 718086.32
     },
     {
       "sku": "41600",
@@ -38711,13 +38711,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 2970.0,
+          "saida": 5544.0,
           "estorno": 0.0,
-          "consumoLiquido": 2970.0
+          "consumoLiquido": 5544.0
         }
       ],
-      "mediaMensal": 3934.784,
-      "totalPeriodo": 86565.253
+      "mediaMensal": 4051.784,
+      "totalPeriodo": 89139.253
     },
     {
       "sku": "49946",
@@ -38857,13 +38857,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 456.75,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 456.75
         }
       ],
-      "mediaMensal": 1874.233,
-      "totalPeriodo": 41233.126
+      "mediaMensal": 1894.994,
+      "totalPeriodo": 41689.876
     },
     {
       "sku": "44465",
@@ -39003,13 +39003,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 715.44,
+          "saida": 717.414,
           "estorno": 254.4,
-          "consumoLiquido": 461.04
+          "consumoLiquido": 463.014
         }
       ],
-      "mediaMensal": 322.448,
-      "totalPeriodo": 7093.856
+      "mediaMensal": 322.538,
+      "totalPeriodo": 7095.83
     },
     {
       "sku": "43563",
@@ -39149,13 +39149,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 132.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 132.0
         }
       ],
-      "mediaMensal": 525.738,
-      "totalPeriodo": 11566.245
+      "mediaMensal": 531.738,
+      "totalPeriodo": 11698.245
     },
     {
       "sku": "41967",
@@ -40609,13 +40609,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 3043.444,
+          "saida": 5465.044,
           "estorno": 0.0,
-          "consumoLiquido": 3043.444
+          "consumoLiquido": 5465.044
         }
       ],
-      "mediaMensal": 6443.605,
-      "totalPeriodo": 141759.301
+      "mediaMensal": 6553.677,
+      "totalPeriodo": 144180.901
     },
     {
       "sku": "42066",
@@ -41193,13 +41193,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 35267.58,
+          "saida": 35532.46,
           "estorno": 0.0,
-          "consumoLiquido": 35267.58
+          "consumoLiquido": 35532.46
         }
       ],
-      "mediaMensal": 29303.681,
-      "totalPeriodo": 644680.988
+      "mediaMensal": 29315.721,
+      "totalPeriodo": 644945.868
     },
     {
       "sku": "42254",
@@ -41777,13 +41777,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 5177.025,
+          "saida": 7179.85,
           "estorno": 0.0,
-          "consumoLiquido": 5177.025
+          "consumoLiquido": 7179.85
         }
       ],
-      "mediaMensal": 10313.299,
-      "totalPeriodo": 226892.567
+      "mediaMensal": 10404.336,
+      "totalPeriodo": 228895.392
     },
     {
       "sku": "9228",
@@ -41923,13 +41923,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 2970.826,
+          "saida": 3869.459,
           "estorno": 190.935,
-          "consumoLiquido": 2779.891
+          "consumoLiquido": 3678.524
         }
       ],
-      "mediaMensal": 1005.833,
-      "totalPeriodo": 22128.337
+      "mediaMensal": 1046.68,
+      "totalPeriodo": 23026.97
     },
     {
       "sku": "41983",
@@ -42069,13 +42069,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 395.136,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 395.136
         }
       ],
-      "mediaMensal": 286.726,
-      "totalPeriodo": 6307.968
+      "mediaMensal": 304.687,
+      "totalPeriodo": 6703.104
     },
     {
       "sku": "42027",
@@ -42215,20 +42215,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 5304.6,
+          "saida": 13099.8,
           "estorno": 0.0,
-          "consumoLiquido": 5304.6
+          "consumoLiquido": 13099.8
         }
       ],
-      "mediaMensal": 7442.884,
-      "totalPeriodo": 163743.442
+      "mediaMensal": 7797.211,
+      "totalPeriodo": 171538.642
     },
     {
       "sku": "93014",
       "produto": "MP - ESTER DE POLIGLICEROS (PGPR90)",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MASTERSENSE INGREDIE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -42361,13 +42361,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 19.423,
+          "saida": 30.247,
           "estorno": 0.0,
-          "consumoLiquido": 19.423
+          "consumoLiquido": 30.247
         }
       ],
-      "mediaMensal": 15.681,
-      "totalPeriodo": 344.984
+      "mediaMensal": 16.173,
+      "totalPeriodo": 355.808
     },
     {
       "sku": "30231",
@@ -44697,13 +44697,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 253.44,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 253.44
         }
       ],
-      "mediaMensal": 1009.418,
-      "totalPeriodo": 22207.19
+      "mediaMensal": 1020.938,
+      "totalPeriodo": 22460.63
     },
     {
       "sku": "70909",
@@ -44843,13 +44843,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 23.477,
+          "saida": 31.57,
           "estorno": 0.0,
-          "consumoLiquido": 23.477
+          "consumoLiquido": 31.57
         }
       ],
-      "mediaMensal": 41.561,
-      "totalPeriodo": 914.348
+      "mediaMensal": 41.929,
+      "totalPeriodo": 922.441
     },
     {
       "sku": "70909",
@@ -44989,13 +44989,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 37.169,
+          "saida": 43.169,
           "estorno": 3.9,
-          "consumoLiquido": 33.269
+          "consumoLiquido": 39.269
         }
       ],
-      "mediaMensal": 79.985,
-      "totalPeriodo": 1759.66
+      "mediaMensal": 80.257,
+      "totalPeriodo": 1765.66
     },
     {
       "sku": "92972",
@@ -45135,13 +45135,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 3673.083,
+          "saida": 5720.01,
           "estorno": 0.0,
-          "consumoLiquido": 3673.083
+          "consumoLiquido": 5720.01
         }
       ],
-      "mediaMensal": 2965.454,
-      "totalPeriodo": 65239.989
+      "mediaMensal": 3058.496,
+      "totalPeriodo": 67286.916
     },
     {
       "sku": "42081",
@@ -45719,13 +45719,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 863.226,
+          "saida": 1344.284,
           "estorno": 0.0,
-          "consumoLiquido": 863.226
+          "consumoLiquido": 1344.284
         }
       ],
-      "mediaMensal": 696.924,
-      "totalPeriodo": 15332.319
+      "mediaMensal": 718.79,
+      "totalPeriodo": 15813.377
     },
     {
       "sku": "46310",
@@ -45865,13 +45865,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1285.204,
+          "saida": 1728.257,
           "estorno": 0.0,
-          "consumoLiquido": 1285.204
+          "consumoLiquido": 1728.257
         }
       ],
-      "mediaMensal": 2153.758,
-      "totalPeriodo": 47382.673
+      "mediaMensal": 2173.897,
+      "totalPeriodo": 47825.726
     },
     {
       "sku": "43342",
@@ -46011,13 +46011,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 3889.2,
+          "saida": 5712.0,
           "estorno": 0.0,
-          "consumoLiquido": 3889.2
+          "consumoLiquido": 5712.0
         }
       ],
-      "mediaMensal": 11845.81,
-      "totalPeriodo": 260607.815
+      "mediaMensal": 11928.664,
+      "totalPeriodo": 262430.615
     },
     {
       "sku": "41904",
@@ -46887,13 +46887,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 62.4,
+          "saida": 76.825,
           "estorno": 0.0,
-          "consumoLiquido": 62.4
+          "consumoLiquido": 76.825
         }
       ],
-      "mediaMensal": 197.053,
-      "totalPeriodo": 4335.157
+      "mediaMensal": 197.708,
+      "totalPeriodo": 4349.582
     },
     {
       "sku": "70894",
@@ -47033,13 +47033,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 3.791,
+          "saida": 6.807,
           "estorno": 0.0,
-          "consumoLiquido": 3.791
+          "consumoLiquido": 6.807
         }
       ],
-      "mediaMensal": 9.438,
-      "totalPeriodo": 207.64
+      "mediaMensal": 9.575,
+      "totalPeriodo": 210.656
     },
     {
       "sku": "42109",
@@ -47179,13 +47179,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 94445.08,
+          "saida": 111510.44,
           "estorno": 0.0,
-          "consumoLiquido": 94445.08
+          "consumoLiquido": 111510.44
         }
       ],
-      "mediaMensal": 97455.985,
-      "totalPeriodo": 2144031.68
+      "mediaMensal": 98231.684,
+      "totalPeriodo": 2161097.04
     },
     {
       "sku": "120332",
@@ -47617,13 +47617,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 30.209,
+          "saida": 47.043,
           "estorno": 0.0,
-          "consumoLiquido": 30.209
+          "consumoLiquido": 47.043
         }
       ],
-      "mediaMensal": 19.355,
-      "totalPeriodo": 425.808
+      "mediaMensal": 20.12,
+      "totalPeriodo": 442.642
     },
     {
       "sku": "42051",
@@ -47763,13 +47763,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 18.893,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 18.893
         }
       ],
-      "mediaMensal": 45.2,
-      "totalPeriodo": 994.406
+      "mediaMensal": 46.059,
+      "totalPeriodo": 1013.299
     },
     {
       "sku": "36169",
@@ -47909,13 +47909,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 338.4,
+          "saida": 3948.0,
           "estorno": 0.0,
-          "consumoLiquido": 338.4
+          "consumoLiquido": 3948.0
         }
       ],
-      "mediaMensal": 9545.001,
-      "totalPeriodo": 209990.022
+      "mediaMensal": 9709.074,
+      "totalPeriodo": 213599.622
     },
     {
       "sku": "34734",
@@ -48055,13 +48055,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 1242.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 1242.0
         }
       ],
-      "mediaMensal": 569.455,
-      "totalPeriodo": 12528.0
+      "mediaMensal": 625.909,
+      "totalPeriodo": 13770.0
     },
     {
       "sku": "42062",
@@ -48201,13 +48201,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 5346.046,
+          "saida": 6784.978,
           "estorno": 0.0,
-          "consumoLiquido": 5346.046
+          "consumoLiquido": 6784.978
         }
       ],
-      "mediaMensal": 5977.321,
-      "totalPeriodo": 131501.056
+      "mediaMensal": 6042.727,
+      "totalPeriodo": 132939.988
     },
     {
       "sku": "80165",
@@ -48347,13 +48347,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 417.824,
+          "saida": 561.915,
           "estorno": 0.0,
-          "consumoLiquido": 417.824
+          "consumoLiquido": 561.915
         }
       ],
-      "mediaMensal": 576.283,
-      "totalPeriodo": 12678.216
+      "mediaMensal": 582.832,
+      "totalPeriodo": 12822.307
     },
     {
       "sku": "45306",
@@ -48785,13 +48785,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 431.627,
+          "saida": 672.163,
           "estorno": 0.0,
-          "consumoLiquido": 431.627
+          "consumoLiquido": 672.163
         }
       ],
-      "mediaMensal": 348.472,
-      "totalPeriodo": 7666.392
+      "mediaMensal": 359.406,
+      "totalPeriodo": 7906.928
     },
     {
       "sku": "70882",
@@ -48931,13 +48931,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1278.775,
+          "saida": 2775.217,
           "estorno": 0.0,
-          "consumoLiquido": 1278.775
+          "consumoLiquido": 2775.217
         }
       ],
-      "mediaMensal": 2541.267,
-      "totalPeriodo": 55907.868
+      "mediaMensal": 2609.287,
+      "totalPeriodo": 57404.31
     },
     {
       "sku": "42227",
@@ -49077,13 +49077,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 0.313,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 0.313
         }
       ],
-      "mediaMensal": 16.077,
-      "totalPeriodo": 353.696
+      "mediaMensal": 16.091,
+      "totalPeriodo": 354.009
     },
     {
       "sku": "42227",
@@ -49223,13 +49223,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 33.3,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 33.3
         }
       ],
-      "mediaMensal": 136.098,
-      "totalPeriodo": 2994.161
+      "mediaMensal": 137.612,
+      "totalPeriodo": 3027.461
     },
     {
       "sku": "42227",
@@ -49661,13 +49661,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 21.3,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 21.3
         }
       ],
-      "mediaMensal": 102.179,
-      "totalPeriodo": 2247.937
+      "mediaMensal": 103.147,
+      "totalPeriodo": 2269.237
     },
     {
       "sku": "44467",
@@ -49807,13 +49807,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 512.795,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 512.795
         }
       ],
-      "mediaMensal": 818.974,
-      "totalPeriodo": 18017.43
+      "mediaMensal": 842.283,
+      "totalPeriodo": 18530.225
     },
     {
       "sku": "143861",
@@ -49953,20 +49953,20 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 40.8,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 40.8
         }
       ],
-      "mediaMensal": 3.6,
-      "totalPeriodo": 79.2
+      "mediaMensal": 5.455,
+      "totalPeriodo": 120.0
     },
     {
       "sku": "42126",
       "produto": "MP - POLVILHO AZEDO KG",
       "loja": "11",
       "lojaNome": "2JM",
-      "fornecedor": "FECULARIA LOANDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -50112,7 +50112,7 @@
       "produto": "MP - POLVILHO AZEDO KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "FECULARIA LOANDA",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -50537,13 +50537,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 4394.16,
-          "estorno": 6.12,
-          "consumoLiquido": 4388.04
+          "saida": 9118.8,
+          "estorno": 24.48,
+          "consumoLiquido": 9094.32
         }
       ],
-      "mediaMensal": 14183.378,
-      "totalPeriodo": 312034.32
+      "mediaMensal": 14397.3,
+      "totalPeriodo": 316740.6
     },
     {
       "sku": "44353",
@@ -50683,13 +50683,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 111866.04,
+          "saida": 166970.52,
           "estorno": 0.0,
-          "consumoLiquido": 111866.04
+          "consumoLiquido": 166970.52
         }
       ],
-      "mediaMensal": 192335.568,
-      "totalPeriodo": 4231382.494
+      "mediaMensal": 194840.317,
+      "totalPeriodo": 4286486.974
     },
     {
       "sku": "36910",
@@ -50829,13 +50829,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 414.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 414.0
         }
       ],
-      "mediaMensal": 1784.564,
-      "totalPeriodo": 39260.412
+      "mediaMensal": 1803.382,
+      "totalPeriodo": 39674.412
     },
     {
       "sku": "78980",
@@ -50975,13 +50975,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 3.791,
+          "saida": 6.807,
           "estorno": 0.0,
-          "consumoLiquido": 3.791
+          "consumoLiquido": 6.807
         }
       ],
-      "mediaMensal": 9.438,
-      "totalPeriodo": 207.64
+      "mediaMensal": 9.575,
+      "totalPeriodo": 210.656
     },
     {
       "sku": "49800",
@@ -51121,13 +51121,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 52.261,
+          "saida": 70.278,
           "estorno": 0.0,
-          "consumoLiquido": 52.261
+          "consumoLiquido": 70.278
         }
       ],
-      "mediaMensal": 84.309,
-      "totalPeriodo": 1854.788
+      "mediaMensal": 85.127,
+      "totalPeriodo": 1872.805
     },
     {
       "sku": "46042",
@@ -51267,13 +51267,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 690.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 690.0
         }
       ],
-      "mediaMensal": 2974.274,
-      "totalPeriodo": 65434.02
+      "mediaMensal": 3005.637,
+      "totalPeriodo": 66124.02
     },
     {
       "sku": "43582",
@@ -51413,13 +51413,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 802.0,
+          "saida": 2091.0,
           "estorno": 0.0,
-          "consumoLiquido": 802.0
+          "consumoLiquido": 2091.0
         }
       ],
-      "mediaMensal": 2341.773,
-      "totalPeriodo": 51519.0
+      "mediaMensal": 2400.364,
+      "totalPeriodo": 52808.0
     },
     {
       "sku": "42127",
@@ -51705,13 +51705,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 204.6,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 204.6
         }
       ],
-      "mediaMensal": 817.608,
-      "totalPeriodo": 17987.377
+      "mediaMensal": 826.908,
+      "totalPeriodo": 18191.977
     },
     {
       "sku": "71687",
@@ -51851,13 +51851,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1065.82,
+          "saida": 1109.966,
           "estorno": 350.999,
-          "consumoLiquido": 714.821
+          "consumoLiquido": 758.967
         }
       ],
-      "mediaMensal": 746.674,
-      "totalPeriodo": 16426.823
+      "mediaMensal": 748.68,
+      "totalPeriodo": 16470.969
     },
     {
       "sku": "44624",
@@ -52143,13 +52143,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 118.8,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 118.8
         }
       ],
-      "mediaMensal": 473.165,
-      "totalPeriodo": 10409.621
+      "mediaMensal": 478.565,
+      "totalPeriodo": 10528.421
     },
     {
       "sku": "44624",
@@ -52581,13 +52581,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 21.647,
+          "saida": 29.111,
           "estorno": 0.0,
-          "consumoLiquido": 21.647
+          "consumoLiquido": 29.111
         }
       ],
-      "mediaMensal": 37.143,
-      "totalPeriodo": 817.149
+      "mediaMensal": 37.482,
+      "totalPeriodo": 824.613
     },
     {
       "sku": "70897",
@@ -52727,13 +52727,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 29.373,
+          "saida": 34.053,
           "estorno": 3.3,
-          "consumoLiquido": 26.073
+          "consumoLiquido": 30.753
         }
       ],
-      "mediaMensal": 66.535,
-      "totalPeriodo": 1463.769
+      "mediaMensal": 66.748,
+      "totalPeriodo": 1468.449
     },
     {
       "sku": "70897",
@@ -53019,13 +53019,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1079.053,
+          "saida": 1680.383,
           "estorno": 0.0,
-          "consumoLiquido": 1079.053
+          "consumoLiquido": 1680.383
         }
       ],
-      "mediaMensal": 871.17,
-      "totalPeriodo": 19165.749
+      "mediaMensal": 898.504,
+      "totalPeriodo": 19767.079
     },
     {
       "sku": "49688",
@@ -53165,13 +53165,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 11034.736,
+          "saida": 17608.624,
           "estorno": 0.0,
-          "consumoLiquido": 11034.736
+          "consumoLiquido": 17608.624
         }
       ],
-      "mediaMensal": 13965.817,
-      "totalPeriodo": 307247.976
+      "mediaMensal": 14264.63,
+      "totalPeriodo": 313821.864
     },
     {
       "sku": "41862",
@@ -53311,13 +53311,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 0.627,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 0.627
         }
       ],
-      "mediaMensal": 34.254,
-      "totalPeriodo": 753.592
+      "mediaMensal": 34.283,
+      "totalPeriodo": 754.219
     },
     {
       "sku": "41862",
@@ -53457,13 +53457,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 3594.24,
+          "saida": 4002.336,
           "estorno": 0.0,
-          "consumoLiquido": 3594.24
+          "consumoLiquido": 4002.336
         }
       ],
-      "mediaMensal": 3513.981,
-      "totalPeriodo": 77307.589
+      "mediaMensal": 3532.531,
+      "totalPeriodo": 77715.685
     },
     {
       "sku": "41864",
@@ -53603,13 +53603,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 805.895,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 805.895
         }
       ],
-      "mediaMensal": 611.523,
-      "totalPeriodo": 13453.506
+      "mediaMensal": 648.155,
+      "totalPeriodo": 14259.401
     },
     {
       "sku": "42742",
@@ -53749,13 +53749,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 613.872,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 613.872
         }
       ],
-      "mediaMensal": 318.757,
-      "totalPeriodo": 7012.656
+      "mediaMensal": 346.66,
+      "totalPeriodo": 7626.528
     },
     {
       "sku": "41863",
@@ -53895,13 +53895,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 905.35,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 905.35
         }
       ],
-      "mediaMensal": 1025.604,
-      "totalPeriodo": 22563.282
+      "mediaMensal": 1066.756,
+      "totalPeriodo": 23468.632
     },
     {
       "sku": "41859",
@@ -54333,13 +54333,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 19.423,
+          "saida": 30.247,
           "estorno": 0.0,
-          "consumoLiquido": 19.423
+          "consumoLiquido": 30.247
         }
       ],
-      "mediaMensal": 15.681,
-      "totalPeriodo": 344.984
+      "mediaMensal": 16.173,
+      "totalPeriodo": 355.808
     },
     {
       "sku": "70889",
@@ -54479,13 +54479,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 640.0,
+          "saida": 2400.0,
           "estorno": 0.0,
-          "consumoLiquido": 640.0
+          "consumoLiquido": 2400.0
         }
       ],
-      "mediaMensal": 1805.098,
-      "totalPeriodo": 39712.16
+      "mediaMensal": 1885.098,
+      "totalPeriodo": 41472.16
     },
     {
       "sku": "85980",
@@ -54625,13 +54625,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 13.566,
+          "saida": 18.242,
           "estorno": 0.0,
-          "consumoLiquido": 13.566
+          "consumoLiquido": 18.242
         }
       ],
-      "mediaMensal": 27.3,
-      "totalPeriodo": 600.599
+      "mediaMensal": 27.512,
+      "totalPeriodo": 605.275
     },
     {
       "sku": "79782",
@@ -54917,13 +54917,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 4.5,
+          "saida": 52.5,
           "estorno": 0.0,
-          "consumoLiquido": 4.5
+          "consumoLiquido": 52.5
         }
       ],
-      "mediaMensal": 35.841,
-      "totalPeriodo": 788.5
+      "mediaMensal": 38.023,
+      "totalPeriodo": 836.5
     },
     {
       "sku": "79922",
@@ -55355,13 +55355,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1404.0,
+          "saida": 1560.0,
           "estorno": 0.0,
-          "consumoLiquido": 1404.0
+          "consumoLiquido": 1560.0
         }
       ],
-      "mediaMensal": 72360.0,
-      "totalPeriodo": 1591920.0
+      "mediaMensal": 72367.091,
+      "totalPeriodo": 1592076.0
     },
     {
       "sku": "70674",
@@ -55501,13 +55501,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 3648.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 3648.0
         }
       ],
-      "mediaMensal": 9530.182,
-      "totalPeriodo": 209664.0
+      "mediaMensal": 9696.0,
+      "totalPeriodo": 213312.0
     },
     {
       "sku": "70673",
@@ -55647,13 +55647,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 11868.0,
+          "saida": 21708.0,
           "estorno": 0.0,
-          "consumoLiquido": 11868.0
+          "consumoLiquido": 21708.0
         }
       ],
-      "mediaMensal": 41042.727,
-      "totalPeriodo": 902940.0
+      "mediaMensal": 41490.0,
+      "totalPeriodo": 912780.0
     },
     {
       "sku": "92706",
@@ -55793,13 +55793,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 46850.0,
+          "saida": 75450.0,
           "estorno": 0.0,
-          "consumoLiquido": 46850.0
+          "consumoLiquido": 75450.0
         }
       ],
-      "mediaMensal": 35686.364,
-      "totalPeriodo": 785100.0
+      "mediaMensal": 36986.364,
+      "totalPeriodo": 813700.0
     },
     {
       "sku": "117890",
@@ -56085,13 +56085,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 21000.0,
+          "saida": 31500.0,
           "estorno": 0.0,
-          "consumoLiquido": 21000.0
+          "consumoLiquido": 31500.0
         }
       ],
-      "mediaMensal": 17986.364,
-      "totalPeriodo": 395700.0
+      "mediaMensal": 18463.636,
+      "totalPeriodo": 406200.0
     },
     {
       "sku": "70676",
@@ -57983,13 +57983,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 46850.0,
+          "saida": 75450.0,
           "estorno": 0.0,
-          "consumoLiquido": 46850.0
+          "consumoLiquido": 75450.0
         }
       ],
-      "mediaMensal": 35686.364,
-      "totalPeriodo": 785100.0
+      "mediaMensal": 36986.364,
+      "totalPeriodo": 813700.0
     },
     {
       "sku": "92793",
@@ -58129,13 +58129,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 46850.0,
+          "saida": 75450.0,
           "estorno": 0.0,
-          "consumoLiquido": 46850.0
+          "consumoLiquido": 75450.0
         }
       ],
-      "mediaMensal": 35686.364,
-      "totalPeriodo": 785100.0
+      "mediaMensal": 36986.364,
+      "totalPeriodo": 813700.0
     },
     {
       "sku": "92794",
@@ -58275,13 +58275,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 21000.0,
+          "saida": 31500.0,
           "estorno": 0.0,
-          "consumoLiquido": 21000.0
+          "consumoLiquido": 31500.0
         }
       ],
-      "mediaMensal": 17986.364,
-      "totalPeriodo": 395700.0
+      "mediaMensal": 18463.636,
+      "totalPeriodo": 406200.0
     },
     {
       "sku": "92795",
@@ -58421,13 +58421,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 21000.0,
+          "saida": 31500.0,
           "estorno": 0.0,
-          "consumoLiquido": 21000.0
+          "consumoLiquido": 31500.0
         }
       ],
-      "mediaMensal": 17986.364,
-      "totalPeriodo": 395700.0
+      "mediaMensal": 18463.636,
+      "totalPeriodo": 406200.0
     },
     {
       "sku": "117923",
@@ -58713,13 +58713,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 72.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 72.0
         }
       ],
-      "mediaMensal": 84.0,
-      "totalPeriodo": 1848.0
+      "mediaMensal": 87.273,
+      "totalPeriodo": 1920.0
     },
     {
       "sku": "70733",
@@ -59005,13 +59005,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 700.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 700.0
         }
       ],
-      "mediaMensal": 765.455,
-      "totalPeriodo": 16840.0
+      "mediaMensal": 797.273,
+      "totalPeriodo": 17540.0
     },
     {
       "sku": "72070",
@@ -59151,13 +59151,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 235.0,
+          "saida": 510.0,
           "estorno": 0.0,
-          "consumoLiquido": 235.0
+          "consumoLiquido": 510.0
         }
       ],
-      "mediaMensal": 455.636,
-      "totalPeriodo": 10024.0
+      "mediaMensal": 468.136,
+      "totalPeriodo": 10299.0
     },
     {
       "sku": "53108",
@@ -61049,13 +61049,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 1968.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 1968.0
         }
       ],
-      "mediaMensal": 4708.364,
-      "totalPeriodo": 103584.0
+      "mediaMensal": 4797.818,
+      "totalPeriodo": 105552.0
     },
     {
       "sku": "55647",
@@ -61925,13 +61925,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 3627.0,
+          "saida": 4279.0,
           "estorno": 0.0,
-          "consumoLiquido": 3627.0
+          "consumoLiquido": 4279.0
         }
       ],
-      "mediaMensal": 3363.727,
-      "totalPeriodo": 74002.0
+      "mediaMensal": 3393.364,
+      "totalPeriodo": 74654.0
     },
     {
       "sku": "43585",
@@ -62071,13 +62071,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 4836.0,
+          "saida": 5319.0,
           "estorno": 0.0,
-          "consumoLiquido": 4836.0
+          "consumoLiquido": 5319.0
         }
       ],
-      "mediaMensal": 4355.682,
-      "totalPeriodo": 95825.0
+      "mediaMensal": 4377.636,
+      "totalPeriodo": 96308.0
     },
     {
       "sku": "43584",
@@ -62363,13 +62363,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 1320.0,
+          "saida": 1416.0,
           "estorno": 0.0,
-          "consumoLiquido": 1320.0
+          "consumoLiquido": 1416.0
         }
       ],
-      "mediaMensal": 1341.61,
-      "totalPeriodo": 29515.412
+      "mediaMensal": 1345.973,
+      "totalPeriodo": 29611.412
     },
     {
       "sku": "73288",
@@ -62801,13 +62801,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 2388.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 2388.0
         }
       ],
-      "mediaMensal": 817.091,
-      "totalPeriodo": 17976.0
+      "mediaMensal": 925.636,
+      "totalPeriodo": 20364.0
     },
     {
       "sku": "78860",
@@ -62947,13 +62947,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 22200.0,
+          "saida": 40080.0,
           "estorno": 0.0,
-          "consumoLiquido": 22200.0
+          "consumoLiquido": 40080.0
         }
       ],
-      "mediaMensal": 131584.909,
-      "totalPeriodo": 2894868.0
+      "mediaMensal": 132397.636,
+      "totalPeriodo": 2912748.0
     },
     {
       "sku": "25804",
@@ -63823,13 +63823,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 39864.0,
+          "saida": 53628.0,
           "estorno": 0.0,
-          "consumoLiquido": 39864.0
+          "consumoLiquido": 53628.0
         }
       ],
-      "mediaMensal": 70213.636,
-      "totalPeriodo": 1544700.0
+      "mediaMensal": 70839.273,
+      "totalPeriodo": 1558464.0
     },
     {
       "sku": "77640",
@@ -63969,13 +63969,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 0.0,
+          "saida": 21000.0,
           "estorno": 0.0,
-          "consumoLiquido": 0.0
+          "consumoLiquido": 21000.0
         }
       ],
-      "mediaMensal": 22963.636,
-      "totalPeriodo": 505200.0
+      "mediaMensal": 23918.182,
+      "totalPeriodo": 526200.0
     },
     {
       "sku": "92790",
@@ -64115,13 +64115,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 46850.0,
+          "saida": 75450.0,
           "estorno": 0.0,
-          "consumoLiquido": 46850.0
+          "consumoLiquido": 75450.0
         }
       ],
-      "mediaMensal": 35686.364,
-      "totalPeriodo": 785100.0
+      "mediaMensal": 36986.364,
+      "totalPeriodo": 813700.0
     },
     {
       "sku": "92788",
@@ -64261,13 +64261,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 21000.0,
+          "saida": 31500.0,
           "estorno": 0.0,
-          "consumoLiquido": 21000.0
+          "consumoLiquido": 31500.0
         }
       ],
-      "mediaMensal": 17986.364,
-      "totalPeriodo": 395700.0
+      "mediaMensal": 18463.636,
+      "totalPeriodo": 406200.0
     },
     {
       "sku": "71852",
@@ -66159,13 +66159,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 2878.0,
+          "saida": 3544.0,
           "estorno": 0.0,
-          "consumoLiquido": 2878.0
+          "consumoLiquido": 3544.0
         }
       ],
-      "mediaMensal": 1908.273,
-      "totalPeriodo": 41982.0
+      "mediaMensal": 1938.545,
+      "totalPeriodo": 42648.0
     },
     {
       "sku": "70686",
@@ -66451,13 +66451,13 @@
         },
         {
           "mes": "2026-10",
-          "saida": 11868.0,
+          "saida": 21708.0,
           "estorno": 0.0,
-          "consumoLiquido": 11868.0
+          "consumoLiquido": 21708.0
         }
       ],
-      "mediaMensal": 22423.636,
-      "totalPeriodo": 493320.0
+      "mediaMensal": 22870.909,
+      "totalPeriodo": 503160.0
     }
   ]
 }
