@@ -2602,7 +2602,7 @@ function CortesDashboard({
       <div className="content consumption-content">
         <div className="page-heading"><div><p className="eyebrow">PEDIDOS NÃO ATENDIDOS</p><h1>Cortes de pedido</h1><p>O que foi pedido e não entregue (corte do roteiro), com o motivo preenchido manualmente.</p></div></div>
 
-        <section className="kpi-grid" aria-label="Indicadores principais" style={{ gridTemplateColumns: "repeat(4, minmax(0,1fr))" }}>
+        <section className="kpi-grid" aria-label="Indicadores principais" style={{ gridTemplateColumns: `repeat(${canViewValues ? 5 : 2}, minmax(0,1fr))` }}>
           <div className="kpi-card performance-card">
             <div className="kpi-top"><span className="kpi-icon">✂</span><span className="trend neutral">Filtrado</span></div>
             <strong>{number.format(filtrados.length)}</strong><p>Cortes no período</p><div className="mini-rule performance-rule"><span style={{ width: "100%" }} /></div>
@@ -2622,6 +2622,11 @@ function CortesDashboard({
             <div className="kpi-top"><span className="kpi-icon">R$</span><span className="trend critical">Financeiro</span></div>
             <strong>{totalValorCorteFiltrado != null ? currency.format(totalValorCorteFiltrado) : "—"}</strong><p>Valor cortado</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
             <small>{totalValorFaturadoFiltrado != null ? `Faturado no filtro: ${currency.format(totalValorFaturadoFiltrado)}` : "—"}</small>
+          </div>}
+          {canViewValues && <div className="kpi-card excess-card">
+            <div className="kpi-top"><span className="kpi-icon">%</span><span className="trend warn">%CORTE</span></div>
+            <strong>{totalPedidoRsFiltrado && totalValorCorteFiltrado != null ? `${decimal.format((totalValorCorteFiltrado / totalPedidoRsFiltrado) * 100)}%` : "—"}</strong><p>Percentual de corte</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+            <small>Corte R$ ÷ Pedido R$ no filtro</small>
           </div>}
         </section>
 
