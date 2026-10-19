@@ -79,6 +79,7 @@ type AtendidoValorLinha = {
   lojaKey: number | null;
   produtoKey: number;
   faturamentoRs: number;
+  valorPedidoTotal: number;
 };
 type CortesValoresData = {
   atualizadoEm: string;

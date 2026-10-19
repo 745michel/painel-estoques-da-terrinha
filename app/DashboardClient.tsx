@@ -199,6 +199,7 @@ type AtendidoValorLinha = {
   lojaKey: number | null;
   produtoKey: number;
   faturamentoRs: number;
+  valorPedidoTotal: number;
 };
 type CortesValoresData = {
   atualizadoEm: string;
@@ -2477,9 +2478,14 @@ function CortesDashboard({
   // Pedido total (R$) do filtro - base do "%CORTE" (corte R$ / pedido R$) que o usuario usa
   // no relatorio de referencia dele. Serve pra "Corte por setor" mostrar quantos pontos
   // percentuais de corte CADA setor responde, em cima do pedido total (nao so a fatia do
-  // corte entre si) - pedido do usuario em 19/10/2026.
+  // corte entre si) - pedido do usuario em 19/10/2026. PRECISA somar o pedido dos itens 100%
+  // atendidos tambem (nao so os que tiveram corte) - sem isso o denominador fica ~20x menor
+  // que o pedido real (a fonte tem ~20x mais linhas sem corte que com corte) e o %CORTE sai
+  // inflado (chegou a mostrar 24% em vez de ~2-3%, usuario reparou comparando com o relatorio
+  // de referencia dele).
   const totalPedidoRsFiltrado = canViewValues
     ? filtrados.reduce((sum, c) => sum + (valorDoCorte(c)?.valorPedidoTotal ?? 0), 0)
+      + atendidosFiltrados.reduce((sum, a) => sum + (valorDoAtendido(a)?.valorPedidoTotal ?? 0), 0)
     : null;
   // "Valor faturado" = tudo que foi faturado, cortado ou nao (pedido do usuario em 16/10/2026:
   // "o card mostra o valor total de tudo que foi faturado") - soma a parte dos proprios cortes
