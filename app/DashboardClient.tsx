@@ -2475,21 +2475,11 @@ function CortesDashboard({
   const totalValorCorteFiltrado = canViewValues
     ? filtrados.reduce((sum, c) => sum + (valorDoCorte(c)?.valorCorte ?? 0), 0)
     : null;
-  // Pedido total (R$) do filtro - base do "%CORTE" (corte R$ / pedido R$) que o usuario usa
-  // no relatorio de referencia dele. Serve pra "Corte por setor" mostrar quantos pontos
-  // percentuais de corte CADA setor responde, em cima do pedido total (nao so a fatia do
-  // corte entre si) - pedido do usuario em 19/10/2026. PRECISA somar o pedido dos itens 100%
-  // atendidos tambem (nao so os que tiveram corte) - sem isso o denominador fica ~20x menor
-  // que o pedido real (a fonte tem ~20x mais linhas sem corte que com corte) e o %CORTE sai
-  // inflado (chegou a mostrar 24% em vez de ~2-3%, usuario reparou comparando com o relatorio
-  // de referencia dele).
-  const totalPedidoRsFiltrado = canViewValues
-    ? filtrados.reduce((sum, c) => sum + (valorDoCorte(c)?.valorPedidoTotal ?? 0), 0)
-      + atendidosFiltrados.reduce((sum, a) => sum + (valorDoAtendido(a)?.valorPedidoTotal ?? 0), 0)
-    : null;
   // "Valor faturado" = tudo que foi faturado, cortado ou nao (pedido do usuario em 16/10/2026:
   // "o card mostra o valor total de tudo que foi faturado") - soma a parte dos proprios cortes
-  // (que faturaram o que nao foi cortado) com a parte dos itens 100% atendidos.
+  // (que faturaram o que nao foi cortado) com a parte dos itens 100% atendidos. Base do
+  // "%CORTE" (corte R$ / faturado R$, pedido explicito do usuario em 19/10/2026 - o relatorio
+  // de referencia dele usa o faturamento como denominador, nao o pedido).
   const totalValorFaturadoFiltrado = canViewValues
     ? filtrados.reduce((sum, c) => sum + (valorDoCorte(c)?.faturamentoRs ?? 0), 0) + (totalValorFaturadoAtendidos ?? 0)
     : null;
@@ -2553,13 +2543,14 @@ function CortesDashboard({
       .map(([setor, v]) => ({
         setor, corteCx: v.corteCx, itens: v.itens, valorCorte: v.valorCorte,
         percentual: total > 0 ? (v.corteCx / total) * 100 : 0,
-        // % de corte sobre o PEDIDO TOTAL (nao sobre o total cortado) - quanto esse setor
-        // responde do "%CORTE" geral (ex.: 2,41% no relatorio de referencia). Somando esse
-        // campo de todos os setores da exatamente o %CORTE geral do filtro.
-        percentualDoPedido: canViewValues && totalPedidoRsFiltrado ? (v.valorCorte / totalPedidoRsFiltrado) * 100 : null,
+        // % de corte sobre o FATURADO TOTAL (nao sobre o total cortado) - quanto esse setor
+        // responde do "%CORTE" geral (corte R$ / faturado R$, igual ao relatorio de
+        // referencia do usuario). Somando esse campo de todos os setores da exatamente o
+        // %CORTE geral do filtro.
+        percentualDoFaturado: canViewValues && totalValorFaturadoFiltrado ? (v.valorCorte / totalValorFaturadoFiltrado) * 100 : null,
       }))
       .sort((a, b) => b.corteCx - a.corteCx);
-  }, [filtrados, canViewValues, valorPorChave, totalPedidoRsFiltrado]);
+  }, [filtrados, canViewValues, valorPorChave, totalValorFaturadoFiltrado]);
   const maiorCorteSetor = Math.max(1, ...porSetor.map((s) => s.corteCx));
 
   // Clicar numa barra mostra os itens daquele motivo (pedido do usuario em 09/10/2026: "quero
@@ -2631,8 +2622,8 @@ function CortesDashboard({
           </div>}
           {canViewValues && <div className="kpi-card excess-card">
             <div className="kpi-top"><span className="kpi-icon">%</span><span className="trend warn">%CORTE</span></div>
-            <strong>{totalPedidoRsFiltrado && totalValorCorteFiltrado != null ? `${decimal.format((totalValorCorteFiltrado / totalPedidoRsFiltrado) * 100)}%` : "—"}</strong><p>Percentual de corte</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
-            <small>Corte R$ ÷ Pedido R$ no filtro</small>
+            <strong>{totalValorFaturadoFiltrado && totalValorCorteFiltrado != null ? `${decimal.format((totalValorCorteFiltrado / totalValorFaturadoFiltrado) * 100)}%` : "—"}</strong><p>Percentual de corte</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+            <small>Corte R$ ÷ Faturado R$ no filtro</small>
           </div>}
         </section>
 
@@ -2688,13 +2679,13 @@ function CortesDashboard({
               {porSetor.map((s) => <button type="button" className="motivo-bar-row" key={s.setor} onClick={() => setSetorAberto(s.setor)}>
                 <span className="motivo-bar-label" title={s.setor}>{s.setor}</span>
                 <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(s.corteCx ? 2 : 0, (s.corteCx / maiorCorteSetor) * 100)}%` }} /></span>
-                <span className="motivo-bar-value">{number.format(Math.round(s.corteCx))} cx <small className="motivo-bar-pct">{decimal.format(s.percentual)}%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(s.valorCorte)}{s.percentualDoPedido != null && ` · ${decimal.format(s.percentualDoPedido)}% do pedido`}</small>}</span>
+                <span className="motivo-bar-value">{number.format(Math.round(s.corteCx))} cx <small className="motivo-bar-pct">{decimal.format(s.percentual)}%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(s.valorCorte)}{s.percentualDoFaturado != null && ` · ${decimal.format(s.percentualDoFaturado)}% do faturado`}</small>}</span>
               </button>)}
               {porSetor.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro ou troque o mês.</p></div>}
               {porSetor.length > 0 && <div className="motivo-bar-row motivo-bar-total">
                 <span className="motivo-bar-label">Total (%CORTE)</span>
                 <span className="motivo-bar-track" />
-                <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(totalValorCorteFiltrado ?? 0)}{totalPedidoRsFiltrado ? ` · ${decimal.format(((totalValorCorteFiltrado ?? 0) / totalPedidoRsFiltrado) * 100)}% do pedido` : ""}</small>}</span>
+                <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(totalValorCorteFiltrado ?? 0)}{totalValorFaturadoFiltrado ? ` · ${decimal.format(((totalValorCorteFiltrado ?? 0) / totalValorFaturadoFiltrado) * 100)}% do faturado` : ""}</small>}</span>
               </div>}
             </div>
           </> : modoDetalhe === "faturado" ? <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
