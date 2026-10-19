@@ -2483,6 +2483,16 @@ function CortesDashboard({
   const totalValorFaturadoFiltrado = canViewValues
     ? filtrados.reduce((sum, c) => sum + (valorDoCorte(c)?.faturamentoRs ?? 0), 0) + (totalValorFaturadoAtendidos ?? 0)
     : null;
+  // "%CORTE" (pedido do usuario em 19/10/2026, confirmado contra a tabela de referencia dele em
+  // 19/10/2026 - "a conta precisa ser essa") = Corte R$ / (Faturado R$ + Corte R$), NAO so
+  // Faturado R$ no denominador. Testado linha a linha contra a tabela de outubro que ele
+  // mandou (ex.: dia 1: 79.810 / (1.597.814 + 79.810) = 4,76%, bate exato com varias linhas
+  // diferentes) - "Faturado + Corte" e o total que teria sido faturado se nada tivesse sido
+  // cortado, que no relatorio de referencia dele NAO e igual ao "Pedido R$" (os dois divergem
+  // la, por algum motivo fora do nosso controle/dado).
+  const totalValorReferenciaCorte = canViewValues && totalValorFaturadoFiltrado != null && totalValorCorteFiltrado != null
+    ? totalValorFaturadoFiltrado + totalValorCorteFiltrado
+    : null;
 
   const totalCorteFiltrado = filtrados.reduce((sum, c) => sum + c.corteCx, 0);
   const updated = new Date(cortesData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
@@ -2547,10 +2557,10 @@ function CortesDashboard({
         // responde do "%CORTE" geral (corte R$ / faturado R$, igual ao relatorio de
         // referencia do usuario). Somando esse campo de todos os setores da exatamente o
         // %CORTE geral do filtro.
-        percentualDoFaturado: canViewValues && totalValorFaturadoFiltrado ? (v.valorCorte / totalValorFaturadoFiltrado) * 100 : null,
+        percentualDoFaturado: canViewValues && totalValorReferenciaCorte ? (v.valorCorte / totalValorReferenciaCorte) * 100 : null,
       }))
       .sort((a, b) => b.corteCx - a.corteCx);
-  }, [filtrados, canViewValues, valorPorChave, totalValorFaturadoFiltrado]);
+  }, [filtrados, canViewValues, valorPorChave, totalValorReferenciaCorte]);
   const maiorCorteSetor = Math.max(1, ...porSetor.map((s) => s.corteCx));
 
   // Clicar numa barra mostra os itens daquele motivo (pedido do usuario em 09/10/2026: "quero
@@ -2622,8 +2632,8 @@ function CortesDashboard({
           </div>}
           {canViewValues && <div className="kpi-card excess-card">
             <div className="kpi-top"><span className="kpi-icon">%</span><span className="trend warn">%CORTE</span></div>
-            <strong>{totalValorFaturadoFiltrado && totalValorCorteFiltrado != null ? `${decimal.format((totalValorCorteFiltrado / totalValorFaturadoFiltrado) * 100)}%` : "—"}</strong><p>Percentual de corte</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
-            <small>Corte R$ ÷ Faturado R$ no filtro</small>
+            <strong>{totalValorReferenciaCorte && totalValorCorteFiltrado != null ? `${decimal.format((totalValorCorteFiltrado / totalValorReferenciaCorte) * 100)}%` : "—"}</strong><p>Percentual de corte</p><div className="mini-rule"><span style={{ width: "100%" }} /></div>
+            <small>Corte R$ ÷ (Faturado R$ + Corte R$) no filtro</small>
           </div>}
         </section>
 
@@ -2685,7 +2695,7 @@ function CortesDashboard({
               {porSetor.length > 0 && <div className="motivo-bar-row motivo-bar-total">
                 <span className="motivo-bar-label">Total (%CORTE)</span>
                 <span className="motivo-bar-track" />
-                <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(totalValorCorteFiltrado ?? 0)}{totalValorFaturadoFiltrado ? ` · ${decimal.format(((totalValorCorteFiltrado ?? 0) / totalValorFaturadoFiltrado) * 100)}% do faturado` : ""}</small>}</span>
+                <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(totalValorCorteFiltrado ?? 0)}{totalValorReferenciaCorte ? ` · ${decimal.format(((totalValorCorteFiltrado ?? 0) / totalValorReferenciaCorte) * 100)}% do faturado` : ""}</small>}</span>
               </div>}
             </div>
           </> : modoDetalhe === "faturado" ? <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
