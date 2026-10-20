@@ -1,7 +1,91 @@
 {
-  "atualizadoEm": "2026-10-20T10:11:48",
+  "atualizadoEm": "2026-10-20T14:06:59",
   "origem": "dados_cortes.json (Power Automate) + motivos_cortes.xlsx (preenchimento manual)",
   "cortes": [
+    {
+      "data": "2026-10-19",
+      "lojaKey": null,
+      "loja": "Loja não identificada",
+      "produtoKey": 28962,
+      "produto": "00301 FAROFA ARTESANAL DA TERRINHA TRADICIONAL 300 G - UND",
+      "quantidadePedidaCx": 0.1,
+      "quantidadeFaturadaCx": 0.05,
+      "corteCx": 0.05,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": null,
+      "setor": null
+    },
+    {
+      "data": "2026-10-19",
+      "lojaKey": 14,
+      "loja": "DA TERRINHA - FILIAL SP",
+      "produtoKey": 48642,
+      "produto": "01787 PAPRICA DOCE EM PO DA TERRINHA 15 G - CX 24",
+      "quantidadePedidaCx": 129.0,
+      "quantidadeFaturadaCx": 119.0,
+      "corteCx": 10.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "ESPECIARIAS",
+      "setor": null
+    },
+    {
+      "data": "2026-10-19",
+      "lojaKey": 14,
+      "loja": "DA TERRINHA - FILIAL SP",
+      "produtoKey": 72099,
+      "produto": "01806 PIMENTA DO REINO EM PO DA TERRINHA 20G - CX 24",
+      "quantidadePedidaCx": 111.0,
+      "quantidadeFaturadaCx": 109.0,
+      "corteCx": 2.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "ESPECIARIAS",
+      "setor": null
+    },
+    {
+      "data": "2026-10-19",
+      "lojaKey": 14,
+      "loja": "DA TERRINHA - FILIAL SP",
+      "produtoKey": 76184,
+      "produto": "30302 ALHO TRITURADO OKKER 200 GR - CX 12",
+      "quantidadePedidaCx": 15.0,
+      "quantidadeFaturadaCx": 2.0,
+      "corteCx": 13.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "ALHO",
+      "setor": null
+    },
+    {
+      "data": "2026-10-19",
+      "lojaKey": 14,
+      "loja": "DA TERRINHA - FILIAL SP",
+      "produtoKey": 80643,
+      "produto": "01618 MILHO PIPOCA DA TERRINHA 400 G - CX 12",
+      "quantidadePedidaCx": 548.0,
+      "quantidadeFaturadaCx": 540.0,
+      "corteCx": 8.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "GRAOS",
+      "setor": null
+    },
+    {
+      "data": "2026-10-19",
+      "lojaKey": 17,
+      "loja": "OKKER - FILIAL",
+      "produtoKey": 70375,
+      "produto": "00703 PIMENTA BIQUINHO OKKER 250 GR - CX 24",
+      "quantidadePedidaCx": 27.0,
+      "quantidadeFaturadaCx": 17.0,
+      "corteCx": 10.0,
+      "motivo": null,
+      "observacoes": null,
+      "categoria": "PIMENTAS",
+      "setor": null
+    },
     {
       "data": "2026-10-18",
       "lojaKey": 1,
@@ -288,9 +372,9 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80605,
       "produto": "01614 CANJICA BRANCA DA TERRINHA 400 G - CX 12",
-      "quantidadePedidaCx": 146.0,
+      "quantidadePedidaCx": 156.0,
       "quantidadeFaturadaCx": 58.0,
-      "corteCx": 88.0,
+      "corteCx": 98.0,
       "motivo": "Falta de matéria-prima",
       "observacoes": "Fornecedor  sem materia prima",
       "categoria": "GRAOS",
@@ -372,9 +456,9 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80605,
       "produto": "01614 CANJICA BRANCA DA TERRINHA 400 G - CX 12",
-      "quantidadePedidaCx": 109.0,
+      "quantidadePedidaCx": 125.0,
       "quantidadeFaturadaCx": 15.0,
-      "corteCx": 94.0,
+      "corteCx": 110.0,
       "motivo": "Falta de matéria-prima",
       "observacoes": "Fornecedor  sem materia prima",
       "categoria": "GRAOS",
@@ -400,8 +484,8 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 89103,
       "produto": "19001 CREME DE AVELA DAVELA 140 G CX 10",
-      "quantidadePedidaCx": 181.0,
-      "quantidadeFaturadaCx": 140.0,
+      "quantidadePedidaCx": 183.0,
+      "quantidadeFaturadaCx": 142.0,
       "corteCx": 41.0,
       "motivo": "Atraso na entrega",
       "observacoes": null,
@@ -3300,7 +3384,7 @@
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - UND",
       "quantidadePedidaCx": 0.9125000000000003,
       "quantidadeFaturadaCx": 0.5375000000000001,
-      "corteCx": 0.37499999999999994,
+      "corteCx": 0.375,
       "motivo": null,
       "observacoes": null,
       "categoria": "FAROFA",
@@ -32119,8 +32203,8 @@
       "setor": null
     }
   ],
-  "totalLinhas": 2294,
-  "semMotivo": 2205,
+  "totalLinhas": 2300,
+  "semMotivo": 2211,
   "atendidos": [
     {
       "mes": "2026-10",
@@ -32128,7 +32212,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 1,
       "produto": "00001 TAPIOCA DA TERRINHA 1 KG - UND",
-      "quantidadeFaturadaCx": 36.75000000000001,
+      "quantidadeFaturadaCx": 39.0,
       "categoria": null
     },
     {
@@ -32137,7 +32221,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 2,
       "produto": "00002 TAPIOCA DA TERRINHA 500 G - UND",
-      "quantidadeFaturadaCx": 19.58333333333333,
+      "quantidadeFaturadaCx": 20.58333333333333,
       "categoria": null
     },
     {
@@ -32173,7 +32257,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 48763,
       "produto": "01782 OREGANO DA TERRINHA 08 g  - UND",
-      "quantidadeFaturadaCx": 0.125,
+      "quantidadeFaturadaCx": 0.16666666666666666,
       "categoria": null
     },
     {
@@ -32182,7 +32266,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 50103,
       "produto": "01732 CHIMICHURRI DA TERRINHA 20g - UND",
-      "quantidadeFaturadaCx": 0.08333333333333333,
+      "quantidadeFaturadaCx": 0.125,
       "categoria": null
     },
     {
@@ -32209,7 +32293,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 72087,
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - UND",
-      "quantidadeFaturadaCx": 9.174999999999999,
+      "quantidadeFaturadaCx": 9.6375,
       "categoria": "FAROFA"
     },
     {
@@ -32227,7 +32311,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 77902,
       "produto": "00018 TAPIOCA DA TERRINHA NA MEDIDA 490 G - UND",
-      "quantidadeFaturadaCx": 2.3333333333333335,
+      "quantidadeFaturadaCx": 2.5,
       "categoria": null
     },
     {
@@ -32236,7 +32320,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 78984,
       "produto": "00933 COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G - UND",
-      "quantidadeFaturadaCx": 0.08,
+      "quantidadeFaturadaCx": 0.1,
       "categoria": null
     },
     {
@@ -32245,7 +32329,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 80980,
       "produto": "01101 WRAP DE TAPIOCA ORIGINAL DA TERRINHA 150 G - UND",
-      "quantidadeFaturadaCx": 0.75,
+      "quantidadeFaturadaCx": 0.8333333333333334,
       "categoria": null
     },
     {
@@ -32272,7 +32356,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 304,
       "produto": "00001 TAPIOCA DA TERRINHA 1 KG - CX 12",
-      "quantidadeFaturadaCx": 19357.0,
+      "quantidadeFaturadaCx": 22382.0,
       "categoria": "TAPIOCA"
     },
     {
@@ -32281,7 +32365,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 305,
       "produto": "00002 TAPIOCA DA TERRINHA 500 G - CX 24",
-      "quantidadeFaturadaCx": 15330.0,
+      "quantidadeFaturadaCx": 16367.0,
       "categoria": "TAPIOCA"
     },
     {
@@ -32308,7 +32392,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 25445,
       "produto": "00006 TAPIOCA DELIOCA PREMIUM 560 G - CX 12",
-      "quantidadeFaturadaCx": 1965.0,
+      "quantidadeFaturadaCx": 2146.0,
       "categoria": "TAPIOCA POUCH"
     },
     {
@@ -32317,7 +32401,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 27745,
       "produto": "00001 TAPIOCA DA TERRINHA 1 KG - FD 12",
-      "quantidadeFaturadaCx": 50383.0,
+      "quantidadeFaturadaCx": 52569.0,
       "categoria": "TAPIOCA"
     },
     {
@@ -32326,7 +32410,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 28963,
       "produto": "00301 FAROFA ARTESANAL DA TERRINHA TRADICIONAL 300 G - CX 20",
-      "quantidadeFaturadaCx": 1353.0,
+      "quantidadeFaturadaCx": 1494.0,
       "categoria": "FAROFA"
     },
     {
@@ -32335,7 +32419,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 28965,
       "produto": "00302 FAROFA ARTESANAL DA TERRINHA APIMENTADA 300 G - CX 20",
-      "quantidadeFaturadaCx": 794.0,
+      "quantidadeFaturadaCx": 840.0,
       "categoria": "FAROFA"
     },
     {
@@ -32344,7 +32428,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 36609,
       "produto": "00311 FAROFA PRONTA DA TERRINHA TRADICIONAL 400 G - FD 24",
-      "quantidadeFaturadaCx": 9850.0,
+      "quantidadeFaturadaCx": 10585.0,
       "categoria": "FAROFA"
     },
     {
@@ -32353,7 +32437,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 36612,
       "produto": "00312 FAROFA PRONTA DA TERRINHA APIMENTADA 400 G - FD 24",
-      "quantidadeFaturadaCx": 747.0,
+      "quantidadeFaturadaCx": 841.0,
       "categoria": "FAROFA"
     },
     {
@@ -32362,7 +32446,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 37190,
       "produto": "00002 TAPIOCA DA TERRINHA 500 G - FD 24",
-      "quantidadeFaturadaCx": 32637.0,
+      "quantidadeFaturadaCx": 34863.0,
       "categoria": "TAPIOCA"
     },
     {
@@ -32371,7 +32455,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 38152,
       "produto": "00504 BOLACHA DA TERRINHA COQUINHO 250 g - FD 20",
-      "quantidadeFaturadaCx": 3866.0,
+      "quantidadeFaturadaCx": 3980.0,
       "categoria": "BOLACHA"
     },
     {
@@ -32380,7 +32464,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 40577,
       "produto": "00602 MOLHO CHURRASCO DA TERRINHA 150 ML CX12",
-      "quantidadeFaturadaCx": 70.0,
+      "quantidadeFaturadaCx": 72.0,
       "categoria": "MOLHOS"
     },
     {
@@ -32389,7 +32473,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 40578,
       "produto": "00601 MOLHO ALHO DA TERRINHA 150 ML CX 12",
-      "quantidadeFaturadaCx": 107.0,
+      "quantidadeFaturadaCx": 108.0,
       "categoria": "MOLHOS"
     },
     {
@@ -32398,7 +32482,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 40582,
       "produto": "00604 MOLHO PIMENTA CALABRESA DA TERRINHA 150 CX12",
-      "quantidadeFaturadaCx": 100.0,
+      "quantidadeFaturadaCx": 102.0,
       "categoria": "MOLHOS"
     },
     {
@@ -32407,7 +32491,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 40584,
       "produto": "00605 MOLHO PIMENTA SCORPION DA TERRINHA 150 CX12",
-      "quantidadeFaturadaCx": 89.0,
+      "quantidadeFaturadaCx": 91.0,
       "categoria": "MOLHOS"
     },
     {
@@ -32416,7 +32500,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 40586,
       "produto": "00606 MOLHO PIMENTA VERMELHA DA TERRINHA 150  - CX 12",
-      "quantidadeFaturadaCx": 130.0,
+      "quantidadeFaturadaCx": 132.0,
       "categoria": "MOLHOS"
     },
     {
@@ -32425,7 +32509,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 40588,
       "produto": "00701 PIMENTA BIQUINHO DA TERRINHA 140 G CX 12",
-      "quantidadeFaturadaCx": 260.0,
+      "quantidadeFaturadaCx": 308.0,
       "categoria": "PIMENTAS"
     },
     {
@@ -32434,7 +32518,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 40590,
       "produto": "00702 PIMENTA MALAGUETA VERM DA TERRINHA 70G CX 12",
-      "quantidadeFaturadaCx": 56.0,
+      "quantidadeFaturadaCx": 57.0,
       "categoria": "PIMENTAS"
     },
     {
@@ -32461,7 +32545,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 47982,
       "produto": "01515 FUBA MIMOSO DA TERRINHA 500 G FD 12",
-      "quantidadeFaturadaCx": 3265.0,
+      "quantidadeFaturadaCx": 3323.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -32470,7 +32554,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48003,
       "produto": "01514 FUBA MIMOSO DA TERRINHA 1 KG FD 10",
-      "quantidadeFaturadaCx": 704.0,
+      "quantidadeFaturadaCx": 735.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -32479,7 +32563,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48023,
       "produto": "01506 FARINHA MILHO AMARELA DA TERRINHA 500 G FD10",
-      "quantidadeFaturadaCx": 677.0,
+      "quantidadeFaturadaCx": 779.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -32488,7 +32572,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48043,
       "produto": "01508 FARINHA ROSCA DA TERRINHA 500 G - FD 12",
-      "quantidadeFaturadaCx": 1316.0,
+      "quantidadeFaturadaCx": 1351.0,
       "categoria": "GRAOS E FARINACEOS"
     },
     {
@@ -32497,7 +32581,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48052,
       "produto": "01505 FARINHA MANDIOCA GROSSA CRUA DA TERRINHA 500 GR - FD 12.0",
-      "quantidadeFaturadaCx": 977.0,
+      "quantidadeFaturadaCx": 1006.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -32506,7 +32590,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48054,
       "produto": "01504 FARINHA MANDIOCA GROSSA CRUA DA TERRINHA 1 KG - FD 12",
-      "quantidadeFaturadaCx": 4189.0,
+      "quantidadeFaturadaCx": 5841.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -32515,7 +32599,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48056,
       "produto": "01501 FARINHA MANDIOCA FINA CRUA DA TERRINHA 1 KG  FD 12",
-      "quantidadeFaturadaCx": 1716.0,
+      "quantidadeFaturadaCx": 2155.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -32524,7 +32608,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48058,
       "produto": "01503 FARINHA MANDIOCA TORRADA DA TERRINHA 500G FD12",
-      "quantidadeFaturadaCx": 346.0,
+      "quantidadeFaturadaCx": 357.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -32533,7 +32617,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48064,
       "produto": "01704 ALHO DESIDRATADO GRANULADO DA TERRINHA 20 G - CX 24",
-      "quantidadeFaturadaCx": 47.0,
+      "quantidadeFaturadaCx": 55.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32542,7 +32626,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48123,
       "produto": "01521 TRIGO PARA KIBE DA TERRINHA 500 G FD 12",
-      "quantidadeFaturadaCx": 889.0,
+      "quantidadeFaturadaCx": 921.0,
       "categoria": "GRAOS E FARINACEOS"
     },
     {
@@ -32551,7 +32635,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48145,
       "produto": "01518 POLVILHO DOCE DA TERRINHA 500 G - FD 12",
-      "quantidadeFaturadaCx": 559.0,
+      "quantidadeFaturadaCx": 570.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -32560,7 +32644,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48163,
       "produto": "01517 POLVILHO AZEDO DA TERRINHA 500 G FD 12",
-      "quantidadeFaturadaCx": 513.0,
+      "quantidadeFaturadaCx": 536.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -32569,7 +32653,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48392,
       "produto": "01703 ALHO DESID FLOCOS DA TERRINHA 25 G - CX 24",
-      "quantidadeFaturadaCx": 33.0,
+      "quantidadeFaturadaCx": 34.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32578,7 +32662,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48398,
       "produto": "01800 PIMENTA CALABRESA FLOC DA TERRINHA 15 G - CX 24",
-      "quantidadeFaturadaCx": 241.0,
+      "quantidadeFaturadaCx": 264.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32587,7 +32671,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48624,
       "produto": "01788 PAPRICA PICANTE EM PO DA TERRINHA 15 G  - CX 24",
-      "quantidadeFaturadaCx": 1598.0,
+      "quantidadeFaturadaCx": 1807.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32596,7 +32680,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48642,
       "produto": "01787 PAPRICA DOCE EM PO DA TERRINHA 15 G - CX 24",
-      "quantidadeFaturadaCx": 1612.0,
+      "quantidadeFaturadaCx": 1613.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32605,7 +32689,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48667,
       "produto": "01717 CANELA CASCA QUEBRADA DA TERRINHA 10 G  - CX 24",
-      "quantidadeFaturadaCx": 578.0,
+      "quantidadeFaturadaCx": 607.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32614,7 +32698,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48685,
       "produto": "01723 CANELA PO DA TERRINHA 20 G  - CX 24",
-      "quantidadeFaturadaCx": 1338.0,
+      "quantidadeFaturadaCx": 1463.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32623,7 +32707,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48696,
       "produto": "01777 NOZ MOSCADA BOLA DA TERRINHA 08 G  - CX 24",
-      "quantidadeFaturadaCx": 62.0,
+      "quantidadeFaturadaCx": 67.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32632,7 +32716,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48705,
       "produto": "01745 COMINHO EM PO DA TERRINHA 50 G  - CX 24",
-      "quantidadeFaturadaCx": 271.0,
+      "quantidadeFaturadaCx": 295.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32641,7 +32725,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48723,
       "produto": "01701 ACAFRAO DA TERRINHA 30 G  - CX 24",
-      "quantidadeFaturadaCx": 600.0,
+      "quantidadeFaturadaCx": 656.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32650,7 +32734,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48751,
       "produto": "01769 LOURO EM FOLHA DA TERRINHA 08 G  - CX 24",
-      "quantidadeFaturadaCx": 1577.0,
+      "quantidadeFaturadaCx": 1771.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32659,7 +32743,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48766,
       "produto": "01782 OREGANO DA TERRINHA 08 G  - CX 24",
-      "quantidadeFaturadaCx": 2464.0,
+      "quantidadeFaturadaCx": 2816.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32668,7 +32752,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48783,
       "produto": "01702 ALECRIM DA TERRINHA 06 G  - CX 24",
-      "quantidadeFaturadaCx": 393.0,
+      "quantidadeFaturadaCx": 419.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32677,7 +32761,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48787,
       "produto": "01715 CAMOMILA DA TERRINHA 06 G  - CX 24",
-      "quantidadeFaturadaCx": 221.0,
+      "quantidadeFaturadaCx": 246.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32686,7 +32770,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 50145,
       "produto": "01825 TEMPERO PARA FRANGO DA TERRINHA 50 G - CX 24",
-      "quantidadeFaturadaCx": 552.0,
+      "quantidadeFaturadaCx": 581.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32695,7 +32779,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 50722,
       "produto": "01739 COLORIFICO DA TERRINHA 500 G - FD 12",
-      "quantidadeFaturadaCx": 317.0,
+      "quantidadeFaturadaCx": 337.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32704,7 +32788,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 51328,
       "produto": "01784 OREGANO DA TERRINHA 100 G - FD 12",
-      "quantidadeFaturadaCx": 184.0,
+      "quantidadeFaturadaCx": 212.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32713,7 +32797,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 52688,
       "produto": "01604 CANJIQUINHA XEREM DA TERRINHA 500 G FD 12",
-      "quantidadeFaturadaCx": 232.0,
+      "quantidadeFaturadaCx": 237.0,
       "categoria": "GRAOS"
     },
     {
@@ -32722,7 +32806,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 52750,
       "produto": "002439 FECULA MANDIOCA DA TERRINHA 1 KG - FD 12",
-      "quantidadeFaturadaCx": 457.0,
+      "quantidadeFaturadaCx": 495.0,
       "categoria": "FECULA"
     },
     {
@@ -32731,7 +32815,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 54148,
       "produto": "02606 FEIJAO BRANCO DA TERRINHA PREMIUM 500 G - CX 12",
-      "quantidadeFaturadaCx": 337.0,
+      "quantidadeFaturadaCx": 418.0,
       "categoria": "GRAOS"
     },
     {
@@ -32740,7 +32824,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 61828,
       "produto": "01602 CANJICA AMARELA DA TERRINHA 500 G - FD 12",
-      "quantidadeFaturadaCx": 145.0,
+      "quantidadeFaturadaCx": 152.0,
       "categoria": "GRAOS"
     },
     {
@@ -32749,7 +32833,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 63307,
       "produto": "01513 FLOCOS DE MILHO ( CUSCUZ ) DA TERRINHA 500 G - FD 30",
-      "quantidadeFaturadaCx": 490.0,
+      "quantidadeFaturadaCx": 503.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -32767,7 +32851,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 70268,
       "produto": "00620 MOLHO ARABE COM ALHO DA TERRINHA 150 ML - CX 12",
-      "quantidadeFaturadaCx": 270.0,
+      "quantidadeFaturadaCx": 310.0,
       "categoria": "MOLHOS"
     },
     {
@@ -32776,7 +32860,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 70270,
       "produto": "00621 MOLHO ARABE COM PIMENTA DA TERRINHA 150 ML - CX 12",
-      "quantidadeFaturadaCx": 574.0,
+      "quantidadeFaturadaCx": 662.0,
       "categoria": "MOLHOS"
     },
     {
@@ -32785,7 +32869,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 70272,
       "produto": "00622 MOLHO ARABE COM TOMATE DA TERRINHA 150 ML - CX 12",
-      "quantidadeFaturadaCx": 151.0,
+      "quantidadeFaturadaCx": 188.0,
       "categoria": "MOLHOS"
     },
     {
@@ -32794,7 +32878,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 70274,
       "produto": "00600 MOLHO DE PIMENTA CREMOSO DA TERRINHA 150 ML - CX 12",
-      "quantidadeFaturadaCx": 61.0,
+      "quantidadeFaturadaCx": 64.0,
       "categoria": "MOLHOS"
     },
     {
@@ -32812,7 +32896,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 70278,
       "produto": "00609 MOLHO DE PIMENTA CAROLINA REAPER DA TERRINHA 150 ML - CX 12",
-      "quantidadeFaturadaCx": 127.0,
+      "quantidadeFaturadaCx": 130.0,
       "categoria": "MOLHOS"
     },
     {
@@ -32821,7 +32905,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 71928,
       "produto": "01786 OREGANO DA TERRINHA 200 G - FD 12",
-      "quantidadeFaturadaCx": 1788.0,
+      "quantidadeFaturadaCx": 1992.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32830,7 +32914,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72011,
       "produto": "00015 TAPIOCA DA TERRINHA NA MEDIDA 70 G - CX 100",
-      "quantidadeFaturadaCx": 1504.0,
+      "quantidadeFaturadaCx": 1916.0,
       "categoria": "TAPIOCA"
     },
     {
@@ -32839,7 +32923,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72091,
       "produto": "01708 BICARBONATO DE SODIO DA TERRINHA 20 G -  CX 24",
-      "quantidadeFaturadaCx": 208.0,
+      "quantidadeFaturadaCx": 211.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32848,7 +32932,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72092,
       "produto": "01710 BICARBONATO DE SODIO DA TERRINHA 80 G - CX 24",
-      "quantidadeFaturadaCx": 1191.0,
+      "quantidadeFaturadaCx": 1416.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32857,7 +32941,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72093,
       "produto": "01732 CHIMICHURRI DA TERRINHA 20G - CX 24",
-      "quantidadeFaturadaCx": 3726.0,
+      "quantidadeFaturadaCx": 4186.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32866,7 +32950,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72094,
       "produto": "01736 COLORIFICO DA TERRINHA 70 G  - CX 24",
-      "quantidadeFaturadaCx": 1971.0,
+      "quantidadeFaturadaCx": 2183.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32875,7 +32959,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72096,
       "produto": "01754 CURRY EM PO DA TERRINHA 15 G - CX 24",
-      "quantidadeFaturadaCx": 492.0,
+      "quantidadeFaturadaCx": 528.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32884,7 +32968,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72097,
       "produto": "01759 ERVA DOCE DA TERRINHA 15 G - CX 24",
-      "quantidadeFaturadaCx": 317.0,
+      "quantidadeFaturadaCx": 338.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32893,7 +32977,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72098,
       "produto": "01804 PIMENTA COM  COMINHO PO DA TERRINHA 50G - CX 24",
-      "quantidadeFaturadaCx": 90.0,
+      "quantidadeFaturadaCx": 96.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32902,7 +32986,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72099,
       "produto": "01806 PIMENTA DO REINO EM PO DA TERRINHA 20G - CX 24",
-      "quantidadeFaturadaCx": 542.0,
+      "quantidadeFaturadaCx": 567.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32911,7 +32995,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72100,
       "produto": "01813 SALSA DESIDRATADA DA TERRINHA 08 G - CX 24",
-      "quantidadeFaturadaCx": 425.0,
+      "quantidadeFaturadaCx": 471.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32920,7 +33004,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72101,
       "produto": "01818 TEMPERO BAIANO PO DA TERRINHA 50 G - CX 24",
-      "quantidadeFaturadaCx": 1746.0,
+      "quantidadeFaturadaCx": 2037.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32929,7 +33013,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72102,
       "produto": "01822 TEMPERO PARA CHURRASCO DA TERRINHA 40G - CX 24",
-      "quantidadeFaturadaCx": 184.0,
+      "quantidadeFaturadaCx": 188.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32938,7 +33022,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72106,
       "produto": "01750 CRAVO DA INDIA DA TERRINHA 10 G - CX 24",
-      "quantidadeFaturadaCx": 773.0,
+      "quantidadeFaturadaCx": 819.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32947,7 +33031,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72108,
       "produto": "01774 MANJERICAO DA TERRINHA 10 G - CX 24",
-      "quantidadeFaturadaCx": 361.0,
+      "quantidadeFaturadaCx": 379.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32956,7 +33040,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72170,
       "produto": "01712 BICARBONATO DE SODIO DA TERRINHA 500 g - CX 6.0",
-      "quantidadeFaturadaCx": 4681.0,
+      "quantidadeFaturadaCx": 4974.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32974,7 +33058,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 74109,
       "produto": "01734 COENTRO EM PO DA TERRINHA 18 G  - CX 24",
-      "quantidadeFaturadaCx": 94.0,
+      "quantidadeFaturadaCx": 101.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32983,7 +33067,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 74110,
       "produto": "01821 TEMPERO PARA CARNE DA TERRINHA 50 G - CX 24",
-      "quantidadeFaturadaCx": 297.0,
+      "quantidadeFaturadaCx": 301.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -32992,7 +33076,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 75339,
       "produto": "00072 TAPIOCA WRAPIOCA 630 G - CX 12",
-      "quantidadeFaturadaCx": 257.0,
+      "quantidadeFaturadaCx": 270.0,
       "categoria": "TAPIOCA POUCH"
     },
     {
@@ -33001,7 +33085,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 75877,
       "produto": "00204 BATATA PALHA DA TERRINHA TRADIC 100G - CX20",
-      "quantidadeFaturadaCx": 9024.0,
+      "quantidadeFaturadaCx": 9748.0,
       "categoria": "BATATA PALHA"
     },
     {
@@ -33010,7 +33094,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 75896,
       "produto": "00700 MOLHO PIMENTA BICO DOCE DEFUMADA  DA TERRINHA 270 G - CX 12",
-      "quantidadeFaturadaCx": 26.0,
+      "quantidadeFaturadaCx": 30.0,
       "categoria": "PIMENTAS"
     },
     {
@@ -33019,7 +33103,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 75956,
       "produto": "01743 COLORIFICO DA TERRINHA 1,01 KG - FD 12",
-      "quantidadeFaturadaCx": 1651.0,
+      "quantidadeFaturadaCx": 1869.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -33028,7 +33112,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 76182,
       "produto": "11128 ALHO PASTA OKKER 200 GR - CX 12",
-      "quantidadeFaturadaCx": 308.0,
+      "quantidadeFaturadaCx": 309.0,
       "categoria": "ALHO"
     },
     {
@@ -33055,7 +33139,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 76185,
       "produto": "30303 ALHO TRITURADO OKKER 400 GR - CX 12",
-      "quantidadeFaturadaCx": 460.0,
+      "quantidadeFaturadaCx": 484.0,
       "categoria": "ALHO"
     },
     {
@@ -33064,7 +33148,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 76187,
       "produto": "11113 ALHO TEMPERADO BAIANO OKKER 200 GR  - CX 12",
-      "quantidadeFaturadaCx": 20.0,
+      "quantidadeFaturadaCx": 21.0,
       "categoria": "ALHO"
     },
     {
@@ -33091,7 +33175,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 76400,
       "produto": "31104 ALHO PASTA DA TERRINHA 200 GR - CX 12",
-      "quantidadeFaturadaCx": 110.0,
+      "quantidadeFaturadaCx": 111.0,
       "categoria": "ALHO"
     },
     {
@@ -33109,7 +33193,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 77903,
       "produto": "00018 TAPIOCA DA TERRINHA NA MEDIDA 490 G - CX 12",
-      "quantidadeFaturadaCx": 6993.0,
+      "quantidadeFaturadaCx": 8402.0,
       "categoria": "TAPIOCA POUCH"
     },
     {
@@ -33118,7 +33202,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 78441,
       "produto": "01520  FLOCAO DE MILHO DA TERRINHA 800G  - FD 12",
-      "quantidadeFaturadaCx": 424.0,
+      "quantidadeFaturadaCx": 427.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -33127,7 +33211,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 78461,
       "produto": "01519 FLOCAO DE MILHO DA TERRINHA 400G - FD 24",
-      "quantidadeFaturadaCx": 7457.0,
+      "quantidadeFaturadaCx": 7648.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -33136,7 +33220,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 79003,
       "produto": "00932 COCO RALADO DESIDRATADO DATERRINHA 100 G - CX 24",
-      "quantidadeFaturadaCx": 385.0,
+      "quantidadeFaturadaCx": 409.0,
       "categoria": "DERIVADOS DO COCO"
     },
     {
@@ -33145,7 +33229,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 79005,
       "produto": "00933 COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G - CX 50",
-      "quantidadeFaturadaCx": 150.0,
+      "quantidadeFaturadaCx": 165.0,
       "categoria": "DERIVADOS DO COCO"
     },
     {
@@ -33154,7 +33238,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 79006,
       "produto": "00934 COCO RALADO UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-      "quantidadeFaturadaCx": 618.0,
+      "quantidadeFaturadaCx": 646.0,
       "categoria": "DERIVADOS DO COCO"
     },
     {
@@ -33163,7 +33247,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 79007,
       "produto": "00935 COCO FLOCOS UMIDO ADOCADO DA TERRINHA 100 G - CX 24",
-      "quantidadeFaturadaCx": 733.0,
+      "quantidadeFaturadaCx": 769.0,
       "categoria": "DERIVADOS DO COCO"
     },
     {
@@ -33181,7 +33265,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80401,
       "produto": "00941 LEITE DE COCO DA TERRINHA 200 ML - FD 24",
-      "quantidadeFaturadaCx": 1874.0,
+      "quantidadeFaturadaCx": 1951.0,
       "categoria": "DERIVADOS DO COCO"
     },
     {
@@ -33190,7 +33274,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80522,
       "produto": "00942 LEITE DE COCO DA TERRINHA 500 ML - FD 12",
-      "quantidadeFaturadaCx": 846.0,
+      "quantidadeFaturadaCx": 907.0,
       "categoria": "DERIVADOS DO COCO"
     },
     {
@@ -33199,7 +33283,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80605,
       "produto": "01614 CANJICA BRANCA DA TERRINHA 400 G - CX 12",
-      "quantidadeFaturadaCx": 1607.0,
+      "quantidadeFaturadaCx": 1855.0,
       "categoria": "GRAOS"
     },
     {
@@ -33208,7 +33292,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80607,
       "produto": "01615 ERVILHA PARTIDA DA TERRINHA 350 G - CX 12",
-      "quantidadeFaturadaCx": 1512.0,
+      "quantidadeFaturadaCx": 1665.0,
       "categoria": "GRAOS"
     },
     {
@@ -33217,7 +33301,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80641,
       "produto": "01617 LENTILHA DA TERRINHA 350 G - CX 12",
-      "quantidadeFaturadaCx": 1444.0,
+      "quantidadeFaturadaCx": 1674.0,
       "categoria": "GRAOS"
     },
     {
@@ -33226,7 +33310,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80649,
       "produto": "01616 GRAO DE BICO DA TERRINHA 350 G - CX 12",
-      "quantidadeFaturadaCx": 715.0,
+      "quantidadeFaturadaCx": 761.0,
       "categoria": "GRAOS"
     },
     {
@@ -33235,7 +33319,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80981,
       "produto": "01101 WRAP DE TAPIOCA ORIGINAL DA TERRINHA 150 G - CX 12",
-      "quantidadeFaturadaCx": 3533.0,
+      "quantidadeFaturadaCx": 3721.0,
       "categoria": "WRAP"
     },
     {
@@ -33244,7 +33328,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 83381,
       "produto": "01619 SAGU MANDIOCA DA TERRINHA 400 G - CX 12",
-      "quantidadeFaturadaCx": 659.0,
+      "quantidadeFaturadaCx": 777.0,
       "categoria": "GRAOS"
     },
     {
@@ -33253,7 +33337,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 86880,
       "produto": "01522 POLVILHO DOCE DA TERRINHA 1 KG - FD 12",
-      "quantidadeFaturadaCx": 2153.0,
+      "quantidadeFaturadaCx": 2368.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -33262,7 +33346,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 87621,
       "produto": "20001 PIPOCA DE MICROONDAS NATURAL DA TERRINHA 85G CX 24",
-      "quantidadeFaturadaCx": 245.0,
+      "quantidadeFaturadaCx": 273.0,
       "categoria": "PIPOCA DE MICRO-ONDAS"
     },
     {
@@ -33271,7 +33355,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 87624,
       "produto": "20002 PIPOCA DE MICROONDAS NATURAL C SAL DA TERRINHA 85G CX 24",
-      "quantidadeFaturadaCx": 1179.0,
+      "quantidadeFaturadaCx": 1328.0,
       "categoria": "PIPOCA DE MICRO-ONDAS"
     },
     {
@@ -33280,7 +33364,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 87626,
       "produto": "20003 PIPOCA DE MICROONDAS BACON DA TERRINHA 85G CX 24",
-      "quantidadeFaturadaCx": 244.0,
+      "quantidadeFaturadaCx": 291.0,
       "categoria": "PIPOCA DE MICRO-ONDAS"
     },
     {
@@ -33289,7 +33373,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 87628,
       "produto": "20004 PIPOCA DE MICROONDAS MANTEIGA CINEMA DA TERRINHA 85G CX 24",
-      "quantidadeFaturadaCx": 1478.0,
+      "quantidadeFaturadaCx": 1660.0,
       "categoria": "PIPOCA DE MICRO-ONDAS"
     },
     {
@@ -33298,7 +33382,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 87630,
       "produto": "20005 PIPOCA DE MICROONDAS CARAMELO  DA TERRINHA 85G CX 24",
-      "quantidadeFaturadaCx": 170.0,
+      "quantidadeFaturadaCx": 199.0,
       "categoria": "PIPOCA DE MICRO-ONDAS"
     },
     {
@@ -33307,7 +33391,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 87682,
       "produto": "01507 FARINHA FLOCADA PANKO DA TERRINHA 200 GR - CX 12.0",
-      "quantidadeFaturadaCx": 1663.0,
+      "quantidadeFaturadaCx": 1729.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -33316,7 +33400,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 90701,
       "produto": "01311 CHA DE CAMOMILA DA TERRINHA 07 G - FD 10",
-      "quantidadeFaturadaCx": 292.0,
+      "quantidadeFaturadaCx": 308.0,
       "categoria": "CHA - SACHES"
     },
     {
@@ -33325,7 +33409,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 90781,
       "produto": "01312 CHA DE CIDREIRA DA TERRINHA 07 G - FD 10",
-      "quantidadeFaturadaCx": 235.0,
+      "quantidadeFaturadaCx": 248.0,
       "categoria": "CHA - SACHES"
     },
     {
@@ -33334,7 +33418,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 90801,
       "produto": "01313 CHA DE HORTELA DA TERRINHA 07 G - FD 10",
-      "quantidadeFaturadaCx": 121.0,
+      "quantidadeFaturadaCx": 127.0,
       "categoria": "CHA - SACHES"
     },
     {
@@ -33343,7 +33427,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 90821,
       "produto": "01314 CHA DE BOLDO DA TERRINHA 07 G - FD 10",
-      "quantidadeFaturadaCx": 59.0,
+      "quantidadeFaturadaCx": 60.0,
       "categoria": "CHA - SACHES"
     },
     {
@@ -33352,7 +33436,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 90941,
       "produto": "01315 CHA DE ERVA DOCE DA TERRINHA 11,2 G - FD 10",
-      "quantidadeFaturadaCx": 179.0,
+      "quantidadeFaturadaCx": 188.0,
       "categoria": "CHA - SACHES"
     },
     {
@@ -33361,7 +33445,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 90961,
       "produto": "01316 CHA VERDE DA TERRINHA 11,2 G - FD 10",
-      "quantidadeFaturadaCx": 44.0,
+      "quantidadeFaturadaCx": 47.0,
       "categoria": "CHA - SACHES"
     },
     {
@@ -33370,7 +33454,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 90981,
       "produto": "01317 CHA QUENTAO DA TERRINHA 11,2 G -  FD 10",
-      "quantidadeFaturadaCx": 136.0,
+      "quantidadeFaturadaCx": 145.0,
       "categoria": "CHA - SACHES"
     },
     {
@@ -33379,7 +33463,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 94172,
       "produto": "11103 ALHO FRITO GRANULADO (POTE) OKKER 250 GR - CX 12",
-      "quantidadeFaturadaCx": 31.0,
+      "quantidadeFaturadaCx": 32.0,
       "categoria": "ALHO"
     },
     {
@@ -33397,7 +33481,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 96176,
       "produto": "00154 BANANINHA CREMOSA TRADICIONAL DA TERRINHA 30G  - 6DP x 12UN",
-      "quantidadeFaturadaCx": 32.0,
+      "quantidadeFaturadaCx": 33.0,
       "categoria": "BARRINHAS"
     },
     {
@@ -33415,7 +33499,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 96671,
       "produto": "00159 COCADA COM ABACAXI ZERO DA TERRINHA 22G - 6DP x 12UN",
-      "quantidadeFaturadaCx": 104.0,
+      "quantidadeFaturadaCx": 126.0,
       "categoria": "BARRINHAS"
     },
     {
@@ -33424,7 +33508,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 96770,
       "produto": "00160 COCADA COM CHOCOLATE ZERO DA TERRINHA 25G - 6DP x 12UN",
-      "quantidadeFaturadaCx": 33.0,
+      "quantidadeFaturadaCx": 43.0,
       "categoria": "BARRINHAS"
     },
     {
@@ -33469,7 +33553,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 100863,
       "produto": "01620 MILHO PIPOCA DA TERRINHA 1KG - FD 12",
-      "quantidadeFaturadaCx": 4886.0,
+      "quantidadeFaturadaCx": 5104.0,
       "categoria": "GRAOS"
     },
     {
@@ -33478,7 +33562,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 112412,
       "produto": "21804 FARINHA FLOCADA PANKO DA TERRINHA 1 KG - CX 10",
-      "quantidadeFaturadaCx": 421.0,
+      "quantidadeFaturadaCx": 431.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -33496,7 +33580,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 112478,
       "produto": "21806 FARINHA ROSCA DA TERRINHA 3 Kg - FD 05",
-      "quantidadeFaturadaCx": 403.0,
+      "quantidadeFaturadaCx": 464.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -33505,7 +33589,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 114294,
       "produto": "01153 BATATA ONDULADA COM CEBOLA E SALSA MIDA DA TERRINHA 40G - CX 20",
-      "quantidadeFaturadaCx": 106.0,
+      "quantidadeFaturadaCx": 113.0,
       "categoria": "SNACKS"
     },
     {
@@ -33514,7 +33598,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 114298,
       "produto": "01157 BATATA ONDULADA SABOR NATURAL MIDA DA TERRINHA 40G - CX 20",
-      "quantidadeFaturadaCx": 117.0,
+      "quantidadeFaturadaCx": 121.0,
       "categoria": "SNACKS"
     },
     {
@@ -33523,7 +33607,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 114300,
       "produto": "01152 BATATA LISA SABOR NATURAL MIDA DA TERRINHA 70G - CX 10",
-      "quantidadeFaturadaCx": 233.0,
+      "quantidadeFaturadaCx": 242.0,
       "categoria": "SNACKS"
     },
     {
@@ -33532,7 +33616,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 114302,
       "produto": "01154 BATATA ONDULADA COM CEBOLA E SALSA MIDA DA TERRINHA 70G - CX 10",
-      "quantidadeFaturadaCx": 260.0,
+      "quantidadeFaturadaCx": 271.0,
       "categoria": "SNACKS"
     },
     {
@@ -33541,7 +33625,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 114304,
       "produto": "01156 BATATA ONDULADA SABOR CHURRASCO MIDA DA TERRINHA 70G - CX 10",
-      "quantidadeFaturadaCx": 235.0,
+      "quantidadeFaturadaCx": 242.0,
       "categoria": "SNACKS"
     },
     {
@@ -33550,7 +33634,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 114306,
       "produto": "01158 BATATA ONDULADA SABOR NATURAL MIDA DA TERRINHA 70G - CX 10",
-      "quantidadeFaturadaCx": 254.0,
+      "quantidadeFaturadaCx": 263.0,
       "categoria": "SNACKS"
     },
     {
@@ -33559,7 +33643,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 116109,
       "produto": "00122 TAPIOCA BULNEZ 1 KG - FD 12",
-      "quantidadeFaturadaCx": 711.0,
+      "quantidadeFaturadaCx": 1465.0,
       "categoria": "NOVOS PRODUTOS"
     },
     {
@@ -33568,7 +33652,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 116111,
       "produto": "14313 FAROFA PRONTA BULNEZ TRADICIONAL 400 G - FD 24",
-      "quantidadeFaturadaCx": 466.0,
+      "quantidadeFaturadaCx": 1322.0,
       "categoria": "TAPIOCA MARCA PROPRIA"
     },
     {
@@ -33586,7 +33670,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 121091,
       "produto": "01161 AMENDOIM JAPONES MIDA DA TERRINHA 80G - CX 24",
-      "quantidadeFaturadaCx": 66.0,
+      "quantidadeFaturadaCx": 71.0,
       "categoria": "AMENDOIM"
     },
     {
@@ -33595,7 +33679,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 121223,
       "produto": "01172 AMENDOIM SEM PELE TORRADO E SALGADO MIDA DA TERRINHA 350G - CX 12",
-      "quantidadeFaturadaCx": 79.0,
+      "quantidadeFaturadaCx": 84.0,
       "categoria": "AMENDOIM"
     },
     {
@@ -33604,7 +33688,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 137393,
       "produto": "30106 TEMPERO PARA CARNES OKKER 180 G - CX 12",
-      "quantidadeFaturadaCx": 240.0,
+      "quantidadeFaturadaCx": 251.0,
       "categoria": "ALHO"
     },
     {
@@ -33613,7 +33697,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 137428,
       "produto": "30107 TEMPERO PARA FEIJAO OKKER 180 G - CX 12",
-      "quantidadeFaturadaCx": 108.0,
+      "quantidadeFaturadaCx": 115.0,
       "categoria": "ALHO"
     },
     {
@@ -33622,7 +33706,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 137459,
       "produto": "30108 TEMPERO PARA FRANGO OKKER 180 G - CX 12",
-      "quantidadeFaturadaCx": 149.0,
+      "quantidadeFaturadaCx": 156.0,
       "categoria": "ALHO"
     },
     {
@@ -33631,7 +33715,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 137461,
       "produto": "30109 TEMPERO PARA LEGUMES OKKER 180 G - CX 12",
-      "quantidadeFaturadaCx": 87.0,
+      "quantidadeFaturadaCx": 95.0,
       "categoria": "ALHO"
     },
     {
@@ -33640,7 +33724,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 139934,
       "produto": "14009 MILHOCA OISHII 500 G - CX 20",
-      "quantidadeFaturadaCx": 712.0,
+      "quantidadeFaturadaCx": 730.0,
       "categoria": "TAPIOCA MARCA PROPRIA"
     },
     {
@@ -33658,7 +33742,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 140800,
       "produto": "14013 MILHOCA CHICO BENTO OISHII 400G - CX 12",
-      "quantidadeFaturadaCx": 86.0,
+      "quantidadeFaturadaCx": 87.0,
       "categoria": "TAPIOCA POUCH"
     },
     {
@@ -33667,7 +33751,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 141587,
       "produto": "40215 CEBOLA PALHA CRISPY OISHII 70G - FD 20",
-      "quantidadeFaturadaCx": 60.0,
+      "quantidadeFaturadaCx": 61.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -33685,7 +33769,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 142344,
       "produto": "15110 SAL ROSA DO HIMALAIA FINO OISHII 200G - UND CX 24.0",
-      "quantidadeFaturadaCx": 6.0,
+      "quantidadeFaturadaCx": 7.0,
       "categoria": "ESPECIARIAS"
     },
     {
@@ -33712,7 +33796,7 @@
       "loja": "OKKER - FILIAL",
       "produtoKey": 70235,
       "produto": "11106 ALHO PASTA OKKER 800 GR - CX 24",
-      "quantidadeFaturadaCx": 317.0,
+      "quantidadeFaturadaCx": 322.0,
       "categoria": "ALHO"
     },
     {
@@ -33829,7 +33913,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72088,
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - FD 24",
-      "quantidadeFaturadaCx": 1004.0,
+      "quantidadeFaturadaCx": 1017.0,
       "categoria": "FAROFA"
     },
     {
@@ -33847,7 +33931,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 75879,
       "produto": "00203 BATATA PALHA DA TERRINHA EX FINA 100G CX 20",
-      "quantidadeFaturadaCx": 4706.0,
+      "quantidadeFaturadaCx": 5279.0,
       "categoria": "BATATA PALHA"
     },
     {
@@ -33865,7 +33949,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 96507,
       "produto": "00157 GOIABINHA TRADICIONAL DA TERRINHA 30G - 6DP x 12UN",
-      "quantidadeFaturadaCx": 42.0,
+      "quantidadeFaturadaCx": 43.0,
       "categoria": "BARRINHAS"
     },
     {
@@ -33874,7 +33958,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 96576,
       "produto": "00158 GOIABINHA ZERO DA TERRINHA 22G - 6DP x 12UN",
-      "quantidadeFaturadaCx": 79.0,
+      "quantidadeFaturadaCx": 81.0,
       "categoria": "BARRINHAS"
     },
     {
@@ -33883,7 +33967,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 114261,
       "produto": "01151 BATATA LISA SABOR NATURAL MIDA DA TERRINHA  40G - CX 20",
-      "quantidadeFaturadaCx": 87.0,
+      "quantidadeFaturadaCx": 90.0,
       "categoria": "SNACKS"
     },
     {
@@ -33892,7 +33976,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 114296,
       "produto": "01155 BATATA ONDULADA SABOR CHURRASCO MIDA DA TERRINHA 40G - CX 20",
-      "quantidadeFaturadaCx": 85.0,
+      "quantidadeFaturadaCx": 87.0,
       "categoria": "SNACKS"
     },
     {
@@ -33901,7 +33985,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 121157,
       "produto": "01163 AMENDOIM JAPONES MIDA DA TERRINHA 700G - CX 12",
-      "quantidadeFaturadaCx": 18.0,
+      "quantidadeFaturadaCx": 21.0,
       "categoria": "NOVOS PRODUTOS"
     },
     {
@@ -34009,7 +34093,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 80646,
       "produto": "00019 TAPIOCA DA TERRINHA GRANULADA 400 G - UND",
-      "quantidadeFaturadaCx": 0.41666666666666663,
+      "quantidadeFaturadaCx": 0.49999999999999994,
       "categoria": null
     },
     {
@@ -34045,7 +34129,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48050,
       "produto": "01502 FARINHA MANDIOCA FINA CRUA DA TERRINHA 500 - FD 12.0",
-      "quantidadeFaturadaCx": 2166.0,
+      "quantidadeFaturadaCx": 2204.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -34081,7 +34165,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 76401,
       "produto": "11102 ALHO FRITO GRANULADO OKKER 90 GR - CX 12",
-      "quantidadeFaturadaCx": 74.0,
+      "quantidadeFaturadaCx": 77.0,
       "categoria": "ALHO"
     },
     {
@@ -34090,7 +34174,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80643,
       "produto": "01618 MILHO PIPOCA DA TERRINHA 400 G - CX 12",
-      "quantidadeFaturadaCx": 6389.0,
+      "quantidadeFaturadaCx": 6439.0,
       "categoria": "GRAOS"
     },
     {
@@ -34099,7 +34183,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 96374,
       "produto": "00156 BANANINHA COM AMENDOIM DA TERRINHA 25G   - 6DP x 12UN",
-      "quantidadeFaturadaCx": 5.0,
+      "quantidadeFaturadaCx": 15.0,
       "categoria": "BARRINHAS"
     },
     {
@@ -34108,7 +34192,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 112479,
       "produto": "21807 TRIGO PARA KIBE DA TERRINHA 3 KG - FD 05",
-      "quantidadeFaturadaCx": 215.0,
+      "quantidadeFaturadaCx": 227.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -34117,7 +34201,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 112480,
       "produto": "21808 FUBA MIMOSO DA TERRINHA 3 KG - FD 05",
-      "quantidadeFaturadaCx": 1043.0,
+      "quantidadeFaturadaCx": 1135.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -34126,7 +34210,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 116076,
       "produto": "00121 TAPIOCA BULNEZ 500 G - FD 24",
-      "quantidadeFaturadaCx": 73.0,
+      "quantidadeFaturadaCx": 112.0,
       "categoria": "TAPIOCA MARCA PROPRIA"
     },
     {
@@ -34189,7 +34273,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 68867,
       "produto": "09518 MISTURA PAO DE QUEIJO DA TERRINHA 250G - FD 12",
-      "quantidadeFaturadaCx": 132.0,
+      "quantidadeFaturadaCx": 133.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -34288,7 +34372,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 77521,
       "produto": "31302 ALHO TRITURADO DA TERRINHA 400 GR - CX 12",
-      "quantidadeFaturadaCx": 47.0,
+      "quantidadeFaturadaCx": 50.0,
       "categoria": "ALHO"
     },
     {
@@ -34324,7 +34408,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 98390,
       "produto": "00118 TAPIOCA X 500 G - FD 24",
-      "quantidadeFaturadaCx": 37.0,
+      "quantidadeFaturadaCx": 52.0,
       "categoria": "TAPIOCA MARCA PROPRIA"
     },
     {
@@ -34360,7 +34444,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 121289,
       "produto": "01182 OVINHOS DE AMENDOIM MIDA DA TERRINHA  350G - CX 12",
-      "quantidadeFaturadaCx": 58.0,
+      "quantidadeFaturadaCx": 63.0,
       "categoria": "AMENDOIM"
     },
     {
@@ -34369,7 +34453,7 @@
       "loja": "OKKER - FILIAL",
       "produtoKey": 70233,
       "produto": "11105 ALHO PASTA OKKER 400 GR - CX 36",
-      "quantidadeFaturadaCx": 501.0,
+      "quantidadeFaturadaCx": 526.0,
       "categoria": "ALHO"
     },
     {
@@ -34378,7 +34462,7 @@
       "loja": "OKKER - FILIAL",
       "produtoKey": 70237,
       "produto": "11122 ALHO PASTA OKKER 2 KG  - CX 12",
-      "quantidadeFaturadaCx": 154.0,
+      "quantidadeFaturadaCx": 159.0,
       "categoria": "ALHO"
     },
     {
@@ -34396,7 +34480,7 @@
       "loja": "OKKER - FILIAL",
       "produtoKey": 70288,
       "produto": "11113 ALHO TEMPERADO BAIANO OKKER 200 GR - CX 36",
-      "quantidadeFaturadaCx": 163.0,
+      "quantidadeFaturadaCx": 169.0,
       "categoria": "ALHO"
     },
     {
@@ -34405,7 +34489,7 @@
       "loja": "OKKER - FILIAL",
       "produtoKey": 70292,
       "produto": "30202 ALHO TEMPERADO MINEIRO OKKER 200 GR - CX 36",
-      "quantidadeFaturadaCx": 183.0,
+      "quantidadeFaturadaCx": 193.0,
       "categoria": "ALHO"
     },
     {
@@ -34567,7 +34651,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 72230,
       "produto": "31001 ALHO FRITO GRANULADO DA TERRINHA POTE 90 G - UND CX 12.0",
-      "quantidadeFaturadaCx": 49.0,
+      "quantidadeFaturadaCx": 50.0,
       "categoria": "ALHO"
     },
     {
@@ -34585,7 +34669,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 77781,
       "produto": "00924 OLEO DE COCO DA TERRINHA SEM SABOR 500ML - FD 6",
-      "quantidadeFaturadaCx": 11.0,
+      "quantidadeFaturadaCx": 13.0,
       "categoria": null
     },
     {
@@ -34612,7 +34696,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 83801,
       "produto": "14906 FARINHA DE MANDIOCA GROSSA MERCADAO 1 KG - FD 12",
-      "quantidadeFaturadaCx": 540.0,
+      "quantidadeFaturadaCx": 600.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -34621,7 +34705,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 89120,
       "produto": "19002 CREME DE AVELA DAVELA 290 G CX 10",
-      "quantidadeFaturadaCx": 1228.0,
+      "quantidadeFaturadaCx": 1337.0,
       "categoria": "CREME DE AVELA"
     },
     {
@@ -34630,7 +34714,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 96969,
       "produto": "00161 COCO E PROTEINA DA TERRINHA 40G - 6DP x 12UN",
-      "quantidadeFaturadaCx": 3.0,
+      "quantidadeFaturadaCx": 13.0,
       "categoria": "NOVOS PRODUTOS"
     },
     {
@@ -34684,7 +34768,7 @@
       "loja": "OKKER - FILIAL",
       "produtoKey": 70245,
       "produto": "11112 ALHO TRITURADO OKKER 3 KG - CX 6",
-      "quantidadeFaturadaCx": 389.0,
+      "quantidadeFaturadaCx": 399.0,
       "categoria": "ALHO"
     },
     {
@@ -35152,7 +35236,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80647,
       "produto": "00019 TAPIOCA DA TERRINHA GRANULADA 400 G - CX 12",
-      "quantidadeFaturadaCx": 733.0,
+      "quantidadeFaturadaCx": 920.0,
       "categoria": "GRAOS"
     },
     {
@@ -35269,7 +35353,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 1,
       "produto": "00001 TAPIOCA DA TERRINHA 1 KG - UND",
-      "quantidadeFaturadaCx": 2470.1666666666665,
+      "quantidadeFaturadaCx": 2470.3333333333335,
       "categoria": null
     },
     {
@@ -35287,7 +35371,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48704,
       "produto": "01745 COMINHO EM PO DA TERRINHA 50 g  - UND",
-      "quantidadeFaturadaCx": 0.625,
+      "quantidadeFaturadaCx": 1.25,
       "categoria": null
     },
     {
@@ -35296,7 +35380,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 50103,
       "produto": "01732 CHIMICHURRI DA TERRINHA 20g - UND",
-      "quantidadeFaturadaCx": 1.0,
+      "quantidadeFaturadaCx": 2.0,
       "categoria": null
     },
     {
@@ -35368,7 +35452,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 121124,
       "produto": "01162 AMENDOIM JAPONES MIDA DA TERRINHA 350G - CX 12",
-      "quantidadeFaturadaCx": 53.0,
+      "quantidadeFaturadaCx": 58.0,
       "categoria": "AMENDOIM"
     },
     {
@@ -35377,7 +35461,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 121190,
       "produto": "01171 AMENDOIM SEM PELE TORRADO E SALGADO MIDA DA TERRINHA 80G - CX 24",
-      "quantidadeFaturadaCx": 17.0,
+      "quantidadeFaturadaCx": 19.0,
       "categoria": "AMENDOIM"
     },
     {
@@ -35386,7 +35470,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 121256,
       "produto": "01181 OVINHOS DE AMENDOIM MIDA DA TERRINHA  80G - CX 12",
-      "quantidadeFaturadaCx": 33.0,
+      "quantidadeFaturadaCx": 42.0,
       "categoria": "AMENDOIM"
     },
     {
@@ -35458,7 +35542,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 89103,
       "produto": "19001 CREME DE AVELA DAVELA 140 G CX 10",
-      "quantidadeFaturadaCx": 1411.0,
+      "quantidadeFaturadaCx": 2273.0,
       "categoria": "CREME DE AVELA"
     },
     {
@@ -35523,6 +35607,33 @@
       "produto": "CAIXA PAPELAO FAROFA DA TERRINHA 300 GR",
       "quantidadeFaturadaCx": 9.95,
       "categoria": null
+    },
+    {
+      "mes": "2026-10",
+      "lojaKey": null,
+      "loja": "Loja não identificada",
+      "produtoKey": 48704,
+      "produto": "01745 COMINHO EM PO DA TERRINHA 50 g  - UND",
+      "quantidadeFaturadaCx": 0.41666666666666663,
+      "categoria": null
+    },
+    {
+      "mes": "2026-10",
+      "lojaKey": null,
+      "loja": "Loja não identificada",
+      "produtoKey": 80380,
+      "produto": "00941 LEITE DE COCO DA TERRINHA 200 ML - UND",
+      "quantidadeFaturadaCx": 0.08333333333333333,
+      "categoria": null
+    },
+    {
+      "mes": "2026-10",
+      "lojaKey": 17,
+      "loja": "OKKER - FILIAL",
+      "produtoKey": 76182,
+      "produto": "11128 ALHO PASTA OKKER 200 GR - CX 12",
+      "quantidadeFaturadaCx": 30.0,
+      "categoria": "ALHO"
     },
     {
       "mes": "2026-09",
@@ -35656,7 +35767,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 25445,
       "produto": "00006 TAPIOCA DELIOCA PREMIUM 560 G - CX 12",
-      "quantidadeFaturadaCx": 5004.0,
+      "quantidadeFaturadaCx": 5005.0,
       "categoria": "TAPIOCA POUCH"
     },
     {
@@ -35665,7 +35776,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 27745,
       "produto": "00001 TAPIOCA DA TERRINHA 1 KG - FD 12",
-      "quantidadeFaturadaCx": 125594.0,
+      "quantidadeFaturadaCx": 125597.0,
       "categoria": "TAPIOCA"
     },
     {
@@ -35674,7 +35785,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 28963,
       "produto": "00301 FAROFA ARTESANAL DA TERRINHA TRADICIONAL 300 G - CX 20",
-      "quantidadeFaturadaCx": 2194.0,
+      "quantidadeFaturadaCx": 2195.0,
       "categoria": "FAROFA"
     },
     {
@@ -35854,7 +35965,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48052,
       "produto": "01505 FARINHA MANDIOCA GROSSA CRUA DA TERRINHA 500 GR - FD 12.0",
-      "quantidadeFaturadaCx": 2571.0,
+      "quantidadeFaturadaCx": 2572.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -35863,7 +35974,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48054,
       "produto": "01504 FARINHA MANDIOCA GROSSA CRUA DA TERRINHA 1 KG - FD 12",
-      "quantidadeFaturadaCx": 7485.0,
+      "quantidadeFaturadaCx": 7486.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -35872,7 +35983,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48056,
       "produto": "01501 FARINHA MANDIOCA FINA CRUA DA TERRINHA 1 KG  FD 12",
-      "quantidadeFaturadaCx": 4496.0,
+      "quantidadeFaturadaCx": 4497.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -35908,7 +36019,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48145,
       "produto": "01518 POLVILHO DOCE DA TERRINHA 500 G - FD 12",
-      "quantidadeFaturadaCx": 1700.0,
+      "quantidadeFaturadaCx": 1701.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -35917,7 +36028,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 48163,
       "produto": "01517 POLVILHO AZEDO DA TERRINHA 500 G FD 12",
-      "quantidadeFaturadaCx": 1573.0,
+      "quantidadeFaturadaCx": 1574.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -36106,7 +36217,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 63307,
       "produto": "01513 FLOCOS DE MILHO ( CUSCUZ ) DA TERRINHA 500 G - FD 30",
-      "quantidadeFaturadaCx": 1553.0,
+      "quantidadeFaturadaCx": 1554.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -36511,7 +36622,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 78461,
       "produto": "01519 FLOCAO DE MILHO DA TERRINHA 400G - FD 24",
-      "quantidadeFaturadaCx": 10420.0,
+      "quantidadeFaturadaCx": 10424.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -36583,7 +36694,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80605,
       "produto": "01614 CANJICA BRANCA DA TERRINHA 400 G - CX 12",
-      "quantidadeFaturadaCx": 5771.0,
+      "quantidadeFaturadaCx": 5772.0,
       "categoria": "GRAOS"
     },
     {
@@ -36592,7 +36703,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80607,
       "produto": "01615 ERVILHA PARTIDA DA TERRINHA 350 G - CX 12",
-      "quantidadeFaturadaCx": 2108.0,
+      "quantidadeFaturadaCx": 2109.0,
       "categoria": "GRAOS"
     },
     {
@@ -36601,7 +36712,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80641,
       "produto": "01617 LENTILHA DA TERRINHA 350 G - CX 12",
-      "quantidadeFaturadaCx": 2660.0,
+      "quantidadeFaturadaCx": 2661.0,
       "categoria": "GRAOS"
     },
     {
@@ -36610,7 +36721,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80643,
       "produto": "01618 MILHO PIPOCA DA TERRINHA 400 G - CX 12",
-      "quantidadeFaturadaCx": 23718.0,
+      "quantidadeFaturadaCx": 23722.0,
       "categoria": "GRAOS"
     },
     {
@@ -36619,7 +36730,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80647,
       "produto": "00019 TAPIOCA DA TERRINHA GRANULADA 400 G - CX 12",
-      "quantidadeFaturadaCx": 4271.0,
+      "quantidadeFaturadaCx": 4272.0,
       "categoria": "GRAOS"
     },
     {
@@ -36628,7 +36739,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 80649,
       "produto": "01616 GRAO DE BICO DA TERRINHA 350 G - CX 12",
-      "quantidadeFaturadaCx": 1830.0,
+      "quantidadeFaturadaCx": 1831.0,
       "categoria": "GRAOS"
     },
     {
@@ -36718,7 +36829,7 @@
       "loja": "DA TERRINHA - FILIAL SP",
       "produtoKey": 87682,
       "produto": "01507 FARINHA FLOCADA PANKO DA TERRINHA 200 GR - CX 12.0",
-      "quantidadeFaturadaCx": 4424.0,
+      "quantidadeFaturadaCx": 4425.0,
       "categoria": "FARINACEOS"
     },
     {
@@ -40732,7 +40843,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 72087,
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - UND",
-      "quantidadeFaturadaCx": 13.900000000000002,
+      "quantidadeFaturadaCx": 13.900000000000004,
       "categoria": "FAROFA"
     },
     {
@@ -42919,7 +43030,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 50099,
       "produto": "01708 BICARBONATO DE SODIO DA TERRINHA 20 g - UND",
-      "quantidadeFaturadaCx": 0.9583333333333333,
+      "quantidadeFaturadaCx": 0.9583333333333331,
       "categoria": null
     },
     {
@@ -54988,7 +55099,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 72087,
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - UND",
-      "quantidadeFaturadaCx": 12.212500000000002,
+      "quantidadeFaturadaCx": 12.2125,
       "categoria": "FAROFA"
     },
     {
@@ -55015,7 +55126,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 77902,
       "produto": "00018 TAPIOCA DA TERRINHA NA MEDIDA 490 G - UND",
-      "quantidadeFaturadaCx": 3.666666666666666,
+      "quantidadeFaturadaCx": 3.6666666666666665,
       "categoria": null
     },
     {
