@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-19T14:13:44",
+  "atualizadoEm": "2026-10-20T08:16:53",
   "origem": "dados_cortes.json (Power Automate) + motivos_cortes.xlsx (preenchimento manual)",
   "cortes": [
     {
@@ -11,7 +11,7 @@
       "quantidadePedidaCx": 30.0,
       "quantidadeFaturadaCx": 18.55,
       "corteCx": 11.45,
-      "motivo": null,
+      "motivo": "Outro",
       "observacoes": null,
       "categoria": "FECULA",
       "setor": null
@@ -25,10 +25,10 @@
       "quantidadePedidaCx": 58.0,
       "quantidadeFaturadaCx": 38.0,
       "corteCx": 20.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema de produção",
+      "observacoes": "capacidade de produção",
       "categoria": "TAPIOCA MARCA PROPRIA",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-17",
@@ -39,10 +39,10 @@
       "quantidadePedidaCx": 70.0,
       "quantidadeFaturadaCx": 20.0,
       "corteCx": 50.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema de produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-17",
@@ -53,10 +53,10 @@
       "quantidadePedidaCx": 4097.0,
       "quantidadeFaturadaCx": 3971.0,
       "corteCx": 126.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema de produção",
+      "observacoes": "produzindo outros produtos",
       "categoria": "GRAOS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-16",
@@ -67,7 +67,7 @@
       "quantidadePedidaCx": 30.0,
       "quantidadeFaturadaCx": 23.622,
       "corteCx": 6.378,
-      "motivo": null,
+      "motivo": "Outro",
       "observacoes": null,
       "categoria": "FECULA",
       "setor": null
@@ -81,10 +81,10 @@
       "quantidadePedidaCx": 64.0,
       "quantidadeFaturadaCx": 61.0,
       "corteCx": 3.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema de produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-16",
@@ -95,10 +95,10 @@
       "quantidadePedidaCx": 96.0,
       "quantidadeFaturadaCx": 46.0,
       "corteCx": 50.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema de produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-16",
@@ -109,10 +109,10 @@
       "quantidadePedidaCx": 3.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 2.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema de produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-16",
@@ -123,10 +123,10 @@
       "quantidadePedidaCx": 23.0,
       "quantidadeFaturadaCx": 9.0,
       "corteCx": 14.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Problema de produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-16",
@@ -137,10 +137,10 @@
       "quantidadePedidaCx": 232.0,
       "quantidadeFaturadaCx": 204.0,
       "corteCx": 28.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Falta de matéria-prima",
+      "observacoes": "Fornecedor  sem materia prima",
       "categoria": "GRAOS",
-      "setor": null
+      "setor": "COMPRAS"
     },
     {
       "data": "2026-10-15",
@@ -3300,7 +3300,7 @@
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - UND",
       "quantidadePedidaCx": 0.9125000000000003,
       "quantidadeFaturadaCx": 0.5375000000000001,
-      "corteCx": 0.37499999999999994,
+      "corteCx": 0.375,
       "motivo": null,
       "observacoes": null,
       "categoria": "FAROFA",
@@ -32148,7 +32148,7 @@
     }
   ],
   "totalLinhas": 2296,
-  "semMotivo": 2217,
+  "semMotivo": 2207,
   "atendidos": [
     {
       "mes": "2026-10",
