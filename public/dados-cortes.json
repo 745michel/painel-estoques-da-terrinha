@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-20T14:06:59",
+  "atualizadoEm": "2026-10-21T08:16:16",
   "origem": "dados_cortes.json (Power Automate) + motivos_cortes.xlsx (preenchimento manual)",
   "cortes": [
     {
@@ -25,8 +25,8 @@
       "quantidadePedidaCx": 129.0,
       "quantidadeFaturadaCx": 119.0,
       "corteCx": 10.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade produção",
       "categoria": "ESPECIARIAS",
       "setor": null
     },
@@ -39,8 +39,8 @@
       "quantidadePedidaCx": 111.0,
       "quantidadeFaturadaCx": 109.0,
       "corteCx": 2.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade produção",
       "categoria": "ESPECIARIAS",
       "setor": null
     },
@@ -53,10 +53,10 @@
       "quantidadePedidaCx": 15.0,
       "quantidadeFaturadaCx": 2.0,
       "corteCx": 13.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Atraso na entrega",
+      "observacoes": "Produzindo pimenta biquinho",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "COMPRAS"
     },
     {
       "data": "2026-10-19",
@@ -67,10 +67,10 @@
       "quantidadePedidaCx": 548.0,
       "quantidadeFaturadaCx": 540.0,
       "corteCx": 8.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Falta de Programação",
+      "observacoes": "produzidno canjica",
       "categoria": "GRAOS",
-      "setor": null
+      "setor": "PCP"
     },
     {
       "data": "2026-10-19",
@@ -81,10 +81,10 @@
       "quantidadePedidaCx": 27.0,
       "quantidadeFaturadaCx": 17.0,
       "corteCx": 10.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Falta de matéria-prima",
+      "observacoes": "Fornecedor  sem materia prima",
       "categoria": "PIMENTAS",
-      "setor": null
+      "setor": "COMPRAS"
     },
     {
       "data": "2026-10-18",
@@ -109,10 +109,10 @@
       "quantidadePedidaCx": 58.0,
       "quantidadeFaturadaCx": 38.0,
       "corteCx": 20.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "TAPIOCA MARCA PROPRIA",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-17",
@@ -123,10 +123,10 @@
       "quantidadePedidaCx": 70.0,
       "quantidadeFaturadaCx": 20.0,
       "corteCx": 50.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-17",
@@ -137,10 +137,10 @@
       "quantidadePedidaCx": 4097.0,
       "quantidadeFaturadaCx": 3971.0,
       "corteCx": 126.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "produzindo outros produtos",
       "categoria": "GRAOS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-16",
@@ -165,10 +165,10 @@
       "quantidadePedidaCx": 64.0,
       "quantidadeFaturadaCx": 61.0,
       "corteCx": 3.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-16",
@@ -179,10 +179,10 @@
       "quantidadePedidaCx": 96.0,
       "quantidadeFaturadaCx": 46.0,
       "corteCx": 50.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-16",
@@ -193,10 +193,10 @@
       "quantidadePedidaCx": 3.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 2.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ALHO",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-16",
@@ -207,10 +207,10 @@
       "quantidadePedidaCx": 23.0,
       "quantidadeFaturadaCx": 9.0,
       "corteCx": 14.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ALHO",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-16",
@@ -249,10 +249,10 @@
       "quantidadePedidaCx": 5.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 4.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-15",
@@ -263,10 +263,10 @@
       "quantidadePedidaCx": 168.0,
       "quantidadeFaturadaCx": 94.0,
       "corteCx": 74.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-15",
@@ -277,10 +277,10 @@
       "quantidadePedidaCx": 318.0,
       "quantidadeFaturadaCx": 297.0,
       "corteCx": 21.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-15",
@@ -291,10 +291,10 @@
       "quantidadePedidaCx": 18.0,
       "quantidadeFaturadaCx": 6.0,
       "corteCx": 12.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ALHO",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-15",
@@ -347,10 +347,10 @@
       "quantidadePedidaCx": 2.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 1.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-14",
@@ -361,10 +361,10 @@
       "quantidadePedidaCx": 9.0,
       "quantidadeFaturadaCx": 2.0,
       "corteCx": 7.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ALHO",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-14",
@@ -417,10 +417,10 @@
       "quantidadePedidaCx": 8.0,
       "quantidadeFaturadaCx": 2.0,
       "corteCx": 6.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-13",
@@ -431,10 +431,10 @@
       "quantidadePedidaCx": 21.0,
       "quantidadeFaturadaCx": 20.0,
       "corteCx": 1.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "outros pedido na linha",
       "categoria": "ALHO",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-13",
@@ -445,10 +445,10 @@
       "quantidadePedidaCx": 23.0,
       "quantidadeFaturadaCx": 20.0,
       "corteCx": 3.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "outros pedido na linha",
       "categoria": "ALHO",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-13",
@@ -501,10 +501,10 @@
       "quantidadePedidaCx": 4.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 3.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "GRAOS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-13",
@@ -557,10 +557,10 @@
       "quantidadePedidaCx": 3.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 2.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "outros pedido na linha",
       "categoria": "ALHO",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-12",
@@ -571,10 +571,10 @@
       "quantidadePedidaCx": 20.0,
       "quantidadeFaturadaCx": 2.0,
       "corteCx": 18.0,
-      "motivo": "Problema logístico/transporte",
+      "motivo": "Falta de Programação",
       "observacoes": "produto em estoque",
       "categoria": "FAROFA",
-      "setor": "LOGÍSTICA"
+      "setor": "PCP"
     },
     {
       "data": "2026-10-12",
@@ -599,10 +599,10 @@
       "quantidadePedidaCx": 10.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 9.0,
-      "motivo": "Problema logístico/transporte",
-      "observacoes": null,
+      "motivo": "Falta de Programação",
+      "observacoes": "produto em estoque",
       "categoria": "FAROFA",
-      "setor": "LOGÍSTICA"
+      "setor": "PCP"
     },
     {
       "data": "2026-10-09",
@@ -627,10 +627,10 @@
       "quantidadePedidaCx": 13.0,
       "quantidadeFaturadaCx": 5.0,
       "corteCx": 8.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "ajustando produção na Copack",
       "categoria": "ESPECIARIAS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-08",
@@ -641,10 +641,10 @@
       "quantidadePedidaCx": 402.0,
       "quantidadeFaturadaCx": 400.0,
       "corteCx": 2.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": null,
       "categoria": "FARINACEOS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-08",
@@ -655,10 +655,10 @@
       "quantidadePedidaCx": 112.0,
       "quantidadeFaturadaCx": 60.0,
       "corteCx": 52.0,
-      "motivo": "Problema de qualidade",
+      "motivo": "Qualidade",
       "observacoes": "Amrelou 981 fardos no estoque",
       "categoria": "TAPIOCA MARCA PROPRIA",
-      "setor": "QUALIDADE"
+      "setor": null
     },
     {
       "data": "2026-10-08",
@@ -683,10 +683,10 @@
       "quantidadePedidaCx": 24.0,
       "quantidadeFaturadaCx": 13.0,
       "corteCx": 11.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "produzindo outros produtos",
       "categoria": "ALHO",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-08",
@@ -725,10 +725,10 @@
       "quantidadePedidaCx": 108.0,
       "quantidadeFaturadaCx": 13.0,
       "corteCx": 95.0,
-      "motivo": "Problema de qualidade",
+      "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": "QUALIDADE"
+      "setor": null
     },
     {
       "data": "2026-10-08",
@@ -739,10 +739,10 @@
       "quantidadePedidaCx": 10.0,
       "quantidadeFaturadaCx": 1.0,
       "corteCx": 9.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "capidade produção",
       "categoria": "GRAOS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-08",
@@ -781,10 +781,10 @@
       "quantidadePedidaCx": 596.0,
       "quantidadeFaturadaCx": 500.0,
       "corteCx": 96.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": null,
       "categoria": "FARINACEOS",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-07",
@@ -809,10 +809,10 @@
       "quantidadePedidaCx": 20.0,
       "quantidadeFaturadaCx": 14.0,
       "corteCx": 6.0,
-      "motivo": "Problema logístico/transporte",
+      "motivo": "Falta de Programação",
       "observacoes": "produto em estoque",
       "categoria": "TAPIOCA MARCA PROPRIA",
-      "setor": "LOGÍSTICA"
+      "setor": "PCP"
     },
     {
       "data": "2026-10-07",
@@ -823,10 +823,10 @@
       "quantidadePedidaCx": 131.0,
       "quantidadeFaturadaCx": 105.0,
       "corteCx": 26.0,
-      "motivo": "Problema de qualidade",
+      "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": "QUALIDADE"
+      "setor": null
     },
     {
       "data": "2026-10-07",
@@ -851,10 +851,10 @@
       "quantidadePedidaCx": 15.0,
       "quantidadeFaturadaCx": 14.0,
       "corteCx": 1.0,
-      "motivo": "Problema logístico/transporte",
+      "motivo": "Falta de Programação",
       "observacoes": "produto em estoque",
       "categoria": "ALHO",
-      "setor": "LOGÍSTICA"
+      "setor": "PCP"
     },
     {
       "data": "2026-10-07",
@@ -907,10 +907,10 @@
       "quantidadePedidaCx": 602.0,
       "quantidadeFaturadaCx": 601.0,
       "corteCx": 1.0,
-      "motivo": "Problema de qualidade",
+      "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": "QUALIDADE"
+      "setor": null
     },
     {
       "data": "2026-10-06",
@@ -921,10 +921,10 @@
       "quantidadePedidaCx": 225.0,
       "quantidadeFaturadaCx": 224.0,
       "corteCx": 1.0,
-      "motivo": "Problema de qualidade",
+      "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": "QUALIDADE"
+      "setor": null
     },
     {
       "data": "2026-10-06",
@@ -949,10 +949,10 @@
       "quantidadePedidaCx": 265.0,
       "quantidadeFaturadaCx": 75.0,
       "corteCx": 190.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": "outros pedido na linha",
       "categoria": "ALHO",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-06",
@@ -977,10 +977,10 @@
       "quantidadePedidaCx": 269.0,
       "quantidadeFaturadaCx": 127.0,
       "corteCx": 142.0,
-      "motivo": "Problema de produção",
+      "motivo": "Produção",
       "observacoes": null,
       "categoria": "ALHO",
-      "setor": "PRODUÇÃO"
+      "setor": null
     },
     {
       "data": "2026-10-06",
@@ -1019,10 +1019,10 @@
       "quantidadePedidaCx": 2117.0,
       "quantidadeFaturadaCx": 2111.0,
       "corteCx": 6.0,
-      "motivo": "Problema de qualidade",
+      "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": "QUALIDADE"
+      "setor": null
     },
     {
       "data": "2026-10-05",
@@ -1033,10 +1033,10 @@
       "quantidadePedidaCx": 114.0,
       "quantidadeFaturadaCx": 96.0,
       "corteCx": 18.0,
-      "motivo": "Problema de qualidade",
+      "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": "QUALIDADE"
+      "setor": null
     },
     {
       "data": "2026-10-02",
@@ -1089,10 +1089,10 @@
       "quantidadePedidaCx": 293.0,
       "quantidadeFaturadaCx": 279.0,
       "corteCx": 14.0,
-      "motivo": "Problema logístico/transporte",
+      "motivo": "Falta de Programação",
       "observacoes": "produto em estoque",
       "categoria": "TAPIOCA POUCH",
-      "setor": "LOGÍSTICA"
+      "setor": "PCP"
     },
     {
       "data": "2026-10-02",
@@ -1117,10 +1117,10 @@
       "quantidadePedidaCx": 168.0,
       "quantidadeFaturadaCx": 165.0,
       "corteCx": 3.0,
-      "motivo": "Problema logístico/transporte",
+      "motivo": "Falta de Programação",
       "observacoes": "produto em estoque",
       "categoria": "GRAOS",
-      "setor": "LOGÍSTICA"
+      "setor": "PCP"
     },
     {
       "data": "2026-10-02",
@@ -1159,10 +1159,10 @@
       "quantidadePedidaCx": 201.0,
       "quantidadeFaturadaCx": 6.0,
       "corteCx": 195.0,
-      "motivo": "Problema de qualidade",
+      "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": "QUALIDADE"
+      "setor": null
     },
     {
       "data": "2026-10-02",
@@ -1173,10 +1173,10 @@
       "quantidadePedidaCx": 58.0,
       "quantidadeFaturadaCx": 4.0,
       "corteCx": 54.0,
-      "motivo": "Problema de qualidade",
+      "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": "QUALIDADE"
+      "setor": null
     },
     {
       "data": "2026-10-02",
@@ -1243,10 +1243,10 @@
       "quantidadePedidaCx": 38.0,
       "quantidadeFaturadaCx": 37.0,
       "corteCx": 1.0,
-      "motivo": "Problema logístico/transporte",
+      "motivo": "Falta de Programação",
       "observacoes": "produto em estoque",
       "categoria": "FAROFA",
-      "setor": "LOGÍSTICA"
+      "setor": "PCP"
     },
     {
       "data": "2026-10-01",
@@ -1313,10 +1313,10 @@
       "quantidadePedidaCx": 164.0,
       "quantidadeFaturadaCx": 11.0,
       "corteCx": 153.0,
-      "motivo": "Problema de qualidade",
+      "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": "QUALIDADE"
+      "setor": null
     },
     {
       "data": "2026-10-01",
@@ -1341,10 +1341,10 @@
       "quantidadePedidaCx": 360.0,
       "quantidadeFaturadaCx": 315.0,
       "corteCx": 45.0,
-      "motivo": "Problema logístico/transporte",
+      "motivo": "Falta de Programação",
       "observacoes": "produto em estoque",
       "categoria": "TAPIOCA MARCA PROPRIA",
-      "setor": "LOGÍSTICA"
+      "setor": "PCP"
     },
     {
       "data": "2026-09-30",
@@ -32204,7 +32204,7 @@
     }
   ],
   "totalLinhas": 2300,
-  "semMotivo": 2211,
+  "semMotivo": 2206,
   "atendidos": [
     {
       "mes": "2026-10",
