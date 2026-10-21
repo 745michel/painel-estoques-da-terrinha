@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-21T08:14:46",
+  "atualizadoEm": "2026-10-21T14:16:25",
   "origem": "EMBALAGEM Estoque X Pedido.xlsm / EMBALAGENS (fornecedor e entregas programadas: compras_a_receber.json; projecaoBom: ficha_tecnica.json + dados-escadinha.json)",
   "produtos": [
     {
@@ -56,18 +56,23 @@
       "proximaEntrada": "2026-12-20T15:15:45.041000",
       "entregasProgramadas": [
         {
-          "data": "2026-11-26T00:00:00",
+          "data": "2026-11-10T00:00:00",
           "quantidade": 2500,
           "pedido": 471891
+        },
+        {
+          "data": "2026-12-15T00:00:00",
+          "quantidade": 2500,
+          "pedido": 492615
         }
       ],
-      "totalProgramado": 2500,
+      "totalProgramado": 5000,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
-      "primeiraEntrega": "2026-11-26",
-      "diasAtePrimeiraEntrega": 36,
-      "coberturaNaPrimeiraEntrega": 12.3,
+      "primeiraEntrega": "2026-11-10",
+      "diasAtePrimeiraEntrega": 20,
+      "coberturaNaPrimeiraEntrega": 28.3,
       "temFichaTecnica": true,
       "projecaoBom": 1820.0,
       "consumoRealBom": 976.2
@@ -138,7 +143,7 @@
         },
         {
           "data": "2026-11-05T00:00:00",
-          "quantidade": 2000,
+          "quantidade": 2500,
           "pedido": 487533
         },
         {
@@ -147,7 +152,7 @@
           "pedido": 487534
         }
       ],
-      "totalProgramado": 6000,
+      "totalProgramado": 6500,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -368,8 +373,8 @@
       "proximaEntrada": "2026-12-31T10:24:28.403000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-21T00:00:00",
-          "quantidade": 4200,
+          "data": "2026-10-23T00:00:00",
+          "quantidade": 4862,
           "pedido": 472638
         },
         {
@@ -418,13 +423,13 @@
           "pedido": 492055
         }
       ],
-      "totalProgramado": 39600,
+      "totalProgramado": 40262,
       "sugestaoCompra": 2500,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-21",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 20.4,
+      "primeiraEntrega": "2026-10-23",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 18.4,
       "temFichaTecnica": true,
       "projecaoBom": 15552.0,
       "consumoRealBom": 8872.2
@@ -504,8 +509,8 @@
           "pedido": 472307
         },
         {
-          "data": "2026-10-21T00:00:00",
-          "quantidade": 4500,
+          "data": "2026-10-23T00:00:00",
+          "quantidade": 4477,
           "pedido": 472638
         },
         {
@@ -549,13 +554,13 @@
           "pedido": 480913
         }
       ],
-      "totalProgramado": 40100,
+      "totalProgramado": 40077,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-10-21",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 38.3,
+      "primeiraEntrega": "2026-10-23",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 36.3,
       "temFichaTecnica": true,
       "projecaoBom": 18480.0,
       "consumoRealBom": 8724.2
@@ -2600,7 +2605,7 @@
       "sku": "42060",
       "produto": "MP - SAL REFINADO KG",
       "loja": "1",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -3306,7 +3311,7 @@
       "sku": "70839",
       "produto": "CAIXA OKKER 36X400G OKKER",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "IBERIA IND CX PAPELAO",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM TERCIARIA",
       "unidade": "unidade",
@@ -3322,14 +3327,20 @@
       "desvioProjecao": 177.0,
       "loteMinimo": 1000,
       "proximaEntrada": "2026-12-14T00:33:26.277000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-29T00:00:00",
+          "quantidade": 4350,
+          "pedido": 492714
+        }
+      ],
+      "totalProgramado": 4350,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-29",
+      "diasAtePrimeiraEntrega": 8,
+      "coberturaNaPrimeiraEntrega": 61.0,
       "temFichaTecnica": true,
       "projecaoBom": 360.0,
       "consumoRealBom": 537.0
@@ -4412,7 +4423,7 @@
       "proximaEntrada": "2027-03-04T01:21:43.232000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-16T00:00:00",
+          "data": "2026-10-23T00:00:00",
           "quantidade": 100,
           "pedido": 490675
         }
@@ -4421,9 +4432,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-23",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 58.6,
       "temFichaTecnica": true,
       "projecaoBom": 7.9,
       "consumoRealBom": 8.1
@@ -4706,7 +4717,7 @@
       "proximaEntrada": "2027-01-02T22:07:39.574000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-23T00:00:00",
+          "data": "2026-10-28T00:00:00",
           "quantidade": 60,
           "pedido": 490673
         }
@@ -4715,9 +4726,9 @@
       "sugestaoCompra": 102,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-23",
-      "diasAtePrimeiraEntrega": 2,
-      "coberturaNaPrimeiraEntrega": 3.8,
+      "primeiraEntrega": "2026-10-28",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": -1.2,
       "temFichaTecnica": true,
       "projecaoBom": 0.0,
       "consumoRealBom": 0.0
@@ -4888,7 +4899,7 @@
       "proximaEntrada": "2026-12-27T20:40:39.920000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-23T00:00:00",
+          "data": "2026-10-28T00:00:00",
           "quantidade": 100,
           "pedido": 490673
         }
@@ -4897,9 +4908,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-10-23",
-      "diasAtePrimeiraEntrega": 2,
-      "coberturaNaPrimeiraEntrega": 37.0,
+      "primeiraEntrega": "2026-10-28",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 32.0,
       "temFichaTecnica": true,
       "projecaoBom": 67.9,
       "consumoRealBom": 53.0
@@ -5022,18 +5033,18 @@
       "proximaEntrada": "2026-12-09T06:40:15.716000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-12T00:00:00",
-          "quantidade": 1000,
+          "data": "2026-10-26T00:00:00",
+          "quantidade": 500,
           "pedido": 485951
         }
       ],
-      "totalProgramado": 1000,
+      "totalProgramado": 500,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-26",
+      "diasAtePrimeiraEntrega": 5,
+      "coberturaNaPrimeiraEntrega": 7.3,
       "temFichaTecnica": true,
       "projecaoBom": 0.0,
       "consumoRealBom": 6.8
@@ -5252,12 +5263,12 @@
       "proximaEntrada": "2026-10-21T09:47:40.574000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-14T00:00:00",
+          "data": "2026-10-28T00:00:00",
           "quantidade": 805,
           "pedido": 478293
         },
         {
-          "data": "2026-10-14T00:00:00",
+          "data": "2026-10-28T00:00:00",
           "quantidade": 230,
           "pedido": 486578
         }
@@ -5266,9 +5277,9 @@
       "sugestaoCompra": 800,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-28",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 0.6,
       "temFichaTecnica": true,
       "projecaoBom": 3265.0,
       "consumoRealBom": 3830.9
@@ -5277,7 +5288,7 @@
       "sku": "42227",
       "produto": "MP - PIMENTA CALABRESA FLOCOS KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -5341,7 +5352,7 @@
       "sku": "44624",
       "produto": "MP - SALSA DESIDRATADA  FLOCOS KG",
       "loja": "10",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7738,14 +7749,20 @@
       "desvioProjecao": -1306.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-21T22:42:31.504000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-23T00:00:00",
+          "quantidade": 2400,
+          "pedido": 493046
+        }
+      ],
+      "totalProgramado": 2400,
       "sugestaoCompra": 0,
-      "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "status": "Risco de falta",
+      "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
+      "primeiraEntrega": "2026-10-23",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 13.9,
       "temFichaTecnica": true,
       "projecaoBom": 2706.0,
       "consumoRealBom": 1400.0
@@ -7882,7 +7899,7 @@
       "sku": "49946",
       "produto": "MP - CEBOLA DESID FLOCOS/TIRAS KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7898,14 +7915,20 @@
       "desvioProjecao": -704.1,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-25T23:02:15.744000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-23T00:00:00",
+          "quantidade": 1500,
+          "pedido": 493046
+        }
+      ],
+      "totalProgramado": 1500,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-10-23",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 18.0,
       "temFichaTecnica": true,
       "projecaoBom": 1727.7,
       "consumoRealBom": 1023.6
@@ -7914,7 +7937,7 @@
       "sku": "43563",
       "produto": "MP - CEBOLINHA DESIDRATADA KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -7930,14 +7953,20 @@
       "desvioProjecao": -395.8,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-15T10:27:32.140000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-23T00:00:00",
+          "quantidade": 1000,
+          "pedido": 493046
+        }
+      ],
+      "totalProgramado": 1000,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-23",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 38.4,
       "temFichaTecnica": true,
       "projecaoBom": 820.0,
       "consumoRealBom": 424.2
@@ -8144,7 +8173,7 @@
       "sku": "42227",
       "produto": "MP - PIMENTA CALABRESA FLOCOS KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -8160,14 +8189,20 @@
       "desvioProjecao": -101.3,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-28T21:56:34.831000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-23T00:00:00",
+          "quantidade": 250,
+          "pedido": 493046
+        }
+      ],
+      "totalProgramado": 250,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-23",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 20.9,
       "temFichaTecnica": true,
       "projecaoBom": 210.7,
       "consumoRealBom": 109.4
@@ -8487,7 +8522,7 @@
       "sku": "42060",
       "produto": "MP - SAL REFINADO KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -8503,14 +8538,20 @@
       "desvioProjecao": -824.0,
       "loteMinimo": 100,
       "proximaEntrada": "2026-10-27T04:33:48.177000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-23T00:00:00",
+          "quantidade": 1800,
+          "pedido": 493046
+        }
+      ],
+      "totalProgramado": 1800,
       "sugestaoCompra": 0,
       "status": "Saudável",
-      "motivoStatus": "Cobertura atual dentro da faixa de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
+      "primeiraEntrega": "2026-10-23",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 19.2,
       "temFichaTecnica": true,
       "projecaoBom": 1494.7,
       "consumoRealBom": 670.7
@@ -8519,7 +8560,7 @@
       "sku": "44624",
       "produto": "MP - SALSA DESIDRATADA  FLOCOS KG",
       "loja": "11",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -8535,14 +8576,20 @@
       "desvioProjecao": -356.2,
       "loteMinimo": 100,
       "proximaEntrada": "2026-11-15T07:36:08.024000",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-23T00:00:00",
+          "quantidade": 900,
+          "pedido": 493046
+        }
+      ],
+      "totalProgramado": 900,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-23",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 38.3,
       "temFichaTecnica": true,
       "projecaoBom": 738.0,
       "consumoRealBom": 381.8
@@ -9693,6 +9740,11 @@
       "proximaEntrada": "2027-01-29T12:13:16.157000",
       "entregasProgramadas": [
         {
+          "data": "2026-10-21T00:00:00",
+          "quantidade": 2492,
+          "pedido": 483978
+        },
+        {
           "data": "2026-10-26T00:00:00",
           "quantidade": 2200,
           "pedido": 483981
@@ -9708,13 +9760,13 @@
           "pedido": 484035
         }
       ],
-      "totalProgramado": 6600,
+      "totalProgramado": 9092,
       "sugestaoCompra": 0,
       "status": "Saudável",
       "motivoStatus": "A cobertura preserva o estoque de segurança até a primeira entrega.",
-      "primeiraEntrega": "2026-10-26",
-      "diasAtePrimeiraEntrega": 5,
-      "coberturaNaPrimeiraEntrega": 30.8,
+      "primeiraEntrega": "2026-10-21",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 35.8,
       "temFichaTecnica": true,
       "projecaoBom": 1780.0,
       "consumoRealBom": 1083.8
@@ -9779,6 +9831,11 @@
       "proximaEntrada": "2027-02-03T16:35:27.900000",
       "entregasProgramadas": [
         {
+          "data": "2026-10-21T00:00:00",
+          "quantidade": 4060,
+          "pedido": 483978
+        },
+        {
           "data": "2026-10-26T00:00:00",
           "quantidade": 3200,
           "pedido": 483981
@@ -9794,13 +9851,13 @@
           "pedido": 484035
         }
       ],
-      "totalProgramado": 9600,
+      "totalProgramado": 13660,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-10-26",
-      "diasAtePrimeiraEntrega": 5,
-      "coberturaNaPrimeiraEntrega": 47.7,
+      "primeiraEntrega": "2026-10-21",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 52.7,
       "temFichaTecnica": true,
       "projecaoBom": 3560.0,
       "consumoRealBom": 1735.1
@@ -11779,6 +11836,11 @@
       "proximaEntrada": "2027-01-19T16:54:27.589000",
       "entregasProgramadas": [
         {
+          "data": "2026-10-21T00:00:00",
+          "quantidade": 12600,
+          "pedido": 483616
+        },
+        {
           "data": "2026-11-16T00:00:00",
           "quantidade": 18000,
           "pedido": 483746
@@ -11799,13 +11861,13 @@
           "pedido": 483751
         }
       ],
-      "totalProgramado": 72000,
+      "totalProgramado": 84600,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-10-26",
-      "diasAtePrimeiraEntrega": 5,
-      "coberturaNaPrimeiraEntrega": 29.0,
+      "primeiraEntrega": "2026-10-21",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 34.0,
       "temFichaTecnica": true,
       "projecaoBom": 30000.0,
       "consumoRealBom": 15837.0
@@ -12222,7 +12284,7 @@
       "proximaEntrada": "2026-11-11T05:21:43.500000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-09T00:00:00",
+          "data": "2026-10-23T00:00:00",
           "quantidade": 500,
           "pedido": 485289
         }
@@ -12231,9 +12293,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-23",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 25.9,
       "temFichaTecnica": true,
       "projecaoBom": 1532.0,
       "consumoRealBom": 621.2
@@ -12674,9 +12736,19 @@
           "data": "2026-10-30T00:00:00",
           "quantidade": 18000,
           "pedido": 476282
+        },
+        {
+          "data": "2026-10-30T00:00:00",
+          "quantidade": 14000,
+          "pedido": 492879
+        },
+        {
+          "data": "2026-11-03T00:00:00",
+          "quantidade": 14000,
+          "pedido": 492880
         }
       ],
-      "totalProgramado": 18000,
+      "totalProgramado": 46000,
       "sugestaoCompra": 12000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -12787,7 +12859,7 @@
       "sku": "41962",
       "produto": "MP - CHA CAMOMILA FLOR RAZURADO PARA SACHE KG",
       "loja": "14",
-      "fornecedor": "HERBOFLORA PRODUTOS NATURAIS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12803,14 +12875,8 @@
       "desvioProjecao": -17.3,
       "loteMinimo": 100,
       "proximaEntrada": "2026-12-31T18:50:28.836000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-10-15T00:00:00",
-          "quantidade": 125,
-          "pedido": 485157
-        }
-      ],
-      "totalProgramado": 125,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 100,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -12843,7 +12909,7 @@
       "proximaEntrada": "2027-04-21T19:25:11.587000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-15T00:00:00",
+          "data": "2026-10-21T00:00:00",
           "quantidade": 150,
           "pedido": 485157
         }
@@ -12852,9 +12918,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-21",
+      "diasAtePrimeiraEntrega": 0,
+      "coberturaNaPrimeiraEntrega": 115.5,
       "temFichaTecnica": true,
       "projecaoBom": 35.7,
       "consumoRealBom": 17.7
@@ -12863,7 +12929,7 @@
       "sku": "41964",
       "produto": "MP - CHA ERVA DOCE / FUNCHO RAZURADO PARA SACHE KG",
       "loja": "14",
-      "fornecedor": "HERBOFLORA PRODUTOS NATURAIS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -12879,14 +12945,8 @@
       "desvioProjecao": -18.1,
       "loteMinimo": 100,
       "proximaEntrada": "2027-02-04T10:37:28.926000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-10-15T00:00:00",
-          "quantidade": 100,
-          "pedido": 485157
-        }
-      ],
-      "totalProgramado": 100,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
@@ -14301,7 +14361,7 @@
       "sku": "43524",
       "produto": "MP - MISTURA PAO DE QUEIJO KG AMP 30",
       "loja": "14",
-      "fornecedor": "PIONEIRA ALIMENTOS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -14317,14 +14377,8 @@
       "desvioProjecao": 5799.0,
       "loteMinimo": 2000,
       "proximaEntrada": "2026-11-03T14:28:19.355000",
-      "entregasProgramadas": [
-        {
-          "data": "2026-10-20T00:00:00",
-          "quantidade": 2500,
-          "pedido": 489023
-        }
-      ],
-      "totalProgramado": 2500,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 2000,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -14437,23 +14491,18 @@
           "pedido": 481957
         },
         {
-          "data": "2026-10-21T00:00:00",
-          "quantidade": 5000,
-          "pedido": 485025
-        },
-        {
           "data": "2026-11-06T00:00:00",
           "quantidade": 5000,
           "pedido": 491661
         }
       ],
-      "totalProgramado": 20000,
+      "totalProgramado": 15000,
       "sugestaoCompra": 2200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-10-21",
-      "diasAtePrimeiraEntrega": 0,
-      "coberturaNaPrimeiraEntrega": 7.5,
+      "primeiraEntrega": "2026-11-06",
+      "diasAtePrimeiraEntrega": 16,
+      "coberturaNaPrimeiraEntrega": -8.5,
       "temFichaTecnica": true,
       "projecaoBom": 7310.4,
       "consumoRealBom": 5712.0
@@ -14564,7 +14613,7 @@
       "sku": "42227",
       "produto": "MP - PIMENTA CALABRESA FLOCOS KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -14646,7 +14695,7 @@
       "proximaEntrada": "2026-11-13T06:33:38.913000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-09T00:00:00",
+          "data": "2026-10-23T00:00:00",
           "quantidade": 200,
           "pedido": 485289
         }
@@ -14655,9 +14704,9 @@
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-23",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": 30.9,
       "temFichaTecnica": true,
       "projecaoBom": 1058.4,
       "consumoRealBom": 549.8
@@ -14800,7 +14849,7 @@
       "sku": "44624",
       "produto": "MP - SALSA DESIDRATADA  FLOCOS KG",
       "loja": "14",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "V.C. THOMAZ AGRO COM",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -14888,7 +14937,7 @@
         },
         {
           "data": "2026-10-21T00:00:00",
-          "quantidade": 900,
+          "quantidade": 160,
           "pedido": 486708
         },
         {
@@ -14907,7 +14956,7 @@
           "pedido": 491039
         }
       ],
-      "totalProgramado": 4900,
+      "totalProgramado": 4160,
       "sugestaoCompra": 300,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
