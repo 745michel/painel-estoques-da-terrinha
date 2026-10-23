@@ -659,6 +659,24 @@ const ESCADINHA_LINHA_DESCONTINUADA = new Set([
  * "NOVOS PRODUTOS" (bananinha, goiabinha, cocada, wafer, batata ondulada, amendoim, ovinho) nao
  * foram mencionados pelo usuario - continuam como estavam, sem regra nova inventada por conta
  * propria.
+ *
+ * Mais uma rodada (23/10/2026, mesmo dia): pedido explicito - "cria uma categoria AMENDOIM" -
+ * citando 6 dos 7 produtos de amendoim/ovinho de amendoim que estavam em "NOVOS PRODUTOS"
+ * ("AMENDOIM JAPONES 700G CX 12" ficou de fora da lista do usuario, mas e a mesma linha de
+ * produto so que em outro peso - tratado pelo nome, nao por uma lista fixa dos 6 SKUs, pra nao
+ * deixar esse setimo de fora por uma omissao que parece descuido). Checagem e por
+ * nome.startsWith("AMENDOIM") (ou contem "OVINHO DE AMENDOIM") - nao um includes() solto -
+ * porque "BANANINHA COM AMENDOIM DA TERRINHA 25G" tambem contem a palavra "AMENDOIM" (e
+ * ingrediente, nao e o produto) e caiu errado num includes() simples na 1a tentativa.
+ *
+ * Mais uma rodada (23/10/2026, mesmo dia): pedido explicito - "cria uma categoria com BATATA
+ * SNACKS e o restante que ficar cria uma categoria de BARRINHAS". BATATA ONDULADA/LISA (10
+ * itens, nome comeca com "BATATA") vira "BATATA SNACKS" - categoria diferente da "BATATA
+ * PALHA" ja existente (produto diferente, mantido separado). "O restante que ficar" vira o
+ * fallback de qualquer item de "NOVOS PRODUTOS" que nao bateu em nenhuma regra acima
+ * (bananinha, goiabinha, cocada, wafer, coco/nuts com proteina, bananinha com amendoim) -
+ * por isso o fallback final some: tudo que ainda for "NOVOS PRODUTOS" na ultima linha vira
+ * "BARRINHAS" em vez de ficar como estava.
  */
 const ESCADINHA_FARINACEOS_PALAVRAS = ["FARINHA", "FUBA", "POLVILHO", "TRIGO", "PANKO", "MISTURA", "SEMOLA", "SAGU", "FLOC", "TAPIOCA"];
 function categoriaEscadinhaExibicao(produto: string, categoriaOriginal: string | null): string | null {
@@ -669,9 +687,12 @@ function categoriaEscadinhaExibicao(produto: string, categoriaOriginal: string |
   if (categoriaOriginal === "GRAOS E FARINACEOS" || (categoriaOriginal === "NOVOS PRODUTOS" && ESCADINHA_FARINACEOS_PALAVRAS.some((palavra) => nome.includes(palavra)))) {
     return ESCADINHA_FARINACEOS_PALAVRAS.some((palavra) => nome.includes(palavra)) ? "FARINÁCEOS" : "GRÃOS";
   }
-  if (categoriaOriginal === "NOVOS PRODUTOS" && nome.includes("MILHO PIPOCA")) return "GRÃOS";
-  if (categoriaOriginal === "NOVOS PRODUTOS" && nome.includes("FAROFA")) return "FAROFA";
-  return categoriaOriginal;
+  if (categoriaOriginal !== "NOVOS PRODUTOS") return categoriaOriginal;
+  if (nome.includes("MILHO PIPOCA")) return "GRÃOS";
+  if (nome.includes("FAROFA")) return "FAROFA";
+  if (nome.startsWith("AMENDOIM") || nome.includes("OVINHO DE AMENDOIM")) return "AMENDOIM";
+  if (nome.startsWith("BATATA")) return "BATATA SNACKS";
+  return "BARRINHAS";
 }
 const MESES_ESCADINHA_LABEL: Record<string, string> = { jan: "Jan", fev: "Fev", mar: "Mar", abr: "Abr", mai: "Mai", jun: "Jun", jul: "Jul", ago: "Ago", set: "Set", out: "Out", nov: "Nov", dez: "Dez" };
 
