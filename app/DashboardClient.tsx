@@ -638,16 +638,39 @@ const ESCADINHA_LINHA_DESCONTINUADA = new Set([
  * ervilha, lentilha, grao de bico, milho de pipoca - vira GRAOS) e contra os 45 de "TAPIOCA"
  * (contem "TERRINHA" = marca propria da empresa, mantem "TAPIOCA"; todo o resto - OBA, OKKER,
  * TAEQ, PUBLIC etc - e producao pra marca de terceiro).
+ *
+ * Extensao em 23/10/2026: o usuario apontou "00121 TAPIOCA BULNEZ 500 G FD 24" como
+ * TAPIOCA MARCA PROPRIA - esse produto (e o irmao "00122 TAPIOCA BULNEZ 1 KG") nao estava
+ * em "TAPIOCA" nem "GRAOS E FARINACEOS" na planilha, e sim jogado em "NOVOS PRODUTOS" (balde
+ * generico onde a origem ainda nao classificou o item). Passa a tratar tambem "NOVOS
+ * PRODUTOS" como elegivel pro mesmo split, mas so quando o nome bate com uma palavra-chave -
+ * confirmado contra as outras 35 linhas de "NOVOS PRODUTOS" que isso so pega os 2 de tapioca
+ * e mais 5 de farinha/fuba/trigo/panko que tambem tinham "DA TERRINHA" no nome mas estavam no
+ * mesmo balde (ex.: "FUBA MIMOSO DA TERRINHA 3 KG"); nenhum outro item (bananinha, batata,
+ * amendoim etc.) e afetado. A checagem de tapioca vem antes da de farinaceos porque "TAPIOCA"
+ * tambem esta na lista de palavras de farinaceos (granulada/polvilho) - sem essa ordem, um
+ * item de "NOVOS PRODUTOS" com "TAPIOCA" no nome cairia no grupo errado.
+ *
+ * Mais uma rodada no mesmo dia (23/10/2026): o usuario revisou o resto de "NOVOS PRODUTOS"
+ * item a item e confirmou mais dois casos que nao se encaixavam em nenhuma regra acima - "MILHO
+ * PIPOCA DA TERRINHA 1KG"/"MILHO PIPOCA PREMIUM POTE..." (mesma familia do "MILHO PIPOCA" que
+ * ja virava GRAOS quando a categoria original era "GRAOS E FARINACEOS") e "FAROFA PRONTA
+ * BULNEZ..." (categoria "FAROFA" ja existe na planilha, independente). Os outros ~28 itens de
+ * "NOVOS PRODUTOS" (bananinha, goiabinha, cocada, wafer, batata ondulada, amendoim, ovinho) nao
+ * foram mencionados pelo usuario - continuam como estavam, sem regra nova inventada por conta
+ * propria.
  */
 const ESCADINHA_FARINACEOS_PALAVRAS = ["FARINHA", "FUBA", "POLVILHO", "TRIGO", "PANKO", "MISTURA", "SEMOLA", "SAGU", "FLOC", "TAPIOCA"];
 function categoriaEscadinhaExibicao(produto: string, categoriaOriginal: string | null): string | null {
   const nome = produto.toLocaleUpperCase("pt-BR");
-  if (categoriaOriginal === "GRAOS E FARINACEOS") {
-    return ESCADINHA_FARINACEOS_PALAVRAS.some((palavra) => nome.includes(palavra)) ? "FARINÁCEOS" : "GRÃOS";
-  }
-  if (categoriaOriginal === "TAPIOCA") {
+  if (categoriaOriginal === "TAPIOCA" || (categoriaOriginal === "NOVOS PRODUTOS" && nome.includes("TAPIOCA"))) {
     return nome.includes("TERRINHA") ? "TAPIOCA" : "TAPIOCA MARCA PRÓPRIA";
   }
+  if (categoriaOriginal === "GRAOS E FARINACEOS" || (categoriaOriginal === "NOVOS PRODUTOS" && ESCADINHA_FARINACEOS_PALAVRAS.some((palavra) => nome.includes(palavra)))) {
+    return ESCADINHA_FARINACEOS_PALAVRAS.some((palavra) => nome.includes(palavra)) ? "FARINÁCEOS" : "GRÃOS";
+  }
+  if (categoriaOriginal === "NOVOS PRODUTOS" && nome.includes("MILHO PIPOCA")) return "GRÃOS";
+  if (categoriaOriginal === "NOVOS PRODUTOS" && nome.includes("FAROFA")) return "FAROFA";
   return categoriaOriginal;
 }
 const MESES_ESCADINHA_LABEL: Record<string, string> = { jan: "Jan", fev: "Fev", mar: "Mar", abr: "Abr", mai: "Mai", jun: "Jun", jul: "Jul", ago: "Ago", set: "Set", out: "Out", nov: "Nov", dez: "Dez" };
