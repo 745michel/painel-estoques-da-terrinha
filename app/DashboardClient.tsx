@@ -672,13 +672,25 @@ const ESCADINHA_LINHA_DESCONTINUADA = new Set([
  * Mais uma rodada (23/10/2026, mesmo dia): pedido explicito - "cria uma categoria com BATATA
  * SNACKS e o restante que ficar cria uma categoria de BARRINHAS". BATATA ONDULADA/LISA (10
  * itens, nome comeca com "BATATA") vira "BATATA SNACKS" - categoria diferente da "BATATA
- * PALHA" ja existente (produto diferente, mantido separado). "O restante que ficar" vira o
- * fallback de qualquer item de "NOVOS PRODUTOS" que nao bateu em nenhuma regra acima
- * (bananinha, goiabinha, cocada, wafer, coco/nuts com proteina, bananinha com amendoim) -
- * por isso o fallback final some: tudo que ainda for "NOVOS PRODUTOS" na ultima linha vira
- * "BARRINHAS" em vez de ficar como estava.
+ * PALHA" ja existente (produto diferente, mantido separado).
+ *
+ * IMPORTANTE sobre revisao futura da escadinha (pergunta do usuario em 23/10/2026: "quando a
+ * escadinha for atualizada, os dados vao ser puxados certo?"): esta funcao roda de novo, do
+ * zero, toda vez que a pagina carrega "escadinhaData" - nao e um valor gravado uma vez, entao
+ * qualquer revisao nova de escadinha_compras.xlsx passa pelas mesmas regras automaticamente,
+ * sem precisar eu tocar em nada de novo PRA quem ja existe hoje. O risco real era o fallback:
+ * "o restante que ficar vira BARRINHAS" foi lido ao pe da letra na 1a versao (pegava qualquer
+ * coisa ainda marcada "NOVOS PRODUTOS", olhado ou nao pelo usuario) - um produto genuinamente
+ * novo que a origem jogar em "NOVOS PRODUTOS" num mes futuro (uma salgadinho novo, por
+ * exemplo) ia virar "BARRINHAS" errado e silencioso. Trocado por uma lista fechada das
+ * palavras dos 12 itens que o usuario realmente revisou (BANANINHA/GOIABINHA/COCADA/WAFER/
+ * NUTS/"COCO COM PROTEINA") - um produto novo que a origem jogar em "NOVOS PRODUTOS" e nao
+ * bater com NENHUMA regra (nem essa, nem tapioca/farinaceos/milho pipoca/farofa/amendoim/
+ * batata) continua aparecendo como "NOVOS PRODUTOS" mesmo, visivel pra avisar que precisa de
+ * uma regra nova - em vez de cair escondido num grupo errado.
  */
 const ESCADINHA_FARINACEOS_PALAVRAS = ["FARINHA", "FUBA", "POLVILHO", "TRIGO", "PANKO", "MISTURA", "SEMOLA", "SAGU", "FLOC", "TAPIOCA"];
+const ESCADINHA_BARRINHAS_PALAVRAS = ["BANANINHA", "GOIABINHA", "COCADA", "WAFER", "NUTS", "COCO COM PROTEINA"];
 function categoriaEscadinhaExibicao(produto: string, categoriaOriginal: string | null): string | null {
   const nome = produto.toLocaleUpperCase("pt-BR");
   if (categoriaOriginal === "TAPIOCA" || (categoriaOriginal === "NOVOS PRODUTOS" && nome.includes("TAPIOCA"))) {
@@ -692,7 +704,8 @@ function categoriaEscadinhaExibicao(produto: string, categoriaOriginal: string |
   if (nome.includes("FAROFA")) return "FAROFA";
   if (nome.startsWith("AMENDOIM") || nome.includes("OVINHO DE AMENDOIM")) return "AMENDOIM";
   if (nome.startsWith("BATATA")) return "BATATA SNACKS";
-  return "BARRINHAS";
+  if (ESCADINHA_BARRINHAS_PALAVRAS.some((palavra) => nome.includes(palavra))) return "BARRINHAS";
+  return categoriaOriginal;
 }
 const MESES_ESCADINHA_LABEL: Record<string, string> = { jan: "Jan", fev: "Fev", mar: "Mar", abr: "Abr", mai: "Mai", jun: "Jun", jul: "Jul", ago: "Ago", set: "Set", out: "Out", nov: "Nov", dez: "Dez" };
 
