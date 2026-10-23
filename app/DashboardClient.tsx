@@ -627,6 +627,29 @@ const ESCADINHA_LINHA_DESCONTINUADA = new Set([
   "ALHO FRITO GRANULADO DA TERRINHA POTE 250 G - CX 12",
   "ALHO TRITURADO DA TERRINHA 1,01 KG - CX 12",
 ]);
+/**
+ * Recategorizacao so de exibicao na Escadinha geral (pedido do usuario em 23/10/2026: separar
+ * "GRAOS E FARINACEOS" em duas, e dentro de "TAPIOCA" isolar o que nao e marca Da Terrinha) -
+ * "sem mexer na base de dados pois ela nao e minha" (escadinha_compras.xlsx e upload de outra
+ * area). Nao altera escadinhaData nem nenhum JSON - so decide, pelo NOME do produto, qual
+ * rotulo mostrar no filtro/coluna de categoria desta tela. Palavras-chave validadas contra os
+ * 46 produtos reais de "GRAOS E FARINACEOS" (farinha/fuba/polvilho/trigo/panko/mistura/semola/
+ * sagu/floco = processado/moido vira FARINACEOS, o resto - canjica, canjiquinha, feijao,
+ * ervilha, lentilha, grao de bico, milho de pipoca - vira GRAOS) e contra os 45 de "TAPIOCA"
+ * (contem "TERRINHA" = marca propria da empresa, mantem "TAPIOCA"; todo o resto - OBA, OKKER,
+ * TAEQ, PUBLIC etc - e producao pra marca de terceiro).
+ */
+const ESCADINHA_FARINACEOS_PALAVRAS = ["FARINHA", "FUBA", "POLVILHO", "TRIGO", "PANKO", "MISTURA", "SEMOLA", "SAGU", "FLOC", "TAPIOCA"];
+function categoriaEscadinhaExibicao(produto: string, categoriaOriginal: string | null): string | null {
+  const nome = produto.toLocaleUpperCase("pt-BR");
+  if (categoriaOriginal === "GRAOS E FARINACEOS") {
+    return ESCADINHA_FARINACEOS_PALAVRAS.some((palavra) => nome.includes(palavra)) ? "FARINÁCEOS" : "GRÃOS";
+  }
+  if (categoriaOriginal === "TAPIOCA") {
+    return nome.includes("TERRINHA") ? "TAPIOCA" : "TAPIOCA MARCA PRÓPRIA";
+  }
+  return categoriaOriginal;
+}
 const MESES_ESCADINHA_LABEL: Record<string, string> = { jan: "Jan", fev: "Fev", mar: "Mar", abr: "Abr", mai: "Mai", jun: "Jun", jul: "Jul", ago: "Ago", set: "Set", out: "Out", nov: "Nov", dez: "Dez" };
 
 function mesCorteLabel(mes: string) {
@@ -1280,8 +1303,14 @@ function EscadinhaDashboard({
   const [nivelFiltro, setNivelFiltro] = useState<"todos" | "cima" | "baixo" | "atencao" | "critico">("todos");
   const [mesHistoricoAberto, setMesHistoricoAberto] = useState<string | null>(null);
 
-  const produtos = escadinhaData.produtos as EscadinhaProduto[];
-  const desvios = escadinhaData.desvios as EscadinhaDesvio[];
+  const produtos = useMemo(
+    () => (escadinhaData.produtos as EscadinhaProduto[]).map((p) => ({ ...p, categoria: categoriaEscadinhaExibicao(p.produto, p.categoria) })),
+    [escadinhaData],
+  );
+  const desvios = useMemo(
+    () => (escadinhaData.desvios as EscadinhaDesvio[]).map((d) => ({ ...d, categoria: categoriaEscadinhaExibicao(d.produto, d.categoria) })),
+    [escadinhaData],
+  );
   const hasComparacao = escadinhaData.dataPublicacaoAnterior != null;
   const mesAtualIndex = new Date().getMonth();
   const mesAtual = MESES_ESCADINHA[mesAtualIndex];
@@ -1471,7 +1500,7 @@ function EscadinhaDashboard({
     const porCod = new Map<number, { cod: number; produto: string; categoria: string | null; vendaAnual: number; lojas: Set<string> }>();
     for (const p of pedidosVendaData.produtos as PedidosVendaProduto[]) {
       if (codsNaEscadinha.has(p.cod)) continue;
-      const item = porCod.get(p.cod) ?? { cod: p.cod, produto: p.produto, categoria: p.categoria, vendaAnual: 0, lojas: new Set<string>() };
+      const item = porCod.get(p.cod) ?? { cod: p.cod, produto: p.produto, categoria: categoriaEscadinhaExibicao(p.produto, p.categoria), vendaAnual: 0, lojas: new Set<string>() };
       item.vendaAnual += p.venda.reduce((sum, value) => sum + (value ?? 0), 0);
       item.lojas.add(p.loja);
       porCod.set(p.cod, item);
