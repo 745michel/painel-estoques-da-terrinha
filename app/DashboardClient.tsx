@@ -693,13 +693,20 @@ const ESCADINHA_FARINACEOS_PALAVRAS = ["FARINHA", "FUBA", "POLVILHO", "TRIGO", "
 const ESCADINHA_BARRINHAS_PALAVRAS = ["BANANINHA", "GOIABINHA", "COCADA", "WAFER", "NUTS", "COCO COM PROTEINA"];
 function categoriaEscadinhaExibicao(produto: string, categoriaOriginal: string | null): string | null {
   const nome = produto.toLocaleUpperCase("pt-BR");
-  if (categoriaOriginal === "TAPIOCA" || (categoriaOriginal === "NOVOS PRODUTOS" && nome.includes("TAPIOCA"))) {
+  // A categoria original vem direto da celula do Excel, sem normalizar (confirmado: ja existe
+  // pelo menos uma categoria real hoje com espaco sobrando, "CREME DE AVELA ") - comparar com
+  // "===" direto quebraria silenciosamente numa revisao futura so por causa de espaco ou
+  // maiusculas diferentes na mesma categoria. Normaliza so pra decidir qual regra aplicar; o
+  // valor retornado pra quem nao bate em nada continua o categoriaOriginal cru, sem alterar a
+  // grafia do resto do painel.
+  const categoriaNormalizada = (categoriaOriginal ?? "").trim().toLocaleUpperCase("pt-BR");
+  if (categoriaNormalizada === "TAPIOCA" || (categoriaNormalizada === "NOVOS PRODUTOS" && nome.includes("TAPIOCA"))) {
     return nome.includes("TERRINHA") ? "TAPIOCA" : "TAPIOCA MARCA PRÓPRIA";
   }
-  if (categoriaOriginal === "GRAOS E FARINACEOS" || (categoriaOriginal === "NOVOS PRODUTOS" && ESCADINHA_FARINACEOS_PALAVRAS.some((palavra) => nome.includes(palavra)))) {
+  if (categoriaNormalizada === "GRAOS E FARINACEOS" || (categoriaNormalizada === "NOVOS PRODUTOS" && ESCADINHA_FARINACEOS_PALAVRAS.some((palavra) => nome.includes(palavra)))) {
     return ESCADINHA_FARINACEOS_PALAVRAS.some((palavra) => nome.includes(palavra)) ? "FARINÁCEOS" : "GRÃOS";
   }
-  if (categoriaOriginal !== "NOVOS PRODUTOS") return categoriaOriginal;
+  if (categoriaNormalizada !== "NOVOS PRODUTOS") return categoriaOriginal;
   if (nome.includes("MILHO PIPOCA")) return "GRÃOS";
   if (nome.includes("FAROFA")) return "FAROFA";
   if (nome.startsWith("AMENDOIM") || nome.includes("OVINHO DE AMENDOIM")) return "AMENDOIM";
