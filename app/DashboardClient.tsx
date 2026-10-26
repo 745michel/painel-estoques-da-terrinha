@@ -2424,13 +2424,19 @@ function PedidosVendaDashboard({
 // tem O QUE foi cortado mas nao tem NENHUM campo de motivo - so existe em motivos_cortes.xlsx,
 // planilha nova mantida manualmente (mesmo padrao de "voce mesmo gerencia" ja usado pra
 // AcessoPainelEstoques, so que em Excel). build_cortes.py cruza os dois por (data, loja, sku).
+// Nomes alinhados com a aba "Listas" de motivos_cortes.xlsx em 26/10/2026 (pedido do usuario:
+// "mantem todas as listas atualizadas do jeito que esta, sem mexer nos nomes que coloquei") -
+// ele encurtou 3 opcoes direto na planilha ("Problema de produção"->"Produção", "Problema
+// logístico/transporte"->"Logística", "Problema de qualidade"->"Qualidade"); antes dessa
+// correcao esses 3 nunca apareciam no filtro de Motivo porque a comparacao exata (`c.motivo
+// === m`, linha abaixo) nunca batia com o nome antigo.
 const MOTIVOS_CORTE_OPCOES = [
   "Falta de matéria-prima",
   "Falta de embalagem",
-  "Problema de produção",
-  "Problema logístico/transporte",
+  "Produção",
+  "Logística",
   "Erro de pedido",
-  "Problema de qualidade",
+  "Qualidade",
   "Venda acima da previsão",
   "Recebimento",
   "Atraso na entrega",
