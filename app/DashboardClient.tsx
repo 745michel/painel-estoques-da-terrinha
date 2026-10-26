@@ -2727,6 +2727,51 @@ function CortesDashboard({
     return currency.format(valor);
   }
 
+  // "CORTE R$ por CATEGORIA" + "produto que mais cortou" dentro do "Gráfico 2" (pedido do
+  // usuario em 26/10/2026, com print de referencia: "quero esse grafico de categoria... e do
+  // lado dele um grafico de produto, quando eu clicar na categoria mostra o produto que mais
+  // cortou"). Mesma base de "tendenciaCortes" (ignora Mes/Semana/Motivo, respeita Loja/Produto/
+  // busca) mas ignora de proposito o filtro de Categoria - senao, com uma categoria ja
+  // selecionada no filtro do topo, esse grafico so teria uma barra pra comparar (o objetivo
+  // aqui e comparar entre categorias, nao dentro de uma so).
+  const categoriaGrafico2Base = useMemo(() => {
+    const search = query.trim().toLocaleLowerCase("pt-BR");
+    return cortes.filter((c) => (
+      (!search || (c.produto ?? "").toLocaleLowerCase("pt-BR").includes(search) || String(c.produtoKey).includes(search) || c.loja.toLocaleLowerCase("pt-BR").includes(search))
+      && (lojas.length === 0 || lojas.includes(c.loja))
+      && (produtosFiltro.length === 0 || produtosFiltro.includes(c.produto ?? ""))
+    ));
+  }, [cortes, query, lojas, produtosFiltro]);
+  const porCategoriaGrafico2 = useMemo(() => {
+    const mapa = new Map<string, { categoria: string; corteRs: number; corteCx: number }>();
+    for (const c of categoriaGrafico2Base) {
+      const chave = c.categoria ?? SEM_CATEGORIA;
+      const atual = mapa.get(chave) ?? { categoria: chave, corteRs: 0, corteCx: 0 };
+      atual.corteCx += c.corteCx;
+      atual.corteRs += valorDoCorte(c)?.valorCorte ?? 0;
+      mapa.set(chave, atual);
+    }
+    return Array.from(mapa.values()).sort((a, b) => b.corteRs - a.corteRs);
+  }, [categoriaGrafico2Base, valorPorChave]);
+  const maiorCorteRsCategoria = Math.max(1, ...porCategoriaGrafico2.map((c) => c.corteRs));
+  // Categoria clicada; sem clique nenhum ainda, cai na que mais cortou (1a da lista) - assim o
+  // grafico de produto nunca fica vazio na primeira vez que a aba abre.
+  const [categoriaAbertaGrafico2, setCategoriaAbertaGrafico2] = useState<string | null>(null);
+  const categoriaEfetivaGrafico2 = categoriaAbertaGrafico2 ?? porCategoriaGrafico2[0]?.categoria ?? null;
+  const produtosPorCategoriaGrafico2 = useMemo(() => {
+    if (!categoriaEfetivaGrafico2) return [];
+    const mapa = new Map<number, { produtoKey: number; produto: string; corteRs: number; corteCx: number }>();
+    for (const c of categoriaGrafico2Base) {
+      if ((c.categoria ?? SEM_CATEGORIA) !== categoriaEfetivaGrafico2) continue;
+      const atual = mapa.get(c.produtoKey) ?? { produtoKey: c.produtoKey, produto: c.produto ?? `SKU ${c.produtoKey}`, corteRs: 0, corteCx: 0 };
+      atual.corteCx += c.corteCx;
+      atual.corteRs += valorDoCorte(c)?.valorCorte ?? 0;
+      mapa.set(c.produtoKey, atual);
+    }
+    return Array.from(mapa.values()).sort((a, b) => b.corteRs - a.corteRs);
+  }, [categoriaGrafico2Base, categoriaEfetivaGrafico2, valorPorChave]);
+  const maiorCorteRsProdutoGrafico2 = Math.max(1, ...produtosPorCategoriaGrafico2.map((p) => p.corteRs));
+
   // Clicar numa barra mostra os itens daquele motivo (pedido do usuario em 09/10/2026: "quero
   // ver os itens que cortou", com quantidade cx, % e valor do corte).
   const [motivoAberto, setMotivoAberto] = useState<string | null>(null);
@@ -2903,6 +2948,30 @@ function CortesDashboard({
                 })}
               </svg>;
             })()}
+            <div className="tendencia-categoria-grid">
+              <div>
+                <h3 className="drawer-section-label" style={{ margin: "24px 20px 10px" }}>CORTE R$ POR CATEGORIA</h3>
+                <div className="motivo-bars">
+                  {porCategoriaGrafico2.map((c) => <button type="button" className={`motivo-bar-row ${c.categoria === categoriaEfetivaGrafico2 ? "motivo-bar-row-selecionada" : ""}`} key={c.categoria} onClick={() => setCategoriaAbertaGrafico2(c.categoria)}>
+                    <span className="motivo-bar-label" title={c.categoria}>{c.categoria}</span>
+                    <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(c.corteRs ? 2 : 0, (c.corteRs / maiorCorteRsCategoria) * 100)}%` }} /></span>
+                    <span className="motivo-bar-value">{currency.format(c.corteRs)}</span>
+                  </button>)}
+                  {porCategoriaGrafico2.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro de loja ou produto.</p></div>}
+                </div>
+              </div>
+              <div>
+                <h3 className="drawer-section-label" style={{ margin: "24px 20px 10px" }}>{categoriaEfetivaGrafico2 ? `PRODUTOS QUE MAIS CORTARAM — ${categoriaEfetivaGrafico2.toLocaleUpperCase("pt-BR")}` : "PRODUTOS QUE MAIS CORTARAM"}</h3>
+                <div className="motivo-bars motivo-bars-scroll">
+                  {produtosPorCategoriaGrafico2.map((p) => <div className="motivo-bar-row no-click" key={p.produtoKey}>
+                    <span className="motivo-bar-label" title={p.produto}>{p.produto}</span>
+                    <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(p.corteRs ? 2 : 0, (p.corteRs / maiorCorteRsProdutoGrafico2) * 100)}%` }} /></span>
+                    <span className="motivo-bar-value">{currency.format(p.corteRs)}</span>
+                  </div>)}
+                  {produtosPorCategoriaGrafico2.length === 0 && <div className="empty-state"><strong>{categoriaEfetivaGrafico2 ? "Nenhum corte encontrado" : "Clique numa categoria ao lado"}</strong><p>{categoriaEfetivaGrafico2 ? "Remova um filtro de loja ou produto." : "Pra ver os produtos que mais cortaram nela."}</p></div>}
+                </div>
+              </div>
+            </div>
           </> : modoDetalhe === "faturado" ? <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
             <th style={{ width: "auto" }}>Produto / loja</th>
             <th style={{ width: 90 }}>Mês</th>
