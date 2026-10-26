@@ -819,18 +819,76 @@ function isLojaSemMapeamento(loja: string) {
   return Number.isNaN(Number(loja));
 }
 
+const SIDEBAR_NAV_ITEMS: { section: Section; icon: string; label: string; financeiro?: boolean }[] = [
+  { section: "terceiros", icon: "▦", label: "Estoque de terceiros" },
+  { section: "insumos", icon: "▤", label: "Embalagens e MP" },
+  { section: "consumo", icon: "◫", label: "Consumo de insumos" },
+  { section: "escadinha", icon: "▧", label: "Escadinha geral" },
+  { section: "escadinhaInsumos", icon: "▥", label: "Escadinha de insumos" },
+  { section: "pedidosVenda", icon: "⇄", label: "Estoque x Pedidos" },
+  { section: "cortes", icon: "✂", label: "Cortes" },
+  { section: "valores", icon: "R$", label: "Valor dos insumos", financeiro: true },
+  { section: "valorProdutoAcabado", icon: "R$", label: "Valor produto acabado", financeiro: true },
+  { section: "fornecedores", icon: "🚚", label: "Fornecedores", financeiro: true },
+];
+
+/**
+ * Menu lateral compartilhado por todas as secoes (pedido do usuario em 26/10/2026: "quero que
+ * essa aba seja responsiva com uma seta pra abrir e fechar, a tela fica maior") - antes cada
+ * uma das 9 telas (8 componentes de secao + a visao operacional dentro do proprio
+ * DashboardClient) tinha sua propria copia colada do <aside>, so variando o item "active" e a
+ * nota do rodape. "colapsado" vem de cima (estado unico no DashboardClient, nao local a cada
+ * secao) de proposito - trocar de aba com `hidden` (nunca desmonta, ver abasSecundarias) nao
+ * pode fazer o menu voltar a expandir sozinho.
+ */
+function Sidebar({
+  activeSection,
+  onSectionChange,
+  canViewValues,
+  notaTitulo,
+  notaValor,
+  colapsado,
+  onToggleColapsado,
+}: {
+  activeSection: Section;
+  onSectionChange: (section: Section) => void;
+  canViewValues: boolean;
+  notaTitulo: string;
+  notaValor: string;
+  colapsado: boolean;
+  onToggleColapsado: () => void;
+}) {
+  return <aside className={`sidebar${colapsado ? " collapsed" : ""}`}>
+    <button type="button" className="sidebar-toggle" onClick={onToggleColapsado} aria-label={colapsado ? "Expandir menu" : "Recolher menu"} title={colapsado ? "Expandir menu" : "Recolher menu"}>{colapsado ? "»" : "«"}</button>
+    <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span className="brand-text">Da Terrinha<small>Planejamento de estoque</small></span></div>
+    <nav aria-label="Navegação principal">
+      {SIDEBAR_NAV_ITEMS.filter((item) => !item.financeiro || canViewValues).map((item) => (
+        <button key={item.section} type="button" className={`nav-item${activeSection === item.section ? " active" : ""}`} onClick={() => onSectionChange(item.section)} title={item.label}>
+          <span className="nav-icon">{item.icon}</span><span className="nav-label">{item.label}</span>
+        </button>
+      ))}
+    </nav>
+    <div className="sidebar-note"><span className="pulse-dot" /><div><strong>{notaTitulo}</strong><small>{notaValor}</small></div></div>
+    <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
+  </aside>;
+}
+
 function ValuesDashboard({
   onSectionChange,
   valoresData,
   insumosData,
   products,
   onProductsChange,
+  sidebarColapsado,
+  onToggleSidebar,
 }: {
   onSectionChange: (section: Section) => void;
   valoresData: ValuesData;
   insumosData: InsumosData;
   products: string[];
   onProductsChange: (products: string[]) => void;
+  sidebarColapsado: boolean;
+  onToggleSidebar: () => void;
 }) {
   const productsWithProjection = useMemo(
     () => new Set((insumosData.produtos as SourceProduct[]).filter((product) => product.escadinha > 0).map((product) => product.produto)),
@@ -1000,24 +1058,8 @@ function ValuesDashboard({
     window.setTimeout(() => setNotice(""), 3000);
   }
 
-  return <main className="app-shell">
-    <aside className="sidebar">
-      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
-      <nav aria-label="Navegação principal">
-        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
-        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
-        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
-        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
-        <button className="nav-item active" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>
-        <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>
-      </nav>
-      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
-      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
-    </aside>
+  return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
+    <Sidebar activeSection="valores" onSectionChange={onSectionChange} canViewValues={true} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Valor dos Insumos</strong></div>
@@ -1159,6 +1201,8 @@ function ConsumptionDashboard({
   onSelectedProductsChange,
   focusedKey,
   onFocusedKeyChange,
+  sidebarColapsado,
+  onToggleSidebar,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
@@ -1168,6 +1212,8 @@ function ConsumptionDashboard({
   onSelectedProductsChange: (products: string[]) => void;
   focusedKey: string;
   onFocusedKeyChange: (key: string) => void;
+  sidebarColapsado: boolean;
+  onToggleSidebar: () => void;
 }) {
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
@@ -1270,24 +1316,8 @@ function ConsumptionDashboard({
   const monthlyAverage = yearMonths.length > 0 ? currentMonthTotal / yearMonths.length : 0;
   const updated = new Date(consumoData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
-  return <main className="app-shell">
-    <aside className="sidebar">
-      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
-      <nav aria-label="Navegação principal">
-        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
-        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
-        <button className="nav-item active" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
-        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
-      </nav>
-      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
-      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
-    </aside>
+  return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
+    <Sidebar activeSection="consumo" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Consumo de Insumos</strong></div>
@@ -1350,11 +1380,15 @@ function EscadinhaDashboard({
   canViewValues,
   escadinhaData,
   pedidosVendaData,
+  sidebarColapsado,
+  onToggleSidebar,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
   escadinhaData: EscadinhaData;
   pedidosVendaData: PedidosVendaData;
+  sidebarColapsado: boolean;
+  onToggleSidebar: () => void;
 }) {
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
@@ -1578,24 +1612,8 @@ function EscadinhaDashboard({
       .sort((a, b) => b.vendaAnual - a.vendaAnual);
   }, [pedidosVendaData, codsNaEscadinha, query, categories]);
 
-  return <main className="app-shell">
-    <aside className="sidebar">
-      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
-      <nav aria-label="Navegação principal">
-        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
-        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
-        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
-        <button className="nav-item active" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
-        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
-      </nav>
-      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Revisão do plano</strong><small>{fullDate.format(localDate(escadinhaData.dataPublicacao))}</small></div></div>
-      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
-    </aside>
+  return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
+    <Sidebar activeSection="escadinha" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Revisão do plano" notaValor={fullDate.format(localDate(escadinhaData.dataPublicacao))} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Escadinha Geral</strong></div>
@@ -1810,10 +1828,14 @@ function EscadinhaInsumosDashboard({
   onSectionChange,
   canViewValues,
   escadinhaInsumosData,
+  sidebarColapsado,
+  onToggleSidebar,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
   escadinhaInsumosData: EscadinhaInsumosData;
+  sidebarColapsado: boolean;
+  onToggleSidebar: () => void;
 }) {
   const [query, setQuery] = useState("");
   const [lojas, setLojas] = useState<string[]>([]);
@@ -1915,24 +1937,8 @@ function EscadinhaInsumosDashboard({
     return nivel === "critico" || nivel === "atencao";
   }), [desviosFiltrados, nivelFiltro]);
 
-  return <main className="app-shell">
-    <aside className="sidebar">
-      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
-      <nav aria-label="Navegação principal">
-        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
-        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
-        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
-        <button className="nav-item active" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
-        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
-      </nav>
-      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Explosão BOM</strong><small>{fullDate.format(localDate(escadinhaInsumosData.atualizadoEm))}</small></div></div>
-      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
-    </aside>
+  return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
+    <Sidebar activeSection="escadinhaInsumos" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Explosão BOM" notaValor={fullDate.format(localDate(escadinhaInsumosData.atualizadoEm))} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Escadinha de Insumos</strong></div>
@@ -2139,11 +2145,15 @@ function PedidosVendaDashboard({
   canViewValues,
   pedidosVendaData,
   escadinhaData,
+  sidebarColapsado,
+  onToggleSidebar,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
   pedidosVendaData: PedidosVendaData;
   escadinhaData: EscadinhaData;
+  sidebarColapsado: boolean;
+  onToggleSidebar: () => void;
 }) {
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
@@ -2273,24 +2283,8 @@ function PedidosVendaDashboard({
   const totalCorteMesAtual = agrupados.reduce((sum, p) => sum + p.corte[p.corte.length - 1], 0);
   const updated = new Date(pedidosVendaData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
-  return <main className="app-shell">
-    <aside className="sidebar">
-      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
-      <nav aria-label="Navegação principal">
-        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
-        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
-        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
-        <button className="nav-item active" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
-        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
-      </nav>
-      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
-      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
-    </aside>
+  return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
+    <Sidebar activeSection="pedidosVenda" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Estoque x Pedidos</strong></div>
@@ -2448,11 +2442,15 @@ function CortesDashboard({
   canViewValues,
   cortesData,
   cortesValoresData,
+  sidebarColapsado,
+  onToggleSidebar,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
   cortesData: CortesData;
   cortesValoresData: CortesValoresData | null;
+  sidebarColapsado: boolean;
+  onToggleSidebar: () => void;
 }) {
   const [query, setQuery] = useState("");
   const [lojas, setLojas] = useState<string[]>([]);
@@ -2682,24 +2680,8 @@ function CortesDashboard({
       .sort((a, b) => b.corteCx - a.corteCx);
   }, [filtrados, setorAberto]);
 
-  return <main className="app-shell">
-    <aside className="sidebar">
-      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
-      <nav aria-label="Navegação principal">
-        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
-        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
-        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
-        <button className="nav-item active" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
-      </nav>
-      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
-      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
-    </aside>
+  return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
+    <Sidebar activeSection="cortes" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Cortes</strong></div>
@@ -2931,11 +2913,15 @@ function ValorProdutoAcabadoDashboard({
   canViewValues,
   valoresProdutoAcabadoData,
   pedidosVendaData,
+  sidebarColapsado,
+  onToggleSidebar,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
   valoresProdutoAcabadoData: ValoresProdutoAcabadoData;
   pedidosVendaData: PedidosVendaData;
+  sidebarColapsado: boolean;
+  onToggleSidebar: () => void;
 }) {
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
@@ -3009,24 +2995,8 @@ function ValorProdutoAcabadoDashboard({
   const updated = new Date(valoresProdutoAcabadoData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
   const referenceDate = valoresProdutoAcabadoData.dataReferencia ? new Date(valoresProdutoAcabadoData.dataReferencia).toLocaleDateString("pt-BR") : "não informada";
 
-  return <main className="app-shell">
-    <aside className="sidebar">
-      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
-      <nav aria-label="Navegação principal">
-        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
-        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
-        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
-        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
-        {canViewValues && <button className="nav-item active" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
-      </nav>
-      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{updated}</small></div></div>
-      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
-    </aside>
+  return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
+    <Sidebar activeSection="valorProdutoAcabado" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Valor Produto Acabado</strong></div>
@@ -3098,10 +3068,14 @@ function FornecedoresDashboard({
   onSectionChange,
   canViewValues,
   fornecedoresData,
+  sidebarColapsado,
+  onToggleSidebar,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
   fornecedoresData: FornecedoresData;
+  sidebarColapsado: boolean;
+  onToggleSidebar: () => void;
 }) {
   const [grupo, setGrupo] = useState<"materia_prima" | "produto_acabado">("materia_prima");
   const grupoAtual = fornecedoresData[grupo];
@@ -3528,24 +3502,8 @@ function FornecedoresDashboard({
 
   const fmtCompacto = (v: number) => (Math.abs(v) >= 1000 ? `${(v / 1000).toLocaleString("pt-BR", { maximumFractionDigits: 1 })}k` : number.format(Math.round(v)));
 
-  return <main className="app-shell">
-    <aside className="sidebar">
-      <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span>Da Terrinha<small>Planejamento de estoque</small></span></div>
-      <nav aria-label="Navegação principal">
-        <button className="nav-item" onClick={() => onSectionChange("terceiros")}><span>▦</span> Estoque de terceiros</button>
-        <button className="nav-item" onClick={() => onSectionChange("insumos")}><span>▤</span> Embalagens e MP</button>
-        <button className="nav-item" onClick={() => onSectionChange("consumo")}><span>◫</span> Consumo de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinha")}><span>▧</span> Escadinha geral</button>
-        <button className="nav-item" onClick={() => onSectionChange("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
-        <button className="nav-item" onClick={() => onSectionChange("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
-        <button className="nav-item" onClick={() => onSectionChange("cortes")}><span>✂</span> Cortes</button>
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valores")}><span>R$</span> Valor dos insumos</button>}
-        {canViewValues && <button className="nav-item" onClick={() => onSectionChange("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-        {canViewValues && <button className="nav-item active" onClick={() => onSectionChange("fornecedores")}><span>🚚</span> Fornecedores</button>}
-      </nav>
-      <div className="sidebar-note"><span className="pulse-dot" /><div><strong>Dados atualizados</strong><small>{new Date(fornecedoresData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}</small></div></div>
-      <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
-    </aside>
+  return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
+    <Sidebar activeSection="fornecedores" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Dados atualizados" notaValor={new Date(fornecedoresData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Fornecedores</strong></div>
@@ -3965,6 +3923,15 @@ export default function DashboardClient({
   cortesValoresData: CortesValoresData | null;
 }) {
   const [section, setSection] = useState<Section>("terceiros");
+  // Pedido do usuario em 26/10/2026: "quero que essa aba seja responsiva com uma seta pra abrir
+  // e fechar, a tela fica maior" - estado unico aqui (nao local a cada secao) porque todas as 9
+  // telas ficam sempre montadas ao mesmo tempo (`hidden`, nunca desmontam - ver abasSecundarias
+  // mais abaixo); se cada uma guardasse seu proprio colapso, trocar de aba voltaria o menu a
+  // expandir sozinho.
+  const [sidebarColapsado, setSidebarColapsado] = useState(false);
+  function toggleSidebar() {
+    setSidebarColapsado((atual) => !atual);
+  }
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<"Todos" | Status>("Todos");
   const [selectedStores, setSelectedStores] = useState<string[]>([]);
@@ -4241,14 +4208,14 @@ export default function DashboardClient({
     (isValorProdutoAcabado && !valoresProdutoAcabadoData) ||
     (isFornecedores && !fornecedoresData);
   const abasSecundarias = <>
-    <div hidden={!(isValues && valoresData)}>{valoresData && <ValuesDashboard onSectionChange={changeSection} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} />}</div>
-    <div hidden={!isConsumption}><ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} /></div>
-    <div hidden={!isEscadinha}><EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} pedidosVendaData={pedidosVendaData} /></div>
-    <div hidden={!isEscadinhaInsumos}><EscadinhaInsumosDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaInsumosData={escadinhaInsumosData} /></div>
-    <div hidden={!isPedidosVenda}><PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} /></div>
-    <div hidden={!isCortes}><CortesDashboard onSectionChange={changeSection} canViewValues={canViewValues} cortesData={cortesData} cortesValoresData={cortesValoresData} /></div>
-    <div hidden={!(isValorProdutoAcabado && valoresProdutoAcabadoData)}>{valoresProdutoAcabadoData && <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} />}</div>
-    <div hidden={!(isFornecedores && fornecedoresData)}>{fornecedoresData && <FornecedoresDashboard onSectionChange={changeSection} canViewValues={canViewValues} fornecedoresData={fornecedoresData} />}</div>
+    <div hidden={!(isValues && valoresData)}>{valoresData && <ValuesDashboard onSectionChange={changeSection} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} />}</div>
+    <div hidden={!isConsumption}><ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
+    <div hidden={!isEscadinha}><EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} pedidosVendaData={pedidosVendaData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
+    <div hidden={!isEscadinhaInsumos}><EscadinhaInsumosDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaInsumosData={escadinhaInsumosData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
+    <div hidden={!isPedidosVenda}><PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
+    <div hidden={!isCortes}><CortesDashboard onSectionChange={changeSection} canViewValues={canViewValues} cortesData={cortesData} cortesValoresData={cortesValoresData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
+    <div hidden={!(isValorProdutoAcabado && valoresProdutoAcabadoData)}>{valoresProdutoAcabadoData && <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} />}</div>
+    <div hidden={!(isFornecedores && fornecedoresData)}>{fornecedoresData && <FornecedoresDashboard onSectionChange={changeSection} canViewValues={canViewValues} fornecedoresData={fornecedoresData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} />}</div>
   </>;
 
   function renderProductRow(product: Product, descontinuado: boolean) {
@@ -4329,30 +4296,8 @@ export default function DashboardClient({
     <>
       {abasSecundarias}
       <div hidden={!mostrarOperacional}>
-    <main className="app-shell">
-      <aside className="sidebar">
-        <div className="brand">
-          <span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span>
-          <span>Da Terrinha<small>Planejamento de estoque</small></span>
-        </div>
-        <nav aria-label="Navegação principal">
-          <button className={`nav-item ${section === "terceiros" ? "active" : ""}`} onClick={() => changeSection("terceiros")}><span>▦</span> Estoque de terceiros</button>
-          <button className={`nav-item ${section === "insumos" ? "active" : ""}`} onClick={() => changeSection("insumos")}><span>▤</span> Embalagens e MP</button>
-          <button className={`nav-item ${section === "consumo" ? "active" : ""}`} onClick={() => changeSection("consumo")}><span>◫</span> Consumo de insumos</button>
-          <button className={`nav-item ${section === "escadinha" ? "active" : ""}`} onClick={() => changeSection("escadinha")}><span>▧</span> Escadinha geral</button>
-          <button className={`nav-item ${section === "escadinhaInsumos" ? "active" : ""}`} onClick={() => changeSection("escadinhaInsumos")}><span>▥</span> Escadinha de insumos</button>
-          <button className={`nav-item ${section === "pedidosVenda" ? "active" : ""}`} onClick={() => changeSection("pedidosVenda")}><span>⇄</span> Estoque x Pedidos</button>
-          <button className={`nav-item ${section === "cortes" ? "active" : ""}`} onClick={() => changeSection("cortes")}><span>✂</span> Cortes</button>
-          {canViewValues && <button className={`nav-item ${section === "valores" ? "active" : ""}`} onClick={() => changeSection("valores")}><span>R$</span> Valor dos insumos</button>}
-          {canViewValues && <button className={`nav-item ${section === "valorProdutoAcabado" ? "active" : ""}`} onClick={() => changeSection("valorProdutoAcabado")}><span>R$</span> Valor produto acabado</button>}
-          {canViewValues && <button className={`nav-item ${section === "fornecedores" ? "active" : ""}`} onClick={() => changeSection("fornecedores")}><span>🚚</span> Fornecedores</button>}
-        </nav>
-        <div className="sidebar-note">
-          <span className="pulse-dot" />
-          <div><strong>Dados atualizados</strong><small>{updated}</small></div>
-        </div>
-        <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
-      </aside>
+    <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
+      <Sidebar activeSection={section} onSectionChange={changeSection} canViewValues={canViewValues} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={toggleSidebar} />
 
       <section className="workspace">
         <header className="topbar">

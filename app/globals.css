@@ -6,14 +6,32 @@ body { margin:0; background:var(--cream); color:var(--ink); font-family:var(--fo
 button,input,select { font:inherit; }
 button { cursor:pointer; }
 .app-shell { min-height:100vh; display:flex; }
-.sidebar { width:250px; position:fixed; inset:0 auto 0 0; background:#9c480d; color:#fff; padding:28px 18px 20px; display:flex; flex-direction:column; z-index:20; }
+.sidebar { width:250px; position:fixed; inset:0 auto 0 0; background:#9c480d; color:#fff; padding:28px 18px 20px; display:flex; flex-direction:column; z-index:20; transition:width .18s ease, padding .18s ease; }
+/* Menu lateral recolhivel (pedido do usuario em 26/10/2026: "seta pra abrir e fechar, a tela
+   fica maior") - o estado `colapsado` fica em DashboardClient (nao em cada secao), entao essa
+   classe sempre bate com o `.workspace` irmao via o ancestral comum `.app-shell`, mesmo com
+   9 copias desse par aside/section no arquivo. */
+.sidebar-toggle { position:absolute; top:30px; right:-13px; width:26px; height:26px; border-radius:50%; border:1px solid var(--line); background:#fff; color:#9c480d; display:grid; place-items:center; font-size:12px; font-weight:700; box-shadow:0 2px 8px #081c1240; z-index:21; }
+.sidebar-toggle:hover { background:var(--cream); }
+.app-shell.sidebar-collapsed .sidebar { width:76px; padding:28px 10px 20px; }
+.app-shell.sidebar-collapsed .workspace { margin-left:76px; width:calc(100% - 76px); }
+.app-shell.sidebar-collapsed .brand { justify-content:center; padding:0 0 26px; }
+.app-shell.sidebar-collapsed .brand-text,
+.app-shell.sidebar-collapsed .nav-label,
+.app-shell.sidebar-collapsed .sidebar-note,
+.app-shell.sidebar-collapsed .profile strong,
+.app-shell.sidebar-collapsed .profile small,
+.app-shell.sidebar-collapsed .profile i { display:none; }
+.app-shell.sidebar-collapsed .nav-item { justify-content:center; padding:11px 0; }
+.app-shell.sidebar-collapsed .profile { justify-content:center; padding:18px 0 0; }
 .brand { display:flex; align-items:center; gap:12px; padding:0 8px 26px; font-weight:720; letter-spacing:-.02em; }
 .brand-logo-wrap { width:48px; height:48px; flex:0 0 48px; overflow:hidden; display:grid; place-items:center; border-radius:12px; background:#fff; box-shadow:0 2px 9px #081c1240, inset 0 0 0 1px #ffffff45; }
 .brand-logo { width:100%; height:100%; object-fit:contain; display:block; }
 .brand small { display:block; font-size:10px; color:#a9c4b4; letter-spacing:.02em; font-weight:500; margin-top:2px; }
 .sidebar nav { display:grid; gap:5px; }
 .nav-item { border:0; background:transparent; color:#b8cec1; border-radius:9px; padding:11px 12px; text-align:left; display:flex; gap:10px; align-items:center; font-size:13px; }
-.nav-item span { width:18px; font-size:17px; text-align:center; }
+.nav-item .nav-icon { width:18px; font-size:17px; text-align:center; flex:0 0 18px; }
+.nav-label { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .nav-item b { margin-left:auto; border-radius:10px; padding:2px 7px; background:#ffffff15; font-size:10px; }
 .nav-item:hover,.nav-item.active { background:#ffffff12; color:#fff; }
 .nav-item.active { box-shadow:inset 3px 0 #e3a72f; }
@@ -25,7 +43,7 @@ button { cursor:pointer; }
 .profile>span { width:31px; height:31px; display:grid; place-items:center; background:#dce9df; color:#173c2a; border-radius:50%; font-size:10px; font-weight:800; }
 .profile strong,.profile small { display:block; font-size:10px; }
 .profile small { color:#91aa9b; margin-top:2px; }.profile i { margin-left:auto; color:#9bb2a5; }
-.workspace { margin-left:250px; width:calc(100% - 250px); }
+.workspace { margin-left:250px; width:calc(100% - 250px); transition:margin-left .18s ease, width .18s ease; }
 .topbar { height:68px; background:#fff; border-bottom:1px solid var(--line); display:flex; align-items:center; padding:0 34px; gap:22px; position:sticky; top:0; z-index:15; }
 .mobile-brand { display:none; }
 .global-search { width:min(470px,55%); display:flex; align-items:center; gap:9px; color:#75827b; }
