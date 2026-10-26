@@ -2734,14 +2734,19 @@ function CortesDashboard({
   // busca) mas ignora de proposito o filtro de Categoria - senao, com uma categoria ja
   // selecionada no filtro do topo, esse grafico so teria uma barra pra comparar (o objetivo
   // aqui e comparar entre categorias, nao dentro de uma so).
+  // Mes clicado no grafico de Faturado R$/%CORTE (pedido do usuario em 26/10/2026: "quando eu
+  // clicar no mes quero so ver as categorias e produtos que foram cortados no mes
+  // selecionado") - clicar de novo no mesmo mes limpa (volta pro periodo inteiro).
+  const [mesAbertoGrafico2, setMesAbertoGrafico2] = useState<string | null>(null);
   const categoriaGrafico2Base = useMemo(() => {
     const search = query.trim().toLocaleLowerCase("pt-BR");
     return cortes.filter((c) => (
       (!search || (c.produto ?? "").toLocaleLowerCase("pt-BR").includes(search) || String(c.produtoKey).includes(search) || c.loja.toLocaleLowerCase("pt-BR").includes(search))
       && (lojas.length === 0 || lojas.includes(c.loja))
       && (produtosFiltro.length === 0 || produtosFiltro.includes(c.produto ?? ""))
+      && (!mesAbertoGrafico2 || c.data.slice(0, 7) === mesAbertoGrafico2)
     ));
-  }, [cortes, query, lojas, produtosFiltro]);
+  }, [cortes, query, lojas, produtosFiltro, mesAbertoGrafico2]);
   const porCategoriaGrafico2 = useMemo(() => {
     const mapa = new Map<string, { categoria: string; corteRs: number; corteCx: number }>();
     for (const c of categoriaGrafico2Base) {
@@ -2835,7 +2840,7 @@ function CortesDashboard({
         </section>
 
         <section className="inventory-panel consumption-panel">
-          <div className="panel-heading"><div><p className="eyebrow">{visao === "motivos" ? "GRÁFICOS" : visao === "tendencia" ? "GRÁFICO 2" : modoDetalhe === "faturado" ? "FATURADO SEM CORTE" : "DETALHE"}</p><h2>{visao === "motivos" ? "Corte por motivo, produto e setor" : visao === "tendencia" ? "Pedido x %Corte por mês" : modoDetalhe === "faturado" ? "Itens 100% atendidos" : "Cortes por produto"}</h2><p>{visao === "motivos" ? "Corte (cx) por motivo/produto/setor, no filtro atual — maior primeiro." : visao === "tendencia" ? "Série completa por mês (ignora o filtro de Mês/Semana/Motivo) — filtre por categoria ou produto pra ver a linha do tempo só daquele recorte." : modoDetalhe === "faturado" ? "Itens faturados sem nenhum corte, por mês (não cruza com Semana nem Motivo)." : "Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização."}</p></div><div className="unit-switch"><button className={visao === "detalhe" ? "active" : ""} onClick={() => setVisao("detalhe")}>Detalhe</button><button className={visao === "motivos" ? "active" : ""} onClick={() => setVisao("motivos")}>Gráfico</button>{canViewValues && <button className={visao === "tendencia" ? "active" : ""} onClick={() => setVisao("tendencia")}>Gráfico 2</button>}</div></div>
+          <div className="panel-heading"><div><p className="eyebrow">{visao === "motivos" ? "GRÁFICOS" : visao === "tendencia" ? "GRÁFICO 2" : modoDetalhe === "faturado" ? "FATURADO SEM CORTE" : "DETALHE"}</p><h2>{visao === "motivos" ? "Corte por motivo, produto e setor" : visao === "tendencia" ? "Pedido x %Corte por mês" : modoDetalhe === "faturado" ? "Itens 100% atendidos" : "Cortes por produto"}</h2><p>{visao === "motivos" ? "Corte (cx) por motivo/produto/setor, no filtro atual — maior primeiro." : visao === "tendencia" ? "Série completa por mês (ignora o filtro de Mês/Semana/Motivo) — filtre por categoria ou produto pra ver a linha do tempo só daquele recorte, ou clique num mês no gráfico pra ver só as categorias/produtos daquele mês." : modoDetalhe === "faturado" ? "Itens faturados sem nenhum corte, por mês (não cruza com Semana nem Motivo)." : "Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização."}</p></div><div className="unit-switch"><button className={visao === "detalhe" ? "active" : ""} onClick={() => setVisao("detalhe")}>Detalhe</button><button className={visao === "motivos" ? "active" : ""} onClick={() => setVisao("motivos")}>Gráfico</button>{canViewValues && <button className={visao === "tendencia" ? "active" : ""} onClick={() => setVisao("tendencia")}>Gráfico 2</button>}</div></div>
           {visao === "detalhe" && <div className="unit-switch" style={{ margin: "0 20px 16px" }}>
             <button className={modoDetalhe === "corte" ? "active" : ""} onClick={() => setModoDetalhe("corte")}>Corte</button>
             <button className={modoDetalhe === "faturado" ? "active" : ""} onClick={() => setModoDetalhe("faturado")}>Faturado</button>
@@ -2934,12 +2939,14 @@ function CortesDashboard({
                 <line x1={marginLeft} y1={baseY} x2={W - marginRight} y2={baseY} className="tendencia-eixo" />
                 {porMes.map((m, i) => {
                   const p = pontos[i];
-                  return <g key={m.mes}>
-                    <rect x={p.x - barW / 2} y={p.barTopoY} width={barW} height={p.barH} rx={4} className="tendencia-barra">
+                  const selecionado = m.mes === mesAbertoGrafico2;
+                  return <g key={m.mes} className="tendencia-mes-clicavel" onClick={() => setMesAbertoGrafico2(selecionado ? null : m.mes)}>
+                    <rect x={p.x - slot / 2} y={topoY} width={slot} height={baseY - topoY} fill="transparent" />
+                    <rect x={p.x - barW / 2} y={p.barTopoY} width={barW} height={p.barH} rx={4} className={`tendencia-barra${selecionado ? " tendencia-barra-selecionada" : ""}`}>
                       <title>{`${mesCorteLabel(m.mes)}: Faturado ${currency.format(m.faturadoRs)} · Corte ${decimalGrafico2.format(m.percentualCorte)}%`}</title>
                     </rect>
                     <text x={p.x} y={p.barTopoY - 8} textAnchor="middle" className="tendencia-valor-barra">{formatCompactReais(m.faturadoRs)}</text>
-                    <text x={p.x} y={baseY + 20} textAnchor="middle" className="tendencia-mes">{mesCorteLabel(m.mes)}</text>
+                    <text x={p.x} y={baseY + 20} textAnchor="middle" className={`tendencia-mes${selecionado ? " tendencia-mes-selecionado" : ""}`}>{mesCorteLabel(m.mes)}</text>
                   </g>;
                 })}
                 <polyline points={pontos.map((p) => `${p.x},${p.linhaY}`).join(" ")} className="tendencia-linha" />
@@ -2952,9 +2959,12 @@ function CortesDashboard({
                 })}
               </svg>;
             })()}
+            {mesAbertoGrafico2 && <div className="tendencia-mes-filtro-ativo" style={{ margin: "24px 20px 0" }}>
+              Mostrando só <strong>{mesCorteLabel(mesAbertoGrafico2)}</strong> · <button type="button" onClick={() => setMesAbertoGrafico2(null)}>ver o período inteiro</button>
+            </div>}
             <div className="tendencia-categoria-grid">
               <div>
-                <h3 className="drawer-section-label" style={{ margin: "24px 20px 10px" }}>CORTE R$ POR CATEGORIA</h3>
+                <h3 className="drawer-section-label" style={{ margin: "24px 20px 10px" }}>CORTE R$ POR CATEGORIA{mesAbertoGrafico2 ? ` — ${mesCorteLabel(mesAbertoGrafico2)}` : ""}</h3>
                 <div className="motivo-bars">
                   {porCategoriaGrafico2.map((c) => <button type="button" className={`motivo-bar-row ${c.categoria === categoriaEfetivaGrafico2 ? "motivo-bar-row-selecionada" : ""}`} key={c.categoria} onClick={() => setCategorias(categorias.length === 1 && categorias[0] === c.categoria ? [] : [c.categoria])}>
                     <span className="motivo-bar-label" title={c.categoria}>{c.categoria}</span>
