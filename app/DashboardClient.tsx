@@ -588,10 +588,11 @@ function calculateVisualStatus(source: SourceProduct, useSourceCobertura: boolea
 
 const number = new Intl.NumberFormat("pt-BR");
 const decimal = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 1 });
-// So pro %CORTE do "Gráfico 2" (pedido do usuario em 26/10/2026: "% com 4 casas decimais") -
-// com 1 casa, meses/produtos de baixo volume arredondavam pra "0%" e pareciam zerados sem
-// estar. O resto do painel continua usando `decimal` (1 casa) sem mudanca.
-const decimal4 = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+// So pro %CORTE do "Gráfico 2" (pedido do usuario em 26/10/2026: "% com 4 casas decimais",
+// depois ajustado pro mesmo dia pra "diminui as casas decimais pra duas") - com 1 casa,
+// meses/produtos de baixo volume arredondavam pra "0%" e pareciam zerados sem estar. O resto
+// do painel continua usando `decimal` (1 casa) sem mudanca.
+const decimalGrafico2 = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const currency = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
 const deliveryDate = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "short" });
 const deliveryColumnDate = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "2-digit" });
@@ -2886,7 +2887,7 @@ function CortesDashboard({
                   const p = pontos[i];
                   return <g key={m.mes}>
                     <rect x={p.x - barW / 2} y={p.barTopoY} width={barW} height={p.barH} rx={4} className="tendencia-barra">
-                      <title>{`${mesCorteLabel(m.mes)}: Faturado ${currency.format(m.faturadoRs)} · Corte ${decimal4.format(m.percentualCorte)}%`}</title>
+                      <title>{`${mesCorteLabel(m.mes)}: Faturado ${currency.format(m.faturadoRs)} · Corte ${decimalGrafico2.format(m.percentualCorte)}%`}</title>
                     </rect>
                     <text x={p.x} y={p.barTopoY - 8} textAnchor="middle" className="tendencia-valor-barra">{formatCompactReais(m.faturadoRs)}</text>
                     <text x={p.x} y={baseY + 20} textAnchor="middle" className="tendencia-mes">{mesCorteLabel(m.mes)}</text>
@@ -2897,7 +2898,7 @@ function CortesDashboard({
                   const p = pontos[i];
                   return <g key={m.mes}>
                     <circle cx={p.x} cy={p.linhaY} r={5} className="tendencia-ponto" />
-                    <text x={p.x} y={p.rotuloLinhaAcima ? p.linhaY - 12 : p.linhaY + 20} textAnchor="middle" className="tendencia-valor-linha">{decimal4.format(m.percentualCorte)}%</text>
+                    <text x={p.x} y={p.rotuloLinhaAcima ? p.linhaY - 12 : p.linhaY + 20} textAnchor="middle" className="tendencia-valor-linha">{decimalGrafico2.format(m.percentualCorte)}%</text>
                   </g>;
                 })}
               </svg>;
