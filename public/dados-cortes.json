@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-26T14:08:12",
+  "atualizadoEm": "2026-10-26T15:44:52",
   "origem": "dados_cortes.json (Power Automate) + motivos_cortes.xlsx (preenchimento manual)",
   "cortes": [
     {
@@ -11,10 +11,10 @@
       "quantidadePedidaCx": 682.0,
       "quantidadeFaturadaCx": 643.0,
       "corteCx": 39.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Logística",
+      "observacoes": "PRODUTO EM ESTOQUE",
       "categoria": "TAPIOCA POUCH",
-      "setor": null
+      "setor": "LOGÍSTICA"
     },
     {
       "data": "2026-10-24",
@@ -25,10 +25,10 @@
       "quantidadePedidaCx": 100.0,
       "quantidadeFaturadaCx": 34.0,
       "corteCx": 66.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Falta de Programação",
+      "observacoes": "PRIORIDADE NA PRODUÇÃO FAROFA TERRINHA",
       "categoria": "FAROFA",
-      "setor": null
+      "setor": "PCP"
     },
     {
       "data": "2026-10-23",
@@ -39,8 +39,8 @@
       "quantidadePedidaCx": 35.0,
       "quantidadeFaturadaCx": 25.98,
       "corteCx": 9.02,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Outro",
+      "observacoes": "Tapioca Tipo b",
       "categoria": "FECULA",
       "setor": null
     },
@@ -53,10 +53,10 @@
       "quantidadePedidaCx": 300.0,
       "quantidadeFaturadaCx": 218.0,
       "corteCx": 82.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "falta de Materia prima",
       "categoria": "FARINACEOS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-23",
@@ -67,10 +67,10 @@
       "quantidadePedidaCx": 93.0,
       "quantidadeFaturadaCx": 51.0,
       "corteCx": 42.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-23",
@@ -81,10 +81,10 @@
       "quantidadePedidaCx": 20.0,
       "quantidadeFaturadaCx": 18.0,
       "corteCx": 2.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-23",
@@ -95,10 +95,10 @@
       "quantidadePedidaCx": 290.0,
       "quantidadeFaturadaCx": 260.0,
       "corteCx": 30.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Falta de Programação",
+      "observacoes": "PRIORIDADE NA PRODUÇÃO FAROFA TERRINHA",
       "categoria": "FAROFA",
-      "setor": null
+      "setor": "PCP"
     },
     {
       "data": "2026-10-23",
@@ -109,10 +109,10 @@
       "quantidadePedidaCx": 480.0,
       "quantidadeFaturadaCx": 476.0,
       "corteCx": 4.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "falta de Materia prima",
       "categoria": "FARINACEOS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-23",
@@ -123,10 +123,10 @@
       "quantidadePedidaCx": 5.0,
       "quantidadeFaturadaCx": 3.0,
       "corteCx": 2.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade de produção",
       "categoria": "GRAOS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-22",
@@ -137,10 +137,10 @@
       "quantidadePedidaCx": 448.0,
       "quantidadeFaturadaCx": 266.0,
       "corteCx": 182.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Falta de matéria-prima",
+      "observacoes": "Fornecedor  sem materia prima",
       "categoria": "FARINACEOS",
-      "setor": null
+      "setor": "COMPRAS"
     },
     {
       "data": "2026-10-22",
@@ -151,10 +151,10 @@
       "quantidadePedidaCx": 228.0,
       "quantidadeFaturadaCx": 107.0,
       "corteCx": 121.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-22",
@@ -165,10 +165,10 @@
       "quantidadePedidaCx": 148.0,
       "quantidadeFaturadaCx": 143.0,
       "corteCx": 5.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-22",
@@ -179,10 +179,10 @@
       "quantidadePedidaCx": 75.0,
       "quantidadeFaturadaCx": 72.0,
       "corteCx": 3.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Falta de matéria-prima",
+      "observacoes": "Fornecedor  sem materia prima",
       "categoria": "PIMENTAS",
-      "setor": null
+      "setor": "COMPRAS"
     },
     {
       "data": "2026-10-22",
@@ -193,8 +193,8 @@
       "quantidadePedidaCx": 70.0,
       "quantidadeFaturadaCx": 63.138000000000005,
       "corteCx": 6.861999999999998,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Outro",
+      "observacoes": "Tapioca Tipo b",
       "categoria": "FECULA",
       "setor": null
     },
@@ -207,10 +207,10 @@
       "quantidadePedidaCx": 321.0,
       "quantidadeFaturadaCx": 320.0,
       "corteCx": 1.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Logística",
+      "observacoes": "PRODUTO EM ESTOQUE",
       "categoria": "FARINACEOS",
-      "setor": null
+      "setor": "LOGÍSTICA"
     },
     {
       "data": "2026-10-22",
@@ -221,10 +221,10 @@
       "quantidadePedidaCx": 93.0,
       "quantidadeFaturadaCx": 14.0,
       "corteCx": 79.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Atraso na entrega",
+      "observacoes": "Venda acima da escadinha",
       "categoria": "FARINACEOS",
-      "setor": null
+      "setor": "COMPRAS"
     },
     {
       "data": "2026-10-22",
@@ -235,10 +235,10 @@
       "quantidadePedidaCx": 13.0,
       "quantidadeFaturadaCx": 5.0,
       "corteCx": 8.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade de produção",
       "categoria": "GRAOS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-21",
@@ -249,8 +249,8 @@
       "quantidadePedidaCx": 30.0,
       "quantidadeFaturadaCx": 23.429,
       "corteCx": 6.5710000000000015,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Outro",
+      "observacoes": "Tapioca Tipo b",
       "categoria": "FECULA",
       "setor": null
     },
@@ -263,10 +263,10 @@
       "quantidadePedidaCx": 22.0,
       "quantidadeFaturadaCx": 14.0,
       "corteCx": 8.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Qualidade",
+      "observacoes": "PRODUTO AMARELO NO ESTOQUE",
       "categoria": "TAPIOCA MARCA PROPRIA",
-      "setor": null
+      "setor": "QUALIDADE"
     },
     {
       "data": "2026-10-21",
@@ -277,10 +277,10 @@
       "quantidadePedidaCx": 6397.0,
       "quantidadeFaturadaCx": 6384.0,
       "corteCx": 13.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Logística",
+      "observacoes": "PRODUTO EM ESTOQUE",
       "categoria": "TAPIOCA",
-      "setor": null
+      "setor": "LOGÍSTICA"
     },
     {
       "data": "2026-10-21",
@@ -291,10 +291,10 @@
       "quantidadePedidaCx": 470.0,
       "quantidadeFaturadaCx": 416.0,
       "corteCx": 54.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Falta de matéria-prima",
+      "observacoes": "Falta de Materia Prima",
       "categoria": "FARINACEOS",
-      "setor": null
+      "setor": "COMPRAS"
     },
     {
       "data": "2026-10-21",
@@ -305,10 +305,10 @@
       "quantidadePedidaCx": 103.0,
       "quantidadeFaturadaCx": 58.0,
       "corteCx": 45.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-21",
@@ -319,10 +319,10 @@
       "quantidadePedidaCx": 179.0,
       "quantidadeFaturadaCx": 87.0,
       "corteCx": 92.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-21",
@@ -333,10 +333,10 @@
       "quantidadePedidaCx": 110.0,
       "quantidadeFaturadaCx": 108.0,
       "corteCx": 2.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-21",
@@ -347,10 +347,10 @@
       "quantidadePedidaCx": 128.0,
       "quantidadeFaturadaCx": 72.0,
       "corteCx": 56.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Falta de matéria-prima",
+      "observacoes": "Venda acima da escadinha",
       "categoria": "FARINACEOS",
-      "setor": null
+      "setor": "COMPRAS"
     },
     {
       "data": "2026-10-20",
@@ -361,10 +361,10 @@
       "quantidadePedidaCx": 62.0,
       "quantidadeFaturadaCx": 10.0,
       "corteCx": 52.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-20",
@@ -375,10 +375,10 @@
       "quantidadePedidaCx": 38.0,
       "quantidadeFaturadaCx": 37.0,
       "corteCx": 1.0,
-      "motivo": null,
-      "observacoes": null,
+      "motivo": "Produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-19",
@@ -404,9 +404,9 @@
       "quantidadeFaturadaCx": 119.0,
       "corteCx": 10.0,
       "motivo": "Produção",
-      "observacoes": "capacidade produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-19",
@@ -418,9 +418,9 @@
       "quantidadeFaturadaCx": 109.0,
       "corteCx": 2.0,
       "motivo": "Produção",
-      "observacoes": "capacidade produção",
+      "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-19",
@@ -490,7 +490,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "TAPIOCA MARCA PROPRIA",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-17",
@@ -504,7 +504,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-17",
@@ -518,7 +518,7 @@
       "motivo": "Produção",
       "observacoes": "produzindo outros produtos",
       "categoria": "GRAOS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-16",
@@ -546,7 +546,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-16",
@@ -560,7 +560,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-16",
@@ -574,7 +574,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-16",
@@ -588,7 +588,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-16",
@@ -630,7 +630,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-15",
@@ -644,7 +644,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-15",
@@ -658,7 +658,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-15",
@@ -672,7 +672,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-15",
@@ -728,7 +728,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-14",
@@ -742,7 +742,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-14",
@@ -798,7 +798,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-13",
@@ -812,7 +812,7 @@
       "motivo": "Produção",
       "observacoes": "outros pedido na linha",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-13",
@@ -826,7 +826,7 @@
       "motivo": "Produção",
       "observacoes": "outros pedido na linha",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-13",
@@ -882,7 +882,7 @@
       "motivo": "Produção",
       "observacoes": "capacidade de produção",
       "categoria": "GRAOS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-13",
@@ -938,7 +938,7 @@
       "motivo": "Produção",
       "observacoes": "outros pedido na linha",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-12",
@@ -1008,7 +1008,7 @@
       "motivo": "Produção",
       "observacoes": "ajustando produção na Copack",
       "categoria": "ESPECIARIAS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-08",
@@ -1020,9 +1020,9 @@
       "quantidadeFaturadaCx": 400.0,
       "corteCx": 2.0,
       "motivo": "Produção",
-      "observacoes": null,
+      "observacoes": "capacidade de produção",
       "categoria": "FARINACEOS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-08",
@@ -1036,7 +1036,7 @@
       "motivo": "Qualidade",
       "observacoes": "Amrelou 981 fardos no estoque",
       "categoria": "TAPIOCA MARCA PROPRIA",
-      "setor": null
+      "setor": "QUALIDADE"
     },
     {
       "data": "2026-10-08",
@@ -1064,7 +1064,7 @@
       "motivo": "Produção",
       "observacoes": "produzindo outros produtos",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-08",
@@ -1106,7 +1106,7 @@
       "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": null
+      "setor": "QUALIDADE"
     },
     {
       "data": "2026-10-08",
@@ -1120,7 +1120,7 @@
       "motivo": "Produção",
       "observacoes": "capidade produção",
       "categoria": "GRAOS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-08",
@@ -1160,9 +1160,9 @@
       "quantidadeFaturadaCx": 500.0,
       "corteCx": 96.0,
       "motivo": "Produção",
-      "observacoes": null,
+      "observacoes": "capacidade de produção",
       "categoria": "FARINACEOS",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-07",
@@ -1204,7 +1204,7 @@
       "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": null
+      "setor": "QUALIDADE"
     },
     {
       "data": "2026-10-07",
@@ -1288,7 +1288,7 @@
       "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": null
+      "setor": "QUALIDADE"
     },
     {
       "data": "2026-10-06",
@@ -1302,7 +1302,7 @@
       "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": null
+      "setor": "QUALIDADE"
     },
     {
       "data": "2026-10-06",
@@ -1330,7 +1330,7 @@
       "motivo": "Produção",
       "observacoes": "outros pedido na linha",
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-06",
@@ -1358,7 +1358,7 @@
       "motivo": "Produção",
       "observacoes": null,
       "categoria": "ALHO",
-      "setor": null
+      "setor": "PRODUÇÃO"
     },
     {
       "data": "2026-10-06",
@@ -1400,7 +1400,7 @@
       "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": null
+      "setor": "QUALIDADE"
     },
     {
       "data": "2026-10-05",
@@ -1414,7 +1414,7 @@
       "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": null
+      "setor": "QUALIDADE"
     },
     {
       "data": "2026-10-02",
@@ -1540,7 +1540,7 @@
       "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": null
+      "setor": "QUALIDADE"
     },
     {
       "data": "2026-10-02",
@@ -1554,7 +1554,7 @@
       "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": null
+      "setor": "QUALIDADE"
     },
     {
       "data": "2026-10-02",
@@ -1694,7 +1694,7 @@
       "motivo": "Qualidade",
       "observacoes": "ajustando quaildade do produto , produção reduzida",
       "categoria": "CREME DE AVELA",
-      "setor": null
+      "setor": "QUALIDADE"
     },
     {
       "data": "2026-10-01",
@@ -3762,7 +3762,7 @@
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - UND",
       "quantidadePedidaCx": 0.9125000000000003,
       "quantidadeFaturadaCx": 0.5375000000000001,
-      "corteCx": 0.37500000000000006,
+      "corteCx": 0.375,
       "motivo": null,
       "observacoes": null,
       "categoria": "FAROFA",
@@ -32092,7 +32092,7 @@
     }
   ],
   "totalLinhas": 2292,
-  "semMotivo": 2198,
+  "semMotivo": 2171,
   "atendidos": [
     {
       "mes": "2026-10",
@@ -32181,7 +32181,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 72087,
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - UND",
-      "quantidadeFaturadaCx": 14.287499999999996,
+      "quantidadeFaturadaCx": 14.287499999999994,
       "categoria": "FAROFA"
     },
     {
@@ -32217,7 +32217,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 80980,
       "produto": "01101 WRAP DE TAPIOCA ORIGINAL DA TERRINHA 150 G - UND",
-      "quantidadeFaturadaCx": 3.666666666666667,
+      "quantidadeFaturadaCx": 3.6666666666666665,
       "categoria": null
     },
     {
@@ -37806,7 +37806,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 78984,
       "produto": "00933 COCO RALADO UMIDO ADOCADO DA TERRINHA 50 G - UND",
-      "quantidadeFaturadaCx": 0.43999999999999995,
+      "quantidadeFaturadaCx": 0.44,
       "categoria": null
     },
     {
@@ -41271,7 +41271,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 72087,
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - UND",
-      "quantidadeFaturadaCx": 13.900000000000002,
+      "quantidadeFaturadaCx": 13.900000000000004,
       "categoria": "FAROFA"
     },
     {
@@ -43215,7 +43215,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 48763,
       "produto": "01782 OREGANO DA TERRINHA 08 g  - UND",
-      "quantidadeFaturadaCx": 1.9166666666666665,
+      "quantidadeFaturadaCx": 1.9166666666666667,
       "categoria": null
     },
     {
@@ -43224,7 +43224,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 50103,
       "produto": "01732 CHIMICHURRI DA TERRINHA 20g - UND",
-      "quantidadeFaturadaCx": 1.9583333333333333,
+      "quantidadeFaturadaCx": 1.9583333333333335,
       "categoria": null
     },
     {
@@ -47769,7 +47769,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 2,
       "produto": "00002 TAPIOCA DA TERRINHA 500 G - UND",
-      "quantidadeFaturadaCx": 23.958333333333332,
+      "quantidadeFaturadaCx": 23.958333333333336,
       "categoria": null
     },
     {
@@ -61395,7 +61395,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 1,
       "produto": "00001 TAPIOCA DA TERRINHA 1 KG - UND",
-      "quantidadeFaturadaCx": 63.25,
+      "quantidadeFaturadaCx": 63.24999999999999,
       "categoria": null
     },
     {
@@ -64770,7 +64770,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 72087,
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - UND",
-      "quantidadeFaturadaCx": 17.037499999999998,
+      "quantidadeFaturadaCx": 17.037499999999994,
       "categoria": "FAROFA"
     },
     {
@@ -68883,7 +68883,7 @@
       "loja": "Loja não identificada",
       "produtoKey": 72087,
       "produto": "00304 FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - UND",
-      "quantidadeFaturadaCx": 11.275000000000002,
+      "quantidadeFaturadaCx": 11.274999999999999,
       "categoria": "FAROFA"
     },
     {
