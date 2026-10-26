@@ -2472,7 +2472,7 @@ function CortesDashboard({
   // grafico de barra apontando os cortes com os motivos e se possivel com %") - visao
   // alternativa a tabela de detalhe, mesmo padrao de toggle "visao" ja usado na Escadinha
   // geral (grade/resumo).
-  const [visao, setVisao] = useState<"detalhe" | "motivos">("detalhe");
+  const [visao, setVisao] = useState<"detalhe" | "motivos" | "tendencia">("detalhe");
 
   const cortes = cortesData.cortes;
   const SEM_MOTIVO = "Sem motivo preenchido";
@@ -2660,6 +2660,61 @@ function CortesDashboard({
   }, [filtrados, canViewValues, valorPorChave, totalValorReferenciaCorte]);
   const maiorCorteSetor = Math.max(1, ...porSetor.map((s) => s.corteCx));
 
+  // "Gráfico 2" (pedido do usuario em 26/10/2026, com print de referencia de um relatorio
+  // Power BI externo: "quero os graficos iguais a esses... filtro por categoria e quando eu
+  // clicar quero ver a linha do tempo, e quero ver um determinado produto se ele corta na
+  // linha do tempo") - Pedido R$ por mes (barra) e %CORTE por mes (linha), lado a lado no
+  // mesmo eixo de meses. Ignora os filtros de Mes/Semana/Motivo (o objetivo aqui e ver a serie
+  // INTEIRA no tempo, um recorte de mes especifico esvaziaria o proprio grafico), mas respeita
+  // Loja/Categoria/Produto/busca - escolher uma categoria ou um produto especifico nesses
+  // filtros ja recalcula a serie temporal sozinho, sem controle novo. "Pedido R$" aqui e so
+  // uma barra informativa de volume (nao entra na formula de %CORTE) - a formula do %CORTE
+  // continua Corte R$ / (Faturado R$ + Corte R$), a mesma do resto desta aba (ver
+  // totalValorReferenciaCorte acima) e NAO a "Corte R$/Pedido R$" do relatorio de referencia.
+  const tendenciaCortes = useMemo(() => {
+    const search = query.trim().toLocaleLowerCase("pt-BR");
+    return cortes.filter((c) => (
+      (!search || (c.produto ?? "").toLocaleLowerCase("pt-BR").includes(search) || String(c.produtoKey).includes(search) || c.loja.toLocaleLowerCase("pt-BR").includes(search))
+      && (lojas.length === 0 || lojas.includes(c.loja))
+      && (categorias.length === 0 || categorias.includes(c.categoria ?? SEM_CATEGORIA))
+      && (produtosFiltro.length === 0 || produtosFiltro.includes(c.produto ?? ""))
+    ));
+  }, [cortes, query, lojas, categorias, produtosFiltro]);
+  const tendenciaAtendidos = useMemo(() => {
+    const search = query.trim().toLocaleLowerCase("pt-BR");
+    return (cortesData.atendidos ?? []).filter((a) => (
+      (!search || (a.produto ?? "").toLocaleLowerCase("pt-BR").includes(search) || String(a.produtoKey).includes(search) || a.loja.toLocaleLowerCase("pt-BR").includes(search))
+      && (lojas.length === 0 || lojas.includes(a.loja))
+      && (categorias.length === 0 || categorias.includes(a.categoria ?? SEM_CATEGORIA))
+      && (produtosFiltro.length === 0 || produtosFiltro.includes(a.produto ?? ""))
+    ));
+  }, [cortesData.atendidos, query, lojas, categorias, produtosFiltro]);
+  const porMes = useMemo(() => {
+    if (!canViewValues) return [];
+    const mapa = new Map<string, { mes: string; pedidoRs: number; faturadoRs: number; corteRs: number }>();
+    for (const c of tendenciaCortes) {
+      const mes = c.data.slice(0, 7);
+      const atual = mapa.get(mes) ?? { mes, pedidoRs: 0, faturadoRs: 0, corteRs: 0 };
+      const v = valorDoCorte(c);
+      if (v) { atual.pedidoRs += v.valorPedidoTotal; atual.faturadoRs += v.faturamentoRs; atual.corteRs += v.valorCorte; }
+      mapa.set(mes, atual);
+    }
+    for (const a of tendenciaAtendidos) {
+      const atual = mapa.get(a.mes) ?? { mes: a.mes, pedidoRs: 0, faturadoRs: 0, corteRs: 0 };
+      const v = valorAtendidoPorChave.get(`${a.mes}|${a.lojaKey}|${a.produtoKey}`);
+      if (v) { atual.pedidoRs += v.valorPedidoTotal; atual.faturadoRs += v.faturamentoRs; }
+      mapa.set(a.mes, atual);
+    }
+    return Array.from(mapa.values())
+      .map((m) => ({ ...m, percentualCorte: (m.faturadoRs + m.corteRs) > 0 ? (m.corteRs / (m.faturadoRs + m.corteRs)) * 100 : 0 }))
+      .sort((a, b) => a.mes.localeCompare(b.mes));
+  }, [tendenciaCortes, tendenciaAtendidos, valorAtendidoPorChave, canViewValues]);
+  const maiorPedidoMes = Math.max(1, ...porMes.map((m) => m.pedidoRs));
+  const maiorPercentualCorteMes = Math.max(1, ...porMes.map((m) => m.percentualCorte));
+  function formatMi(valor: number) {
+    return `${Math.round(valor / 1_000_000)} Mi`;
+  }
+
   // Clicar numa barra mostra os itens daquele motivo (pedido do usuario em 09/10/2026: "quero
   // ver os itens que cortou", com quantidade cx, % e valor do corte).
   const [motivoAberto, setMotivoAberto] = useState<string | null>(null);
@@ -2719,19 +2774,19 @@ function CortesDashboard({
         </section>
 
         <section className="inventory-panel consumption-panel">
-          <div className="panel-heading"><div><p className="eyebrow">{visao === "motivos" ? "GRÁFICOS" : modoDetalhe === "faturado" ? "FATURADO SEM CORTE" : "DETALHE"}</p><h2>{visao === "motivos" ? "Corte por motivo, produto e setor" : modoDetalhe === "faturado" ? "Itens 100% atendidos" : "Cortes por produto"}</h2><p>{visao === "motivos" ? "Corte (cx) por motivo/produto/setor, no filtro atual — maior primeiro." : modoDetalhe === "faturado" ? "Itens faturados sem nenhum corte, por mês (não cruza com Semana nem Motivo)." : "Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização."}</p></div><div className="unit-switch"><button className={visao === "detalhe" ? "active" : ""} onClick={() => setVisao("detalhe")}>Detalhe</button><button className={visao === "motivos" ? "active" : ""} onClick={() => setVisao("motivos")}>Gráfico</button></div></div>
+          <div className="panel-heading"><div><p className="eyebrow">{visao === "motivos" ? "GRÁFICOS" : visao === "tendencia" ? "GRÁFICO 2" : modoDetalhe === "faturado" ? "FATURADO SEM CORTE" : "DETALHE"}</p><h2>{visao === "motivos" ? "Corte por motivo, produto e setor" : visao === "tendencia" ? "Pedido x %Corte por mês" : modoDetalhe === "faturado" ? "Itens 100% atendidos" : "Cortes por produto"}</h2><p>{visao === "motivos" ? "Corte (cx) por motivo/produto/setor, no filtro atual — maior primeiro." : visao === "tendencia" ? "Série completa por mês (ignora o filtro de Mês/Semana/Motivo) — filtre por categoria ou produto pra ver a linha do tempo só daquele recorte." : modoDetalhe === "faturado" ? "Itens faturados sem nenhum corte, por mês (não cruza com Semana nem Motivo)." : "Preencha o motivo em motivos_cortes.xlsx (mesma pasta das outras planilhas do painel) — cruza automaticamente por data, loja e SKU na próxima atualização."}</p></div><div className="unit-switch"><button className={visao === "detalhe" ? "active" : ""} onClick={() => setVisao("detalhe")}>Detalhe</button><button className={visao === "motivos" ? "active" : ""} onClick={() => setVisao("motivos")}>Gráfico</button>{canViewValues && <button className={visao === "tendencia" ? "active" : ""} onClick={() => setVisao("tendencia")}>Gráfico 2</button>}</div></div>
           {visao === "detalhe" && <div className="unit-switch" style={{ margin: "0 20px 16px" }}>
             <button className={modoDetalhe === "corte" ? "active" : ""} onClick={() => setModoDetalhe("corte")}>Corte</button>
             <button className={modoDetalhe === "faturado" ? "active" : ""} onClick={() => setModoDetalhe("faturado")}>Faturado</button>
           </div>}
           <div className="filters value-filters"><div className="selects">
-            <MultiFilter label="Mês" options={mesOptions} selected={meses} onChange={setMeses} />
-            {!(visao === "detalhe" && modoDetalhe === "faturado") && <MultiFilter label="Semana" options={semanaOptions} selected={semanas} onChange={setSemanas} />}
+            {visao !== "tendencia" && <MultiFilter label="Mês" options={mesOptions} selected={meses} onChange={setMeses} />}
+            {!(visao === "detalhe" && modoDetalhe === "faturado") && visao !== "tendencia" && <MultiFilter label="Semana" options={semanaOptions} selected={semanas} onChange={setSemanas} />}
             <MultiFilter label="Loja" options={lojaOptions} selected={lojas} onChange={setLojas} />
-            {!(visao === "detalhe" && modoDetalhe === "faturado") && <MultiFilter label="Motivo" options={motivoOptions} selected={motivos} onChange={setMotivos} />}
+            {!(visao === "detalhe" && modoDetalhe === "faturado") && visao !== "tendencia" && <MultiFilter label="Motivo" options={motivoOptions} selected={motivos} onChange={setMotivos} />}
             <MultiFilter label="Categoria" options={categoriaOptions} selected={categorias} onChange={setCategorias} />
             <MultiFilter label="Produto" options={produtoOptions} selected={produtosFiltro} onChange={setProdutosFiltro} />
-            {!(visao === "detalhe" && modoDetalhe === "faturado") && <label className="toggle-inativos"><input type="checkbox" checked={somenteSemMotivo} onChange={(event) => setSomenteSemMotivo(event.target.checked)} /> Só sem motivo</label>}
+            {!(visao === "detalhe" && modoDetalhe === "faturado") && visao !== "tendencia" && <label className="toggle-inativos"><input type="checkbox" checked={somenteSemMotivo} onChange={(event) => setSomenteSemMotivo(event.target.checked)} /> Só sem motivo</label>}
             {(lojas.length > 0 || motivos.length > 0 || categorias.length > 0 || produtosFiltro.length > 0 || meses.length > 0 || semanas.length > 0 || somenteSemMotivo) && <button className="clear-value-filters" onClick={() => { setLojas([]); setMotivos([]); setCategorias([]); setProdutosFiltro([]); setMeses([]); setSemanas([]); setSomenteSemMotivo(false); }}>Limpar filtros</button>}
           </div></div>
           {visao === "motivos" ? <>
@@ -2779,6 +2834,48 @@ function CortesDashboard({
                 <span className="motivo-bar-value">{number.format(Math.round(totalCorteFiltrado))} cx <small className="motivo-bar-pct">100%</small>{canViewValues && <small className="motivo-bar-valor">{currency.format(totalValorCorteFiltrado ?? 0)}{totalValorReferenciaCorte ? ` · ${decimal.format(((totalValorCorteFiltrado ?? 0) / totalValorReferenciaCorte) * 100)}% do faturado` : ""}</small>}</span>
               </div>}
             </div>
+          </> : visao === "tendencia" ? <>
+            {porMes.length === 0 ? <div className="empty-state" style={{ margin: "0 20px" }}><strong>Nenhum corte encontrado</strong><p>Remova um filtro de loja, categoria ou produto.</p></div> : (() => {
+              const W = 1000;
+              const marginLeft = 54;
+              const marginRight = 20;
+              const plotWidth = W - marginLeft - marginRight;
+              const n = porMes.length;
+              const slot = plotWidth / n;
+              const barW = Math.min(30, slot * 0.5);
+              const xCentro = (i: number) => marginLeft + slot * i + slot / 2;
+              const barTopoY = 14;
+              const barBaseY = 230;
+              const barAreaH = barBaseY - barTopoY - 24;
+              const linhaTopoY = 272;
+              const linhaBaseY = 410;
+              const linhaAreaH = linhaBaseY - linhaTopoY - 20;
+              const pontosLinha = porMes.map((m, i) => [xCentro(i), linhaBaseY - (m.percentualCorte / maiorPercentualCorteMes) * linhaAreaH] as const);
+              return <svg viewBox={`0 0 ${W} 440`} style={{ width: "100%", height: "auto", display: "block" }} role="img" aria-label="Pedido R$ e percentual de corte por mês">
+                <text x={marginLeft} y={barTopoY - 2} className="tendencia-titulo">PEDIDO R$</text>
+                <line x1={marginLeft} y1={barBaseY} x2={W - marginRight} y2={barBaseY} className="tendencia-eixo" />
+                {porMes.map((m, i) => {
+                  const h = Math.max(2, (m.pedidoRs / maiorPedidoMes) * barAreaH);
+                  return <g key={m.mes}>
+                    <rect x={xCentro(i) - barW / 2} y={barBaseY - h} width={barW} height={h} rx={4} className="tendencia-barra">
+                      <title>{`${mesCorteLabel(m.mes)}: ${currency.format(m.pedidoRs)}`}</title>
+                    </rect>
+                    <text x={xCentro(i)} y={barBaseY - h - 8} textAnchor="middle" className="tendencia-valor-barra">{formatMi(m.pedidoRs)}</text>
+                    <text x={xCentro(i)} y={barBaseY + 18} textAnchor="middle" className="tendencia-mes">{mesCorteLabel(m.mes)}</text>
+                  </g>;
+                })}
+                <text x={marginLeft} y={linhaTopoY - 2} className="tendencia-titulo">%CORTE</text>
+                <line x1={marginLeft} y1={linhaBaseY} x2={W - marginRight} y2={linhaBaseY} className="tendencia-eixo" />
+                <polyline points={pontosLinha.map(([x, y]) => `${x},${y}`).join(" ")} className="tendencia-linha" />
+                {porMes.map((m, i) => {
+                  const [x, y] = pontosLinha[i];
+                  return <g key={m.mes}>
+                    <circle cx={x} cy={y} r={5} className="tendencia-ponto" />
+                    <text x={x} y={y - 12} textAnchor="middle" className="tendencia-valor-linha">{decimal.format(m.percentualCorte)}%</text>
+                  </g>;
+                })}
+              </svg>;
+            })()}
           </> : modoDetalhe === "faturado" ? <div className="table-wrap consumption-table-wrap"><table className="consumption-table" style={{ tableLayout: "fixed", width: "100%", minWidth: 0 }}><thead><tr>
             <th style={{ width: "auto" }}>Produto / loja</th>
             <th style={{ width: 90 }}>Mês</th>

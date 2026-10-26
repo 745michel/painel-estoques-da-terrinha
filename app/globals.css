@@ -150,6 +150,18 @@ th{color:#46594e;font-size:8px;font-weight:800}th .th-hint{display:block;color:#
 .motivo-bar-total .motivo-bar-label,.motivo-bar-total .motivo-bar-value{color:#173c2a;font-weight:800}
 @media(max-width:760px){.motivo-bar-label{flex-basis:120px;font-size:9px}.motivo-bar-value{min-width:90px;font-size:9px}}
 
+/* "Gráfico 2" de Cortes (26/10/2026) - Pedido R$ por mes (barra) e %CORTE por mes (linha), SVG
+   puro no mesmo padrao do resto do painel (sem lib de grafico). Texto sempre em tinta neutra
+   (nunca na cor da serie, regra do skill de dataviz) - so a barra/linha/ponto carrega a cor. */
+.tendencia-titulo{font-size:11px;font-weight:700;fill:var(--muted);letter-spacing:.04em}
+.tendencia-eixo{stroke:var(--line);stroke-width:1}
+.tendencia-barra{fill:var(--green-2)}
+.tendencia-valor-barra{font-size:12px;font-weight:700;fill:var(--ink)}
+.tendencia-mes{font-size:10px;fill:var(--muted)}
+.tendencia-linha{fill:none;stroke:var(--amber);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.tendencia-ponto{fill:var(--amber);stroke:#fff;stroke-width:2}
+.tendencia-valor-linha{font-size:11px;font-weight:700;fill:var(--ink)}
+
 /* ---------- aba Fornecedores (ranking por valor/kg, comparativo anual, gaveta) ---------- */
 .rk-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:7px;background:#edf3ef;color:#235f43;font-weight:800;font-size:9px}.rk-badge.top3{background:#e3a72f;color:#4a2c05}
 .product-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #eef1ef}.product-row:last-child{border-bottom:0}.pr-name{font-size:9px;color:#2b3a31;line-height:1.35}.pr-val{font-size:10px;font-weight:750;color:#145b39;white-space:nowrap;text-align:right}.pr-kg{color:#8a958e;font-weight:500}
