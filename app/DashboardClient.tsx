@@ -2754,10 +2754,14 @@ function CortesDashboard({
     return Array.from(mapa.values()).sort((a, b) => b.corteRs - a.corteRs);
   }, [categoriaGrafico2Base, valorPorChave]);
   const maiorCorteRsCategoria = Math.max(1, ...porCategoriaGrafico2.map((c) => c.corteRs));
-  // Categoria clicada; sem clique nenhum ainda, cai na que mais cortou (1a da lista) - assim o
-  // grafico de produto nunca fica vazio na primeira vez que a aba abre.
-  const [categoriaAbertaGrafico2, setCategoriaAbertaGrafico2] = useState<string | null>(null);
-  const categoriaEfetivaGrafico2 = categoriaAbertaGrafico2 ?? porCategoriaGrafico2[0]?.categoria ?? null;
+  // Categoria "efetiva" do Gráfico 2 - usa o MESMO filtro global de Categoria do topo da aba
+  // (nao um estado local separado) de proposito: assim clicar numa barra do ranking tambem
+  // atualiza a linha do tempo em cima (pedido do usuario em 26/10/2026: "quando eu clicar no
+  // grafico de categoria a linha do tempo tbm precisa aparecer as categorias") - o filtro
+  // global ja alimenta "tendenciaCortes"/"porMes". Sem nenhuma categoria selecionada ainda
+  // (ou mais de uma), cai na que mais cortou (1a do ranking) so pra o painel de produto nunca
+  // ficar vazio - sem forcar o filtro do topo nesse caso.
+  const categoriaEfetivaGrafico2 = categorias.length === 1 ? categorias[0] : (porCategoriaGrafico2[0]?.categoria ?? null);
   const produtosPorCategoriaGrafico2 = useMemo(() => {
     if (!categoriaEfetivaGrafico2) return [];
     const mapa = new Map<number, { produtoKey: number; produto: string; corteRs: number; corteCx: number }>();
@@ -2952,10 +2956,10 @@ function CortesDashboard({
               <div>
                 <h3 className="drawer-section-label" style={{ margin: "24px 20px 10px" }}>CORTE R$ POR CATEGORIA</h3>
                 <div className="motivo-bars">
-                  {porCategoriaGrafico2.map((c) => <button type="button" className={`motivo-bar-row ${c.categoria === categoriaEfetivaGrafico2 ? "motivo-bar-row-selecionada" : ""}`} key={c.categoria} onClick={() => setCategoriaAbertaGrafico2(c.categoria)}>
+                  {porCategoriaGrafico2.map((c) => <button type="button" className={`motivo-bar-row ${c.categoria === categoriaEfetivaGrafico2 ? "motivo-bar-row-selecionada" : ""}`} key={c.categoria} onClick={() => setCategorias(categorias.length === 1 && categorias[0] === c.categoria ? [] : [c.categoria])}>
                     <span className="motivo-bar-label" title={c.categoria}>{c.categoria}</span>
                     <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(c.corteRs ? 2 : 0, (c.corteRs / maiorCorteRsCategoria) * 100)}%` }} /></span>
-                    <span className="motivo-bar-value">{currency.format(c.corteRs)}</span>
+                    <span className="motivo-bar-value">{number.format(Math.round(c.corteCx))} cx <small className="motivo-bar-pct">{currency.format(c.corteRs)}</small></span>
                   </button>)}
                   {porCategoriaGrafico2.length === 0 && <div className="empty-state"><strong>Nenhum corte encontrado</strong><p>Remova um filtro de loja ou produto.</p></div>}
                 </div>
@@ -2966,7 +2970,7 @@ function CortesDashboard({
                   {produtosPorCategoriaGrafico2.map((p) => <div className="motivo-bar-row no-click" key={p.produtoKey}>
                     <span className="motivo-bar-label" title={p.produto}>{p.produto}</span>
                     <span className="motivo-bar-track"><span className="motivo-bar-fill" style={{ width: `${Math.max(p.corteRs ? 2 : 0, (p.corteRs / maiorCorteRsProdutoGrafico2) * 100)}%` }} /></span>
-                    <span className="motivo-bar-value">{currency.format(p.corteRs)}</span>
+                    <span className="motivo-bar-value">{number.format(Math.round(p.corteCx))} cx <small className="motivo-bar-pct">{currency.format(p.corteRs)}</small></span>
                   </div>)}
                   {produtosPorCategoriaGrafico2.length === 0 && <div className="empty-state"><strong>{categoriaEfetivaGrafico2 ? "Nenhum corte encontrado" : "Clique numa categoria ao lado"}</strong><p>{categoriaEfetivaGrafico2 ? "Remova um filtro de loja ou produto." : "Pra ver os produtos que mais cortaram nela."}</p></div>}
                 </div>
