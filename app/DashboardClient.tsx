@@ -588,6 +588,10 @@ function calculateVisualStatus(source: SourceProduct, useSourceCobertura: boolea
 
 const number = new Intl.NumberFormat("pt-BR");
 const decimal = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 1 });
+// So pro %CORTE do "Gráfico 2" (pedido do usuario em 26/10/2026: "% com 4 casas decimais") -
+// com 1 casa, meses/produtos de baixo volume arredondavam pra "0%" e pareciam zerados sem
+// estar. O resto do painel continua usando `decimal` (1 casa) sem mudanca.
+const decimal4 = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 4, maximumFractionDigits: 4 });
 const currency = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
 const deliveryDate = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "short" });
 const deliveryColumnDate = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "2-digit" });
@@ -2709,10 +2713,17 @@ function CortesDashboard({
       .map((m) => ({ ...m, percentualCorte: (m.faturadoRs + m.corteRs) > 0 ? (m.corteRs / (m.faturadoRs + m.corteRs)) * 100 : 0 }))
       .sort((a, b) => a.mes.localeCompare(b.mes));
   }, [tendenciaCortes, tendenciaAtendidos, valorAtendidoPorChave, canViewValues]);
-  const maiorPedidoMes = Math.max(1, ...porMes.map((m) => m.pedidoRs));
+  const maiorFaturadoMes = Math.max(1, ...porMes.map((m) => m.faturadoRs));
   const maiorPercentualCorteMes = Math.max(1, ...porMes.map((m) => m.percentualCorte));
-  function formatMi(valor: number) {
-    return `${Math.round(valor / 1_000_000)} Mi`;
+  // Pedido do usuario em 26/10/2026: filtrando por um produto especifico (valor mensal na
+  // casa dos milhares, nao milhoes), a barra sempre mostrava "0 Mi" - arredondamento forcado
+  // pra milhao escondia o valor de verdade. Escala adaptativa (R$/mil/Mi conforme o tamanho)
+  // em vez de sempre dividir por 1 milhao.
+  function formatCompactReais(valor: number) {
+    const abs = Math.abs(valor);
+    if (abs >= 1_000_000) return `${decimal.format(valor / 1_000_000)} Mi`;
+    if (abs >= 1_000) return `${decimal.format(valor / 1_000)} mil`;
+    return currency.format(valor);
   }
 
   // Clicar numa barra mostra os itens daquele motivo (pedido do usuario em 09/10/2026: "quero
@@ -2835,43 +2846,58 @@ function CortesDashboard({
               </div>}
             </div>
           </> : visao === "tendencia" ? <>
+            <div className="tendencia-legenda" style={{ margin: "0 20px 10px" }}>
+              <span className="tendencia-legenda-item"><i className="tendencia-dot tendencia-dot-barra" /> Faturado R$</span>
+              <span className="tendencia-legenda-item"><i className="tendencia-dot tendencia-dot-linha" /> %CORTE</span>
+            </div>
             {porMes.length === 0 ? <div className="empty-state" style={{ margin: "0 20px" }}><strong>Nenhum corte encontrado</strong><p>Remova um filtro de loja, categoria ou produto.</p></div> : (() => {
               const W = 1000;
-              const marginLeft = 54;
+              const H = 400;
+              const marginLeft = 20;
               const marginRight = 20;
               const plotWidth = W - marginLeft - marginRight;
               const n = porMes.length;
               const slot = plotWidth / n;
-              const barW = Math.min(30, slot * 0.5);
+              const barW = Math.min(34, slot * 0.55);
               const xCentro = (i: number) => marginLeft + slot * i + slot / 2;
-              const barTopoY = 14;
-              const barBaseY = 230;
-              const barAreaH = barBaseY - barTopoY - 24;
-              const linhaTopoY = 272;
-              const linhaBaseY = 410;
-              const linhaAreaH = linhaBaseY - linhaTopoY - 20;
-              const pontosLinha = porMes.map((m, i) => [xCentro(i), linhaBaseY - (m.percentualCorte / maiorPercentualCorteMes) * linhaAreaH] as const);
-              return <svg viewBox={`0 0 ${W} 440`} style={{ width: "100%", height: "auto", display: "block" }} role="img" aria-label="Pedido R$ e percentual de corte por mês">
-                <text x={marginLeft} y={barTopoY - 2} className="tendencia-titulo">PEDIDO R$</text>
-                <line x1={marginLeft} y1={barBaseY} x2={W - marginRight} y2={barBaseY} className="tendencia-eixo" />
+              const baseY = 340;
+              const topoY = 18;
+              const areaH = baseY - topoY - 26;
+              // Barra (Faturado R$) e linha (%CORTE) na mesma area, cada uma com sua propria
+              // escala vertical independente (pedido explicito do usuario em 26/10/2026: "quero
+              // esse grafico de linhas dentro do de barras", igual ao relatorio de referencia) -
+              // sem eixo numerico desenhado (so o rotulo direto em cada marca), pra nao parecer
+              // que os dois compartilham uma escala que nao existe de verdade.
+              const pontos = porMes.map((m, i) => {
+                const barH = Math.max(2, (m.faturadoRs / maiorFaturadoMes) * areaH);
+                const barTopoY = baseY - barH;
+                const linhaY = baseY - (m.percentualCorte / maiorPercentualCorteMes) * areaH;
+                // Quando o ponto da linha cai perto do topo da barra (ou acima dela), o rotulo
+                // de % e o rotulo do valor da barra disputam o mesmo espaco e ficam ilegiveis
+                // sobrepostos - joga o rotulo da linha pra baixo do ponto nesse caso em vez de
+                // sempre em cima (regra geral de "quando rotulos colidem, nao empilha" do skill
+                // de dataviz).
+                const rotuloLinhaAcima = linhaY - barTopoY < -34;
+                return { x: xCentro(i), barH, barTopoY, linhaY, rotuloLinhaAcima };
+              });
+              return <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", height: "auto", display: "block" }} role="img" aria-label="Faturado R$ (barra) e percentual de corte (linha) por mês, no mesmo gráfico">
+                <line x1={marginLeft} y1={baseY} x2={W - marginRight} y2={baseY} className="tendencia-eixo" />
                 {porMes.map((m, i) => {
-                  const h = Math.max(2, (m.pedidoRs / maiorPedidoMes) * barAreaH);
+                  const p = pontos[i];
                   return <g key={m.mes}>
-                    <rect x={xCentro(i) - barW / 2} y={barBaseY - h} width={barW} height={h} rx={4} className="tendencia-barra">
-                      <title>{`${mesCorteLabel(m.mes)}: ${currency.format(m.pedidoRs)}`}</title>
+                    <rect x={p.x - barW / 2} y={p.barTopoY} width={barW} height={p.barH} rx={4} className="tendencia-barra">
+                      <title>{`${mesCorteLabel(m.mes)}: Faturado ${currency.format(m.faturadoRs)} · Corte ${decimal4.format(m.percentualCorte)}%`}</title>
                     </rect>
-                    <text x={xCentro(i)} y={barBaseY - h - 8} textAnchor="middle" className="tendencia-valor-barra">{formatMi(m.pedidoRs)}</text>
-                    <text x={xCentro(i)} y={barBaseY + 18} textAnchor="middle" className="tendencia-mes">{mesCorteLabel(m.mes)}</text>
+                    <text x={p.x} y={p.barTopoY - 8} textAnchor="middle" className="tendencia-valor-barra">{formatCompactReais(m.faturadoRs)}</text>
+                    <text x={p.x} y={baseY + 20} textAnchor="middle" className="tendencia-mes">{mesCorteLabel(m.mes)}</text>
                   </g>;
                 })}
-                <text x={marginLeft} y={linhaTopoY - 2} className="tendencia-titulo">%CORTE</text>
-                <line x1={marginLeft} y1={linhaBaseY} x2={W - marginRight} y2={linhaBaseY} className="tendencia-eixo" />
-                <polyline points={pontosLinha.map(([x, y]) => `${x},${y}`).join(" ")} className="tendencia-linha" />
+                <polyline points={pontos.map((p) => `${p.x},${p.linhaY}`).join(" ")} className="tendencia-linha" />
                 {porMes.map((m, i) => {
-                  const [x, y] = pontosLinha[i];
+                  const p = pontos[i];
                   return <g key={m.mes}>
-                    <circle cx={x} cy={y} r={5} className="tendencia-ponto" />
-                    <text x={x} y={y - 12} textAnchor="middle" className="tendencia-valor-linha">{decimal.format(m.percentualCorte)}%</text>
+                    <circle cx={p.x} cy={p.linhaY} r={5} className="tendencia-ponto" />
+                    <text x={p.x} y={p.rotuloLinhaAcima ? p.linhaY - 12 : p.linhaY + 20} textAnchor="middle" className="tendencia-valor-linha">{decimal4.format(m.percentualCorte)}%</text>
                   </g>;
                 })}
               </svg>;
