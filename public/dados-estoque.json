@@ -492,17 +492,12 @@
       "proximaEntrada": "2026-10-27T21:44:31.777000",
       "entregasProgramadas": [
         {
-          "data": "2026-10-22T00:00:00",
-          "quantidade": 5,
-          "pedido": 486280
-        },
-        {
           "data": "2026-11-04T00:00:00",
           "quantidade": 80,
           "pedido": 493441
         }
       ],
-      "totalProgramado": 85,
+      "totalProgramado": 80,
       "sugestaoCompra": 0,
       "status": "Risco de falta",
       "motivoStatus": "A cobertura ficará abaixo da segurança antes da primeira entrega.",
@@ -823,11 +818,11 @@
         },
         {
           "data": "2026-10-27T00:00:00",
-          "quantidade": 880,
+          "quantidade": 500,
           "pedido": 493344
         }
       ],
-      "totalProgramado": 20710,
+      "totalProgramado": 20330,
       "sugestaoCompra": 4400,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -857,7 +852,7 @@
       "entregasProgramadas": [
         {
           "data": "2026-10-26T00:00:00",
-          "quantidade": 1480,
+          "quantidade": 80,
           "pedido": 476781
         },
         {
@@ -951,7 +946,7 @@
           "pedido": 488523
         }
       ],
-      "totalProgramado": 33520,
+      "totalProgramado": 32120,
       "sugestaoCompra": 9536,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1141,14 +1136,8 @@
       "desvioProjecao": -143,
       "loteMinimo": 0,
       "proximaEntrada": "2026-10-27T00:00:00",
-      "entregasProgramadas": [
-        {
-          "data": "2026-10-26T00:00:00",
-          "quantidade": 500,
-          "pedido": 476781
-        }
-      ],
-      "totalProgramado": 500,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 72,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1175,14 +1164,8 @@
       "desvioProjecao": -256,
       "loteMinimo": 0,
       "proximaEntrada": "2026-10-27T00:00:00",
-      "entregasProgramadas": [
-        {
-          "data": "2026-10-26T00:00:00",
-          "quantidade": 500,
-          "pedido": 476781
-        }
-      ],
-      "totalProgramado": 500,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 200,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1212,11 +1195,11 @@
       "entregasProgramadas": [
         {
           "data": "2026-10-27T00:00:00",
-          "quantidade": 400,
+          "quantidade": 405,
           "pedido": 493344
         }
       ],
-      "totalProgramado": 400,
+      "totalProgramado": 405,
       "sugestaoCompra": 56,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -1243,14 +1226,8 @@
       "desvioProjecao": -200,
       "loteMinimo": 0,
       "proximaEntrada": "2026-10-27T00:00:00",
-      "entregasProgramadas": [
-        {
-          "data": "2026-10-26T00:00:00",
-          "quantidade": 400,
-          "pedido": 476781
-        }
-      ],
-      "totalProgramado": 400,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 146,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -2113,11 +2090,6 @@
       "proximaEntrada": "2026-10-27T00:00:00",
       "entregasProgramadas": [
         {
-          "data": "2026-10-23T00:00:00",
-          "quantidade": 452,
-          "pedido": 477782
-        },
-        {
           "data": "2026-11-25T00:00:00",
           "quantidade": 3300,
           "pedido": 477831
@@ -2133,7 +2105,7 @@
           "pedido": 494271
         }
       ],
-      "totalProgramado": 10352,
+      "totalProgramado": 9900,
       "sugestaoCompra": 2216,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -2198,15 +2170,20 @@
           "data": "2026-12-14T00:00:00",
           "quantidade": 700,
           "pedido": 477998
+        },
+        {
+          "data": "2026-11-03T00:00:00",
+          "quantidade": 107,
+          "pedido": 495983
         }
       ],
-      "totalProgramado": 1400,
+      "totalProgramado": 1507,
       "sugestaoCompra": 0,
       "status": "Excesso",
       "motivoStatus": "Cobertura atual acima de 150% do estoque de segurança.",
-      "primeiraEntrega": "2026-11-05",
-      "diasAtePrimeiraEntrega": 9,
-      "coberturaNaPrimeiraEntrega": 39.0,
+      "primeiraEntrega": "2026-11-03",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 41.0,
       "carteiraBi": 136.0
     },
     {
@@ -2228,11 +2205,6 @@
       "loteMinimo": 3744,
       "proximaEntrada": "2026-10-27T00:00:00",
       "entregasProgramadas": [
-        {
-          "data": "2026-10-23T00:00:00",
-          "quantidade": 236,
-          "pedido": 477782
-        },
         {
           "data": "2026-11-05T00:00:00",
           "quantidade": 2300,
@@ -2267,15 +2239,25 @@
           "data": "2026-12-18T00:00:00",
           "quantidade": 1000,
           "pedido": 478001
+        },
+        {
+          "data": "2026-11-06T00:00:00",
+          "quantidade": 2104,
+          "pedido": 494271
+        },
+        {
+          "data": "2026-11-03T00:00:00",
+          "quantidade": 107,
+          "pedido": 495983
         }
       ],
-      "totalProgramado": 18068,
+      "totalProgramado": 20043,
       "sugestaoCompra": 3744,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": "2026-11-05",
-      "diasAtePrimeiraEntrega": 9,
-      "coberturaNaPrimeiraEntrega": 0.4,
+      "primeiraEntrega": "2026-11-03",
+      "diasAtePrimeiraEntrega": 7,
+      "coberturaNaPrimeiraEntrega": 2.4,
       "carteiraBi": 4060.0
     },
     {
@@ -2335,14 +2317,8 @@
       "desvioProjecao": -998,
       "loteMinimo": 2340,
       "proximaEntrada": "2026-10-27T00:00:00",
-      "entregasProgramadas": [
-        {
-          "data": "2026-10-26T00:00:00",
-          "quantidade": 2342,
-          "pedido": 482521
-        }
-      ],
-      "totalProgramado": 2342,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 4680,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -2369,14 +2345,8 @@
       "desvioProjecao": 30,
       "loteMinimo": 1050,
       "proximaEntrada": "2026-10-27T00:00:00",
-      "entregasProgramadas": [
-        {
-          "data": "2026-10-26T00:00:00",
-          "quantidade": 1057,
-          "pedido": 482525
-        }
-      ],
-      "totalProgramado": 1057,
+      "entregasProgramadas": [],
+      "totalProgramado": 0,
       "sugestaoCompra": 3150,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
@@ -3100,14 +3070,20 @@
       "desvioProjecao": -5624,
       "loteMinimo": 0,
       "proximaEntrada": "2026-10-27T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-29T00:00:00",
+          "quantidade": 1500,
+          "pedido": 495948
+        }
+      ],
+      "totalProgramado": 1500,
       "sugestaoCompra": 6550,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-29",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": -2.0,
       "carteiraBi": 339.0
     },
     {
@@ -3252,7 +3228,7 @@
     },
     {
       "sku": "141995",
-      "produto": "12701 AMENDOIM TORRADO SEM PELE OISHII 500G CX 20.0",
+      "produto": "12701 AMENDOIM TORRADO SEM PELE OISHII 500G CX 20",
       "loja": "OISHII",
       "fornecedor": "OISHII",
       "unidade": "cx",
@@ -3336,7 +3312,7 @@
     },
     {
       "sku": "142015",
-      "produto": "15109 SAL ROSA DO HIMALAIA FINO OISHII 1KG FD 10.0",
+      "produto": "15109 SAL ROSA DO HIMALAIA FINO OISHII 1KG FD 10",
       "loja": "OISHII",
       "fornecedor": "OISHII",
       "unidade": "cx",
@@ -3364,7 +3340,7 @@
     },
     {
       "sku": "142344",
-      "produto": "15110 SAL ROSA DO HIMALAIA FINO OISHII 200G CX 24.0",
+      "produto": "15110 SAL ROSA DO HIMALAIA FINO OISHII 200G CX 24",
       "loja": "OISHII",
       "fornecedor": "OISHII",
       "unidade": "cx",
@@ -3380,14 +3356,20 @@
       "desvioProjecao": -50,
       "loteMinimo": 0,
       "proximaEntrada": "2026-10-27T00:00:00",
-      "entregasProgramadas": [],
-      "totalProgramado": 0,
+      "entregasProgramadas": [
+        {
+          "data": "2026-10-29T00:00:00",
+          "quantidade": 20,
+          "pedido": 495948
+        }
+      ],
+      "totalProgramado": 20,
       "sugestaoCompra": 50,
       "status": "Risco de falta",
       "motivoStatus": "Cobertura atual abaixo do estoque de segurança.",
-      "primeiraEntrega": null,
-      "diasAtePrimeiraEntrega": null,
-      "coberturaNaPrimeiraEntrega": null,
+      "primeiraEntrega": "2026-10-29",
+      "diasAtePrimeiraEntrega": 2,
+      "coberturaNaPrimeiraEntrega": -2.0,
       "carteiraBi": 2.0
     },
     {
