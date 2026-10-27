@@ -213,7 +213,10 @@ type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
 // EscadinhaProduto/EscadinhaDesvio acima: as chaves de ano ("2025", "2026", ...) e de
 // fornecedor sao dinamicas - inferir do JSON travaria o tipo nas chaves literais do arquivo
 // (placeholder ou real) do momento do build, quebrando toda indexacao por variavel.
-type FornecedorLinha = { f: string; valor: number; valorBruto: number; kg: number; caixas: number };
+// valorBruto e opcional aqui porque "ranking" dentro de compradores.porComprador (ver
+// CompradorDado abaixo) genuinamente nao tem esse campo (so "top"/anoData tem) -
+// build_fornecedores.py nunca grava valorBruto nesse recorte especifico.
+type FornecedorLinha = { f: string; valor: number; valorBruto?: number; kg: number; caixas: number };
 type FornecedorMesSerie = { kg: number; caixas: number; valor: number; valorBruto: number };
 type FornecedorMetrica = {
   valor: number;
@@ -3329,7 +3332,7 @@ function FornecedoresDashboard({
       for (const linha of grupoAtual.anoData[ano].top) {
         const atual = mapa.get(linha.f) ?? { f: linha.f, valor: 0, valorBruto: 0, kg: 0, caixas: 0 };
         atual.valor += linha.valor;
-        atual.valorBruto += linha.valorBruto;
+        atual.valorBruto = (atual.valorBruto ?? 0) + (linha.valorBruto ?? 0);
         atual.kg += linha.kg;
         atual.caixas += linha.caixas;
         mapa.set(linha.f, atual);
@@ -3347,7 +3350,7 @@ function FornecedoresDashboard({
       base = base.filter((r) => !FORN_GRUPO_INTERNO.has(r.f));
     }
     const total = base.reduce((s, r) => s + r.valor, 0);
-    const totalBruto = base.reduce((s, r) => s + r.valorBruto, 0);
+    const totalBruto = base.reduce((s, r) => s + (r.valorBruto ?? 0), 0);
     const totalKg = base.reduce((s, r) => s + r.kg, 0);
     const totalCaixas = base.reduce((s, r) => s + r.caixas, 0);
     return { lista: base, total, totalBruto, totalKg, totalCaixas, fornecedores: base.length };

@@ -173,7 +173,7 @@ export function buildValorProdutoAcabado(pedidosVenda: PedidosVendaData, rawRows
         const custoUnitarioMedio = custosUnitarios.reduce((a, b) => a + b, 0) / custosUnitarios.length;
         custoContabil = money(custoUnitarioMedio * multiplicador);
       }
-      const valorEstoque = custoContabil !== null ? money(item.estoque * custoContabil) : null;
+      const valorEstoque = custoContabil !== null && item.estoque !== null ? money(item.estoque * custoContabil) : null;
       // Loja sem chave em store-names.ts (ex.: "Da Terrinha - Cambuci") nunca vai casar custo -
       // nao conta como "produto sem preco" pra nao inflar esse indicador com algo que nao e um
       // problema de dado, e sim de loja ainda nao mapeada. Pedido do usuario em 24/08/2026.
