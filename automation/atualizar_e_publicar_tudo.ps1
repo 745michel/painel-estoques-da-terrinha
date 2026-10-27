@@ -56,6 +56,7 @@ $resultados = [ordered]@{
     "Estoque x Pedidos"                = Invoke-Pipeline "Estoque x Pedidos" (Join-Path $PSScriptRoot "atualizar_pedidos_venda.ps1")
     "Fornecedores"                     = Invoke-Pipeline "Fornecedores" (Join-Path $PSScriptRoot "atualizar_fornecedores.ps1")
     "Cortes"                           = Invoke-Pipeline "Cortes" (Join-Path $PSScriptRoot "atualizar_cortes.ps1")
+    "Postgres (Railway)"               = Invoke-Pipeline "Postgres (Railway)" (Join-Path $PSScriptRoot "sincronizar_postgres.ps1")
 }
 
 $falhas = $resultados.GetEnumerator() | Where-Object { -not $_.Value } | ForEach-Object { $_.Key }
