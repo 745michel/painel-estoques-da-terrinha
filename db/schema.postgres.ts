@@ -140,6 +140,16 @@ export const fornecedoresSnapshot = pgTable("fornecedores_snapshot", {
   atualizadoEm: timestamp("atualizado_em", { withTimezone: true }).notNull(),
 });
 
+// ---------- metadados por dataset (campos irmaos dos arrays acima, ex. origem/atualizadoEm/
+// dataPublicacao/mesesCorte - precisam sobreviver a quebra "1 tabela por array" pra app/page.tsx
+// reconstruir o objeto exato que o front espera) ----------
+
+export const datasetMeta = pgTable("dataset_meta", {
+  dataset: text("dataset").primaryKey(),
+  meta: jsonb("meta").notNull(),
+  atualizadoEm: timestamp("atualizado_em", { withTimezone: true }).notNull(),
+});
+
 // ---------- observabilidade ----------
 
 export const syncRuns = pgTable("sync_runs", {
