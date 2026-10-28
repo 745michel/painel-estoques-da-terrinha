@@ -30,7 +30,7 @@ button { cursor:pointer; }
 .brand-logo-wrap { width:48px; height:48px; flex:0 0 48px; overflow:hidden; display:grid; place-items:center; border-radius:12px; background:#fff; box-shadow:0 2px 9px #081c1240, inset 0 0 0 1px #ffffff45; }
 .brand-logo { width:100%; height:100%; object-fit:contain; display:block; }
 .brand small { display:block; font-size:10px; color:#a9c4b4; letter-spacing:.02em; font-weight:500; margin-top:2px; }
-.sidebar nav { display:grid; gap:5px; }
+.sidebar nav { display:grid; gap:5px; flex:1 1 auto; overflow-y:auto; min-height:0; scrollbar-width:thin; }
 .nav-item { border:0; background:transparent; color:#b8cec1; border-radius:9px; padding:11px 12px; text-align:left; display:flex; gap:10px; align-items:center; font-size:13px; }
 .nav-item .nav-icon { width:18px; font-size:17px; text-align:center; flex:0 0 18px; }
 .nav-label { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
