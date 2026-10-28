@@ -11,7 +11,9 @@ export function isDbConfigured(): boolean {
   return Boolean(process.env.DATABASE_PUBLIC_URL || process.env.DATABASE_URL);
 }
 
-function getSql() {
+/** Cliente bruto (tagged template + sql.unsafe), pra modulos que precisam de consultas proprias
+ * (ex. app/lib/access.ts) sem reimplementar a resolucao de URL/tunel. */
+export function getSql() {
   if (!sqlClient) {
     let url = process.env.DATABASE_PUBLIC_URL ?? process.env.DATABASE_URL;
     if (!url) throw new Error("DATABASE_URL/DATABASE_PUBLIC_URL nao configurado.");

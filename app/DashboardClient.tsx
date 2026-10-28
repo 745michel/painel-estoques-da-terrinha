@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { storeKeyFromName } from "./lib/store-names";
 import { PRODUCAO_PROPRIA } from "./lib/valor-produto-acabado";
+import type { Section } from "./lib/sections";
 import type estoqueDataType from "../public/dados-estoque.json";
 import type insumosDataType from "../public/dados-insumos.json";
 import type consumoDataType from "../public/dados-consumo-insumos.json";
@@ -120,7 +121,6 @@ type Product = SourceProduct & {
   // lugar de Number(sku) pra cruzar com escadinhaData.
   escadinhaCod?: number;
 };
-type Section = "terceiros" | "insumos" | "consumo" | "valores" | "escadinha" | "escadinhaInsumos" | "pedidosVenda" | "cortes" | "valorProdutoAcabado" | "fornecedores";
 type PedidosVendaProduto = {
   cod: number;
   produto: string;
@@ -852,7 +852,8 @@ const SIDEBAR_NAV_ITEMS: { section: Section; icon: string; label: string; financ
 function Sidebar({
   activeSection,
   onSectionChange,
-  canViewValues,
+  permissoes,
+  isAdmin,
   notaTitulo,
   notaValor,
   colapsado,
@@ -860,7 +861,8 @@ function Sidebar({
 }: {
   activeSection: Section;
   onSectionChange: (section: Section) => void;
-  canViewValues: boolean;
+  permissoes: Section[];
+  isAdmin?: boolean;
   notaTitulo: string;
   notaValor: string;
   colapsado: boolean;
@@ -870,11 +872,16 @@ function Sidebar({
     <button type="button" className="sidebar-toggle" onClick={onToggleColapsado} aria-label={colapsado ? "Expandir menu" : "Recolher menu"} title={colapsado ? "Expandir menu" : "Recolher menu"}>{colapsado ? "»" : "«"}</button>
     <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span className="brand-text">Da Terrinha<small>Planejamento de estoque</small></span></div>
     <nav aria-label="Navegação principal">
-      {SIDEBAR_NAV_ITEMS.filter((item) => !item.financeiro || canViewValues).map((item) => (
+      {SIDEBAR_NAV_ITEMS.filter((item) => permissoes.includes(item.section)).map((item) => (
         <button key={item.section} type="button" className={`nav-item${activeSection === item.section ? " active" : ""}`} onClick={() => onSectionChange(item.section)} title={item.label}>
           <span className="nav-icon">{item.icon}</span><span className="nav-label">{item.label}</span>
         </button>
       ))}
+      {isAdmin && (
+        <a href="/admin" className="nav-item" title="Administração de acessos">
+          <span className="nav-icon">⚙</span><span className="nav-label">Administração</span>
+        </a>
+      )}
     </nav>
     <div className="sidebar-note"><span className="pulse-dot" /><div><strong>{notaTitulo}</strong><small>{notaValor}</small></div></div>
     <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
@@ -883,6 +890,8 @@ function Sidebar({
 
 function ValuesDashboard({
   onSectionChange,
+  permissoes,
+  isAdmin,
   valoresData,
   insumosData,
   products,
@@ -891,6 +900,8 @@ function ValuesDashboard({
   onToggleSidebar,
 }: {
   onSectionChange: (section: Section) => void;
+  permissoes: Section[];
+  isAdmin?: boolean;
   valoresData: ValuesData;
   insumosData: InsumosData;
   products: string[];
@@ -1067,7 +1078,7 @@ function ValuesDashboard({
   }
 
   return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
-    <Sidebar activeSection="valores" onSectionChange={onSectionChange} canViewValues={true} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
+    <Sidebar activeSection="valores" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Valor dos Insumos</strong></div>
@@ -1203,6 +1214,8 @@ function ValuesDashboard({
 function ConsumptionDashboard({
   onSectionChange,
   canViewValues,
+  permissoes,
+  isAdmin,
   consumoData,
   insumosData,
   selectedProducts,
@@ -1214,6 +1227,8 @@ function ConsumptionDashboard({
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
+  permissoes: Section[];
+  isAdmin?: boolean;
   consumoData: ConsumoData;
   insumosData: InsumosData;
   selectedProducts: string[];
@@ -1325,7 +1340,7 @@ function ConsumptionDashboard({
   const updated = new Date(consumoData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
   return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
-    <Sidebar activeSection="consumo" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
+    <Sidebar activeSection="consumo" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Consumo de Insumos</strong></div>
@@ -1386,6 +1401,8 @@ function ConsumptionDashboard({
 function EscadinhaDashboard({
   onSectionChange,
   canViewValues,
+  permissoes,
+  isAdmin,
   escadinhaData,
   pedidosVendaData,
   sidebarColapsado,
@@ -1393,6 +1410,8 @@ function EscadinhaDashboard({
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
+  permissoes: Section[];
+  isAdmin?: boolean;
   escadinhaData: EscadinhaData;
   pedidosVendaData: PedidosVendaData;
   sidebarColapsado: boolean;
@@ -1621,7 +1640,7 @@ function EscadinhaDashboard({
   }, [pedidosVendaData, codsNaEscadinha, query, categories]);
 
   return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
-    <Sidebar activeSection="escadinha" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Revisão do plano" notaValor={fullDate.format(localDate(escadinhaData.dataPublicacao))} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
+    <Sidebar activeSection="escadinha" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Revisão do plano" notaValor={fullDate.format(localDate(escadinhaData.dataPublicacao))} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Escadinha Geral</strong></div>
@@ -1835,12 +1854,16 @@ function EscadinhaDashboard({
 function EscadinhaInsumosDashboard({
   onSectionChange,
   canViewValues,
+  permissoes,
+  isAdmin,
   escadinhaInsumosData,
   sidebarColapsado,
   onToggleSidebar,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
+  permissoes: Section[];
+  isAdmin?: boolean;
   escadinhaInsumosData: EscadinhaInsumosData;
   sidebarColapsado: boolean;
   onToggleSidebar: () => void;
@@ -1946,7 +1969,7 @@ function EscadinhaInsumosDashboard({
   }), [desviosFiltrados, nivelFiltro]);
 
   return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
-    <Sidebar activeSection="escadinhaInsumos" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Explosão BOM" notaValor={fullDate.format(localDate(escadinhaInsumosData.atualizadoEm))} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
+    <Sidebar activeSection="escadinhaInsumos" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Explosão BOM" notaValor={fullDate.format(localDate(escadinhaInsumosData.atualizadoEm))} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Escadinha de Insumos</strong></div>
@@ -2151,6 +2174,8 @@ function EscadinhaInsumosDashboard({
 function PedidosVendaDashboard({
   onSectionChange,
   canViewValues,
+  permissoes,
+  isAdmin,
   pedidosVendaData,
   escadinhaData,
   sidebarColapsado,
@@ -2158,6 +2183,8 @@ function PedidosVendaDashboard({
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
+  permissoes: Section[];
+  isAdmin?: boolean;
   pedidosVendaData: PedidosVendaData;
   escadinhaData: EscadinhaData;
   sidebarColapsado: boolean;
@@ -2292,7 +2319,7 @@ function PedidosVendaDashboard({
   const updated = new Date(pedidosVendaData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
   return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
-    <Sidebar activeSection="pedidosVenda" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
+    <Sidebar activeSection="pedidosVenda" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Estoque x Pedidos</strong></div>
@@ -2448,6 +2475,8 @@ const MOTIVOS_CORTE_OPCOES = [
 function CortesDashboard({
   onSectionChange,
   canViewValues,
+  permissoes,
+  isAdmin,
   cortesData,
   cortesValoresData,
   sidebarColapsado,
@@ -2455,6 +2484,8 @@ function CortesDashboard({
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
+  permissoes: Section[];
+  isAdmin?: boolean;
   cortesData: CortesData;
   cortesValoresData: CortesValoresData | null;
   sidebarColapsado: boolean;
@@ -2805,7 +2836,7 @@ function CortesDashboard({
   }, [filtrados, setorAberto]);
 
   return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
-    <Sidebar activeSection="cortes" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
+    <Sidebar activeSection="cortes" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Cortes</strong></div>
@@ -3121,6 +3152,8 @@ function CortesDashboard({
 function ValorProdutoAcabadoDashboard({
   onSectionChange,
   canViewValues,
+  permissoes,
+  isAdmin,
   valoresProdutoAcabadoData,
   pedidosVendaData,
   sidebarColapsado,
@@ -3128,6 +3161,8 @@ function ValorProdutoAcabadoDashboard({
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
+  permissoes: Section[];
+  isAdmin?: boolean;
   valoresProdutoAcabadoData: ValoresProdutoAcabadoData;
   pedidosVendaData: PedidosVendaData;
   sidebarColapsado: boolean;
@@ -3206,7 +3241,7 @@ function ValorProdutoAcabadoDashboard({
   const referenceDate = valoresProdutoAcabadoData.dataReferencia ? new Date(valoresProdutoAcabadoData.dataReferencia).toLocaleDateString("pt-BR") : "não informada";
 
   return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
-    <Sidebar activeSection="valorProdutoAcabado" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
+    <Sidebar activeSection="valorProdutoAcabado" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Valor Produto Acabado</strong></div>
@@ -3277,12 +3312,16 @@ const FORN_GRUPO_INTERNO = new Set(["2JM AMIDOS", "TERRAFEC FECULA MANDIOCA", "T
 function FornecedoresDashboard({
   onSectionChange,
   canViewValues,
+  permissoes,
+  isAdmin,
   fornecedoresData,
   sidebarColapsado,
   onToggleSidebar,
 }: {
   onSectionChange: (section: Section) => void;
   canViewValues: boolean;
+  permissoes: Section[];
+  isAdmin?: boolean;
   fornecedoresData: FornecedoresData;
   sidebarColapsado: boolean;
   onToggleSidebar: () => void;
@@ -3713,7 +3752,7 @@ function FornecedoresDashboard({
   const fmtCompacto = (v: number) => (Math.abs(v) >= 1000 ? `${(v / 1000).toLocaleString("pt-BR", { maximumFractionDigits: 1 })}k` : number.format(Math.round(v)));
 
   return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
-    <Sidebar activeSection="fornecedores" onSectionChange={onSectionChange} canViewValues={canViewValues} notaTitulo="Dados atualizados" notaValor={new Date(fornecedoresData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
+    <Sidebar activeSection="fornecedores" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={new Date(fornecedoresData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Fornecedores</strong></div>
@@ -4105,6 +4144,8 @@ function FornecedoresDashboard({
 
 export default function DashboardClient({
   canViewValues,
+  permissoes,
+  isAdmin,
   valoresData,
   valoresProdutoAcabadoData,
   fornecedoresData,
@@ -4119,6 +4160,8 @@ export default function DashboardClient({
   cortesValoresData,
 }: {
   canViewValues: boolean;
+  permissoes: Section[];
+  isAdmin: boolean;
   valoresData: ValuesData | null;
   valoresProdutoAcabadoData: ValoresProdutoAcabadoData | null;
   fornecedoresData: FornecedoresData | null;
@@ -4132,7 +4175,9 @@ export default function DashboardClient({
   cortesData: CortesData;
   cortesValoresData: CortesValoresData | null;
 }) {
-  const [section, setSection] = useState<Section>("terceiros");
+  // Entra direto na primeira secao liberada pra essa pessoa (nunca "terceiros" fixo, que pode
+  // nao estar entre as permissoes dela) - ver app/lib/access.ts/app/lib/sections.ts.
+  const [section, setSection] = useState<Section>(permissoes[0] ?? "terceiros");
   // Pedido do usuario em 26/10/2026: "quero que essa aba seja responsiva com uma seta pra abrir
   // e fechar, a tela fica maior" - estado unico aqui (nao local a cada secao) porque todas as 9
   // telas ficam sempre montadas ao mesmo tempo (`hidden`, nunca desmontam - ver abasSecundarias
@@ -4321,7 +4366,7 @@ export default function DashboardClient({
   const scheduledUnits = products.reduce((sum, p) => sum + p.totalProgramado, 0);
 
   function changeSection(nextSection: Section) {
-    if (nextSection === "valores" && !canViewValues) return;
+    if (!permissoes.includes(nextSection)) return;
     // Filtros de Terceiros/Insumos (query, status, lojas, fornecedores, seguranca,
     // performance, tipos) moram aqui em DashboardClient (nunca desmonta), nao dentro de
     // Terceiros/Embalagens em si - por isso so fazia sentido zera-los ao trocar ENTRE os dois
@@ -4418,14 +4463,14 @@ export default function DashboardClient({
     (isValorProdutoAcabado && !valoresProdutoAcabadoData) ||
     (isFornecedores && !fornecedoresData);
   const abasSecundarias = <>
-    <div hidden={!(isValues && valoresData)}>{valoresData && <ValuesDashboard onSectionChange={changeSection} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} />}</div>
-    <div hidden={!isConsumption}><ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
-    <div hidden={!isEscadinha}><EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaData={escadinhaData} pedidosVendaData={pedidosVendaData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
-    <div hidden={!isEscadinhaInsumos}><EscadinhaInsumosDashboard onSectionChange={changeSection} canViewValues={canViewValues} escadinhaInsumosData={escadinhaInsumosData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
-    <div hidden={!isPedidosVenda}><PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
-    <div hidden={!isCortes}><CortesDashboard onSectionChange={changeSection} canViewValues={canViewValues} cortesData={cortesData} cortesValoresData={cortesValoresData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
-    <div hidden={!(isValorProdutoAcabado && valoresProdutoAcabadoData)}>{valoresProdutoAcabadoData && <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} />}</div>
-    <div hidden={!(isFornecedores && fornecedoresData)}>{fornecedoresData && <FornecedoresDashboard onSectionChange={changeSection} canViewValues={canViewValues} fornecedoresData={fornecedoresData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} />}</div>
+    <div hidden={!(isValues && valoresData)}>{valoresData && <ValuesDashboard onSectionChange={changeSection} permissoes={permissoes} isAdmin={isAdmin} valoresData={valoresData} insumosData={insumosData} products={valueSelectedProducts} onProductsChange={setValueSelectedProducts} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} />}</div>
+    <div hidden={!isConsumption}><ConsumptionDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} consumoData={consumoData} insumosData={insumosData} selectedProducts={consumptionSelectedProducts} onSelectedProductsChange={setConsumptionSelectedProducts} focusedKey={consumptionFocusedKey} onFocusedKeyChange={setConsumptionFocusedKey} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
+    <div hidden={!isEscadinha}><EscadinhaDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} escadinhaData={escadinhaData} pedidosVendaData={pedidosVendaData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
+    <div hidden={!isEscadinhaInsumos}><EscadinhaInsumosDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} escadinhaInsumosData={escadinhaInsumosData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
+    <div hidden={!isPedidosVenda}><PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
+    <div hidden={!isCortes}><CortesDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} cortesData={cortesData} cortesValoresData={cortesValoresData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
+    <div hidden={!(isValorProdutoAcabado && valoresProdutoAcabadoData)}>{valoresProdutoAcabadoData && <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} />}</div>
+    <div hidden={!(isFornecedores && fornecedoresData)}>{fornecedoresData && <FornecedoresDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} fornecedoresData={fornecedoresData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} />}</div>
   </>;
 
   function renderProductRow(product: Product, descontinuado: boolean) {
@@ -4507,7 +4552,7 @@ export default function DashboardClient({
       {abasSecundarias}
       <div hidden={!mostrarOperacional}>
     <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
-      <Sidebar activeSection={section} onSectionChange={changeSection} canViewValues={canViewValues} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={toggleSidebar} />
+      <Sidebar activeSection={section} onSectionChange={changeSection} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={toggleSidebar} />
 
       <section className="workspace">
         <header className="topbar">

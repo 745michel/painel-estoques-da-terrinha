@@ -15,6 +15,21 @@
 // semantica de "arquivo inteiro substituido" que o pipeline ja usa hoje (escrita atomica).
 import { pgTable, text, integer, jsonb, timestamp, boolean, serial, date } from "drizzle-orm/pg-core";
 
+// ---------- controle de acesso (substitui a lista "AcessoPainelEstoques" do SharePoint,
+// 28/10/2026 - menu de administracao dentro do proprio painel, ver CLAUDE.md) ----------
+
+export const usuarios = pgTable("usuarios", {
+  email: text("email").primaryKey(),
+  nome: text("nome"),
+  ativo: boolean("ativo").notNull().default(true),
+  admin: boolean("admin").notNull().default(false),
+  // Chaves do tipo Section (app/DashboardClient.tsx) que a pessoa pode ver - granularidade por
+  // menu, nao so operacional/financeiro. Vazio = loga mas nao ve nenhum menu.
+  permissoes: text("permissoes").array().notNull().default([]),
+  criadoEm: timestamp("criado_em", { withTimezone: true }).notNull().defaultNow(),
+  atualizadoEm: timestamp("atualizado_em", { withTimezone: true }).notNull().defaultNow(),
+});
+
 // ---------- operacionais (array de produtos, linha a linha) ----------
 
 export const estoqueTerceiros = pgTable("estoque_terceiros", {

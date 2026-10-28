@@ -12,6 +12,10 @@ import cortesData from "../public/dados-cortes.json";
 import type valoresDataType from "../data/dados-valores-insumos.json";
 import type valoresProdutoAcabadoDataType from "../data/dados-valores-produto-acabado.json";
 import type fornecedoresDataType from "../data/dados-fornecedores.json";
+import { SECTION_KEYS, type Section } from "../app/lib/sections";
+
+const FINANCEIRAS: Section[] = ["valores", "valorProdutoAcabado", "fornecedores"];
+const OPERACIONAIS = SECTION_KEYS.filter((s) => !FINANCEIRAS.includes(s));
 
 type ValoresData = typeof valoresDataType;
 type ValoresProdutoAcabadoData = typeof valoresProdutoAcabadoDataType;
@@ -108,6 +112,8 @@ function App() {
     <>
       <DashboardClient
         canViewValues={desbloqueado}
+        permissoes={desbloqueado ? SECTION_KEYS : OPERACIONAIS}
+        isAdmin={false}
         valoresData={desbloqueado ? valoresData : null}
         valoresProdutoAcabadoData={desbloqueado ? valoresProdutoAcabadoData : null}
         fornecedoresData={desbloqueado ? fornecedoresData : null}

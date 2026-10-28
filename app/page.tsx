@@ -13,8 +13,10 @@ import cortesDataStatic from "../public/dados-cortes.json";
 import valoresProdutoAcabadoDataStatic from "../data/dados-valores-produto-acabado.json";
 import fornecedoresDataStatic from "../data/dados-fornecedores.json";
 import cortesValoresDataStatic from "../data/dados-cortes-valores.json";
-import { fetchSharePointJson, fetchAccessList, isConfigured, type AccessEntry } from "./lib/sharepoint";
+import { fetchSharePointJson, isConfigured } from "./lib/sharepoint";
 import { isDbConfigured, queryRows, queryMeta, querySnapshot } from "./lib/pg";
+import { resolveAccess } from "./lib/access";
+import { SECTION_KEYS, type Section } from "./lib/sections";
 
 export const dynamic = "force-dynamic";
 
@@ -268,40 +270,15 @@ async function loadCortesValoresData(): Promise<CortesValoresData> {
   }
 }
 
-/**
- * Quem pode logar (qualquer conta Microsoft da empresa) e quem pode ver o que (lista
- * "AcessoPainelEstoques" no SharePoint) sao verificacoes separadas de proposito - login
- * prova identidade, a lista decide autorizacao. Se a lista nao puder ser lida (SharePoint
- * fora do ar), nao trava todo mundo por uma falha de infraestrutura: deixa ver a parte
- * operacional e nega so a parte financeira, registrando o erro.
- */
-async function resolveAccess(email: string): Promise<{ autorizado: boolean; canViewValues: boolean; listaIndisponivel: boolean }> {
-  if (!isConfigured()) {
-    return { autorizado: true, canViewValues: false, listaIndisponivel: true };
-  }
-  let lista: AccessEntry[];
-  try {
-    lista = await fetchAccessList();
-  } catch (error) {
-    console.error("Falha ao ler a lista AcessoPainelEstoques do SharePoint:", error);
-    return { autorizado: true, canViewValues: false, listaIndisponivel: true };
-  }
-  const entrada = lista.find((item) => item.email === email);
-  if (!entrada || !entrada.ativo) {
-    return { autorizado: false, canViewValues: false, listaIndisponivel: false };
-  }
-  return { autorizado: true, canViewValues: entrada.acessoValores, listaIndisponivel: false };
-}
-
 function AcessoNaoAutorizado({ email }: { email: string }) {
   return (
     <main style={{ display: "flex", minHeight: "100vh", alignItems: "center", justifyContent: "center", fontFamily: "system-ui, sans-serif", background: "#f5f4f2" }}>
       <div style={{ background: "#fff", padding: "48px 40px", borderRadius: 16, boxShadow: "0 2px 24px rgba(0,0,0,0.08)", textAlign: "center", maxWidth: 420 }}>
         <h1 style={{ fontSize: 20, marginBottom: 8 }}>Acesso não liberado</h1>
         <p style={{ color: "#666", marginBottom: 24, fontSize: 14 }}>
-          Sua conta (<strong>{email}</strong>) fez login com sucesso, mas ainda não está na lista de
-          acesso do painel. Peça para alguém da equipe adicionar seu e-mail na lista
-          &quot;AcessoPainelEstoques&quot; no SharePoint.
+          Sua conta (<strong>{email}</strong>) fez login com sucesso, mas ainda não está liberada
+          pra ver nenhum menu do painel. Peça para um administrador liberar seu acesso em
+          &quot;Administração&quot;, dentro do próprio painel.
         </p>
         <form action={async () => { "use server"; await signOut({ redirectTo: "/login" }); }}>
           <button type="submit" style={{ background: "#666", color: "#fff", border: "none", borderRadius: 8, padding: "10px 20px", fontSize: 14, cursor: "pointer" }}>
@@ -327,12 +304,14 @@ export default async function Home() {
   }
   const email = session?.user?.email?.trim().toLocaleLowerCase("pt-BR") ?? null;
 
-  const { autorizado, canViewValues } = email
+  const FINANCEIRAS: Section[] = ["valores", "valorProdutoAcabado", "fornecedores"];
+  const { autorizado, permissoes, isAdmin } = email
     ? await resolveAccess(email)
-    : { autorizado: true, canViewValues: false };
+    : { autorizado: true, permissoes: SECTION_KEYS.filter((s) => !FINANCEIRAS.includes(s)), isAdmin: false };
   if (!autorizado) {
     return <AcessoNaoAutorizado email={email!} />;
   }
+  const canViewValues = FINANCEIRAS.some((s) => permissoes.includes(s));
 
   const [estoqueData, insumosData, consumoData, mrpTerceirosData, escadinhaData, escadinhaInsumosData, pedidosVendaData, cortesData] = await Promise.all([
     loadEstoqueData(),
@@ -344,14 +323,16 @@ export default async function Home() {
     loadPedidosVendaData(),
     loadCortesData(),
   ]);
-  const valoresData = canViewValues ? await loadValoresData() : null;
-  const valoresProdutoAcabadoData = canViewValues ? await loadValoresProdutoAcabadoData() : null;
-  const fornecedoresData = canViewValues ? await loadFornecedoresData() : null;
+  const valoresData = permissoes.includes("valores") ? await loadValoresData() : null;
+  const valoresProdutoAcabadoData = permissoes.includes("valorProdutoAcabado") ? await loadValoresProdutoAcabadoData() : null;
+  const fornecedoresData = permissoes.includes("fornecedores") ? await loadFornecedoresData() : null;
   const cortesValoresData = canViewValues ? await loadCortesValoresData() : null;
 
   return (
     <DashboardClient
       canViewValues={canViewValues}
+      permissoes={permissoes}
+      isAdmin={isAdmin}
       valoresData={valoresData}
       valoresProdutoAcabadoData={valoresProdutoAcabadoData}
       fornecedoresData={fornecedoresData}

@@ -258,3 +258,27 @@ th{color:#46594e;font-size:8px;font-weight:800}th .th-hint{display:block;color:#
 .forn-produto-mes-tabela strong.down{color:#1f8a56}
 .forn-produto-mes-total td{border-top:2px solid #d9e4dd;background:#f5f8f6}
 @media(max-width:1050px){.forn-timeline-row{grid-template-columns:1fr}}
+
+/* Administracao de acessos (28/10/2026) - substitui a lista AcessoPainelEstoques do SharePoint */
+.admin-container{max-width:980px;margin:0 auto;padding:40px 24px 80px;font-family:inherit;color:var(--ink)}
+.admin-container h1{font-size:22px;margin:0 0 8px}
+.admin-intro{color:var(--muted);font-size:13px;margin:0 0 28px;max-width:640px}
+.admin-bloco{margin-bottom:36px}
+.admin-bloco h2{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:0 0 14px}
+.admin-linha{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.admin-linha-novo{background:var(--cream)}
+.admin-linha-topo{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.admin-linha-topo strong{font-size:14px}
+.admin-voce{font-size:11px;color:var(--green-2);font-weight:700}
+.admin-input-email,.admin-input-nome{border:1px solid var(--line);border-radius:9px;padding:8px 12px;font-size:13px;min-width:200px}
+.admin-check{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--ink);cursor:pointer;user-select:none;white-space:nowrap}
+.admin-check input{accent-color:var(--green-2);width:14px;height:14px}
+.admin-check-financeiro{color:var(--green)}
+.admin-permissoes{display:flex;flex-wrap:wrap;gap:10px 18px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:12px}
+.admin-linha-acoes{display:flex;gap:10px}
+.admin-botao-salvar{background:var(--green-2);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:12px;font-weight:700;cursor:pointer}
+.admin-botao-salvar:hover{background:var(--green)}
+.admin-botao-remover{background:#fff;color:var(--red);border:1px solid var(--red);border-radius:8px;padding:8px 18px;font-size:12px;font-weight:700;cursor:pointer}
+.admin-botao-remover:hover{background:#fbeceb}
+.admin-voltar{display:inline-block;margin-top:12px;color:var(--muted);font-size:13px;text-decoration:none}
+.admin-voltar:hover{color:var(--ink)}
