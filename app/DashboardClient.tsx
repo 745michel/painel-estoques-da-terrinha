@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { storeKeyFromName } from "./lib/store-names";
 import { PRODUCAO_PROPRIA } from "./lib/valor-produto-acabado";
 import type { Section } from "./lib/sections";
@@ -849,6 +849,39 @@ const SIDEBAR_NAV_ITEMS: { section: Section; icon: string; label: string; financ
  * secao) de proposito - trocar de aba com `hidden` (nunca desmonta, ver abasSecundarias) nao
  * pode fazer o menu voltar a expandir sozinho.
  */
+// Nome de quem esta logado + controle do menu mobile (28/10/2026) - context em vez de prop
+// drilling pelas 8 secoes so pra chegar no rodape do Sidebar e no botao hamburguer de cada
+// topbar. No celular (<=760px) o menu lateral some por padrao (nunca tinha substituto - bug
+// real reportado pelo usuario); agora vira uma gaveta aberta por esse botao.
+const UsuarioContext = createContext<{
+  nome: string;
+  menuMobileAberto: boolean;
+  alternarMenuMobile: () => void;
+  fecharMenuMobile: () => void;
+}>({
+  nome: "Equipe de Compras",
+  menuMobileAberto: false,
+  alternarMenuMobile: () => {},
+  fecharMenuMobile: () => {},
+});
+
+function iniciaisNome(nome: string): string {
+  const partes = nome.trim().split(/\s+/).filter(Boolean);
+  if (partes.length === 0) return "CP";
+  if (partes.length === 1) return partes[0].slice(0, 2).toUpperCase();
+  return (partes[0][0] + partes[partes.length - 1][0]).toUpperCase();
+}
+
+/** Botao hamburguer - so aparece no celular (ver globals.css), insere em cada topbar via contexto. */
+function BotaoMenuMobile() {
+  const { alternarMenuMobile } = useContext(UsuarioContext);
+  return (
+    <button type="button" className="mobile-menu-toggle" onClick={alternarMenuMobile} aria-label="Abrir menu">
+      ☰
+    </button>
+  );
+}
+
 function Sidebar({
   activeSection,
   onSectionChange,
@@ -868,12 +901,19 @@ function Sidebar({
   colapsado: boolean;
   onToggleColapsado: () => void;
 }) {
-  return <aside className={`sidebar${colapsado ? " collapsed" : ""}`}>
+  const { nome: nomeUsuario, menuMobileAberto, fecharMenuMobile } = useContext(UsuarioContext);
+  function selecionar(section: Section) {
+    onSectionChange(section);
+    fecharMenuMobile();
+  }
+  return <>
+    {menuMobileAberto && <div className="sidebar-mobile-backdrop" onClick={fecharMenuMobile} />}
+    <aside className={`sidebar${colapsado ? " collapsed" : ""}${menuMobileAberto ? " mobile-open" : ""}`}>
     <button type="button" className="sidebar-toggle" onClick={onToggleColapsado} aria-label={colapsado ? "Expandir menu" : "Recolher menu"} title={colapsado ? "Expandir menu" : "Recolher menu"}>{colapsado ? "»" : "«"}</button>
     <div className="brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><span className="brand-text">Da Terrinha<small>Planejamento de estoque</small></span></div>
     <nav aria-label="Navegação principal">
       {SIDEBAR_NAV_ITEMS.filter((item) => permissoes.includes(item.section)).map((item) => (
-        <button key={item.section} type="button" className={`nav-item${activeSection === item.section ? " active" : ""}`} onClick={() => onSectionChange(item.section)} title={item.label}>
+        <button key={item.section} type="button" className={`nav-item${activeSection === item.section ? " active" : ""}`} onClick={() => selecionar(item.section)} title={item.label}>
           <span className="nav-icon">{item.icon}</span><span className="nav-label">{item.label}</span>
         </button>
       ))}
@@ -884,8 +924,9 @@ function Sidebar({
       )}
     </nav>
     <div className="sidebar-note"><span className="pulse-dot" /><div><strong>{notaTitulo}</strong><small>{notaValor}</small></div></div>
-    <div className="profile"><span>CP</span><div><strong>Equipe de Compras</strong><small>Operação</small></div><i>···</i></div>
-  </aside>;
+    <div className="profile" title={nomeUsuario}><span>{iniciaisNome(nomeUsuario)}</span><div><strong>{nomeUsuario}</strong><small>Operação</small></div><i>···</i></div>
+    </aside>
+  </>;
 }
 
 function ValuesDashboard({
@@ -1081,6 +1122,7 @@ function ValuesDashboard({
     <Sidebar activeSection="valores" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
+        <BotaoMenuMobile />
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Valor dos Insumos</strong></div>
         <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => { setQuery(event.target.value); setLimit(18); }} placeholder="Buscar embalagem, matéria-prima, SKU ou fornecedor..." /><kbd>Ctrl K</kbd></label>
         <div className="top-actions"><button className="primary-button" onClick={exportValues}><span>↓</span> Exportar valores</button></div>
@@ -1343,6 +1385,7 @@ function ConsumptionDashboard({
     <Sidebar activeSection="consumo" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
+        <BotaoMenuMobile />
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Consumo de Insumos</strong></div>
         <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar produto, SKU ou fornecedor..." /><kbd>Ctrl K</kbd></label>
       </header>
@@ -1643,6 +1686,7 @@ function EscadinhaDashboard({
     <Sidebar activeSection="escadinha" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Revisão do plano" notaValor={fullDate.format(localDate(escadinhaData.dataPublicacao))} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
+        <BotaoMenuMobile />
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Escadinha Geral</strong></div>
         <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar produto, código ou marca..." /><kbd>Ctrl K</kbd></label>
       </header>
@@ -1972,6 +2016,7 @@ function EscadinhaInsumosDashboard({
     <Sidebar activeSection="escadinhaInsumos" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Explosão BOM" notaValor={fullDate.format(localDate(escadinhaInsumosData.atualizadoEm))} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
+        <BotaoMenuMobile />
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Escadinha de Insumos</strong></div>
         <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar insumo ou SKU..." /><kbd>Ctrl K</kbd></label>
       </header>
@@ -2322,6 +2367,7 @@ function PedidosVendaDashboard({
     <Sidebar activeSection="pedidosVenda" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
+        <BotaoMenuMobile />
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Estoque x Pedidos</strong></div>
         <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar produto..." /><kbd>Ctrl K</kbd></label>
       </header>
@@ -2839,6 +2885,7 @@ function CortesDashboard({
     <Sidebar activeSection="cortes" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
+        <BotaoMenuMobile />
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Cortes</strong></div>
         <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar produto, SKU ou loja..." /><kbd>Ctrl K</kbd></label>
       </header>
@@ -3244,6 +3291,7 @@ function ValorProdutoAcabadoDashboard({
     <Sidebar activeSection="valorProdutoAcabado" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={updated} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
+        <BotaoMenuMobile />
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Valor Produto Acabado</strong></div>
         <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar produto..." /><kbd>Ctrl K</kbd></label>
       </header>
@@ -3755,6 +3803,7 @@ function FornecedoresDashboard({
     <Sidebar activeSection="fornecedores" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Dados atualizados" notaValor={new Date(fornecedoresData.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
     <section className="workspace">
       <header className="topbar">
+        <BotaoMenuMobile />
         <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Fornecedores</strong></div>
         <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar fornecedor na tabela..." /><kbd>Ctrl K</kbd></label>
       </header>
@@ -4146,6 +4195,7 @@ export default function DashboardClient({
   canViewValues,
   permissoes,
   isAdmin,
+  nomeUsuario,
   valoresData,
   valoresProdutoAcabadoData,
   fornecedoresData,
@@ -4162,6 +4212,7 @@ export default function DashboardClient({
   canViewValues: boolean;
   permissoes: Section[];
   isAdmin: boolean;
+  nomeUsuario: string;
   valoresData: ValuesData | null;
   valoresProdutoAcabadoData: ValoresProdutoAcabadoData | null;
   fornecedoresData: FornecedoresData | null;
@@ -4186,6 +4237,16 @@ export default function DashboardClient({
   const [sidebarColapsado, setSidebarColapsado] = useState(false);
   function toggleSidebar() {
     setSidebarColapsado((atual) => !atual);
+  }
+  // Menu mobile (28/10/2026) - gaveta separada do colapso de desktop acima (esse so estreita
+  // a sidebar pra uma trilha de icones; no celular ela precisa sumir e so voltar via este
+  // botao, ver UsuarioContext/BotaoMenuMobile).
+  const [menuMobileAberto, setMenuMobileAberto] = useState(false);
+  function alternarMenuMobile() {
+    setMenuMobileAberto((atual) => !atual);
+  }
+  function fecharMenuMobile() {
+    setMenuMobileAberto(false);
   }
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<"Todos" | Status>("Todos");
@@ -4548,7 +4609,7 @@ export default function DashboardClient({
   const selectedMonthlyAvg = historicoRealValores.length > 0 ? historicoRealValores.reduce((a, b) => a + b, 0) / historicoRealValores.length : selected?.consumoMensal ?? 0;
 
   return (
-    <>
+    <UsuarioContext.Provider value={{ nome: nomeUsuario, menuMobileAberto, alternarMenuMobile, fecharMenuMobile }}>
       {abasSecundarias}
       <div hidden={!mostrarOperacional}>
     <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
@@ -4556,6 +4617,7 @@ export default function DashboardClient({
 
       <section className="workspace">
         <header className="topbar">
+        <BotaoMenuMobile />
           <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>{isInputs ? "Embalagens e Matéria-Prima" : "Estoque de Terceiros"}</strong></div>
           <label className="global-search">
             <span>⌕</span>
@@ -4655,6 +4717,6 @@ export default function DashboardClient({
       {notice && <div className="toast"><span>✓</span>{notice}</div>}
     </main>
       </div>
-    </>
+    </UsuarioContext.Provider>
   );
 }

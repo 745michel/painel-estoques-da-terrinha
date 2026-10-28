@@ -35,6 +35,7 @@ export type ResolveAccessResult = {
   permissoes: Section[];
   isAdmin: boolean;
   baseIndisponivel: boolean;
+  nome: string | null;
 };
 
 /**
@@ -50,14 +51,21 @@ export async function resolveAccess(email: string): Promise<ResolveAccessResult>
       permissoes: SECTION_KEYS.filter((s) => !SECOES_FINANCEIRAS.has(s)),
       isAdmin: false,
       baseIndisponivel: true,
+      nome: null,
     };
   }
   try {
     const usuario = await getUsuario(normalizado);
     if (!usuario || !usuario.ativo) {
-      return { autorizado: false, permissoes: [], isAdmin: false, baseIndisponivel: false };
+      return { autorizado: false, permissoes: [], isAdmin: false, baseIndisponivel: false, nome: null };
     }
-    return { autorizado: true, permissoes: usuario.permissoes, isAdmin: usuario.admin, baseIndisponivel: false };
+    return {
+      autorizado: true,
+      permissoes: usuario.permissoes,
+      isAdmin: usuario.admin,
+      baseIndisponivel: false,
+      nome: usuario.nome,
+    };
   } catch (error) {
     console.error("Falha ao consultar usuarios no Postgres:", error);
     return {
@@ -65,6 +73,7 @@ export async function resolveAccess(email: string): Promise<ResolveAccessResult>
       permissoes: SECTION_KEYS.filter((s) => !SECOES_FINANCEIRAS.has(s)),
       isAdmin: false,
       baseIndisponivel: true,
+      nome: null,
     };
   }
 }

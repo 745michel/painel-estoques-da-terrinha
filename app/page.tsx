@@ -305,12 +305,13 @@ export default async function Home() {
   const email = session?.user?.email?.trim().toLocaleLowerCase("pt-BR") ?? null;
 
   const FINANCEIRAS: Section[] = ["valores", "valorProdutoAcabado", "fornecedores"];
-  const { autorizado, permissoes, isAdmin } = email
+  const { autorizado, permissoes, isAdmin, nome } = email
     ? await resolveAccess(email)
-    : { autorizado: true, permissoes: SECTION_KEYS.filter((s) => !FINANCEIRAS.includes(s)), isAdmin: false };
+    : { autorizado: true, permissoes: SECTION_KEYS.filter((s) => !FINANCEIRAS.includes(s)), isAdmin: false, nome: null };
   if (!autorizado) {
     return <AcessoNaoAutorizado email={email!} />;
   }
+  const nomeUsuario = nome?.trim() || email || "Equipe de Compras";
   const canViewValues = FINANCEIRAS.some((s) => permissoes.includes(s));
 
   const [estoqueData, insumosData, consumoData, mrpTerceirosData, escadinhaData, escadinhaInsumosData, pedidosVendaData, cortesData] = await Promise.all([
@@ -333,6 +334,7 @@ export default async function Home() {
       canViewValues={canViewValues}
       permissoes={permissoes}
       isAdmin={isAdmin}
+      nomeUsuario={nomeUsuario}
       valoresData={valoresData}
       valoresProdutoAcabadoData={valoresProdutoAcabadoData}
       fornecedoresData={fornecedoresData}

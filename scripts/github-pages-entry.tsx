@@ -114,6 +114,7 @@ function App() {
         canViewValues={desbloqueado}
         permissoes={desbloqueado ? SECTION_KEYS : OPERACIONAIS}
         isAdmin={false}
+        nomeUsuario="Equipe de Compras"
         valoresData={desbloqueado ? valoresData : null}
         valoresProdutoAcabadoData={desbloqueado ? valoresProdutoAcabadoData : null}
         fornecedoresData={desbloqueado ? fornecedoresData : null}
