@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { auth } from "../../auth";
 import { getUsuario, listarUsuarios } from "../lib/access";
 import { isDbConfigured } from "../lib/pg";
+import { listarLoginAudit, listarPermissaoAudit } from "../lib/audit";
 import AdminClient from "./AdminClient";
 
 export const dynamic = "force-dynamic";
@@ -30,6 +31,10 @@ export default async function AdminPage() {
       </main>
     );
   }
-  const usuarios = await listarUsuarios();
-  return <AdminClient usuarios={usuarios} meuEmail={email!} />;
+  const [usuarios, loginAudit, permissaoAudit] = await Promise.all([
+    listarUsuarios(),
+    listarLoginAudit(50),
+    listarPermissaoAudit(50),
+  ]);
+  return <AdminClient usuarios={usuarios} meuEmail={email!} loginAudit={loginAudit} permissaoAudit={permissaoAudit} />;
 }

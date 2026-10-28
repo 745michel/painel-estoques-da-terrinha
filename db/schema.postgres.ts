@@ -30,6 +30,27 @@ export const usuarios = pgTable("usuarios", {
   atualizadoEm: timestamp("atualizado_em", { withTimezone: true }).notNull().defaultNow(),
 });
 
+// ---------- auditoria (28/10/2026 - log de login e de mudanca de permissao, ver app/lib/audit.ts) ----------
+
+export const loginAudit = pgTable("login_audit", {
+  id: serial("id").primaryKey(),
+  email: text("email").notNull(),
+  autorizado: boolean("autorizado").notNull(),
+  ip: text("ip"),
+  userAgent: text("user_agent"),
+  criadoEm: timestamp("criado_em", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const permissaoAudit = pgTable("permissao_audit", {
+  id: serial("id").primaryKey(),
+  alteradoPor: text("alterado_por").notNull(),
+  alvoEmail: text("alvo_email").notNull(),
+  acao: text("acao").notNull(), // "salvar" | "remover"
+  antes: jsonb("antes"),
+  depois: jsonb("depois"),
+  criadoEm: timestamp("criado_em", { withTimezone: true }).notNull().defaultNow(),
+});
+
 // ---------- operacionais (array de produtos, linha a linha) ----------
 
 export const estoqueTerceiros = pgTable("estoque_terceiros", {

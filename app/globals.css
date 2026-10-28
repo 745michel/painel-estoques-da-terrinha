@@ -289,3 +289,13 @@ th{color:#46594e;font-size:8px;font-weight:800}th .th-hint{display:block;color:#
 .admin-botao-remover:hover{background:#fbeceb}
 .admin-voltar{display:inline-block;margin-top:12px;color:var(--muted);font-size:13px;text-decoration:none}
 .admin-voltar:hover{color:var(--ink)}
+.admin-vazio{color:var(--muted);font-size:13px}
+.admin-tabela-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:auto;max-height:420px}
+.admin-tabela{width:100%;border-collapse:collapse;font-size:12px}
+.admin-tabela th{position:sticky;top:0;background:var(--cream);text-align:left;padding:10px 14px;font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);border-bottom:1px solid var(--line)}
+.admin-tabela td{padding:10px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+.admin-tabela tr:last-child td{border-bottom:0}
+.admin-user-agent{max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap!important}
+.admin-status-pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:10px;font-weight:700}
+.admin-status-pill.ok{background:#e4f3ea;color:var(--green)}
+.admin-status-pill.negado{background:#fbeceb;color:var(--red)}
