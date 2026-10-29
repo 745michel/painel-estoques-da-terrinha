@@ -744,6 +744,45 @@ mas agora sobras invisíveis se limpam sozinhas, e o log mostra a mensagem de er
 via winget) com `openpyxl`. Esse caminho é hardcoded em `automation\atualizar_dados.ps1` — se o
 Python for reinstalado em outro local, ajuste o script.
 
+### Migração pro Railway + Postgres (27-29/10/2026)
+
+Hospedagem dinâmica adicional em `https://painel-estoques-production.up.railway.app/` (projeto
+Railway "Estoque-PCP"), rodando `app/page.tsx` (caminho dinâmico já existente) via `next
+build`/`next start` puro (Dockerfile.railway) - sem passar pelo vinext/Cloudflare. Login real
+(Microsoft Entra ID) ativado, Basic Auth removida depois de validado. GitHub Pages continua
+no ar, 100% intacto, em paralelo - nenhum dos dois foi desligado.
+
+`app/lib/pg.ts` conecta no Postgres do serviço "Postgres" do mesmo projeto Railway
+(`DATABASE_URL` interno, so alcançável de dentro da rede do Railway - dev local usa tunel SSH,
+`railway connect Postgres --tunnel-only -P 55432`, com `PG_USE_SSH_TUNNEL=1`).
+`work/sheet-inspect/sync_postgres.mts` (gitignored, chamado por
+`automation/sincronizar_postgres.ps1`, 6ª etapa da automação 3x/dia) lê os mesmos JSON que o
+pipeline local já gera e grava em 13 tabelas (1 por dataset + `dataset_meta` pros campos
+"irmãos" dos arrays, ex. `mesesCorte`/`dataPublicacaoAnterior`, que se perderiam ao quebrar 1
+JSON com 2 arrays em 2 tabelas).
+
+**Bug real encontrado pelo usuário em 29/10/2026**: "Valor dos insumos" ficou **3 meses
+congelado** (03/08/2026) mesmo com o resto do painel atualizando normalmente. Causa: ao migrar
+pro Postgres, copiei `data/dados-valores-insumos.json` como snapshot estático (mesmo padrão
+usado pra "Fornecedores"/"Escadinha de insumos") - mas esse dataset **nunca foi estático**,
+era computado **ao vivo** em `app/page.tsx` (`buildValorInsumos(insumosData, rawRows)`,
+`rawRows` = `valor_insumos.json` buscado fresco do SharePoint a cada requisição, validado
+05/08/2026). O arquivo local só existe como placeholder de tipo (pra inferência TS) e nunca é
+regerado por nenhum script - ler ele direto congelou a aba na data em que foi salvo
+manualmente. Corrigido em `sync_postgres.mts`: "Valor dos insumos" agora é computado no sync
+(mesma lógica, mesmo `valor_insumos.json`, reaproveitado também pro cálculo de "Valor produto
+acabado" que já fazia isso certo desde o início) - não lê mais o JSON estático congelado.
+
+Controle de acesso por menu (28/10/2026) - substitui de vez a lista "AcessoPainelEstoques" do
+SharePoint. Tabela `usuarios` no Postgres (`app/lib/access.ts`): `ativo`, `admin`, `permissoes`
+(array das 10 seções do painel, granularidade por menu). Tela `/admin` (só quem tem
+`admin=true`) lista/edita/remove pessoas - `app/admin/actions.ts` (Server Actions) +
+`app/admin/AdminClient.tsx`. `Section` (antes local em `DashboardClient.tsx`) virou fonte única
+em `app/lib/sections.ts`. Auditoria (pedido do usuário, mesmo dia): tabelas `login_audit` (1
+linha por login de verdade via `events.signIn` do Auth.js, com IP/navegador/se foi autorizado -
+não por carregamento de página) e `permissao_audit` (quem mudou o acesso de quem, antes/depois)
+- ambas visíveis numa aba "Auditoria" dentro de `/admin`.
+
 ### Busca de dados em tempo de execução (05/08/2026)
 
 O painel deixou de depender de JSON estático "gravado" no build. `app/page.tsx` busca os 4
