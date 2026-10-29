@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-29T08:16:33",
+  "atualizadoEm": "2026-10-29T14:11:37",
   "origem": "Base movimento_estoque que alimenta o Power BI de consumo de insumos",
   "periodoInicio": "2025-01-01",
   "periodoFim": "2026-10-28",
@@ -27,7 +27,7 @@
     "2026-09",
     "2026-10"
   ],
-  "linhasProcessadas": 612010,
+  "linhasProcessadas": 612023,
   "produtos": [
     {
       "sku": "70705",
@@ -14484,6 +14484,152 @@
       "totalPeriodo": 26207.755
     },
     {
+      "sku": "147392",
+      "produto": "BOBINA PARA FARDO LISA 1130 x 55",
+      "loja": "11",
+      "lojaNome": "2JM",
+      "fornecedor": "Fornecedor não informado",
+      "tipo": "Embalagem",
+      "categoria": "EMBALAGEM",
+      "unidade": "kg",
+      "historico": [
+        {
+          "mes": "2025-01",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-02",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-03",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-04",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-05",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-06",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-07",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-08",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-09",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-10",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-11",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2025-12",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-01",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-02",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-03",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-04",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-05",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-06",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-07",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-08",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-09",
+          "saida": 0.0,
+          "estorno": 0.0,
+          "consumoLiquido": 0.0
+        },
+        {
+          "mes": "2026-10",
+          "saida": 25.92,
+          "estorno": 0.0,
+          "consumoLiquido": 25.92
+        }
+      ],
+      "mediaMensal": 1.178,
+      "totalPeriodo": 25.92
+    },
+    {
       "sku": "50982",
       "produto": "BOBINA PARA FARDOS 500G TAPIOCA DATERRINHA COM COD. BARRAS",
       "loja": "1",
@@ -20912,7 +21058,7 @@
       "produto": "BOBINA TAPIOCA SELECT 500 G",
       "loja": "1",
       "lojaNome": "Da Terrinha - Matriz",
-      "fornecedor": "Fornecedor não informado",
+      "fornecedor": "MAJICPLAST EMBALAGEN",
       "tipo": "Embalagem",
       "categoria": "EMBALAGEM PRIMARIA",
       "unidade": "kg",
@@ -37410,7 +37556,7 @@
       "produto": "MP - CACAU EM PO ALCALINO KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "INDUSTRIA BRASILEIRA DE CACAU",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -45002,7 +45148,7 @@
       "produto": "MP - GORDURA AGP 600 BD KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "MASTERSENSE INGREDIE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -48360,7 +48506,7 @@
       "produto": "MP - PAPRICA DOCE EM PO/ MOIDO  KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "JNBM - CONDIMENTOS E ESPECIARIAS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -48506,7 +48652,7 @@
       "produto": "MP - PAPRICA PICANTE EM PO/ MOIDO KG",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "JNBM - CONDIMENTOS E ESPECIARIAS",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -48652,7 +48798,7 @@
       "produto": "MP - PASTA DE AVELA",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "CARINO INGREDIENTES",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
@@ -52886,7 +53032,7 @@
       "produto": "MP - SORO DE LEITE PARA CHOCOLATE",
       "loja": "14",
       "lojaNome": "Da Terrinha - Filial SP",
-      "fornecedor": "Q-ALIMENTARE",
+      "fornecedor": "Fornecedor não informado",
       "tipo": "Matéria-prima",
       "categoria": "MATERIA PRIMA",
       "unidade": "kg",
