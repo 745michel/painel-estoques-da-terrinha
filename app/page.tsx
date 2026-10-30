@@ -13,6 +13,7 @@ import cortesDataStatic from "../public/dados-cortes.json";
 import valoresProdutoAcabadoDataStatic from "../data/dados-valores-produto-acabado.json";
 import fornecedoresDataStatic from "../data/dados-fornecedores.json";
 import cortesValoresDataStatic from "../data/dados-cortes-valores.json";
+import validadeDataStatic from "../data/dados-validade.json";
 import { fetchSharePointJson, isConfigured } from "./lib/sharepoint";
 import { isDbConfigured, queryRows, queryMeta, querySnapshot } from "./lib/pg";
 import { resolveAccess } from "./lib/access";
@@ -88,6 +89,7 @@ type CortesValoresData = {
   valores: CortesValorLinha[];
   valoresAtendidos: AtendidoValorLinha[];
 };
+type ValidadeData = typeof validadeDataStatic;
 
 /**
  * Cada loadX tenta o SharePoint (dados atualizados 2x/dia pela automacao local +
@@ -324,6 +326,11 @@ export default async function Home() {
     loadPedidosVendaData(),
     loadCortesData(),
   ]);
+  // Validade (tempo de vida util padrao de cada produto) - catalogo digital da empresa,
+  // transcrito manualmente (nao ha fonte automatica/SharePoint pra isso). Snapshot fixo no
+  // repositorio (data/dados-validade.json), atualizado so quando o catalogo muda. Ver
+  // conversa 30/10/2026.
+  const validadeData: ValidadeData = validadeDataStatic;
   const valoresData = permissoes.includes("valores") ? await loadValoresData() : null;
   const valoresProdutoAcabadoData = permissoes.includes("valorProdutoAcabado") ? await loadValoresProdutoAcabadoData() : null;
   const fornecedoresData = permissoes.includes("fornecedores") ? await loadFornecedoresData() : null;
@@ -347,6 +354,7 @@ export default async function Home() {
       pedidosVendaData={pedidosVendaData}
       cortesData={cortesData}
       cortesValoresData={cortesValoresData}
+      validadeData={validadeData}
     />
   );
 }

@@ -10,6 +10,7 @@ export const SECOES = [
   { key: "escadinhaInsumos", label: "Escadinha de insumos", financeiro: false },
   { key: "pedidosVenda", label: "Estoque x Pedidos", financeiro: false },
   { key: "cortes", label: "Cortes", financeiro: false },
+  { key: "validade", label: "Validade dos produtos", financeiro: false },
   { key: "valores", label: "Valor dos insumos", financeiro: true },
   { key: "valorProdutoAcabado", label: "Valor produto acabado", financeiro: true },
   { key: "fornecedores", label: "Fornecedores", financeiro: true },

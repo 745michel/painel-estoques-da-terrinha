@@ -10,12 +10,14 @@ import type consumoDataType from "../public/dados-consumo-insumos.json";
 import type valoresDataType from "../data/dados-valores-insumos.json";
 import type valoresProdutoAcabadoDataType from "../data/dados-valores-produto-acabado.json";
 import type mrpTerceirosDataType from "../public/dados-mrp-terceiros.json";
+import type validadeDataType from "../data/dados-validade.json";
 
 type EstoqueData = typeof estoqueDataType;
 type InsumosData = typeof insumosDataType;
 type ConsumoData = typeof consumoDataType;
 type MrpTerceirosData = typeof mrpTerceirosDataType;
 type MrpTerceirosItem = MrpTerceirosData["produtos"][number];
+type ValidadeData = typeof validadeDataType;
 // Tipo declarado a mao (nao inferido do JSON via "typeof ... import") porque "desvios" comeca
 // vazio (so tem conteudo a partir da 2a revisao mensal do plano) - um array vazio no JSON faria
 // o TypeScript inferir "never[]" e quebrar todo acesso a propriedade de EscadinhaDesvio.
@@ -835,6 +837,7 @@ const SIDEBAR_NAV_ITEMS: { section: Section; icon: string; label: string; financ
   { section: "escadinhaInsumos", icon: "▥", label: "Escadinha de insumos" },
   { section: "pedidosVenda", icon: "⇄", label: "Estoque x Pedidos" },
   { section: "cortes", icon: "✂", label: "Cortes" },
+  { section: "validade", icon: "⏳", label: "Validade dos produtos" },
   { section: "valores", icon: "R$", label: "Valor dos insumos", financeiro: true },
   { section: "valorProdutoAcabado", icon: "R$", label: "Valor produto acabado", financeiro: true },
   { section: "fornecedores", icon: "🚚", label: "Fornecedores", financeiro: true },
@@ -3196,6 +3199,105 @@ function CortesDashboard({
   </main>;
 }
 
+// Validade = tempo de vida util PADRAO do produto (shelf life do catalogo digital da empresa),
+// nao um rastreio de lote/vencimento real - pedido do usuario em 29/10/2026: "quando falo
+// validade seria o tempo de vida util de cada produto". Dado estatico (data/dados-validade.json,
+// transcrito manualmente do catalogo fliphtml5 - nao ha fonte automatica/SharePoint pra isso),
+// por isso nao tem "atualizadoEm" dinamico nem fallback de Postgres como as outras abas.
+function formatValidadeExtenso(dias: number): string {
+  if (dias < 365) {
+    const meses = dias / 30;
+    const mesesTxt = Number.isInteger(meses) ? String(meses) : meses.toFixed(1).replace(".", ",");
+    return `${mesesTxt} ${meses === 1 ? "mês" : "meses"}`;
+  }
+  const anos = dias / 365;
+  const anosTxt = Number.isInteger(anos) ? String(anos) : anos.toFixed(1).replace(".", ",");
+  return `${anosTxt} ${anos === 1 ? "ano" : "anos"}`;
+}
+
+function ValidadeDashboard({
+  onSectionChange,
+  canViewValues,
+  permissoes,
+  isAdmin,
+  validadeData,
+  sidebarColapsado,
+  onToggleSidebar,
+}: {
+  onSectionChange: (section: Section) => void;
+  canViewValues: boolean;
+  permissoes: Section[];
+  isAdmin?: boolean;
+  validadeData: ValidadeData;
+  sidebarColapsado: boolean;
+  onToggleSidebar: () => void;
+}) {
+  const [query, setQuery] = useState("");
+  const [categorias, setCategorias] = useState<string[]>([]);
+  const [sort, setSort] = useState<"categoria" | "validade-maior" | "validade-menor">("categoria");
+
+  const produtos = validadeData.produtos;
+
+  const categoryOptions = useMemo(
+    () => Array.from(new Set(produtos.map((p) => p.categoria))).sort((a, b) => a.localeCompare(b, "pt-BR")).map((c) => ({ value: c, label: c })),
+    [produtos],
+  );
+
+  const buscaNormalizada = query.trim().toLocaleLowerCase("pt-BR");
+  const filtrado = produtos.filter((p) => {
+    if (categorias.length > 0 && !categorias.includes(p.categoria)) return false;
+    if (buscaNormalizada && !(`${p.produto} ${p.cod} ${p.ean ?? ""} ${p.dun ?? ""}`.toLocaleLowerCase("pt-BR").includes(buscaNormalizada))) return false;
+    return true;
+  });
+
+  const ordenado = [...filtrado].sort((a, b) => {
+    if (sort === "validade-maior") return b.validadeDias - a.validadeDias;
+    if (sort === "validade-menor") return a.validadeDias - b.validadeDias;
+    return a.categoria.localeCompare(b.categoria, "pt-BR") || a.produto.localeCompare(b.produto, "pt-BR");
+  });
+
+  const totalCategorias = categoryOptions.length;
+  const mediaDias = produtos.length > 0 ? Math.round(produtos.reduce((s, p) => s + p.validadeDias, 0) / produtos.length) : 0;
+
+  return <main className={`app-shell${sidebarColapsado ? " sidebar-collapsed" : ""}`}>
+    <Sidebar activeSection="validade" onSectionChange={onSectionChange} permissoes={permissoes} isAdmin={isAdmin} notaTitulo="Catálogo" notaValor={`${produtos.length} produtos`} colapsado={sidebarColapsado} onToggleColapsado={onToggleSidebar} />
+    <section className="workspace">
+      <header className="topbar">
+        <BotaoMenuMobile />
+        <div className="mobile-brand"><span className="brand-logo-wrap"><img className="brand-logo" src="/logo-da-terrinha.webp" alt="Da Terrinha Alimentos" /></span><strong>Validade dos produtos</strong></div>
+        <label className="global-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar produto, código, EAN ou DUN..." /><kbd>Ctrl K</kbd></label>
+      </header>
+      <div className="content values-content">
+        <div className="page-heading"><div><p className="eyebrow">CATÁLOGO DE PRODUTOS</p><h1>Validade</h1><p>Tempo de vida útil padrão de cada produto, conforme o catálogo digital da empresa.</p></div></div>
+        <section className="value-kpis" aria-label="Indicadores">
+          <div className="value-kpi"><span>Produtos no catálogo</span><strong>{number.format(produtos.length)}</strong><small>Em {totalCategorias} categorias</small></div>
+          <div className="value-kpi"><span>Validade média</span><strong>{formatValidadeExtenso(mediaDias)}</strong><small>{mediaDias} dias, média simples</small></div>
+        </section>
+        <section className="inventory-panel values-panel">
+          <div className="panel-heading"><div><h2>Produtos</h2><p>{filtrado.length} itens encontrados</p></div></div>
+          <div className="filters value-filters"><div className="selects">
+            <MultiFilter label="Categoria" options={categoryOptions} selected={categorias} onChange={setCategorias} />
+            <label>Ordenar<select value={sort} onChange={(event) => setSort(event.target.value as typeof sort)}><option value="categoria">Categoria (A-Z)</option><option value="validade-maior">Maior validade</option><option value="validade-menor">Menor validade</option></select></label>
+            {categorias.length > 0 && <button type="button" className="clear-value-filters" onClick={() => setCategorias([])}>Limpar filtros</button>}
+          </div></div>
+          <div className="table-wrap values-table-wrap"><table className="values-table"><thead><tr><th>Produto</th><th>Cód. interno</th><th>Peso</th><th>EAN</th><th>DUN</th><th>Categoria</th><th className="num">Validade</th></tr></thead><tbody>
+            {ordenado.map((item, index) => <tr key={`${item.cod}-${item.peso}-${index}`}>
+              <td><strong title={item.produto}>{item.produto}</strong></td>
+              <td className="numeric">{item.cod}</td>
+              <td>{item.peso}</td>
+              <td className="numeric">{item.ean ?? "—"}</td>
+              <td className="numeric">{item.dun ?? "—"}</td>
+              <td>{item.categoria}</td>
+              <td className="num"><strong>{item.validadeDias} dias</strong><small className="unit"> · {formatValidadeExtenso(item.validadeDias)}</small></td>
+            </tr>)}
+          </tbody></table>{filtrado.length === 0 && <div className="empty-state"><strong>Nenhum item encontrado</strong><p>Remova um filtro ou busque por outro termo.</p></div>}</div>
+        </section>
+        <footer>Fonte: {validadeData.origem}.</footer>
+      </div>
+    </section>
+  </main>;
+}
+
 function ValorProdutoAcabadoDashboard({
   onSectionChange,
   canViewValues,
@@ -4208,6 +4310,7 @@ export default function DashboardClient({
   pedidosVendaData,
   cortesData,
   cortesValoresData,
+  validadeData,
 }: {
   canViewValues: boolean;
   permissoes: Section[];
@@ -4225,6 +4328,7 @@ export default function DashboardClient({
   pedidosVendaData: PedidosVendaData;
   cortesData: CortesData;
   cortesValoresData: CortesValoresData | null;
+  validadeData: ValidadeData;
 }) {
   // Entra direto na primeira secao liberada pra essa pessoa (nunca "terceiros" fixo, que pode
   // nao estar entre as permissoes dela) - ver app/lib/access.ts/app/lib/sections.ts.
@@ -4271,6 +4375,7 @@ export default function DashboardClient({
   const isEscadinhaInsumos = section === "escadinhaInsumos";
   const isPedidosVenda = section === "pedidosVenda";
   const isCortes = section === "cortes";
+  const isValidade = section === "validade";
   const isValorProdutoAcabado = section === "valorProdutoAcabado";
   const isFornecedores = section === "fornecedores";
   const operationalSection = isInputs ? "insumos" : "terceiros";
@@ -4530,6 +4635,7 @@ export default function DashboardClient({
     <div hidden={!isEscadinhaInsumos}><EscadinhaInsumosDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} escadinhaInsumosData={escadinhaInsumosData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
     <div hidden={!isPedidosVenda}><PedidosVendaDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} pedidosVendaData={pedidosVendaData} escadinhaData={escadinhaData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
     <div hidden={!isCortes}><CortesDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} cortesData={cortesData} cortesValoresData={cortesValoresData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
+    <div hidden={!isValidade}><ValidadeDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} validadeData={validadeData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} /></div>
     <div hidden={!(isValorProdutoAcabado && valoresProdutoAcabadoData)}>{valoresProdutoAcabadoData && <ValorProdutoAcabadoDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} valoresProdutoAcabadoData={valoresProdutoAcabadoData} pedidosVendaData={pedidosVendaData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} />}</div>
     <div hidden={!(isFornecedores && fornecedoresData)}>{fornecedoresData && <FornecedoresDashboard onSectionChange={changeSection} canViewValues={canViewValues} permissoes={permissoes} isAdmin={isAdmin} fornecedoresData={fornecedoresData} sidebarColapsado={sidebarColapsado} onToggleSidebar={toggleSidebar} />}</div>
   </>;

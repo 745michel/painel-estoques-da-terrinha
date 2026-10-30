@@ -9,6 +9,7 @@ import escadinhaData from "../public/dados-escadinha.json";
 import escadinhaInsumosData from "../public/dados-escadinha-insumos.json";
 import pedidosVendaData from "../public/dados-pedidos-venda.json";
 import cortesData from "../public/dados-cortes.json";
+import validadeData from "../data/dados-validade.json";
 import type valoresDataType from "../data/dados-valores-insumos.json";
 import type valoresProdutoAcabadoDataType from "../data/dados-valores-produto-acabado.json";
 import type fornecedoresDataType from "../data/dados-fornecedores.json";
@@ -127,6 +128,7 @@ function App() {
         pedidosVendaData={pedidosVendaData}
         cortesData={cortesData}
         cortesValoresData={desbloqueado ? cortesValoresData : null}
+        validadeData={validadeData}
       />
       {!desbloqueado && (
         <div
