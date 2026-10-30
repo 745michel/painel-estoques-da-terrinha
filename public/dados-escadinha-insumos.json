@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-29T14:16:19.112491",
+  "atualizadoEm": "2026-10-30T08:28:54.888512",
   "origem": "ficha_tecnica.json + dados-escadinha.json (explosão BOM × plano de produção)",
   "dataPublicacao": "2026-09-11",
   "dataPublicacaoAnterior": "2026-08-13",
@@ -366,13 +366,6 @@
     {
       "sku": "140232",
       "produto": "BOBINA PARA FARDO LISA 1000 X 55",
-      "loja": "11",
-      "tipo": "Embalagem",
-      "fornecedor": "Fornecedor não informado"
-    },
-    {
-      "sku": "147392",
-      "produto": "BOBINA PARA FARDO LISA 1130 x 55",
       "loja": "11",
       "tipo": "Embalagem",
       "fornecedor": "Fornecedor não informado"
@@ -36337,497 +36330,6 @@
     {
       "loja": "11",
       "lojaLabel": "11 (2JM Amidos)",
-      "sku": 21704,
-      "descricao": "BOBINA PARA FARDO LISA 1050 X 55",
-      "mensal": [
-        1231.0,
-        1049.7,
-        1191.6,
-        1343.1,
-        1424.7,
-        1618.3,
-        1542.3,
-        1728.2,
-        1507.6,
-        1683.7,
-        1762.9,
-        1609.1
-      ],
-      "mensalAnterior": [
-        1231.0,
-        1049.7,
-        1191.6,
-        1343.1,
-        1424.7,
-        1618.3,
-        1542.3,
-        1728.2,
-        1708.3,
-        1738.9,
-        1738.9,
-        1705.5
-      ],
-      "mensalReal": [
-        1231.0,
-        964.0,
-        1086.9,
-        1292.1,
-        1285.7,
-        1377.5,
-        1225.5,
-        1265.0,
-        1767.3,
-        1624.5,
-        0.0,
-        0.0
-      ],
-      "totalAno": 17692.2,
-      "detalhamento": [
-        {
-          "codRaiz": 48054,
-          "produtoRaiz": "FARINHA MANDIOCA GROSSA CRUA DA TERRINHA 1 KG - FD 12.0",
-          "caminho": [],
-          "consumoPorUnidade": 0.04,
-          "mensal": [
-            335.36,
-            280.0,
-            320.0,
-            280.0,
-            320.0,
-            320.0,
-            280.0,
-            280.0,
-            200.0,
-            280.0,
-            280.0,
-            280.0
-          ],
-          "escadinhaPlanoAnual": 86384,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 48058,
-          "produtoRaiz": "FARINHA MANDIOCA TORRADA DA TERRINHA 500G FD12",
-          "caminho": [],
-          "consumoPorUnidade": 0.26,
-          "mensal": [
-            260.52,
-            156.0,
-            182.0,
-            260.0,
-            260.0,
-            260.0,
-            260.0,
-            260.0,
-            260.0,
-            260.0,
-            260.0,
-            260.0
-          ],
-          "escadinhaPlanoAnual": 11302,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 48056,
-          "produtoRaiz": "FARINHA MANDIOCA FINA CRUA DA TERRINHA 1 KG  FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 0.04,
-          "mensal": [
-            190.6,
-            160.0,
-            200.0,
-            220.0,
-            220.0,
-            220.0,
-            160.0,
-            168.0,
-            144.0,
-            152.0,
-            160.0,
-            152.0
-          ],
-          "escadinhaPlanoAnual": 53665,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 48050,
-          "produtoRaiz": "FARINHA MANDIOCA FINA CRUA DA TERRINHA 500 - FD 12.0",
-          "caminho": [],
-          "consumoPorUnidade": 0.04,
-          "mensal": [
-            77.16,
-            80.0,
-            84.0,
-            100.0,
-            100.0,
-            100.0,
-            80.0,
-            120.0,
-            100.0,
-            100.0,
-            100.0,
-            88.0
-          ],
-          "escadinhaPlanoAnual": 28229,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 86880,
-          "produtoRaiz": "POLVILHO DOCE DA TERRINHA 1 KG - FD 12 - NOVO",
-          "caminho": [],
-          "consumoPorUnidade": 0.038004,
-          "mensal": [
-            24.361,
-            38.004,
-            41.804,
-            76.008,
-            83.609,
-            114.012,
-            114.012,
-            121.613,
-            125.413,
-            133.014,
-            133.014,
-            121.613
-          ],
-          "escadinhaPlanoAnual": 29641,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 116111,
-          "produtoRaiz": "14313 FAROFA PRONTA BULNEZ TRADICIONAL 400 G - FD 24",
-          "caminho": [],
-          "consumoPorUnidade": 0.05,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            150.0,
-            150.0,
-            150.0,
-            150.0,
-            150.0,
-            150.0,
-            150.0
-          ],
-          "escadinhaPlanoAnual": 21000,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 48052,
-          "produtoRaiz": "FARINHA MANDIOCA GROSSA CRUA DA TERRINHA 500 GR - UND FD 12.0",
-          "caminho": [],
-          "consumoPorUnidade": 0.04,
-          "mensal": [
-            88.72,
-            60.0,
-            64.0,
-            80.0,
-            88.0,
-            88.0,
-            80.0,
-            120.0,
-            80.0,
-            80.0,
-            100.0,
-            100.0
-          ],
-          "escadinhaPlanoAnual": 25718,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 36612,
-          "produtoRaiz": "FAROFA PRONTA DA TERRINHA APIMENTADA 400 G - FD 24",
-          "caminho": [],
-          "consumoPorUnidade": 0.05,
-          "mensal": [
-            53.8,
-            60.0,
-            75.0,
-            80.0,
-            90.0,
-            75.0,
-            75.0,
-            70.0,
-            65.0,
-            75.0,
-            90.0,
-            75.0
-          ],
-          "escadinhaPlanoAnual": 17676,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 48145,
-          "produtoRaiz": "POLVILHO DOCE DA TERRINHA 500 G - FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 0.04,
-          "mensal": [
-            36.68,
-            40.0,
-            44.0,
-            72.0,
-            80.0,
-            80.0,
-            80.0,
-            60.0,
-            72.0,
-            80.0,
-            80.0,
-            80.0
-          ],
-          "escadinhaPlanoAnual": 20117,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 48163,
-          "produtoRaiz": "POLVILHO AZEDO DA TERRINHA 500 G FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 0.04,
-          "mensal": [
-            39.68,
-            40.0,
-            44.0,
-            60.0,
-            60.0,
-            68.0,
-            68.0,
-            68.0,
-            68.0,
-            68.0,
-            68.0,
-            68.0
-          ],
-          "escadinhaPlanoAnual": 17992,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 72228,
-          "produtoRaiz": "FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - FD 80",
-          "caminho": [],
-          "consumoPorUnidade": 0.072407,
-          "mensal": [
-            26.284,
-            43.444,
-            43.444,
-            21.722,
-            21.722,
-            21.722,
-            21.722,
-            181.017,
-            72.407,
-            72.407,
-            108.611,
-            36.203
-          ],
-          "escadinhaPlanoAnual": 9263,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 83801,
-          "produtoRaiz": "14906 FARINHA DE MANDIOCA GROSSA MERCADAO 1 KG",
-          "caminho": [],
-          "consumoPorUnidade": 0.04,
-          "mensal": [
-            55.2,
-            44.0,
-            44.0,
-            44.0,
-            44.0,
-            44.0,
-            48.0,
-            48.0,
-            48.0,
-            48.0,
-            48.0,
-            48.0
-          ],
-          "escadinhaPlanoAnual": 14080,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 76201,
-          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
-          "caminho": [],
-          "consumoPorUnidade": 0.025,
-          "mensal": [
-            9.425,
-            3.75,
-            3.75,
-            3.75,
-            3.75,
-            7.5,
-            7.5,
-            5.0,
-            65.0,
-            127.5,
-            127.5,
-            92.5
-          ],
-          "escadinhaPlanoAnual": 18277,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 78643,
-          "produtoRaiz": "14311 FAROFA PRONTA TRADICIONAL MERCADAO 400G",
-          "caminho": [],
-          "consumoPorUnidade": 0.04,
-          "mensal": [
-            13.2,
-            26.0,
-            26.0,
-            26.0,
-            26.0,
-            26.0,
-            26.0,
-            26.0,
-            26.0,
-            26.0,
-            26.0,
-            26.0
-          ],
-          "escadinhaPlanoAnual": 7480,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 65668,
-          "produtoRaiz": "FAROFA TRADICIONAL DIA 500 G - FD 24",
-          "caminho": [],
-          "consumoPorUnidade": 0.042,
-          "mensal": [
-            8.82,
-            9.24,
-            9.24,
-            9.24,
-            9.24,
-            9.24,
-            25.2,
-            9.24,
-            9.24,
-            9.24,
-            9.24,
-            9.24
-          ],
-          "escadinhaPlanoAnual": 3010,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 65669,
-          "produtoRaiz": "FAROFA TRADICIONAL DIA 1 KG - FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 0.04,
-          "mensal": [
-            8.4,
-            6.0,
-            6.0,
-            6.0,
-            6.0,
-            8.0,
-            32.0,
-            8.0,
-            8.0,
-            8.0,
-            8.0,
-            8.0
-          ],
-          "escadinhaPlanoAnual": 2810,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 112445,
-          "produtoRaiz": "FARINHA MANDIOCA CRUA FINA DA TERRINHA 3KG - FD 05",
-          "caminho": [],
-          "consumoPorUnidade": 0.016,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            8.0,
-            16.0,
-            24.0,
-            16.0,
-            8.0,
-            8.0,
-            8.0,
-            8.0
-          ],
-          "escadinhaPlanoAnual": 6000,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 72088,
-          "produtoRaiz": "FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - FD 24",
-          "caminho": [],
-          "consumoPorUnidade": 0.021722,
-          "mensal": [
-            2.802,
-            3.258,
-            4.344,
-            4.344,
-            4.344,
-            10.861,
-            10.861,
-            17.378,
-            6.517,
-            6.517,
-            6.517,
-            6.517
-          ],
-          "escadinhaPlanoAnual": 3879,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 86882,
-          "produtoRaiz": "POLVILHO AZEDO DA TERRINHA 1KG - FD 12 - NOVO",
-          "caminho": [],
-          "consumoPorUnidade": 0.04,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "escadinhaPlanoAnual": 0,
-          "escadinhaUnidade": "CX"
-        },
-        {
-          "codRaiz": 118050,
-          "produtoRaiz": "FAROFA DE MANDIOCA DA TERRINHA 400 G EXP FD 24",
-          "caminho": [],
-          "consumoPorUnidade": 0.05,
-          "mensal": [
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "escadinhaPlanoAnual": 0,
-          "escadinhaUnidade": null
-        }
-      ]
-    },
-    {
-      "loja": "11",
-      "lojaLabel": "11 (2JM Amidos)",
       "sku": 66767,
       "descricao": "MP - GLUTAMATO MONOSSODICO GRANEL KILO",
       "mensal": [
@@ -38549,6 +38051,548 @@
           "produtoRaiz": "FAROFA DE MANDIOCA DA TERRINHA 400 G EXP FD 24",
           "caminho": [],
           "consumoPorUnidade": 0.02551,
+          "mensal": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "escadinhaPlanoAnual": 0,
+          "escadinhaUnidade": null
+        }
+      ]
+    },
+    {
+      "loja": "11",
+      "lojaLabel": "11 (2JM Amidos)",
+      "sku": 147392,
+      "descricao": "BOBINA PARA FARDO LISA 1130 X 55",
+      "mensal": [
+        698.4,
+        588.0,
+        676.0,
+        684.0,
+        724.0,
+        724.0,
+        608.0,
+        656.0,
+        532.0,
+        620.0,
+        628.0,
+        608.0
+      ],
+      "mensalAnterior": [
+        698.4,
+        588.0,
+        676.0,
+        684.0,
+        724.0,
+        724.0,
+        608.0,
+        656.0,
+        648.0,
+        648.0,
+        648.0,
+        636.0
+      ],
+      "mensalReal": [
+        698.4,
+        487.6,
+        487.5,
+        685.0,
+        610.6,
+        548.9,
+        543.8,
+        562.7,
+        733.8,
+        665.6,
+        0.0,
+        0.0
+      ],
+      "totalAno": 7746.4,
+      "detalhamento": [
+        {
+          "codRaiz": 48054,
+          "produtoRaiz": "FARINHA MANDIOCA GROSSA CRUA DA TERRINHA 1 KG - FD 12.0",
+          "caminho": [],
+          "consumoPorUnidade": 0.04,
+          "mensal": [
+            335.36,
+            280.0,
+            320.0,
+            280.0,
+            320.0,
+            320.0,
+            280.0,
+            280.0,
+            200.0,
+            280.0,
+            280.0,
+            280.0
+          ],
+          "escadinhaPlanoAnual": 86384,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 48056,
+          "produtoRaiz": "FARINHA MANDIOCA FINA CRUA DA TERRINHA 1 KG  FD 12",
+          "caminho": [],
+          "consumoPorUnidade": 0.04,
+          "mensal": [
+            190.6,
+            160.0,
+            200.0,
+            220.0,
+            220.0,
+            220.0,
+            160.0,
+            168.0,
+            144.0,
+            152.0,
+            160.0,
+            152.0
+          ],
+          "escadinhaPlanoAnual": 53665,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 48050,
+          "produtoRaiz": "FARINHA MANDIOCA FINA CRUA DA TERRINHA 500 - FD 12.0",
+          "caminho": [],
+          "consumoPorUnidade": 0.04,
+          "mensal": [
+            77.16,
+            80.0,
+            84.0,
+            100.0,
+            100.0,
+            100.0,
+            80.0,
+            120.0,
+            100.0,
+            100.0,
+            100.0,
+            88.0
+          ],
+          "escadinhaPlanoAnual": 28229,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 83801,
+          "produtoRaiz": "14906 FARINHA DE MANDIOCA GROSSA MERCADAO 1 KG",
+          "caminho": [],
+          "consumoPorUnidade": 0.04,
+          "mensal": [
+            55.2,
+            44.0,
+            44.0,
+            44.0,
+            44.0,
+            44.0,
+            48.0,
+            48.0,
+            48.0,
+            48.0,
+            48.0,
+            48.0
+          ],
+          "escadinhaPlanoAnual": 14080,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 48058,
+          "produtoRaiz": "FARINHA MANDIOCA TORRADA DA TERRINHA 500G FD12",
+          "caminho": [],
+          "consumoPorUnidade": 0.04,
+          "mensal": [
+            40.08,
+            24.0,
+            28.0,
+            40.0,
+            40.0,
+            40.0,
+            40.0,
+            40.0,
+            40.0,
+            40.0,
+            40.0,
+            40.0
+          ],
+          "escadinhaPlanoAnual": 11302,
+          "escadinhaUnidade": "FD"
+        }
+      ]
+    },
+    {
+      "loja": "11",
+      "lojaLabel": "11 (2JM Amidos)",
+      "sku": 21704,
+      "descricao": "BOBINA PARA FARDO LISA 1050 X 55",
+      "mensal": [
+        312.2,
+        329.7,
+        361.6,
+        439.1,
+        480.7,
+        674.3,
+        714.3,
+        852.2,
+        755.6,
+        843.7,
+        914.9,
+        781.1
+      ],
+      "mensalAnterior": [
+        312.2,
+        329.7,
+        361.6,
+        439.1,
+        480.7,
+        674.3,
+        714.3,
+        852.2,
+        840.3,
+        870.9,
+        870.9,
+        849.5
+      ],
+      "mensalReal": [
+        312.2,
+        350.9,
+        393.7,
+        389.5,
+        484.2,
+        613.3,
+        531.6,
+        524.8,
+        755.8,
+        836.3,
+        0.0,
+        0.0
+      ],
+      "totalAno": 7459.4,
+      "detalhamento": [
+        {
+          "codRaiz": 86880,
+          "produtoRaiz": "POLVILHO DOCE DA TERRINHA 1 KG - FD 12 - NOVO",
+          "caminho": [],
+          "consumoPorUnidade": 0.038004,
+          "mensal": [
+            24.361,
+            38.004,
+            41.804,
+            76.008,
+            83.609,
+            114.012,
+            114.012,
+            121.613,
+            125.413,
+            133.014,
+            133.014,
+            121.613
+          ],
+          "escadinhaPlanoAnual": 29641,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 116111,
+          "produtoRaiz": "14313 FAROFA PRONTA BULNEZ TRADICIONAL 400 G - FD 24",
+          "caminho": [],
+          "consumoPorUnidade": 0.05,
+          "mensal": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            150.0,
+            150.0,
+            150.0,
+            150.0,
+            150.0,
+            150.0,
+            150.0
+          ],
+          "escadinhaPlanoAnual": 21000,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 48052,
+          "produtoRaiz": "FARINHA MANDIOCA GROSSA CRUA DA TERRINHA 500 GR - UND FD 12.0",
+          "caminho": [],
+          "consumoPorUnidade": 0.04,
+          "mensal": [
+            88.72,
+            60.0,
+            64.0,
+            80.0,
+            88.0,
+            88.0,
+            80.0,
+            120.0,
+            80.0,
+            80.0,
+            100.0,
+            100.0
+          ],
+          "escadinhaPlanoAnual": 25718,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 36612,
+          "produtoRaiz": "FAROFA PRONTA DA TERRINHA APIMENTADA 400 G - FD 24",
+          "caminho": [],
+          "consumoPorUnidade": 0.05,
+          "mensal": [
+            53.8,
+            60.0,
+            75.0,
+            80.0,
+            90.0,
+            75.0,
+            75.0,
+            70.0,
+            65.0,
+            75.0,
+            90.0,
+            75.0
+          ],
+          "escadinhaPlanoAnual": 17676,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 48145,
+          "produtoRaiz": "POLVILHO DOCE DA TERRINHA 500 G - FD 12",
+          "caminho": [],
+          "consumoPorUnidade": 0.04,
+          "mensal": [
+            36.68,
+            40.0,
+            44.0,
+            72.0,
+            80.0,
+            80.0,
+            80.0,
+            60.0,
+            72.0,
+            80.0,
+            80.0,
+            80.0
+          ],
+          "escadinhaPlanoAnual": 20117,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 48163,
+          "produtoRaiz": "POLVILHO AZEDO DA TERRINHA 500 G FD 12",
+          "caminho": [],
+          "consumoPorUnidade": 0.04,
+          "mensal": [
+            39.68,
+            40.0,
+            44.0,
+            60.0,
+            60.0,
+            68.0,
+            68.0,
+            68.0,
+            68.0,
+            68.0,
+            68.0,
+            68.0
+          ],
+          "escadinhaPlanoAnual": 17992,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 72228,
+          "produtoRaiz": "FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - FD 80",
+          "caminho": [],
+          "consumoPorUnidade": 0.072407,
+          "mensal": [
+            26.284,
+            43.444,
+            43.444,
+            21.722,
+            21.722,
+            21.722,
+            21.722,
+            181.017,
+            72.407,
+            72.407,
+            108.611,
+            36.203
+          ],
+          "escadinhaPlanoAnual": 9263,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 76201,
+          "produtoRaiz": "TAPIOCA TRADICIONAL OKKER 400 G - CX 25",
+          "caminho": [],
+          "consumoPorUnidade": 0.025,
+          "mensal": [
+            9.425,
+            3.75,
+            3.75,
+            3.75,
+            3.75,
+            7.5,
+            7.5,
+            5.0,
+            65.0,
+            127.5,
+            127.5,
+            92.5
+          ],
+          "escadinhaPlanoAnual": 18277,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 78643,
+          "produtoRaiz": "14311 FAROFA PRONTA TRADICIONAL MERCADAO 400G",
+          "caminho": [],
+          "consumoPorUnidade": 0.04,
+          "mensal": [
+            13.2,
+            26.0,
+            26.0,
+            26.0,
+            26.0,
+            26.0,
+            26.0,
+            26.0,
+            26.0,
+            26.0,
+            26.0,
+            26.0
+          ],
+          "escadinhaPlanoAnual": 7480,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 65668,
+          "produtoRaiz": "FAROFA TRADICIONAL DIA 500 G - FD 24",
+          "caminho": [],
+          "consumoPorUnidade": 0.042,
+          "mensal": [
+            8.82,
+            9.24,
+            9.24,
+            9.24,
+            9.24,
+            9.24,
+            25.2,
+            9.24,
+            9.24,
+            9.24,
+            9.24,
+            9.24
+          ],
+          "escadinhaPlanoAnual": 3010,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 65669,
+          "produtoRaiz": "FAROFA TRADICIONAL DIA 1 KG - FD 12",
+          "caminho": [],
+          "consumoPorUnidade": 0.04,
+          "mensal": [
+            8.4,
+            6.0,
+            6.0,
+            6.0,
+            6.0,
+            8.0,
+            32.0,
+            8.0,
+            8.0,
+            8.0,
+            8.0,
+            8.0
+          ],
+          "escadinhaPlanoAnual": 2810,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 112445,
+          "produtoRaiz": "FARINHA MANDIOCA CRUA FINA DA TERRINHA 3KG - FD 05",
+          "caminho": [],
+          "consumoPorUnidade": 0.016,
+          "mensal": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            8.0,
+            16.0,
+            24.0,
+            16.0,
+            8.0,
+            8.0,
+            8.0,
+            8.0
+          ],
+          "escadinhaPlanoAnual": 6000,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 72088,
+          "produtoRaiz": "FAROFA PRONTA DA TERRINHA TRADICIONAL 150 G - FD 24",
+          "caminho": [],
+          "consumoPorUnidade": 0.021722,
+          "mensal": [
+            2.802,
+            3.258,
+            4.344,
+            4.344,
+            4.344,
+            10.861,
+            10.861,
+            17.378,
+            6.517,
+            6.517,
+            6.517,
+            6.517
+          ],
+          "escadinhaPlanoAnual": 3879,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 86882,
+          "produtoRaiz": "POLVILHO AZEDO DA TERRINHA 1KG - FD 12 - NOVO",
+          "caminho": [],
+          "consumoPorUnidade": 0.04,
+          "mensal": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "escadinhaPlanoAnual": 0,
+          "escadinhaUnidade": "CX"
+        },
+        {
+          "codRaiz": 118050,
+          "produtoRaiz": "FAROFA DE MANDIOCA DA TERRINHA 400 G EXP FD 24",
+          "caminho": [],
+          "consumoPorUnidade": 0.05,
           "mensal": [
             0.0,
             0.0,
@@ -46227,167 +46271,6 @@
     {
       "loja": "14",
       "lojaLabel": "14 (Da Terrinha – Filial SP)",
-      "sku": 43585,
-      "descricao": "SACO PLASTICO FARDO LISO 40 X 60",
-      "mensal": [
-        2591.0,
-        5440.0,
-        5940.0,
-        4440.0,
-        5190.0,
-        6190.0,
-        6140.0,
-        5740.0,
-        8750.0,
-        6250.0,
-        6250.0,
-        6250.0
-      ],
-      "mensalAnterior": [
-        2591.0,
-        5440.0,
-        5940.0,
-        4440.0,
-        5190.0,
-        6190.0,
-        6140.0,
-        5740.0,
-        5890.0,
-        5990.0,
-        6090.0,
-        5990.0
-      ],
-      "mensalReal": [
-        2591.0,
-        5090.0,
-        2856.0,
-        5919.0,
-        6139.0,
-        5307.0,
-        4193.0,
-        5245.0,
-        9696.0,
-        7241.0,
-        0.0,
-        0.0
-      ],
-      "totalAno": 69171.0,
-      "detalhamento": [
-        {
-          "codRaiz": 71928,
-          "produtoRaiz": "OREGANO DA TERRINHA 200 G - FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            1137.0,
-            3000.0,
-            3300.0,
-            1500.0,
-            2000.0,
-            2500.0,
-            2500.0,
-            2500.0,
-            4000.0,
-            2500.0,
-            2500.0,
-            2500.0
-          ],
-          "escadinhaPlanoAnual": 29937,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 75956,
-          "produtoRaiz": "COLORIFICO DA TERRINHA 1,01 KG - FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            640.0,
-            1500.0,
-            1500.0,
-            1800.0,
-            2000.0,
-            2500.0,
-            2500.0,
-            2500.0,
-            4000.0,
-            3000.0,
-            3000.0,
-            3000.0
-          ],
-          "escadinhaPlanoAnual": 27940,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 50722,
-          "produtoRaiz": "COLORIFICO DA TERRINHA 500 G - FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            484.0,
-            500.0,
-            600.0,
-            700.0,
-            750.0,
-            750.0,
-            650.0,
-            400.0,
-            450.0,
-            450.0,
-            450.0,
-            450.0
-          ],
-          "escadinhaPlanoAnual": 6634,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 51328,
-          "produtoRaiz": "OREGANO DA TERRINHA 100 G - FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            330.0,
-            400.0,
-            500.0,
-            400.0,
-            400.0,
-            400.0,
-            450.0,
-            300.0,
-            300.0,
-            300.0,
-            300.0,
-            300.0
-          ],
-          "escadinhaPlanoAnual": 4380,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 71701,
-          "produtoRaiz": "COLORIFICO DA TERRINHA 1 KG - CX 06 (OBA)",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            0.0,
-            40.0,
-            40.0,
-            40.0,
-            40.0,
-            40.0,
-            40.0,
-            40.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "escadinhaPlanoAnual": 280,
-          "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "14",
-      "lojaLabel": "14 (Da Terrinha – Filial SP)",
       "sku": 91643,
       "descricao": "CAIXA CARTUCHO CHA CAPIM CIDREIRA DA TERRINHA C/7 SACHES",
       "mensal": [
@@ -46834,6 +46717,123 @@
             5490.0
           ],
           "escadinhaPlanoAnual": 10034,
+          "escadinhaUnidade": "FD"
+        }
+      ]
+    },
+    {
+      "loja": "14",
+      "lojaLabel": "14 (Da Terrinha – Filial SP)",
+      "sku": 43584,
+      "descricao": "SACO PLASTICO FARDO LISO 50 X 75 UNID",
+      "mensal": [
+        2923.0,
+        3172.8,
+        3276.7,
+        3890.0,
+        4390.0,
+        4890.0,
+        4580.0,
+        5080.0,
+        5590.0,
+        5590.0,
+        5590.0,
+        5590.0
+      ],
+      "mensalAnterior": [
+        2923.0,
+        3172.8,
+        3276.7,
+        3890.0,
+        4390.0,
+        4890.0,
+        4580.0,
+        5080.0,
+        5090.0,
+        5090.0,
+        5090.0,
+        5090.0
+      ],
+      "mensalReal": [
+        2923.0,
+        3878.0,
+        3436.0,
+        4225.0,
+        4632.0,
+        4215.0,
+        3620.0,
+        3752.0,
+        6027.0,
+        4591.0,
+        0.0,
+        0.0
+      ],
+      "totalAno": 54562.5,
+      "detalhamento": [
+        {
+          "codRaiz": 75956,
+          "produtoRaiz": "COLORIFICO DA TERRINHA 1,01 KG - FD 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            640.0,
+            1500.0,
+            1500.0,
+            1800.0,
+            2000.0,
+            2500.0,
+            2500.0,
+            2500.0,
+            4000.0,
+            3000.0,
+            3000.0,
+            3000.0
+          ],
+          "escadinhaPlanoAnual": 27940,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 48023,
+          "produtoRaiz": "FARINHA MILHO AMARELA DA TERRINHA 500 G FD10",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            2232.0,
+            1600.0,
+            1700.0,
+            2000.0,
+            2300.0,
+            2300.0,
+            2000.0,
+            2500.0,
+            1500.0,
+            2500.0,
+            2500.0,
+            2500.0
+          ],
+          "escadinhaPlanoAnual": 25632,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 70448,
+          "produtoRaiz": "SEMOLA DE MILHO MESTRE CUCA 1 KG - FD 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            51.0,
+            72.833,
+            76.667,
+            90.0,
+            90.0,
+            90.0,
+            80.0,
+            80.0,
+            90.0,
+            90.0,
+            90.0,
+            90.0
+          ],
+          "escadinhaPlanoAnual": 990.5,
           "escadinhaUnidade": "FD"
         }
       ]
@@ -47389,6 +47389,145 @@
             2512.755
           ],
           "escadinhaPlanoAnual": 4208,
+          "escadinhaUnidade": "CX"
+        }
+      ]
+    },
+    {
+      "loja": "14",
+      "lojaLabel": "14 (Da Terrinha – Filial SP)",
+      "sku": 43585,
+      "descricao": "SACO PLASTICO FARDO LISO 40 X 60",
+      "mensal": [
+        1951.0,
+        3940.0,
+        4440.0,
+        2640.0,
+        3190.0,
+        3690.0,
+        3640.0,
+        3240.0,
+        4750.0,
+        3250.0,
+        3250.0,
+        3250.0
+      ],
+      "mensalAnterior": [
+        1951.0,
+        3940.0,
+        4440.0,
+        2640.0,
+        3190.0,
+        3690.0,
+        3640.0,
+        3240.0,
+        3390.0,
+        3490.0,
+        3590.0,
+        3490.0
+      ],
+      "mensalReal": [
+        1951.0,
+        2582.0,
+        1111.0,
+        3980.0,
+        3408.0,
+        3301.0,
+        2581.0,
+        3156.0,
+        5776.0,
+        4089.0,
+        0.0,
+        0.0
+      ],
+      "totalAno": 41231.0,
+      "detalhamento": [
+        {
+          "codRaiz": 71928,
+          "produtoRaiz": "OREGANO DA TERRINHA 200 G - FD 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            1137.0,
+            3000.0,
+            3300.0,
+            1500.0,
+            2000.0,
+            2500.0,
+            2500.0,
+            2500.0,
+            4000.0,
+            2500.0,
+            2500.0,
+            2500.0
+          ],
+          "escadinhaPlanoAnual": 29937,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 50722,
+          "produtoRaiz": "COLORIFICO DA TERRINHA 500 G - FD 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            484.0,
+            500.0,
+            600.0,
+            700.0,
+            750.0,
+            750.0,
+            650.0,
+            400.0,
+            450.0,
+            450.0,
+            450.0,
+            450.0
+          ],
+          "escadinhaPlanoAnual": 6634,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 51328,
+          "produtoRaiz": "OREGANO DA TERRINHA 100 G - FD 12",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            330.0,
+            400.0,
+            500.0,
+            400.0,
+            400.0,
+            400.0,
+            450.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0
+          ],
+          "escadinhaPlanoAnual": 4380,
+          "escadinhaUnidade": "FD"
+        },
+        {
+          "codRaiz": 71701,
+          "produtoRaiz": "COLORIFICO DA TERRINHA 1 KG - CX 06 (OBA)",
+          "caminho": [],
+          "consumoPorUnidade": 1.0,
+          "mensal": [
+            0.0,
+            40.0,
+            40.0,
+            40.0,
+            40.0,
+            40.0,
+            40.0,
+            40.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "escadinhaPlanoAnual": 280,
           "escadinhaUnidade": "CX"
         }
       ]
@@ -48018,101 +48157,6 @@
           ],
           "escadinhaPlanoAnual": 28570,
           "escadinhaUnidade": "CX"
-        }
-      ]
-    },
-    {
-      "loja": "14",
-      "lojaLabel": "14 (Da Terrinha – Filial SP)",
-      "sku": 43584,
-      "descricao": "SACO PLASTICO FARDO LISO 50 X 75 UNID",
-      "mensal": [
-        2283.0,
-        1672.8,
-        1776.7,
-        2090.0,
-        2390.0,
-        2390.0,
-        2080.0,
-        2580.0,
-        1590.0,
-        2590.0,
-        2590.0,
-        2590.0
-      ],
-      "mensalAnterior": [
-        2283.0,
-        1672.8,
-        1776.7,
-        2090.0,
-        2390.0,
-        2390.0,
-        2080.0,
-        2580.0,
-        2590.0,
-        2590.0,
-        2590.0,
-        2590.0
-      ],
-      "mensalReal": [
-        2283.0,
-        1370.0,
-        1691.0,
-        2286.0,
-        1901.0,
-        2209.0,
-        2008.0,
-        1663.0,
-        2107.0,
-        1439.0,
-        0.0,
-        0.0
-      ],
-      "totalAno": 26622.5,
-      "detalhamento": [
-        {
-          "codRaiz": 48023,
-          "produtoRaiz": "FARINHA MILHO AMARELA DA TERRINHA 500 G FD10",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            2232.0,
-            1600.0,
-            1700.0,
-            2000.0,
-            2300.0,
-            2300.0,
-            2000.0,
-            2500.0,
-            1500.0,
-            2500.0,
-            2500.0,
-            2500.0
-          ],
-          "escadinhaPlanoAnual": 25632,
-          "escadinhaUnidade": "FD"
-        },
-        {
-          "codRaiz": 70448,
-          "produtoRaiz": "SEMOLA DE MILHO MESTRE CUCA 1 KG - FD 12",
-          "caminho": [],
-          "consumoPorUnidade": 1.0,
-          "mensal": [
-            51.0,
-            72.833,
-            76.667,
-            90.0,
-            90.0,
-            90.0,
-            80.0,
-            80.0,
-            90.0,
-            90.0,
-            90.0,
-            90.0
-          ],
-          "escadinhaPlanoAnual": 990.5,
-          "escadinhaUnidade": "FD"
         }
       ]
     },
@@ -62659,17 +62703,6 @@
       "desvioPercentual": -16.7
     },
     {
-      "loja": "14",
-      "lojaLabel": "14 (Da Terrinha – Filial SP)",
-      "sku": 43585,
-      "descricao": "SACO PLASTICO FARDO LISO 40 X 60",
-      "mes": "set",
-      "planoAnterior": 5890.0,
-      "planoAtual": 8750.0,
-      "desvio": 2860.0,
-      "desvioPercentual": 48.6
-    },
-    {
       "loja": "11",
       "lojaLabel": "11 (2JM Amidos)",
       "sku": 37450,
@@ -62868,6 +62901,17 @@
       "desvioPercentual": -37.5
     },
     {
+      "loja": "14",
+      "lojaLabel": "14 (Da Terrinha – Filial SP)",
+      "sku": 43585,
+      "descricao": "SACO PLASTICO FARDO LISO 40 X 60",
+      "mes": "set",
+      "planoAnterior": 3390.0,
+      "planoAtual": 4750.0,
+      "desvio": 1360.0,
+      "desvioPercentual": 40.1
+    },
+    {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 46310,
@@ -62954,17 +62998,6 @@
       "planoAtual": 627.9,
       "desvio": -1040.4,
       "desvioPercentual": -62.4
-    },
-    {
-      "loja": "14",
-      "lojaLabel": "14 (Da Terrinha – Filial SP)",
-      "sku": 43584,
-      "descricao": "SACO PLASTICO FARDO LISO 50 X 75 UNID",
-      "mes": "set",
-      "planoAnterior": 2590.0,
-      "planoAtual": 1590.0,
-      "desvio": -1000.0,
-      "desvioPercentual": -38.6
     },
     {
       "loja": "14",
@@ -63229,6 +63262,17 @@
       "planoAtual": 1727.7,
       "desvio": -535.4,
       "desvioPercentual": -23.7
+    },
+    {
+      "loja": "14",
+      "lojaLabel": "14 (Da Terrinha – Filial SP)",
+      "sku": 43584,
+      "descricao": "SACO PLASTICO FARDO LISO 50 X 75 UNID",
+      "mes": "set",
+      "planoAnterior": 5090.0,
+      "planoAtual": 5590.0,
+      "desvio": 500.0,
+      "desvioPercentual": 9.8
     },
     {
       "loja": "14",
@@ -63506,17 +63550,6 @@
       "desvioPercentual": 260.0
     },
     {
-      "loja": "11",
-      "lojaLabel": "11 (2JM Amidos)",
-      "sku": 21704,
-      "descricao": "BOBINA PARA FARDO LISA 1050 X 55",
-      "mes": "set",
-      "planoAnterior": 1708.3,
-      "planoAtual": 1507.6,
-      "desvio": -200.7,
-      "desvioPercentual": -11.7
-    },
-    {
       "loja": "1",
       "lojaLabel": "1 (Da Terrinha – Matriz)",
       "sku": 128583,
@@ -63739,6 +63772,17 @@
     {
       "loja": "11",
       "lojaLabel": "11 (2JM Amidos)",
+      "sku": 147392,
+      "descricao": "BOBINA PARA FARDO LISA 1130 X 55",
+      "mes": "set",
+      "planoAnterior": 648.0,
+      "planoAtual": 532.0,
+      "desvio": -116.0,
+      "desvioPercentual": -17.9
+    },
+    {
+      "loja": "11",
+      "lojaLabel": "11 (2JM Amidos)",
       "sku": 66767,
       "descricao": "MP - GLUTAMATO MONOSSODICO GRANEL KILO",
       "mes": "dez",
@@ -63922,6 +63966,17 @@
       "planoAtual": 575.0,
       "desvio": 85.0,
       "desvioPercentual": 17.3
+    },
+    {
+      "loja": "11",
+      "lojaLabel": "11 (2JM Amidos)",
+      "sku": 21704,
+      "descricao": "BOBINA PARA FARDO LISA 1050 X 55",
+      "mes": "set",
+      "planoAnterior": 840.3,
+      "planoAtual": 755.6,
+      "desvio": -84.7,
+      "desvioPercentual": -10.1
     },
     {
       "loja": "14",
