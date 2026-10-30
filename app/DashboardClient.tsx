@@ -920,12 +920,17 @@ function Sidebar({
           <span className="nav-icon">{item.icon}</span><span className="nav-label">{item.label}</span>
         </button>
       ))}
-      {isAdmin && (
-        <a href="/admin" className="nav-item" title="Administração de acessos">
-          <span className="nav-icon">⚙</span><span className="nav-label">Administração</span>
-        </a>
-      )}
     </nav>
+    {/* Fora de <nav> (que rola quando a lista de secoes nao cabe) de proposito - pedido do
+        usuario em 30/10/2026, "cade aba de administracao sumiu": com a secao Validade, a lista
+        ficou comprida o suficiente pra empurrar Administracao pra dentro da area rolavel da nav,
+        onde a barra de rolagem fina/translucida passa despercebida. Fixo aqui, sempre visivel,
+        igual ao rodape (sidebar-note/profile) logo abaixo. */}
+    {isAdmin && (
+      <a href="/admin" className="nav-item nav-item-admin" title="Administração de acessos">
+        <span className="nav-icon">⚙</span><span className="nav-label">Administração</span>
+      </a>
+    )}
     <div className="sidebar-note"><span className="pulse-dot" /><div><strong>{notaTitulo}</strong><small>{notaValor}</small></div></div>
     <div className="profile" title={nomeUsuario}><span>{iniciaisNome(nomeUsuario)}</span><div><strong>{nomeUsuario}</strong><small>Operação</small></div><i>···</i></div>
     </aside>
